@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lékařský Studijní Portál | Rozcestník 3. ročníku</title>
+  <meta name="description" content="Rozcestník studijních portálů pro 3. ročník všeobecného lékařství. Připravte se na zkoušky z Patologie (Patola) a Patofyziologie (Patfyz) s našimi nástroji a materiály.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Hlavička -->
+    <header>
+      <div class="brand-badge">
+        <span>3. LF UK • Všeobecné Lékařství</span>
+      </div>
+      <h1>Lékařské Studijní Portály</h1>
+      <p>Centrální rozcestník pro přípravu na zkoušky a zápočty ve 3. ročníku všeobecného lékařství.</p>
+    </header>
+
+    <!-- Volba ročníku -->
+    <section class="grades-section" id="grades-section">
+      <h2 class="section-title">Vyberte ročník studia</h2>
+      <div class="grades-grid">
+        <div class="grade-card locked" data-grade="1">
+          <div class="lock-badge">🔒</div>
+          <div class="grade-number">1.</div>
+          <div class="grade-label">ročník</div>
+        </div>
+        <div class="grade-card locked" data-grade="2">
+          <div class="lock-badge">🔒</div>
+          <div class="grade-number">2.</div>
+          <div class="grade-label">ročník</div>
+        </div>
+        <div class="grade-card active" data-grade="3">
+          <div class="grade-number">3.</div>
+          <div class="grade-label">ročník</div>
+        </div>
+        <div class="grade-card locked" data-grade="4">
+          <div class="lock-badge">🔒</div>
+          <div class="grade-number">4.</div>
+          <div class="grade-label">ročník</div>
+        </div>
+        <div class="grade-card locked" data-grade="5">
+          <div class="lock-badge">🔒</div>
+          <div class="grade-number">5.</div>
+          <div class="grade-label">ročník</div>
+        </div>
+        <div class="grade-card locked" data-grade="6">
+          <div class="lock-badge">🔒</div>
+          <div class="grade-number">6.</div>
+          <div class="grade-label">ročník</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Volba předmětu (aktivuje se po výběru 3. ročníku) -->
+    <section class="subjects-section active" id="subjects-section">
+      <h2 class="section-title">Zvolte předmět k přípravě</h2>
+      <div class="subjects-grid">
+        <div class="subject-card patfyz" data-subject="patfyz" id="subject-patfyz">
+          <span class="icon">⚡</span>
+          <h3>Patofyziologie</h3>
+          <p>Studijní materiály, schémata patogeneze a procvičování na zápočty.</p>
+        </div>
+        <div class="subject-card patola" data-subject="patola" id="subject-patola">
+          <span class="icon">🔬</span>
+          <h3>Patologie</h3>
+          <p>Morfologické popisy, histologické taháky a seznam zkouškových témat.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rozcestník akcí pro vybraný předmět (skrytý na začátku) -->
+    <section class="hub-section" id="hub-section">
+      <div class="hub-header">
+        <button class="back-btn" id="hub-back-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          Zpět na předměty
+        </button>
+        <h2 class="section-title" id="hub-title">Předmět</h2>
+      </div>
+      
+      <div class="hub-grid">
+        <!-- 1. Studijní portál -->
+        <div class="hub-card">
+          <div class="hub-card-icon">🚀</div>
+          <h4>Příprava na zkoušku</h4>
+          <p>Kompletní interaktivní studijní portál s podrobnými texty, tabulkami referenčních hodnot a schématy rozvoje chorob.</p>
+          <a href="#" target="_blank" class="btn btn-primary" id="portal-link-btn">
+            Přejít do portálu
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </div>
+
+        <!-- 2. Procvičování na zápočet -->
+        <div class="hub-card">
+          <div class="hub-card-icon">✍️</div>
+          <h4>Procvičovat na zápočet</h4>
+          <p>Vygenerujte si rychlý test z databáze otázek. Vhodné pro přípravu na průběžné testy a zápočtové testy.</p>
+          <button class="btn btn-primary" id="quiz-trigger-btn">Spustit test</button>
+        </div>
+
+        <!-- 3. Otázky & Materiály -->
+        <div class="hub-card">
+          <div class="hub-card-icon">📂</div>
+          <h4>Otázky a materiály</h4>
+          <p>Vyhledejte a procházejte seznam zkouškových otázek bez vypracování nebo si stáhněte doprovodné PDF skripta.</p>
+          <button class="btn btn-secondary" id="materials-trigger-btn">Zobrazit materiály</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Panel 1: Seznam otázek a stažení materiálů (skrytý) -->
+    <div class="panel-container" id="materials-panel">
+      <div class="panel-header">
+        <h2 class="section-title" id="materials-panel-title">Materiály k předmětu</h2>
+        <button class="panel-close-btn" id="materials-close-btn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <!-- Stažení PDF -->
+      <div style="margin-bottom: 30px; display: flex; align-items: center; justify-content: space-between; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color); padding: 18px 24px; border-radius: 16px;">
+        <div>
+          <h4 style="font-family: var(--font-heading); margin-bottom: 4px;">Zkoušková skripta v PDF</h4>
+          <p style="color: var(--text-secondary); font-size: 0.85rem;">Stáhněte si kompletní souhrnný text pro offline studium.</p>
+        </div>
+        <a href="sylabus_patfyz.pdf" download class="btn btn-secondary" style="display: flex; gap: 8px;" id="pdf-download-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Stáhnout PDF
+        </a>
+      </div>
+
+      <!-- Vyhledávání a filtrace otázek -->
+      <div class="search-wrapper">
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="question-search" class="search-input" placeholder="Vyhledat otázku ke zkoušce...">
+      </div>
+
+      <!-- Kategorie -->
+      <div class="category-tabs" id="question-categories">
+        <!-- Generováno přes JS -->
+      </div>
+
+      <!-- Seznam otázek -->
+      <div class="questions-list" id="questions-list-container">
+        <!-- Generováno přes JS -->
+      </div>
+    </div>
+
+    <!-- Panel 2: Procvičování (Kvíz) (skrytý) -->
+    <div class="panel-container" id="quiz-panel">
+      <div class="panel-header">
+        <h2 class="section-title" id="quiz-panel-title">Procvičování</h2>
+        <button class="panel-close-btn" id="quiz-close-btn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <div class="quiz-wrapper">
+        <!-- 1. Nastavení kvízu -->
+        <div class="quiz-setup" id="quiz-setup">
+          <h3 class="quiz-setup-title">Zvolte počet otázek v testu:</h3>
+          <div class="quiz-size-options">
+            <button class="quiz-size-btn" data-size="10">10</button>
+            <button class="quiz-size-btn" data-size="20">20</button>
+            <button class="quiz-size-btn" data-size="50">50</button>
+          </div>
+          <button class="btn btn-primary" style="width: 200px;" id="start-test-btn">Generovat test</button>
+        </div>
+
+        <!-- 2. Aktivní hraní kvízu -->
+        <div class="quiz-active-area" id="quiz-active-area">
+          <div class="quiz-progress-bar">
+            <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
+          </div>
+          <div class="quiz-meta">
+            <span id="quiz-question-number">Otázka 1 z 10</span>
+            <span id="quiz-score-indicator">Úspěšnost: 0 %</span>
+          </div>
+          
+          <div class="quiz-card" id="quiz-question-card">
+            <!-- Otázka se vygeneruje sem -->
+          </div>
+        </div>
+
+        <!-- 3. Výsledky testu -->
+        <div class="quiz-results" id="quiz-results">
+          <div class="results-score" id="results-score">80 %</div>
+          <div class="results-title" id="results-title">Skvělý výsledek!</div>
+          <p class="results-text" id="results-text">Správně zodpovězeno 8 z 10 otázek.</p>
+          <button class="btn btn-primary" id="restart-quiz-btn">Spustit nový test</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 Medicínský Rozcestník. Vytvořeno pro studenty 3. ročníku Všeobecného lékařství.</p>
+  </footer>
+
+  <!-- Načtení dat a skriptů -->
+  <script src="data_pathology.js"></script>
+  <script src="data_patfyz_bridge.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
