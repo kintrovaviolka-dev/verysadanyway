@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Update beta app card
         if (betaAppDesc && betaAppLinkBtn) {
           betaAppDesc.textContent = "Duolingo-like herní procvičování základů patologie. Skvělé opakování pro momenty, kdy je mozek už unavený.";
-          betaAppLinkBtn.href = "https://pathology-master-521011567593.europe-west2.run.app";
+          betaAppLinkBtn.href = "https://pathology-master-521011567593.europe-west2.run.app/";
           betaAppLinkBtn.className = "btn btn-primary btn-patola";
           betaAppLinkBtn.innerHTML = `
             Spustit Patolka Beta
