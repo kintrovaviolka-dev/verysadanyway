@@ -177,6 +177,10 @@
           </div>
           <div class="quiz-meta">
             <span id="quiz-question-number">Otázka 1 z 10</span>
+            <div class="dopamine-indicators">
+              <span class="streak-badge" id="quiz-streak-badge" style="display: none;">🔥 <span id="quiz-streak-count">0</span></span>
+              <span class="xp-badge" id="quiz-xp-badge">✨ <span id="quiz-xp-count">0</span> XP (Lvl <span id="quiz-level-count">1</span>)</span>
+            </div>
             <span id="quiz-score-indicator">Úspěšnost: 0 %</span>
           </div>
           
@@ -190,6 +194,23 @@
           <div class="results-score" id="results-score">80 %</div>
           <div class="results-title" id="results-title">Skvělý výsledek!</div>
           <p class="results-text" id="results-text">Správně zodpovězeno 8 z 10 otázek.</p>
+          <div class="results-stats-dashboard">
+            <div class="stat-card">
+              <span class="stat-icon">🔥</span>
+              <span class="stat-label">Největší série</span>
+              <span class="stat-value" id="results-highest-streak">0</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-icon">✨</span>
+              <span class="stat-label">Získané XP</span>
+              <span class="stat-value" id="results-xp-earned">+0</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-icon">👑</span>
+              <span class="stat-label">Aktuální úroveň</span>
+              <span class="stat-value" id="results-new-level">Lvl 1</span>
+            </div>
+          </div>
           <button class="btn btn-primary" id="restart-quiz-btn">Spustit nový test</button>
         </div>
       </div>
@@ -197,11 +218,12 @@
   </div>
 
   <footer>
-    <p>© 2026 Medicínský Rozcestník. Vytvořeno pro studenty 3. ročníku Všeobecného lékařství.</p>
+    <p>© 2026 Viola Kintrová • Developed because I can. Vytvořeno pro studenty 3. ročníku Všeobecného lékařství.</p>
   </footer>
 
   <!-- Načtení dat a skriptů -->
   <script src="data_pathology.js"></script>
+  <script src="data_pathology_zapocet.js"></script>
   <script src="data_patfyz_bridge.js"></script>
   <script src="app.js"></script>
 </body>
