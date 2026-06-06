@@ -21,6 +21,10 @@
   --patola-color: #2dd4bf;
   --patola-glow: rgba(45, 212, 191, 0.25);
   --patola-gradient: linear-gradient(135deg, #0d9488, #2dd4bf);
+
+  --oset-color: #fb7185;
+  --oset-glow: rgba(251, 113, 133, 0.25);
+  --oset-gradient: linear-gradient(135deg, #f43f5e, #fda4af);
   
   --accent-blue: #3b82f6;
   --accent-gold: #fbbf24;
@@ -205,7 +209,7 @@ header p {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 24px;
-  max-width: 800px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
@@ -230,6 +234,12 @@ header p {
 .subject-card.patola:hover {
   border-color: var(--patola-color);
   box-shadow: 0 15px 30px -15px var(--patola-glow);
+  transform: translateY(-6px);
+}
+
+.subject-card.oset:hover {
+  border-color: var(--oset-color);
+  box-shadow: 0 15px 30px -15px var(--oset-glow);
   transform: translateY(-6px);
 }
 
@@ -380,6 +390,17 @@ header p {
 
 .btn-patola:hover {
   box-shadow: 0 6px 16px rgba(13, 148, 136, 0.4);
+  transform: scale(1.02);
+}
+
+.btn-oset {
+  background: var(--oset-gradient);
+  color: #090d16;
+  box-shadow: 0 4px 12px rgba(251, 113, 133, 0.25);
+}
+
+.btn-oset:hover {
+  box-shadow: 0 6px 16px rgba(251, 113, 133, 0.4);
   transform: scale(1.02);
 }
 

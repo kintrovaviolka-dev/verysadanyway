@@ -94,44 +94,57 @@ document.addEventListener("DOMContentLoaded", () => {
   const selectSubject = (subject) => {
     state.selectedSubject = subject;
     
-    // Nastavení názvu a barev v rozcestníku
-    if (subject === "patfyz") {
-      hubTitle.textContent = "Patofyziologie";
-      hubTitle.style.color = "var(--patfyz-color)";
-      portalLinkBtn.href = "https://patfyz.vercel.app/";
-      portalLinkBtn.className = "btn btn-primary btn-patfyz";
-      
-      // Nastavení odkazu na stažení PDF skript
-      if (downloadsContainer) downloadsContainer.style.display = "block";
-      
-      // Update beta app card
-      if (betaAppDesc && betaAppLinkBtn) {
-        betaAppDesc.textContent = "Aktivní forma studia základů pro chvíle únavy. Obsahuje i interaktivní simulátory hemostázy (koagulace) a EKG.";
-        betaAppLinkBtn.href = "https://ai.studio/apps/74714c95-1dc9-4fd2-afea-37fb70cdc32c";
-        betaAppLinkBtn.className = "btn btn-primary btn-patfyz";
-        betaAppLinkBtn.innerHTML = `
-          Spustit Patfyz Beta
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-        `;
-      }
-    } else if (subject === "patola") {
-      hubTitle.textContent = "Patologie";
-      hubTitle.style.color = "var(--patola-color)";
-      portalLinkBtn.href = "https://patolka.vercel.app/";
-      portalLinkBtn.className = "btn btn-primary btn-patola";
-      
-      // Skrytí stažení PDF pro patologii (nemáme soubor)
-      if (downloadsContainer) downloadsContainer.style.display = "none";
-      
-      // Update beta app card
-      if (betaAppDesc && betaAppLinkBtn) {
-        betaAppDesc.textContent = "Duolingo-like herní procvičování základů patologie. Skvělé opakování pro momenty, kdy je mozek už unavený.";
-        betaAppLinkBtn.href = "https://pathology-master-521011567593.europe-west2.run.app";
-        betaAppLinkBtn.className = "btn btn-primary btn-patola";
-        betaAppLinkBtn.innerHTML = `
-          Spustit Patolka Beta
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-        `;
+    const hubGridDefault = document.getElementById("hub-grid-default");
+    const hubGridOset = document.getElementById("hub-grid-oset");
+
+    if (subject === "oset") {
+      hubTitle.textContent = "Ošetřovatelství";
+      hubTitle.style.color = "var(--oset-color)";
+      if (hubGridDefault) hubGridDefault.style.display = "none";
+      if (hubGridOset) hubGridOset.style.display = "grid";
+    } else {
+      if (hubGridDefault) hubGridDefault.style.display = "grid";
+      if (hubGridOset) hubGridOset.style.display = "none";
+
+      // Nastavení názvu a barev v rozcestníku
+      if (subject === "patfyz") {
+        hubTitle.textContent = "Patofyziologie";
+        hubTitle.style.color = "var(--patfyz-color)";
+        portalLinkBtn.href = "https://patfyz.vercel.app/";
+        portalLinkBtn.className = "btn btn-primary btn-patfyz";
+        
+        // Nastavení odkazu na stažení PDF skript
+        if (downloadsContainer) downloadsContainer.style.display = "block";
+        
+        // Update beta app card
+        if (betaAppDesc && betaAppLinkBtn) {
+          betaAppDesc.textContent = "Aktivní forma studia základů pro chvíle únavy. Obsahuje i interaktivní simulátory hemostázy (koagulace) a EKG.";
+          betaAppLinkBtn.href = "https://ai.studio/apps/74714c95-1dc9-4fd2-afea-37fb70cdc32c";
+          betaAppLinkBtn.className = "btn btn-primary btn-patfyz";
+          betaAppLinkBtn.innerHTML = `
+            Spustit Patfyz Beta
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          `;
+        }
+      } else if (subject === "patola") {
+        hubTitle.textContent = "Patologie";
+        hubTitle.style.color = "var(--patola-color)";
+        portalLinkBtn.href = "https://patolka.vercel.app/";
+        portalLinkBtn.className = "btn btn-primary btn-patola";
+        
+        // Skrytí stažení PDF pro patologii (nemáme soubor)
+        if (downloadsContainer) downloadsContainer.style.display = "none";
+        
+        // Update beta app card
+        if (betaAppDesc && betaAppLinkBtn) {
+          betaAppDesc.textContent = "Duolingo-like herní procvičování základů patologie. Skvělé opakování pro momenty, kdy je mozek už unavený.";
+          betaAppLinkBtn.href = "https://pathology-master-521011567593.europe-west2.run.app";
+          betaAppLinkBtn.className = "btn btn-primary btn-patola";
+          betaAppLinkBtn.innerHTML = `
+            Spustit Patolka Beta
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          `;
+        }
       }
     }
 
@@ -143,6 +156,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.getElementById("subject-patfyz").addEventListener("click", () => selectSubject("patfyz"));
   document.getElementById("subject-patola").addEventListener("click", () => selectSubject("patola"));
+  
+  const subjectOsetBtn = document.getElementById("subject-oset");
+  if (subjectOsetBtn) {
+    subjectOsetBtn.addEventListener("click", () => selectSubject("oset"));
+  }
 
   // Návrat na předměty
   hubBackBtn.addEventListener("click", () => {

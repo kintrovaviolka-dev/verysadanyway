@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lékařský Studijní Portál | Rozcestník 3. ročníku</title>
-  <meta name="description" content="Rozcestník studijních portálů pro 3. ročník všeobecného lékařství. Připravte se na zkoušky z Patologie (Patola) a Patofyziologie (Patfyz) s našimi nástroji a materiály.">
+  <meta name="description" content="Rozcestník studijních portálů pro 3. ročník všeobecného lékařství. Připravte se na zkoušky z Patologie (Patola), Patofyziologie (Patfyz) a Ošetřovatelství s našimi nástroji a materiály.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -68,6 +68,11 @@
           <h3>Patologie</h3>
           <p>Morfologické popisy, histologické taháky a seznam zkouškových témat.</p>
         </div>
+        <div class="subject-card oset" data-subject="oset" id="subject-oset">
+          <span class="icon">🩺</span>
+          <h3>Ošetřovatelství</h3>
+          <p>Studijní skripta ke stažení a složka se všemi podklady.</p>
+        </div>
       </div>
     </section>
 
@@ -81,7 +86,7 @@
         <h2 class="section-title" id="hub-title">Předmět</h2>
       </div>
       
-      <div class="hub-grid">
+      <div class="hub-grid" id="hub-grid-default">
         <!-- 1. Studijní portál -->
         <div class="hub-card">
           <div class="hub-card-icon">🚀</div>
@@ -116,6 +121,31 @@
           <p id="beta-app-desc">Rychlá, herní forma studia základů vhodná pro chvíle, kdy je mozek už unavený.</p>
           <a href="#" target="_blank" class="btn btn-secondary" id="beta-app-link-btn">
             Spustit Beta aplikaci
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Rozcestník pro Ošetřovatelství -->
+      <div class="hub-grid" id="hub-grid-oset" style="display: none; max-width: 800px; margin: 0 auto;">
+        <!-- 1. Stažení PDF -->
+        <div class="hub-card">
+          <div class="hub-card-icon">📄</div>
+          <h4>Studijní skripta</h4>
+          <p>Stáhněte si kompletní PDF materiály (oško_byznys.pdf) pro přípravu na předmět ošetřovatelství.</p>
+          <a href="oško_byznys.pdf" download class="btn btn-primary btn-oset" id="oset-download-btn">
+            Stáhnout PDF
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          </a>
+        </div>
+
+        <!-- 2. Google Drive Složka -->
+        <div class="hub-card">
+          <div class="hub-card-icon">📁</div>
+          <h4>Všechny materiály</h4>
+          <p>Zobrazit celou složku se všemi doplňujícími materiály a podklady pro ošetřovatelství na Google Drive.</p>
+          <a href="https://drive.google.com/drive/folders/1mnZ45tCU28m38hUb77BGeXliiZyc9djm?usp=sharing" target="_blank" class="btn btn-secondary" id="oset-drive-btn">
+            Otevřít složku
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
           </a>
         </div>
