@@ -57,10 +57,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const quizCloseBtn = document.getElementById("quiz-close-btn");
   
   // Vyhledávání a seznam otázek
-  const pdfDownloadLink = document.getElementById("pdf-download-link");
+  const downloadsContainer = document.getElementById("downloads-container");
   const questionSearch = document.getElementById("question-search");
   const questionCategories = document.getElementById("question-categories");
   const questionsListContainer = document.getElementById("questions-list-container");
+  
+  // Beta aplikace
+  const betaAppCard = document.getElementById("beta-app-card");
+  const betaAppDesc = document.getElementById("beta-app-desc");
+  const betaAppLinkBtn = document.getElementById("beta-app-link-btn");
   
   // Kvízové komponenty
   const quizSetup = document.getElementById("quiz-setup");
@@ -97,8 +102,18 @@ document.addEventListener("DOMContentLoaded", () => {
       portalLinkBtn.className = "btn btn-primary btn-patfyz";
       
       // Nastavení odkazu na stažení PDF skript
-      pdfDownloadLink.parentElement.style.display = "flex";
-      pdfDownloadLink.href = "sylabus_patfyz.pdf";
+      if (downloadsContainer) downloadsContainer.style.display = "block";
+      
+      // Update beta app card
+      if (betaAppDesc && betaAppLinkBtn) {
+        betaAppDesc.textContent = "Aktivní forma studia základů pro chvíle únavy. Obsahuje i interaktivní simulátory hemostázy (koagulace) a EKG.";
+        betaAppLinkBtn.href = "https://ai.studio/apps/74714c95-1dc9-4fd2-afea-37fb70cdc32c";
+        betaAppLinkBtn.className = "btn btn-primary btn-patfyz";
+        betaAppLinkBtn.innerHTML = `
+          Spustit Patfyz Beta
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+        `;
+      }
     } else if (subject === "patola") {
       hubTitle.textContent = "Patologie";
       hubTitle.style.color = "var(--patola-color)";
@@ -106,7 +121,18 @@ document.addEventListener("DOMContentLoaded", () => {
       portalLinkBtn.className = "btn btn-primary btn-patola";
       
       // Skrytí stažení PDF pro patologii (nemáme soubor)
-      pdfDownloadLink.parentElement.style.display = "none";
+      if (downloadsContainer) downloadsContainer.style.display = "none";
+      
+      // Update beta app card
+      if (betaAppDesc && betaAppLinkBtn) {
+        betaAppDesc.textContent = "Duolingo-like herní procvičování základů patologie. Skvělé opakování pro momenty, kdy je mozek už unavený.";
+        betaAppLinkBtn.href = "https://pathology-master-521011567593.europe-west2.run.app";
+        betaAppLinkBtn.className = "btn btn-primary btn-patola";
+        betaAppLinkBtn.innerHTML = `
+          Spustit Patolka Beta
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+        `;
+      }
     }
 
     // Plynulé zobrazení rozcestníku

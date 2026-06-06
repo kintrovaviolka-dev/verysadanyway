@@ -294,7 +294,7 @@ header p {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 24px;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -392,6 +392,80 @@ header p {
 .btn-secondary:hover {
   background: rgba(255, 255, 255, 0.15);
   border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Downloads Panel Split Layout */
+.downloads-container {
+  margin-bottom: 30px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  padding: 22px 24px;
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+}
+
+.downloads-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  margin-bottom: 18px;
+  color: var(--text-primary);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.downloads-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.download-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.download-row:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.download-info h5 {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.download-info p {
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  margin: 0;
+}
+
+.btn-sm {
+  padding: 8px 16px !important;
+  font-size: 0.85rem !important;
+  border-radius: 8px !important;
+}
+
+/* Beta App Badge */
+.beta-badge {
+  background: rgba(251, 191, 36, 0.1);
+  border: 1px solid rgba(251, 191, 36, 0.25);
+  color: var(--accent-gold);
+  padding: 2px 8px;
+  border-radius: 99px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-left: 8px;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 /* Searchable Bank / Materials Modal/Panel */

@@ -108,6 +108,17 @@
           <p>Vyhledejte a procházejte seznam zkouškových otázek bez vypracování nebo si stáhněte doprovodné PDF skripta.</p>
           <button class="btn btn-secondary" id="materials-trigger-btn">Zobrazit materiály</button>
         </div>
+
+        <!-- 4. Rychlé procvičování (Beta) -->
+        <div class="hub-card" id="beta-app-card">
+          <div class="hub-card-icon">🎮</div>
+          <h4>Rychlé procvičování <span class="beta-badge">BETA</span></h4>
+          <p id="beta-app-desc">Rychlá, herní forma studia základů vhodná pro chvíle, kdy je mozek už unavený.</p>
+          <a href="#" target="_blank" class="btn btn-secondary" id="beta-app-link-btn">
+            Spustit Beta aplikaci
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -120,16 +131,33 @@
         </button>
       </div>
 
-      <!-- Stažení PDF -->
-      <div style="margin-bottom: 30px; display: flex; align-items: center; justify-content: space-between; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color); padding: 18px 24px; border-radius: 16px;">
-        <div>
-          <h4 style="font-family: var(--font-heading); margin-bottom: 4px;">Zkoušková skripta v PDF</h4>
-          <p style="color: var(--text-secondary); font-size: 0.85rem;">Stáhněte si kompletní souhrnný text pro offline studium.</p>
+      <!-- Stažení PDF (Rozdělené) -->
+      <div class="downloads-container" id="downloads-container">
+        <h4 class="downloads-title">Materiály ke stažení</h4>
+        <div class="downloads-list">
+          <!-- 1. Seznam otázek (Sylabus) -->
+          <div class="download-row" id="download-questions-row">
+            <div class="download-info">
+              <h5>Seznam zkouškových otázek</h5>
+              <p>Oficiální přehled zkušebních témat z patofyziologie.</p>
+            </div>
+            <a href="sylabus_patfyz.pdf" download class="btn btn-secondary btn-sm" id="pdf-download-questions">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              Stáhnout sylabus
+            </a>
+          </div>
+          <!-- 2. Vypracovaná skripta -->
+          <div class="download-row" id="download-study-row">
+            <div class="download-info">
+              <h5>Vypracované materiály (Neúplné)</h5>
+              <p>Aktuálně vypracovaná témata (PDF skripta z LaTeX podkladů).</p>
+            </div>
+            <a href="patfyza_26.pdf" download class="btn btn-secondary btn-sm" id="pdf-download-study">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              Stáhnout skripta
+            </a>
+          </div>
         </div>
-        <a href="sylabus_patfyz.pdf" download class="btn btn-secondary" style="display: flex; gap: 8px;" id="pdf-download-link">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-          Stáhnout PDF
-        </a>
       </div>
 
       <!-- Vyhledávání a filtrace otázek -->
