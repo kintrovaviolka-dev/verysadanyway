@@ -83,11 +83,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- LOGIKA VOLBY ROČNÍKU A PŘEDMĚTU ---
 
+  // Pomocná funkce pro klávesovou přístupnost u prvků s role="button"
+  const handleKeydownClick = (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      e.currentTarget.click();
+    }
+  };
+
   // Kliknutí na zamčený ročník
   document.querySelectorAll(".grade-card.locked").forEach(card => {
     card.addEventListener("click", () => {
       alert("Tento ročník se připravuje. Nyní jsou k dispozici pouze portály pro 3. ročník.");
     });
+    card.addEventListener("keydown", handleKeydownClick);
   });
 
   // Výběr předmětu
@@ -154,12 +163,18 @@ document.addEventListener("DOMContentLoaded", () => {
     hubSection.classList.add("active");
   };
 
-  document.getElementById("subject-patfyz").addEventListener("click", () => selectSubject("patfyz"));
-  document.getElementById("subject-patola").addEventListener("click", () => selectSubject("patola"));
+  const patfyzBtn = document.getElementById("subject-patfyz");
+  patfyzBtn.addEventListener("click", () => selectSubject("patfyz"));
+  patfyzBtn.addEventListener("keydown", handleKeydownClick);
+
+  const patolaBtn = document.getElementById("subject-patola");
+  patolaBtn.addEventListener("click", () => selectSubject("patola"));
+  patolaBtn.addEventListener("keydown", handleKeydownClick);
   
   const subjectOsetBtn = document.getElementById("subject-oset");
   if (subjectOsetBtn) {
     subjectOsetBtn.addEventListener("click", () => selectSubject("oset"));
+    subjectOsetBtn.addEventListener("keydown", handleKeydownClick);
   }
 
   // Návrat na předměty
