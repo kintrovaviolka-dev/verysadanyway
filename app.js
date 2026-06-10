@@ -83,9 +83,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- LOGIKA VOLBY ROČNÍKU A PŘEDMĚTU ---
 
+  // Pomocná funkce pro zachycení klávesnice u vlastních tlačítek
+  const addClickAndKeyboardListeners = (element, callback) => {
+    if (!element) return;
+    element.addEventListener("click", callback);
+    element.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        callback(e);
+      }
+    });
+  };
+
   // Kliknutí na zamčený ročník
   document.querySelectorAll(".grade-card.locked").forEach(card => {
-    card.addEventListener("click", () => {
+    addClickAndKeyboardListeners(card, () => {
       alert("Tento ročník se připravuje. Nyní jsou k dispozici pouze portály pro 3. ročník.");
     });
   });
@@ -154,12 +166,12 @@ document.addEventListener("DOMContentLoaded", () => {
     hubSection.classList.add("active");
   };
 
-  document.getElementById("subject-patfyz").addEventListener("click", () => selectSubject("patfyz"));
-  document.getElementById("subject-patola").addEventListener("click", () => selectSubject("patola"));
+  addClickAndKeyboardListeners(document.getElementById("subject-patfyz"), () => selectSubject("patfyz"));
+  addClickAndKeyboardListeners(document.getElementById("subject-patola"), () => selectSubject("patola"));
   
   const subjectOsetBtn = document.getElementById("subject-oset");
   if (subjectOsetBtn) {
-    subjectOsetBtn.addEventListener("click", () => selectSubject("oset"));
+    addClickAndKeyboardListeners(subjectOsetBtn, () => selectSubject("oset"));
   }
 
   // Návrat na předměty
