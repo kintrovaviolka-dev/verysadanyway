@@ -83,10 +83,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- LOGIKA VOLBY ROČNÍKU A PŘEDMĚTU ---
 
-  // Kliknutí na zamčený ročník
-  document.querySelectorAll(".grade-card.locked").forEach(card => {
+  // Výběr ročníku
+  const selectGrade = (grade) => {
+    state.selectedGrade = grade;
+    
+    // Update active class on grade cards
+    document.querySelectorAll(".grade-card").forEach(card => {
+      const cardGrade = parseInt(card.getAttribute("data-grade"));
+      if (cardGrade === grade) {
+        card.classList.add("active");
+      } else {
+        card.classList.remove("active");
+      }
+    });
+
+    // Filter subject cards based on selected grade
+    document.querySelectorAll(".subject-card").forEach(card => {
+      const cardGrade = parseInt(card.getAttribute("data-grade"));
+      if (cardGrade === grade) {
+        card.style.display = "flex";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  };
+
+  // Kliknutí na ročník
+  document.querySelectorAll(".grade-card").forEach(card => {
     card.addEventListener("click", () => {
-      alert("Tento ročník se připravuje. Nyní jsou k dispozici pouze portály pro 3. ročník.");
+      if (card.classList.contains("locked")) {
+        alert("Tento ročník se připravuje. Nyní jsou k dispozici portály pro 3. a 4. ročník.");
+        return;
+      }
+      const grade = parseInt(card.getAttribute("data-grade"));
+      selectGrade(grade);
     });
   });
 
@@ -96,15 +126,24 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const hubGridDefault = document.getElementById("hub-grid-default");
     const hubGridOset = document.getElementById("hub-grid-oset");
+    const hubGridFarmakologie = document.getElementById("hub-grid-farmakologie");
 
     if (subject === "oset") {
       hubTitle.textContent = "Ošetřovatelství";
       hubTitle.style.color = "var(--oset-color)";
       if (hubGridDefault) hubGridDefault.style.display = "none";
       if (hubGridOset) hubGridOset.style.display = "grid";
+      if (hubGridFarmakologie) hubGridFarmakologie.style.display = "none";
+    } else if (subject === "farmakologie") {
+      hubTitle.textContent = "Farmakologie";
+      hubTitle.style.color = "var(--farma-color)";
+      if (hubGridDefault) hubGridDefault.style.display = "none";
+      if (hubGridOset) hubGridOset.style.display = "none";
+      if (hubGridFarmakologie) hubGridFarmakologie.style.display = "grid";
     } else {
       if (hubGridDefault) hubGridDefault.style.display = "grid";
       if (hubGridOset) hubGridOset.style.display = "none";
+      if (hubGridFarmakologie) hubGridFarmakologie.style.display = "none";
 
       // Nastavení názvu a barev v rozcestníku
       if (subject === "patfyz") {
@@ -160,6 +199,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const subjectOsetBtn = document.getElementById("subject-oset");
   if (subjectOsetBtn) {
     subjectOsetBtn.addEventListener("click", () => selectSubject("oset"));
+  }
+
+  const subjectFarmaBtn = document.getElementById("subject-farmakologie");
+  if (subjectFarmaBtn) {
+    subjectFarmaBtn.addEventListener("click", () => selectSubject("farmakologie"));
   }
 
   // Návrat na předměty
@@ -654,4 +698,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 1200);
     }
   };
+
+  // Inicializace výchozího stavu
+  selectGrade(3);
 });

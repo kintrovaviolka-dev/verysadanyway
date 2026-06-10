@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farmakologie SPA - 4. ročník Všeobecného lékařství</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="pk_sim.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Hlavička aplikace -->
+    <header>
+      <div class="brand">
+        <div class="brand-icon">Rx</div>
+        <div class="brand-text">
+          <h1>Farmakologie</h1>
+          <span>Studijní Portál Všeobecného Lékařství (4. ročník)</span>
+        </div>
+      </div>
+      
+      <div class="controls">
+        <!-- PK/TDM Trenažér -->
+        <button id="ekg-sim-btn" class="btn btn-pk" title="Otevřít interaktivní PK/TDM trenažér a simulátor koncentrací">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align: middle; margin-right: 4px;"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          PK/TDM Trenažér
+        </button>
+        
+        <!-- Export / Import Dat -->
+        <button id="export-btn" class="btn btn-secondary" title="Stáhnout poznámky a pokrok jako JSON">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Exportovat
+        </button>
+        <button id="import-btn" class="btn btn-secondary" title="Nahrát poznámky a pokrok z JSON">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+          Importovat
+        </button>
+        <input type="file" id="import-file" style="display: none;" accept=".json">
+        
+        <!-- PDF Stažení -->
+        <a href="vypracky_farmakologie.pdf" download class="btn btn-secondary" title="Stáhnout kompletní vypracované otázky PDF">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Vypracované PDF
+        </a>
+        <a href="moderni_dodatky_2026.pdf" download class="btn btn-secondary" title="Stáhnout dodatky 2026 PDF">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Dodatky (2026) PDF
+        </a>
+        
+        <!-- Přepínač motivu -->
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Přepnout tmavý/světlý režim">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Interaktivní PK/TDM Trenažér Panel -->
+    <section id="pk-sim-panel" class="pk-sim-panel">
+      <div class="pk-sim-title-bar">
+        <h2>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="vertical-align: middle;"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          Farmakokinetický & TDM Trenažér (Modelování koncentrací)
+        </h2>
+      </div>
+      
+      <div class="pk-drug-selector">
+        <button class="pk-drug-btn active" data-drug="vancomycin">Vancomycin</button>
+        <button class="pk-drug-btn" data-drug="digoxin">Digoxin</button>
+        <button class="pk-drug-btn" data-drug="gentamicin">Gentamicin</button>
+        <button class="pk-drug-btn" data-drug="custom">Vlastní simulace</button>
+      </div>
+
+      <div class="pk-sim-grid">
+        <!-- Levý sloupec: Graf a Výsledky -->
+        <div class="pk-canvas-container">
+          <canvas id="pk-canvas" class="pk-canvas"></canvas>
+          
+          <div class="pk-legend">
+            <div class="pk-legend-item">
+              <div class="pk-legend-color" style="background-color: #34d399;"></div>
+              <span>Průběh hladiny</span>
+            </div>
+            <div class="pk-legend-item">
+              <div class="pk-legend-color" style="background-color: rgba(16, 185, 129, 0.15); border: 1px dashed rgba(16, 185, 129, 0.4);"></div>
+              <span>Terapeutické okno</span>
+            </div>
+            <div class="pk-legend-item">
+              <div class="pk-legend-color" style="background-color: rgba(239, 68, 68, 0.08); border: 1px dashed rgba(239, 68, 68, 0.5);"></div>
+              <span>Toxická zóna</span>
+            </div>
+          </div>
+
+          <div class="pk-metrics">
+            <div class="pk-metric-card">
+              <div class="pk-metric-label">Peak SS (Vrchol Cmax)</div>
+              <div class="pk-metric-value" id="pk-metric-cmax">0.0 mg/l</div>
+            </div>
+            <div class="pk-metric-card">
+              <div class="pk-metric-label">Trough SS (Údolí Cmin)</div>
+              <div class="pk-metric-value" id="pk-metric-cmin">0.0 mg/l</div>
+            </div>
+            <div class="pk-metric-card" style="grid-column: 1 / -1;">
+              <div class="pk-metric-label">Efektivní poločas eliminace (t1/2)</div>
+              <div class="pk-metric-value" id="pk-metric-tleff" style="color: var(--color-primary);">0.0 hod</div>
+            </div>
+            <div class="pk-warning-box" id="pk-warning"></div>
+          </div>
+        </div>
+
+        <!-- Pravý sloupec: Slidery a Nastavení -->
+        <div class="pk-controls">
+          <div class="pk-control-group">
+            <div class="pk-control-header">
+              <span>Velikost dávky (Dose):</span>
+              <span class="pk-value-display"><span id="pk-val-dose">1000</span> mg</span>
+            </div>
+            <input type="range" id="pk-slider-dose" class="pk-slider" min="10" max="2000" step="10" value="1000">
+          </div>
+
+          <div class="pk-control-group">
+            <div class="pk-control-header">
+              <span>Interval podávání (tau):</span>
+              <span class="pk-value-display"><span id="pk-val-interval">12</span> hod</span>
+            </div>
+            <input type="range" id="pk-slider-interval" class="pk-slider" min="4" max="48" step="2" value="12">
+          </div>
+
+          <div class="pk-control-group">
+            <div class="pk-control-header">
+              <span>Distribuční objem (Vd):</span>
+              <span class="pk-value-display"><span id="pk-val-vd">50</span> litrů</span>
+            </div>
+            <input type="range" id="pk-slider-vd" class="pk-slider" min="5" max="600" step="5" value="50">
+          </div>
+
+          <div class="pk-control-group">
+            <div class="pk-control-header">
+              <span>Základní poločas (t1/2):</span>
+              <span class="pk-value-display"><span id="pk-val-halflife">6</span> hod</span>
+            </div>
+            <input type="range" id="pk-slider-halflife" class="pk-slider" min="1" max="48" step="1" value="6">
+          </div>
+
+          <div class="pk-control-group">
+            <div class="pk-control-header">
+              <span>Renální funkce (eGFR):</span>
+              <span class="pk-value-display"><span id="pk-val-egfr">100</span> %</span>
+            </div>
+            <input type="range" id="pk-slider-egfr" class="pk-slider" min="10" max="150" step="5" value="100">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dashboard statistik -->
+    <section class="dashboard">
+      <div class="stat-card">
+        <span class="stat-label">Celkem témat</span>
+        <span class="stat-value" id="stat-total">46</span>
+        <span class="stat-desc">Otázky z obecné farmakologie</span>
+      </div>
+      <div class="stat-card stat-mastered">
+        <span class="stat-label">Zvládnuté (Umím)</span>
+        <span class="stat-value" id="stat-mastered">0</span>
+        <span class="stat-desc" id="stat-mastered-pct">0 % z celkového počtu</span>
+      </div>
+      <div class="stat-card stat-learning">
+        <span class="stat-label">Rozpracované (Učím se)</span>
+        <span class="stat-value" id="stat-learning">0</span>
+        <span class="stat-desc" id="stat-learning-pct">0 % z celkového počtu</span>
+      </div>
+      <div class="stat-card stat-quiz">
+        <span class="stat-label">Úspěšnost kvízů</span>
+        <span class="stat-value" id="stat-quiz-score">0 %</span>
+        <span class="stat-desc" id="stat-quiz-count">Zodpovězeno 0 otázek</span>
+      </div>
+    </section>
+
+    <!-- Přepínač kapitol -->
+    <div class="chapter-tabs">
+      <button class="chapter-tab active" data-chapter="obecna">
+        Obecná farmakologie
+        <span class="chapter-num">46</span>
+      </button>
+      <button class="chapter-tab" data-chapter="specialni">
+        Speciální farmakologie
+        <span class="chapter-num">77</span>
+      </button>
+    </div>
+
+    <!-- Filtry a Vyhledávání -->
+    <section class="filter-bar">
+      <div class="search-wrapper">
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="search-input" class="search-input" placeholder="Vyhledat otázku, klíčová slova nebo ve svých poznámkách...">
+      </div>
+      
+      <div class="filter-groups">
+        <div class="filter-group">
+          <label class="filter-label" for="category-filter">Kategorie:</label>
+          <select id="category-filter" class="select-custom">
+            <option value="all">Všechny kategorie</option>
+            <option value="Lékové formy">Lékové formy a aplikace</option>
+            <option value="Farmakokinetika">Obecná farmakokinetika</option>
+            <option value="Farmakodynamika">Obecná farmakodynamika</option>
+            <option value="TDM & Klinická">TDM & Klinická farmakologie</option>
+            <option value="Legislativa & Toxikologie">Legislativa & Toxikologie</option>
+            <option value="Farmakogenomika">Farmakogenomika & Personalizace</option>
+          </select>
+        </div>
+        
+        <div class="filter-group">
+          <label class="filter-label" for="system-filter">Systém:</label>
+          <select id="system-filter" class="select-custom">
+            <option value="all">Všechny systémy</option>
+            <option value="Vstřebávání & GIT">Vstřebávání & GIT</option>
+            <option value="Injekce & Vnitřní prostředí">Injekce & Vnitřní prostředí</option>
+            <option value="Topická aplikace">Topická aplikace</option>
+            <option value="Respirační & Smysly">Respirační & Smysly</option>
+            <option value="Metabolismus léčiv">Metabolismus léčiv</option>
+            <option value="Vylučování & Ledviny">Vylučování & Ledviny</option>
+            <option value="Receptorová teorie">Receptorová teorie</option>
+            <option value="TDM & Dávkování">TDM & Dávkování</option>
+            <option value="Klinická farmakoterapie">Klinická farmakoterapie</option>
+            <option value="Závislosti & Toxikologie">Závislosti & Toxikologie</option>
+            <option value="Legislativa & Výzkum">Legislativa & Výzkum</option>
+            <option value="Interakce & Bezpečnost">Interakce & Bezpečnost</option>
+            <option value="Obecné PK/PD">Obecné PK/PD</option>
+          </select>
+        </div>
+        
+        <div class="filter-group">
+          <label class="filter-label" for="status-filter">Stav učení:</label>
+          <select id="status-filter" class="select-custom">
+            <option value="all">Všechny stavy</option>
+            <option value="not-started">Nezačato</option>
+            <option value="learning">Učím se</option>
+            <option value="mastered">Umím</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- Grid kartiček -->
+    <main class="cards-grid" id="cards-grid">
+      <!-- Kartičky se vygenerují dynamicky pomocí JavaScriptu -->
+    </main>
+  </div>
+
+  <!-- Detailní panel (Slide-over / Dialog) -->
+  <dialog id="detail-modal" class="slide-over">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title-area">
+          <span class="modal-category" id="modal-category">LÉKOVÉ FORMY</span>
+          <h2 class="modal-title" id="modal-title">Název otázky</h2>
+        </div>
+        <button class="modal-close-btn" id="modal-close" aria-label="Zavřít panel">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="detail-grid">
+          <!-- Nastavení stavu učení přímo v detailu -->
+          <div class="status-selector">
+            <span class="status-selector-label">Můj pokrok u této otázky:</span>
+            <div class="status-btn-group">
+              <button class="status-btn" data-status="not-started">Nezačato</button>
+              <button class="status-btn" data-status="learning">Učím se</button>
+              <button class="status-btn" data-status="mastered">Umím</button>
+            </div>
+          </div>
+          
+          <!-- Záložky -->
+          <div class="detail-tabs">
+            <button class="tab-btn active" data-tab="panel-study">Výklad & perly</button>
+            <button class="tab-btn" data-tab="panel-tdm">TDM Trenažér</button>
+            <button class="tab-btn" data-tab="panel-notes">Moje poznámky</button>
+            <button class="tab-btn" data-tab="panel-quiz">Kontrolní kvíz</button>
+          </div>
+
+          <!-- Výklad a schémata -->
+          <div class="tab-panel active" id="panel-study">
+            <div id="study-content">
+              <!-- Zde bude dynamicky načten strukturovaný text -->
+            </div>
+          </div>
+
+          <!-- TDM Kalkulačka tab panel -->
+          <div class="tab-panel" id="panel-tdm">
+            <div id="tdm-calc-container">
+              <!-- Zde bude dynamický TDM odkaz nebo varování -->
+            </div>
+          </div>
+
+          <!-- Moje poznámky (Rich Text Editor) -->
+          <div class="tab-panel" id="panel-notes">
+            <div class="editor-container">
+              <div class="editor-toolbar">
+                <button class="editor-btn" data-command="bold" title="Tučně" style="font-weight: bold;">B</button>
+                <button class="editor-btn" data-command="italic" title="Kurzíva" style="font-style: italic;">I</button>
+                <button class="editor-btn" data-command="underline" title="Podtržené" style="text-decoration: underline;">U</button>
+                <button class="editor-btn" data-command="insertUnorderedList" title="Odrážkový seznam">• Seznam</button>
+                <button class="editor-btn" data-command="hiliteColor" data-value="#d1fae5" title="Zvýraznit zeleně" style="background-color: #d1fae5; color: #065f46; border: 1px solid #10b981; padding: 2px 6px; font-size: 0.8rem; border-radius: 4px;">Zvýraznit</button>
+                <button class="editor-btn" data-command="removeFormat" title="Vymazat formátování">Smazat formát</button>
+              </div>
+              <div class="editor-content" id="editor-content" contenteditable="true"></div>
+            </div>
+            <div class="editor-actions">
+              <span class="save-status" id="save-status">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Změny automaticky uloženy
+              </span>
+              <button id="save-notes-btn" class="btn btn-primary">Uložit poznámky</button>
+            </div>
+          </div>
+
+          <!-- Kvíz -->
+          <div class="tab-panel" id="panel-quiz">
+            <div class="quiz-section" id="quiz-container">
+              <!-- Kvíz se vygeneruje dynamicky -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Načtení dat a skriptů -->
+  <script src="data_core.js"></script>
+  <script src="data_obecna.js"></script>
+  <script src="data_specialni.js"></script>
+  <script src="pk_sim.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

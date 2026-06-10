@@ -26,6 +26,10 @@
   --oset-glow: rgba(251, 113, 133, 0.25);
   --oset-gradient: linear-gradient(135deg, #f43f5e, #fda4af);
   
+  --farma-color: #34d399;
+  --farma-glow: rgba(52, 211, 153, 0.25);
+  --farma-gradient: linear-gradient(135deg, #10b981, #34d399);
+
   --accent-blue: #3b82f6;
   --accent-gold: #fbbf24;
   --accent-red: #f87171;
@@ -250,6 +254,12 @@ header p {
   transform: translateY(-6px);
 }
 
+.subject-card.farmakologie:hover {
+  border-color: var(--farma-color);
+  box-shadow: 0 15px 30px -15px var(--farma-glow);
+  transform: translateY(-6px);
+}
+
 .subject-card .icon {
   font-size: 2.5rem;
   margin-bottom: 16px;
@@ -408,6 +418,17 @@ header p {
 
 .btn-oset:hover {
   box-shadow: 0 6px 16px rgba(251, 113, 133, 0.4);
+  transform: scale(1.02);
+}
+
+.btn-farma {
+  background: var(--farma-gradient);
+  color: #090d16;
+  box-shadow: 0 4px 12px rgba(52, 211, 153, 0.25);
+}
+
+.btn-farma:hover {
+  box-shadow: 0 6px 16px rgba(52, 211, 153, 0.4);
   transform: scale(1.02);
 }
 

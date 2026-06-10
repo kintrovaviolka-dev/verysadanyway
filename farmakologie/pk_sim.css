@@ -1,0 +1,251 @@
+/* CSS pro Farmakokinetický & TDM Trenažér */
+
+.pk-sim-panel {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: 24px;
+  margin-bottom: 32px;
+  box-shadow: var(--shadow-md);
+  display: none; /* Skryto ve výchozím stavu, přepínáno tlačítkem */
+  animation: slideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pk-sim-panel.open {
+  display: block;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.pk-sim-title-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 12px;
+}
+
+.pk-sim-title-bar h2 {
+  font-size: 1.4rem;
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pk-sim-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 24px;
+}
+
+@media (max-width: 992px) {
+  .pk-sim-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pk-canvas-container {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.pk-canvas {
+  width: 100%;
+  height: 320px;
+  background-color: #0f172a;
+  border-radius: var(--border-radius-sm);
+  display: block;
+}
+
+body.dark-mode .pk-canvas {
+  background-color: #070b13;
+}
+
+.pk-legend {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+  font-size: 0.8rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pk-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary);
+}
+
+.pk-legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}
+
+/* Ovládací prvky simulátoru */
+.pk-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pk-control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pk-control-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.pk-value-display {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.pk-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--border-color);
+  outline: none;
+  transition: background 0.15s ease;
+}
+
+.pk-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  cursor: pointer;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+  transition: transform 0.1s ease;
+}
+
+.pk-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+/* Výběr přednastavených léků */
+.pk-drug-selector {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.pk-drug-btn {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 8px 14px;
+  border-radius: var(--border-radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  flex: 1;
+  text-align: center;
+  min-width: 100px;
+}
+
+.pk-drug-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--text-primary);
+}
+
+.pk-drug-btn.active {
+  background-color: var(--color-primary-light);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* Informační widgety pod grafem */
+.pk-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.pk-metric-card {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  padding: 10px 14px;
+  text-align: center;
+}
+
+.pk-metric-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.pk-metric-value {
+  font-size: 1.15rem;
+  font-weight: 700;
+  font-family: var(--font-title);
+}
+
+.pk-warning-box {
+  grid-column: 1 / -1;
+  background-color: var(--color-warning-light);
+  color: var(--color-warning);
+  border-left: 4px solid var(--color-warning);
+  padding: 10px 14px;
+  border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: left;
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.pk-warning-box.toxic {
+  background-color: var(--color-danger-light);
+  color: var(--color-danger);
+  border-left-color: var(--color-danger);
+}
+
+.pk-warning-box.subtherapeutic {
+  background-color: #f1f5f9;
+  color: #64748b;
+  border-left-color: #94a3b8;
+}
+
+/* TDM záložka specifická pro karty */
+.tdm-calculator-panel {
+  background-color: var(--bg-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 20px;
+  border: 1px solid var(--border-color);
+}
+
+.tdm-calc-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+}

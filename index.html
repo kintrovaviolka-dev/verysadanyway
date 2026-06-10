@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="cs">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lékařský Studijní Portál | Rozcestník 3. ročníku</title>
-  <meta name="description" content="Rozcestník studijních portálů pro 3. ročník všeobecného lékařství. Připravte se na zkoušky z Patologie (Patola), Patofyziologie (Patfyz) a Ošetřovatelství s našimi nástroji a materiály.">
+  <meta name="description"
+    content="Rozcestník studijních portálů pro 3. ročník všeobecného lékařství. Připravte se na zkoušky z Patologie (Patola), Patofyziologie (Patfyz) a Ošetřovatelství s našimi nástroji a materiály.">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <div class="container">
     <!-- Hlavička -->
@@ -36,8 +39,7 @@
           <div class="grade-number">3.</div>
           <div class="grade-label">ročník</div>
         </div>
-        <div class="grade-card locked" data-grade="4">
-          <div class="lock-badge">🔒</div>
+        <div class="grade-card" data-grade="4">
           <div class="grade-number">4.</div>
           <div class="grade-label">ročník</div>
         </div>
@@ -58,20 +60,25 @@
     <section class="subjects-section active" id="subjects-section">
       <h2 class="section-title">Zvolte předmět k přípravě</h2>
       <div class="subjects-grid">
-        <div class="subject-card patfyz" data-subject="patfyz" id="subject-patfyz">
+        <div class="subject-card patfyz" data-subject="patfyz" id="subject-patfyz" data-grade="3">
           <span class="icon">⚡</span>
           <h3>Patofyziologie</h3>
           <p>Studijní materiály, schémata patogeneze a procvičování na zápočty.</p>
         </div>
-        <div class="subject-card patola" data-subject="patola" id="subject-patola">
+        <div class="subject-card patola" data-subject="patola" id="subject-patola" data-grade="3">
           <span class="icon">🔬</span>
           <h3>Patologie</h3>
           <p>Morfologické popisy, histologické taháky a seznam zkouškových témat.</p>
         </div>
-        <div class="subject-card oset" data-subject="oset" id="subject-oset">
+        <div class="subject-card oset" data-subject="oset" id="subject-oset" data-grade="3">
           <span class="icon">🩺</span>
           <h3>Ošetřovatelství</h3>
           <p>Studijní skripta ke stažení a složka se všemi podklady.</p>
+        </div>
+        <div class="subject-card farmakologie" data-subject="farmakologie" id="subject-farmakologie" data-grade="4">
+          <span class="icon">💊</span>
+          <h3>Farmakologie</h3>
+          <p>Příprava na zkoušku, farmakokinetický trenažér a stažení vypracovaných témat.</p>
         </div>
       </div>
     </section>
@@ -80,21 +87,31 @@
     <section class="hub-section" id="hub-section">
       <div class="hub-header">
         <button class="back-btn" id="hub-back-btn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
           Zpět na předměty
         </button>
         <h2 class="section-title" id="hub-title">Předmět</h2>
       </div>
-      
+
       <div class="hub-grid" id="hub-grid-default">
         <!-- 1. Studijní portál -->
         <div class="hub-card">
           <div class="hub-card-icon">🚀</div>
           <h4>Příprava na zkoušku</h4>
-          <p>Kompletní interaktivní studijní portál s podrobnými texty, tabulkami referenčních hodnot a schématy rozvoje chorob.</p>
+          <p>Kompletní interaktivní studijní portál s podrobnými texty, tabulkami referenčních hodnot a schématy rozvoje
+            chorob.</p>
           <a href="#" target="_blank" class="btn btn-primary" id="portal-link-btn">
             Přejít do portálu
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
           </a>
         </div>
 
@@ -110,7 +127,8 @@
         <div class="hub-card">
           <div class="hub-card-icon">📂</div>
           <h4>Otázky a materiály</h4>
-          <p>Vyhledejte a procházejte seznam zkouškových otázek bez vypracování nebo si stáhněte doprovodné PDF skripta.</p>
+          <p>Vyhledejte a procházejte seznam zkouškových otázek bez vypracování nebo si stáhněte doprovodné PDF skripta.
+          </p>
           <button class="btn btn-secondary" id="materials-trigger-btn">Zobrazit materiály</button>
         </div>
 
@@ -121,7 +139,12 @@
           <p id="beta-app-desc">Rychlá, herní forma studia základů vhodná pro chvíle, kdy je mozek už unavený.</p>
           <a href="#" target="_blank" class="btn btn-secondary" id="beta-app-link-btn">
             Spustit Beta aplikaci
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
           </a>
         </div>
       </div>
@@ -135,7 +158,12 @@
           <p>Stáhněte si kompletní PDF materiály (oško_byznys.pdf) pro přípravu na předmět ošetřovatelství.</p>
           <a href="oško_byznys.pdf" download class="btn btn-primary btn-oset" id="oset-download-btn">
             Stáhnout PDF
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
           </a>
         </div>
 
@@ -144,9 +172,68 @@
           <div class="hub-card-icon">📁</div>
           <h4>Všechny materiály</h4>
           <p>Zobrazit celou složku se všemi doplňujícími materiály a podklady pro ošetřovatelství na Google Drive.</p>
-          <a href="https://drive.google.com/drive/folders/1mnZ45tCU28m38hUb77BGeXliiZyc9djm?usp=sharing" target="_blank" class="btn btn-secondary" id="oset-drive-btn">
+          <a href="https://drive.google.com/drive/folders/1mnZ45tCU28m38hUb77BGeXliiZyc9djm?usp=sharing" target="_blank"
+            class="btn btn-secondary" id="oset-drive-btn">
             Otevřít složku
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Rozcestník pro Farmakologii -->
+      <div class="hub-grid" id="hub-grid-farmakologie" style="display: none; max-width: 800px; margin: 0 auto;">
+        <!-- 1. Vstup do portálu -->
+        <div class="hub-card">
+          <div class="hub-card-icon">🚀</div>
+          <h4>Interaktivní portál</h4>
+          <p>Kompletní studijní aplikace s kartičkami, výkladem, PK/TDM trenažérem a poznámkami.</p>
+          <a href="farmakologie/index.html" class="btn btn-primary btn-farma" id="farmakologie-portal-btn">
+            Otevřít portál
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+        </div>
+
+        <!-- 2. Stažení PDF - Vypracovaná témata -->
+        <div class="hub-card">
+          <div class="hub-card-icon">📄</div>
+          <h4>Vypracovaná témata</h4>
+          <p>Stáhněte si kompletní vypracované otázky z farmakologie ve formátu PDF.</p>
+          <a href="https://drive.google.com/file/d/1fgxfXNBTwIar-_X6yPSLrwYOnaMHP9Hq/view?usp=sharing" download
+            class="btn btn-secondary" id="farmakologie-download-main-btn">
+            Stáhnout PDF
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+          </a>
+        </div>
+
+        <!-- 3. Stažení PDF - Dodatky 2026 -->
+        <div class="hub-card">
+          <div class="hub-card-icon">✨</div>
+          <h4>Dodatky k vypracování (2026)</h4>
+          <p>Stáhněte si moderní dodatky k vypracovaným otázkám z farmakologie (2026).</p>
+          <a href="farmakologie/moderni_dodatky_2026.pdf" download class="btn btn-secondary"
+            id="farmakologie-download-supp-btn">
+            Stáhnout dodatky
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
           </a>
         </div>
       </div>
@@ -157,7 +244,11 @@
       <div class="panel-header">
         <h2 class="section-title" id="materials-panel-title">Materiály k předmětu</h2>
         <button class="panel-close-btn" id="materials-close-btn" aria-label="Zavřít panel materiálů">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
         </button>
       </div>
 
@@ -172,7 +263,12 @@
               <p>Oficiální přehled zkušebních témat z patofyziologie.</p>
             </div>
             <a href="sylabus_patfyz.pdf" download class="btn btn-secondary btn-sm" id="pdf-download-questions">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
               Stáhnout sylabus
             </a>
           </div>
@@ -183,7 +279,12 @@
               <p>Aktuálně vypracovaná témata (PDF skripta z LaTeX podkladů).</p>
             </div>
             <a href="patfyza_26.pdf" download class="btn btn-secondary btn-sm" id="pdf-download-study">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
               Stáhnout skripta
             </a>
           </div>
@@ -192,8 +293,13 @@
 
       <!-- Vyhledávání a filtrace otázek -->
       <div class="search-wrapper">
-        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        <input type="text" id="question-search" class="search-input" placeholder="Vyhledat otázku ke zkoušce..." aria-label="Vyhledat otázku ke zkoušce">
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="question-search" class="search-input" placeholder="Vyhledat otázku ke zkoušce..."
+          aria-label="Vyhledat otázku ke zkoušce">
       </div>
 
       <!-- Kategorie -->
@@ -212,7 +318,11 @@
       <div class="panel-header">
         <h2 class="section-title" id="quiz-panel-title">Procvičování</h2>
         <button class="panel-close-btn" id="quiz-close-btn" aria-label="Zavřít panel procvičování">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
         </button>
       </div>
 
@@ -236,12 +346,14 @@
           <div class="quiz-meta">
             <span id="quiz-question-number">Otázka 1 z 10</span>
             <div class="dopamine-indicators">
-              <span class="streak-badge" id="quiz-streak-badge" style="display: none;">🔥 <span id="quiz-streak-count">0</span></span>
-              <span class="xp-badge" id="quiz-xp-badge">✨ <span id="quiz-xp-count">0</span> XP (Lvl <span id="quiz-level-count">1</span>)</span>
+              <span class="streak-badge" id="quiz-streak-badge" style="display: none;">🔥 <span
+                  id="quiz-streak-count">0</span></span>
+              <span class="xp-badge" id="quiz-xp-badge">✨ <span id="quiz-xp-count">0</span> XP (Lvl <span
+                  id="quiz-level-count">1</span>)</span>
             </div>
             <span id="quiz-score-indicator">Úspěšnost: 0 %</span>
           </div>
-          
+
           <div class="quiz-card" id="quiz-question-card">
             <!-- Otázka se vygeneruje sem -->
           </div>
@@ -285,4 +397,5 @@
   <script src="data_patfyz_bridge.js"></script>
   <script src="app.js"></script>
 </body>
+
 </html>
