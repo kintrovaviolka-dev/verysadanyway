@@ -7707,9 +7707,8 @@ function mergePharmSpecDetails() {
   // Zamezíme duplicitnímu vložení
   RAW_QUESTIONS_PHARM_SPEC.forEach(specQ => {
     const idNum = parseInt(specQ.id.replace("pharm-spec-", ""));
-    if (idNum === 8 || (idNum >= 26 && idNum <= 43)) {
-      specQ.notOnExam = true;
-    }
+    const onExamIds = [2, 3, 4, 5, 6, 7, 11, 12, 13, 14, 15, 16, 17, 19, 20, 23, 26, 30, 32, 33, 34, 37, 38, 39, 40, 41, 42, 44, 45, 48, 52, 53, 54, 56, 58, 63, 65, 71, 74, 75, 76, 77];
+    specQ.notOnExam = !onExamIds.includes(idNum);
     const exists = window.COMPLETE_QUESTIONS.some(q => q.id === specQ.id);
     if (!exists) {
       window.COMPLETE_QUESTIONS.push(specQ);

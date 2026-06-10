@@ -129,7 +129,7 @@ function buildPharmDatabase() {
       organSystem: getPharmSystem(q),
       keyTerms: estimatePharmKeywords(q),
       chapter: "obecna",
-      notOnExam: (idx === 25) // pharm-26 (Závislost na tabáku)
+      notOnExam: ![11, 12, 13, 14, 17, 18, 20, 21, 28, 32, 33, 34, 35, 36, 41, 43].includes(idx + 1)
     });
   });
   return list;
