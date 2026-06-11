@@ -127,6 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const hubGridDefault = document.getElementById("hub-grid-default");
     const hubGridOset = document.getElementById("hub-grid-oset");
     const hubGridFarmakologie = document.getElementById("hub-grid-farmakologie");
+    const hubGridDermatologie = document.getElementById("hub-grid-dermatologie");
 
     if (subject === "oset") {
       hubTitle.textContent = "Ošetřovatelství";
@@ -134,16 +135,26 @@ document.addEventListener("DOMContentLoaded", () => {
       if (hubGridDefault) hubGridDefault.style.display = "none";
       if (hubGridOset) hubGridOset.style.display = "grid";
       if (hubGridFarmakologie) hubGridFarmakologie.style.display = "none";
+      if (hubGridDermatologie) hubGridDermatologie.style.display = "none";
     } else if (subject === "farmakologie") {
       hubTitle.textContent = "Farmakologie";
       hubTitle.style.color = "var(--farma-color)";
       if (hubGridDefault) hubGridDefault.style.display = "none";
       if (hubGridOset) hubGridOset.style.display = "none";
       if (hubGridFarmakologie) hubGridFarmakologie.style.display = "grid";
+      if (hubGridDermatologie) hubGridDermatologie.style.display = "none";
+    } else if (subject === "dermatologie") {
+      hubTitle.textContent = "Dermatologie";
+      hubTitle.style.color = "var(--derma-color)";
+      if (hubGridDefault) hubGridDefault.style.display = "none";
+      if (hubGridOset) hubGridOset.style.display = "none";
+      if (hubGridFarmakologie) hubGridFarmakologie.style.display = "none";
+      if (hubGridDermatologie) hubGridDermatologie.style.display = "grid";
     } else {
       if (hubGridDefault) hubGridDefault.style.display = "grid";
       if (hubGridOset) hubGridOset.style.display = "none";
       if (hubGridFarmakologie) hubGridFarmakologie.style.display = "none";
+      if (hubGridDermatologie) hubGridDermatologie.style.display = "none";
 
       // Nastavení názvu a barev v rozcestníku
       if (subject === "patfyz") {
@@ -204,6 +215,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const subjectFarmaBtn = document.getElementById("subject-farmakologie");
   if (subjectFarmaBtn) {
     subjectFarmaBtn.addEventListener("click", () => selectSubject("farmakologie"));
+  }
+
+  const subjectDermaBtn = document.getElementById("subject-dermatologie");
+  if (subjectDermaBtn) {
+    subjectDermaBtn.addEventListener("click", () => selectSubject("dermatologie"));
   }
 
   // Návrat na předměty

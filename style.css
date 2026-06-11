@@ -30,6 +30,10 @@
   --farma-glow: rgba(52, 211, 153, 0.25);
   --farma-gradient: linear-gradient(135deg, #10b981, #34d399);
 
+  --derma-color: #ff7a59;
+  --derma-glow: rgba(255, 122, 89, 0.25);
+  --derma-gradient: linear-gradient(135deg, #ff5e3a, #ff7a59);
+
   --accent-blue: #3b82f6;
   --accent-gold: #fbbf24;
   --accent-red: #f87171;
@@ -260,6 +264,12 @@ header p {
   transform: translateY(-6px);
 }
 
+.subject-card.dermatologie:hover {
+  border-color: var(--derma-color);
+  box-shadow: 0 15px 30px -15px var(--derma-glow);
+  transform: translateY(-6px);
+}
+
 .subject-card .icon {
   font-size: 2.5rem;
   margin-bottom: 16px;
@@ -429,6 +439,17 @@ header p {
 
 .btn-farma:hover {
   box-shadow: 0 6px 16px rgba(52, 211, 153, 0.4);
+  transform: scale(1.02);
+}
+
+.btn-derma {
+  background: var(--derma-gradient);
+  color: #090d16;
+  box-shadow: 0 4px 12px var(--derma-glow);
+}
+
+.btn-derma:hover {
+  box-shadow: 0 6px 16px rgba(255, 122, 89, 0.4);
   transform: scale(1.02);
 }
 
