@@ -127,7 +127,7 @@
               <span>Velikost dávky (Dose):</span>
               <span class="pk-value-display"><span id="pk-val-dose">1000</span> mg</span>
             </div>
-            <input type="range" id="pk-slider-dose" class="pk-slider" min="10" max="2000" step="10" value="1000">
+            <input type="range" id="pk-slider-dose" class="pk-slider" min="10" max="2000" step="10" value="1000" aria-label="Velikost dávky (Dose)">
           </div>
 
           <div class="pk-control-group">
@@ -135,7 +135,7 @@
               <span>Interval podávání (tau):</span>
               <span class="pk-value-display"><span id="pk-val-interval">12</span> hod</span>
             </div>
-            <input type="range" id="pk-slider-interval" class="pk-slider" min="4" max="48" step="2" value="12">
+            <input type="range" id="pk-slider-interval" class="pk-slider" min="4" max="48" step="2" value="12" aria-label="Interval podávání (tau)">
           </div>
 
           <div class="pk-control-group">
@@ -143,7 +143,7 @@
               <span>Distribuční objem (Vd):</span>
               <span class="pk-value-display"><span id="pk-val-vd">50</span> litrů</span>
             </div>
-            <input type="range" id="pk-slider-vd" class="pk-slider" min="5" max="600" step="5" value="50">
+            <input type="range" id="pk-slider-vd" class="pk-slider" min="5" max="600" step="5" value="50" aria-label="Distribuční objem (Vd)">
           </div>
 
           <div class="pk-control-group">
@@ -151,7 +151,7 @@
               <span>Základní poločas (t1/2):</span>
               <span class="pk-value-display"><span id="pk-val-halflife">6</span> hod</span>
             </div>
-            <input type="range" id="pk-slider-halflife" class="pk-slider" min="1" max="48" step="1" value="6">
+            <input type="range" id="pk-slider-halflife" class="pk-slider" min="1" max="48" step="1" value="6" aria-label="Základní poločas (t1/2)">
           </div>
 
           <div class="pk-control-group">
@@ -159,7 +159,7 @@
               <span>Renální funkce (eGFR):</span>
               <span class="pk-value-display"><span id="pk-val-egfr">100</span> %</span>
             </div>
-            <input type="range" id="pk-slider-egfr" class="pk-slider" min="10" max="150" step="5" value="100">
+            <input type="range" id="pk-slider-egfr" class="pk-slider" min="10" max="150" step="5" value="100" aria-label="Renální funkce (eGFR)">
           </div>
         </div>
       </div>
@@ -205,7 +205,7 @@
     <section class="filter-bar">
       <div class="search-wrapper">
         <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        <input type="text" id="search-input" class="search-input" placeholder="Vyhledat otázku, klíčová slova nebo ve svých poznámkách...">
+        <input type="text" id="search-input" class="search-input" placeholder="Vyhledat otázku, klíčová slova nebo ve svých poznámkách..." aria-label="Vyhledat otázku, klíčová slova nebo ve svých poznámkách...">
       </div>
       
       <div class="filter-groups">
