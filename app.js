@@ -118,6 +118,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const grade = parseInt(card.getAttribute("data-grade"));
       selectGrade(grade);
     });
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        card.click();
+      }
+    });
   });
 
   // Výběr předmětu
@@ -204,23 +210,17 @@ document.addEventListener("DOMContentLoaded", () => {
     hubSection.classList.add("active");
   };
 
-  document.getElementById("subject-patfyz").addEventListener("click", () => selectSubject("patfyz"));
-  document.getElementById("subject-patola").addEventListener("click", () => selectSubject("patola"));
-  
-  const subjectOsetBtn = document.getElementById("subject-oset");
-  if (subjectOsetBtn) {
-    subjectOsetBtn.addEventListener("click", () => selectSubject("oset"));
-  }
-
-  const subjectFarmaBtn = document.getElementById("subject-farmakologie");
-  if (subjectFarmaBtn) {
-    subjectFarmaBtn.addEventListener("click", () => selectSubject("farmakologie"));
-  }
-
-  const subjectDermaBtn = document.getElementById("subject-dermatologie");
-  if (subjectDermaBtn) {
-    subjectDermaBtn.addEventListener("click", () => selectSubject("dermatologie"));
-  }
+  document.querySelectorAll(".subject-card").forEach(card => {
+    card.addEventListener("click", () => {
+      selectSubject(card.getAttribute("data-subject"));
+    });
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        card.click();
+      }
+    });
+  });
 
   // Návrat na předměty
   hubBackBtn.addEventListener("click", () => {
