@@ -5,3 +5,6 @@
 ## 2024-11-20 - Missing Focus Indicators for Keyboard Navigation
 **Learning:** Interactive elements lacked clear `:focus-visible` styles, making keyboard navigation difficult for users who rely on it.
 **Action:** Implemented a global `*:focus-visible` rule using the design system's accent color (`--accent-blue`) with proper outline offset to ensure clear visual feedback across all focusable elements when navigated via keyboard.
+## 2026-06-12 - Divs as interactive elements lack proper ARIA roles and keyboard support
+**Learning:** In this application, elements like `.grade-card` and `.subject-card` use `div` tags with click handlers, completely missing keyboard accessibility and screen reader announcement. This prevents keyboard users from navigating to them and clicking them.
+**Action:** When using `div`s as interactive elements (buttons/cards), always ensure they are given `role="button"`, `tabindex="0"`, and that `keydown` event listeners are attached to map 'Enter' and 'Space' keys to the click action. Also add `aria-disabled` if a card is visually locked.
