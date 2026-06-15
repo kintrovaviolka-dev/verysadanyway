@@ -377,6 +377,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Generování testu
   startTestBtn.addEventListener("click", () => {
+    let sourcePool = [];
     if (state.selectedSubject === "patfyz") {
       sourcePool = window.PATFYZ_QUIZ || [];
     } else if (state.selectedSubject === "patola") {
