@@ -1,0 +1,13 @@
+{
+  "name": "lekar-portal-rozcestnik",
+  "version": "1.0.0",
+  "description": "Lékařský studijní portál s integrovaným asistentem Gemini",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --env-file=.env server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

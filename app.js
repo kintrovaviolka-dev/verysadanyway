@@ -110,21 +110,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Kliknutí na ročník
   document.querySelectorAll(".grade-card").forEach(card => {
-    const handleGradeSelection = () => {
+    card.addEventListener("click", () => {
       if (card.classList.contains("locked")) {
         alert("Tento ročník se připravuje. Nyní jsou k dispozici portály pro 3. a 4. ročník.");
         return;
       }
       const grade = parseInt(card.getAttribute("data-grade"));
       selectGrade(grade);
-    };
-
-    card.addEventListener("click", handleGradeSelection);
-    card.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        handleGradeSelection();
-      }
     });
   });
 
@@ -210,26 +202,30 @@ document.addEventListener("DOMContentLoaded", () => {
     subjectsSection.classList.remove("active");
     gradesSection.style.display = "none";
     hubSection.classList.add("active");
-  };
-
-  const addSubjectListener = (id, subject) => {
-    const btn = document.getElementById(id);
-    if (btn) {
-      btn.addEventListener("click", () => selectSubject(subject));
-      btn.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          selectSubject(subject);
-        }
-      });
+    
+    // Aktualizovat kontext chatbota podle zvoleného předmětu
+    if (typeof updateChatbotContext === "function") {
+      updateChatbotContext(subject);
     }
   };
 
-  addSubjectListener("subject-patfyz", "patfyz");
-  addSubjectListener("subject-patola", "patola");
-  addSubjectListener("subject-oset", "oset");
-  addSubjectListener("subject-farmakologie", "farmakologie");
-  addSubjectListener("subject-dermatologie", "dermatologie");
+  document.getElementById("subject-patfyz").addEventListener("click", () => selectSubject("patfyz"));
+  document.getElementById("subject-patola").addEventListener("click", () => selectSubject("patola"));
+  
+  const subjectOsetBtn = document.getElementById("subject-oset");
+  if (subjectOsetBtn) {
+    subjectOsetBtn.addEventListener("click", () => selectSubject("oset"));
+  }
+
+  const subjectFarmaBtn = document.getElementById("subject-farmakologie");
+  if (subjectFarmaBtn) {
+    subjectFarmaBtn.addEventListener("click", () => selectSubject("farmakologie"));
+  }
+
+  const subjectDermaBtn = document.getElementById("subject-dermatologie");
+  if (subjectDermaBtn) {
+    subjectDermaBtn.addEventListener("click", () => selectSubject("dermatologie"));
+  }
 
   // Návrat na předměty
   hubBackBtn.addEventListener("click", () => {
@@ -237,6 +233,11 @@ document.addEventListener("DOMContentLoaded", () => {
     hubSection.classList.remove("active");
     gradesSection.style.display = "block";
     subjectsSection.classList.add("active");
+    
+    // Resetovat kontext chatbota na obecný
+    if (typeof updateChatbotContext === "function") {
+      updateChatbotContext(null);
+    }
     
     // Skrýt otevřené panely
     materialsPanel.classList.remove("active");
@@ -724,6 +725,362 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 1200);
     }
   };
+
+  // ==========================================
+  // --- LOGIKA GEMINI CHATBOTA ---
+  // ==========================================
+  const chatbotContainer = document.getElementById("gemini-chatbot-container");
+  const chatbotFab = document.getElementById("chatbot-fab");
+  const chatbotPanel = document.getElementById("chatbot-panel");
+  const chatbotMessages = document.getElementById("chatbot-messages");
+  const chatbotInput = document.getElementById("chatbot-input");
+  const chatbotInputForm = document.getElementById("chatbot-input-form");
+  const chatbotTypingIndicator = document.getElementById("chatbot-typing-indicator");
+  const chatbotSubjectContext = document.getElementById("chatbot-subject-context");
+  const chatbotSettingsBtn = document.getElementById("chatbot-settings-btn");
+  const chatbotSettingsOverlay = document.getElementById("chatbot-settings-overlay");
+  const chatbotApiKeyInput = document.getElementById("chatbot-api-key-input");
+  const chatbotSaveKeyBtn = document.getElementById("chatbot-save-key-btn");
+  const chatbotClearKeyBtn = document.getElementById("chatbot-clear-key-btn");
+  const chatbotSettingsCloseBtn = document.getElementById("chatbot-settings-close-btn");
+  const chatbotSuggestions = document.getElementById("chatbot-suggestions");
+  const chatbotBadge = document.getElementById("chatbot-badge");
+  const statusDot = chatbotContainer.querySelector(".avatar-status-dot");
+
+  let chatHistory = [
+    { role: "assistant", text: "Ahoj! Jsem tvůj medicínský asistent. Vyber si nahoře předmět (Patofyziologii, Patologii, atd.) a já se automaticky přizpůsobím, abych ti pomohl s konkrétní látkou. S čím dnes začneme?" }
+  ];
+
+  // System instructions map
+  const systemInstructions = {
+    general: "Jste zkušený lékařský asistent a mentor pro studenty lékařské fakulty. Pomáháte jim se studiem lékařských oborů. Odpovídejte věcně, stručně, odborně správně, česky a srozumitelně. Používejte přehledný markdown (např. odrážky, tučné písmo pro klíčové termíny, případně záhlaví).",
+    patfyz: "Jste odborník na patofyziologii. Pomáháte studentům lékařství porozumět funkčním změnám v organismu při nemoci, mechanismům patogeneze, kompenzačním reakcím a klinickým souvislostem. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost.",
+    patola: "Jste odborník na patologii (morfologickou patologii). Pomáháte studentům lékařství s makroskopickým a mikroskopickým popisem tkání, nekropsii, biopsii, klasifikací nádorů a patologickou anatomií. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost.",
+    farmakologie: "Jste odborník na farmakologii. Pomáháte studentům lékařství s mechanismy účinku léčiv, farmakokinetikou, nežádoucími účinky, indikacemi a interakcemi. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost.",
+    dermatologie: "Jste odborník na dermatovenerologii. Pomáháte studentům lékařství s chorobami kůže a pohlavními chorobami, diagnostikou, eflorescencemi a léčbou. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost.",
+    oset: "Jste odborník na ošetřovatelství a ošetřovatelskou péči. Pomáháte studentům lékařství a ošetřovatelství s ošetřovatelskými postupy, diagnózami a péčí o pacienta. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost."
+  };
+
+  // Load key from localStorage
+  const getSavedKey = () => localStorage.getItem("gemini_chat_local_key") || "";
+  chatbotApiKeyInput.value = getSavedKey();
+
+  // Rate limiting (client-side)
+  let lastMessageTime = 0;
+  const CLIENT_MIN_INTERVAL = 3000; // 3 seconds between messages
+
+  // Open/Close Chat
+  chatbotFab.addEventListener("click", () => {
+    const isOpen = chatbotPanel.classList.toggle("open");
+    chatbotFab.classList.toggle("open");
+    if (isOpen) {
+      chatbotBadge.style.display = "none";
+      chatbotInput.focus();
+      scrollToBottom();
+    }
+  });
+
+  document.getElementById("chatbot-close-btn").addEventListener("click", () => {
+    chatbotPanel.classList.remove("open");
+    chatbotFab.classList.remove("open");
+  });
+
+  // Settings Panel Toggle
+  chatbotSettingsBtn.addEventListener("click", () => {
+    chatbotSettingsOverlay.classList.add("open");
+  });
+
+  chatbotSettingsCloseBtn.addEventListener("click", () => {
+    chatbotSettingsOverlay.classList.remove("open");
+  });
+
+  // Save/Clear key locally
+  chatbotSaveKeyBtn.addEventListener("click", () => {
+    const key = chatbotApiKeyInput.value.trim();
+    if (key) {
+      localStorage.setItem("gemini_chat_local_key", key);
+      alert("API klíč byl uložen do vašeho prohlížeče.");
+      chatbotSettingsOverlay.classList.remove("open");
+    } else {
+      alert("Prosím zadejte platný klíč.");
+    }
+  });
+
+  chatbotClearKeyBtn.addEventListener("click", () => {
+    localStorage.removeItem("gemini_chat_local_key");
+    chatbotApiKeyInput.value = "";
+    alert("API klíč byl vymazán. Nyní se dotazy posílají přes proxy server.");
+  });
+
+  // Simple Markdown Parser for UI Bubble rendering
+  const parseMarkdown = (text) => {
+    let html = text
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+
+    // Bold (**text**)
+    html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    
+    // Code blocks (```code```)
+    html = html.replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>');
+    
+    // Inline code (`code`)
+    html = html.replace(/`(.*?)`/g, '<code>$1</code>');
+    
+    // Bullet lists
+    const lines = html.split('\n');
+    let inList = false;
+    const processedLines = lines.map(line => {
+      const trimmed = line.trim();
+      if (trimmed.startsWith('- ') || trimmed.startsWith('* ')) {
+        const content = trimmed.substring(2);
+        if (!inList) {
+          inList = true;
+          return '<ul><li>' + content + '</li>';
+        }
+        return '<li>' + content + '</li>';
+      } else {
+        if (inList) {
+          inList = false;
+          return '</ul><p>' + line + '</p>';
+        }
+        return trimmed ? '<p>' + line + '</p>' : '';
+      }
+    });
+    
+    html = processedLines.join('');
+    if (inList) {
+      html += '</ul>';
+    }
+    
+    return html;
+  };
+
+  const scrollToBottom = () => {
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+  };
+
+  // Add Message to DOM and History
+  const addMessage = (role, text) => {
+    chatHistory.push({ role, text });
+    
+    // Keep context window compact (last 15 messages)
+    if (chatHistory.length > 15) {
+      chatHistory.shift();
+    }
+
+    const messageDiv = document.createElement("div");
+    messageDiv.className = `message ${role}`;
+    
+    const contentDiv = document.createElement("div");
+    contentDiv.className = "message-content";
+    contentDiv.innerHTML = role === "assistant" ? parseMarkdown(text) : text;
+    
+    messageDiv.appendChild(contentDiv);
+    chatbotMessages.appendChild(messageDiv);
+    scrollToBottom();
+
+    // Show pulse badge on FAB if closed
+    if (!chatbotPanel.classList.contains("open") && role === "assistant") {
+      chatbotBadge.style.display = "block";
+    }
+  };
+
+  // Send request via backend proxy
+  const callProxyServer = async (messages, subject) => {
+    const response = await fetch("/api/chat", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ messages, subject })
+    });
+
+    if (!response.ok) {
+      const errData = await response.json().catch(() => ({}));
+      throw new Error(errData.error || `Server vrátil chybu ${response.status}.`);
+    }
+
+    const data = await response.json();
+    return data.text;
+  };
+
+  // Send request directly to Gemini API
+  const callGeminiDirectly = async (key, messages, subject) => {
+    const systemInstructionText = systemInstructions[subject] || systemInstructions.general;
+    
+    const contents = messages.map(msg => ({
+      role: msg.role === "assistant" ? "model" : "user",
+      parts: [{ text: msg.text }]
+    }));
+
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        contents,
+        systemInstruction: {
+          parts: [{ text: systemInstructionText }]
+        },
+        generationConfig: {
+          temperature: 0.7,
+          maxOutputTokens: 800
+        }
+      })
+    });
+
+    if (!response.ok) {
+      const errData = await response.json().catch(() => ({}));
+      throw new Error(errData.error?.message || `Gemini API vrátilo chybu ${response.status}.`);
+    }
+
+    const data = await response.json();
+    const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+    if (!text) throw new Error("Chybí text v odpovědi z Gemini.");
+    return text;
+  };
+
+  // Submit Handler
+  chatbotInputForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    
+    // Client-side spam protection
+    const now = Date.now();
+    if (now - lastMessageTime < CLIENT_MIN_INTERVAL) {
+      const errorDiv = document.createElement("div");
+      errorDiv.className = "message system";
+      errorDiv.innerHTML = '<div class="message-content">Příliš rychlé dotazy. Zkuste to za chvíli.</div>';
+      chatbotMessages.appendChild(errorDiv);
+      scrollToBottom();
+      return;
+    }
+
+    const query = chatbotInput.value.trim();
+    if (!query) return;
+
+    addMessage("user", query);
+    chatbotInput.value = "";
+    chatbotInput.disabled = true;
+    chatbotInputForm.querySelector("button").disabled = true;
+    
+    chatbotTypingIndicator.classList.add("active");
+    statusDot.className = "avatar-status-dot typing";
+    scrollToBottom();
+
+    lastMessageTime = Date.now();
+
+    try {
+      const savedKey = getSavedKey();
+      let responseText = "";
+      
+      if (savedKey) {
+        responseText = await callGeminiDirectly(savedKey, chatHistory, state.selectedSubject || "general");
+      } else {
+        responseText = await callProxyServer(chatHistory, state.selectedSubject || "general");
+      }
+
+      chatbotTypingIndicator.classList.remove("active");
+      statusDot.className = "avatar-status-dot online";
+      addMessage("assistant", responseText);
+    } catch (err) {
+      console.error(err);
+      chatbotTypingIndicator.classList.remove("active");
+      statusDot.className = "avatar-status-dot online";
+      
+      const errorDiv = document.createElement("div");
+      errorDiv.className = "message system";
+      errorDiv.innerHTML = `<div class="message-content">Chyba: ${err.message}</div>`;
+      chatbotMessages.appendChild(errorDiv);
+      scrollToBottom();
+    } finally {
+      chatbotInput.disabled = false;
+      chatbotInputForm.querySelector("button").disabled = false;
+      chatbotInput.focus();
+    }
+  });
+
+  // Dynamic Suggestion Chips and Theme Accent adaptation
+  const updateChatbotContext = (subject) => {
+    // Remove old classes
+    chatbotContainer.classList.remove(
+      "context-patfyz",
+      "context-patola",
+      "context-oset",
+      "context-farmakologie",
+      "context-dermatologie"
+    );
+    
+    let contextLabel = "Obecný medicínský rádce 🤖";
+    let suggestions = [];
+
+    if (subject === "patfyz") {
+      chatbotContainer.classList.add("context-patfyz");
+      contextLabel = "Asistent pro Patofyziologii ⚡";
+      suggestions = [
+        { label: "Vznik edémů", query: "Vysvětli patofyziologické mechanismy vzniku edémů u srdečního selhání." },
+        { label: "Hypoxie vs Hypoxémie", query: "Jaký je rozdíl mezi hypoxií a hypoxémií a jaké jsou hlavní příčiny?" }
+      ];
+    } else if (subject === "patola") {
+      chatbotContainer.classList.add("context-patola");
+      contextLabel = "Asistent pro Patologii 🔬";
+      suggestions = [
+        { label: "Typy nekróz", query: "Vyjmenuj a popiš základní typy nekróz a uveď příklady." },
+        { label: "Staging vs Grading", query: "Jaký je rozdíl mezi gradingem a stagingem u nádorů?" }
+      ];
+    } else if (subject === "oset") {
+      chatbotContainer.classList.add("context-oset");
+      contextLabel = "Asistent pro Ošetřovatelství 🩺";
+      suggestions = [
+        { label: "Prevence dekubitů", query: "Jaké jsou ošetřovatelské postupy pro prevenci dekubitů u ležících pacientů?" },
+        { label: "Ošetřovatelský proces", query: "Popiš fáze ošetřovatelského procesu." }
+      ];
+    } else if (subject === "farmakologie") {
+      chatbotContainer.classList.add("context-farmakologie");
+      contextLabel = "Asistent pro Farmakologii 💊";
+      suggestions = [
+        { label: "First-pass efekt", query: "Vysvětli, co znamená first-pass efekt léčiva." },
+        { label: "Beta-blokátory", query: "Jaký je mechanismus účinku a hlavní nežádoucí účinky beta-blokátorů?" }
+      ];
+    } else if (subject === "dermatologie") {
+      chatbotContainer.classList.add("context-dermatologie");
+      contextLabel = "Asistent pro Dermatologii ☀️";
+      suggestions = [
+        { label: "ABCDE melanomu", query: "Vysvětli klinické pravidlo ABCDE pro hodnocení melanomu." },
+        { label: "Primární eflorescence", query: "Co jsou to primární eflorescence a uveď příklady." }
+      ];
+    } else {
+      // Default / General
+      suggestions = [
+        { label: "Apoptóza vs Nekróza", query: "Vysvětli rozdíl mezi nekrózou a apoptózou." },
+        { label: "Známky zánětu", query: "Jaké jsou typické místní známky zánětu?" }
+      ];
+    }
+
+    chatbotSubjectContext.textContent = contextLabel;
+
+    // Render suggestion chips
+    chatbotSuggestions.innerHTML = "";
+    suggestions.forEach(s => {
+      const chip = document.createElement("button");
+      chip.type = "button";
+      chip.className = "suggestion-chip";
+      chip.textContent = s.label;
+      chip.addEventListener("click", () => {
+        chatbotInput.value = s.query;
+        chatbotInputForm.dispatchEvent(new Event("submit"));
+      });
+      chatbotSuggestions.appendChild(chip);
+    });
+  };
+
+  // Expose context updater globally so subject switches can invoke it
+  window.updateChatbotContext = updateChatbotContext;
+
+  // Initialize suggestions
+  updateChatbotContext(state.selectedSubject);
 
   // Inicializace výchozího stavu
   selectGrade(3);
