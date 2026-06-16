@@ -134,10 +134,27 @@ module.exports = async (req, res) => {
   }
 
   try {
-    const contents = messages.map(msg => ({
-      role: msg.role === 'model' || msg.role === 'assistant' ? 'model' : 'user',
-      parts: [{ text: msg.text }]
-    }));
+    // Format messages for the Gemini API, ensuring strict alternation and user role start
+    const contents = [];
+    let lastRole = null;
+    for (const msg of messages) {
+      const role = msg.role === 'model' || msg.role === 'assistant' ? 'model' : 'user';
+      if (role === lastRole) continue; // Skip consecutive identical roles to prevent Gemini API errors
+      contents.push({
+        role,
+        parts: [{ text: msg.text }]
+      });
+      lastRole = role;
+    }
+    
+    // The conversation must start with a user message
+    if (contents.length > 0 && contents[0].role !== 'user') {
+      contents.shift();
+    }
+
+    if (contents.length === 0) {
+      return res.status(400).json({ error: "Historie po pročištění neobsahuje žádné platné dotazy." });
+    }
 
     const systemInstructionText = systemInstructions[subject] || systemInstructions.general;
 
@@ -152,8 +169,26 @@ module.exports = async (req, res) => {
         },
         generationConfig: {
           temperature: 0.7,
-          maxOutputTokens: 800,
-        }
+          maxOutputTokens: 1500,
+        },
+        safetySettings: [
+          {
+            category: "HARM_CATEGORY_HARASSMENT",
+            threshold: "BLOCK_NONE"
+          },
+          {
+            category: "HARM_CATEGORY_HATE_SPEECH",
+            threshold: "BLOCK_NONE"
+          },
+          {
+            category: "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+            threshold: "BLOCK_NONE"
+          },
+          {
+            category: "HARM_CATEGORY_DANGEROUS_CONTENT",
+            threshold: "BLOCK_NONE"
+          }
+        ]
       })
     });
 
