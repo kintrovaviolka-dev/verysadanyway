@@ -910,10 +910,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const callGeminiDirectly = async (key, messages, subject) => {
     const systemInstructionText = systemInstructions[subject] || systemInstructions.general;
     
-    const contents = messages.map(msg => ({
-      role: msg.role === "assistant" ? "model" : "user",
-      parts: [{ text: msg.text }]
-    }));
+    // Clean history: alternate roles and start with user
+    const contents = [];
+    let lastRole = null;
+    for (const msg of messages) {
+      const role = msg.role === "assistant" || msg.role === "model" ? "model" : "user";
+      if (role === lastRole) continue;
+      contents.push({
+        role,
+        parts: [{ text: msg.text }]
+      });
+      lastRole = role;
+    }
+    if (contents.length > 0 && contents[0].role !== "user") {
+      contents.shift();
+    }
+    if (contents.length === 0) {
+      throw new Error("Žádné platné zprávy k odeslání.");
+    }
 
     const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`, {
       method: "POST",
@@ -927,8 +941,26 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         generationConfig: {
           temperature: 0.7,
-          maxOutputTokens: 800
-        }
+          maxOutputTokens: 1500
+        },
+        safetySettings: [
+          {
+            category: "HARM_CATEGORY_HARASSMENT",
+            threshold: "BLOCK_NONE"
+          },
+          {
+            category: "HARM_CATEGORY_HATE_SPEECH",
+            threshold: "BLOCK_NONE"
+          },
+          {
+            category: "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+            threshold: "BLOCK_NONE"
+          },
+          {
+            category: "HARM_CATEGORY_DANGEROUS_CONTENT",
+            threshold: "BLOCK_NONE"
+          }
+        ]
       })
     });
 
@@ -990,6 +1022,11 @@ document.addEventListener("DOMContentLoaded", () => {
       chatbotTypingIndicator.classList.remove("active");
       statusDot.className = "avatar-status-dot online";
       
+      // Clean up chatHistory by popping the failed user query
+      if (chatHistory.length > 0 && chatHistory[chatHistory.length - 1].role === "user") {
+        chatHistory.pop();
+      }
+
       const errorDiv = document.createElement("div");
       errorDiv.className = "message system";
       errorDiv.innerHTML = `<div class="message-content">Chyba: ${err.message}</div>`;
