@@ -110,13 +110,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Kliknutí na ročník
   document.querySelectorAll(".grade-card").forEach(card => {
-    card.addEventListener("click", () => {
+    const handleGradeClick = () => {
       if (card.classList.contains("locked")) {
         alert("Tento ročník se připravuje. Nyní jsou k dispozici portály pro 3. a 4. ročník.");
         return;
       }
       const grade = parseInt(card.getAttribute("data-grade"));
       selectGrade(grade);
+    };
+
+    card.addEventListener("click", handleGradeClick);
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        handleGradeClick();
+      }
     });
   });
 
@@ -209,23 +217,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  document.getElementById("subject-patfyz").addEventListener("click", () => selectSubject("patfyz"));
-  document.getElementById("subject-patola").addEventListener("click", () => selectSubject("patola"));
-  
-  const subjectOsetBtn = document.getElementById("subject-oset");
-  if (subjectOsetBtn) {
-    subjectOsetBtn.addEventListener("click", () => selectSubject("oset"));
-  }
+  const bindSubjectEvent = (elementId, subjectName) => {
+    const el = document.getElementById(elementId);
+    if (!el) return;
 
-  const subjectFarmaBtn = document.getElementById("subject-farmakologie");
-  if (subjectFarmaBtn) {
-    subjectFarmaBtn.addEventListener("click", () => selectSubject("farmakologie"));
-  }
+    const handler = () => selectSubject(subjectName);
+    el.addEventListener("click", handler);
+    el.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        handler();
+      }
+    });
+  };
 
-  const subjectDermaBtn = document.getElementById("subject-dermatologie");
-  if (subjectDermaBtn) {
-    subjectDermaBtn.addEventListener("click", () => selectSubject("dermatologie"));
-  }
+  bindSubjectEvent("subject-patfyz", "patfyz");
+  bindSubjectEvent("subject-patola", "patola");
+  bindSubjectEvent("subject-oset", "oset");
+  bindSubjectEvent("subject-farmakologie", "farmakologie");
+  bindSubjectEvent("subject-dermatologie", "dermatologie");
 
   // Návrat na předměty
   hubBackBtn.addEventListener("click", () => {
