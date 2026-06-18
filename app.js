@@ -118,6 +118,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const grade = parseInt(card.getAttribute("data-grade"));
       selectGrade(grade);
     });
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        card.click();
+      }
+    });
   });
 
   // Výběr předmětu
@@ -211,6 +217,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.getElementById("subject-patfyz").addEventListener("click", () => selectSubject("patfyz"));
   document.getElementById("subject-patola").addEventListener("click", () => selectSubject("patola"));
+
+  // Helper for keyboard accessibility on cards
+  const addKeyboardSupport = (btnId) => {
+    const btn = document.getElementById(btnId);
+    if (btn) {
+      btn.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          btn.click();
+        }
+      });
+    }
+  };
+
+  addKeyboardSupport("subject-patfyz");
+  addKeyboardSupport("subject-patola");
+  addKeyboardSupport("subject-oset");
+  addKeyboardSupport("subject-farmakologie");
+  addKeyboardSupport("subject-dermatologie");
   
   const subjectOsetBtn = document.getElementById("subject-oset");
   if (subjectOsetBtn) {
