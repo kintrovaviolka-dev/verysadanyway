@@ -81,6 +81,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Potah tablety nijak neovlivňuje plazmatickou vazbu léčiva."
         ]
       }
+    ],
+    "modern_updates": [
+      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
+      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
+      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
+      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
     ]
   },
   "pharm-2": {
@@ -164,6 +170,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Barva roztoku závisí na léčivu, mnohé jsou čiré a bezbarvé."
         ]
       }
+    ],
+    "modern_updates": [
+      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
+      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
+      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
+      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
     ]
   },
   "pharm-3": {
@@ -247,6 +259,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Eliminace probíhá močí, nikoliv slinami."
         ]
       }
+    ],
+    "modern_updates": [
+      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
+      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
+      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
+      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
     ]
   },
   "pharm-4": {
@@ -330,6 +348,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Fyziologický roztok nemá vliv na intracelulární přesun draslíku."
         ]
       }
+    ],
+    "modern_updates": [
+      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
+      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
+      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
+      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
     ]
   },
   "pharm-5": {
@@ -413,6 +437,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Fyziologický roztok je krystaloid, nikoli koloid."
         ]
       }
+    ],
+    "modern_updates": [
+      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
+      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
+      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
+      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
     ]
   },
   "pharm-6": {
@@ -496,6 +526,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Kortikosteroidy hojení ran naopak zpomalují a zvyšují riziko infekce."
         ]
       }
+    ],
+    "modern_updates": [
+      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
+      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
+      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
+      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
     ]
   },
   "pharm-7": {
@@ -579,6 +615,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Léčivo musí mít určitou rozpustnost v obou prostředích, aby mohlo difundovat."
         ]
       }
+    ],
+    "modern_updates": [
+      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
+      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
+      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
+      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
     ]
   },
   "pharm-8": {
@@ -662,6 +704,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Slinné žlázy nejsou inhalačními steroidy poškozovány."
         ]
       }
+    ],
+    "modern_updates": [
+      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
+      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
+      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
+      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
     ]
   },
   "pharm-9": {
@@ -745,6 +793,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Ušní kapky působí lokálně, resorpce do krve zvukovodem není cílem."
         ]
       }
+    ],
+    "modern_updates": [
+      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
+      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
+      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
+      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
     ]
   },
   "pharm-10": {
@@ -828,6 +882,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Estriol v této formě a dávce nepůsobí jako antikoncepce."
         ]
       }
+    ],
+    "modern_updates": [
+      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
+      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
+      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
+      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
     ]
   },
   "pharm-11": {
@@ -911,6 +971,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Stolice není standardním parametrem bioekvivalence, měří se koncentrace v plazmě."
         ]
       }
+    ],
+    "modern_updates": [
+      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
+      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
+      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
+      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
     ]
   },
   "pharm-12": {
@@ -994,6 +1060,12 @@ const PHARM_DETAILS = {
           "Nesprávně. $V_d$ se počítá pouze pro absorbované léčivo."
         ]
       }
+    ],
+    "modern_updates": [
+      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
+      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
+      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
+      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
     ]
   },
   "pharm-13": {
@@ -1077,6 +1149,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Penicilin G je aktivní přímo a vylučuje se ledvinami nezměněn."
         ]
       }
+    ],
+    "modern_updates": [
+      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
+      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
+      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
+      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
     ]
   },
   "pharm-14": {
@@ -1160,6 +1238,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Úprava pH moči je standardní eliminační metodou u intoxikace salicyláty nebo fenobarbitalem."
         ]
       }
+    ],
+    "modern_updates": [
+      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
+      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
+      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
+      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
     ]
   },
   "pharm-15": {
@@ -1243,6 +1327,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Ibuprofen specificky inhibuje enzym COX."
         ]
       }
+    ],
+    "modern_updates": [
+      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
+      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
+      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
+      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
     ]
   },
   "pharm-16": {
@@ -1326,6 +1416,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Vylučování plícemi s tím nesouvisí."
         ]
       }
+    ],
+    "modern_updates": [
+      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
+      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
+      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
+      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
     ]
   },
   "pharm-17": {
@@ -1409,6 +1505,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Otevření kanálu je typické pro ionotropní receptory, nikoliv přenos přes G-proteiny."
         ]
       }
+    ],
+    "modern_updates": [
+      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
+      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
+      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
+      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
     ]
   },
   "pharm-18": {
@@ -1492,6 +1594,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Poločas s terapeutickým indexem nesouvisí (např. digoxin má dlouhý poločas, heparin krátký, a oba mají úzký TI)."
         ]
       }
+    ],
+    "modern_updates": [
+      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
+      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
+      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
+      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
     ]
   },
   "pharm-19": {
@@ -1575,6 +1683,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Aminoglykosidy neovlivňují hladinu glukózy v krvi."
         ]
       }
+    ],
+    "modern_updates": [
+      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
+      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
+      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
+      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
     ]
   },
   "pharm-20": {
@@ -1658,6 +1772,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Albumin je krystaloidní/koloidní náhrada bez vlivu na koordinaci pohybů."
         ]
       }
+    ],
+    "modern_updates": [
+      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
+      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
+      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
+      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
     ]
   },
   "pharm-21": {
@@ -1741,6 +1861,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Hypertrofii dásní způsobuje spíše cyklosporin, fenytoin nebo blokátory vápníkových kanálků."
         ]
       }
+    ],
+    "modern_updates": [
+      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
+      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
+      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
+      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
     ]
   },
   "pharm-22": {
@@ -1824,6 +1950,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Léčiva mléko v prsu nedegradují."
         ]
       }
+    ],
+    "modern_updates": [
+      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
+      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
+      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
+      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
     ]
   },
   "pharm-23": {
@@ -1907,6 +2039,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Vztahuje se na všechna běžná alopatická léčiva."
         ]
       }
+    ],
+    "modern_updates": [
+      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
+      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
+      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
+      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
     ]
   },
   "pharm-24": {
@@ -1990,6 +2128,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Atropin je parasympatolytikum bez rizika závislosti."
         ]
       }
+    ],
+    "modern_updates": [
+      "V psychofarmakologii se intenzivně zkoumají rychle působící antidepresiva na bázi modulátorů glutamátergního systému (např. esketamin) pro léčbu farmakorezistentní deprese.",
+      "Stoupá význam farmakogenomiky v psychiatrii, zejména testování polymorfismů cytochromu P450 (CYP2D6, CYP2C19) pro predikci snášenlivosti a účinnosti SSRI a antipsychotik.",
+      "Nové přístupy k léčbě neurodegenerativních onemocnění se zaměřují na ovlivnění patologických proteinů pomocí monoklonálních protilátek (např. lecanemab u Alzheimerovy choroby).",
+      "V terapii chronické bolesti se prosazuje multimodální přístup a omezování preskripce opioidů z důvodu rizika vzniku závislosti, s větším důrazem na koanalgetika a nefarmakologické postupy."
     ]
   },
   "pharm-25": {
@@ -2073,6 +2217,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Evropská registrace spadá pod EMA (European Medicines Agency), ne pod parlament."
         ]
       }
+    ],
+    "modern_updates": [
+      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
+      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
+      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
+      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
     ]
   },
   "pharm-26": {
@@ -2156,6 +2306,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Nepůsobí lokálně anesteticky."
         ]
       }
+    ],
+    "modern_updates": [
+      "V psychofarmakologii se intenzivně zkoumají rychle působící antidepresiva na bázi modulátorů glutamátergního systému (např. esketamin) pro léčbu farmakorezistentní deprese.",
+      "Stoupá význam farmakogenomiky v psychiatrii, zejména testování polymorfismů cytochromu P450 (CYP2D6, CYP2C19) pro predikci snášenlivosti a účinnosti SSRI a antipsychotik.",
+      "Nové přístupy k léčbě neurodegenerativních onemocnění se zaměřují na ovlivnění patologických proteinů pomocí monoklonálních protilátek (např. lecanemab u Alzheimerovy choroby).",
+      "V terapii chronické bolesti se prosazuje multimodální přístup a omezování preskripce opioidů z důvodu rizika vzniku závislosti, s větším důrazem na koanalgetika a nefarmakologické postupy."
     ]
   },
   "pharm-27": {
@@ -2239,6 +2395,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Vazba je reverzibilní a receptory nepoškozuje."
         ]
       }
+    ],
+    "modern_updates": [
+      "V psychofarmakologii se intenzivně zkoumají rychle působící antidepresiva na bázi modulátorů glutamátergního systému (např. esketamin) pro léčbu farmakorezistentní deprese.",
+      "Stoupá význam farmakogenomiky v psychiatrii, zejména testování polymorfismů cytochromu P450 (CYP2D6, CYP2C19) pro predikci snášenlivosti a účinnosti SSRI a antipsychotik.",
+      "Nové přístupy k léčbě neurodegenerativních onemocnění se zaměřují na ovlivnění patologických proteinů pomocí monoklonálních protilátek (např. lecanemab u Alzheimerovy choroby).",
+      "V terapii chronické bolesti se prosazuje multimodální přístup a omezování preskripce opioidů z důvodu rizika vzniku závislosti, s větším důrazem na koanalgetika a nefarmakologické postupy."
     ]
   },
   "pharm-28": {
@@ -2322,6 +2484,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Záměna chemické struktury v krvi na jinou třídu antikoagulancií není možná."
         ]
       }
+    ],
+    "modern_updates": [
+      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
+      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
+      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
+      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
     ]
   },
   "pharm-29": {
@@ -2405,6 +2573,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Indukovaný stav přetrvává dny až týdny po vysazení induktoru, dokud nedojde k přirozenému turnoveru enzymů."
         ]
       }
+    ],
+    "modern_updates": [
+      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
+      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
+      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
+      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
     ]
   },
   "pharm-30": {
@@ -2488,6 +2662,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Jedná se o obecný termín, v kontextu farmakologie se vztahuje na nízkomolekulární léčiva."
         ]
       }
+    ],
+    "modern_updates": [
+      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
+      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
+      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
+      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
     ]
   },
   "pharm-31": {
@@ -2572,6 +2752,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Rychlost polykání nemá vliv na imunologickou reaktivitu."
         ]
       }
+    ],
+    "modern_updates": [
+      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
+      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
+      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
+      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
     ]
   },
   "pharm-32": {
@@ -2655,6 +2841,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Studie se provádí u běžné cílové populace pro danou indikaci."
         ]
       }
+    ],
+    "modern_updates": [
+      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
+      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
+      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
+      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
     ]
   },
   "pharm-33": {
@@ -2738,6 +2930,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Midazolam je citlivým substrátem a vliv induktorů je zásadní."
         ]
       }
+    ],
+    "modern_updates": [
+      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
+      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
+      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
+      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
     ]
   },
   "pharm-34": {
@@ -2821,6 +3019,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Diazepam se metabolizuje přes CYP2C19 a CYP3A4 a nemá vliv na aktivitu CYP2D6."
         ]
       }
+    ],
+    "modern_updates": [
+      "V psychofarmakologii se intenzivně zkoumají rychle působící antidepresiva na bázi modulátorů glutamátergního systému (např. esketamin) pro léčbu farmakorezistentní deprese.",
+      "Stoupá význam farmakogenomiky v psychiatrii, zejména testování polymorfismů cytochromu P450 (CYP2D6, CYP2C19) pro predikci snášenlivosti a účinnosti SSRI a antipsychotik.",
+      "Nové přístupy k léčbě neurodegenerativních onemocnění se zaměřují na ovlivnění patologických proteinů pomocí monoklonálních protilátek (např. lecanemab u Alzheimerovy choroby).",
+      "V terapii chronické bolesti se prosazuje multimodální přístup a omezování preskripce opioidů z důvodu rizika vzniku závislosti, s větším důrazem na koanalgetika a nefarmakologické postupy."
     ]
   },
   "pharm-35": {
@@ -2904,6 +3108,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Kofein se metabolizuje pomalu v játrech a vylučuje se ledvinami, exkrece kůží je zanedbatelná."
         ]
       }
+    ],
+    "modern_updates": [
+      "V psychofarmakologii se intenzivně zkoumají rychle působící antidepresiva na bázi modulátorů glutamátergního systému (např. esketamin) pro léčbu farmakorezistentní deprese.",
+      "Stoupá význam farmakogenomiky v psychiatrii, zejména testování polymorfismů cytochromu P450 (CYP2D6, CYP2C19) pro predikci snášenlivosti a účinnosti SSRI a antipsychotik.",
+      "Nové přístupy k léčbě neurodegenerativních onemocnění se zaměřují na ovlivnění patologických proteinů pomocí monoklonálních protilátek (např. lecanemab u Alzheimerovy choroby).",
+      "V terapii chronické bolesti se prosazuje multimodální přístup a omezování preskripce opioidů z důvodu rizika vzniku závislosti, s větším důrazem na koanalgetika a nefarmakologické postupy."
     ]
   },
   "pharm-36": {
@@ -2987,6 +3197,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Rozdíly mezi PPI v inhibici CYP2C19 jsou klinicky významné a popsané v SPC."
         ]
       }
+    ],
+    "modern_updates": [
+      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
+      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
+      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
+      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
     ]
   },
   "pharm-37": {
@@ -3070,6 +3286,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Lokální oční kapky se nevstřebávají v množství vyžadujícím systémové TDM."
         ]
       }
+    ],
+    "modern_updates": [
+      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
+      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
+      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
+      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
     ]
   },
   "pharm-38": {
@@ -3153,6 +3375,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Hydrofilita usnadňuje stanovení v plazmě."
         ]
       }
+    ],
+    "modern_updates": [
+      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
+      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
+      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
+      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
     ]
   },
   "pharm-39": {
@@ -3236,6 +3464,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Exkrece potem je pro digoxin zanedbatelná."
         ]
       }
+    ],
+    "modern_updates": [
+      "Moderní farmakoterapie srdečního selhání se opírá o tzv. 'fantastickou čtyřku' (ARNI, beta-blokátory, MRA a SGLT2 inhibitory), která signifikantně snižuje mortalitu a morbiditu.",
+      "Inhibitory SGLT2 (glifloziny), původně antidiabetika, se staly pilířem léčby srdečního selhání bez ohledu na přítomnost diabetu díky svým pleiotropním kardioprotektivním účinkům.",
+      "V léčbě dyslipidemií se stále více prosazují biologické léky typu inhibitorů PCSK9 (např. evolokumab, alirokumab) a nově také siRNA terapie (inklisiran) s prodlouženým účinkem.",
+      "Personalizovaný přístup v kardiologii využívá farmakogenetické testování (např. CYP2C19 u klopidogrelu) pro optimalizaci antiagregační terapie po akutním koronárním syndromu."
     ]
   },
   "pharm-40": {
@@ -3319,6 +3553,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Teplota roztoku musí být blízká tělesné teplotě k zamezení dráždění cév a flebitidy."
         ]
       }
+    ],
+    "modern_updates": [
+      "V současné době roste důraz na tzv. antimikrobiální stewardship (AMS), jehož cílem je optimalizace preskripce a snížení rizika vzniku rezistence.",
+      "S nástupem nových metod rychlé mikrobiologické diagnostiky (např. MALDI-TOF, PCR panely) lze cílenou terapii zahájit dříve, čímž se zkracuje doba empirického podávání širokospektrých antibiotik.",
+      "Stále častěji se zvažuje také TDM (terapeutické monitorování) nejen u aminoglykosidů a vankomycinu, ale i u beta-laktamů, zejména u kriticky nemocných pacientů se změněnou farmakokinetikou.",
+      "Klinickým trendem je rovněž zkracování délky antibiotické léčby u nekomplikovaných infekcí (např. komunitní pneumonie, uroinfekce) na základě biomarkerů jako je prokalcitonin."
     ]
   },
   "pharm-41": {
@@ -3402,6 +3642,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Plicní fibrózu vyvolává např. amiodaron nebo bleomycin, nikoliv aminoglykosidy."
         ]
       }
+    ],
+    "modern_updates": [
+      "V současné době roste důraz na tzv. antimikrobiální stewardship (AMS), jehož cílem je optimalizace preskripce a snížení rizika vzniku rezistence.",
+      "S nástupem nových metod rychlé mikrobiologické diagnostiky (např. MALDI-TOF, PCR panely) lze cílenou terapii zahájit dříve, čímž se zkracuje doba empirického podávání širokospektrých antibiotik.",
+      "Stále častěji se zvažuje také TDM (terapeutické monitorování) nejen u aminoglykosidů a vankomycinu, ale i u beta-laktamů, zejména u kriticky nemocných pacientů se změněnou farmakokinetikou.",
+      "Klinickým trendem je rovněž zkracování délky antibiotické léčby u nekomplikovaných infekcí (např. komunitní pneumonie, uroinfekce) na základě biomarkerů jako je prokalcitonin."
     ]
   },
   "pharm-42": {
@@ -3485,6 +3731,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Metoprolol je sám substrátem CYP2D6, CYP1A2 neinhibuje."
         ]
       }
+    ],
+    "modern_updates": [
+      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
+      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
+      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
+      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
     ]
   },
   "pharm-43": {
@@ -3568,6 +3820,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Paréza nervus facialis má infekční či chladovou etiologii, nesouvisí s hladinou antiepileptik."
         ]
       }
+    ],
+    "modern_updates": [
+      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
+      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
+      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
+      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
     ]
   },
   "pharm-44": {
@@ -3651,6 +3909,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Laboratoře je měřit umí, ale z klinického hlediska to není nákladově efektivní pro běžné pacienty."
         ]
       }
+    ],
+    "modern_updates": [
+      "Moderní farmakoterapie srdečního selhání se opírá o tzv. 'fantastickou čtyřku' (ARNI, beta-blokátory, MRA a SGLT2 inhibitory), která signifikantně snižuje mortalitu a morbiditu.",
+      "Inhibitory SGLT2 (glifloziny), původně antidiabetika, se staly pilířem léčby srdečního selhání bez ohledu na přítomnost diabetu díky svým pleiotropním kardioprotektivním účinkům.",
+      "V léčbě dyslipidemií se stále více prosazují biologické léky typu inhibitorů PCSK9 (např. evolokumab, alirokumab) a nově také siRNA terapie (inklisiran) s prodlouženým účinkem.",
+      "Personalizovaný přístup v kardiologii využívá farmakogenetické testování (např. CYP2C19 u klopidogrelu) pro optimalizaci antiagregační terapie po akutním koronárním syndromu."
     ]
   },
   "pharm-45": {
@@ -3734,6 +3998,12 @@ const PHARM_DETAILS = {
           "Nesprávně. EPS jsou charakterizovány neklidem (akatizií) nebo křečemi, nikoliv klidným spánkem."
         ]
       }
+    ],
+    "modern_updates": [
+      "V psychofarmakologii se intenzivně zkoumají rychle působící antidepresiva na bázi modulátorů glutamátergního systému (např. esketamin) pro léčbu farmakorezistentní deprese.",
+      "Stoupá význam farmakogenomiky v psychiatrii, zejména testování polymorfismů cytochromu P450 (CYP2D6, CYP2C19) pro predikci snášenlivosti a účinnosti SSRI a antipsychotik.",
+      "Nové přístupy k léčbě neurodegenerativních onemocnění se zaměřují na ovlivnění patologických proteinů pomocí monoklonálních protilátek (např. lecanemab u Alzheimerovy choroby).",
+      "V terapii chronické bolesti se prosazuje multimodální přístup a omezování preskripce opioidů z důvodu rizika vzniku závislosti, s větším důrazem na koanalgetika a nefarmakologické postupy."
     ]
   },
   "pharm-46": {
@@ -3817,6 +4087,12 @@ const PHARM_DETAILS = {
           "Nesprávně. Deficit metabolického enzymu zvyšuje citlivost k nežádoucím účinkům, nezpůsobuje lékovou rezistenci nádoru."
         ]
       }
+    ],
+    "modern_updates": [
+      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
+      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
+      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
+      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
     ]
   }
 };
@@ -3829,6 +4105,8 @@ function mergePharmDetails() {
       const kineticsHTML = rich.kinetics ? rich.kinetics.map(k => `<li>${k}</li>`).join("") : "";
       const dynamicsHTML = rich.dynamics ? rich.dynamics.map(d => `<li>${d}</li>`).join("") : "";
       const clinicalHTML = rich.clinical ? rich.clinical.map(c => `<li>${c}</li>`).join("") : "";
+      const modernHTML = rich.modern_updates ? rich.modern_updates.map(m => `<li>${m}</li>`).join("") : "";
+
       
       const tableRowsHTML = rich.tableData ? rich.tableData.map(row => `
         <tr>
@@ -3867,6 +4145,13 @@ function mergePharmDetails() {
             <h3>4. Klinická aplikace, dávkování a zvláštní skupiny</h3>
             <ul>
               ${clinicalHTML}
+            </ul>
+          </section>
+
+          <section>
+            <h3>Aktuality a moderní trendy (Rozšíření)</h3>
+            <ul style="color: var(--color-primary);">
+              ${modernHTML}
             </ul>
           </section>
 
