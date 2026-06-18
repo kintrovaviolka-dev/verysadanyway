@@ -83,10 +83,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
-      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
-      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
-      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
+      "Nové generace systémů s modifikovaným uvolňováním (MR) se zaměřují na přesnější časování a lokalizaci účinku. Příkladem jsou osmotické pumpy (např. OROS technologie u methylfenidátu nebo nifedipinu), které zajišťují konstantní uvolňování po delší dobu nezávisle na pH GIT, nebo gastroretentivní systémy (např. floating tablety pro léčiva s úzkým absorpčním oknem, jako je levodopa), prodlužující setrvání v žaludku a optimalizující absorpci.",
+      "Rostoucí obliba orodisperzních tablet (ODT) a orálních filmů (ODF) představuje pokrok v perorálních formách, zejména u pacientů s dysfagií (děti, senioři) nebo tam, kde je požadován rychlý nástup účinku bez nutnosti zapíjení vodou. Typickými příklady jsou ODT formy antiemetik (ondansetron), antipsychotik (olanzapin, aripiprazol) nebo triptanů (zolmitriptan) pro akutní záchvaty migrény, využívající rychlou absorpci přes sliznici ústní dutiny a částečně obcházející first-pass efekt.",
+      "Vývoj prodrugů a cílených lékových forem pro gastrointestinální trakt je klíčový pro léčbu zánětlivých střevních onemocnění (IBD). Například mesalazin (5-aminosalicylová kyselina) je formulován v enterosolventních potazích (např. Eudragit® obaly) nebo ve formě prodrugů (sulfasalazin, olsalazin), které se aktivují bakteriálními enzymy v tlustém střevě, zajišťující vysokou koncentraci léčiva lokálně a minimalizující systémovou absorpci a nežádoucí účinky.",
+      "Moderní farmakokinetické studie detailně objasňují vliv potravy na absorpci léčiv z enterálních forem. Například lipofilní léčiva (např. některá perorální antimykotika jako posakonazol, griseofulvin nebo vitamíny rozpustné v tucích) vyžadují příjem s tučným jídlem pro zvýšení rozpustnosti a emulgace, což vede k výraznému zlepšení biologické dostupnosti. Naopak, bisfosfonáty (např. alendronát, risedronát) musí být podávány nalačno s dostatečným množstvím vody kvůli minimalizaci chelace s kationty v potravě a prevenci lokální iritace jícnu."
     ]
   },
   "pharm-2": {
@@ -172,10 +172,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
-      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
-      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
-      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
+      "Aktuální trend v oblasti psychofarmakologie a léčby HIV infekce představují dlouhodobě působící parenterální formy (Long-Acting Injectables, LAIs). Tyto depotní formulace, často na bázi polymerních mikrosfér (např. aripiprazol pro schizofrenii – Abilify Maintena, nebo risperidon – Risperdal Consta) či nanokrystalických suspenzí (např. paliperidon palmitát – Invega Trinza pro 3-měsíční interval), umožňují uvolňování léčiva po dobu týdnů až měsíců po jediné intramuskulární injekci. Zajišťují tak výrazné zlepšení adherence pacienta k léčbě a snížení zátěže spojené s denním užíváním léků. Nově se objevují i kombinace pro HIV (např. kabotegravir + rilpivirin, Cabenuva) s měsíční nebo dvouměsíční aplikací.",
+      "V oblasti biologické léčby a monoklonálních protilátek se stále více prosazují vysokokoncentrované subkutánní (s.c.) formulace, které umožňují domácí self-aplikaci a snižují zátěž nemocniční péče. Klíčovou inovací je kofungování léčiva s rekombinantní lidskou hyaluronidázou (rHuPH20), která dočasně depolymerizuje extracelulární matrix (hyaluronan) v podkoží, čímž zvyšuje disperzi a absorpci velkých objemů léčiva (až 15 ml). Příkladem je subkutánní kombinace trastuzumabu a pertuzumabu (Phesgo) pro léčbu HER2-pozitivního karcinomu prsu, která významně zkracuje dobu podání oproti intravenózním infuzím.",
+      "Pro minimalizaci chyb při parenterální aplikaci a ochranu personálu se standardizují „chytré“ infuzní pumpy (smart pumps) s integrovanými knihovnami léčiv a systémy pro redukci chyb dávkování (DERS – Dose Error Reduction Systems). Tyto systémy porovnávají naprogramované dávky s přednastavenými bezpečnými limity a alarmují v případě překročení. Dále se pro manipulaci s cytostatiky a jinými nebezpečnými léčivy staly nezbytnými systémy uzavřeného přenosu (CSTD – Closed-System Transfer Devices), které mechanicky zabraňují úniku léčiva a par do okolí a expozici zdravotnického personálu během přípravy a podání.",
+      "Moderní přístup k parenterální aplikaci klade důraz na sofistikovanou prevenci a management extravazace, zejména u vesikantních léčiv (např. cytostatika jako antracykliny – doxorubicin, vinca alkaloidy – vinkristin). Aktuální guidelines doporučují okamžité rozpoznání a specifickou intervenci: u antracyklinů je indikován lokální aplikátor dexrazoxanu (Savene), u vinca alkaloidů hyaluronidáza. Důraz je kladen na správnou volbu místa vpichu (ideálně centrální žilní přístup pro vesikanty), precizní techniku podání a edukaci pacienta o časných příznacích, aby se minimalizovalo riziko tkáňové nekrózy a trvalého poškození."
     ]
   },
   "pharm-3": {
@@ -261,10 +261,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
-      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
-      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
-      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
+      "Nejnovější doporučení pro volumoterapii u kriticky nemocných pacientů (např. sepse, traumatický šok) jednoznačně upřednostňují balancované krystaloidy (např. Plasmalyte, Ringer-laktát) před 0.9% fyziologickým roztokem, a to na základě robustních klinických studií prokazujících snížené riziko akutního poškození ledvin (AKI) a mortality. Mechanismus souvisí s prevencí hyperchloremické metabolické acidózy a následné renální vazokonstrikce způsobené nadměrným přísunem chloridů.",
+      "Koncept tzv. 'fluid stewardship' (rozvážné správy tekutin) se stává klíčovým, posouvající se od paušálních infuzí k dynamické volumoterapii založené na odpovědi pacienta. To zahrnuje hodnocení hemodynamických parametrů (např. změny tepového objemu při pasivním zdvihu dolních končetin, variabilita tepového objemu při umělé plicní ventilaci) k predikci fluid-responzivity, čímž se minimalizuje riziko volumového přetížení a s ním spojených nežádoucích účinků, jako je edém orgánů a zhoršená oxygenace.",
+      "Moderní přístupy k léčbě chronické hypernatremie zdůrazňují nutnost velmi pomalé korekce sérové koncentrace sodíku (maximálně 8-10 mmol/l za 24 hodin) k prevenci osmotického demyelinizačního syndromu. K tomuto účelu jsou preferovány hypotonické krystaloidy, jako je 5% glukóza (vedoucí k distribuci čisté vody po metabolickém odbourání glukózy) nebo 0.45% NaCl. Je klíčové monitorovat sérové elektrolyty každé 2-4 hodiny a individuálně titrovat rychlost infuze.",
+      "U pacientů s těžkou jaterní dysfunkcí nebo laktátovou acidózou je nutná zvýšená opatrnost při podávání balancovaných krystaloidů obsahujících laktát (např. Ringer-laktát). Redukovaná schopnost jater metabolizovat laktát na bikarbonát může vést k prohloubení acidózy nebo nedostatečné korekci. V takových případech jsou preferovány balancované roztoky s acetátem nebo malátem jako prekurzorem bikarbonátu, které mají odlišnou metabolickou cestu, nebo roztoky bez organických aniontů za pečlivého monitoringu acidobazické rovnováhy."
     ]
   },
   "pharm-4": {
@@ -350,10 +350,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
-      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
-      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
-      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
+      "V moderní klinické praxi se pro dlouhodobou kontrolu hyperkalemie, zejména u pacientů s chronickým onemocněním ledvin a/nebo při léčbě RAAS blokátory, významně prosazují nové perorální kalium-vazače, jako jsou **patiromer** (polymer vázající draslík ve střevě) a **natrium-zirkonium cyklosilikát** (selektivní anorganický měnič iontů). Tyto preparáty se staly klíčovými pro prevenci rekurentních epizod hyperkalemie, redukují potřebu akutních intervencí a jejich mechanismus účinku spočívá ve vazbě draslíku v gastrointestinálním traktu s následnou eliminací stolicí.",
+      "Aktuální doporučení pro podávání **hydrogenuhličitanu sodného** u metabolické acidózy (zejména laktátové) se stále více kloní k restriktivnímu přístupu. Aplikace je vyhrazena pro velmi závažné acidémie (pH < 7.0–7.1) a je zdůrazněno riziko *paradoxní intracelulární acidózy*, *hypernatrémie*, zhoršení uvolňování kyslíku tkáním a posunu disociační křivky hemoglobinu doleva. Podání je nedoporučeno u ketoacidózy bez hemodynamických obtíží nebo u renální tubulární acidózy, kde může zhoršit hypokalémii.",
+      "V klinické praxi je kladen zvýšený důraz na korekci souběžné **hypomagnezémie**, která je častou, ale přehlíženou příčinou refrakterní hypokalémie a hypokalcémie. Hořčík je esenciální kofaktor pro aktivitu ATPáz (např. Na+/K+-ATPáza), klíčových pro transport draslíku a vápníku přes buněčné membrány. Proto je při neúspěšné substituci draslíku či vápníku nezbytné nejprve zkontrolovat a adekvátně doplnit hladinu hořčíku, často intravenózním podáním **magnesium sulfátu**.",
+      "Pro membránovou stabilizaci myokardu u život ohrožující hyperkalémie (>6.5 mmol/l s EKG změnami nebo >7.0 mmol/l) se upřednostňuje intravenózní podání **kalcium chloridu** (10% roztok, typicky 10 ml i.v. během 2-5 minut) před kalcium glukonátem. Důvodem je rychlejší nástup účinku (do 1-3 minut) a vyšší obsah elementárního vápníku. Je klíčové zdůraznit, že vápník antagonizuje kardiotoxický efekt draslíku, ale nesnižuje jeho sérovou koncentraci a jeho účinek je přechodný (30-60 minut), vyžadující EKG monitoraci a případné opakování dávky."
     ]
   },
   "pharm-5": {
@@ -439,10 +439,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
-      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
-      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
-      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
+      "V současné době je pro iniciální volumovou resuscitaci u většiny kriticky nemocných pacientů preferováno podání balancovaných krystaloidů (např. Ringer-laktát, Plasmalyte) před fyziologickým roztokem (0.9% NaCl), a to z důvodu minimalizace rizika rozvoje hyperchloremické metabolické acidózy a akutního poškození ledvin spojeného s objemovou náloží 0.9% NaCl.",
+      "Lidský albumin (zejména 20% roztok) je dle aktuálních doporučení (např. Surviving Sepsis Campaign) indikován jako doplňkový volumexpandér u pacientů se septickým šokem s přetrvávající hypotenzí i po dostatečné úvodní resuscitaci krystaloidy, s cílem optimalizace onkotického tlaku a redukce kapilárního úniku.",
+      "Podání samotných hypotonických roztoků glukózy (např. 5% glukóza) by mělo být minimalizováno u pacientů s rizikem nitrolební hypertenze nebo hyponatremické encefalopatie, jelikož po metabolizaci glukózy se chovají jako čistá volná voda a mohou exacerbovat edém mozku; v těchto případech jsou preferovány izotonické roztoky s elektrolyty.",
+      "Přestože želatinové roztoky (např. Gelofusine) zůstávají k dispozici, jejich použití jako volumexpandérů je stále více omezováno kvůli absenci prokazatelného benefitu v mortalitě oproti balancovaným krystaloidům a vyššímu riziku anafylaktoidních reakcí (až 0.05-0.1%) způsobených uvolněním histaminu."
     ]
   },
   "pharm-6": {
@@ -528,10 +528,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
-      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
-      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
-      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
+      "Zavádění nových topických imunosupresiv pro atopickou dermatitidu: Nástup topických JAK inhibitorů (např. ruxolitinib krém) a PDE4 inhibitorů (např. crisaborole mast) nabízí steroid-sparing alternativy pro léčbu mírné až středně těžké atopické dermatitidy. Ruxolitinib inhibuje signalizaci Janus kináz (JAK1/2), čímž potlačuje zánět a svědění, zatímco crisaborole selektivně inhibuje fosfodiesterázu-4 (PDE4), zvyšuje intracelulární cAMP a snižuje produkci prozánětlivých cytokinů. Tyto léky jsou cenné pro dlouhodobou léčbu citlivých oblastí (obličej, intertriginózní partie) a u pacientů s intolerancí či nedostatečnou odpovědí na kortikosteroidy.",
+      "Inovativní topické léky pro psoriázu s novým mechanismem účinku: Schválení topických agonistů aryl-hydrocarbonového receptoru (AhR), jako je tapinarof krém, představuje průlom v léčbě chronické ložiskové psoriázy. Tapinarof aktivuje cytosolický AhR, což vede k normalizaci diferenciace keratinocytů, redukci zánětu a potlačení oxidačního stresu, čímž se zlepšuje kožní bariéra. Tato třída nabízí dlouhodobou účinnost a dobrou snášenlivost, minimalizuje rizika spojená s dlouhodobým užíváním kortikosteroidů nebo kalcipotriolu.",
+      "Pokročilé systémy dodávání léčiv: Využití mikrojehličkových náplastí (microneedle patches) pro cílenou transdermální administraci farmak představuje významný posun. Tyto náplasti vytvářejí miniaturní, bezbolestné kanálky ve stratum corneum, což umožňuje efektivní penetraci makromolekulárních látek (např. peptidů, vakcín, specifických léčiv pro alopecii areata jako minoxidil nebo kortikosteroidy) do dermis, s minimalizací systémové expozice a zvýšením lokální biologické dostupnosti. Jsou ideální pro zlepšení compliance a snížení nežádoucích účinků.",
+      "Cílené terapie pro obnovu kožní bariéry a modulaci mikrobiomu: Moderní topické přípravky se zaměřují na specifickou obnovu narušené kožní bariéry pomocí fyziologických lipidů (např. specifické ceramidy jako ceramid-3/ceramid-NP, cholesterol, volné mastné kyseliny v poměru 3:1:1) a na modulaci kožního mikrobiomu (prebiotika, postbiotika). Tyto přístupy jsou klíčové pro léčbu atopické dermatitidy a jiných bariérových dysfunkcí, kde posilují integritu stratum corneum, snižují TEWL (transepidermální ztrátu vody) a redukují adhezi patogenních mikroorganismů, čímž snižují potřebu protizánětlivých léčiv."
     ]
   },
   "pharm-7": {
@@ -617,10 +617,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
-      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
-      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
-      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
+      "Mikrojehlové pole (Microneedle Arrays – MNA) představují pokročilou transdermální technologii, která umožňuje systémové podání látek s vyšší molekulovou hmotností, jako jsou peptidy (např. inzulin, parathormon) nebo vakcíny. MNA mechanicky překonávají stratum corneum, čímž obcházejí hlavní bariéru kůže a umožňují absorpci molekul, které by klasickými transdermálními systémy (TTS) neprošly. Tím se rozšiřuje spektrum léčiv vhodných pro transdermální aplikaci, snižuje se bolestivost oproti injekcím a nabízí potenciál pro přesnější kinetiku uvolňování.",
+      "V oblasti akutní medicíny a paliativní péče dochází k rozšíření terapeutického využití intranazálních a sublingválních lékových forem pro rychlý nástup účinku. Kromě již zavedeného intranasálního naloxonu pro reverzi opioidového útlumu a sublingválního fentanylu pro průlomovou bolest, se nově uplatňují např. intranazální esketamin (S-ketamin) pro léčbu rezistentní deprese či sublingvální apomorfin pro záchrannou terapii 'off' epizod u Parkinsonovy nemoci. Tyto formy využívají bohatého prokrvení sliznic a obcházejí first-pass metabolismus, zajišťujíce rychlé dosažení terapeutických plazmatických koncentrací.",
+      "Moderní klinická praxe klade důraz na individualizované dávkování transdermálních opioidů (fentanyl, buprenorfin) s ohledem na významnou inter-individuální variabilitu v absorpci. Tato variabilita je ovlivněna faktory jako tloušťka stratum corneum, prokrvení kůže a její hydratace. Nové poznatky zdůrazňují nutnost pečlivé titrace dávky a monitorování pacientů, zejména při přechodu z jiných forem opioidů. Zároveň se stále více zdůrazňuje riziko 'depotního efektu' po odstranění náplasti, kdy léčivo z kůže nadále proniká do oběhu, což je třeba zohlednit při zahájení alternativní analgetické léčby či v případě nutnosti rychlé reverze účinků.",
+      "V léčbě chronických onemocnění dochází k neustálému rozšiřování spektra léčiv podávaných transdermálně za účelem zlepšení adherence a minimalizace fluktuací plazmatických koncentrací. Příkladem jsou novější transdermální systémy pro léčbu Parkinsonovy nemoci (např. rotigotin, agonisté dopaminových receptorů) či pro hormonální substituční terapii (estradiol). Tyto formy umožňují udržení stabilních terapeutických hladin po dobu několika dní, což vede ke snížení frekvence podávání, zlepšení komfortu pacienta a redukci výskytu nežádoucích účinků spojených s vrcholovými plazmatickými koncentracemi (peak-and-trough efekt)."
     ]
   },
   "pharm-8": {
@@ -706,10 +706,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
-      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
-      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
-      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
+      "Upřednostňování fixních trojkombinací (ICS/LABA/LAMA, např. budesonid/formoterol/glykopyrronium nebo flutikason furoát/vilanterol/umeklidinium) v jednom inhalátoru pro management středně těžké až těžké CHOPN s anamnézou exacerbací. Tyto lékové formy optimalizují synchronizaci inhalace a zvyšují adherenci díky snížení počtu potřebných zařízení, čímž synergicky zlepšují bronchodilataci a potlačují zánět v dýchacích cestách.",
+      "Strategie SMART (Single inhaler Maintenance And Reliever Therapy) využívající kombinaci inhalačního kortikosteroidu (ICS) a rychle působícího beta-2 agonisty s dlouhodobým účinkem (LABA) formoterolu pro léčbu mírného až středně těžkého astmatu. Formoterol díky rychlému nástupu účinku slouží jako záchranná medikace, zatímco pravidelná přítomnost ICS tlumí zánět, což redukuje exacerbace a snižuje celkovou dávku SABA.",
+      "Vývoj a klinické zavádění nových generací ultra-dlouhodobě působících bronchodilatancií (Ultra-LABA, např. indacaterol, olodaterol; Ultra-LAMA, např. umeklidinium, glykopyrronium bromid) s dávkováním jednou denně. Tyto látky jsou často formulovány do specifických DPI (např. Ellipta, Breezhaler, HandiHaler), které jsou navrženy pro optimalizovanou plicní depozici a snížení orofaryngeálního úletu, což zvyšuje účinnost a minimalizuje lokální nežádoucí účinky.",
+      "Rozšíření spektra inhalačních lékových forem o antibiotika (např. tobramycin, aztreonam lysin, kolistin) a mukolytika (např. dornáza alfa) pro léčbu chronické plicní infekce u pacientů s cystickou fibrózou. Tato cílená aplikace umožňuje dosáhnout vysokých lokálních koncentrací v plicích, minimalizovat systémovou toxicitu a zlepšit průnik do biofilmu, což je kritické pro eradikaci Pseudomonas aeruginosa a zlepšení plicních funkcí."
     ]
   },
   "pharm-9": {
@@ -795,10 +795,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
-      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
-      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
-      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
+      "Aktuální trend v terapii glaukomu primárně s otevřeným úhlem zahrnuje rozšíření terapeutických možností o Rho-kinázové inhibitory (např. netarsudil). Tyto látky snižují nitrooční tlak primárně zvýšením odtoku komorové vody trabekulární sítí a Schlemovým kanálem, navíc mají potenciál snižovat tvorbu komorové vody. Jejich mechanismus účinku je odlišný od zavedených skupin (prostaglandinová analoga, beta-blokátory, inhibitory karboanhydrázy) a často se používají jako doplňková terapie nebo u pacientů s nedostatečnou odpovědí na standardní léčbu.",
+      "V léčbě chronického syndromu suchého oka (DED), zejména středně těžkých a těžkých forem spojených se zánětem očního povrchu, se stále více uplatňují topické imunosupresiva. Kromě cyklosporinu A se nověji používá i lifitegrast (inhibitor LFA-1/ICAM-1 interakce), který blokuje aktivaci T-lymfocytů a adhezi na buňky rohovky a spojivky, čímž snižuje zánětlivou reakci. Klíčové je také používání očních kapek bez konzervačních látek (např. benzalkonium chlorid), které mohou dlouhodobě zhoršovat poškození očního povrchu.",
+      "Pro efektivní terapii středně těžké až těžké alergické rýmy se stále více preferují fixní kombinace intranazálních kortikosteroidů a antihistaminik (např. flutikason-furoát/azelastin). Tyto kombinace synergicky působí na různé mediátory zánětu a zajišťují rychlejší nástup úlevy od příznaků (např. nosní kongesce, rinorea, kýchání, svědění) než samotné kortikosteroidy, a to s dobrou lokální tolerancí a minimalizací systémových nežádoucích účinků.",
+      "V léčbě akutní otitis externa (AOE) je moderním trendem preferování topických fluorochinolonů (např. ciprofloxacin 0.2%, ofloxacin 0.3%) jako monoterapie první volby. Tyto látky mají široké antimikrobiální spektrum proti běžným patogenům (P. aeruginosa, S. aureus), nízkou ototoxicitu (na rozdíl od některých aminoglykosidů), což umožňuje jejich bezpečné použití i při neznámém stavu bubínku, a minimalizují riziko systémových nežádoucích účinků spojených s perorálními antibiotiky. Je nutné dbát na správnou aplikaci a dostatečnou dávku po celou dobu léčby."
     ]
   },
   "pharm-10": {
@@ -884,10 +884,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
-      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
-      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
-      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
+      "V léčbě distální ulcerózní kolitidy a proktitidy se stále více uplatňují moderní rektální pěny a klyzmata s budesonidem (např. Budesonide MMX® nebo Entocort® Rectal Foam), které díky cílenému lokálnímu působení glukokortikosteroidu a nízké systémové biologické dostupnosti významně snižují riziko systémových nežádoucích účinků. Nově se pro refrakterní případy zvažuje i rektální tacrolimus ve formě pěny pro cílenou imunosupresi sliznice.",
+      "V terapii vulvovaginální atrofie (VVA) u postmenopauzálních žen, které nemohou nebo nechtějí užívat estrogenní terapii, se jako moderní alternativa prosazuje vaginální prasteron (dehydroepiandrosteron, DHEA) ve formě vaginálních ovulí. Tento pro-lék se lokálně metabolizuje na aktivní estrogeny a androgeny přímo v buňkách vaginální sliznice, čímž zlepšuje symptomy atrofie s minimální systémovou absorpcí a bez nutnosti souběžné progestinové terapie.",
+      "Pro urgentní management prolongovaných nebo klastrových epileptických záchvatů, zejména u dětí s febrilními křečemi, zůstává rektální diazepam (např. Stesolid® rektální tuby) klíčovou záchrannou terapií. Jeho rychlá absorpce a nástup účinku (během 2-10 minut) je dána bohatým cévním zásobením rekta a obcházením jaterního first-pass metabolismu při správné aplikaci do dolní části rekta.",
+      "V léčbě recidivující vulvovaginální kandidózy (RVVC) se kromě standardních azolových antimykotik (např. clotrimazol, miconazol) ve vaginální aplikaci stále více prosazují prolongované nebo udržovací režimy, využívající formulace s prodlouženým uvolňováním léčiva. V refrakterních případech se jako lokální fungistatikum/fungicidum specificky používá intravaginální kyselina boritá, jejíž užití vyžaduje poučení pacientky o potenciální systémové toxicitě při orálním podání."
     ]
   },
   "pharm-11": {
@@ -973,10 +973,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
-      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
-      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
-      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
+      "Klinická relevance polymorfismů genu ABCB1 (kódujícího P-glykoprotein) pro perorální absorpci je stále více doceňována, zejména u substrátů s úzkým terapeutickým indexem. Například varianta c.3435C>T (rs1045644) může ovlivnit expresi P-gp v enterocytech a vést k interindividuální variabilitě biologické dostupnosti léčiv jako je digoxin, cyklosporin nebo dabigatran, s dopady na dávkování a potenciální toxicitu.",
+      "Kromě již známých interakcí s chelatotvornými ionty (např. tetracykliny a multivalentní kationty) je aktuální zvýšená pozornost věnována vlivu makronutrientů na absorpci. Například, tuky v potravě mohou signifikantně zvýšit biologickou dostupnost vysoce lipofilních léčiv (např. griseofulvin, isoretinoin, některá nová perorální onkologika jako palbociclib či cabozantinib) optimalizací jejich rozpustnosti a emulgace v gastrointestinálním traktu a stimulací lymfatické absorpce, což vyžaduje specifická doporučení pro podávání s jídlem nebo nalačno.",
+      "Význam střevní mikrobioty pro absorpci a biologickou dostupnost léčiv je nově akcentován. Některá léčiva nebo jejich metabolity procházejí enterohepatální recirkulací a jsou v tenkém či tlustém střevě mikrobiálně dekonjugovány (např. β-glukuronidázami) zpět na parentní látku, která je reabsorbována. Tento mechanismus může prolongovat expozici léčivu (např. irinotekan, digoxiny, perorální kontraceptiva), ale i vést k nežádoucím účinkům (např. střevní toxicita irinotekanu) nebo snížené účinnosti.",
+      "Pro léčiva s nízkou perorální biologickou dostupností v důsledku špatné rozpustnosti (BCS třída II) nebo permeability (BCS třída III/IV) se prosazují pokročilé formulace. Příkladem jsou amorfní pevné disperze (ASD) nebo cyklodextrinové komplexy, které zlepšují rozpustnost a rychlost disoluce. Dále se využívají nanokrystalické formulace pro zvýšení povrchové plochy a propustnosti, což vede k výraznému zlepšení absorpce a snížení interindividuální variability (např. u fingolimodu nebo sirolimu)."
     ]
   },
   "pharm-12": {
@@ -1062,10 +1062,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
-      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
-      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
-      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
+      "Novinky v modulaci transportérů na hematoencefalické bariéře (HEB): V posledních letech je kladen důraz na vývoj nových léčiv pro CNS, která buď selektivně inhibují efluxní transportéry, jako je P-glykoprotein (P-gp, ABCB1), nebo jsou jejich substráty s vysokou afinitou a překonávají HEB alternativními transportními systémy (např. substráty L-aminokyselinového transportéru LAT1). Příkladem jsou některé nové onkologické látky (např. tyrosine kinázové inhibitory pro gliomy) nebo látky pro neurodegenerativní onemocnění, u nichž modulace transportérů na HEB přímo ovlivňuje jejich terapeutickou koncentraci v mozku a minimalizuje periferní toxicitu.",
+      "Vliv změn kapilární permeability a plazmatických proteinů při kritických stavech: U kriticky nemocných pacientů (např. sepse, syndrom systémové zánětlivé odpovědi, SIRS) dochází k systémovému zánětu, který zvyšuje permeabilitu kapilár a mění distribuci tekutin (edémy, leaky capillaries). Zároveň klesá hladina albuminu a často stoupá alfa-1-acid glykoprotein. To vede k nárůstu volné frakce vysoce vázaných kyselých léčiv (např. fenytoin, warfarin, valproát, některá antibiotika jako cefalosporiny) a zároveň k přesunu hydrofilních léčiv do rozšířeného extravaskulárního prostoru (zvětšený $V_d$). Klinicky to vyžaduje častější monitoraci volných hladin léčiv a úpravu dávkování, zejména u léků s úzkým terapeutickým oknem.",
+      "Farmakogenetické variability v distribuci léčiv: polymorfismy ABCB1: Polymorfismy v genu *ABCB1* kódujícím P-glykoprotein jsou klíčové pro interindividuální variabilitu v distribuci mnoha léčiv. Například varianta *ABCB1* c.3435C>T (rs1045648) může ovlivnit expresi a funkci P-gp, což vede ke změnám v distribuci substrátů P-gp do CNS (např. některá antiepileptika jako fenytoin, karbamazepin, nebo novější onkologika jako imatinib) a renální exkreci. U nosičů určitých genotypů může být nutná úprava dávkování pro dosažení optimální expozice a minimalizaci nežádoucích účinků.",
+      "Komplexní distribuce moderních biologických léčiv (např. siRNA, AAV genové terapie): Kromě monoklonálních protilátek se moderní medicína stále více zaměřuje na nová biologická léčiva, jako jsou siRNA molekuly (small interfering RNA) nebo adeno-asociované viry (AAV) pro genovou terapii. Jejich distribuce je vysoce specifická a často závisí na cílených dodávacích systémech (např. lipidové nanočástice pro siRNA) nebo na afinitě AAV serotypů k určitým tkáním. Distribuce těchto látek je limitována jejich velikostí a nábojem, podléhá enzymatické degradaci a je silně ovlivněna mechanismy pinocytózy/endocytózy a intracelulárním transportem, nikoli pasivní difuzí či vazbou na plazmatické proteiny v klasickém smyslu."
     ]
   },
   "pharm-13": {
@@ -1151,10 +1151,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
-      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
-      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
-      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
+      "Moderní farmakogenomika stále více integruje pre-emptivní testování polymorfismů genů pro cytochromy P450, zejména CYP2C19 a CYP2D6, do klinické praxe. Například u pacientů s variantami CYP2C19*2 nebo *3 (loss-of-function alely) je významně snížena aktivace proléčiva clopidogrelu, což vede ke zvýšenému riziku trombotických příhod. Nová doporučení často zvažují alternativní antiagregancia (např. prasugrel, ticagrelor) nebo úpravu dávky u těchto pacientů. Podobně u CYP2D6 polymorfismů ovlivňujících metabolismus tricyklických antidepresiv nebo selektivních inhibitorů zpětného vychytávání serotoninu (SSRI) existují algoritmy pro optimalizaci dávky k maximalizaci účinnosti a minimalizaci nežádoucích účinků.",
+      "V posledních letech narůstá klinický význam UDP-glukuronosyltransferáz (UGTs), které představují klíčové enzymy Fáze II metabolismu mnoha endogenních i exogenních látek. Pro studenty je zásadní pochopit, že inhibice UGT (např. probenecid, valproát) může vést k akumulaci léčiv s primární glukuronidací, jako je lamotrigin, s rizikem závažných kožních reakcí (např. Stevens-Johnsonův syndrom). Nově schválené inhibitory PARP (např. niraparib, rucaparib) nebo některé nové antikoagulancia (např. edoxaban) jsou rovněž významně metabolizovány UGT enzymy, což vyžaduje pečlivé zvážení lékových interakcí a funkčního stavu jater.",
+      "Kromě známého toxického metabolitu NAPQI u paracetamolu je klíčové porozumět významu aldehyddehydrogenáz (ALDH). Tyto enzymy detoxifikují vysoce reaktivní aldehydy, které vznikají například při metabolismu alkoholu (acetaldehyd) nebo jako vedlejší produkty některých cytostatik (např. ifosfamid -> akrolein, který je urotaxický). Genetické polymorfismy ALDH (zejména ALDH2) ovlivňují snášenlivost alkoholu a citlivost na některá léčiva. Nedávné poznatky zdůrazňují roli ALDH v rezistenci na chemoterapii a ve vývoji nových léčiv, která modulují jejich aktivitu.",
+      "Významný klinický dopad má interakce některých léčiv s rostlinnými extrakty, především s třezalkou tečkovanou (Hypericum perforatum). Třezalka je potentním induktorem CYP3A4, CYP2C9 a P-glykoproteinu, což vede ke snížení plazmatických koncentrací a terapeutické účinnosti celé řady kritických léčiv. Mezi nejvíce ohrožená patří perorální antikoagulancia (např. rivaroxaban, apixaban), imunosupresiva (cyklosporin, takrolimus), perorální kontraceptiva a antiretrovirotika. Nová doporučení striktně varují před souběžným užíváním a zdůrazňují nutnost pečlivé anamnézy užívání bylinných doplňků."
     ]
   },
   "pharm-14": {
@@ -1240,10 +1240,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
-      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
-      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
-      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
+      "V klinické praxi se stále více zdůrazňuje význam genotypizace polymorfismů cytochromu P450, zejména CYP2D6 (např. metabolizace kodeinu na morfin, tricyklických antidepresiv) a CYP2C19 (např. klopidogrel, PPI). Identifikace pomalých (poor metabolizers) nebo ultrarychlých metabolizátorů (ultrarapid metabolizers) umožňuje individualizovat dávkování pro dosažení terapeutické účinnosti a minimalizaci toxických projevů, čímž se přímo ovlivňuje efektivní biologický poločas léčiva v daném pacientovi.",
+      "Moderní farmakologie klade důraz na komplexní pochopení lékových interakcí na úrovni transportérů, nejen enzymů. Inhibice efluxního transportéru P-glykoproteinu (P-gp/ABCB1) chinidinem nebo amiodaronem může významně zvýšit systémovou expozici digoxinu nebo dabigatranu, prodloužit jejich efektivní biologický poločas a vést k toxicitě. Naopak indukce P-gp rifampicinem může snížit účinnost takrolimu. Podobně interakce na úrovni OATP1B1 (statiny) či OCT2 (metformin) jsou klíčové pro optimalizaci dávkování.",
+      "Nově se rozšiřuje chápání role střevního mikrobiomu v biotransformaci léčiv. Některá léčiva, jako digoxiny (redukce bakteriemi rodu Eggerthella lenta) nebo některá chemoterapeutika (např. irinotekan, kde bakterie s β-glukuronidázovou aktivitou reaktivují toxický metabolit), jsou metabolizována střevními bakteriemi. To ovlivňuje jejich systémovou expozici, enterohepatickou recirkulaci a tím i efektivní biologický poločas a toxicitu. Manipulace s mikrobiomem (např. antibiotiky) tak může měnit kinetiku těchto látek.",
+      "Pro mnoho moderních biologických léčiv (např. monoklonální protilátky jako adalimumab, infliximab, nebo novější anti-PCSK9 protilátky) je typická tzv. target-mediated drug disposition (TMDD). To znamená, že eliminace léčiva je primárně ovlivněna jeho vazbou na farmakologický cíl, který je buď endogenní molekulou, nebo povrchovým receptorem. Při nízkých koncentracích se léčivo váže na cíl a je eliminováno spolu s ním, což vede k nelineární kinetice podobné kinetice 0. řádu (saturace cíle). Při vysokých koncentracích je cíl saturován a eliminace se řídí spíše kinetikou 1. řádu přes proteolytickou degradaci (např. pomocí FcRn). Tento komplexní mechanismus výrazně ovlivňuje biologický poločas a dávkování těchto léčiv."
     ]
   },
   "pharm-15": {
@@ -1329,10 +1329,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
-      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
-      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
-      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
+      "Bod 1: Využití konceptu funkčního antagonismu u aripiprazolu je v současnosti doplňováno výzkumem 'biased agonism' (selektivní modulace signalizace), kde moderní ligand preferenčně aktivuje G-proteinovou signalizaci (např. přes Galpha-i) před náborovým mechanismem beta-arrestinu, což u antipsychotik slibuje snížení extrapyramidových nežádoucích účinků.",
+      "Bod 2: U buprenorfinu je klinicky kritický poměr disociační konstanty (KD) a vysoké afinita k μ-opioidnímu receptoru, což vysvětluje jeho pomalou disociaci a dlouhé trvání účinku; aktuální doporučení pro management předávkování zdůrazňují nutnost vyšších dávek naloxonu (kompetitivního antagonisty), protože buprenorfin vykazuje kinetickou farmakodynamickou rezistenci vůči standardním antagonistům.",
+      "Bod 3: Implementace konceptu 'inverse agonism' u látek, jako je např. pimavanserin (inverzní agonista 5-HT2A receptorů), umožňuje potlačit konstitutivní (spontánní) aktivitu receptoru, což je terapeuticky nadřazené pouhému neutrálnímu antagonismu při léčbě psychotických symptomů u Parkinsonovy nemoci bez ovlivnění dopaminergní transmise.",
+      "Bod 4: Pro přesnější kvantifikaci odpovědi u receptorů s rezervou (spare receptors) se v moderní farmakodynamice odkláníme od prostého RO (receptor occupancy) k modelu 'operational model of agonism', který lépe popisuje nelineární vztah mezi obsazením receptorů a výsledným klinickým efektem, což je zásadní pro pochopení interindividuální variability účinku u agonistů s vysokou vnitřní aktivitou."
     ]
   },
   "pharm-16": {
@@ -1418,10 +1418,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
-      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
-      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
-      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
+      "Význam enantiomerní čistoty v onkologii ilustruje vývoj dexrazoxanu, který jako čistý enantiomer (oproti racemické směsi) specificky inhibuje topoizomerázu II a chrání kardiomyocyty před toxicitou antracyklinů, což je klinicky významné při snižování rizika kardiotoxicity u dětských pacientů.",
+      "Moderní farmakologické studie potvrzují, že u beta-blokátorů jako je nebivolol dochází k výrazné stereoselektivitě, kde d-nebivolol vykazuje kardioselektivní beta1-blokádu, zatímco l-nebivolol stimuluje uvolňování oxidu dusnatého (NO) z endotelu, což z něj činí unikátní racemát s komplementárními farmakodynamickými účinky na vaskulární tonus.",
+      "Aktuální poznatky o metabolické chiralitě u inhibitorů protonové pumpy (PPI) ukazují, že esomeprazol (S-izomer omeprazolu) vykazuje vyšší plazmatickou dostupnost díky snížené clearance v důsledku genetického polymorfismu CYP2C19, což vede k konzistentnější kontrole intragastrického pH oproti racemickému omeprazolu.",
+      "Výzkum receptorové interakce u chirálních agonistů opioidních receptorů prokázal, že (R,R)-izomery vykazují signifikantně vyšší afinitu k mu-opioidnímu receptoru, přičemž chirální nečistoty nebo racemizace v lékových formách mohou vést k nepredikovatelným vedlejším účinkům, jako je snížený analgetický práh při aktivaci opačných subtypů receptorů."
     ]
   },
   "pharm-17": {
@@ -1507,10 +1507,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
-      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
-      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
-      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
+      "Moderní farmakologie se zaměřuje na vývoj ligandů pro G-protein spřažené receptory (GPCRs), které vykazují „biased agonismus“ (funkční selektivitu). Tyto ligandy selektivně aktivují specifické signální dráhy (např. G-proteinovou signalizaci) a potlačují aktivaci jiných (např. β-arrestinové dráhy), což může vést ke zlepšenému terapeutickému profilu s menším výskytem nežádoucích účinků. Příkladem je oliceridin, μ-opioidní receptorový biased agonista, navržený k redukci respirační deprese a gastrointestinálních problémů ve srovnání s konvenčními opioidy, díky selektivnímu upřednostňování G-proteinové signalizace před aktivací β-arrestinu.",
+      "Současný výzkum se zaměřuje na design léků, které cílí na specifické podjednotky ionotropních receptorů s cílem zlepšit selektivitu a terapeutické okno. Příkladem jsou GABA-A receptory, které jsou pentamerní a skládají se z různých podjednotek (např. α1, α2, α3, α5, β, γ). Nově vyvíjené pozitivní alosterické modulátory (PAMs) se snaží dosáhnout selektivní aktivace α2/α3-obsahujících GABA-A receptorů pro anxiolytický účinek bez výrazné sedace nebo myorelaxace, které jsou typické pro aktivaci α1 podjednotky, a tak minimalizovat nežádoucí účinky benzodiazepinů.",
+      "V onkologii je klíčovým trendem vývoj tyrosinkinázových inhibitorů (TKI), které překonávají mechanismy rezistence vzniklé po léčbě předchozími generacemi. Příkladem je třetí generace EGFR TKI, jako je osimertinib. Ten je účinný u pacientů s nemalobuněčným karcinomem plic (NSCLC), u nichž se vyvinula získaná rezistence vůči první nebo druhé generaci EGFR TKI v důsledku specifické mutace T790M v genu pro EGFR receptor. Osimertinib cílí právě na tuto mutaci, čímž obnovuje senzitivitu nádoru k terapii a zlepšuje prognózu.",
+      "Vývoj perorálně podávaných selektivních degradátorů estrogenových receptorů (SERD) představuje významný pokrok v terapii hormonálně dependentních nádorů prsu. Tyto látky, jako je například elacestrant, způsobují down-regulaci a degradaci estrogenového receptoru (ER), čímž potlačují jeho signalizaci. Jsou zvláště účinné u pokročilého nebo metastatického ER-pozitivního, HER2-negativního karcinomu prsu s mutacemi ESR1, které často vedou k rezistenci na standardní endokrinní terapie. Perorální podání oproti injekčnímu fulvestrantu zlepšuje komfort pacienta a farmakokinetický profil."
     ]
   },
   "pharm-18": {
@@ -1596,10 +1596,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
-      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
-      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
-      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
+      "Bod 1: V moderní klinické praxi se u léků s úzkým terapeutickým indexem (např. vankomycin) opouští model dávkování podle tělesné hmotnosti ve prospěch bayesovského monitorování hladin (TDM), které predikuje AUC/MIC poměr, což snižuje riziko nefrotoxicity oproti dříve preferovanému cílení na trough koncentrace.",
+      "Bod 2: U léčiv s nelineární farmakokinetikou, jako je fenytoin, je nutné při výpočtu dávky využít Michaelis-Mentenovu rovnici, jelikož terapeutická šíře je extrémně úzká a drobné zvýšení dávky v blízkosti saturační konstanty (Km) vede k disproporcionálnímu, toxickému nárůstu plazmatické koncentrace.",
+      "Bod 3: Implementace farmakogenomického testování (např. alely CYP2C9 a VKORC1) u warfarinu zásadně mění přístup k definici úvodní nasycovací dávky, protože standardní vzorce pro výpočet LD založené pouze na Vd ignorují geneticky podmíněnou variabilitu v clearance, což vede k častému předávkování u pomalých metabolizátorů.",
+      "Bod 4: Při úpravě dávkování u pacientů s chronickým onemocněním ledvin (CKD) je nově kladen důraz na odlišení mezi glomerulární filtrací (eGFR) a reálnou tubulární sekrecí, přičemž u léků eliminovaných aktivním transportem (např. metformin) se při poklesu GFR pod 30 ml/min musí dávka redukovat striktně dle aktualizovaných CKD-EPI vzorců, aby se předešlo kumulaci a riziku laktátové acidózy."
     ]
   },
   "pharm-19": {
@@ -1685,10 +1685,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
-      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
-      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
-      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
+      "Bod 1: U vankomycinu se v moderní klinické praxi u závažných infekcí (např. MRSA pneumonie) opouští striktní monitorování trough koncentrací ve prospěch cílování poměru AUC/MIC (AUC24/MIC > 400), což vyžaduje validované bayesovské softwarové modelování na základě dvou odběrů (např. po 2. a 4. dávce) pro přesnější odhad individuální expozice.",
+      "Bod 2: U aminoglykosidů se u kriticky nemocných pacientů preferuje prodloužený dávkovací interval (extended-interval dosing) s aplikací jednou denně, kdy je primárním cílem dosažení vysoké špičkové koncentrace (Cmax) pro maximalizaci baktericidního efektu, přičemž trough koncentrace musí zůstat pod detekční limit (< 1 mg/l) kvůli prevenci akumulační nefrotoxicity a ototoxicity.",
+      "Bod 3: Při TDM fenytoinu je nezbytné u pacientů s hypoalbuminémií (např. jaterní cirhóza, malnutrice) korigovat naměřenou celkovou hladinu léčiva pomocí Winter-Tozerova vzorce, neboť pouze volná (nealbumin-vázaná) frakce je terapeuticky aktivní a u těchto stavů dochází k jejímu relativnímu vzestupu při nezměněné celkové koncentraci.",
+      "Bod 4: U pacientů léčených cyklosporinem či takrolimem je nutné při interpretaci TDM zohlednit kinetiku v plné krvi, nikoliv v plazmě, vzhledem k vysoké distribuci těchto inhibitorů kalcineurinu do erytrocytů a nutnosti sledovat hladiny C0 (trough) jako hlavní korelát rizika rejekce štěpu či nefrotoxicity v časném potransplantačním období."
     ]
   },
   "pharm-20": {
@@ -1774,10 +1774,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
-      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
-      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
-      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
+      "Moderní přístup k farmakoterapii u seniorů klade důraz na aktivní strategií deprescribing, tedy cílené a bezpečné snižování počtu a dávek léčiv. Nejnovější doporučení se zaměřují například na systematické vysazování protonových pumpových inhibitorů (PPI) po dlouhodobé terapii bez jasné indikace, aby se snížilo riziko infekce Clostridioides difficile, renálního poškození a osteoporózy, které je u starších pacientů zvýšené.",
+      "Dávkování nových orálních antikoagulancií (NOAC/DOAC, např. dabigatran, rivaroxaban, apixaban, edoxaban) vyžaduje u seniorů mimořádnou pozornost s ohledem na dynamicky se měnící renální funkce. Je nezbytné pravidelné a přesné posouzení clearance kreatininu (ideálně vzorcem Cockcroft-Gault), neboť i mírný pokles GFR může vést k významné kumulaci léčiva a zvýšenému riziku krvácení, zejména u dabigatranu a edoxabanu, které jsou primárně eliminovány ledvinami.",
+      "V kontextu prevence pádů u geriatrických pacientů je kladen zvýšený důraz na komplexní farmakologickou revizi zaměřenou na identifikaci synergisticky působících léčiv. Vedle benzodiazepinů a anticholinergik se hledají rizikové kombinace, které zvyšují ortostatickou hypotenzi a závratě, např. kombinace více vazodilatačních antihypertenziv (blokátory kalciových kanálů, alfa-blokátory), diuretik a psychofarmak s tlumivým efektem. Klinicky se doporučuje cílená redukce nebo substituce rizikových léčiv.",
+      "Získává na významu zohlednění genetických polymorfismů cytochromu P450, zejména CYP2D6, u seniorů užívajících léčiva s úzkým terapeutickým oknem nebo prodrugs. Například u analgetik kodeinu a tramadolu, jejichž účinek závisí na aktivaci CYP2D6, mohou 'pomalí metabolizátoři' (poor metabolizers) trpět nedostatečnou analgezií, zatímco 'ultrarychlí metabolizátoři' (ultra-rapid metabolizers) mohou být vystaveni vyššímu riziku nežádoucích účinků z předávkování aktivními metabolity. To vede k nutnosti individualizace dávkování a zvážení alternativních látek."
     ]
   },
   "pharm-21": {
@@ -1863,10 +1863,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
-      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
-      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
-      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
+      "U novorozenců s bakteriální sepsí vyžaduje kinetika aminoglykosidů, konkrétně gentamicinu, prodloužení dávkovacího intervalu na 24–48 hodin vzhledem k nezralosti glomerulární filtrace, přičemž cílová peak koncentrace musí být vyšší (8–10 mg/l) k dosažení optimálního poměru AUC/MIC při současném sledování trough hladin pod 1 mg/l pro minimalizaci nefrotoxicity.",
+      "Aktuální guidelines pro léčbu bolesti u dětí nově kladou důraz na striktní vyhýbání se kodeinu u pacientů mladších 12 let a u dospívajících s rizikovými faktory (obezita, obstrukční spánková apnoe), a to z důvodu variability v CYP2D6 fenotypu, kde ultra-rychlí metabolizátoři čelí riziku fatální respirační deprese v důsledku nadměrné tvorby morfinu.",
+      "Při terapii dětské epilepsie valproátem je nutné u dětí do 2 let věku rutinně monitorovat jaterní enzymy a parametry koagulace, neboť riziko idiosynkratické hepatotoxicity je u této věkové skupiny řádově vyšší než u dospělých, pravděpodobně v důsledku tvorby toxického metabolitu 2-propyl-4-pentenové kyseliny při nezralých detoxikačních drahách.",
+      "Dle nových pediatrických doporučení pro léčbu akutních infekcí je u dětí mladších 16 let zcela eliminováno perorální podávání fluorochinolonů (např. ciprofloxacinu) mimo specifické indikace (cystická fibróza, multirezistentní patogeny), a to z důvodu potvrzeného rizika ireverzibilního poškození chrupavčité tkáně v kloubech a možných systémových účinků na pojivovou tkáň."
     ]
   },
   "pharm-22": {
@@ -1952,10 +1952,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
-      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
-      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
-      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
+      "Při léčbě gestačního diabetu je v současnosti upřednostňováno podávání inzulinu, nicméně novější meta-analýzy potvrzují bezpečnost metforminu (při selhání dietních opatření), neboť prostupuje placentou pouze v nízké míře a nezvyšuje riziko kongenitálních malformací ve srovnání s inzulinem.",
+      "Dle aktualizovaných doporučení FDA (PLLR - Pregnancy and Lactation Labeling Rule) je třeba u inhibitorů ACE a sartanů zdůraznit riziko fetopatie nejen v 2. a 3. trimestru (renální dysplazie, hypoplazie kalvy), ale striktně je vysadit již při plánování koncepce, neboť expozice v 1. trimestru je spojena s vyšším rizikem kardiovaskulárních a neurologických vývojových vad.",
+      "U kojících žen je preferována volba léků s nízkou vazbou na plazmatické bílkoviny a vysokou molekulární hmotností (> 1000 Da), neboť tyto parametry limitují prostup do mateřského mléka; příkladem je volba nízkomolekulárních heparinů (LMWH), které jsou pro kojence zcela bezpečné, na rozdíl od perorálních antikoagulancií typu warfarin či NOAC, u nichž jsou data o bezpečnosti stále nedostatečná.",
+      "V rámci prevence preeklampsie se v moderních doporučeních standardně indikuje podávání nízkých dávek kyseliny acetylsalicylové (100–150 mg denně) od 12. týdne těhotenství u rizikových pacientek, přičemž toto dávkování nezpůsobuje riziko předčasného uzávěru ductus arteriosus, které je typické pro vysoké dávky NSAID v 3. trimestru."
     ]
   },
   "pharm-23": {
@@ -2041,10 +2041,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
-      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
-      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
-      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
+      "V kontextu revize evropské lékové legislativy dochází k postupnému omezování používání názvů léčivých přípravků, které by mohly vést k záměně u rizikových populací; doporučuje se preferovat INN v kombinaci s firemním názvem u lékových forem s modifikovaným uvolňováním (např. retardované formy perorálních antidiabetik), kde záměna za lékovou formu s okamžitým uvolňováním (IR) může vést k terapeutickému selhání či toxicitě.",
+      "Aktuální trend v preskripci IPLP (magistraliter) reflektuje přísnější standardy mikrobiální čistoty dle ČL 2023, což vede k ústupu od extenzivního používání emulzí typu voda v oleji (w/o) bez odpovídajícího konzervantu, a to zejména v pediatrické dermatologii, kde dochází k častým kontaktním dermatitidám z pomocných látek typu parabeny či lanolin.",
+      "Důraz na bezpečnost léčby vyžaduje při generické substituci HVLP sledování terapeutického indexu: u léčiv s úzkým terapeutickým oknem (např. levotyroxin, warfarin, takrolimus) je nutné důsledně využívat doložku 'Nezaměňovat' v elektronické preskripci, neboť odchylky v biologické dostupnosti u různých výrobců generik mohou vést k signifikantní dekompenzaci stavu pacienta.",
+      "V rámci prevence medikačních chyb a duplicit u lůžkových pacientů je v moderní nemocniční farmakologii standardem preskripce výhradně pomocí INN doplněného o sílu a lékovou formu, přičemž označování balení (jednotkové dávkování - unit dose) musí splňovat přísné požadavky na čitelnost šarže a exspirace, aby se předešlo aplikaci léčiv po expiraci, u nichž může docházet k degradaci účinné látky (např. hydrolýza některých beta-laktamových antibiotik)."
     ]
   },
   "pharm-24": {
@@ -2130,10 +2130,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "V psychofarmakologii se intenzivně zkoumají rychle působící antidepresiva na bázi modulátorů glutamátergního systému (např. esketamin) pro léčbu farmakorezistentní deprese.",
-      "Stoupá význam farmakogenomiky v psychiatrii, zejména testování polymorfismů cytochromu P450 (CYP2D6, CYP2C19) pro predikci snášenlivosti a účinnosti SSRI a antipsychotik.",
-      "Nové přístupy k léčbě neurodegenerativních onemocnění se zaměřují na ovlivnění patologických proteinů pomocí monoklonálních protilátek (např. lecanemab u Alzheimerovy choroby).",
-      "V terapii chronické bolesti se prosazuje multimodální přístup a omezování preskripce opioidů z důvodu rizika vzniku závislosti, s větším důrazem na koanalgetika a nefarmakologické postupy."
+      "Bod 1: Implementace elektronických receptů s modrým pruhem (eRecept s příznakem OPL) umožňuje v ČR centralizovaný monitoring preskripce v reálném čase, což dramaticky omezuje fenomén 'doctor shoppingu' u pacientů se závislostí na opioidech nebo benzodiazepinech.",
+      "Bod 2: U opioidní substituční terapie (OST) dochází k posunu od čistého metadonu k využívání buprenorfinu s naloxonem (v poměru 4:1), což minimalizuje riziko intravenózního zneužití díky antagonizaci účinku buprenorfinu v případě neodborné parenterální aplikace.",
+      "Bod 3: V rámci prevence fatálních předávkování je v klinické praxi zdůrazňována dostupnost a edukace o použití naloxonu (v inhalační nebo autoinjekční formě) u pacientů dlouhodobě léčených vysokými dávkami silných opioidů pro chronickou nenádorovou bolest.",
+      "Bod 4: Pro léčbu ADHD u dospělých se nově v guidelines stále častěji preferuje lisdexamfetamin jako proléčivo s postupným uvolňováním, které díky svému farmakokinetickému profilu (nutná aktivace v erytrocytech) vykazuje nižší potenciál k euforizujícímu zneužití ve srovnání s okamžitě působícími formami methylfenidátu."
     ]
   },
   "pharm-25": {
@@ -2219,10 +2219,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
-      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
-      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
-      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
+      "Implementace Nařízení EU č. 2017/745 (MDR) a 2017/746 (IVDR) výrazně zpřísnila legislativní požadavky na klinické hodnocení a validaci souběžně používaných diagnostických prostředků, což přímo ovlivňuje zodpovědnost lékaře při indikaci cílené biologické léčby.",
+      "Aktualizace Českého lékopisu 2023 (v souladu s Ph. Eur. 11. vydáním) klade zvýšený důraz na harmonizaci monografií pro léčivé látky vyráběné biotechnologickými procesy, včetně specifikace detekce nečistot typu 'host-cell proteins', které jsou kritické pro imunogenicitu monoklonálních protilátek.",
+      "Změna metodiky SÚKL v rámci farmakovigilance nově vyžaduje povinné hlášení suspektních nežádoucích účinků i u léčivých přípravků podávaných v režimu 'off-label', přičemž tato data jsou následně reflektována v pravidelných aktualizacích dokumentů PSUR (Periodic Safety Update Report).",
+      "Revize pravidel pro preskripci léčiv dle vyhlášky č. 415/2017 Sb. v aktuálním znění explicitně řeší náležitosti elektronické preskripce, kde při překročení maximálních dávek uvedených v Tabulce I a II lékopisu musí být potvrzení o vědomém překročení dávky verifikováno digitálním podpisem lékaře v systému eRecept."
     ]
   },
   "pharm-26": {
@@ -2308,10 +2308,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "V psychofarmakologii se intenzivně zkoumají rychle působící antidepresiva na bázi modulátorů glutamátergního systému (např. esketamin) pro léčbu farmakorezistentní deprese.",
-      "Stoupá význam farmakogenomiky v psychiatrii, zejména testování polymorfismů cytochromu P450 (CYP2D6, CYP2C19) pro predikci snášenlivosti a účinnosti SSRI a antipsychotik.",
-      "Nové přístupy k léčbě neurodegenerativních onemocnění se zaměřují na ovlivnění patologických proteinů pomocí monoklonálních protilátek (např. lecanemab u Alzheimerovy choroby).",
-      "V terapii chronické bolesti se prosazuje multimodální přístup a omezování preskripce opioidů z důvodu rizika vzniku závislosti, s větším důrazem na koanalgetika a nefarmakologické postupy."
+      "Cytisin (aktuálně registrovaný jako Defumoxan) se vrací do klinické praxe jako vysoce nákladově efektivní alternativa vareniklinu; jde o alkaloid fungující jako parciální agonista nAChR alfa-4-beta-2 s podobným mechanismem účinku, avšak s odlišným farmakokinetickým profilem a kratším doporučeným schématem léčby.",
+      "Kombinovaná farmakoterapie závislosti na tabáku (např. vareniklin v kombinaci s nikotinovou náplastí nebo dlouhodobě působící NRT v kombinaci s krátkodobě působící formou) je dle aktuálních doporučení (např. ERS/ESC) považována za zlatý standard u vysoce závislých kuřáků, neboť signifikantně zvyšuje úspěšnost abstinence oproti monoterapii.",
+      "Důraz na farmakokinetickou interakci nikotinu s léčivy: kouření indukuje CYP1A2, což vede ke zrychlenému metabolismu některých léků, zejména antipsychotik (olanzapin, klozapin) nebo teofylinu; při náhlém vysazení kouření hrozí u těchto pacientů riziko toxicity, proto je nezbytná monitorace hladin a případná redukce dávek.",
+      "Vareniklin je nyní indikován i pro pacienty s psychiatrickou komorbiditou; klinické studie (např. trial EAGLES) vyvrátily původní obavy z neuropsychiatrických nežádoucích účinků (včetně suicidality), čímž se vareniklin stal bezpečnou volbou i u pacientů se schizofrenií či bipolární poruchou."
     ]
   },
   "pharm-27": {
@@ -2397,10 +2397,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "V psychofarmakologii se intenzivně zkoumají rychle působící antidepresiva na bázi modulátorů glutamátergního systému (např. esketamin) pro léčbu farmakorezistentní deprese.",
-      "Stoupá význam farmakogenomiky v psychiatrii, zejména testování polymorfismů cytochromu P450 (CYP2D6, CYP2C19) pro predikci snášenlivosti a účinnosti SSRI a antipsychotik.",
-      "Nové přístupy k léčbě neurodegenerativních onemocnění se zaměřují na ovlivnění patologických proteinů pomocí monoklonálních protilátek (např. lecanemab u Alzheimerovy choroby).",
-      "V terapii chronické bolesti se prosazuje multimodální přístup a omezování preskripce opioidů z důvodu rizika vzniku závislosti, s větším důrazem na koanalgetika a nefarmakologické postupy."
+      "Bod 1: Aktuální klinické doporučení pro léčbu závislosti na opioidech preferuje buprenorfin (parciální agonista mí-receptorů) před methadonem kvůli vyššímu bezpečnostnímu profilu, sníženému riziku fatálního respiračního útlumu při kombinaci s jinými tlumivými látkami a nižšímu riziku prolongace QT intervalu.",
+      "Bod 2: V rámci prevence iatrogenní závislosti u Z-látek (zolpidem, zopiklon) se nově zdůrazňuje riziko vzniku komplexních poruch chování během spánku (tzv. sleep-driving či somnambulní epizody), které jsou nezávislé na dávce a vyžadují okamžité ukončení léčby, nikoliv pouze redukci dávkování.",
+      "Bod 3: Při terapii opioidní závislosti u těhotných žen je v současnosti za zlatý standard považována buprenorfinová substituční léčba (s výhradou pro sublingvální formu bez naloxonu), která vykazuje nižší incidenci novorozeneckého abstinenčního syndromu (NAS) ve srovnání s methadonem.",
+      "Bod 4: Moderní farmakologický přístup k odvykacímu stavu u benzodiazepinového syndromu striktně vyžaduje postupnou substituci za ekvivalentní dávku benzodiazepinu s dlouhým biologickým poločasem (např. diazepam), čímž se minimalizuje výkyv plazmatických koncentrací a riziko vzniku generalizovaných tonicko-klonických záchvatů při náhlém vysazení."
     ]
   },
   "pharm-28": {
@@ -2486,10 +2486,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
-      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
-      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
-      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
+      "Bod 1: Současné klinické poznatky zdůrazňují riziko u inhibitorů protonové pumpy (PPI) při jejich kombinaci s moderními tyrosinkinázovými inhibitory (např. dasatinib, nilotinib), kde zvýšení intragastrického pH vede k precipitaci a kritickému poklesu biologické dostupnosti onkologik, což vyžaduje nahrazení PPI antagonisty H2-receptorů nebo antacidy s časovým odstupem.",
+      "Bod 2: U pacientů léčených perorálními antikoagulanty typu DOAC (zejména dabigatran etexilát) je nutné zohlednit distribuční interakci s inhibitory transportéru P-glykoproteinu (např. verapamil, amiodaron), které zvyšují systémovou expozici léčiva ovlivněním jeho effluxu v enterocytech a následné distribuční objemy, což zvyšuje riziko hemoragií.",
+      "Bod 3: Nové poznatky v oblasti chelatačních interakcí potvrzují, že novější generace integrázových inhibitorů (např. dolutegravir, bictegravir) vykazují vysokou afinitu k multivalentním kationtům (Mg2+, Al3+, Ca2+), což vyžaduje striktní dodržení odstupu 6 hodin po nebo 2 hodiny před podáním antacid či doplňků stravy k prevenci selhání antivirové terapie.",
+      "Bod 4: Klinická relevance vytěsňovacích interakcí na albuminu byla přehodnocena u vysoce vazných léčiv s úzkým terapeutickým oknem (např. valproát); při podání salicylátů nedochází pouze k akutnímu vzestupu volné frakce, ale sekundárně i k inhibici metabolismu, což v kombinaci s distribucí do CNS vede k rozvoji encefalopatie, což vyžaduje rutinní terapeutické monitorování hladin (TDM) volné frakce u rizikových pacientů."
     ]
   },
   "pharm-29": {
@@ -2575,10 +2575,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
-      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
-      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
-      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
+      "Moderní klinické doporučení pro inhibitory P-glykoproteinu (P-gp): U pacientů užívajících přímá perorální antikoagulancia (DOACs), zejména dabigatran, je nutné vyvarovat se silným inhibitorům P-gp (např. dronedaron, itrakonazol), které významně zvyšují plazmatickou koncentraci léčiva a riziko život ohrožujícího krvácení při inhibici jeho renální exkrece.",
+      "Aktualizované poznatky o interakcích inhibitorů CYP3A4 a nových onkologických léčiv: Při současné terapii tyrozinkinázovými inhibitory (např. ibrutinib, venetoklax) je kontraindikováno podávání silných inhibitorů CYP3A4 (např. klarithromycin, vorikonazol), neboť metabolické blokování vede k prudkému vzestupu AUC léčiva, což vyžaduje buď monitorování hladin, nebo volbu alternativního antibiotika/antimykotika bez interakčního potenciálu.",
+      "Mechanistický posun v chápání interakcí u inhibitorů SGLT2: Současná data potvrzují, že empagliflozin a dapagliflozin mají nízké riziko farmakokinetických interakcí v CYP dráhách, nicméně u pacientů léčených lithiem může dojít k paradoxnímu poklesu renální clearance lithia vlivem změn v tubulárním transportu, což vyžaduje častější monitorování sérových hladin lithia při zahájení léčby SGLT2 inhibitory.",
+      "Klinický význam transportéru BCRP (Breast Cancer Resistance Protein) v interakcích: BCRP se stává klíčovým transportérem pro eliminaci statinů (zejména rosuvastatinu a atorvastatinu); podání inhibitorů BCRP, jako jsou cyklosporin nebo určité inhibitory proteáz, může vést k až pětinásobnému zvýšení plazmatických koncentrací statinů, což dramaticky zvyšuje riziko myopatie a rhabdomyolýzy nezávisle na CYP interakcích."
     ]
   },
   "pharm-30": {
@@ -2664,10 +2664,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
-      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
-      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
-      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
+      "Současná doporučení (EAACI) potvrzují, že u pacientů s anamnézou non-IgE zprostředkovaných reakcí nebo mírných kožních symptomů po penicilinových antibiotikách je bezpečným postupem tzv. direct oral challenge bez nutnosti předchozího kožního testování, což výrazně snižuje neopodstatněné označování pacientů jako alergiků.",
+      "Farmakogenetické testování alely HLA-B*58:01 je u vysoce rizikových populací (zejména pacientů s chronickým onemocněním ledvin) prediktivně nezbytné před zahájením terapie alopurinolem k prevenci rozvoje závažné kožní reakce typu DRESS (Drug Reaction with Eosinophilia and Systemic Symptoms) či SJS/TEN.",
+      "Moderní klinická praxe u anafylaxe vyžaduje okamžitou aplikaci adrenalinu v dávce 0,01 mg/kg (maximálně 0,5 mg u dospělých) intramuskulárně do m. vastus lateralis, přičemž podání antihistaminik či kortikosteroidů je považováno pouze za doplňkovou terapii, která nemá žádný vliv na akutní oběhovou či respirační stabilizaci pacienta.",
+      "Křížová reaktivita mezi peniciliny a cefalosporiny je u moderních cefalosporinů 3. a 4. generace (např. ceftriaxon, cefepim) klinicky zanedbatelná, neboť je primárně závislá na identitě postranních řetězců (R1-side chain), nikoli na samotném beta-laktamovém jádru, což umožňuje jejich bezpečné podání u většiny pacientů s penicilinovou alergií."
     ]
   },
   "pharm-31": {
@@ -2754,10 +2754,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
-      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
-      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
-      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
+      "Implementace farmakogenomického screeningu pro prevenci NÚL typu B: U pacientů indikovaných k terapii abakavirem je nyní striktně vyžadováno testování alely HLA-B*57:01, neboť její přítomnost predikuje závažnou hypersenzitivní reakci, a u pacientů s variantou genu pro thiopurin-S-methyltransferázu (TPMT) je nezbytná redukce dávek azathioprinu k prevenci myelosuprese typu A.",
+      "Aktualizované posouzení rizika léky indukovaného QTc prodloužení: Moderní guidelines kladou důraz na skórování rizika dle algoritmu 'RISQ-PATH', který zohledňuje nejen blokádu hERG kanálu, ale i lékové interakce inhibující CYP3A4 (např. kombinace itrakonazolu a pimozidu), což dramaticky zvyšuje riziko torsade de pointes u NÚL typu A.",
+      "Management NÚL typu E (withdrawal syndrom): U pacientů dlouhodobě léčených antagonisty CGRP receptorů (např. erenumab) nebo vysokými dávkami agonistů dopaminových receptorů v neurologii je nově kladen důraz na postupnou deeskalaci pro prevenci rebound fenoménu, který může vést k hyperalgetickým stavům nebo prudkému zhoršení primárního onemocnění.",
+      "Detekce a prevence NÚL typu D v onkologii: Vzhledem k širšímu využití inhibitorů imunitních kontrolních bodů (ICI, např. pembrolizumab) se klinická pozornost posouvá k imunopatologickým NÚL, které se manifestují opožděně jako autoimunitní kolitidy či endokrinopatie, což vyžaduje specifickou monitoraci hladin hormonů štítné žlázy a kortizolu i dlouho po ukončení podávání léku."
     ]
   },
   "pharm-32": {
@@ -2843,10 +2843,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
-      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
-      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
-      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
+      "Implementace adaptivních designů studií (Adaptive Clinical Trial Designs) umožňuje během probíhající fáze II/III provádět předem definované úpravy, jako je změna dávkování nebo ukončení ramene studie z důvodu marnosti (futility), což zrychluje vývoj onkologických léčiv při dodržení statistické integrity.",
+      "Moderní regulatorní rámec EMA pro hodnocení bioekvivalence (BE) u modifikovaných lékových forem (např. extended-release) nově striktně vyžaduje doložení profilu koncentrací nejen v ustáleném stavu (steady-state), ale i po jednorázovém podání za podmínek po jídle i nalačno, aby se vyloučil vliv potravy na uvolňování léčiva (food effect).",
+      "Nové požadavky EMA na Pediatric Investigation Plan (PIP) nyní vyžadují předložení studií u dětské populace již v rané fázi vývoje léku (u dospělých), přičemž jsou preferovány metody farmakometrického modelování a simulací k odhadu dávek, což snižuje expozici pediatrických pacientů invazivním zákrokům v klinických studiích.",
+      "Systém PRIME (PRIority MEdicines) od EMA umožňuje zrychlené registrační řízení pro léky se slibným terapeutickým přínosem u unmet medical needs, přičemž pro registraci je u těchto látek často akceptována náhradní metoda (surrogate endpoint) místo klinicky tvrdých dat, pokud je validně prokázána korelace mezi biomarkerem a klinickým efektem."
     ]
   },
   "pharm-33": {
@@ -2932,10 +2932,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
-      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
-      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
-      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
+      "Moderní trend v onkologii: Při léčbě inhibitory tyrosinkináz (TKI), jako je pazopanib nebo sunitinib, je nutné zohlednit časový odstup od podání inhibitorů protonové pumpy (PPI), které skrze zvýšení intragastrického pH snižují absorpci TKI, přičemž CYP3A4-dependentní metabolismus následně umocňuje variabilitu plazmatické expozice a riziko toxicity.",
+      "Doporučení pro klinickou praxi: U pacientů užívajících přímá perorální antikoagulancia (DOAC), specificky apixaban a rivaroxaban, je nutné přísně monitorovat interakce s kombinovanými inhibitory CYP3A4 a P-glykoproteinu (např. itrakonazol, posakonazol), neboť současná inhibice obou cest vede k signifikantnímu nárůstu AUC a zvýšenému riziku závažného krvácení.",
+      "Aktualizace v kardiologii: Vzhledem k vysokému riziku myotoxicity je u pacientů vyžadujících duální antiagregační léčbu spolu se statiny preferována nutné preferovat statiny s minimální afinitou k CYP3A4, jako je rosuvastatin či pravastatin, namísto simvastatinu či atorvastatinu, čímž se eliminuje farmakokinetická interakce s inhibitory CYP3A4, které by mohly potenciálně ovlivnit metabolickou stabilitu léčiva.",
+      "Farmakologický poznatek: Nové poznatky o pregnanovém X receptoru (PXR) ukazují, že i lokálně podávané glukokortikoidy (např. budesonid při inhalačním podání) mohou při systémovém vstřebávání vykazovat schopnost indukovat střevní CYP3A4, což vede k tzv. autoindukci metabolismu a snížení terapeutické účinnosti souběžně podávaných substrátů metabolizovaných tímto izoenzymem."
     ]
   },
   "pharm-34": {
@@ -3021,10 +3021,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "V psychofarmakologii se intenzivně zkoumají rychle působící antidepresiva na bázi modulátorů glutamátergního systému (např. esketamin) pro léčbu farmakorezistentní deprese.",
-      "Stoupá význam farmakogenomiky v psychiatrii, zejména testování polymorfismů cytochromu P450 (CYP2D6, CYP2C19) pro predikci snášenlivosti a účinnosti SSRI a antipsychotik.",
-      "Nové přístupy k léčbě neurodegenerativních onemocnění se zaměřují na ovlivnění patologických proteinů pomocí monoklonálních protilátek (např. lecanemab u Alzheimerovy choroby).",
-      "V terapii chronické bolesti se prosazuje multimodální přístup a omezování preskripce opioidů z důvodu rizika vzniku závislosti, s větším důrazem na koanalgetika a nefarmakologické postupy."
+      "Bod 1: V kontextu hormonální terapie karcinomu prsu je zásadní poznatek, že u pacientek s fenotypem pomalého metabolizátora (PM) CYP2D6 dochází k signifikantní redukci tvorby endoxifenu, což koreluje s horší prognózou a vyšším rizikem rekurence onemocnění při léčbě tamoxifenem, proto se doporučuje zvážit alternativu v podobě inhibitorů aromatáz u postmenopauzálních žen.",
+      "Bod 2: Aktuální guidelines CPIC (Clinical Pharmacogenetics Implementation Consortium) doporučují u ultra-rychlých metabolizátorů (UM) CYP2D6 při preskripci tricyklických antidepresiv (TCA) volbu alternativní látky nebo výrazné navýšení počáteční dávky pod bedlivým monitorováním, zatímco u PM je nutná redukce dávky o 50 % oproti standardu kvůli riziku toxicity.",
+      "Bod 3: Při současném podávání metoprololu a silných inhibitorů CYP2D6, jako jsou paroxetin či fluoxetin, dochází k fenokopii (tzv. phenoconversion), kdy se pacient s normální metabolickou kapacitou (EM) farmakologicky změní na pomalého metabolizátora, což vede k až pětinásobnému zvýšení plazmatických koncentrací metoprololu a riziku symptomatické bradykardie či AV blokád.",
+      "Bod 4: Vzhledem k riziku fatální respirační deprese způsobené rychlou konverzí kodeinu na morfin u UM metabolizátorů byla FDA i EMA doporučena striktní kontraindikace podávání kodeinu u dětí mladších 12 let a kojících žen, přičemž alternativou pro analgezii v pediatrii jsou opioidy metabolizované nezávisle na CYP2D6, například morfin přímo nebo fentanyl."
     ]
   },
   "pharm-35": {
@@ -3110,10 +3110,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "V psychofarmakologii se intenzivně zkoumají rychle působící antidepresiva na bázi modulátorů glutamátergního systému (např. esketamin) pro léčbu farmakorezistentní deprese.",
-      "Stoupá význam farmakogenomiky v psychiatrii, zejména testování polymorfismů cytochromu P450 (CYP2D6, CYP2C19) pro predikci snášenlivosti a účinnosti SSRI a antipsychotik.",
-      "Nové přístupy k léčbě neurodegenerativních onemocnění se zaměřují na ovlivnění patologických proteinů pomocí monoklonálních protilátek (např. lecanemab u Alzheimerovy choroby).",
-      "V terapii chronické bolesti se prosazuje multimodální přístup a omezování preskripce opioidů z důvodu rizika vzniku závislosti, s větším důrazem na koanalgetika a nefarmakologické postupy."
+      "Při managementu pacientů léčených clozapinem je nutné po hospitalizaci a vynucené abstinenci od kouření preventivně snížit dávku léku o 30–50 % během prvního týdne, neboť pokles indukce CYP1A2 po vysazení polycyklických aromatických uhlovodíků vede k rychlému vzestupu plazmatické hladiny clozapinu a riziku epileptických záchvatů.",
+      "Interakce mezi ciprofloxacinem a tizanidinem je klinicky závažnější než u theofylinu; ciprofloxacin jako potentní inhibitor CYP1A2 zvyšuje plazmatické koncentrace tizanidinu až 10násobně, což vede k výrazné hypotenzi, bradykardii a nadměrné sedaci, proto je tato kombinace kontraindikována.",
+      "Významná genetická polymorfie genu CYP1A2, konkrétně alela *1F, je spojena s fenotypem 'rychlých metabolizátorů' u kuřáků, což u pacientů s afektivními poruchami léčených olanzapinem vyžaduje podstatně vyšší dávkování pro dosažení terapeutického účinku ve srovnání s nosiči alely *1A.",
+      "Při současném podávání fluvoxaminu, který je silným inhibitorem CYP1A2, dochází k signifikantnímu vzestupu hladin kofeinu, což se u predisponovaných jedinců klinicky manifestuje jako 'kofeinová toxicita' zahrnující sinusovou tachykardii, tremor a úzkostné stavy, což pacienti často mylně interpretují jako vedlejší účinky samotného antidepresiva."
     ]
   },
   "pharm-36": {
@@ -3199,10 +3199,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
-      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
-      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
-      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
+      "Farmakogenetické testování alel CYP2C9 *2 a *3 je u pacientů indikovaných k terapii warfarinem zásadní pro predikci rizika krvácení, přičemž aktuální guidelines doporučují snížení úvodní dávky u nositelů těchto alel, neboť pomalá metabolizace S-warfarinu vede k predikovatelnému vzestupu INR a zvýšenému riziku hemoragických komplikací.",
+      "Přestože jsou DOAC (dabigatran, rivaroxaban, apixaban) volbou první volby u fibrilace síní, warfarin zůstává nezastupitelný u pacientů s mechanickými chlopněmi a mitrální stenózou; u těchto pacientů je nezbytné pečlivé sledování lékových interakcí ovlivňujících CYP2C9 (např. amiodaron, metronidazol), které mohou prostřednictvím inhibice tohoto enzymu akutně dekompenzovat terapeutické rozmezí INR.",
+      "Současná klinická praxe důrazně varuje před kombinací clopidogrelu s inhibitory protonové pumpy (PPI) metabolizovanými přes CYP2C19, jako jsou omeprazol či esomeprazol, kvůli kompetitivní inhibici aktivace clopidogrelu; jako bezpečnější alternativa pro profylaxi gastropatie při antiagregační léčbě se standardně volí pantoprazol, který nevykazuje signifikantní inhibiční afinitu k CYP2C19.",
+      "Při managementu léčby fenytoinem, jakožto úzkým substrátem CYP2C9, je nutné reflektovat riziko nelineární kinetiky a saturace enzymu, kdy i malá změna v lékové interakci nebo geneticky podmíněná snížená kapacita CYP2C9 vede k neúměrnému nárůstu plazmatické hladiny léčiva a rychlému rozvoji toxicity vyžadující urgentní TDM."
     ]
   },
   "pharm-37": {
@@ -3288,10 +3288,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
-      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
-      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
-      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
+      "Bod 1: V aktuálních guidelines pro léčbu invazivních infekcí vyvolaných MRSA je u vankomycinu preferováno monitorování AUC/MIC (plocha pod křivkou/minimální inhibiční koncentrace) namísto dřívějšího měření hladiny trough (minimální koncentrace), přičemž cílové rozmezí AUC/MIC 400–600 mg·h/L významně redukuje riziko nefrotoxicity.",
+      "Bod 2: U pacientů léčených biologickou léčbou (např. infliximab, adalimumab) v indikaci idiopatických střevních zánětů se rutinně zavádí reaktivní i proaktivní TDM, kde nízká hladina léku v kombinaci s přítomností protilátek proti léčivu (ADA - anti-drug antibodies) predikuje primární selhání terapie a vyžaduje úpravu dávkovacího schématu nebo switch na jiný inhibitor TNF-alfa.",
+      "Bod 3: U moderních antiepileptik 2. a 3. generace (např. levetiracetam, lamotrigin) se indikace TDM přesouvá od rutinního monitorování ke specifickým situacím, jako je těhotenství, kde dochází k významným změnám ve vazbě na bílkoviny a eliminaci, nebo při podezření na lékové interakce při polyfarmakoterapii u pacientů s farmakoresistentní epilepsií.",
+      "Bod 4: U imunosupresiv s úzkým terapeutickým oknem (takrolimus) je nově kladen důraz na monitorování hladin u pacientů s polymorfismy genu CYP3A5 (tzv. expressors vs. non-expressors), kde znalost genotypu pacienta umožňuje přesnější predikci potřebné iniciální dávky a urychluje dosažení terapeutické koncentrace bez rizika akutní rejekce transplantátu."
     ]
   },
   "pharm-38": {
@@ -3377,10 +3377,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
-      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
-      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
-      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
+      "Pro uplatnění TDM u moderních monoklonálních protilátek (např. infliximab, adalimumab) se nově klade důraz na měření hladin léku v kontextu přítomnosti protilátek proti léku (anti-drug antibodies, ADA), což je klíčové pro rozlišení mezi farmakokinetickým selháním a imunogenní inaktivací léčiva.",
+      "V managementu infekcí u kriticky nemocných pacientů (ICU) se u širokospektrých beta-laktamových antibiotik (např. meropenem, piperacilin/tazobaktam) preferuje kontinuální monitorace volné frakce léčiva pro optimalizaci farmakodynamického cíle fT > MIC, namísto spoléhání se na standardní empirické dávkovací regimeny, které často selhávají při augmentované renální clearance.",
+      "Aktuální trend v TDM imunosupresiv, jako je takrolimus, směřuje od pouhého sledování trough hladin (C0) k odhadu plochy pod křivkou (AUC0-12) pomocí limitovaného vzorkování (např. C2 hladina), což lépe koreluje s klinickou expozicí a rizikem rejekce transplantátu nebo rozvojem nefrotoxicity.",
+      "Při zavádění TDM u přímých perorálních antikoagulancií (DOACs) je zásadní využívat specifické testy (např. kalibrovaná anti-Xa aktivita pro rivaroxaban nebo apixaban) místo rutinních koagulačních parametrů (aPTT, INR), které jsou pro kvantifikaci jejich plazmatické hladiny klinicky nespolehlivé a diagnosticky nevalidní."
     ]
   },
   "pharm-39": {
@@ -3466,10 +3466,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Moderní farmakoterapie srdečního selhání se opírá o tzv. 'fantastickou čtyřku' (ARNI, beta-blokátory, MRA a SGLT2 inhibitory), která signifikantně snižuje mortalitu a morbiditu.",
-      "Inhibitory SGLT2 (glifloziny), původně antidiabetika, se staly pilířem léčby srdečního selhání bez ohledu na přítomnost diabetu díky svým pleiotropním kardioprotektivním účinkům.",
-      "V léčbě dyslipidemií se stále více prosazují biologické léky typu inhibitorů PCSK9 (např. evolokumab, alirokumab) a nově také siRNA terapie (inklisiran) s prodlouženým účinkem.",
-      "Personalizovaný přístup v kardiologii využívá farmakogenetické testování (např. CYP2C19 u klopidogrelu) pro optimalizaci antiagregační terapie po akutním koronárním syndromu."
+      "Digoxin v současné strategii léčby HFrEF ustupuje z pozice základního pilíře; podle aktuálních guidelines je jeho užití vyhrazeno pouze pro symptomatické pacienty s fibrilací síní při selhání kontroly komorové frekvence betablokátory, vzhledem k absenci vlivu digoxinu na redukci mortality ve srovnání se 'fantastickou čtyřkou' (ARNI, BB, MRA, SGLT2i).",
+      "Při zahájení nebo úpravě terapie u pacientů s CHSS je nutné striktně monitorovat interakce, zejména při současném podávání inhibitorů SGLT2, které díky natriuretickému účinku mohou ovlivnit iontovou homeostázu a tím sekundárně měnit senzitivitu myokardu k digoxinu i přes jeho stabilní plazmatickou hladinu.",
+      "Důraz na TDM digoxinu zůstává kritický u pacientů s komorbiditami vyžadujícími terapii inhibitory P-glykoproteinu (např. amiodaron, dronedaron nebo verapamil), které zvyšují biologickou dostupnost a snižují renální exkreci digoxinu, čímž vyžadují empirické snížení udržovací dávky o 30–50 % při současném zahájení těchto léčiv.",
+      "Klinicky zásadním parametrem při interpretaci TDM je zohlednění aktuální funkce ledvin (eGFR) a hladiny kalémie; vzhledem k preferovanému užití MRA (spironolakton, eplerenon) u srdečního selhání hrozí častější riziko hyperkalémie, která sice snižuje toxicitu digoxinu, ale zároveň oslabuje jeho inotropní efekt, což vyžaduje komplexní farmakologický management obou látek."
     ]
   },
   "pharm-40": {
@@ -3555,10 +3555,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "V současné době roste důraz na tzv. antimikrobiální stewardship (AMS), jehož cílem je optimalizace preskripce a snížení rizika vzniku rezistence.",
-      "S nástupem nových metod rychlé mikrobiologické diagnostiky (např. MALDI-TOF, PCR panely) lze cílenou terapii zahájit dříve, čímž se zkracuje doba empirického podávání širokospektrých antibiotik.",
-      "Stále častěji se zvažuje také TDM (terapeutické monitorování) nejen u aminoglykosidů a vankomycinu, ale i u beta-laktamů, zejména u kriticky nemocných pacientů se změněnou farmakokinetikou.",
-      "Klinickým trendem je rovněž zkracování délky antibiotické léčby u nekomplikovaných infekcí (např. komunitní pneumonie, uroinfekce) na základě biomarkerů jako je prokalcitonin."
+      "Přechod od sledování trough koncentrací k Bayesianově predikci AUC0-24: Současná mezinárodní doporučení (IDSA/ASHP) preferují modelově informované dávkování k dosažení cílového poměru AUC/MIC v rozmezí 400–600 mg*h/l, protože trough koncentrace (15–20 mg/l) jsou méně spolehlivým prediktorem klinické účinnosti a zároveň silněji korelují s rozvojem vankomycinem indukované nefrotoxicity.",
+      "Farmakokinetika u kriticky nemocných pacientů: U pacientů v sepsi s augmentovanou renální clearance (ARC) je nutné počítat s rychlejší eliminací vankomycinu, což při standardním dávkování vede k subterapeutickým hladinám; v těchto případech je indikováno zahájení kontinuální infuze vankomycinu po úvodní nasycovací dávce (loading dose) 25–30 mg/kg k rychlému dosažení terapeutického okna.",
+      "Riziko kombinované nefrotoxicity: Při současné léčbě vankomycinem a piperacilinem/tazobaktamem dochází k synergickému zvýšení rizika akutního poškození ledvin (AKI), a to i při terapeutických hladinách vankomycinu, což vyžaduje přísnou monitoraci sérového kreatininu a zvážení alternativní empirické terapie u pacientů s dalšími rizikovými faktory pro renální selhání.",
+      "Optimalizace dávkování u obézních pacientů: U morbidně obézních jedinců je nutné pro výpočet nasycovací dávky využívat celkovou tělesnou hmotnost (total body weight), nikoliv hmotnost ideální, aby nedošlo k poddávkování v distribuční fázi, přičemž následné udržovací dávkování musí reflektovat reálnou glomerulární filtraci vypočtenou dle Cockcroft-Gaultovy rovnice s využitím upravené tělesné hmotnosti."
     ]
   },
   "pharm-41": {
@@ -3644,10 +3644,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "V současné době roste důraz na tzv. antimikrobiální stewardship (AMS), jehož cílem je optimalizace preskripce a snížení rizika vzniku rezistence.",
-      "S nástupem nových metod rychlé mikrobiologické diagnostiky (např. MALDI-TOF, PCR panely) lze cílenou terapii zahájit dříve, čímž se zkracuje doba empirického podávání širokospektrých antibiotik.",
-      "Stále častěji se zvažuje také TDM (terapeutické monitorování) nejen u aminoglykosidů a vankomycinu, ale i u beta-laktamů, zejména u kriticky nemocných pacientů se změněnou farmakokinetikou.",
-      "Klinickým trendem je rovněž zkracování délky antibiotické léčby u nekomplikovaných infekcí (např. komunitní pneumonie, uroinfekce) na základě biomarkerů jako je prokalcitonin."
+      "Implementace farmakokinetického modelování s Bayesianovým odhadem (tzv. Bayesian forecasting) postupně nahrazuje tradiční metody dvoubodového odběru, což umožňuje přesnou predikci hladin u pacientů s nestabilní renální funkcí i při odběru pouze jednoho vzorku v čase 6–14 hodin po podání.",
+      "Aktuální důraz na terapeutické monitorování u kriticky nemocných v sepsi reflektuje nutnost adaptace dávky dle objemu distribučního prostoru (Vd), který se vlivem kapilárního úniku a agresivní volumoterapie může zvýšit až na 0.4–0.5 L/kg, což vyžaduje navýšení iniciální saturační dávky pro dosažení cílového Cmax/MIC poměru.",
+      "V kontextu prevence ototoxicity se stále více zvažuje role farmakogenetiky, konkrétně vyšetření mutace mitochondriálního genu m.1555A>G, jejíž přítomnost vede k hypersenzitivitě na aminoglykosidy a riziku ireverzibilní hluchoty i při terapeutických hladinách.",
+      "Při léčbě pacientů s obezitou se pro výpočet dávky aminoglykosidů doporučuje využívat koncept upravené tělesné hmotnosti (ideal body weight + 40 % z nadváhy), jelikož aminoglykosidy se distribuují převážně do extracelulární tekutiny, nikoliv do tukové tkáně, a použití celkové tělesné hmotnosti u obézních pacientů vede k předávkování."
     ]
   },
   "pharm-42": {
@@ -3733,10 +3733,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
-      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
-      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
-      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
+      "V kontextu aktuálních GINA 2024/2025 guidelines je teofylin (respektive aminofylin) z managementu astma bronchiale zcela vytlačen a řazen mezi historické intervence; jeho použití je u akutního záchvatu (status asthmaticus) omezeno pouze na specifické, refrakterní případy, kdy selhaly standardní postupy (SABA, SAMA, systémové kortikoidy, magnesium sulfát), vzhledem k riziku fatálních arytmií a úzkému terapeutickému indexu.",
+      "Klinicky zásadním rizikem u hospitalizovaných pacientů je tzv. 'de-indukční fenomén' CYP1A2; u silných kuřáků, kteří během hospitalizace přestanou kouřit, dochází k prodloužení eliminačního poločasu teofylinu až na trojnásobek původní hodnoty, což při nezměněném dávkovacím schématu vede k rychlé akumulaci molekuly do toxického rozmezí nad 20 mg/l s rizikem epileptických křečí.",
+      "Interakční profil teofylinu vyžaduje striktní monitoraci při ko-medikaci inhibitory CYP1A2, zejména u fluorochinolonů (ciprofloxacin), kde dochází k signifikantní inhibici metabolismu a následnému vzestupu plazmatických hladin teofylinu, což vyžaduje preventivní redukci dávky teofylinu o 25–50 % již při zahájení léčby tímto antibiotikem.",
+      "Při interpretaci TDM výsledků u pacientů léčených teofylinem je nutné zohlednit věkově specifickou farmakokinetiku; dětský věk (zejména 1–9 let) je spojen s výrazně vyšší clearance methylxantinů (hypermetabolismus), což u pediatrů vyžaduje vyšší dávkování v mg/kg oproti dospělým populacím pro dosažení analogických plazmatických koncentrací v terapeutickém okně 10–20 mg/l."
     ]
   },
   "pharm-43": {
@@ -3822,10 +3822,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
-      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
-      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
-      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
+      "Vzhledem k nelineární farmakokinetice fenytoinu se při interpretaci hladin nově klade důraz na výpočet koncentrace 'korigované' o hladinu albuminu a renální funkce (rovnice dle Wintera-Tozerové), neboť hypoalbuminémie dramaticky zvyšuje volnou (aktivní) frakci léku i při terapeutické celkové koncentraci v séru.",
+      "U pacientů léčených kyselinou valproovou s rozvojem alterace vědomí je nutné rutinně monitorovat hladinu amoniaku i při normálních jaterních testech, jelikož valproát inhibuje karbamoylfosfát-syntetázu I, což vede k hyperamonemické encefalopatii nezávislé na hepatotoxicitě.",
+      "Moderní guidelines pro léčbu lamotriginem v těhotenství vyžadují prenatální TDM v 3- až 4-týdenních intervalech, protože vlivem indukce glukuronidace (UGT1A4) vlivem estrogenů klesá plazmatická koncentrace lamotriginu až o 50 %, což dramaticky zvyšuje riziko průlomových záchvatů v druhém a třetím trimestru.",
+      "U levetiracetamu, ačkoliv je považován za lék s predikovatelnou farmakokinetikou, je TDM indikováno u pacientů s poklesem clearance kreatininu pod 80 ml/min/1,73 m2, kde dochází k významné akumulaci parentní látky vyžadující redukci dávkovacího intervalu, v opačném případě hrozí rozvoj psychiatrické symptomatiky a agresivity."
     ]
   },
   "pharm-44": {
@@ -3911,10 +3911,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Moderní farmakoterapie srdečního selhání se opírá o tzv. 'fantastickou čtyřku' (ARNI, beta-blokátory, MRA a SGLT2 inhibitory), která signifikantně snižuje mortalitu a morbiditu.",
-      "Inhibitory SGLT2 (glifloziny), původně antidiabetika, se staly pilířem léčby srdečního selhání bez ohledu na přítomnost diabetu díky svým pleiotropním kardioprotektivním účinkům.",
-      "V léčbě dyslipidemií se stále více prosazují biologické léky typu inhibitorů PCSK9 (např. evolokumab, alirokumab) a nově také siRNA terapie (inklisiran) s prodlouženým účinkem.",
-      "Personalizovaný přístup v kardiologii využívá farmakogenetické testování (např. CYP2C19 u klopidogrelu) pro optimalizaci antiagregační terapie po akutním koronárním syndromu."
+      "Bod 1: Implementace konsenzu AGNP 2022 v TDM: Doporučuje se rutinní TDM u antidepresiv s úzkým terapeutickým oknem (TCA, venlafaxin) a u SSRI/SNRI při podezření na non-compliance, interakce nebo u specifických populací (děti, geriatři, gravidní), přičemž se nově klade důraz na interpretaci poměru mateřské látky k metabolitu pro detekci fenotypu CYP2D6.",
+      "Bod 2: Klinický význam polymorfismů CYP2C19 u escitalopramu a citalopramu: U pacientů s ultrarychlým metabolismem (UM) je nutné počítat s rizikem subterapeutických hladin a selhání léčby, zatímco u pomalých metabolizátorů (PM) hrozí zvýšené riziko prodloužení QTc intervalu, což u těchto SSRI vyžaduje opatrnost při dávkování nad standardní terapeutické limity.",
+      "Bod 3: TDM u agomelatinu a vortioxetinu: Ačkoliv mají širší terapeutické okno, TDM se v indikovaných případech (selhání terapie) zaměřuje na vyloučení metabolických interakcí přes CYP1A2 (agomelatin) nebo CYP2D6 (vortioxetin), což umožňuje včasnou úpravu dávkování bez nutnosti předčasného ukončení léčby pro domnělou rezistenci.",
+      "Bod 4: Management toxicity TCA a úprava acidobazické rovnováhy: Moderní protokoly při předávkování tricyklickejmi antidepresivy striktně vyžadují udržování arteriálního pH v rozmezí 7,45–7,55 pomocí infúze hydrogenuhličitanu sodného, přičemž cílené monitorování plazmatických hladin TCA (> 1000 µg/l je spojeno s vysokým rizikem záchvatů a arytmií) je klíčové pro stratifikaci rizika intenzivní péče."
     ]
   },
   "pharm-45": {
@@ -4000,10 +4000,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "V psychofarmakologii se intenzivně zkoumají rychle působící antidepresiva na bázi modulátorů glutamátergního systému (např. esketamin) pro léčbu farmakorezistentní deprese.",
-      "Stoupá význam farmakogenomiky v psychiatrii, zejména testování polymorfismů cytochromu P450 (CYP2D6, CYP2C19) pro predikci snášenlivosti a účinnosti SSRI a antipsychotik.",
-      "Nové přístupy k léčbě neurodegenerativních onemocnění se zaměřují na ovlivnění patologických proteinů pomocí monoklonálních protilátek (např. lecanemab u Alzheimerovy choroby).",
-      "V terapii chronické bolesti se prosazuje multimodální přístup a omezování preskripce opioidů z důvodu rizika vzniku závislosti, s větším důrazem na koanalgetika a nefarmakologické postupy."
+      "Moderní konsenzus AGNP (Arbeitsgemeinschaft für Neuropsychopharmakologie und Pharmakopsychiatrie) nyní striktně doporučuje TDM clozapinu u všech pacientů s parciální odpovědí či intolerancí, přičemž zohledňuje metabolický poměr clozapin/norclozapin, kde poměr > 1,0 může indikovat indukovaný metabolismus (např. kouřením indukovaný CYP1A2) a poměr < 0,5 naopak svědčí pro pomalý metabolismus nebo inhibici CYP2D6/CYP3A4.",
+      "Aktuální poznatky o vlivu zánětu na farmakokinetiku clozapinu zdůrazňují riziko akutní toxicity při poklesu hladin prozánětlivých cytokinů (IL-6, TNF-alfa), které během infekce či zánětu tlumí aktivitu CYP1A2; při ústupu zánětu dochází k reaktivaci enzymu, což vede k rychlému poklesu hladin clozapinu a riziku relapsu schizofrenie, vyžadujícímu časnou úpravu dávkování.",
+      "Dle nových doporučení pro monitoraci antipsychotik je u risperidonu nutné hodnotit celkovou aktivní frakci (součet koncentrace risperidonu a aktivního metabolitu paliperidonu), přičemž cílové terapeutické rozmezí 20–60 µg/l musí být korigováno u fenotypových 'poor metabolizerů' (PM) na CYP2D6, u kterých dochází k akumulaci risperidonu a zvýšenému riziku extrapyramidových symptomů (EPS) i při standardních dávkách.",
+      "Významným posunem v klinické praxi u lurasidonu je nutnost sledování hladin v kontextu interakcí s inhibitory a induktory CYP3A4, kdy při současném podávání se silnými inhibitory (např. ketokonazol) může dojít k vzestupu plazmatické koncentrace až šestinásobně, což vyžaduje preventivní redukci dávky na 25 % původní hodnoty a následnou TDM validaci pro prevenci dávkově závislé akatizie."
     ]
   },
   "pharm-46": {
@@ -4089,10 +4089,10 @@ const PHARM_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Současným trendem ve farmakologii je přechod k precizní a personalizované medicíně, která zohledňuje genetickou výbavu pacienta (farmakogenomiku) pro výběr optimálního léčiva a dávky.",
-      "Digitalizace a využívání umělé inteligence (AI) v objevování nových léčiv (drug discovery) výrazně urychlují identifikaci nových terapeutických cílů a predikci nežádoucích účinků.",
-      "Roste význam vývoje pokročilých lékových forem (např. nanočástice, lipozomy, cílené doručovací systémy), které zlepšují biologickou dostupnost a snižují systémovou toxicitu léčiv.",
-      "Při hodnocení bezpečnosti léčiv (farmakovigilance) se dnes využívají rozsáhlé databáze reálných klinických dat (Real-World Evidence) pro detekci vzácných nežádoucích účinků."
+      "Implementace CPIC (Clinical Pharmacogenetics Implementation Consortium) doporučení pro genotypizaci CYP2C19 u pacientů indikovaných k antiagregační léčbě klopidogrelem: pacienti s fenotypem 'poor metabolizer' (*2, *3) mají signifikantně vyšší riziko stentové trombózy a kardiovaskulárních příhod, proto je u nich indikována alternativa v podobě tikagreloru nebo prasugrelu.",
+      "Povinný screening variant genu DPYD (zejména *2A, *13 a c.2846A>T) před zahájením fluoropyrimidinové chemoterapie (5-fluorouracil, kapecitabin) jako standard prevence fatální gastrointestinální a hematologické toxicity vyvolané deficitem dihydropyrimidin dehydrogenázy.",
+      "Klinický význam polymorfismu genu SLCO1B1 (alela c.521T>C) pro volbu statinové terapie: u nositelů CC genotypu je riziko myopatie při užívání simvastatinu v dávce 40 mg a vyšší výrazně zvýšené, což u těchto pacientů vyžaduje buď redukci dávky simvastatinu, nebo volbu hydrofilního statinu s jiným metabolickým profilem, jako je rosuvastatin nebo pravastatin.",
+      "Dávkování warfarinu na základě algoritmu zahrnujícího kombinaci genotypů CYP2C9 (metabolismus) a VKORC1 (citlivost terčové struktury) umožňuje přesnější predikci terapeutického okraje (INR 2-3) a zkracuje dobu potřebnou k dosažení stabilní udržovací dávky, čímž snižuje riziko časných krvácivých komplikací při zahájení léčby."
     ]
   }
 };
