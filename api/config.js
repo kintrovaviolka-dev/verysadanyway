@@ -1,0 +1,71 @@
+// api/config.js - Vercel Serverless Function to expose public CLIENT_TOKEN for authorization.
+
+function checkReferer(req) {
+  const referer = req.headers.referer || req.headers.referrer;
+  const origin = req.headers.origin;
+  
+  if (!referer && !origin) return false;
+  
+  const checkDomain = (source) => {
+    if (!source) return true;
+    try {
+      const url = new URL(source);
+      const hostname = url.hostname;
+      
+      const allowed = ['localhost', '127.0.0.1', '::1'];
+      const isLocal = allowed.some(domain => hostname === domain);
+      const isVercel = hostname === 'vercel.app' || hostname.endsWith('.vercel.app');
+      
+      return isLocal || isVercel;
+    } catch (e) {
+      return false;
+    }
+  };
+  
+  if (referer && !checkDomain(referer)) return false;
+  if (origin && !checkDomain(origin)) return false;
+  
+  return true;
+}
+
+module.exports = async (req, res) => {
+  // CORS Headers Configuration
+  const origin = req.headers.origin;
+  const referer = req.headers.referer || req.headers.referrer;
+  const source = origin || referer;
+  
+  let allowedOrigin = null;
+  if (source) {
+    try {
+      const url = new URL(source);
+      const hostname = url.hostname;
+      
+      const allowed = ['localhost', '127.0.0.1', '::1'];
+      const isLocal = allowed.some(domain => hostname === domain);
+      const isVercel = hostname === 'vercel.app' || hostname.endsWith('.vercel.app');
+      
+      if (isLocal || isVercel) {
+        allowedOrigin = url.origin;
+      }
+    } catch (e) {}
+  }
+  
+  if (allowedOrigin) {
+    res.setHeader('Access-Control-Allow-Origin', allowedOrigin);
+    res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  }
+
+  // Handle preflight OPTIONS request
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
+  // 1. Check referer/origin
+  if (!checkReferer(req)) {
+    return res.status(403).json({ error: "Access forbidden from this origin." });
+  }
+
+  const clientToken = process.env.CLIENT_TOKEN || 'super_secret_medical_study_token_2026';
+  return res.status(200).json({ clientToken });
+};
