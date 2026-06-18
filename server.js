@@ -2,23 +2,17 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 
-// --- LOAD ENVIRONMENT VARIABLES MANUALLY ---
-// This ensures compatibility with older Node versions without dotenv dependency
-const envPath = path.join(__dirname, '.env');
-if (fs.existsSync(envPath)) {
-  const envContent = fs.readFileSync(envPath, 'utf8');
-  envContent.split('\n').forEach(line => {
-    const trimmed = line.trim();
-    if (!trimmed || trimmed.startsWith('#')) return;
-    const firstEquals = trimmed.indexOf('=');
-    if (firstEquals === -1) return;
-    const key = trimmed.substring(0, firstEquals).trim();
-    const value = trimmed.substring(firstEquals + 1).trim().replace(/^['"]|['"]$/g, '');
-    if (!process.env[key]) {
-      process.env[key] = value;
-    }
-  });
+// --- LOAD ENVIRONMENT VARIABLES ---
+// Load environment variables natively in Node.js (v20.12+)
+// This is a programmatic fallback if --env-file wasn't passed via CLI
+if (typeof process.loadEnvFile === 'function') {
+  try {
+    process.loadEnvFile(path.join(__dirname, '.env'));
+  } catch (e) {
+    // Ignore if .env does not exist or load fails
+  }
 }
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -52,23 +46,29 @@ function getClientIp(req) {
 function checkReferer(req) {
   const referer = req.headers.referer || req.headers.referrer;
   const origin = req.headers.origin;
-  const source = referer || origin;
   
-  if (!source) return true; // Fallback if headers are absent (e.g. CLI tools)
-
-  try {
-    const url = new URL(source);
-    const hostname = url.hostname;
-    
-    // Allow localhost, local IP addresses, and vercel.app domains
-    const allowed = ['localhost', '127.0.0.1', '::1'];
-    const isLocal = allowed.some(domain => hostname === domain);
-    const isVercel = hostname === 'vercel.app' || hostname.endsWith('.vercel.app');
-    
-    return isLocal || isVercel;
-  } catch (e) {
-    return false;
-  }
+  if (!referer && !origin) return false;
+  
+  const checkDomain = (source) => {
+    if (!source) return true;
+    try {
+      const url = new URL(source);
+      const hostname = url.hostname;
+      
+      const allowed = ['localhost', '127.0.0.1', '::1'];
+      const isLocal = allowed.some(domain => hostname === domain);
+      const isVercel = hostname === 'vercel.app' || hostname.endsWith('.vercel.app');
+      
+      return isLocal || isVercel;
+    } catch (e) {
+      return false;
+    }
+  };
+  
+  if (referer && !checkDomain(referer)) return false;
+  if (origin && !checkDomain(origin)) return false;
+  
+  return true;
 }
 
 // --- GEMINI SYSTEM INSTRUCTIONS ---
@@ -105,8 +105,8 @@ app.use((req, res, next) => {
   
   if (allowedOrigin) {
     res.setHeader('Access-Control-Allow-Origin', allowedOrigin);
-    res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   }
 
   // Handle preflight OPTIONS request
@@ -117,13 +117,31 @@ app.use((req, res, next) => {
 });
 
 // --- CHAT ENDPOINT ---
+// --- CONFIG ENDPOINT ---
+app.get('/api/config', (req, res) => {
+  // 1. Check Referer/Origin to protect against external hotlinking
+  if (!checkReferer(req)) {
+    return res.status(403).json({ error: "Access forbidden from this origin." });
+  }
+  const clientToken = process.env.CLIENT_TOKEN || 'super_secret_medical_study_token_2026';
+  res.json({ clientToken });
+});
+
+// --- CHAT ENDPOINT ---
 app.post('/api/chat', async (req, res) => {
   // 1. Check Referer/Origin to protect against external hotlinking
   if (!checkReferer(req)) {
     return res.status(403).json({ error: "Access forbidden from this origin." });
   }
 
-  // 2. Apply rate limiting
+  // 2. Validate Authorization header
+  const clientToken = process.env.CLIENT_TOKEN || 'super_secret_medical_study_token_2026';
+  const authHeader = req.headers.authorization;
+  if (!authHeader || authHeader !== `Bearer ${clientToken}`) {
+    return res.status(401).json({ error: "Access unauthorized. Missing or invalid Authorization header." });
+  }
+
+  // 3. Apply rate limiting
   const ip = getClientIp(req);
   const limitStatus = (() => {
     const now = Date.now();
@@ -153,7 +171,7 @@ app.post('/api/chat', async (req, res) => {
     return res.status(429).json({ error: limitStatus.reason });
   }
 
-  // 3. Check Gemini API key configuration
+  // 4. Check Gemini API key configuration
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey || apiKey === 'YOUR_API_KEY_HERE' || apiKey === 'your_gemini_api_key_here') {
     return res.status(503).json({ 
@@ -168,17 +186,18 @@ app.post('/api/chat', async (req, res) => {
   }
 
   try {
-    // Format messages for the Gemini API, ensuring strict alternation and user role start
+    // Format messages for the Gemini API, stitching consecutive same-role messages
     const contents = [];
-    let lastRole = null;
     for (const msg of messages) {
       const role = msg.role === 'model' || msg.role === 'assistant' ? 'model' : 'user';
-      if (role === lastRole) continue; // Skip consecutive identical roles to prevent Gemini API errors
-      contents.push({
-        role,
-        parts: [{ text: msg.text }]
-      });
-      lastRole = role;
+      if (contents.length > 0 && contents[contents.length - 1].role === role) {
+        contents[contents.length - 1].parts.push({ text: msg.text });
+      } else {
+        contents.push({
+          role,
+          parts: [{ text: msg.text }]
+        });
+      }
     }
     
     // The conversation must start with a user message
@@ -192,8 +211,8 @@ app.post('/api/chat', async (req, res) => {
 
     const systemInstructionText = systemInstructions[subject] || systemInstructions.general;
 
-    // Call Google Gemini API
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+    // Call Google Gemini API with streaming
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:streamGenerateContent?alt=sse&key=${apiKey}`;
     const response = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -235,17 +254,88 @@ app.post('/api/chat', async (req, res) => {
       });
     }
 
-    const data = await response.json();
-    const responseText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+    // Set streaming headers
+    res.writeHead(200, {
+      'Content-Type': 'text/event-stream',
+      'Cache-Control': 'no-cache',
+      'Connection': 'keep-alive',
+      'X-Accel-Buffering': 'no'
+    });
 
-    if (!responseText) {
-      return res.status(502).json({ error: "Gemini API nevrátila žádnou odpověď." });
+    const decoder = new TextDecoder("utf-8");
+    let buffer = "";
+    const body = response.body;
+
+    if (body && typeof body.getReader === 'function') {
+      const reader = body.getReader();
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split("\n");
+        buffer = lines.pop(); // keep partial line in buffer
+
+        for (const line of lines) {
+          const trimmed = line.trim();
+          if (!trimmed.startsWith("data: ")) continue;
+          const jsonStr = trimmed.substring(6);
+          try {
+            const parsed = JSON.parse(jsonStr);
+            const text = parsed.candidates?.[0]?.content?.parts?.[0]?.text;
+            if (text) {
+              res.write(`data: ${JSON.stringify({ text })}\n\n`);
+            }
+          } catch (e) {
+            // Ignore parse errors for incomplete JSON
+          }
+        }
+      }
+    } else if (body) {
+      for await (const chunk of body) {
+        buffer += decoder.decode(chunk, { stream: true });
+        const lines = buffer.split("\n");
+        buffer = lines.pop(); // keep partial line in buffer
+
+        for (const line of lines) {
+          const trimmed = line.trim();
+          if (!trimmed.startsWith("data: ")) continue;
+          const jsonStr = trimmed.substring(6);
+          try {
+            const parsed = JSON.parse(jsonStr);
+            const text = parsed.candidates?.[0]?.content?.parts?.[0]?.text;
+            if (text) {
+              res.write(`data: ${JSON.stringify({ text })}\n\n`);
+            }
+          } catch (e) {
+            // Ignore parse errors for incomplete JSON
+          }
+        }
+      }
     }
 
-    res.json({ text: responseText });
+    // Parse remaining buffer
+    if (buffer.length > 0) {
+      const trimmed = buffer.trim();
+      if (trimmed.startsWith("data: ")) {
+        try {
+          const parsed = JSON.parse(trimmed.substring(6));
+          const text = parsed.candidates?.[0]?.content?.parts?.[0]?.text;
+          if (text) {
+            res.write(`data: ${JSON.stringify({ text })}\n\n`);
+          }
+        } catch (e) {}
+      }
+    }
+
+    res.end();
   } catch (error) {
     console.error('Proxy Server Error:', error);
-    res.status(500).json({ error: "Interní chyba serveru při zpracování dotazu." });
+    // If headers haven't been sent, return JSON. Otherwise just end the response.
+    if (!res.headersSent) {
+      res.status(500).json({ error: "Interní chyba serveru při zpracování dotazu." });
+    } else {
+      res.end();
+    }
   }
 });
 

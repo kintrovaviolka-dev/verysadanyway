@@ -1,20 +1,13 @@
 // api/chat.js - Vercel Serverless Function Proxy for Gemini API
 
-const rateLimitCache = new Map();
-const LIMIT_WINDOW_MS = 60 * 1000; // 1 minute
-const MAX_REQUESTS = 10;
-const MIN_INTERVAL_MS = 2000; // 2 seconds between requests
-
-// Periodically clean up rate limit cache
-setInterval(() => {
-  const now = Date.now();
-  for (const [ip, data] of rateLimitCache.entries()) {
-    data.timestamps = data.timestamps.filter(ts => now - ts < LIMIT_WINDOW_MS);
-    if (data.timestamps.length === 0) {
-      rateLimitCache.delete(ip);
-    }
-  }
-}, 10 * 60 * 1000);
+// Wrapper for future stateless rate limiter injection (e.g. Upstash/Redis)
+async function checkExternalRateLimit(ip) {
+  // TODO: Implement Upstash Redis rate limiting check here.
+  // Example:
+  // const { success } = await redis.limit(ip);
+  // if (!success) throw new Error("Rate limit exceeded");
+  return { allowed: true };
+}
 
 function getClientIp(req) {
   return req.headers['x-forwarded-for'] || req.socket?.remoteAddress || 'unknown';
@@ -23,22 +16,29 @@ function getClientIp(req) {
 function checkReferer(req) {
   const referer = req.headers.referer || req.headers.referrer;
   const origin = req.headers.origin;
-  const source = referer || origin;
   
-  if (!source) return true; // Keep true for testing/dev
-
-  try {
-    const url = new URL(source);
-    const hostname = url.hostname;
-    
-    const allowed = ['localhost', '127.0.0.1', '::1'];
-    const isLocal = allowed.some(domain => hostname === domain);
-    const isVercel = hostname === 'vercel.app' || hostname.endsWith('.vercel.app');
-    
-    return isLocal || isVercel;
-  } catch (e) {
-    return false;
-  }
+  if (!referer && !origin) return false;
+  
+  const checkDomain = (source) => {
+    if (!source) return true;
+    try {
+      const url = new URL(source);
+      const hostname = url.hostname;
+      
+      const allowed = ['localhost', '127.0.0.1', '::1'];
+      const isLocal = allowed.some(domain => hostname === domain);
+      const isVercel = hostname === 'vercel.app' || hostname.endsWith('.vercel.app');
+      
+      return isLocal || isVercel;
+    } catch (e) {
+      return false;
+    }
+  };
+  
+  if (referer && !checkDomain(referer)) return false;
+  if (origin && !checkDomain(origin)) return false;
+  
+  return true;
 }
 
 const systemInstructions = {
@@ -75,7 +75,7 @@ module.exports = async (req, res) => {
   if (allowedOrigin) {
     res.setHeader('Access-Control-Allow-Origin', allowedOrigin);
     res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   }
 
   // Handle preflight OPTIONS request
@@ -94,32 +94,25 @@ module.exports = async (req, res) => {
     return res.status(403).json({ error: "Access forbidden from this origin." });
   }
 
-  // 2. Apply rate limiting
-  const ip = getClientIp(req);
-  const now = Date.now();
-  
-  if (!rateLimitCache.has(ip)) {
-    rateLimitCache.set(ip, { timestamps: [now], lastRequest: now });
-  } else {
-    const clientData = rateLimitCache.get(ip);
-    
-    // Check spamming
-    if (now - clientData.lastRequest < MIN_INTERVAL_MS) {
-      return res.status(429).json({ error: "Prosím, počkejte chvíli před dalším dotazem (anti-spam)." });
-    }
-
-    clientData.timestamps = clientData.timestamps.filter(ts => now - ts < LIMIT_WINDOW_MS);
-    if (clientData.timestamps.length >= MAX_REQUESTS) {
-      const oldestTs = clientData.timestamps[0];
-      const waitTime = Math.ceil((LIMIT_WINDOW_MS - (now - oldestTs)) / 1000);
-      return res.status(429).json({ error: `Příliš mnoho požadavků. Prosím, počkejte ${waitTime} sekund.` });
-    }
-
-    clientData.timestamps.push(now);
-    clientData.lastRequest = now;
+  // 2. Validate Authorization header
+  const clientToken = process.env.CLIENT_TOKEN || 'super_secret_medical_study_token_2026';
+  const authHeader = req.headers.authorization;
+  if (!authHeader || authHeader !== `Bearer ${clientToken}`) {
+    return res.status(401).json({ error: "Access unauthorized. Missing or invalid Authorization header." });
   }
 
-  // 3. Check API key configuration (on Vercel it should be added in Project Settings -> Environment Variables)
+  // 3. Call stateless rate-limiter placeholder
+  const ip = getClientIp(req);
+  try {
+    const rateLimit = await checkExternalRateLimit(ip);
+    if (!rateLimit.allowed) {
+      return res.status(429).json({ error: "Příliš mnoho požadavků." });
+    }
+  } catch (error) {
+    return res.status(429).json({ error: error.message });
+  }
+
+  // 4. Check API key configuration
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey || apiKey === 'YOUR_API_KEY_HERE' || apiKey === 'your_gemini_api_key_here') {
     return res.status(503).json({ 
@@ -134,17 +127,18 @@ module.exports = async (req, res) => {
   }
 
   try {
-    // Format messages for the Gemini API, ensuring strict alternation and user role start
+    // Format messages for the Gemini API, stitching consecutive same-role messages
     const contents = [];
-    let lastRole = null;
     for (const msg of messages) {
       const role = msg.role === 'model' || msg.role === 'assistant' ? 'model' : 'user';
-      if (role === lastRole) continue; // Skip consecutive identical roles to prevent Gemini API errors
-      contents.push({
-        role,
-        parts: [{ text: msg.text }]
-      });
-      lastRole = role;
+      if (contents.length > 0 && contents[contents.length - 1].role === role) {
+        contents[contents.length - 1].parts.push({ text: msg.text });
+      } else {
+        contents.push({
+          role,
+          parts: [{ text: msg.text }]
+        });
+      }
     }
     
     // The conversation must start with a user message
@@ -158,7 +152,8 @@ module.exports = async (req, res) => {
 
     const systemInstructionText = systemInstructions[subject] || systemInstructions.general;
 
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+    // Call Google Gemini API with streaming
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:streamGenerateContent?alt=sse&key=${apiKey}`;
     const response = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -199,16 +194,87 @@ module.exports = async (req, res) => {
       });
     }
 
-    const data = await response.json();
-    const responseText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+    // Set streaming headers
+    res.writeHead(200, {
+      'Content-Type': 'text/event-stream',
+      'Cache-Control': 'no-cache',
+      'Connection': 'keep-alive',
+      'X-Accel-Buffering': 'no'
+    });
 
-    if (!responseText) {
-      return res.status(502).json({ error: "Gemini API nevrátila žádnou odpověď." });
+    const decoder = new TextDecoder("utf-8");
+    let buffer = "";
+    const body = response.body;
+
+    if (body && typeof body.getReader === 'function') {
+      const reader = body.getReader();
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split("\n");
+        buffer = lines.pop(); // keep partial line in buffer
+
+        for (const line of lines) {
+          const trimmed = line.trim();
+          if (!trimmed.startsWith("data: ")) continue;
+          const jsonStr = trimmed.substring(6);
+          try {
+            const parsed = JSON.parse(jsonStr);
+            const text = parsed.candidates?.[0]?.content?.parts?.[0]?.text;
+            if (text) {
+              res.write(`data: ${JSON.stringify({ text })}\n\n`);
+            }
+          } catch (e) {
+            // Ignore parse errors for incomplete JSON
+          }
+        }
+      }
+    } else if (body) {
+      for await (const chunk of body) {
+        buffer += decoder.decode(chunk, { stream: true });
+        const lines = buffer.split("\n");
+        buffer = lines.pop(); // keep partial line in buffer
+
+        for (const line of lines) {
+          const trimmed = line.trim();
+          if (!trimmed.startsWith("data: ")) continue;
+          const jsonStr = trimmed.substring(6);
+          try {
+            const parsed = JSON.parse(jsonStr);
+            const text = parsed.candidates?.[0]?.content?.parts?.[0]?.text;
+            if (text) {
+              res.write(`data: ${JSON.stringify({ text })}\n\n`);
+            }
+          } catch (e) {
+            // Ignore parse errors for incomplete JSON
+          }
+        }
+      }
     }
 
-    res.json({ text: responseText });
+    // Parse remaining buffer
+    if (buffer.length > 0) {
+      const trimmed = buffer.trim();
+      if (trimmed.startsWith("data: ")) {
+        try {
+          const parsed = JSON.parse(trimmed.substring(6));
+          const text = parsed.candidates?.[0]?.content?.parts?.[0]?.text;
+          if (text) {
+            res.write(`data: ${JSON.stringify({ text })}\n\n`);
+          }
+        } catch (e) {}
+      }
+    }
+
+    res.end();
   } catch (error) {
     console.error('Vercel Serverless Function Error:', error);
-    res.status(500).json({ error: "Interní chyba serveru při zpracování dotazu." });
+    // If headers haven't been sent, return JSON. Otherwise just end the response.
+    if (!res.headersSent) {
+      res.status(500).json({ error: "Interní chyba serveru při zpracování dotazu." });
+    } else {
+      res.end();
+    }
   }
 };
