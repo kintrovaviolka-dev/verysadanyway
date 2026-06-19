@@ -1,1 +1,6 @@
-127.0.0.1 - - [16/Jun/2026 05:18:35] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [19/Jun/2026 05:20:08] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [19/Jun/2026 05:20:08] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [19/Jun/2026 05:20:08] "GET /data_patfyz_bridge.js HTTP/1.1" 200 -
+127.0.0.1 - - [19/Jun/2026 05:20:08] "GET /data_pathology_zapocet.js HTTP/1.1" 200 -
+127.0.0.1 - - [19/Jun/2026 05:20:08] "GET /app.js HTTP/1.1" 200 -
+127.0.0.1 - - [19/Jun/2026 05:20:08] "GET /data_pathology.js HTTP/1.1" 200 -
