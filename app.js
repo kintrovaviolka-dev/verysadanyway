@@ -110,14 +110,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Kliknutí na ročník
   document.querySelectorAll(".grade-card").forEach(card => {
-    card.addEventListener("click", () => {
-      if (card.classList.contains("locked")) {
-        alert("Tento ročník se připravuje. Nyní jsou k dispozici portály pro 3. a 4. ročník.");
-        return;
+    const handleGradeCardAction = (e) => {
+      if (e.type === "keydown" && e.key === " ") {
+        e.preventDefault(); // Prevent scrolling
       }
-      const grade = parseInt(card.getAttribute("data-grade"));
-      selectGrade(grade);
-    });
+      if (e.type === "click" || (e.type === "keydown" && (e.key === "Enter" || e.key === " "))) {
+        if (card.classList.contains("locked")) {
+          alert("Tento ročník se připravuje. Nyní jsou k dispozici portály pro 3. a 4. ročník.");
+          return;
+        }
+        const grade = parseInt(card.getAttribute("data-grade"));
+        selectGrade(grade);
+      }
+    };
+
+    card.addEventListener("click", handleGradeCardAction);
+    card.addEventListener("keydown", handleGradeCardAction);
   });
 
   // Výběr předmětu
@@ -209,23 +217,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  document.getElementById("subject-patfyz").addEventListener("click", () => selectSubject("patfyz"));
-  document.getElementById("subject-patola").addEventListener("click", () => selectSubject("patola"));
-  
-  const subjectOsetBtn = document.getElementById("subject-oset");
-  if (subjectOsetBtn) {
-    subjectOsetBtn.addEventListener("click", () => selectSubject("oset"));
-  }
+  document.querySelectorAll(".subject-card").forEach(card => {
+    const handleSubjectCardAction = (e) => {
+      if (e.type === "keydown" && e.key === " ") {
+        e.preventDefault(); // Prevent scrolling
+      }
+      if (e.type === "click" || (e.type === "keydown" && (e.key === "Enter" || e.key === " "))) {
+        const subject = card.getAttribute("data-subject");
+        selectSubject(subject);
+      }
+    };
 
-  const subjectFarmaBtn = document.getElementById("subject-farmakologie");
-  if (subjectFarmaBtn) {
-    subjectFarmaBtn.addEventListener("click", () => selectSubject("farmakologie"));
-  }
-
-  const subjectDermaBtn = document.getElementById("subject-dermatologie");
-  if (subjectDermaBtn) {
-    subjectDermaBtn.addEventListener("click", () => selectSubject("dermatologie"));
-  }
+    card.addEventListener("click", handleSubjectCardAction);
+    card.addEventListener("keydown", handleSubjectCardAction);
+  });
 
   // Návrat na předměty
   hubBackBtn.addEventListener("click", () => {
