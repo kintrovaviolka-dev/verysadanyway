@@ -153,7 +153,7 @@ module.exports = async (req, res) => {
     const systemInstructionText = systemInstructions[subject] || systemInstructions.general;
 
     // Call Google Gemini API with streaming
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:streamGenerateContent?alt=sse&key=${apiKey}`;
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse&key=${apiKey}`;
     const response = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

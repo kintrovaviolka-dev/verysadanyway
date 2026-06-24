@@ -887,12 +887,28 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // Send request via backend proxy
-  const callProxyServer = async (messages, subject) => {
+  // Load client token from /api/config for verification handshake
+  let clientToken = "";
+  const loadClientToken = async () => {
+    try {
+      const res = await fetch("/api/config");
+      if (res.ok) {
+        const data = await res.json();
+        clientToken = data.clientToken;
+      }
+    } catch (e) {
+      console.error("Failed to load client token", e);
+    }
+  };
+  loadClientToken();
+
+  // Send request via backend proxy with streaming
+  const callProxyServerStream = async (messages, subject, onChunk, onStart) => {
     const response = await fetch("/api/chat", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${clientToken}`
       },
       body: JSON.stringify({ messages, subject })
     });
@@ -902,25 +918,65 @@ document.addEventListener("DOMContentLoaded", () => {
       throw new Error(errData.error || `Server vrátil chybu ${response.status}.`);
     }
 
-    const data = await response.json();
-    return data.text;
+    onStart();
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = "";
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+
+      buffer += decoder.decode(value, { stream: true });
+      const lines = buffer.split("\n");
+      buffer = lines.pop(); // Keep partial line
+
+      for (const line of lines) {
+        const trimmed = line.trim();
+        if (!trimmed.startsWith("data: ")) continue;
+        const jsonStr = trimmed.substring(6);
+        try {
+          const parsed = JSON.parse(jsonStr);
+          if (parsed.text) {
+            onChunk(parsed.text);
+          }
+        } catch (e) {
+          // Ignore partial chunk parsing errors
+        }
+      }
+    }
+
+    // Process remaining buffer
+    if (buffer.length > 0) {
+      const trimmed = buffer.trim();
+      if (trimmed.startsWith("data: ")) {
+        try {
+          const parsed = JSON.parse(trimmed.substring(6));
+          if (parsed.text) {
+            onChunk(parsed.text);
+          }
+        } catch (e) {}
+      }
+    }
   };
 
-  // Send request directly to Gemini API
-  const callGeminiDirectly = async (key, messages, subject) => {
+  // Send request directly to Gemini API with streaming
+  const callGeminiDirectlyStream = async (key, messages, subject, onChunk, onStart) => {
     const systemInstructionText = systemInstructions[subject] || systemInstructions.general;
     
-    // Clean history: alternate roles and start with user
+    // Format messages for the Gemini API, stitching consecutive same-role messages
     const contents = [];
-    let lastRole = null;
     for (const msg of messages) {
       const role = msg.role === "assistant" || msg.role === "model" ? "model" : "user";
-      if (role === lastRole) continue;
-      contents.push({
-        role,
-        parts: [{ text: msg.text }]
-      });
-      lastRole = role;
+      if (contents.length > 0 && contents[contents.length - 1].role === role) {
+        contents[contents.length - 1].parts.push({ text: msg.text });
+      } else {
+        contents.push({
+          role,
+          parts: [{ text: msg.text }]
+        });
+      }
     }
     if (contents.length > 0 && contents[0].role !== "user") {
       contents.shift();
@@ -929,7 +985,7 @@ document.addEventListener("DOMContentLoaded", () => {
       throw new Error("Žádné platné zprávy k odeslání.");
     }
 
-    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`, {
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse&key=${key}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -969,10 +1025,65 @@ document.addEventListener("DOMContentLoaded", () => {
       throw new Error(errData.error?.message || `Gemini API vrátilo chybu ${response.status}.`);
     }
 
-    const data = await response.json();
-    const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
-    if (!text) throw new Error("Chybí text v odpovědi z Gemini.");
-    return text;
+    onStart();
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = "";
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+
+      buffer += decoder.decode(value, { stream: true });
+      const lines = buffer.split("\n");
+      buffer = lines.pop(); // Keep partial line
+
+      for (const line of lines) {
+        const trimmed = line.trim();
+        if (!trimmed.startsWith("data: ")) continue;
+        const jsonStr = trimmed.substring(6);
+        try {
+          const parsed = JSON.parse(jsonStr);
+          const text = parsed.candidates?.[0]?.content?.parts?.[0]?.text;
+          if (text) {
+            onChunk(text);
+          }
+        } catch (e) {
+          // Ignore partial chunk parsing errors
+        }
+      }
+    }
+
+    // Process remaining buffer
+    if (buffer.length > 0) {
+      const trimmed = buffer.trim();
+      if (trimmed.startsWith("data: ")) {
+        try {
+          const parsed = JSON.parse(trimmed.substring(6));
+          const text = parsed.candidates?.[0]?.content?.parts?.[0]?.text;
+          if (text) {
+            onChunk(text);
+          }
+        } catch (e) {}
+      }
+    }
+  };
+
+  // Helper to create an assistant message bubble for streaming
+  const createAssistantMessageBubble = () => {
+    const messageDiv = document.createElement("div");
+    messageDiv.className = "message assistant";
+    
+    const contentDiv = document.createElement("div");
+    contentDiv.className = "message-content";
+    contentDiv.innerHTML = "";
+    
+    messageDiv.appendChild(contentDiv);
+    chatbotMessages.appendChild(messageDiv);
+    scrollToBottom();
+    
+    return contentDiv;
   };
 
   // Submit Handler
@@ -1004,19 +1115,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
     lastMessageTime = Date.now();
 
+    let contentDiv = null;
     try {
       const savedKey = getSavedKey();
       let responseText = "";
       
+      const onStart = () => {
+        chatbotTypingIndicator.classList.remove("active");
+        statusDot.className = "avatar-status-dot online";
+        contentDiv = createAssistantMessageBubble();
+      };
+      
+      const onChunk = (text) => {
+        responseText += text;
+        if (contentDiv) {
+          contentDiv.innerHTML = parseMarkdown(responseText);
+          scrollToBottom();
+        }
+      };
+
       if (savedKey) {
-        responseText = await callGeminiDirectly(savedKey, chatHistory, state.selectedSubject || "general");
+        await callGeminiDirectlyStream(savedKey, chatHistory, state.selectedSubject || "general", onChunk, onStart);
       } else {
-        responseText = await callProxyServer(chatHistory, state.selectedSubject || "general");
+        await callProxyServerStream(chatHistory, state.selectedSubject || "general", onChunk, onStart);
       }
 
-      chatbotTypingIndicator.classList.remove("active");
-      statusDot.className = "avatar-status-dot online";
-      addMessage("assistant", responseText);
+      // Add the final response to chat history
+      chatHistory.push({ role: "assistant", text: responseText });
+      if (chatHistory.length > 15) {
+        chatHistory.shift();
+      }
+
+      // Show pulse badge on FAB if closed
+      if (!chatbotPanel.classList.contains("open")) {
+        chatbotBadge.style.display = "block";
+      }
     } catch (err) {
       console.error(err);
       chatbotTypingIndicator.classList.remove("active");
