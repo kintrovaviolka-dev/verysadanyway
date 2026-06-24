@@ -110,13 +110,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Kliknutí na ročník
   document.querySelectorAll(".grade-card").forEach(card => {
-    card.addEventListener("click", () => {
+    const handleGradeSelection = () => {
       if (card.classList.contains("locked")) {
         alert("Tento ročník se připravuje. Nyní jsou k dispozici portály pro 3. a 4. ročník.");
         return;
       }
       const grade = parseInt(card.getAttribute("data-grade"));
       selectGrade(grade);
+    };
+
+    card.addEventListener("click", handleGradeSelection);
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        if (e.key === " ") e.preventDefault();
+        handleGradeSelection();
+      }
     });
   });
 
@@ -209,23 +217,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  document.getElementById("subject-patfyz").addEventListener("click", () => selectSubject("patfyz"));
-  document.getElementById("subject-patola").addEventListener("click", () => selectSubject("patola"));
-  
-  const subjectOsetBtn = document.getElementById("subject-oset");
-  if (subjectOsetBtn) {
-    subjectOsetBtn.addEventListener("click", () => selectSubject("oset"));
-  }
+  // Interakce s předměty (Myš i Klávesnice)
+  document.querySelectorAll(".subject-card").forEach(card => {
+    const subject = card.getAttribute("data-subject");
+    if (!subject) return;
 
-  const subjectFarmaBtn = document.getElementById("subject-farmakologie");
-  if (subjectFarmaBtn) {
-    subjectFarmaBtn.addEventListener("click", () => selectSubject("farmakologie"));
-  }
+    const handleSubjectSelection = () => {
+      selectSubject(subject);
+    };
 
-  const subjectDermaBtn = document.getElementById("subject-dermatologie");
-  if (subjectDermaBtn) {
-    subjectDermaBtn.addEventListener("click", () => selectSubject("dermatologie"));
-  }
+    card.addEventListener("click", handleSubjectSelection);
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        if (e.key === " ") e.preventDefault();
+        handleSubjectSelection();
+      }
+    });
+  });
 
   // Návrat na předměty
   hubBackBtn.addEventListener("click", () => {
