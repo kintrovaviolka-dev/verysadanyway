@@ -1,0 +1,8 @@
+
+> lekar-portal-rozcestnik@1.0.0 start /app
+> node server.js
+
+===================================================
+  Lékařský Studijní Portál spuštěn na portu 3000
+  Otevřete: http://localhost:3000
+===================================================
