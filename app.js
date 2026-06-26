@@ -108,16 +108,27 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
+  // Sdílená logika pro zpracování klávesových událostí
+  const handleKeyboardActivation = (event, callback) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault(); // Zabrání scrollování stránky u mezerníku
+      callback();
+    }
+  };
+
   // Kliknutí na ročník
   document.querySelectorAll(".grade-card").forEach(card => {
-    card.addEventListener("click", () => {
+    const handleGradeSelection = () => {
       if (card.classList.contains("locked")) {
         alert("Tento ročník se připravuje. Nyní jsou k dispozici portály pro 3. a 4. ročník.");
         return;
       }
       const grade = parseInt(card.getAttribute("data-grade"));
       selectGrade(grade);
-    });
+    };
+
+    card.addEventListener("click", handleGradeSelection);
+    card.addEventListener("keydown", (e) => handleKeyboardActivation(e, handleGradeSelection));
   });
 
   // Výběr předmětu
@@ -209,23 +220,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  document.getElementById("subject-patfyz").addEventListener("click", () => selectSubject("patfyz"));
-  document.getElementById("subject-patola").addEventListener("click", () => selectSubject("patola"));
-  
-  const subjectOsetBtn = document.getElementById("subject-oset");
-  if (subjectOsetBtn) {
-    subjectOsetBtn.addEventListener("click", () => selectSubject("oset"));
-  }
-
-  const subjectFarmaBtn = document.getElementById("subject-farmakologie");
-  if (subjectFarmaBtn) {
-    subjectFarmaBtn.addEventListener("click", () => selectSubject("farmakologie"));
-  }
-
-  const subjectDermaBtn = document.getElementById("subject-dermatologie");
-  if (subjectDermaBtn) {
-    subjectDermaBtn.addEventListener("click", () => selectSubject("dermatologie"));
-  }
+  document.querySelectorAll(".subject-card").forEach(card => {
+    const subject = card.getAttribute("data-subject");
+    if (subject) {
+      card.addEventListener("click", () => selectSubject(subject));
+      card.addEventListener("keydown", (e) => handleKeyboardActivation(e, () => selectSubject(subject)));
+    }
+  });
 
   // Návrat na předměty
   hubBackBtn.addEventListener("click", () => {
