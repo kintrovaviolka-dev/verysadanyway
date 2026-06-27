@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radiologie - Portál Efektivního Učení</title>
+  <meta name="description" content="Interaktivní studijní portál radiologie a zobrazovacích metod pro studenty všeobecného lékařství. Procvičování s kartičkami, Leitnerovým opakováním a kontrolními kvízy.">
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+  <div class="app-container">
+    
+    <!-- Hlavička aplikace -->
+    <header>
+      <div class="brand">
+        <div class="brand-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="M12 6v6l4 2"></path></svg>
+        </div>
+        <div class="brand-text">
+          <h1>Radiologie & Zobrazovací Metody</h1>
+          <span>Chytrý portál pro studium (<span id="total-questions-count">50</span> zkouškových otázek)</span>
+        </div>
+      </div>
+      
+      <div class="header-controls">
+        <button id="matching-game-open-btn" class="btn btn-primary btn-game">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+          Spustit přiřazovačku
+        </button>
+        
+        <!-- Přepínač motivu -->
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Přepnout tmavý/světlý režim">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Dashboard statistik a Leitner systému -->
+    <section class="dashboard">
+      <div class="dashboard-grid">
+        <!-- Celkový pokrok -->
+        <div class="stat-card stat-total">
+          <span class="stat-label">Celkový pokrok</span>
+          <div class="progress-ring-wrapper">
+            <div class="stat-value" id="stat-progress-pct">0 %</div>
+          </div>
+          <div class="progress-bar-container">
+            <div class="progress-bar" id="stat-progress-bar" style="width: 0%"></div>
+          </div>
+          <span class="stat-desc" id="stat-progress-ratio">Zvládnuté: 0 z 50 otázek</span>
+        </div>
+
+        <!-- Leitnerovy krabičky -->
+        <div class="stat-card stat-boxes-card">
+          <span class="stat-label">Rozdělení do Leitnerových krabiček</span>
+          <div class="boxes-container">
+            <div class="box-indicator box-1" title="Každý den">
+              <div class="box-badge">Box 1</div>
+              <div class="box-count" id="box-1-count">0</div>
+              <div class="box-sub">Denně</div>
+            </div>
+            <div class="box-indicator box-2" title="Každé 2 dny">
+              <div class="box-badge">Box 2</div>
+              <div class="box-count" id="box-2-count">0</div>
+              <div class="box-sub">Obden</div>
+            </div>
+            <div class="box-indicator box-3" title="Každých 5 dní">
+              <div class="box-badge">Box 3</div>
+              <div class="box-count" id="box-3-count">0</div>
+              <div class="box-sub">5 dní</div>
+            </div>
+            <div class="box-indicator box-4" title="Zvládnuto (každých 10 dní)">
+              <div class="box-badge">Box 4</div>
+              <div class="box-count" id="box-4-count">0</div>
+              <div class="box-sub">10 dní</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- K opakování dnes -->
+        <div class="stat-card stat-due" id="stat-due-card">
+          <span class="stat-label">K opakování na dnešek</span>
+          <span class="stat-value text-amber" id="stat-due-count">0</span>
+          <span class="stat-desc" id="stat-due-desc">Všechny karty jsou aktuální!</span>
+          <button id="study-due-btn" class="btn btn-secondary btn-due" style="display: none;">
+            Učit se dnešní karty
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filtrovací a vyhledávací panel -->
+    <section class="filter-bar">
+      <div class="search-wrapper">
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="search-input" class="search-input" placeholder="Vyhledat téma, metodu (RTG, CT, MR), symptom, cévu...">
+      </div>
+      
+      <div class="filter-groups">
+        <div class="filter-group">
+          <label for="category-filter">Obor:</label>
+          <select id="category-filter" class="select-custom">
+            <option value="all">Všechny obory</option>
+            <option value="Základy">Základy zobrazování</option>
+            <option value="Hrudník">Zobrazování hrudníku a srdce</option>
+            <option value="Břicho">Zobrazování trávicí trubice a břicha</option>
+            <option value="Urogenitál & Prs">Zobrazování urogenitálu a prsu</option>
+            <option value="Kostra">Zobrazování pohybového aparátu</option>
+            <option value="Nervová soustava">Neuroradiologie a páteř</option>
+            <option value="Intervence & Cévy">Intervenční a cévní radiologie</option>
+          </select>
+        </div>
+        
+        <!-- Skrytý select pro kompatibilitu se stávajícím JS kódem -->
+        <select id="section-filter" style="display:none;"><option value="all">all</option></select>
+        
+        <div class="filter-group">
+          <label for="status-filter">Stav studia:</label>
+          <select id="status-filter" class="select-custom">
+            <option value="all">Všechny stavy</option>
+            <option value="due">K opakování (Due)</option>
+            <option value="box-1">Box 1 (Nové / Těžké)</option>
+            <option value="box-2">Box 2 (Mírně pokročilé)</option>
+            <option value="box-3">Box 3 (Známé)</option>
+            <option value="box-4">Box 4 (Zvládnuté)</option>
+            <option value="unstudied">Studijně nové (Box 1 - netestované)</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seznam karet -->
+    <main class="cards-grid" id="cards-grid">
+      <!-- Generuje se dynamicky přes JS -->
+    </main>
+
+  </div>
+
+  <!-- DETAIL OTÁZKY - MODÁLNÍ DIALOG -->
+  <dialog id="detail-dialog" class="detail-dialog">
+    <div class="dialog-content">
+      <header class="dialog-header">
+        <div class="dialog-title-area">
+          <span class="dialog-section" id="dialog-section">KAPITOLA</span>
+          <h2 class="dialog-title" id="dialog-title">Název otázky</h2>
+        </div>
+        <button class="dialog-close-btn" id="dialog-close" aria-label="Zavřít panel">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </header>
+      
+      <!-- Záložky detailu -->
+      <nav class="dialog-tabs">
+        <button class="tab-btn active" data-tab="tab-study">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          Výklad & souvislosti
+        </button>
+        <button class="tab-btn" data-tab="tab-quiz" id="tab-quiz-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+          Kontrolní kvíz
+        </button>
+      </nav>
+      
+      <div class="dialog-body">
+        
+        <!-- PANEL VÝKLADU -->
+        <div class="tab-panel active" id="tab-study">
+          <div class="study-content">
+            
+            <!-- Volitelné schéma modality (Zobrazí se pouze u témat 1, 3, 4, 5) -->
+            <div id="modal-image-container" class="study-card modal-image-card" style="display: none; width: 100%;">
+              <h3>Fyzikální schéma modality</h3>
+              <div class="image-wrapper" style="text-align: center; margin: 12px 0;">
+                <img id="study-image" src="" alt="Fyzikální schéma" style="max-width: 100%; max-height: 400px; border-radius: 8px; border: 1px solid var(--border-color);">
+              </div>
+            </div>
+
+            <!-- Fyzikální & technické principy -->
+            <div class="study-card main-definition">
+              <h3>Fyzikální & technické principy</h3>
+              <p id="study-definition"></p>
+            </div>
+            
+            <div class="study-two-cols">
+              <!-- Přístroj & radiační zátěž -->
+              <div class="study-card">
+                <h3>Přístroj & radiační zátěž</h3>
+                <p id="study-etiology"></p>
+              </div>
+              
+              <!-- Metodika & provedení vyšetření -->
+              <div class="study-card">
+                <h3>Metodika & provedení vyšetření</h3>
+                <p id="study-pathogenesis"></p>
+              </div>
+            </div>
+
+            <!-- Nálezy / Obraz -->
+            <div class="study-two-cols">
+              <!-- Normální obraz & anatomie -->
+              <div class="study-card highlight-macro">
+                <div class="card-subtitle">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle></svg>
+                  Normální obraz & anatomie
+                </div>
+                <p id="study-macroscopy"></p>
+              </div>
+              
+              <!-- Patologické nálezy & symptomatologie -->
+              <div class="study-card highlight-micro">
+                <div class="card-subtitle">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22a10 10 0 0 1 20 0H2z"></path><circle cx="12" cy="8" r="4"></circle></svg>
+                  Patologické nálezy & symptomatologie
+                </div>
+                <p id="study-microscopy"></p>
+              </div>
+            </div>
+
+            <!-- Indikace, KI & klinické souvislosti -->
+            <div class="study-card clinical-significance">
+              <h3>Indikace, KI & klinické souvislosti</h3>
+              <p id="study-clinical"></p>
+            </div>
+            
+          </div>
+          
+          <!-- Spaced Repetition Hodnocení -->
+          <div class="spaced-repetition-controls">
+            <h4>Ohodnoť své znalosti po přečtení:</h4>
+            <div class="leitner-btn-group">
+              <button class="leitner-btn l-btn-wrong" data-grade="wrong" title="Přesunout zpět do Boxu 1">
+                <span class="btn-icon">❌</span>
+                <span class="btn-text">Ztěžka</span>
+                <span class="btn-sub">Bude brzy</span>
+              </button>
+              <button class="leitner-btn l-btn-good" data-grade="good" title="Posunout do dalšího Boxu">
+                <span class="btn-icon">⚠️</span>
+                <span class="btn-text">Slibné</span>
+                <span class="btn-sub">Posunout o box</span>
+              </button>
+              <button class="leitner-btn l-btn-perfect" data-grade="perfect" title="Přesunout přímo do Boxu 4">
+                <span class="btn-icon">✅</span>
+                <span class="btn-text">Skvěle</span>
+                <span class="btn-sub">Zvládnuté (Box 4)</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- PANEL KVÍZU -->
+        <div class="tab-panel" id="tab-quiz">
+          <div class="quiz-container" id="quiz-container">
+            <!-- Vygeneruje se přes JS -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </dialog>
+
+  <!-- MODÁLNÍ DIALOG - PŘIŘAZOVAČKA (MATCHING GAME) -->
+  <dialog id="game-dialog" class="game-dialog">
+    <div class="game-content">
+      <header class="game-header">
+        <div class="game-header-text">
+          <h2>Přiřazování radiologických pojmů</h2>
+          <p>Spojuj správné dvojice: Fyzikální/metodologický termín vlevo a jeho odpovídající popis/detail vpravo.</p>
+        </div>
+        <button class="game-close-btn" id="game-close" aria-label="Zavřít hru">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </header>
+
+      <div class="game-body">
+        <div class="game-board">
+          <div class="game-column" id="game-column-left">
+            <!-- Kartičky s termíny -->
+          </div>
+          <div class="game-column" id="game-column-right">
+            <!-- Kartičky s popisy -->
+          </div>
+        </div>
+        
+        <div class="game-footer">
+          <div class="game-stats">
+            <span class="game-stat-item">Zbývá spojit: <strong id="game-left-count">0</strong></span>
+            <span class="game-stat-item">Chyby: <strong id="game-errors" class="text-rose">0</strong></span>
+          </div>
+          <button id="game-reset-btn" class="btn btn-secondary">
+            Nová hra (jiné pojmy)
+          </button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Floating Gemini Chatbot Widget -->
+  <div class="gemini-chatbot-container" id="gemini-chatbot-container">
+    <!-- Chat Button (FAB) -->
+    <button class="chatbot-fab" id="chatbot-fab" aria-label="Otevřít lékařského asistenta">
+      <span class="fab-icon">💬</span>
+      <span class="fab-badge pulse-badge" id="chatbot-badge"></span>
+    </button>
+
+    <!-- Chat Panel -->
+    <div class="chatbot-panel" id="chatbot-panel">
+      <!-- Panel Header -->
+      <div class="chatbot-header" id="chatbot-header">
+        <div class="chatbot-title-area">
+          <div class="chatbot-avatar-container">
+            <span class="chatbot-avatar">🤖</span>
+            <span class="avatar-status-dot online"></span>
+          </div>
+          <div class="chatbot-info">
+            <h4 class="chatbot-name">Gemini Asistent</h4>
+            <span class="chatbot-status" id="chatbot-subject-context">Asistent pro Radiologii 🩻</span>
+          </div>
+        </div>
+        <div class="chatbot-header-actions">
+          <button class="chatbot-header-btn" id="chatbot-settings-btn" title="Nastavení" aria-label="Nastavení chatu">⚙️</button>
+          <button class="chatbot-header-btn" id="chatbot-close-btn" title="Zavřít" aria-label="Zavřít chat">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Settings Overlay -->
+      <div class="chatbot-settings-overlay" id="chatbot-settings-overlay">
+        <h5>Nastavení API klíče</h5>
+        <p>Pro přímé volání API z prohlížeče (bez serveru) můžete zadat svůj klíč. Ukládá se pouze lokálně u vás (localStorage).</p>
+        <div class="settings-input-group">
+          <input type="password" id="chatbot-api-key-input" placeholder="AIzaSy..." />
+          <button class="btn btn-primary btn-sm" id="chatbot-save-key-btn">Uložit</button>
+        </div>
+        <button class="btn btn-secondary btn-sm" id="chatbot-clear-key-btn" style="margin-top: 8px;">Smazat uložený klíč</button>
+        <button class="chatbot-settings-close" id="chatbot-settings-close-btn">Zpět do chatu</button>
+      </div>
+
+      <!-- Messages Area -->
+      <div class="chatbot-messages" id="chatbot-messages">
+        <div class="message assistant">
+          <div class="message-content">
+            Ahoj! Jsem tvůj radiologický asistent. Pomůžu ti se studiem fyzikálních principů RTG, CT, MR, UZ, intervenční radiologie, radiační ochrany a indikací vyšetření. S čím dnes začneme?
+          </div>
+        </div>
+      </div>
+
+      <!-- Suggestion chips (dynamic/contextual) -->
+      <div class="chatbot-suggestions" id="chatbot-suggestions">
+        <button type="button" class="suggestion-chip" data-query="Vysvětli princip ALARA a jeho význam v radiační ochraně.">Princip ALARA</button>
+        <button type="button" class="suggestion-chip" data-query="Jaký je hlavní rozdíl v zobrazení tekutin a tuku na T1 a T2 vážených MR obrazech?">Sekvence MRI T1 vs T2</button>
+      </div>
+
+      <!-- Typing Indicator -->
+      <div class="chatbot-typing-indicator" id="chatbot-typing-indicator">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+
+      <!-- Input Area -->
+      <form class="chatbot-input-area" id="chatbot-input-form">
+        <input type="text" id="chatbot-input" placeholder="Zeptej se na cokoliv..." autocomplete="off" required />
+        <button type="submit" id="chatbot-send-btn" aria-label="Odeslat zprávu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Skripty databází -->
+  <script src="data.js"></script>
+  <!-- Aplikační skript -->
+  <script src="app.js"></script>
+</body>
+</html>

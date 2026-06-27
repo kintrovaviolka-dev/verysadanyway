@@ -128,7 +128,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const hubGridOset = document.getElementById("hub-grid-oset");
     const hubGridFarmakologie = document.getElementById("hub-grid-farmakologie");
     const hubGridDermatologie = document.getElementById("hub-grid-dermatologie");
-
+    const hubGridRadiologie = document.getElementById("hub-grid-radiologie");
+ 
     if (subject === "oset") {
       hubTitle.textContent = "Ošetřovatelství";
       hubTitle.style.color = "var(--oset-color)";
@@ -136,6 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (hubGridOset) hubGridOset.style.display = "grid";
       if (hubGridFarmakologie) hubGridFarmakologie.style.display = "none";
       if (hubGridDermatologie) hubGridDermatologie.style.display = "none";
+      if (hubGridRadiologie) hubGridRadiologie.style.display = "none";
     } else if (subject === "farmakologie") {
       hubTitle.textContent = "Farmakologie";
       hubTitle.style.color = "var(--farma-color)";
@@ -143,6 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (hubGridOset) hubGridOset.style.display = "none";
       if (hubGridFarmakologie) hubGridFarmakologie.style.display = "grid";
       if (hubGridDermatologie) hubGridDermatologie.style.display = "none";
+      if (hubGridRadiologie) hubGridRadiologie.style.display = "none";
     } else if (subject === "dermatologie") {
       hubTitle.textContent = "Dermatologie";
       hubTitle.style.color = "var(--derma-color)";
@@ -150,12 +153,22 @@ document.addEventListener("DOMContentLoaded", () => {
       if (hubGridOset) hubGridOset.style.display = "none";
       if (hubGridFarmakologie) hubGridFarmakologie.style.display = "none";
       if (hubGridDermatologie) hubGridDermatologie.style.display = "grid";
+      if (hubGridRadiologie) hubGridRadiologie.style.display = "none";
+    } else if (subject === "radiologie") {
+      hubTitle.textContent = "Radiologie";
+      hubTitle.style.color = "var(--radio-color)";
+      if (hubGridDefault) hubGridDefault.style.display = "none";
+      if (hubGridOset) hubGridOset.style.display = "none";
+      if (hubGridFarmakologie) hubGridFarmakologie.style.display = "none";
+      if (hubGridDermatologie) hubGridDermatologie.style.display = "none";
+      if (hubGridRadiologie) hubGridRadiologie.style.display = "grid";
     } else {
       if (hubGridDefault) hubGridDefault.style.display = "grid";
       if (hubGridOset) hubGridOset.style.display = "none";
       if (hubGridFarmakologie) hubGridFarmakologie.style.display = "none";
       if (hubGridDermatologie) hubGridDermatologie.style.display = "none";
-
+      if (hubGridRadiologie) hubGridRadiologie.style.display = "none";
+ 
       // Nastavení názvu a barev v rozcestníku
       if (subject === "patfyz") {
         hubTitle.textContent = "Patofyziologie";
@@ -225,6 +238,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const subjectDermaBtn = document.getElementById("subject-dermatologie");
   if (subjectDermaBtn) {
     subjectDermaBtn.addEventListener("click", () => selectSubject("dermatologie"));
+  }
+
+  const subjectRadioBtn = document.getElementById("subject-radiologie");
+  if (subjectRadioBtn) {
+    subjectRadioBtn.addEventListener("click", () => selectSubject("radiologie"));
   }
 
   // Návrat na předměty
@@ -758,7 +776,8 @@ document.addEventListener("DOMContentLoaded", () => {
     patola: "Jste odborník na patologii (morfologickou patologii). Pomáháte studentům lékařství s makroskopickým a mikroskopickým popisem tkání, nekropsii, biopsii, klasifikací nádorů a patologickou anatomií. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost.",
     farmakologie: "Jste odborník na farmakologii. Pomáháte studentům lékařství s mechanismy účinku léčiv, farmakokinetikou, nežádoucími účinky, indikacemi a interakcemi. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost.",
     dermatologie: "Jste odborník na dermatovenerologii. Pomáháte studentům lékařství s chorobami kůže a pohlavními chorobami, diagnostikou, eflorescencemi a léčbou. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost.",
-    oset: "Jste odborník na ošetřovatelství a ošetřovatelskou péči. Pomáháte studentům lékařství a ošetřovatelství s ošetřovatelskými postupy, diagnózami a péčí o pacienta. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost."
+    oset: "Jste odborník na ošetřovatelství a ošetřovatelskou péči. Pomáháte studentům lékařství a ošetřovatelství s ošetřovatelskými postupy, diagnózami a péčí o pacienta. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost.",
+    radiologie: "Jste odborník na radiologii a zobrazovací metody. Pomáháte studentům lékařství s fyzikálními principy RTG, CT, MR, UZ, intervenční radiologie, radiační ochranou, indikacemi vyšetření a popisem patologií v obrazech. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost."
   };
 
   // Load key from localStorage
@@ -1220,6 +1239,13 @@ document.addEventListener("DOMContentLoaded", () => {
       suggestions = [
         { label: "ABCDE melanomu", query: "Vysvětli klinické pravidlo ABCDE pro hodnocení melanomu." },
         { label: "Primární eflorescence", query: "Co jsou to primární eflorescence a uveď příklady." }
+      ];
+    } else if (subject === "radiologie") {
+      chatbotContainer.classList.add("context-radiologie");
+      contextLabel = "Asistent pro Radiologii 🩻";
+      suggestions = [
+        { label: "Princip ALARA", query: "Vysvětli princip ALARA a jeho význam v radiační ochraně." },
+        { label: "Sekvence MRI T1 vs T2", query: "Jaký je hlavní rozdíl v zobrazení tekutin a tuku na T1 a T2 vážených MR obrazech?" }
       ];
     } else {
       // Default / General

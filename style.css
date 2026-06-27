@@ -33,6 +33,10 @@
   --derma-color: #ff7a59;
   --derma-glow: rgba(255, 122, 89, 0.25);
   --derma-gradient: linear-gradient(135deg, #ff5e3a, #ff7a59);
+  
+  --radio-color: #a855f7;
+  --radio-glow: rgba(168, 85, 247, 0.25);
+  --radio-gradient: linear-gradient(135deg, #a855f7, #6366f1);
 
   --accent-blue: #00f0ff;
   --accent-gold: #fbbf24;
@@ -270,6 +274,12 @@ header p {
   transform: translateY(-6px);
 }
 
+.subject-card.radiologie:hover {
+  border-color: var(--radio-color);
+  box-shadow: 0 15px 30px -15px var(--radio-glow);
+  transform: translateY(-6px);
+}
+
 .subject-card .icon {
   font-size: 2.5rem;
   margin-bottom: 16px;
@@ -450,6 +460,17 @@ header p {
 
 .btn-derma:hover {
   box-shadow: 0 6px 16px rgba(255, 122, 89, 0.4);
+  transform: scale(1.02);
+}
+
+.btn-radio {
+  background: var(--radio-gradient);
+  color: #ffffff;
+  box-shadow: 0 4px 12px var(--radio-glow);
+}
+
+.btn-radio:hover {
+  box-shadow: 0 6px 16px rgba(168, 85, 247, 0.4);
   transform: scale(1.02);
 }
 
@@ -1242,6 +1263,12 @@ select:focus-visible {
   --chat-context-color: var(--derma-color);
   --chat-context-glow: var(--derma-glow);
   --chat-context-gradient: var(--derma-gradient);
+}
+
+.gemini-chatbot-container.context-radiologie {
+  --chat-context-color: var(--radio-color);
+  --chat-context-glow: var(--radio-glow);
+  --chat-context-gradient: var(--radio-gradient);
 }
 
 .gemini-chatbot-container {

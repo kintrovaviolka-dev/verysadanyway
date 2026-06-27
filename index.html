@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lékařský Studijní Portál | Rozcestník 3. ročníku</title>
+  <title>Lékařský Studijní Portál | Rozcestník 3. a 4. ročníku</title>
   <meta name="description"
-    content="Rozcestník studijních portálů pro 3. ročník všeobecného lékařství. Připravte se na zkoušky z Patologie (Patola), Patofyziologie (Patfyz) a Ošetřovatelství s našimi nástroji a materiály.">
+    content="Rozcestník studijních portálů pro 3. a 4. ročník všeobecného lékařství. Připravte se na zkoušky s našimi nástroji a materiály.">
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -18,7 +18,7 @@
         <span>LF OU • Všeobecné Lékařství</span>
       </div>
       <h1>Lékařské Studijní Portály</h1>
-      <p>Centrální rozcestník pro přípravu na zkoušky a zápočty ve 3. ročníku všeobecného lékařství.</p>
+      <p>Centrální rozcestník pro přípravu na zkoušky a zápočty ve 3. a 4. ročníku všeobecného lékařství.</p>
     </header>
 
     <!-- Volba ročníku -->
@@ -84,6 +84,11 @@
           <span class="icon">☀️</span>
           <h3>Dermatologie</h3>
           <p>Interaktivní portál obecné dermatologie, Leitnerovy krabičky a procvičování.</p>
+        </div>
+        <div class="subject-card radiologie" data-subject="radiologie" id="subject-radiologie" data-grade="4">
+          <span class="icon">🩻</span>
+          <h3>Radiologie</h3>
+          <p>Aktivní studium zobrazovacích metod, RTG, CT, MR, UZ a intervenční radiologie.</p>
         </div>
       </div>
     </section>
@@ -273,6 +278,41 @@
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
               <polyline points="7 10 12 15 17 10"></polyline>
               <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Rozcestník pro Radiologii -->
+      <div class="hub-grid" id="hub-grid-radiologie" style="display: none; max-width: 800px; margin: 0 auto;">
+        <!-- 1. Vstup do portálu -->
+        <div class="hub-card">
+          <div class="hub-card-icon">🚀</div>
+          <h4>Interaktivní portál</h4>
+          <p>Kompletní studijní aplikace s kartičkami, výkladem, Leitnerovým opakováním, kvízy a Gemini asistentem.</p>
+          <a href="radiolka/index.html" class="btn btn-primary btn-radio" id="radiologie-portal-btn">
+            Otevřít portál
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+        </div>
+
+        <!-- 2. Zdrojová fakta (Markdown) -->
+        <div class="hub-card">
+          <div class="hub-card-icon">📄</div>
+          <h4>Zdrojová fakta (Markdown)</h4>
+          <p>Procházejte kompletní surová fakta z radiologie (facts.md) přímo v surovém textovém formátu.</p>
+          <a href="radiolka/facts.md" target="_blank" class="btn btn-secondary" id="radiologie-facts-btn">
+            Zobrazit facts.md
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
             </svg>
           </a>
         </div>
@@ -508,7 +548,7 @@
   </div>
 
   <footer>
-    <p>© 2026 Viola Kintrová • Developed because I can. Vytvořeno pro studenty 3. ročníku Všeobecného lékařství.</p>
+    <p>© 2026 Viola Kintrová • Developed because I can. Vytvořeno pro studenty 3. a 4. ročníku Všeobecného lékařství.</p>
   </footer>
 
   <!-- Načtení dat a skriptů -->
