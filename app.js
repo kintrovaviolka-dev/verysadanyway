@@ -129,6 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const hubGridFarmakologie = document.getElementById("hub-grid-farmakologie");
     const hubGridDermatologie = document.getElementById("hub-grid-dermatologie");
     const hubGridRadiologie = document.getElementById("hub-grid-radiologie");
+    const hubGridImunologie = document.getElementById("hub-grid-imunologie");
  
     if (subject === "oset") {
       hubTitle.textContent = "Ošetřovatelství";
@@ -138,6 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (hubGridFarmakologie) hubGridFarmakologie.style.display = "none";
       if (hubGridDermatologie) hubGridDermatologie.style.display = "none";
       if (hubGridRadiologie) hubGridRadiologie.style.display = "none";
+      if (hubGridImunologie) hubGridImunologie.style.display = "none";
     } else if (subject === "farmakologie") {
       hubTitle.textContent = "Farmakologie";
       hubTitle.style.color = "var(--farma-color)";
@@ -146,6 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (hubGridFarmakologie) hubGridFarmakologie.style.display = "grid";
       if (hubGridDermatologie) hubGridDermatologie.style.display = "none";
       if (hubGridRadiologie) hubGridRadiologie.style.display = "none";
+      if (hubGridImunologie) hubGridImunologie.style.display = "none";
     } else if (subject === "dermatologie") {
       hubTitle.textContent = "Dermatologie";
       hubTitle.style.color = "var(--derma-color)";
@@ -154,6 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (hubGridFarmakologie) hubGridFarmakologie.style.display = "none";
       if (hubGridDermatologie) hubGridDermatologie.style.display = "grid";
       if (hubGridRadiologie) hubGridRadiologie.style.display = "none";
+      if (hubGridImunologie) hubGridImunologie.style.display = "none";
     } else if (subject === "radiologie") {
       hubTitle.textContent = "Radiologie";
       hubTitle.style.color = "var(--radio-color)";
@@ -162,12 +166,23 @@ document.addEventListener("DOMContentLoaded", () => {
       if (hubGridFarmakologie) hubGridFarmakologie.style.display = "none";
       if (hubGridDermatologie) hubGridDermatologie.style.display = "none";
       if (hubGridRadiologie) hubGridRadiologie.style.display = "grid";
+      if (hubGridImunologie) hubGridImunologie.style.display = "none";
+    } else if (subject === "imunologie") {
+      hubTitle.textContent = "Imunologie";
+      hubTitle.style.color = "var(--imuno-color)";
+      if (hubGridDefault) hubGridDefault.style.display = "none";
+      if (hubGridOset) hubGridOset.style.display = "none";
+      if (hubGridFarmakologie) hubGridFarmakologie.style.display = "none";
+      if (hubGridDermatologie) hubGridDermatologie.style.display = "none";
+      if (hubGridRadiologie) hubGridRadiologie.style.display = "none";
+      if (hubGridImunologie) hubGridImunologie.style.display = "grid";
     } else {
       if (hubGridDefault) hubGridDefault.style.display = "grid";
       if (hubGridOset) hubGridOset.style.display = "none";
       if (hubGridFarmakologie) hubGridFarmakologie.style.display = "none";
       if (hubGridDermatologie) hubGridDermatologie.style.display = "none";
       if (hubGridRadiologie) hubGridRadiologie.style.display = "none";
+      if (hubGridImunologie) hubGridImunologie.style.display = "none";
  
       // Nastavení názvu a barev v rozcestníku
       if (subject === "patfyz") {
@@ -222,26 +237,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  const attachSubjectListener = (id, subject) => {
-    const btn = document.getElementById(id);
-    if (btn) {
-      btn.addEventListener("click", () => selectSubject(subject));
-      btn.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault(); // Prevent page scrolling for Space
-          selectSubject(subject);
-        }
-      });
-    }
-  };
-
-  attachSubjectListener("subject-patfyz", "patfyz");
-  attachSubjectListener("subject-patola", "patola");
-  attachSubjectListener("subject-oset", "oset");
-  attachSubjectListener("subject-imunologie", "imunologie");
-  attachSubjectListener("subject-farmakologie", "farmakologie");
-  attachSubjectListener("subject-dermatologie", "dermatologie");
-  attachSubjectListener("subject-radiologie", "radiologie");
+  // Dynamické navázání click eventů na všechny karty předmětů podle data-subject
+  document.querySelectorAll(".subject-card").forEach(card => {
+    card.addEventListener("click", () => {
+      const subject = card.getAttribute("data-subject");
+      if (subject) {
+        selectSubject(subject);
+      }
+    });
+  });
 
   // Návrat na předměty
   hubBackBtn.addEventListener("click", () => {
@@ -1197,7 +1201,9 @@ document.addEventListener("DOMContentLoaded", () => {
       "context-patola",
       "context-oset",
       "context-farmakologie",
-      "context-dermatologie"
+      "context-dermatologie",
+      "context-radiologie",
+      "context-imunologie"
     );
     
     let contextLabel = "Obecný medicínský rádce 🤖";
@@ -1244,6 +1250,13 @@ document.addEventListener("DOMContentLoaded", () => {
       suggestions = [
         { label: "Princip ALARA", query: "Vysvětli princip ALARA a jeho význam v radiační ochraně." },
         { label: "Sekvence MRI T1 vs T2", query: "Jaký je hlavní rozdíl v zobrazení tekutin a tuku na T1 a T2 vážených MR obrazech?" }
+      ];
+    } else if (subject === "imunologie") {
+      chatbotContainer.classList.add("context-imunologie");
+      contextLabel = "Asistent pro Imunologii 🛡️";
+      suggestions = [
+        { label: "Aktivní vs Pasivní imunita", query: "Vysvětli rozdíl mezi aktivní a pasivní imunizací." },
+        { label: "MHC molekuly", query: "Jaký je rozdíl v funkci MHC I. a II. třídy?" }
       ];
     } else {
       // Default / General
