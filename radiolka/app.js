@@ -217,29 +217,25 @@ document.addEventListener("DOMContentLoaded", () => {
     filtered.forEach(q => {
       const prog = userProgress[q.id];
       const card = document.createElement("div");
-      
-      // Určení barvy boxu pro vizuální označení kraje karty
-      let boxClass = `border-box-${prog.box}`;
-      if (prog.lastReviewed === null) {
-        boxClass = "border-unstudied";
-      }
+      card.className = "question-card";
 
-      card.className = `study-card-item ${boxClass}`;
-      
-      // Karta k opakování dostane pulzující tečku
+      // Karta k opakování dostane pulzující tečku/badge
       const isDue = prog.nextReview && prog.nextReview <= now && prog.box < 4;
-      const dueBadge = isDue ? '<span class="due-dot-badge" title="K opakování dnes"></span>' : '';
-      
+      const isUnstudied = prog.lastReviewed === null;
+
       card.innerHTML = `
-        <div class="card-item-header">
-          <span class="card-item-section">${q.section}</span>
-          ${dueBadge}
+        <div class="card-top">
+          <span class="card-id">${q.id}</span>
+          <div class="card-box-indicator b-${prog.box}" title="Box ${prog.box}"></div>
         </div>
-        <h3 class="card-item-title">${q.title}</h3>
-        <p class="card-item-desc">${q.keywords.slice(0, 4).join(" • ")}</p>
-        <div class="card-item-footer">
-          <span class="box-tag box-${prog.box}">Box ${prog.box}</span>
-          <span class="card-item-stats">Testováno: ${prog.testedCount}x</span>
+        <h3 class="card-title">${q.title}</h3>
+        <p class="card-keywords">${q.keywords.slice(0, 4).join(" • ")}</p>
+        <div class="card-footer">
+          <span class="card-section">${q.section}</span>
+          <div style="display: flex; gap: 0.5rem; align-items: center;">
+            ${isDue ? `<span class="due-badge">K opakování</span>` : ""}
+            ${isUnstudied && !isDue ? `<span class="due-badge" style="background-color: var(--primary-light); color: var(--primary); border-color: rgba(168, 85, 247, 0.2)">Nová</span>` : ""}
+          </div>
         </div>
       `;
 
@@ -351,34 +347,35 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    const quizWrapper = document.createElement("div");
+    quizWrapper.className = "quiz-wrapper";
+
     question.quiz.forEach((q, qIndex) => {
       const qDiv = document.createElement("div");
-      qDiv.className = "quiz-question-block";
+      qDiv.className = "quiz-card";
       qDiv.innerHTML = `
-        <h4 class="quiz-question-text">${qIndex + 1}. ${q.question}</h4>
-        <div class="quiz-options-list" id="options-${question.id}-${qIndex}">
+        <div class="quiz-question">${qIndex + 1}. ${q.question}</div>
+        <div class="quiz-options" id="options-${question.id}-${qIndex}">
           ${q.options.map((opt, optIndex) => `
-            <button class="quiz-option-btn" data-correct="${optIndex === q.correct}" data-index="${optIndex}">
+            <button class="quiz-option" data-correct="${optIndex === q.correct}" data-index="${optIndex}">
               ${opt}
             </button>
           `).join("")}
         </div>
-        <div class="quiz-explanation-box" id="explanation-${question.id}-${qIndex}" style="display:none;">
-          <span class="explanation-badge">Vysvětlení:</span>
-          <p>${q.explanation}</p>
+        <div class="quiz-explanation" id="explanation-${question.id}-${qIndex}" style="display:none;">
+          <strong>Vysvětlení:</strong> ${q.explanation}
         </div>
       `;
 
       // Event listenery pro tlačítka možností
       const optionsContainer = qDiv.querySelector(`#options-${question.id}-${qIndex}`);
-      const optionBtns = optionsContainer.querySelectorAll(".quiz-option-btn");
+      const optionBtns = optionsContainer.querySelectorAll(".quiz-option");
       const explanationBox = qDiv.querySelector(`#explanation-${question.id}-${qIndex}`);
 
       optionBtns.forEach(btn => {
         btn.addEventListener("click", () => {
           // Zabránit vícenásobnému klikání
           if (optionsContainer.classList.contains("answered")) return;
-          optionsContainer.classList.contains("answered");
           optionsContainer.classList.add("answered");
 
           const isCorrect = btn.getAttribute("data-correct") === "true";
@@ -388,7 +385,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (isBtnCorrect) {
               b.classList.add("correct");
             } else if (b === btn && !isCorrect) {
-              b.classList.add("wrong");
+              b.classList.add("incorrect");
             }
             b.disabled = true;
           });
@@ -400,8 +397,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       });
 
-      quizContainer.appendChild(qDiv);
+      quizWrapper.appendChild(qDiv);
     });
+
+    quizContainer.appendChild(quizWrapper);
   }
 
   // --- LOGIKA PŘIŘAZOVACÍ HRY (MATCHING GAME) ---
@@ -522,8 +521,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const tCard = gameSelectedTerm;
       const dCard = gameSelectedDesc;
       
-      tCard.classList.add("error");
-      dCard.classList.add("error");
+      tCard.classList.add("wrong");
+      dCard.classList.add("wrong");
 
       gameErrorsCount++;
       gameErrorsEl.textContent = gameErrorsCount;
@@ -532,8 +531,8 @@ document.addEventListener("DOMContentLoaded", () => {
       gameSelectedDesc = null;
 
       setTimeout(() => {
-        tCard.classList.remove("selected", "error");
-        dCard.classList.remove("selected", "error");
+        tCard.classList.remove("selected", "wrong");
+        dCard.classList.remove("selected", "wrong");
       }, 600);
     }
   }
