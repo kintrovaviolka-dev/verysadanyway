@@ -118,6 +118,14 @@ document.addEventListener("DOMContentLoaded", () => {
       const grade = parseInt(card.getAttribute("data-grade"));
       selectGrade(grade);
     });
+
+    // Podpora pro klávesnici (Enter / Mezerník)
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        card.click();
+      }
+    });
   });
 
   // Výběr předmětu
@@ -226,6 +234,16 @@ document.addEventListener("DOMContentLoaded", () => {
   if (subjectDermaBtn) {
     subjectDermaBtn.addEventListener("click", () => selectSubject("dermatologie"));
   }
+
+  // Podpora pro klávesnici pro výběr předmětů (Enter / Mezerník)
+  document.querySelectorAll(".subject-card").forEach(card => {
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        card.click();
+      }
+    });
+  });
 
   // Návrat na předměty
   hubBackBtn.addEventListener("click", () => {
