@@ -222,28 +222,26 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  document.getElementById("subject-patfyz").addEventListener("click", () => selectSubject("patfyz"));
-  document.getElementById("subject-patola").addEventListener("click", () => selectSubject("patola"));
-  
-  const subjectOsetBtn = document.getElementById("subject-oset");
-  if (subjectOsetBtn) {
-    subjectOsetBtn.addEventListener("click", () => selectSubject("oset"));
-  }
+  const attachSubjectListener = (id, subject) => {
+    const btn = document.getElementById(id);
+    if (btn) {
+      btn.addEventListener("click", () => selectSubject(subject));
+      btn.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault(); // Prevent page scrolling for Space
+          selectSubject(subject);
+        }
+      });
+    }
+  };
 
-  const subjectFarmaBtn = document.getElementById("subject-farmakologie");
-  if (subjectFarmaBtn) {
-    subjectFarmaBtn.addEventListener("click", () => selectSubject("farmakologie"));
-  }
-
-  const subjectDermaBtn = document.getElementById("subject-dermatologie");
-  if (subjectDermaBtn) {
-    subjectDermaBtn.addEventListener("click", () => selectSubject("dermatologie"));
-  }
-
-  const subjectRadioBtn = document.getElementById("subject-radiologie");
-  if (subjectRadioBtn) {
-    subjectRadioBtn.addEventListener("click", () => selectSubject("radiologie"));
-  }
+  attachSubjectListener("subject-patfyz", "patfyz");
+  attachSubjectListener("subject-patola", "patola");
+  attachSubjectListener("subject-oset", "oset");
+  attachSubjectListener("subject-imunologie", "imunologie");
+  attachSubjectListener("subject-farmakologie", "farmakologie");
+  attachSubjectListener("subject-dermatologie", "dermatologie");
+  attachSubjectListener("subject-radiologie", "radiologie");
 
   // Návrat na předměty
   hubBackBtn.addEventListener("click", () => {
