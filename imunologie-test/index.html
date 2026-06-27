@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Imunologie - Testovací Trenažér</title>
+  <meta name="description" content="Aktivní procvičování testových otázek z imunologie a imunopatologie pro studenty všeobecného lékařství.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'bg-primary': '#131313',
+            'bg-secondary': 'rgba(32, 31, 31, 0.6)',
+            'bg-tertiary': 'rgba(28, 27, 27, 0.75)',
+            'border-color': 'rgba(255, 255, 255, 0.08)',
+            'text-primary': '#e5e2e1',
+            'text-secondary': '#b9cacb',
+            'text-muted': '#849495',
+            'accent-blue': '#00d2ff',
+            'accent-gold': '#fbbf24',
+            'accent-red': '#ffb4ab',
+            'accent-green': '#10b981',
+          },
+          fontFamily: {
+            heading: ['Montserrat', 'sans-serif'],
+            body: ['Montserrat', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- React & ReactDOM CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  
+  <!-- Babel Standalone CDN for JSX translation -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body class="dark-theme imuno-container">
+  
+  <!-- React Root -->
+  <div id="root"></div>
+
+  <!-- React Logic (JSX) -->
+  <script type="text/babel" src="app.js"></script>
+</body>
+</html>

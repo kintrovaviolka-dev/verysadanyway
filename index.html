@@ -75,6 +75,11 @@
           <h3>Ošetřovatelství</h3>
           <p>Studijní skripta ke stažení a složka se všemi podklady.</p>
         </div>
+        <div class="subject-card imunologie" data-subject="imunologie" id="subject-imunologie" data-grade="3">
+          <span class="icon">🛡️</span>
+          <h3>Imunologie</h3>
+          <p>Aktivní procvičování testových otázek a zkouškových okruhů.</p>
+        </div>
         <div class="subject-card farmakologie" data-subject="farmakologie" id="subject-farmakologie" data-grade="4">
           <span class="icon">💊</span>
           <h3>Farmakologie</h3>
@@ -308,6 +313,41 @@
           <p>Procházejte kompletní surová fakta z radiologie (facts.md) přímo v surovém textovém formátu.</p>
           <a href="radiolka/facts.md" target="_blank" class="btn btn-secondary" id="radiologie-facts-btn">
             Zobrazit facts.md
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Rozcestník pro Imunologii -->
+      <div class="hub-grid" id="hub-grid-imunologie" style="display: none; max-width: 800px; margin: 0 auto;">
+        <!-- 1. Vstup do trenažéru -->
+        <div class="hub-card">
+          <div class="hub-card-icon">🛡️</div>
+          <h4>Testovací trenažér</h4>
+          <p>Aktivní procvičování single-choice otázek z imunologie s okamžitou zpětnou vazbou.</p>
+          <a href="imunologie-test/index.html" class="btn btn-primary btn-imuno" id="imunologie-portal-btn">
+            Spustit trenažér
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+        </div>
+
+        <!-- 2. Surová databáze otázek (JSON) -->
+        <div class="hub-card">
+          <div class="hub-card-icon">📂</div>
+          <h4>Surová data otázek</h4>
+          <p>Zobrazit nebo stáhnout lokální datový soubor (questions.json) pro testování.</p>
+          <a href="imunologie-test/questions.json" target="_blank" class="btn btn-secondary" id="imunologie-questions-btn">
+            Zobrazit questions.json
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round">
               <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
