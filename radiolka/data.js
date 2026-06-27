@@ -615,12 +615,12 @@ const DATA_RADIOLOGIE = [
                   "vadách"
             ],
             "content": {
-                  "definition": "<ul><li>RTG:</li></ul>",
-                  "etiology": "<ul><li>Celková velikost srdce = kardiotorakální index</li></ul>",
-                  "pathogenesis": "<ul><li>Konfigurace srdce: mitrální stenóza (vyhlazení levé kontury s vyklenutím ouška levé</li></ul>",
-                  "macroscopy": "<ul><li>síně + venostáza v horních plicních polích), aortálně konfigurované srdce (u aortální</li></ul>",
-                  "microscopy": "<ul><li>vady nebo arteriální hypertenze; tvar dřeváku, elongovaná aorta s prominující</li></ul>",
-                  "clinical": "<ul><li>obloučkem), vrozené srdeční vady (levopravý zkrat - defekt síňového septa →</li><li>hypertrofie pravé komory → rotace doleva a vyklenutí pulmonálního konu</li><li>Kalcifikace: v aortě nebo v chlopních</li></ul>"
+                  "definition": "<ul><li><strong>Kardiotorakální index (KTI):</strong> Poměr největšího příčného průměru srdečního stínu a největšího vnitřního průměru hrudníku (norma na snímku ve stoje při nádechu u dospělých do 0,5; nad 0,5 svědčí o kardiomegalii).</li><li><strong>Kalcifikace srdečního stínu:</strong> Průkaz kalcifikací v aortě (ateroskleróza) nebo v chlopních či perikardu na RTG / CT.</li></ul>",
+                  "etiology": "",
+                  "pathogenesis": "",
+                  "macroscopy": "",
+                  "microscopy": "",
+                  "clinical": "<ul><li><strong>Mitrální konfigurace srdečního stínu:</strong> Typická pro mitrální stenózu. Projevuje se vyhlazením nebo vyklenutím levé kontury srdce v důsledku dilatace a hypertrofie ouška levé síně (a pulmonálního konu). Doprovází ji plicní venostáza (přerozdělení toku do horních laloků).</li><li><strong>Aortální konfigurace srdečního stínu:</strong> Typická pro aortální vady (stenózu či insuficienci) nebo dlouhodobou arteriální hypertenzi. Srdce má tvar 'dřeváku' (vyklenutí levé komory doleva a dolů) a dochází k elongaci hrudní aorty s prominujícím aortálním knoflíkem.</li><li><strong>Vrozené srdeční vady (L-P zkraty):</strong> Např. defekt síňového septa (ASD). Vede k přetížení pravé komory, její hypertrofii a následné rotaci srdce doleva s prominencí pulmonálního konu na levé kontuře.</li></ul>"
             },
             "quiz": [
                   {
@@ -1247,7 +1247,7 @@ const DATA_RADIOLOGIE = [
       },
       {
             "id": "radio-26",
-            "title": "Zobrazování onemocnění ženských pohlavních orgánů a zobrazování v",
+            "title": "Zobrazování onemocnění ženských pohlavních orgánů a zobrazování v těhotenství.",
             "section": "Zobrazování urogenitálu a prsu",
             "category": "Urogenitál & Prs",
             "keywords": [
@@ -1263,16 +1263,16 @@ const DATA_RADIOLOGIE = [
                   "zobrazování"
             ],
             "content": {
-                  "definition": "<ul><li>těhotenství.</li><li>UZ:</li><li>transabdominální nebo transvaginální - vhodné i u těhotných; transrektální -</li><li>diagnostika nádorů krčku dělohy</li><li>děloha = echogenita okolních svalů, uprostřed echogenní endometrium, někdy</li><li>zřetelná dutina s tekutinou</li><li>transvaginílní - detailnější popis stěny delohy (endometrium junkční zónu a</li></ul>",
-                  "etiology": "<ul><li>myometrium)</li><li>vaječníky - hypo až anechogenní, časté drobné cysty</li><li>CT: děloha má denzitu okolních svalů, kavum výjimečně, ovaria mezi zevní a vnitřní</li><li>a. iliaca</li><li>MR: přesná diagnostika nádorů dělohy - rozeznáváme části stěny těla i krček,</li><li>anatomické vztahy k okolním orgánům, infiltrace do okolí → ideálně v sagitální</li><li>rovině</li></ul>",
-                  "pathogenesis": "<ul><li>Hysterosalpingografie (HSG):</li><li>Schultzeho násadec zavede do hrdla děložního →skiaskopická kontrola → aplikace</li><li>hydrosolubilní jodové KL → proniká oběma vejcovody do břišní dutiny → kontrola</li><li>průchodnosti vejcovodů při sterilitě</li><li>Porodnictví:</li><li>časné těhotenství potvrdit na transvaginálním UZ v 5. a 6. týdnu → 7. týden pulzující</li><li>srdce</li></ul>",
-                  "macroscopy": "<ul><li>diagnostika extrauterinního těhotenství je ideální přes transvaginální UZ</li><li>Prenatální diagnostika:</li><li>UZ + MR</li><li>urychluje a zlepšuje léčbu vrozených vad</li><li>UZ: 3,5-7 MHz s real time obrazem → 3D zobrazení</li><li>Dopplerovská UZ: zpomalení průtoku → zpomalený růst plodu</li><li>páteř + páteřní kanál ve 20. týdnu → diferencovat osifikační jádra obratlů</li></ul>",
-                  "microscopy": "<ul><li>mozek - 24. týden; srdeční vady echokardiograficky</li><li>MR se neprovádí v prvních třech měsících</li><li>Gynekologie:</li><li>Endometrióza - UZ = cystická nebo hypoechogenní masa v okolí adnex → MR =</li><li>prokáže rozpadové metabolity krve</li><li>Ovariální cysty: anechogenní útvary</li><li>Myom → UZ = hypoechogenní + kalcifikace; CT = izodenzní se svalovinou; MR =</li></ul>",
-                  "clinical": "<ul><li>dobře ohraničený, homogenní hypointenzivní, po kontrastu se nesytí, změny při</li><li>nekrotizaci nádoru</li><li>Ca cervixu: heterogenní nádor, T1 hypo T2 hyperintenzní, sytí se po KL</li><li>Ca endometria: T2 hypo, po KL se sytí méně</li><li>Ca ovaria: heterogenní obsah, četná septa a ascites, CT a MR - nález různorodý od</li><li>solidní heterogenního útvaru po rozsáhlý cystický, častá metastáza do peritoneální</li><li>dutiny; Krukenbergův nádor (metastáza ovaria z adenokarcinomu GIT)</li></ul>"
+                  "definition": "<ul><li><strong>Ultrazvukové vyšetření (UZ):</strong> Hlavní neinvazivní metoda. Transabdominální (přes naplněný močový měchýř) nebo transvaginální (vysokofrekvenční sonda close-up, detailnější rozlišení vrstev - endometrium, junkční zóna, myometrium). Vhodná i pro těhotné ženy (bez ionizujícího záření). Transrektální UZ se využívá k lokálnímu stagingu nádorů děložního krčku.</li><li><strong>Normální UZ obraz:</strong> Děloha má echogenitu srovnatelnou s okolními kosterními svaly; uprostřed se nachází vysoce echogenní endometrium (v závislosti na fázi cyklu). Vaječníky jsou typicky hypoechogenní s přítomností drobných anechogenních folikulárních cyst.</li></ul>",
+                  "etiology": "",
+                  "pathogenesis": "",
+                  "macroscopy": "",
+                  "microscopy": "",
+                  "clinical": "<ul><li><strong>CT a MR zobrazení:</strong> Na CT má děloha svalovou denzitu a endometrium/kavum se zobrazuje výjimečně. <strong>Magnetická rezonance (MR)</strong> je nejpřesnější metodou pro staging karcinomů endometria (T2 hypointenzní ložisko, sytí se po kontrastu méně než myometrium) a cervixu (heterogenní ložisko, na T1 hypo-, na T2 hyperintenzní, sytí se postkontrastně). Dokáže rozlišit zóny stěny a infiltraci okolí (pánevní stěny, močový měchýř, rektum), vyšetřuje se ideálně v sagitální rovině.</li><li><strong>Hysterosalpingografie (HSG):</strong> Skiaskopická metoda s aplikací jodové kontrastní látky přes Schultzeho násadec do děložního hrdla k ověření průchodnosti vejcovodů (KL zatéká do břišní dutiny) u pacientek se sterilitou.</li><li><strong>Porodnictví a prenatální diagnostika:</strong> Časné těhotenství prokazujeme transvaginálním UZ od 5.-6. týdne, v 7. týdnu prokazujeme pulzující srdce plodu. Dopplerovský UZ měří průtoky v pupečníkových cévách (snížení průtoku varuje před retardací růstu plodu). Prenatální screening odhaluje vrozené vady; osifikační jádra obratlů a páteřní kanál hodnotíme ve 20. týdnu UZ, mozek ve 24. týdnu. <strong>MR plodu</strong> se využívá jako upřesňující metoda při nejasném nálezu na UZ, ale neprovádí se v 1. trimestru.</li><li><strong>Gynekologické patologie:</strong> <strong>Endometrióza</strong> se na UZ jeví jako cystická/hypoechogenní masa adnex, MR potvrdí přítomnost rozpadových produktů hemoglobinu (hematomy). <strong>Myomy</strong> jsou na UZ hypoechogenní s možnými kalcifikacemi, na CT izodenzní se svalem, na MR ostře ohraničené homogenní T2 hypointenzní útvary. <strong>Karcinom ovaria</strong> se prezentuje jako solidně-cystický heterogenní tumor s přepážkami (septy) a často ascitem; doprovází jej peritoneální metastázy, popř. Krukenbergův nádor (metastáza z GIT).</li></ul>"
             },
             "quiz": [
                   {
-                        "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Zobrazování onemocnění ženských pohlavních orgánů a zobrazování v?",
+                        "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Zobrazování onemocnění ženských pohlavních orgánů a zobrazování v těhotenství.?",
                         "options": [
                               "Magnetická rezonance (MR), protože má nejvyšší rozlišení",
                               "Závisí na klinickém stavu, ale obvykle začínáme méně zatěžujícími metodami jako UZ nebo konvenční RTG",
@@ -1280,10 +1280,10 @@ const DATA_RADIOLOGIE = [
                               "Termovizní kamera a scintigrafie skeletu"
                         ],
                         "correct": 1,
-                        "explanation": "Při vyšetřování tématu 'Zobrazování onemocnění ženských pohlavních orgánů a zobrazování v' volíme diagnostickou metodu na základě klinických indikací, dostupnosti a radiační zátěže. Obecně platí zásada začínat neinvazivními a dostupnými metodami (např. ultrazvukem nebo nativním RTG snímkem) před přistoupením k náročnějším metodám typu CT nebo MR."
+                        "explanation": "Při vyšetřování tématu 'Zobrazování onemocnění ženských pohlavních orgánů a zobrazování v těhotenství.' volíme diagnostickou metodu na základě klinických indikací, dostupnosti a radiační zátěže. Obecně platí zásada začínat neinvazivními a dostupnými metodami (např. ultrazvukem nebo nativním RTG snímkem) před přistoupením k náročnějším metodám typu CT nebo MR."
                   },
                   {
-                        "question": "Které z následujících tvrzení nejlépe vystihuje hlavní přínos radiologie pro téma: Zobrazování onemocnění ženských pohlavních orgánů a zobrazování v?",
+                        "question": "Které z následujících tvrzení nejlépe vystihuje hlavní přínos radiologie pro téma: Zobrazování onemocnění ženských pohlavních orgánů a zobrazování v těhotenství.?",
                         "options": [
                               "Poskytuje detailní morfologické nebo funkční zobrazení patologických změn pro stanovení diagnózy a plánování léčby",
                               "Umožňuje kompletní vyléčení všech onemocnění bez nutnosti farmakoterapie",
@@ -1291,7 +1291,7 @@ const DATA_RADIOLOGIE = [
                               "Nahrazuje laboratorní vyšetření krve a biochemickou analýzu"
                         ],
                         "correct": 0,
-                        "explanation": "Zobrazovací metody v radiologii u tématu 'Zobrazování onemocnění ženských pohlavních orgánů a zobrazování v' přinášejí klíčové informace o přesné lokalizaci, rozsahu a charakteru patologického procesu, což je nezbytné pro správné klinické rozhodování (konzervativní léčba, operabilita, sledování po léčbě)."
+                        "explanation": "Zobrazovací metody v radiologii u tématu 'Zobrazování onemocnění ženských pohlavních orgánů a zobrazování v těhotenství.' přinášejí klíčové informace o přesné lokalizaci, rozsahu a charakteru patologického procesu, což je nezbytné pro správné klinické rozhodování (konzervativní léčba, operabilita, sledování po léčbě)."
                   }
             ]
       },
@@ -1842,7 +1842,7 @@ const DATA_RADIOLOGIE = [
       },
       {
             "id": "radio-38",
-            "title": "Zobrazování",
+            "title": "Zobrazování intrakraniálních nádorů.",
             "section": "Neuroradiologie a páteř",
             "category": "Nervová soustava",
             "keywords": [
@@ -1857,16 +1857,16 @@ const DATA_RADIOLOGIE = [
                   "zobrazování"
             ],
             "content": {
-                  "definition": "<ul><li>intrakraniálních nádorů.</li><li>Primární: intraaxiální (v mozkovém</li><li>parenchymu) a extraaxiální (extracerebrální)</li></ul>",
-                  "etiology": "<ul><li>většinu tvoří astrocytom, meningeomy, lymfomy</li><li>zobrazení → prokázat lokalizaci nádoru + rozlišit jiné léze (CMP, kontuze, záněty);</li><li>stanovit stupeň malignity; posoudit operabilitu</li></ul>",
-                  "pathogenesis": "<ul><li>Lokalizace nádoru: expanzivní růst, změna denzity a MR intenzity; CT odhalí 95%</li><li>nádorů</li><li>Stupeň malignity: heterogenní ložisko, průkaz patologických cév, zvýšené nasycení</li></ul>",
-                  "macroscopy": "<ul><li>KL a velkým okolním edémem</li><li>Operabilita nádoru: neoperabilní jsou v subkortikální oblasti, talamu nebo</li><li>elokventních zónách mozkové kůry; operabilní - MR navigační metody, kt. slouží k</li></ul>",
-                  "microscopy": "<ul><li>přesnému operačnímu postupu, funkční MR v okolí motorické zóny</li><li>Astrocytom: hypodenzní, nezvyšuje denzitu podáním KL, MR T1 - hypointenzivní,</li><li>T2 - hyperintenzivní; při neexpanzivním růstu imitují ischemie</li></ul>",
-                  "clinical": "<ul><li>Glioblastoma multiforme: heterogenní struktura, sytí se po KL, četné a-v zkraty,</li><li>velký kolaterální edém</li><li>Meningeomy: izosignální s mozkovým parenchymem, sytí se KL, Intra a supraselární</li><li>nádory diagnostikujeme na MR; velké adenomy komprimují n. opticus</li><li>Diagnostika mnohočetných metastáz - jednoduchá → masivně se sytí KL na CT i MR</li></ul>"
+                  "definition": "<ul><li><strong>Klasifikace intrakraniálních nádorů:</strong> Rozlišujeme nádory <strong>intraaxiální</strong> (rostoucí přímo v mozkovém parenchymu - např. gliomy, lymfomy) a <strong>extraaxiální</strong> (rostoucí mimo mozek, stlačující parenchym zvenčí - např. meningeomy, neurinomy, adenomy hypofýzy).</li><li><strong>Cíle zobrazovacích metod:</strong> Průkaz lokalizace tumoru, diferenciální diagnostika proti jiným lézím (ischemická CMP, intracerebrální krvácení, záněty/abscesy), stanovení stupně malignity (grading) a posouzení operability. CT odhalí cca 95 % nádorů, nejpřesnější metodou je však magnetická rezonance (MR).</li></ul>",
+                  "etiology": "",
+                  "pathogenesis": "",
+                  "macroscopy": "",
+                  "microscopy": "",
+                  "clinical": "<ul><li><strong>Stupeň malignity (grading):</strong> Vysoce maligní tumory mívají heterogenní strukturu, nepravidelné sycení kontrastní látkou, patologickou novotvorbu cév (neovaskularizaci) a rozsáhlý perifokální vazogenní edém.</li><li><strong>Specifické nádory:</strong> <ul><li><strong>Astrocytom (low-grade):</strong> Na CT se jeví jako hypodenzní ložisko, které se po podání kontrastní látky (KL) nesytí. Na MR je v T1 hypointenzivní, v T2 hyperintenzivní. Může napodobovat ischemii kvůli nevýraznému expanzivnímu chování.</li><li><strong>Glioblastoma multiforme (grade IV):</strong> Vysoce maligní, heterogenní struktura s centrální nekrózou, prstencovitým sycením okrajů po podání KL, arterioterminálními (a-v) zkraty a masivním okolním edémem.</li><li><strong>Meningeom:</strong> Extraaxiální, ostře ohraničený, na CT/MR izodenzní/izosignální s kůrou, silně a homogenně se sytí po KL, často se zobrazuje 'dural tail' (zbytnění přilehlé dury mater).</li><li><strong>Metastázy:</strong> Často mnohočetná ložiska na rozhraní šedé a bílé hmoty, doprovázená velkým edémem, masivně se sytí kontrastní látkou na CT i MR.</li><li><strong>Selární nádory:</strong> Adenomy hypofýzy. Mikroadenomy (do 10 mm), makroadenomy (nad 10 mm) mohou stlačovat chiasma opticum a působit bitemporální hemianopsii. Zlatým standardem diagnostiky je MR.</li></ul></li><li><strong>Operabilita:</strong> Neoperabilní jsou tumory v hlubokých strukturách (talamus, mozkový kmen) nebo v elokventních oblastech kůry (řečová centra, motorický proužek). U operabilních se využívá funkční MR (fMRI) k mapování center a peroperační MR navigace.</li></ul>"
             },
             "quiz": [
                   {
-                        "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Zobrazování?",
+                        "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Zobrazování intrakraniálních nádorů.?",
                         "options": [
                               "Magnetická rezonance (MR), protože má nejvyšší rozlišení",
                               "Závisí na klinickém stavu, ale obvykle začínáme méně zatěžujícími metodami jako UZ nebo konvenční RTG",
@@ -1874,10 +1874,10 @@ const DATA_RADIOLOGIE = [
                               "Termovizní kamera a scintigrafie skeletu"
                         ],
                         "correct": 1,
-                        "explanation": "Při vyšetřování tématu 'Zobrazování' volíme diagnostickou metodu na základě klinických indikací, dostupnosti a radiační zátěže. Obecně platí zásada začínat neinvazivními a dostupnými metodami (např. ultrazvukem nebo nativním RTG snímkem) před přistoupením k náročnějším metodám typu CT nebo MR."
+                        "explanation": "Při vyšetřování tématu 'Zobrazování intrakraniálních nádorů.' volíme diagnostickou metodu na základě klinických indikací, dostupnosti a radiační zátěže. Obecně platí zásada začínat neinvazivními a dostupnými metodami (např. ultrazvukem nebo nativním RTG snímkem) před přistoupením k náročnějším metodám typu CT nebo MR."
                   },
                   {
-                        "question": "Které z následujících tvrzení nejlépe vystihuje hlavní přínos radiologie pro téma: Zobrazování?",
+                        "question": "Které z následujících tvrzení nejlépe vystihuje hlavní přínos radiologie pro téma: Zobrazování intrakraniálních nádorů.?",
                         "options": [
                               "Poskytuje detailní morfologické nebo funkční zobrazení patologických změn pro stanovení diagnózy a plánování léčby",
                               "Umožňuje kompletní vyléčení všech onemocnění bez nutnosti farmakoterapie",
@@ -1885,13 +1885,13 @@ const DATA_RADIOLOGIE = [
                               "Nahrazuje laboratorní vyšetření krve a biochemickou analýzu"
                         ],
                         "correct": 0,
-                        "explanation": "Zobrazovací metody v radiologii u tématu 'Zobrazování' přinášejí klíčové informace o přesné lokalizaci, rozsahu a charakteru patologického procesu, což je nezbytné pro správné klinické rozhodování (konzervativní léčba, operabilita, sledování po léčbě)."
+                        "explanation": "Zobrazovací metody v radiologii u tématu 'Zobrazování intrakraniálních nádorů.' přinášejí klíčové informace o přesné lokalizaci, rozsahu a charakteru patologického procesu, což je nezbytné pro správné klinické rozhodování (konzervativní léčba, operabilita, sledování po léčbě)."
                   }
             ]
       },
       {
             "id": "radio-39",
-            "title": "Zobrazování zánětů CNS a onemocnění bílé hmoty infekční nálezy nejsou charakteristické - většinou na CT hypodenzní, MR T1 hypo a T2 hyperintenzivní",
+            "title": "Zobrazování zánětů CNS a onemocnění bílé hmoty.",
             "section": "Neuroradiologie a páteř",
             "category": "Nervová soustava",
             "keywords": [
@@ -1907,16 +1907,16 @@ const DATA_RADIOLOGIE = [
                   "onemocnění"
             ],
             "content": {
-                  "definition": "<ul><li>Mozkový absces - oválný, expanzivní proces,</li><li>postkontrastně se sytí lem</li><li>Meningitidy: na začátku negativní nález, potom se</li><li>vydatně sytí na KL</li></ul>",
-                  "etiology": "<ul><li>Subdurální a epidurální empyémy podobný obraz</li><li>jako mozkový absces</li><li>Epilepsie: MR - odhalí různé dysplázie kůry, drobné nádory, cévní malformace =</li><li>epileptogenní ložisko</li></ul>",
-                  "pathogenesis": "<ul><li>Onemocnění bílé hmoty:</li><li>typická hyperintenzivní ložiska na T2, hlavně na FLAIR</li><li>ložiska roztroušené sklerózy - sledujeme dynamiku onemocnění</li><li>podáním KL → aktivní ložiska se sytí, chronická ne</li></ul>",
-                  "macroscopy": "<ul><li>MR kritéria: počet, velikost, uložení, změny po podání KL</li><li>Vrozené onemocnění - leukodystrofie</li><li>Atrofické procesy, hydrocefalus</li><li>rozlišit obstrukční a neobstrukční hydrocefalus</li></ul>",
-                  "microscopy": "<ul><li>Obstrukční = rozšířené komory a subarachnoidální prostory</li><li>obliterovány</li><li>MR - průkaz stenózy nebo uzávěru mokovodu</li><li>při úbytku mozkové tkáně se kompenzatorně rozšiřují jak</li></ul>",
-                  "clinical": "<ul><li>komory, tak subarachnoidální prostory</li><li>dif. diagnostika demencí - CT a MR s perfuzní SPECT a PET</li><li>(Alzheimer - demence temporoparietálního laloku)</li><li>Vrozené anomálie CNS:</li><li>drobné cysty likvorových cest,</li><li>Arachnoideální cysty kdekoliv - polokulovitý tvar o denzitě</li><li>likvoru, klinicky němé, mohou se chovat expanzivně (imitovat nádor)</li></ul>"
+                  "definition": "<ul><li><strong>Zobrazování infekcí CNS:</strong> Nativní nálezy mohou být zpočátku nespecifické. Na CT se zánětlivá ložiska zobrazují většinom jako hypodenzní zóny, na MR jsou v T1 hypointenzivní a v T2 hyperintenzivní. Diagnostickým standardem je zobrazení s kontrastní látkou (KL).</li><li><strong>Meningitida (zánět plen):</strong> V časném stadiu bývá nativní CT i MR negativní. Po podání kontrastní látky dochází k výraznému, difúznímu sycení leptomening (leptomeningeální enhancement) podél sulků a na bázi mozku.</li><li><strong>Mozkový absces:</strong> Prezentuje se jako oválný expanzivní proces s centrálním kolikvačním rozpadem (nekrózou). Po podání KL vykazuje charakteristické hladké prstencovité (lemové) sycení (ring-enhancement) a je obklopen masivním perifokálním edémem. Podobně se zobrazují subdurální a epidurální empyémy.</li></ul>",
+                  "etiology": "",
+                  "pathogenesis": "",
+                  "macroscopy": "",
+                  "microscopy": "",
+                  "clinical": "<ul><li><strong>Onemocnění bílé hmoty (Roztroušená skleróza - RS):</strong> Zlatým standardem je magnetická rezonance (MR). Ložiska demielinizace (plaky) se zobrazují jako hyperintenzivní ložiska v T2 a zejména v sekvenci FLAIR. Typická je periventrikulární lokalizace (Dawsonovy prsty) a ložiska v corpus callosum. <strong>Aktivita ložisek:</strong> Aktivní (akutní) plaky se sytí po podání kontrastní látky (gadolinia) kvůli poruše hematoencefalické bariéry; chronická stacionární ložiska se nesytí.</li><li><strong>Hydrocefalus a atrofie:</strong> <ul><li><strong>Obstrukční hydrocefalus:</strong> Způsoben překážkou v likvorových cestách (např. stenóza/uzávěr mokovodu, tumor komprimující 4. komoru). Způsobuje dilataci komorového systému nad překážkou, zatímco subarachnoidální prostory na konvexitě jsou zúžené/obliterované. MR potvrdí místo obstrukce.</li><li><strong>Neobstrukční (komunikující) hydrocefalus:</strong> Porucha vstřebávání likvoru v arachnoidálních klucích (např. po SAK či meningitidě). Dochází k symetrické dilataci všech komor i subarachnoidálních prostorů.</li><li><strong>Atrofie mozku (senilní, demence):</strong> Úbytek mozkové tkáně (difúzní nebo fokální), který vede ke kompenzatornímu rozšíření komor i subarachnoidálních prostorů (hydrocephalus ex vacuo). Diferenciální diagnostika demencí (např. Alzheimerovy choroby s atrofií temporoparietálně a hipokampů) využívá MR, popř. funkční zobrazení SPECT a PET.</li></ul></li><li><strong>Vrozené anomálie a cysty:</strong> Např. <strong>arachnoideální cysty</strong> – polokulovité útvary o denzitě a signálu mozkomíšního moku (likvoru), které nekomunikují s komorami a nesytí se kontrastem. Většinou jsou klinicky němé (náhodný nález), ale při expanzivním růstu mohou utlačovat okolní tkáň a imitovat tumor.</li></ul>"
             },
             "quiz": [
                   {
-                        "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Zobrazování zánětů CNS a onemocnění bílé hmoty. infekční nálezy nejsou charakteristické - většinou na CT hypodenzní, MR T1 hypo a T2 hyperintenzivní?",
+                        "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Zobrazování zánětů CNS a onemocnění bílé hmoty.?",
                         "options": [
                               "Magnetická rezonance (MR), protože má nejvyšší rozlišení",
                               "Závisí na klinickém stavu, ale obvykle začínáme méně zatěžujícími metodami jako UZ nebo konvenční RTG",
@@ -1924,10 +1924,10 @@ const DATA_RADIOLOGIE = [
                               "Termovizní kamera a scintigrafie skeletu"
                         ],
                         "correct": 1,
-                        "explanation": "Při vyšetřování tématu 'Zobrazování zánětů CNS a onemocnění bílé hmoty. infekční nálezy nejsou charakteristické - většinou na CT hypodenzní, MR T1 hypo a T2 hyperintenzivní' volíme diagnostickou metodu na základě klinických indikací, dostupnosti a radiační zátěže. Obecně platí zásada začínat neinvazivními a dostupnými metodami (např. ultrazvukem nebo nativním RTG snímkem) před přistoupením k náročnějším metodám typu CT nebo MR."
+                        "explanation": "Při vyšetřování tématu 'Zobrazování zánětů CNS a onemocnění bílé hmoty.' volíme diagnostickou metodu na základě klinických indikací, dostupnosti a radiační zátěže. Obecně platí zásada začínat neinvazivními a dostupnými metodami (např. ultrazvukem nebo nativním RTG snímkem) před přistoupením k náročnějším metodám typu CT nebo MR."
                   },
                   {
-                        "question": "Které z následujících tvrzení nejlépe vystihuje hlavní přínos radiologie pro téma: Zobrazování zánětů CNS a onemocnění bílé hmoty. infekční nálezy nejsou charakteristické - většinou na CT hypodenzní, MR T1 hypo a T2 hyperintenzivní?",
+                        "question": "Které z následujících tvrzení nejlépe vystihuje hlavní přínos radiologie pro téma: Zobrazování zánětů CNS a onemocnění bílé hmoty.?",
                         "options": [
                               "Poskytuje detailní morfologické nebo funkční zobrazení patologických změn pro stanovení diagnózy a plánování léčby",
                               "Umožňuje kompletní vyléčení všech onemocnění bez nutnosti farmakoterapie",
@@ -1935,7 +1935,7 @@ const DATA_RADIOLOGIE = [
                               "Nahrazuje laboratorní vyšetření krve a biochemickou analýzu"
                         ],
                         "correct": 0,
-                        "explanation": "Zobrazovací metody v radiologii u tématu 'Zobrazování zánětů CNS a onemocnění bílé hmoty. infekční nálezy nejsou charakteristické - většinou na CT hypodenzní, MR T1 hypo a T2 hyperintenzivní' přinášejí klíčové informace o přesné lokalizaci, rozsahu a charakteru patologického procesu, což je nezbytné pro správné klinické rozhodování (konzervativní léčba, operabilita, sledování po léčbě)."
+                        "explanation": "Zobrazovací metody v radiologii u tématu 'Zobrazování zánětů CNS a onemocnění bílé hmoty.' přinášejí klíčové informace o přesné lokalizaci, rozsahu a charakteru patologického procesu, což je nezbytné pro správné klinické rozhodování (konzervativní léčba, operabilita, sledování po léčbě)."
                   }
             ]
       },
@@ -2090,7 +2090,7 @@ const DATA_RADIOLOGIE = [
       },
       {
             "id": "radio-43",
-            "title": "Možnosti invazivního a neinvazivního zobrazování cév – rozdíly, výhody a",
+            "title": "Možnosti invazivního a neinvazivního zobrazování cév – rozdíly, výhody a nevýhody.",
             "section": "Intervenční radiologie a cévy",
             "category": "Intervence & Cévy",
             "keywords": [
@@ -2106,16 +2106,16 @@ const DATA_RADIOLOGIE = [
                   "invazivního"
             ],
             "content": {
-                  "definition": "<ul><li>nevýhody.</li><li>angiografie - zobrazení cév</li><li>Nativní zobrazení cév: céva je definovaná svou stěnou → zobrazí se jen dostatečně</li></ul>",
-                  "etiology": "<ul><li>velké cévy, které mají dostatečně hrubou stěnu → UZ, CT, MR</li><li>Nepřímé zobrazení cév (endovaskulárního prostoru): zobrazení vnitřního otisku cévy</li><li>KL → RTG, CT, MR → digitální zpracování snímků = digitální subtrakční</li></ul>",
-                  "pathogenesis": "<ul><li>angiografie (DSA)</li><li>Neinvazivní techniky = bez vstupu do těla pacienta = UZ, MR bez KL</li><li>CT a MR angiografie jsou minimálně invazivní (i. v. aplikujeme kontrastní látku)</li></ul>",
-                  "macroscopy": "<ul><li>Invazivní punkce femorální tepny = Seldingerova metoda = punkce tepny jednou →</li><li>vytažení mandrénu z lumina jehly → povytažení jehly do lumina tepny → zavedení</li><li>vodiče do lumina →vytažení jehly z lumina → zavedení katetru do lumina tepny</li></ul>",
-                  "microscopy": "<ul><li>DSA = digitální subtrakční angiografie</li><li>počítačová subtrakce původního snímku bez náplně od všech snímků pořízených po</li><li>aplikaci KL → rentgenový obraz s kontrastní náplní cév bez pozadí</li></ul>",
-                  "clinical": "<ul><li>digitální angiografie - nativní snímek překrytý kontrastním snímkem cév</li><li>výhoda - promítnutí předchozí angiografie do skiaskopického obrazu → lepší</li><li>limitace - pohybové artefakty</li><li>anatomická orientace při práci s katetry a jejich navigaci → snížení množství podané</li><li>dávky KL a dávky ionizujícího záření (nemusíme tolikrát opakovat angiografii)</li></ul>"
+                  "definition": "<ul><li><strong>Angiografie:</strong> Metoda určená k zobrazení lumen a větvení cévního řečiště.</li><li><strong>Nativní (přímé) zobrazení cév:</strong> Céva je definovaná svou vlastní stěnou a přirozeným kontrastem krve/tuku. Zobrazí se jen velké cévy s dostatečně silnou stěnou nebo proudící krví (ultrazvuk/Doppler, nativní MR angiografie využívající efektu 'flow-void' - proudící krev ztrácí signál a je tmavá).</li><li><strong>Nepřímé zobrazení cév:</strong> Zobrazení endovaskulárního prostoru (vnitřního odlitku cévy) po naplnění kontrastní látkou (jodovou nebo paramagnetickou). Využívá se v konvenčním RTG, CT angiografii (CTA) a kontrastní MR angiografii (MRA).</li></ul>",
+                  "etiology": "",
+                  "pathogenesis": "",
+                  "macroscopy": "",
+                  "microscopy": "",
+                  "clinical": "<ul><li><strong>Neinvazivní techniky cévního zobrazení:</strong> Bez vstupu do těla pacienta. Patří sem <strong>duplexní a dopplerovská ultrasonografie</strong> (měří rychlosti a směr toku, detekuje stenózy, uzávěry, pláty) a <strong>nativní MR angiografie</strong> (sekvence TOF - Time of Flight). Výhodou je nulová radiační zátěž a absence kontrastní látky.</li><li><strong>Minimálně invazivní techniky:</strong> Vyžadují intravenózní (i. v.) zavedení kontrastní látky. Patří sem <strong>CT angiografie (CTA)</strong> a <strong>kontrastní MR angiografie (MRA)</strong>. CTA poskytuje vysoké prostorové rozlišení, umožňuje 3D rekonstrukce stěny i lumina, ale nese zátěž ionizujícího záření a nefrotoxické kontrastní látky.</li><li><strong>Invazivní techniky (Digitální subtrakční angiografie - DSA):</strong> Zlatý standard pro detailní zobrazení a zejména pro provádění endovaskulárních intervencí. Vyžaduje arteriální punkci (nejčastěji a. femoralis communis) pomocí <strong>Seldingerovy metody</strong>: <ul><li>1. Punkce tepny jehlou</li><li>2. Zavedení kovového vodiče skrz jehlu do lumina</li><li>3. Odstranění jehly při ponechání vodiče v cévě</li><li>4. Zavedení katétru nebo sheathu po vodiči</li><li>5. Odstranění vodiče a aplikace kontrastní látky přímo do cílové cévy</li></ul></li><li><strong>Princip a výhody DSA:</strong> Počítač provede odečtení (subtrakci) nativního maskovacího snímku (kostra, měkké tkáně) od snímku s kontrastní náplní cév. Výsledkem je čistý obraz cévního řečiště bez rušivého pozadí. Umožňuje zobrazení v reálném čase, navigaci instrumentária (katétry, stenty, spirály) a kombinaci s terapeutickým zákrokem. Limitací jsou pohybové artefakty a rizika spojená s punkcí (krvácení, pseudoaneuryzma, disekce).</li></ul>"
             },
             "quiz": [
                   {
-                        "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Možnosti invazivního a neinvazivního zobrazování cév – rozdíly, výhody a?",
+                        "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Možnosti invazivního a neinvazivního zobrazování cév – rozdíly, výhody a nevýhody.?",
                         "options": [
                               "Magnetická rezonance (MR), protože má nejvyšší rozlišení",
                               "Závisí na klinickém stavu, ale obvykle začínáme méně zatěžujícími metodami jako UZ nebo konvenční RTG",
@@ -2123,10 +2123,10 @@ const DATA_RADIOLOGIE = [
                               "Termovizní kamera a scintigrafie skeletu"
                         ],
                         "correct": 1,
-                        "explanation": "Při vyšetřování tématu 'Možnosti invazivního a neinvazivního zobrazování cév – rozdíly, výhody a' volíme diagnostickou metodu na základě klinických indikací, dostupnosti a radiační zátěže. Obecně platí zásada začínat neinvazivními a dostupnými metodami (např. ultrazvukem nebo nativním RTG snímkem) před přistoupením k náročnějším metodám typu CT nebo MR."
+                        "explanation": "Při vyšetřování tématu 'Možnosti invazivního a neinvazivního zobrazování cév – rozdíly, výhody a nevýhody.' volíme diagnostickou metodu na základě klinických indikací, dostupnosti a radiační zátěže. Obecně platí zásada začínat neinvazivními a dostupnými metodami (např. ultrazvukem nebo nativním RTG snímkem) před přistoupením k náročnějším metodám typu CT nebo MR."
                   },
                   {
-                        "question": "Které z následujících tvrzení nejlépe vystihuje hlavní přínos radiologie pro téma: Možnosti invazivního a neinvazivního zobrazování cév – rozdíly, výhody a?",
+                        "question": "Které z následujících tvrzení nejlépe vystihuje hlavní přínos radiologie pro téma: Možnosti invazivního a neinvazivního zobrazování cév – rozdíly, výhody a nevýhody.?",
                         "options": [
                               "Poskytuje detailní morfologické nebo funkční zobrazení patologických změn pro stanovení diagnózy a plánování léčby",
                               "Umožňuje kompletní vyléčení všech onemocnění bez nutnosti farmakoterapie",
@@ -2134,7 +2134,7 @@ const DATA_RADIOLOGIE = [
                               "Nahrazuje laboratorní vyšetření krve a biochemickou analýzu"
                         ],
                         "correct": 0,
-                        "explanation": "Zobrazovací metody v radiologii u tématu 'Možnosti invazivního a neinvazivního zobrazování cév – rozdíly, výhody a' přinášejí klíčové informace o přesné lokalizaci, rozsahu a charakteru patologického procesu, což je nezbytné pro správné klinické rozhodování (konzervativní léčba, operabilita, sledování po léčbě)."
+                        "explanation": "Zobrazovací metody v radiologii u tématu 'Možnosti invazivního a neinvazivního zobrazování cév – rozdíly, výhody a nevýhody.' přinášejí klíčové informace o přesné lokalizaci, rozsahu a charakteru patologického procesu, což je nezbytné pro správné klinické rozhodování (konzervativní léčba, operabilita, sledování po léčbě)."
                   }
             ]
       },
@@ -2539,3 +2539,6 @@ const RADIOLOGY_MATCHING_PAIRS = [
             "desc": "Volný plyn v břišní dutině pod bránicí, typický pro perforaci dutého orgánu"
       }
 ];
+
+window.DATA_RADIOLOGIE = DATA_RADIOLOGIE;
+window.RADIOLOGY_MATCHING_PAIRS = RADIOLOGY_MATCHING_PAIRS;
