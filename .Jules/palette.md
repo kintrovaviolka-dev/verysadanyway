@@ -8,3 +8,7 @@
 ## 2024-11-20 - Adding Accessibility to Non-Semantic Interactive Elements
 **Learning:** Found custom interactive elements (`.grade-card`, `.subject-card`) made from non-semantic tags (`div`) that act as buttons but lack inherent accessibility features. This prevents keyboard and screen reader users from accessing these core navigation functions.
 **Action:** When creating custom button-like elements using `div` or `span`, always explicitly assign `role="button"`, `tabindex="0"`, appropriate `aria-label`s or `aria-disabled` states, and pair standard `click` event listeners with `keydown` event listeners that trigger on the 'Enter' and 'Space' keys to ensure full keyboard accessibility.
+
+## 2026-06-27 - Keyboard Accessibility for Non-Semantic Cards
+**Learning:** This app heavily uses non-semantic tags (`div` with classes like `grade-card` or `subject-card`) as primary interactive elements. Without explicit accessibility attributes, these critical navigation cards cannot be focused via keyboard or understood by screen readers.
+**Action:** When adding or maintaining custom interactive elements (like custom buttons or cards) in this app, explicitly add `role="button"`, `tabindex="0"`, and wire up `keydown` event listeners for 'Enter' and 'Space' keys (including `e.preventDefault()` for 'Space' to prevent scrolling) to ensure full keyboard and screen reader accessibility.
