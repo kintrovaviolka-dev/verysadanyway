@@ -4102,16 +4102,15 @@ function mergePharmDetails() {
   window.COMPLETE_QUESTIONS.forEach(q => {
     const rich = PHARM_DETAILS[q.id];
     if (rich) {
-      const kineticsHTML = rich.kinetics ? rich.kinetics.map(k => `<li>${k}</li>`).join("") : "";
-      const dynamicsHTML = rich.dynamics ? rich.dynamics.map(d => `<li>${d}</li>`).join("") : "";
-      const clinicalHTML = rich.clinical ? rich.clinical.map(c => `<li>${c}</li>`).join("") : "";
-      const modernHTML = rich.modern_updates ? rich.modern_updates.map(m => `<li>${m}</li>`).join("") : "";
+      const kineticsHTML = rich.kinetics ? rich.kinetics.map(k => `<li>${parseMedicalMarkdown(k)}</li>`).join("") : "";
+      const dynamicsHTML = rich.dynamics ? rich.dynamics.map(d => `<li>${parseMedicalMarkdown(d)}</li>`).join("") : "";
+      const clinicalHTML = rich.clinical ? rich.clinical.map(c => `<li>${parseMedicalMarkdown(c)}</li>`).join("") : "";
+      const modernHTML = rich.modern_updates ? rich.modern_updates.map(m => `<li>${parseMedicalMarkdown(m)}</li>`).join("") : "";
 
-      
       const tableRowsHTML = rich.tableData ? rich.tableData.map(row => `
         <tr>
-          <td style="padding: 10px; border: 1px solid var(--border-color); font-weight: 500;">${row.name}</td>
-          <td style="padding: 10px; border: 1px solid var(--border-color); font-weight: 600; color: var(--color-primary);">${row.value}</td>
+          <td style="padding: 10px; border: 1px solid var(--border-color); font-weight: 500;">${parseMedicalMarkdown(row.name)}</td>
+          <td style="padding: 10px; border: 1px solid var(--border-color); font-weight: 600; color: var(--color-primary);">${parseMedicalMarkdown(row.value)}</td>
         </tr>
       `).join("") : "";
 
@@ -4119,7 +4118,7 @@ function mergePharmDetails() {
         <div class="medical-detail">
           <section>
             <h3>1. Definice a úvod</h3>
-            <p><strong>${q.title}</strong>: ${rich.definition}</p>
+            <p><strong>${q.title}</strong>: ${parseMedicalMarkdown(rich.definition)}</p>
           </section>
           
           <section>
@@ -4138,7 +4137,7 @@ function mergePharmDetails() {
 
           <section class="clinical-pearl">
             <h4>Klinická perla / Bezpečnostní upozornění</h4>
-            <p>${rich.pearl}</p>
+            <p>${parseMedicalMarkdown(rich.pearl)}</p>
           </section>
 
           <section>
@@ -4148,11 +4147,17 @@ function mergePharmDetails() {
             </ul>
           </section>
 
-          <section>
-            <h3>Aktuality a moderní trendy (Rozšíření)</h3>
-            <ul style="color: var(--color-primary);">
-              ${modernHTML}
-            </ul>
+          <section class="collapsible-section">
+            <details>
+              <summary>
+                <h3>Aktuality a moderní trendy (Rozšíření)</h3>
+              </summary>
+              <div class="collapsible-content">
+                <ul>
+                  ${modernHTML}
+                </ul>
+              </div>
+            </details>
           </section>
 
           <section style="margin-top: 24px; border-top: 2px solid var(--border-color); padding-top: 20px;">

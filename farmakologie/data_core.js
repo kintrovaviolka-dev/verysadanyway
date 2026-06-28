@@ -135,4 +135,89 @@ function buildPharmDatabase() {
   return list;
 }
 
+function parseMedicalMarkdown(text) {
+  if (!text) return "";
+  
+  // 1. Fix the alert/bell character anomaly \u0007lpha -> α and other Unicode controls
+  let res = text.replace(/\u0007lpha/g, "α")
+                .replace(/\u0007/g, "");
+                
+  // 2. Map LaTeX/Greek/Math backslash escape sequences
+  const symbolMap = {
+    '\\\\alpha': 'α',
+    '\\\\beta': 'β',
+    '\\\\gamma': 'γ',
+    '\\\\delta': 'δ',
+    '\\\\epsilon': 'ε',
+    '\\\\zeta': 'ζ',
+    '\\\\eta': 'η',
+    '\\\\theta': 'θ',
+    '\\\\iota': 'ι',
+    '\\\\kappa': 'κ',
+    '\\\\lambda': 'λ',
+    '\\\\mu': 'μ',
+    '\\\\nu': 'ν',
+    '\\\\xi': 'ξ',
+    '\\\\omicron': 'ο',
+    '\\\\pi': 'π',
+    '\\\\rho': 'ρ',
+    '\\\\sigma': 'σ',
+    '\\\\tau': 'τ',
+    '\\\\upsilon': 'υ',
+    '\\\\phi': 'φ',
+    '\\\\chi': 'χ',
+    '\\\\psi': 'ψ',
+    '\\\\omega': 'ω',
+    '\\\\Delta': 'Δ',
+    '\\\\Sigma': 'Σ',
+    '\\\\Omega': 'Ω',
+    '\\\\cdot': '·',
+    '\\\\approx': '≈',
+    '\\\\le': '≤',
+    '\\\\ge': '≥',
+    '\\\\pm': '±',
+    '\\\\neq': '≠',
+    '\\\\infty': '∞',
+    '\\\\rightarrow': '→',
+    '\\\\leftarrow': '←',
+    '\\\\%': '%'
+  };
+  
+  for (const [key, value] of Object.entries(symbolMap)) {
+    const regex = new RegExp(key, 'g');
+    res = res.replace(regex, value);
+  }
+  
+  // Handlers for single backslash occurrences (just in case)
+  res = res.replace(/\\alpha/g, 'α')
+           .replace(/\\beta/g, 'β')
+           .replace(/\\gamma/g, 'γ')
+           .replace(/\\delta/g, 'δ')
+           .replace(/\\mu/g, 'μ')
+           .replace(/\\kappa/g, 'κ')
+           .replace(/\\tau/g, 'τ')
+           .replace(/\\Delta/g, 'Δ')
+           .replace(/\\cdot/g, '·')
+           .replace(/\\approx/g, '≈')
+           .replace(/\\le/g, '≤')
+           .replace(/\\ge/g, '≥');
+
+  // 3. Bold (**text**)
+  res = res.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  
+  // 4. Italic (*text*)
+  res = res.replace(/\*(.*?)\*/g, '<em>$1</em>');
+  
+  // 5. Simple math expression parser for $...$
+  res = res.replace(/\$(.*?)\$/g, (match, formula) => {
+    let f = formula;
+    f = f.replace(/_\{?([a-zA-Z0-9,+-]+)\}?/g, '<sub>$1</sub>');
+    f = f.replace(/\^\{?([a-zA-Z0-9,+-]+)\}?/g, '<sup>$1</sup>');
+    return `<span class="math-style">${f}</span>`;
+  });
+  
+  return res;
+}
+
+window.parseMedicalMarkdown = parseMedicalMarkdown;
 window.COMPLETE_QUESTIONS = buildPharmDatabase();

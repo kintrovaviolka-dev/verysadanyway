@@ -556,13 +556,13 @@ document.addEventListener("DOMContentLoaded", () => {
         return `
           <button class="quiz-option" data-question-idx="${questionIndex}" data-opt-idx="${optIndex}">
             <span class="quiz-option-letter">${letter}</span>
-            <span class="quiz-option-text">${opt}</span>
+            <span class="quiz-option-text">${parseMedicalMarkdown(opt)}</span>
           </button>
         `;
       }).join("");
 
       quizCard.innerHTML = `
-        <div class="quiz-question">${questionIndex + 1}. ${item.question}</div>
+        <div class="quiz-question">${questionIndex + 1}. ${parseMedicalMarkdown(item.question)}</div>
         <div class="quiz-options">
           ${optionsHTML}
         </div>
@@ -602,7 +602,7 @@ document.addEventListener("DOMContentLoaded", () => {
           
           expContainer.innerHTML = `
             <div class="quiz-explanation ${isCorrect ? 'correct' : 'incorrect'}">
-              <strong>${isCorrect ? 'Správně!' : 'Nesprávně.'}</strong> ${explanationText}
+              <strong>${isCorrect ? 'Správně!' : 'Nesprávně.'}</strong> ${parseMedicalMarkdown(explanationText)}
             </div>
           `;
         });
@@ -726,4 +726,460 @@ document.addEventListener("DOMContentLoaded", () => {
   rebuildFilters();
   renderCards();
   updateDashboard();
+
+  // ==========================================
+  // --- LOGIKA GEMINI CHATBOTA ---
+  // ==========================================
+  const chatbotContainer = document.getElementById("gemini-chatbot-container");
+  const chatbotFab = document.getElementById("chatbot-fab");
+  const chatbotPanel = document.getElementById("chatbot-panel");
+  const chatbotMessages = document.getElementById("chatbot-messages");
+  const chatbotInput = document.getElementById("chatbot-input");
+  const chatbotInputForm = document.getElementById("chatbot-input-form");
+  const chatbotTypingIndicator = document.getElementById("chatbot-typing-indicator");
+  const chatbotSubjectContext = document.getElementById("chatbot-subject-context");
+  const chatbotSettingsBtn = document.getElementById("chatbot-settings-btn");
+  const chatbotSettingsOverlay = document.getElementById("chatbot-settings-overlay");
+  const chatbotApiKeyInput = document.getElementById("chatbot-api-key-input");
+  const chatbotSaveKeyBtn = document.getElementById("chatbot-save-key-btn");
+  const chatbotClearKeyBtn = document.getElementById("chatbot-clear-key-btn");
+  const chatbotSettingsCloseBtn = document.getElementById("chatbot-settings-close-btn");
+  const chatbotSuggestions = document.getElementById("chatbot-suggestions");
+  const chatbotBadge = document.getElementById("chatbot-badge");
+  const statusDot = chatbotContainer.querySelector(".avatar-status-dot");
+
+  let chatHistory = [
+    { role: "assistant", text: "Ahoj! Jsem tvůj medicínský asistent pro Farmakologii. Pomohu ti s mechanismy účinku léčiv, kinetikou, interakcemi, TDM trenažérem nebo kvízy. S čím dnes začneme?" }
+  ];
+
+  // System instruction for pharmacology
+  const systemInstructionText = "Jste odborník na farmakologii. Pomáháte studentům lékařství s mechanismy účinku léčiv, farmakokinetikou, nežádoucími účinky, indikacemi a interakcemi. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost.";
+
+  // Load key from localStorage
+  const getSavedKey = () => localStorage.getItem("gemini_chat_local_key") || "";
+  chatbotApiKeyInput.value = getSavedKey();
+
+  // Rate limiting (client-side)
+  let lastMessageTime = 0;
+  const CLIENT_MIN_INTERVAL = 3000; // 3 seconds between messages
+
+  // Open/Close Chat
+  chatbotFab.addEventListener("click", () => {
+    const isOpen = chatbotPanel.classList.toggle("open");
+    chatbotFab.classList.toggle("open");
+    if (isOpen) {
+      chatbotBadge.style.display = "none";
+      chatbotInput.focus();
+      scrollToBottom();
+    }
+  });
+
+  document.getElementById("chatbot-close-btn").addEventListener("click", () => {
+    chatbotPanel.classList.remove("open");
+    chatbotFab.classList.remove("open");
+  });
+
+  // Settings Panel Toggle
+  chatbotSettingsBtn.addEventListener("click", () => {
+    chatbotSettingsOverlay.classList.add("open");
+  });
+
+  chatbotSettingsCloseBtn.addEventListener("click", () => {
+    chatbotSettingsOverlay.classList.remove("open");
+  });
+
+  // Save/Clear key locally
+  chatbotSaveKeyBtn.addEventListener("click", () => {
+    const key = chatbotApiKeyInput.value.trim();
+    if (key) {
+      localStorage.setItem("gemini_chat_local_key", key);
+      alert("API klíč byl uložen do vašeho prohlížeče.");
+      chatbotSettingsOverlay.classList.remove("open");
+    } else {
+      alert("Prosím zadejte platný klíč.");
+    }
+  });
+
+  chatbotClearKeyBtn.addEventListener("click", () => {
+    localStorage.removeItem("gemini_chat_local_key");
+    chatbotApiKeyInput.value = "";
+    alert("API klíč byl vymazán. Nyní se dotazy posílají přes proxy server.");
+  });
+
+  // Simple Markdown Parser for UI Bubble rendering
+  const parseMarkdown = (text) => {
+    let html = text
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+
+    // Bold (**text**)
+    html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    
+    // Code blocks (```code```)
+    html = html.replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>');
+    
+    // Inline code (`code`)
+    html = html.replace(/`(.*?)`/g, '<code>$1</code>');
+    
+    // Bullet lists
+    const lines = html.split('\n');
+    let inList = false;
+    const processedLines = lines.map(line => {
+      const trimmed = line.trim();
+      if (trimmed.startsWith('- ') || trimmed.startsWith('* ')) {
+        const content = trimmed.substring(2);
+        if (!inList) {
+          inList = true;
+          return '<ul><li>' + content + '</li>';
+        }
+        return '<li>' + content + '</li>';
+      } else {
+        if (inList) {
+          inList = false;
+          return '</ul><p>' + line + '</p>';
+        }
+        return trimmed ? '<p>' + line + '</p>' : '';
+      }
+    });
+    
+    html = processedLines.join('');
+    if (inList) {
+      html += '</ul>';
+    }
+    
+    return html;
+  };
+
+  const scrollToBottom = () => {
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+  };
+
+  // Add Message to DOM and History
+  const addMessage = (role, text) => {
+    chatHistory.push({ role, text });
+    
+    // Keep context window compact (last 15 messages)
+    if (chatHistory.length > 15) {
+      chatHistory.shift();
+    }
+
+    const messageDiv = document.createElement("div");
+    messageDiv.className = `message ${role}`;
+    
+    const contentDiv = document.createElement("div");
+    contentDiv.className = "message-content";
+    contentDiv.innerHTML = role === "assistant" ? parseMarkdown(text) : text;
+    
+    messageDiv.appendChild(contentDiv);
+    chatbotMessages.appendChild(messageDiv);
+    scrollToBottom();
+
+    // Show pulse badge on FAB if closed
+    if (!chatbotPanel.classList.contains("open") && role === "assistant") {
+      chatbotBadge.style.display = "block";
+    }
+  };
+
+  // Load client token from /api/config for verification handshake
+  let clientToken = "";
+  const loadClientToken = async () => {
+    try {
+      const res = await fetch("/api/config");
+      if (res.ok) {
+        const data = await res.json();
+        clientToken = data.clientToken;
+      }
+    } catch (e) {
+      console.error("Failed to load client token", e);
+    }
+  };
+  loadClientToken();
+
+  // Send request via backend proxy with streaming
+  const callProxyServerStream = async (messages, subject, onChunk, onStart) => {
+    const response = await fetch("/api/chat", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${clientToken}`
+      },
+      body: JSON.stringify({ messages, subject })
+    });
+
+    if (!response.ok) {
+      const errData = await response.json().catch(() => ({}));
+      throw new Error(errData.error || `Server vrátil chybu ${response.status}.`);
+    }
+
+    onStart();
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = "";
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+
+      buffer += decoder.decode(value, { stream: true });
+      const lines = buffer.split("\n");
+      buffer = lines.pop(); // Keep partial line
+
+      for (const line of lines) {
+        const trimmed = line.trim();
+        if (!trimmed.startsWith("data: ")) continue;
+        const jsonStr = trimmed.substring(6);
+        try {
+          const parsed = JSON.parse(jsonStr);
+          if (parsed.text) {
+            onChunk(parsed.text);
+          }
+        } catch (e) {
+          // Ignore partial chunk parsing errors
+        }
+      }
+    }
+
+    // Process remaining buffer
+    if (buffer.length > 0) {
+      const trimmed = buffer.trim();
+      if (trimmed.startsWith("data: ")) {
+        try {
+          const parsed = JSON.parse(trimmed.substring(6));
+          if (parsed.text) {
+            onChunk(parsed.text);
+          }
+        } catch (e) {}
+      }
+    }
+  };
+
+  // Send request directly to Gemini API with streaming
+  const callGeminiDirectlyStream = async (key, messages, subject, onChunk, onStart) => {
+    // Format messages for the Gemini API, stitching consecutive same-role messages
+    const contents = [];
+    for (const msg of messages) {
+      const role = msg.role === "assistant" || msg.role === "model" ? "model" : "user";
+      if (contents.length > 0 && contents[contents.length - 1].role === role) {
+        contents[contents.length - 1].parts.push({ text: msg.text });
+      } else {
+        contents.push({
+          role,
+          parts: [{ text: msg.text }]
+        });
+      }
+    }
+    if (contents.length > 0 && contents[0].role !== "user") {
+      contents.shift();
+    }
+    if (contents.length === 0) {
+      throw new Error("Žádné platné zprávy k odeslání.");
+    }
+
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse&key=${key}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        contents,
+        systemInstruction: {
+          parts: [{ text: systemInstructionText }]
+        },
+        generationConfig: {
+          temperature: 0.7,
+          maxOutputTokens: 1500
+        },
+        safetySettings: [
+          {
+            category: "HARM_CATEGORY_HARASSMENT",
+            threshold: "BLOCK_NONE"
+          },
+          {
+            category: "HARM_CATEGORY_HATE_SPEECH",
+            threshold: "BLOCK_NONE"
+          },
+          {
+            category: "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+            threshold: "BLOCK_NONE"
+          },
+          {
+            category: "HARM_CATEGORY_DANGEROUS_CONTENT",
+            threshold: "BLOCK_NONE"
+          }
+        ]
+      })
+    });
+
+    if (!response.ok) {
+      const errData = await response.json().catch(() => ({}));
+      throw new Error(errData.error?.message || `Gemini API vrátilo chybu ${response.status}.`);
+    }
+
+    onStart();
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = "";
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+
+      buffer += decoder.decode(value, { stream: true });
+      const lines = buffer.split("\n");
+      buffer = lines.pop(); // Keep partial line
+
+      for (const line of lines) {
+        const trimmed = line.trim();
+        if (!trimmed.startsWith("data: ")) continue;
+        const jsonStr = trimmed.substring(6);
+        try {
+          const parsed = JSON.parse(jsonStr);
+          const text = parsed.candidates?.[0]?.content?.parts?.[0]?.text;
+          if (text) {
+            onChunk(text);
+          }
+        } catch (e) {
+          // Ignore partial chunk parsing errors
+        }
+      }
+    }
+
+    // Process remaining buffer
+    if (buffer.length > 0) {
+      const trimmed = buffer.trim();
+      if (trimmed.startsWith("data: ")) {
+        try {
+          const parsed = JSON.parse(trimmed.substring(6));
+          const text = parsed.candidates?.[0]?.content?.parts?.[0]?.text;
+          if (text) {
+            onChunk(text);
+          }
+        } catch (e) {}
+      }
+    }
+  };
+
+  // Helper to create an assistant message bubble for streaming
+  const createAssistantMessageBubble = () => {
+    const messageDiv = document.createElement("div");
+    messageDiv.className = "message assistant";
+    
+    const contentDiv = document.createElement("div");
+    contentDiv.className = "message-content";
+    contentDiv.innerHTML = "";
+    
+    messageDiv.appendChild(contentDiv);
+    chatbotMessages.appendChild(messageDiv);
+    scrollToBottom();
+    
+    return contentDiv;
+  };
+
+  // Submit Handler
+  chatbotInputForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    
+    // Client-side spam protection
+    const now = Date.now();
+    if (now - lastMessageTime < CLIENT_MIN_INTERVAL) {
+      const errorDiv = document.createElement("div");
+      errorDiv.className = "message system";
+      errorDiv.innerHTML = '<div class="message-content">Příliš rychlé dotazy. Zkuste to za chvíli.</div>';
+      chatbotMessages.appendChild(errorDiv);
+      scrollToBottom();
+      return;
+    }
+
+    const query = chatbotInput.value.trim();
+    if (!query) return;
+
+    addMessage("user", query);
+    chatbotInput.value = "";
+    chatbotInput.disabled = true;
+    chatbotInputForm.querySelector("button").disabled = true;
+    
+    chatbotTypingIndicator.classList.add("active");
+    statusDot.className = "avatar-status-dot typing";
+    scrollToBottom();
+
+    lastMessageTime = Date.now();
+
+    let contentDiv = null;
+    try {
+      const savedKey = getSavedKey();
+      let responseText = "";
+      
+      const onStart = () => {
+        chatbotTypingIndicator.classList.remove("active");
+        statusDot.className = "avatar-status-dot online";
+        contentDiv = createAssistantMessageBubble();
+      };
+      
+      const onChunk = (text) => {
+        responseText += text;
+        if (contentDiv) {
+          contentDiv.innerHTML = parseMarkdown(responseText);
+          scrollToBottom();
+        }
+      };
+
+      if (savedKey) {
+        await callGeminiDirectlyStream(savedKey, chatHistory, "farmakologie", onChunk, onStart);
+      } else {
+        await callProxyServerStream(chatHistory, "farmakologie", onChunk, onStart);
+      }
+
+      // Add the final response to chat history
+      chatHistory.push({ role: "assistant", text: responseText });
+      if (chatHistory.length > 15) {
+        chatHistory.shift();
+      }
+
+      // Show pulse badge on FAB if closed
+      if (!chatbotPanel.classList.contains("open")) {
+        chatbotBadge.style.display = "block";
+      }
+    } catch (err) {
+      console.error(err);
+      chatbotTypingIndicator.classList.remove("active");
+      statusDot.className = "avatar-status-dot online";
+      
+      if (chatHistory.length > 0 && chatHistory[chatHistory.length - 1].role === "user") {
+        chatHistory.pop();
+      }
+
+      const errorDiv = document.createElement("div");
+      errorDiv.className = "message system";
+      errorDiv.innerHTML = `<div class="message-content">Chyba: ${err.message}</div>`;
+      chatbotMessages.appendChild(errorDiv);
+      scrollToBottom();
+    } finally {
+      chatbotInput.disabled = false;
+      chatbotInputForm.querySelector("button").disabled = false;
+      chatbotInput.focus();
+    }
+  });
+
+  // Render suggestion chips
+  const suggestions = [
+    { label: "First-pass efekt", query: "Vysvětli, co znamená first-pass efekt léčiva." },
+    { label: "Beta-blokátory", query: "Jaký je mechanismus účinku a hlavní nežádoucí účinky beta-blokátorů?" },
+    { label: "TDM vancomycinu", query: "Proč a jak se provádí terapeutické monitorování (TDM) vankomycinu?" }
+  ];
+
+  chatbotSuggestions.innerHTML = "";
+  suggestions.forEach(s => {
+    const chip = document.createElement("button");
+    chip.type = "button";
+    chip.className = "suggestion-chip";
+    chip.textContent = s.label;
+    chip.addEventListener("click", () => {
+      chatbotInput.value = s.query;
+      chatbotInputForm.dispatchEvent(new Event("submit"));
+    });
+    chatbotSuggestions.appendChild(chip);
+  });
 });

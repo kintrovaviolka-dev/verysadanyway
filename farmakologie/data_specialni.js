@@ -5957,7 +5957,7 @@ const PHARM_SPEC_DETAILS = {
     ],
     "modern_updates": [
       "Moderní trend v léčbě masivního krvácení při užívání přímých inhibitorů faktoru Xa (xabany) představuje aplikace Andexanetu alfa, což je rekombinantní modifikovaný lidský faktor Xa, který funguje jako molekulární návnada pro inhibitor, čímž okamžitě obnovuje koagulační potenciál krve.",
-      "Při diagnostice otravy ethylenglykolem je nutné vedle osmolární a aniontové mezery cíleně pátrat po přítomnosti monohydrátu oxalátu vápenatého v močovém sedimentu (obál sedimentu; terapeuticky je dnes fomepizol preferován před ethanolem pro vyšší bezpečnostní profil, snadnější titraci a absenci sedativního efektu, který maskuje neurologickou symptomatologii.",
+      "Při diagnostice otravy ethylenglykolem je nutné vedle osmolární a aniontové mezery cíleně pátrat po přítomnosti monohydrátu oxalátu vápenatého v močovém sedimentu (obál sedimentu); terapeuticky je dnes fomepizol preferován před ethanolem pro vyšší bezpečnostní profil, snadnější titraci a absenci sedativního efektu, který maskuje neurologickou symptomatologii.",
       "Dle současných guidelines je zásadní rozlišovat indikaci antikoagulancií: zatímco u fibrilace síní a TEN jsou DOAC (dabigatran, rivaroxaban, apixaban) lékem první volby díky absenci nutnosti monitorování INR a nižšímu riziku intrakraniálního krvácení, u pacientů s mechanickými srdečními chlopněmi zůstává výhradní indikací warfarin z důvodu nedostatečné účinnosti DOAC v tomto specifickém prostředí.",
       "Management heparinem indukované trombocytopenie (HIT) typu II vyžaduje okamžité vysazení heparinu a přechod na alternativní antikoagulaci (např. přímé inhibitory trombinu jako argatroban), přičemž podání protamin-sulfátu je indikováno pouze k neutralizaci nefrakcionovaného heparinu při život ohrožujícím krvácení, nikoliv jako léčba samotné HIT."
     ]
@@ -8181,16 +8181,15 @@ function mergePharmSpecDetails() {
   window.COMPLETE_QUESTIONS.forEach(q => {
     const rich = PHARM_SPEC_DETAILS[q.id];
     if (rich) {
-      const kineticsHTML = rich.kinetics ? rich.kinetics.map(k => `<li>${k}</li>`).join("") : "";
-      const dynamicsHTML = rich.dynamics ? rich.dynamics.map(d => `<li>${d}</li>`).join("") : "";
-      const clinicalHTML = rich.clinical ? rich.clinical.map(c => `<li>${c}</li>`).join("") : "";
-      const modernHTML = rich.modern_updates ? rich.modern_updates.map(m => `<li>${m}</li>`).join("") : "";
+      const kineticsHTML = rich.kinetics ? rich.kinetics.map(k => `<li>${parseMedicalMarkdown(k)}</li>`).join("") : "";
+      const dynamicsHTML = rich.dynamics ? rich.dynamics.map(d => `<li>${parseMedicalMarkdown(d)}</li>`).join("") : "";
+      const clinicalHTML = rich.clinical ? rich.clinical.map(c => `<li>${parseMedicalMarkdown(c)}</li>`).join("") : "";
+      const modernHTML = rich.modern_updates ? rich.modern_updates.map(m => `<li>${parseMedicalMarkdown(m)}</li>`).join("") : "";
 
-      
       const tableRowsHTML = rich.tableData ? rich.tableData.map(row => `
         <tr>
-          <td style="padding: 10px; border: 1px solid var(--border-color); font-weight: 500;">${row.name}</td>
-          <td style="padding: 10px; border: 1px solid var(--border-color); font-weight: 600; color: var(--color-primary);">${row.value}</td>
+          <td style="padding: 10px; border: 1px solid var(--border-color); font-weight: 500;">${parseMedicalMarkdown(row.name)}</td>
+          <td style="padding: 10px; border: 1px solid var(--border-color); font-weight: 600; color: var(--color-primary);">${parseMedicalMarkdown(row.value)}</td>
         </tr>
       `).join("") : "";
 
@@ -8198,7 +8197,7 @@ function mergePharmSpecDetails() {
         <div class="medical-detail">
           <section>
             <h3>1. Definice a úvod</h3>
-            <p><strong>${q.title}</strong>: ${rich.definition}</p>
+            <p><strong>${q.title}</strong>: ${parseMedicalMarkdown(rich.definition)}</p>
           </section>
           
           <section>
@@ -8217,7 +8216,7 @@ function mergePharmSpecDetails() {
 
           <section class="clinical-pearl">
             <h4>Klinická perla / Bezpečnostní upozornění</h4>
-            <p>${rich.pearl}</p>
+            <p>${parseMedicalMarkdown(rich.pearl)}</p>
           </section>
 
           <section>
@@ -8227,11 +8226,17 @@ function mergePharmSpecDetails() {
             </ul>
           </section>
 
-          <section>
-            <h3>Aktuality a moderní trendy (Rozšíření)</h3>
-            <ul style="color: var(--color-primary);">
-              ${modernHTML}
-            </ul>
+          <section class="collapsible-section">
+            <details>
+              <summary>
+                <h3>Aktuality a moderní trendy (Rozšíření)</h3>
+              </summary>
+              <div class="collapsible-content">
+                <ul>
+                  ${modernHTML}
+                </ul>
+              </div>
+            </details>
           </section>
 
           <section style="margin-top: 24px; border-top: 2px solid var(--border-color); padding-top: 20px;">
