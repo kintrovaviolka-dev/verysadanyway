@@ -1,5 +1,11 @@
 /* Custom stylesheet for Immunology Test subportal */
 
+:root {
+  --imuno-color: #00d2ff;
+  --imuno-glow: rgba(0, 210, 255, 0.25);
+  --imuno-gradient: linear-gradient(135deg, #00d2ff, #3b82f6);
+}
+
 .imuno-container {
   background: var(--bg-primary);
   min-height: 100vh;
