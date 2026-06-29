@@ -8,3 +8,7 @@
 ## 2024-11-20 - Adding Accessibility to Non-Semantic Interactive Elements
 **Learning:** Found custom interactive elements (`.grade-card`, `.subject-card`) made from non-semantic tags (`div`) that act as buttons but lack inherent accessibility features. This prevents keyboard and screen reader users from accessing these core navigation functions.
 **Action:** When creating custom button-like elements using `div` or `span`, always explicitly assign `role="button"`, `tabindex="0"`, appropriate `aria-label`s or `aria-disabled` states, and pair standard `click` event listeners with `keydown` event listeners that trigger on the 'Enter' and 'Space' keys to ensure full keyboard accessibility.
+
+## 2024-06-29 - Making custom UI cards fully accessible
+**Learning:** When turning standard `div` elements into interactive cards (like grade or subject selection cards), simply adding click listeners is insufficient for accessibility. They must have `role="button"` (with `aria-disabled="true"` if applicable) and `tabindex="0"` to be focusable. Crucially, they require explicit `keydown` listeners for 'Enter' and 'Space' keys. For 'Space', `e.preventDefault()` must be called to prevent the default behavior of scrolling the page, ensuring full keyboard parity with native buttons.
+**Action:** Always implement a combination of `role="button"`, `tabindex="0"`, `click` listeners, and `keydown` listeners handling 'Enter' and 'Space' (with `preventDefault` for Space) when creating custom non-semantic interactive components.
