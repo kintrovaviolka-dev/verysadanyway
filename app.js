@@ -110,13 +110,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Kliknutí na ročník
   document.querySelectorAll(".grade-card").forEach(card => {
-    card.addEventListener("click", () => {
+    const handleGradeSelect = () => {
       if (card.classList.contains("locked")) {
         alert("Tento ročník se připravuje. Nyní jsou k dispozici portály pro 3. a 4. ročník.");
         return;
       }
       const grade = parseInt(card.getAttribute("data-grade"));
       selectGrade(grade);
+    };
+
+    card.addEventListener("click", handleGradeSelect);
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        if (e.key === " ") e.preventDefault();
+        handleGradeSelect();
+      }
     });
   });
 
@@ -239,10 +247,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Dynamické navázání click eventů na všechny karty předmětů podle data-subject
   document.querySelectorAll(".subject-card").forEach(card => {
-    card.addEventListener("click", () => {
+    const handleSubjectSelect = () => {
       const subject = card.getAttribute("data-subject");
       if (subject) {
         selectSubject(subject);
+      }
+    };
+
+    card.addEventListener("click", handleSubjectSelect);
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        if (e.key === " ") e.preventDefault();
+        handleSubjectSelect();
       }
     });
   });
