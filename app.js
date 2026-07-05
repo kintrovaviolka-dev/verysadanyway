@@ -110,21 +110,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Kliknutí na ročník
   document.querySelectorAll(".grade-card").forEach(card => {
-    const handleGradeClick = () => {
+    card.addEventListener("click", () => {
       if (card.classList.contains("locked")) {
         alert("Tento ročník se připravuje. Nyní jsou k dispozici portály pro 3. a 4. ročník.");
         return;
       }
       const grade = parseInt(card.getAttribute("data-grade"));
       selectGrade(grade);
-    };
-
-    card.addEventListener("click", handleGradeClick);
-    card.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
-        if (e.key === " ") e.preventDefault();
-        handleGradeClick();
-      }
     });
   });
 
@@ -191,8 +183,12 @@ document.addEventListener("DOMContentLoaded", () => {
       if (hubGridDermatologie) hubGridDermatologie.style.display = "none";
       if (hubGridRadiologie) hubGridRadiologie.style.display = "none";
       if (hubGridImunologie) hubGridImunologie.style.display = "none";
- 
+
       // Nastavení názvu a barev v rozcestníku
+      const matTitle = document.getElementById("materials-card-title");
+      const matDesc = document.getElementById("materials-card-desc");
+      const matBtn = document.getElementById("materials-trigger-btn");
+
       if (subject === "patfyz") {
         hubTitle.textContent = "Patofyziologie";
         hubTitle.style.color = "var(--patfyz-color)";
@@ -201,6 +197,14 @@ document.addEventListener("DOMContentLoaded", () => {
         
         // Nastavení odkazu na stažení PDF skript
         if (downloadsContainer) downloadsContainer.style.display = "block";
+        
+        // Obnovit texty karty materiálů pro Patfyziologii
+        if (matTitle && matDesc && matBtn) {
+          matTitle.textContent = "Otázky a materiály";
+          matDesc.textContent = "Vyhledejte a procházejte seznam zkouškových otázek bez vypracování nebo si stáhněte doprovodné PDF skripta.";
+          matBtn.textContent = "Zobrazit materiály";
+          matBtn.className = "btn btn-secondary";
+        }
         
         // Update beta app card
         if (betaAppDesc && betaAppLinkBtn) {
@@ -220,6 +224,14 @@ document.addEventListener("DOMContentLoaded", () => {
         
         // Skrytí stažení PDF pro patologii (nemáme soubor)
         if (downloadsContainer) downloadsContainer.style.display = "none";
+        
+        // Upravit texty karty materiálů pro Patologii (směr na Disk)
+        if (matTitle && matDesc && matBtn) {
+          matTitle.textContent = "Studijní materiály (Disk)";
+          matDesc.textContent = "Otevřít sdílenou složku Google Drive s vypracovanými tématy, poznámkami a podklady pro zkoušku z patologie.";
+          matBtn.textContent = "Otevřít složku";
+          matBtn.className = "btn btn-secondary btn-patola";
+        }
         
         // Update beta app card
         if (betaAppDesc && betaAppLinkBtn) {
@@ -247,18 +259,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Dynamické navázání click eventů na všechny karty předmětů podle data-subject
   document.querySelectorAll(".subject-card").forEach(card => {
-    const handleSubjectClick = () => {
+    card.addEventListener("click", () => {
       const subject = card.getAttribute("data-subject");
       if (subject) {
         selectSubject(subject);
-      }
-    };
-
-    card.addEventListener("click", handleSubjectClick);
-    card.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
-        if (e.key === " ") e.preventDefault();
-        handleSubjectClick();
       }
     });
   });
@@ -285,6 +289,11 @@ document.addEventListener("DOMContentLoaded", () => {
   let activeCategory = "all";
 
   materialsTriggerBtn.addEventListener("click", () => {
+    if (state.selectedSubject === "patola") {
+      window.open("https://drive.google.com/drive/folders/1IcASbnTn7jtZa1bj7ueDov-DKswOFZT7?usp=sharing", "_blank");
+      return;
+    }
+
     materialsPanelTitle.textContent = state.selectedSubject === "patfyz" ? "Materiály & Otázky (Patfyz)" : "Materiály & Otázky (Patologie)";
     materialsPanel.classList.add("active");
     quizPanel.classList.remove("active");
@@ -1304,6 +1313,195 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initialize suggestions
   updateChatbotContext(state.selectedSubject);
+
+  // --- ZPĚTNÁ VAZBA & TIPY DIALOG LOGIKA ---
+
+  const feedbackFab = document.getElementById("feedback-fab");
+  const feedbackDialog = document.getElementById("feedback-dialog");
+  const feedbackCloseBtn = document.getElementById("feedback-close-btn");
+  const feedbackForm = document.getElementById("feedback-form");
+  const feedbackTypeSelect = document.getElementById("feedback-type");
+  const feedbackSubjectSelect = document.getElementById("feedback-subject");
+  const feedbackNameInput = document.getElementById("feedback-name");
+  const feedbackMessageInput = document.getElementById("feedback-message");
+  const feedbackCharCount = document.getElementById("feedback-char-count");
+  const feedbackSubmitBtn = document.getElementById("feedback-submit-btn");
+
+  const statusSending = document.getElementById("feedback-status-sending");
+  const statusSuccess = document.getElementById("feedback-status-success");
+  const statusError = document.getElementById("feedback-status-error");
+  const errorMsg = document.getElementById("feedback-error-msg");
+  const errorBackBtn = document.getElementById("feedback-error-back-btn");
+
+  // Helper to escape HTML to prevent XSS
+  const escapeHTML = (str) => {
+    if (!str) return "";
+    return str.toString()
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;")
+      .trim();
+  };
+
+  // Open feedback modal
+  if (feedbackFab && feedbackDialog) {
+    feedbackFab.addEventListener("click", () => {
+      // Auto-set the selected subject in the feedback dropdown
+      if (state.selectedSubject) {
+        // Map selectedSubject code to form dropdown value
+        if (state.selectedSubject === "patola") {
+          feedbackSubjectSelect.value = "patola";
+        } else if (state.selectedSubject === "patfyz") {
+          feedbackSubjectSelect.value = "patfyz";
+        } else {
+          feedbackSubjectSelect.value = state.selectedSubject;
+        }
+      } else {
+        feedbackSubjectSelect.value = "general";
+      }
+
+      // Reset form view
+      feedbackForm.style.display = "flex";
+      statusSending.style.display = "none";
+      statusSuccess.style.display = "none";
+      statusError.style.display = "none";
+      
+      feedbackForm.reset();
+      updateCharCounter();
+      
+      feedbackDialog.showModal();
+    });
+  }
+
+  // Close modal
+  if (feedbackCloseBtn && feedbackDialog) {
+    feedbackCloseBtn.addEventListener("click", () => {
+      feedbackDialog.close();
+    });
+  }
+
+  // Close when clicking backdrop
+  if (feedbackDialog) {
+    feedbackDialog.addEventListener("click", (e) => {
+      const rect = feedbackDialog.getBoundingClientRect();
+      const isInDialog = (rect.top <= e.clientY && e.clientY <= rect.top + rect.height &&
+        rect.left <= e.clientX && e.clientX <= rect.left + rect.width);
+      if (!isInDialog) {
+        feedbackDialog.close();
+      }
+    });
+  }
+
+  // Update char count
+  const updateCharCounter = () => {
+    if (feedbackMessageInput && feedbackCharCount) {
+      feedbackCharCount.textContent = feedbackMessageInput.value.length;
+    }
+  };
+
+  if (feedbackMessageInput) {
+    feedbackMessageInput.addEventListener("input", updateCharCounter);
+  }
+
+  // Go back from error screen
+  if (errorBackBtn && feedbackForm && statusError) {
+    errorBackBtn.addEventListener("click", () => {
+      statusError.style.display = "none";
+      feedbackForm.style.display = "flex";
+    });
+  }
+
+  // Submit form logic
+  if (feedbackForm) {
+    feedbackForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      // Basic rate limiting check (1 min limit)
+      const lastSent = localStorage.getItem("feedback_last_sent");
+      const now = Date.now();
+      if (lastSent && (now - parseInt(lastSent) < 60 * 1000)) {
+        const remaining = Math.ceil((60 * 1000 - (now - parseInt(lastSent))) / 1000);
+        alert(`Prosím počkejte ještě ${remaining} sekund před dalším odesláním.`);
+        return;
+      }
+
+      // Read & sanitize inputs
+      const feedbackType = escapeHTML(feedbackTypeSelect.value);
+      const feedbackSubject = escapeHTML(feedbackSubjectSelect.value);
+      const feedbackName = escapeHTML(feedbackNameInput.value) || "Anonymní";
+      const feedbackMessage = escapeHTML(feedbackMessageInput.value);
+
+      if (!feedbackMessage) {
+        alert("Zpráva nesmí být prázdná.");
+        return;
+      }
+
+      // Transition to sending state
+      feedbackForm.style.display = "none";
+      statusSending.style.display = "flex";
+
+      try {
+        // Fetch config to get authorization token if needed, or use default token
+        let token = "super_secret_medical_study_token_2026";
+        try {
+          const configRes = await fetch("/api/config");
+          if (configRes.ok) {
+            const configData = await configRes.json();
+            if (configData.clientToken) {
+              token = configData.clientToken;
+            }
+          }
+        } catch (err) {
+          // Fall back to default local token
+        }
+
+        const response = await fetch("/api/feedback", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+          },
+          body: JSON.stringify({
+            type: feedbackType,
+            subject: feedbackSubject,
+            name: feedbackName,
+            message: feedbackMessage
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error("Chyba při odesílání na server.");
+        }
+
+        const data = await response.json();
+        if (data.status === "error") {
+          throw new Error(data.message || "Chyba při zpracování požadavku.");
+        }
+
+        // Success state
+        statusSending.style.display = "none";
+        statusSuccess.style.display = "flex";
+        
+        // Record timestamp for rate limiting
+        localStorage.setItem("feedback_last_sent", Date.now().toString());
+
+        // Close after 2 seconds
+        setTimeout(() => {
+          feedbackDialog.close();
+        }, 2000);
+
+      } catch (err) {
+        // Error state
+        statusSending.style.display = "none";
+        statusError.style.display = "flex";
+        if (errorMsg) {
+          errorMsg.textContent = `Chyba při odesílání: ${err.message || "Zkuste to znovu."}`;
+        }
+      }
+    });
+  }
 
   // Inicializace výchozího stavu
   selectGrade(3);

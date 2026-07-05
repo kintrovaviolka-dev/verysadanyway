@@ -128,6 +128,70 @@ app.get('/api/config', (req, res) => {
   res.json({ clientToken });
 });
 
+// --- FEEDBACK ENDPOINT ---
+app.post('/api/feedback', async (req, res) => {
+  // 1. Check Referer/Origin to protect against external hotlinking
+  if (!checkReferer(req)) {
+    return res.status(403).json({ error: "Access forbidden from this origin." });
+  }
+
+  // 2. Validate Authorization header
+  const clientToken = process.env.CLIENT_TOKEN || 'super_secret_medical_study_token_2026';
+  const authHeader = req.headers.authorization;
+  if (!authHeader || authHeader !== `Bearer ${clientToken}`) {
+    return res.status(401).json({ error: "Access unauthorized. Missing or invalid Authorization header." });
+  }
+
+  const { type, subject, name, message } = req.body;
+
+  // Simple input validation
+  if (!message || message.trim() === "") {
+    return res.status(400).json({ error: "Zpráva nesmí být prázdná." });
+  }
+
+  const payload = {
+    type: type || "general",
+    subject: subject || "general",
+    name: name || "Anonymní",
+    message: message
+  };
+
+  const sheetUrl = process.env.FEEDBACK_SHEET_URL;
+
+  if (!sheetUrl) {
+    // If sheet URL is not configured (e.g. local development), log to console and return success
+    console.log("===================================================");
+    console.log("  [LOCAL FEEDBACK RECEIVED] (FEEDBACK_SHEET_URL not set)");
+    console.log(`  Type:    ${payload.type}`);
+    console.log(`  Subject: ${payload.subject}`);
+    console.log(`  Name:    ${payload.name}`);
+    console.log(`  Message: ${payload.message}`);
+    console.log("===================================================");
+    
+    return res.status(200).json({ status: "success", info: "Logged to console locally." });
+  }
+
+  try {
+    const fetchResponse = await fetch(sheetUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    });
+
+    if (!fetchResponse.ok) {
+      throw new Error(`Google Apps Script returned status ${fetchResponse.status}`);
+    }
+
+    const result = await fetchResponse.json();
+    return res.status(200).json(result);
+  } catch (error) {
+    console.error("Error sending feedback to Google Sheets:", error);
+    return res.status(500).json({ error: "Chyba při odesílání zpětné vazby na Google Sheets." });
+  }
+});
+
 // --- CHAT ENDPOINT ---
 app.post('/api/chat', async (req, res) => {
   // 1. Check Referer/Origin to protect against external hotlinking

@@ -38,6 +38,10 @@
   --radio-glow: rgba(168, 85, 247, 0.25);
   --radio-gradient: linear-gradient(135deg, #a855f7, #6366f1);
 
+  --imuno-color: #00d2ff;
+  --imuno-glow: rgba(0, 210, 255, 0.25);
+  --imuno-gradient: linear-gradient(135deg, #00d2ff, #0066ff);
+
   --accent-blue: #00f0ff;
   --accent-gold: #fbbf24;
   --accent-red: #ffb4ab;
@@ -280,6 +284,12 @@ header p {
   transform: translateY(-6px);
 }
 
+.subject-card.imunologie:hover {
+  border-color: var(--imuno-color);
+  box-shadow: 0 15px 30px -15px var(--imuno-glow);
+  transform: translateY(-6px);
+}
+
 .subject-card .icon {
   font-size: 2.5rem;
   margin-bottom: 16px;
@@ -471,6 +481,17 @@ header p {
 
 .btn-radio:hover {
   box-shadow: 0 6px 16px rgba(168, 85, 247, 0.4);
+  transform: scale(1.02);
+}
+
+.btn-imuno {
+  background: var(--imuno-gradient);
+  color: #090d16;
+  box-shadow: 0 4px 12px var(--imuno-glow);
+}
+
+.btn-imuno:hover {
+  box-shadow: 0 6px 16px rgba(0, 210, 255, 0.4);
   transform: scale(1.02);
 }
 
@@ -1800,4 +1821,263 @@ select:focus-visible {
     height: 500px;
   }
 }
+
+/* --- FEEDBACK FAB & MODAL DIALOG --- */
+
+/* Floating Action Button (FAB) for Feedback */
+.feedback-fab {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--bg-tertiary, #1f2937);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  color: var(--text-primary, #f9fafb);
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 999;
+}
+
+.feedback-fab:hover {
+  transform: scale(1.08) translateY(-2px);
+  border-color: #6366f1;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 15px rgba(99, 102, 241, 0.3);
+}
+
+.feedback-fab:active {
+  transform: scale(0.95);
+}
+
+.feedback-fab-icon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.feedback-fab:hover .feedback-fab-icon {
+  transform: rotate(15deg);
+}
+
+/* Feedback Dialog Modal */
+.feedback-modal {
+  border: none;
+  background: transparent;
+  padding: 0;
+  max-width: 500px;
+  width: 90%;
+  border-radius: 20px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  z-index: 1010;
+}
+
+/* Backdrop for dialog */
+.feedback-modal::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Modal Content Container */
+.feedback-dialog-content {
+  background: rgba(17, 24, 39, 0.9); /* Sleek dark mode bg */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 28px;
+  color: #f3f4f6;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+/* Header style */
+.feedback-dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 12px;
+}
+
+.feedback-dialog-header h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.feedback-close-btn {
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease, transform 0.2s ease;
+  border-radius: 6px;
+}
+
+.feedback-close-btn:hover {
+  color: #f3f4f6;
+  background: rgba(255, 255, 255, 0.05);
+  transform: scale(1.05);
+}
+
+/* Form layouts */
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #d1d5db;
+}
+
+/* Custom inputs matching portal's style */
+.select-custom, .input-custom, .textarea-custom {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 12px 14px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 15px;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.select-custom option {
+  background: #111827;
+  color: #fff;
+}
+
+.select-custom:focus, .input-custom:focus, .textarea-custom:focus {
+  border-color: #6366f1;
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.textarea-custom {
+  resize: vertical;
+  min-height: 100px;
+  max-height: 200px;
+  line-height: 1.5;
+}
+
+.char-count {
+  align-self: flex-end;
+  font-size: 11px;
+  color: #9ca3af;
+  margin-top: 2px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.form-actions button {
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Status overlays */
+.feedback-status-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px 10px;
+  animation: feedbackFadeIn 0.3s ease forwards;
+}
+
+@keyframes feedbackFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.feedback-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(99, 102, 241, 0.1);
+  border-top-color: #6366f1;
+  border-radius: 50%;
+  animation: feedbackSpin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes feedbackSpin {
+  to { transform: rotate(360deg); }
+}
+
+.status-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.status-icon.success {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.status-icon.error {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+/* Responsive adjustment for Mobile screens for feedback dialog */
+@media (max-width: 550px) {
+  .feedback-modal {
+    width: 95%;
+  }
+  .feedback-dialog-content {
+    padding: 20px;
+  }
+  .feedback-fab {
+    bottom: 16px;
+    left: 16px;
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+  }
+}
+
 
