@@ -156,12 +156,19 @@ app.post('/api/feedback', async (req, res) => {
     message: message
   };
 
-  const sheetUrl = process.env.FEEDBACK_SHEET_URL;
+  let sheetUrl = process.env.FEEDBACK_SHEET_URL;
+  if (subject === "patola") {
+    sheetUrl = process.env.FEEDBACK_SHEET_URL_PATOLA || sheetUrl;
+  } else if (subject === "patfyz") {
+    sheetUrl = process.env.FEEDBACK_SHEET_URL_PATFYZ || sheetUrl;
+  } else if (subject === "general") {
+    sheetUrl = process.env.FEEDBACK_SHEET_URL_GENERAL || sheetUrl;
+  }
 
   if (!sheetUrl) {
     // If sheet URL is not configured (e.g. local development), log to console and return success
     console.log("===================================================");
-    console.log("  [LOCAL FEEDBACK RECEIVED] (FEEDBACK_SHEET_URL not set)");
+    console.log(`  [LOCAL FEEDBACK RECEIVED] (No target URL set for subject: ${payload.subject})`);
     console.log(`  Type:    ${payload.type}`);
     console.log(`  Subject: ${payload.subject}`);
     console.log(`  Name:    ${payload.name}`);

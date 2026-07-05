@@ -94,14 +94,21 @@ module.exports = async (req, res) => {
     message: message
   };
 
-  const sheetUrl = process.env.FEEDBACK_SHEET_URL;
+  let sheetUrl = process.env.FEEDBACK_SHEET_URL;
+  if (subject === "patola") {
+    sheetUrl = process.env.FEEDBACK_SHEET_URL_PATOLA || sheetUrl;
+  } else if (subject === "patfyz") {
+    sheetUrl = process.env.FEEDBACK_SHEET_URL_PATFYZ || sheetUrl;
+  } else if (subject === "general") {
+    sheetUrl = process.env.FEEDBACK_SHEET_URL_GENERAL || sheetUrl;
+  }
 
   // Fallback for missing backend URL config
   if (!sheetUrl) {
-    console.warn("FEEDBACK_SHEET_URL environment variable is not defined.");
+    console.warn("No feedback sheet URL defined for subject: " + subject);
     return res.status(200).json({ 
       status: "success", 
-      info: "FEEDBACK_SHEET_URL is not set. Action simulated successfully." 
+      info: "No URL is set. Action simulated successfully." 
     });
   }
 
