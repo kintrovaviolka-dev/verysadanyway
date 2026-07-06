@@ -11,3 +11,7 @@
 ## 2024-11-20 - Keyboard Accessibility on Custom Cards
 **Learning:** Adding keydown listeners to custom card-based navigation components is required for accessibility, but when cards are "locked" and interactable (to show a reason for being locked), using `aria-disabled="true"` instead of removing `tabindex` is vital so keyboard users can still discover them and read the locked message.
 **Action:** When implementing locked features that provide explanatory feedback, retain `tabindex="0"` and use `aria-disabled="true"` so all users receive the feedback when interacting.
+
+## 2024-11-20 - Accessible Interactive Cards
+**Learning:** When making custom HTML elements act like interactive cards or buttons (e.g., using `div` instead of `button`), it's crucial to provide full keyboard accessibility explicitly. Setting `role="button"` and `tabindex="0"` allows screen readers to interpret the element and users to navigate to it. Critically, we must also add custom `keydown` event listeners for the `Enter` and `Space` keys (with `e.preventDefault()` for `Space` to avoid scrolling) so that keyboard users can activate the elements just like mouse users. For discoverable but disabled interactive cards, use `aria-disabled="true"` rather than omitting from the tab order so they can still be navigated to and have their context explained.
+**Action:** Always add keyboard event handlers for Enter/Space, `tabindex="0"`, and `role="button"` when creating custom interactive elements.
