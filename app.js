@@ -118,12 +118,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const grade = parseInt(card.getAttribute("data-grade"));
       selectGrade(grade);
     });
-    card.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        card.click();
-      }
-    });
   });
 
   // Výběr předmětu
@@ -136,6 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const hubGridDermatologie = document.getElementById("hub-grid-dermatologie");
     const hubGridRadiologie = document.getElementById("hub-grid-radiologie");
     const hubGridImunologie = document.getElementById("hub-grid-imunologie");
+    const hubGridUpv = document.getElementById("hub-grid-upv");
  
     if (subject === "oset") {
       hubTitle.textContent = "Ošetřovatelství";
@@ -146,6 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (hubGridDermatologie) hubGridDermatologie.style.display = "none";
       if (hubGridRadiologie) hubGridRadiologie.style.display = "none";
       if (hubGridImunologie) hubGridImunologie.style.display = "none";
+      if (hubGridUpv) hubGridUpv.style.display = "none";
     } else if (subject === "farmakologie") {
       hubTitle.textContent = "Farmakologie";
       hubTitle.style.color = "var(--farma-color)";
@@ -155,6 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (hubGridDermatologie) hubGridDermatologie.style.display = "none";
       if (hubGridRadiologie) hubGridRadiologie.style.display = "none";
       if (hubGridImunologie) hubGridImunologie.style.display = "none";
+      if (hubGridUpv) hubGridUpv.style.display = "none";
     } else if (subject === "dermatologie") {
       hubTitle.textContent = "Dermatologie";
       hubTitle.style.color = "var(--derma-color)";
@@ -164,6 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (hubGridDermatologie) hubGridDermatologie.style.display = "grid";
       if (hubGridRadiologie) hubGridRadiologie.style.display = "none";
       if (hubGridImunologie) hubGridImunologie.style.display = "none";
+      if (hubGridUpv) hubGridUpv.style.display = "none";
     } else if (subject === "radiologie") {
       hubTitle.textContent = "Radiologie";
       hubTitle.style.color = "var(--radio-color)";
@@ -173,6 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (hubGridDermatologie) hubGridDermatologie.style.display = "none";
       if (hubGridRadiologie) hubGridRadiologie.style.display = "grid";
       if (hubGridImunologie) hubGridImunologie.style.display = "none";
+      if (hubGridUpv) hubGridUpv.style.display = "none";
     } else if (subject === "imunologie") {
       hubTitle.textContent = "Imunologie";
       hubTitle.style.color = "var(--imuno-color)";
@@ -182,6 +181,17 @@ document.addEventListener("DOMContentLoaded", () => {
       if (hubGridDermatologie) hubGridDermatologie.style.display = "none";
       if (hubGridRadiologie) hubGridRadiologie.style.display = "none";
       if (hubGridImunologie) hubGridImunologie.style.display = "grid";
+      if (hubGridUpv) hubGridUpv.style.display = "none";
+    } else if (subject === "upv") {
+      hubTitle.textContent = "Mechanická ventilace";
+      hubTitle.style.color = "var(--upv-color)";
+      if (hubGridDefault) hubGridDefault.style.display = "none";
+      if (hubGridOset) hubGridOset.style.display = "none";
+      if (hubGridFarmakologie) hubGridFarmakologie.style.display = "none";
+      if (hubGridDermatologie) hubGridDermatologie.style.display = "none";
+      if (hubGridRadiologie) hubGridRadiologie.style.display = "none";
+      if (hubGridImunologie) hubGridImunologie.style.display = "none";
+      if (hubGridUpv) hubGridUpv.style.display = "grid";
     } else {
       if (hubGridDefault) hubGridDefault.style.display = "grid";
       if (hubGridOset) hubGridOset.style.display = "none";
@@ -189,6 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (hubGridDermatologie) hubGridDermatologie.style.display = "none";
       if (hubGridRadiologie) hubGridRadiologie.style.display = "none";
       if (hubGridImunologie) hubGridImunologie.style.display = "none";
+      if (hubGridUpv) hubGridUpv.style.display = "none";
 
       // Nastavení názvu a barev v rozcestníku
       const matTitle = document.getElementById("materials-card-title");
@@ -269,12 +280,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const subject = card.getAttribute("data-subject");
       if (subject) {
         selectSubject(subject);
-      }
-    });
-    card.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        card.click();
       }
     });
   });

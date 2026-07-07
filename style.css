@@ -42,6 +42,10 @@
   --imuno-glow: rgba(0, 210, 255, 0.25);
   --imuno-gradient: linear-gradient(135deg, #00d2ff, #0066ff);
 
+  --upv-color: #0B5FA5;
+  --upv-glow: rgba(11, 95, 165, 0.25);
+  --upv-gradient: linear-gradient(135deg, #0B5FA5, #1B9E77);
+
   --accent-blue: #00f0ff;
   --accent-gold: #fbbf24;
   --accent-red: #ffb4ab;
@@ -290,6 +294,12 @@ header p {
   transform: translateY(-6px);
 }
 
+.subject-card.upv:hover {
+  border-color: var(--upv-color);
+  box-shadow: 0 15px 30px -15px var(--upv-glow);
+  transform: translateY(-6px);
+}
+
 .subject-card .icon {
   font-size: 2.5rem;
   margin-bottom: 16px;
@@ -492,6 +502,17 @@ header p {
 
 .btn-imuno:hover {
   box-shadow: 0 6px 16px rgba(0, 210, 255, 0.4);
+  transform: scale(1.02);
+}
+
+.btn-upv {
+  background: var(--upv-gradient);
+  color: #ffffff;
+  box-shadow: 0 4px 12px var(--upv-glow);
+}
+
+.btn-upv:hover {
+  box-shadow: 0 6px 16px rgba(11, 95, 165, 0.4);
   transform: scale(1.02);
 }
 

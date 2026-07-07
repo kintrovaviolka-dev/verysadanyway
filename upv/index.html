@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mechanická plicní ventilace – Výukový portál ARO/JIP</title>
+  <meta name="description" content="Interaktivní výukový portál mechanické plicní ventilace pro lékaře, sestry a studenty. Obsahuje simulace křivek, smyček, asynchronií a interaktivní kvízy podle standardů ČSARIM a ČSIM.">
+  
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- MathJax pro zobrazení matematických rovnic -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+</head>
+<body class="dark-theme">
+  <!-- Aplikace -->
+  <div class="app-wrapper">
+    
+    <!-- Sidebar navigace -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <span class="brand-badge">LF OU • JIP/ARO</span>
+        <div class="brand-logo">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+          </svg>
+          <h2>UPV Výuka</h2>
+        </div>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Teorie a základy</div>
+        <button class="nav-item active" data-target="modul-zaklady">
+          <span class="nav-icon">📐</span> Základy UPV
+        </button>
+        <button class="nav-item" data-target="modul-tlaky">
+          <span class="nav-icon">🎈</span> Ventilační tlaky
+        </button>
+        <button class="nav-item" data-target="modul-rezimy">
+          <span class="nav-icon">🔄</span> Ventilační režimy
+        </button>
+        
+        <div class="nav-section-title">Interaktivní simulace</div>
+        <button class="nav-item" data-target="modul-krivky">
+          <span class="nav-icon">📈</span> Ventilační křivky
+        </button>
+        <button class="nav-item" data-target="modul-smycky">
+          <span class="nav-icon">➰</span> Ventilační smyčky
+        </button>
+        <button class="nav-item" data-target="modul-asynchronie">
+          <span class="nav-icon">⚠️</span> Asynchronie
+        </button>
+        
+        <div class="nav-section-title">Klinická praxe</div>
+        <button class="nav-item" data-target="modul-ards">
+          <span class="nav-icon">🫁</span> ARDS Strategie
+        </button>
+        <button class="nav-item" data-target="modul-pearls">
+          <span class="nav-icon">💡</span> ICU Pearls & Rychlá dg.
+        </button>
+        <button class="nav-item" data-target="modul-weaning">
+          <span class="nav-icon">⏳</span> Weaning & Extubace
+        </button>
+        
+        <div class="nav-section-title">Ověření a zdroje</div>
+        <button class="nav-item nav-quiz-btn" data-target="modul-kviz">
+          <span class="nav-icon">✍️</span> Interaktivní Kvíz
+        </button>
+        <button class="nav-item print-btn-menu" id="pocket-guide-menu-btn">
+          <span class="nav-icon">📄</span> Kapesní tahák (A4)
+        </button>
+        
+        <a href="../index.html" class="nav-item nav-back-root">
+          <span class="nav-icon">🔙</span> Zpět do Rozcestníku
+        </a>
+      </nav>
+      
+      <div class="sidebar-footer">
+        <p>Verze 1.1.0 • ČSARIM & ČSIM standardy</p>
+      </div>
+    </aside>
+
+    <!-- Mobilní menu bar -->
+    <header class="mobile-header">
+      <button class="menu-toggle" id="menu-toggle" aria-label="Otevřít menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <div class="mobile-title">UPV Výukový portál</div>
+      <button id="theme-toggle-mobile" class="theme-toggle-btn" aria-label="Přepnout motiv">
+        <!-- Sun/Moon icons generated via JS or CSS -->
+        🌓
+      </button>
+    </header>
+
+    <!-- Hlavní obsah -->
+    <main class="main-content">
+      
+      <!-- Top bar pro Desktop -->
+      <div class="topbar">
+        <div class="search-box">
+          <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="global-search" placeholder="Vyhledat v tématech (např. compliance, auto-PEEP, recruitment)...">
+          <div id="search-results-dropdown" class="search-results-dropdown"></div>
+        </div>
+        
+        <div class="topbar-controls">
+          <!-- Tlačítko pro tisk taháku -->
+          <button id="print-cheat-btn" class="btn btn-secondary">
+            <span class="icon">🖨️</span> Tisk taháku (A4)
+          </button>
+          
+          <!-- Přepínač Dark/Light režimu -->
+          <button id="theme-toggle" class="theme-toggle-btn" aria-label="Přepnout motiv">
+            <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Kontejner modulů -->
+      <div class="content-container">
+        
+        <!-- ================= MODUL 1: ZÁLADY UPV ================= -->
+        <section id="modul-zaklady" class="module-tab active">
+          <div class="module-header">
+            <h1>Základy umělé plicní ventilace</h1>
+            <p class="subtitle">Klíčové patofyziologické a fyzikální principy mechaniky dýchání při UPV.</p>
+          </div>
+          
+          <div class="theory-accordions" id="zaklady-accordion-container">
+            <!-- Dynamicky generováno z data.js -->
+          </div>
+        </section>
+
+        <!-- ================= MODUL 2: DŮLEŽITÉ TLAKY ================= -->
+        <section id="modul-tlaky" class="module-tab">
+          <div class="module-header">
+            <h1>Důležité ventilační tlaky</h1>
+            <p class="subtitle">Přehled tlaků měřených na ventilátoru, jejich limity a kalkulátor driving pressure.</p>
+          </div>
+
+          <!-- Kalkulačka compliance a tlaku -->
+          <div class="calculator-card">
+            <h3>🧮 Interaktivní kalkulátor plicní mechaniky</h3>
+            <p>Zadejte klinické parametry z ventilátoru pro výpočet poddajnosti (compliance) a drivujícího tlaku.</p>
+            
+            <div class="calculator-grid">
+              <div class="input-group">
+                <label for="calc-vt">Dechový objem ($V_T$ u VCV) [ml]:</label>
+                <input type="number" id="calc-vt" value="450" min="100" max="1000" step="10">
+              </div>
+              <div class="input-group">
+                <label for="calc-pip">Špičkový tlak ($PIP$) [cmH₂O]:</label>
+                <input type="number" id="calc-pip" value="26" min="5" max="60">
+              </div>
+              <div class="input-group">
+                <label for="calc-pplat">Plateau tlak ($P_{plat}$) [cmH₂O]:</label>
+                <input type="number" id="calc-pplat" value="20" min="5" max="50">
+              </div>
+              <div class="input-group">
+                <label for="calc-peep">Nastavený PEEP [cmH₂O]:</label>
+                <input type="number" id="calc-peep" value="8" min="0" max="25">
+              </div>
+            </div>
+
+            <div class="calc-results">
+              <div class="calc-res-card" id="res-dp-card">
+                <span class="res-label">Driving Pressure (ΔP):</span>
+                <span class="res-val" id="res-dp">12 cmH₂O</span>
+                <span class="res-status status-ok" id="res-dp-status">V normě (<15)</span>
+              </div>
+              <div class="calc-res-card" id="res-cstat-card">
+                <span class="res-label">Statická compliance ($C_{stat}$):</span>
+                <span class="res-val" id="res-cstat">37.5 ml/cmH₂O</span>
+                <span class="res-status status-warning" id="res-cstat-status">Snížená (30-50)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pressure-cards-grid" id="tlaky-cards-container">
+            <!-- Dynamicky generováno z data.js -->
+          </div>
+        </section>
+
+        <!-- ================= MODUL 3: REŽIMY ================= -->
+        <section id="modul-rezimy" class="module-tab">
+          <div class="module-header">
+            <h1>Ventilační režimy</h1>
+            <p class="subtitle">Srovnávací interaktivní tabulka s filtry pro výběr optimálního režimu.</p>
+          </div>
+
+          <!-- Filtry pro tabulku režimů -->
+          <div class="table-filters">
+            <span class="filter-label">Filtrovat režimy podle typu:</span>
+            <div class="filter-buttons">
+              <button class="btn btn-filter active" data-filter="all">Všechny</button>
+              <button class="btn btn-filter" data-filter="Řízená ventilace">Plně řízené</button>
+              <button class="btn btn-filter" data-filter="Spontánní">Spontánní / Podpora</button>
+              <button class="btn btn-filter" data-filter="Neinvazivní">Neinvazivní (NIV/HFNC)</button>
+            </div>
+          </div>
+
+          <!-- Responzivní tabulka režimů -->
+          <div class="table-wrapper">
+            <table class="modes-table" id="modes-table">
+              <thead>
+                <tr>
+                  <th>Režim</th>
+                  <th>Typ kontroly</th>
+                  <th>Spouštění (Trigger)</th>
+                  <th>Limitace nádechu</th>
+                  <th>Ukončení (Cycle)</th>
+                  <th>Akce</th>
+                </tr>
+              </thead>
+              <tbody id="modes-table-body">
+                <!-- Dynamicky generováno z data.js -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Modal pro detail režimu -->
+          <div class="modal" id="mode-detail-modal">
+            <div class="modal-content">
+              <span class="modal-close" id="modal-close-btn">&times;</span>
+              <h2 id="modal-mode-name">Název režimu</h2>
+              <h4 id="modal-mode-fullname" class="text-muted">Celý název</h4>
+              
+              <div class="modal-grid">
+                <div class="modal-left">
+                  <div class="detail-section">
+                    <h5>⚙️ Parametry mechaniky cyklu</h5>
+                    <ul>
+                      <li><strong>Spuštění (Trigger):</strong> <span id="modal-trigger"></span></li>
+                      <li><strong>Limit (Limit):</strong> <span id="modal-limit"></span></li>
+                      <li><strong>Ukončení (Cycle):</strong> <span id="modal-cycle"></span></li>
+                    </ul>
+                  </div>
+                  <div class="detail-section">
+                    <h5>📥 Standardní nastavení</h5>
+                    <p id="modal-params">Základní parametry na ventilátoru.</p>
+                  </div>
+                </div>
+                <div class="modal-right">
+                  <div class="detail-section">
+                    <h5>🎯 Hlavní indikace</h5>
+                    <p id="modal-indications">Indikační okruhy.</p>
+                  </div>
+                  <div class="detail-section text-success">
+                    <h5>✅ Výhody</h5>
+                    <p id="modal-advantages">Klinické plusy.</p>
+                  </div>
+                  <div class="detail-section text-danger">
+                    <h5>❌ Nevýhody a rizika</h5>
+                    <p id="modal-disadvantages">Klinická rizika.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= MODUL 4: KŘIVKY ================= -->
+        <section id="modul-krivky" class="module-tab">
+          <div class="module-header">
+            <h1>Ventilační křivky (Skalární grafy)</h1>
+            <p class="subtitle">Interaktivní simulátor, který vizualizuje chování tlaku, průtoku a objemu při různých plicních patologiích.</p>
+          </div>
+
+          <div class="simulation-layout">
+            <!-- Levý panel: Nastavení simulace -->
+            <div class="sim-controls-card">
+              <h3>🎛️ Nastavení simulátoru</h3>
+              
+              <div class="sim-group">
+                <label>Základní režim ventilace:</label>
+                <div class="radio-toggle-group">
+                  <input type="radio" id="sim-mode-vcv" name="sim-mode" value="VCV" checked>
+                  <label for="sim-mode-vcv">VCV (Objemově řízená)</label>
+                  
+                  <input type="radio" id="sim-mode-pcv" name="sim-mode" value="PCV">
+                  <label for="sim-mode-pcv">PCV (Tlakově řízená)</label>
+                </div>
+              </div>
+
+              <div class="sim-group">
+                <label for="sim-state">Klinický stav pacienta:</label>
+                <select id="sim-state" class="select-custom">
+                  <option value="normal">Normální plíce (Zdravý pacient)</option>
+                  <option value="resistance">Zvýšená rezistence (Bronchospasmus / Hlen v ETK)</option>
+                  <option value="compliance">Snížená compliance (ARDS / Plicní edém)</option>
+                  <option value="autopeep">Auto-PEEP / Air Trapping (Obstrukce / Rychlé dýchání)</option>
+                  <option value="leak">Leak (Únik vzduchu z okruhu / Netěsná manžeta)</option>
+                </select>
+              </div>
+
+              <div class="sim-state-info" id="sim-state-info-box">
+                <h4 id="sim-state-title">Normální plíce</h4>
+                <p id="sim-state-desc">U VCV lineární nárůst tlaku k PIP s následným poklesem na Pplat během inspirační pauzy a návratem na nastavenou hodnotu PEEP na konci výdechu. Průtok je u VCV konstantní (čtvercový tvar).</p>
+              </div>
+
+              <!-- Nastavení parametrů ventilátoru -->
+              <div class="sim-ventilator-knobs">
+                <h4>🎛️ Nastavení ventilátoru</h4>
+                <div class="knob-row">
+                  <div class="knob-control">
+                    <label for="knob-rr">Frekvence (RR):</label>
+                    <input type="range" id="knob-rr" min="6" max="35" value="14">
+                    <span id="knob-rr-val">14 /min</span>
+                  </div>
+                  <div class="knob-control">
+                    <label for="knob-fio2">Koncentrace O₂ (FiO₂):</label>
+                    <input type="range" id="knob-fio2" min="21" max="100" value="40">
+                    <span id="knob-fio2-val">40 %</span>
+                  </div>
+                  <div class="knob-control" id="control-vt-wrapper">
+                    <label for="knob-vt">Dechový objem (V_T):</label>
+                    <input type="range" id="knob-vt" min="200" max="800" value="450" step="10">
+                    <span id="knob-vt-val">450 ml</span>
+                  </div>
+                  <div class="knob-control" id="control-pinsp-wrapper" style="display: none;">
+                    <label for="knob-pinsp">Inspirační tlak (P_insp):</label>
+                    <input type="range" id="knob-pinsp" min="5" max="35" value="16">
+                    <span id="knob-pinsp-val">16 cmH₂O</span>
+                  </div>
+                  <div class="knob-control">
+                    <label for="knob-peep">Nastavený PEEP:</label>
+                    <input type="range" id="knob-peep" min="0" max="20" value="8">
+                    <span id="knob-peep-val">8 cmH₂O</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Interaktivní knoflíky pro změnu parametrů přímo -->
+              <div class="sim-parameters-knobs">
+                <h4>🎚️ Ladění parametrů plic</h4>
+                <div class="knob-row">
+                  <div class="knob-control">
+                    <label for="knob-r">Rezistence (R):</label>
+                    <input type="range" id="knob-r" min="5" max="30" value="10">
+                    <span id="knob-r-val">10 cmH₂O/L/s</span>
+                  </div>
+                  <div class="knob-control">
+                    <label for="knob-c">Compliance (C):</label>
+                    <input type="range" id="knob-c" min="15" max="80" value="50">
+                    <span id="knob-c-val">50 ml/cmH₂O</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pravý panel: Grafické zobrazení křivek a virtuálního monitoru -->
+            <div class="sim-display-card">
+              <div class="display-header">
+                <span class="display-title">MONITOR VENTILÁTORU & PATIENT MONITOR</span>
+                <span class="display-status blinking">● RUNNING</span>
+              </div>
+              
+              <div class="display-grid-wrapper">
+                <!-- Tři Canvas grafy pod sebou -->
+                <div class="waveforms-container">
+                  <!-- Tlak -->
+                  <div class="waveform-block">
+                    <div class="wave-label">Tlak v dýchacích cestách (Paw) <span class="wave-unit">cmH₂O</span></div>
+                    <canvas id="canvas-pressure" width="600" height="120"></canvas>
+                    <div class="wave-numerical-val" id="num-pip">PIP: 24 | Pplat: 18</div>
+                  </div>
+                  <!-- Průtok -->
+                  <div class="waveform-block">
+                    <div class="wave-label">Průtok (Flow) <span class="wave-unit">L/min</span></div>
+                    <canvas id="canvas-flow" width="600" height="120"></canvas>
+                    <div class="wave-numerical-val" id="num-flow">Peak Flow: 60</div>
+                  </div>
+                  <!-- Objem -->
+                  <div class="waveform-block">
+                    <div class="wave-label">Dechový objem (Volume) <span class="wave-unit">ml</span></div>
+                    <canvas id="canvas-volume" width="600" height="120"></canvas>
+                    <div class="wave-numerical-val" id="num-volume">V_T: 500</div>
+                  </div>
+                </div>
+
+                <!-- Digitální monitor vitálních funkcí a Astrupu -->
+                <div class="vital-monitor-panel" id="vital-monitor-panel">
+                  <div class="monitor-section">
+                    <div class="monitor-section-title">🩸 KREVNÍ PLYNY (Astrup / ABG)</div>
+                    <div class="monitor-grid">
+                      <div class="monitor-value-card" id="mon-ph-card">
+                        <span class="mon-label">pH</span>
+                        <span class="mon-value text-green" id="mon-ph">7.40</span>
+                        <span class="mon-status-dot bg-green" id="mon-ph-dot"></span>
+                      </div>
+                      <div class="monitor-value-card" id="mon-pco2-card">
+                        <span class="mon-label">paCO₂ <span class="unit">mmHg</span></span>
+                        <span class="mon-value text-green" id="mon-pco2">40</span>
+                        <span class="mon-status-dot bg-green" id="mon-pco2-dot"></span>
+                      </div>
+                      <div class="monitor-value-card" id="mon-po2-card">
+                        <span class="mon-label">paO₂ <span class="unit">mmHg</span></span>
+                        <span class="mon-value text-green" id="mon-po2">90</span>
+                        <span class="mon-status-dot bg-green" id="mon-po2-dot"></span>
+                      </div>
+                      <div class="monitor-value-card" id="mon-spo2-card">
+                        <span class="mon-label">SpO₂ <span class="unit">%</span></span>
+                        <span class="mon-value text-green" id="mon-spo2">98</span>
+                        <span class="mon-status-dot bg-green" id="mon-spo2-dot"></span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="monitor-section">
+                    <div class="monitor-section-title">🫀 OBĚH & HEMODYNAMIKA</div>
+                    <div class="monitor-grid">
+                      <div class="monitor-value-card" id="mon-hr-card">
+                        <span class="mon-label">Tep (HR) <span class="unit">bpm</span></span>
+                        <span class="mon-value text-green" id="mon-hr">75</span>
+                        <span class="mon-status-dot bg-green" id="mon-hr-dot"></span>
+                      </div>
+                      <div class="monitor-value-card" id="mon-map-card">
+                        <span class="mon-label">Tlak (MAP) <span class="unit">mmHg</span></span>
+                        <span class="mon-value text-green" id="mon-map">82</span>
+                        <span class="mon-status-dot bg-green" id="mon-map-dot"></span>
+                      </div>
+                      <div class="monitor-value-card" id="mon-co-card">
+                        <span class="mon-label">Výdej (CO) <span class="unit">L/min</span></span>
+                        <span class="mon-value text-green" id="mon-co">5.4</span>
+                        <span class="mon-status-dot bg-green" id="mon-co-dot"></span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Chybové klinické alarmy -->
+                  <div class="monitor-alarm-zone" id="monitor-alarm-zone" style="display: none;">
+                    <div class="alarm-msg-title">🚨 CLINICAL ALARM</div>
+                    <div class="alarm-msg-body" id="alarm-msg-body">Oběhová deprese způsobená PEEP!</div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </section>
+
+        <!-- ================= MODUL 5: SMYČKY ================= -->
+        <section id="modul-smycky" class="module-tab">
+          <div class="module-header">
+            <h1>Ventilační smyčky (Loops)</h1>
+            <p class="subtitle">Kombinované diagramy pro detailní vyhodnocení poddajnosti a proudění plynů bez časové složky.</p>
+          </div>
+
+          <div class="loops-layout">
+            <!-- Výběr smyčky -->
+            <div class="loop-selection-card">
+              <h3>📊 Typ smyčky a patologie</h3>
+              
+              <div class="sim-group">
+                <label for="loop-type-select">Vyberte diagram:</label>
+                <select id="loop-type-select" class="select-custom">
+                  <option value="pv">Tlak-Objemová smyčka (P-V Loop)</option>
+                  <option value="fv">Průtok-Objemová smyčka (F-V Loop)</option>
+                </select>
+              </div>
+
+              <div class="sim-group">
+                <label>Vyberte klinický stav:</label>
+                <div class="loop-state-buttons" id="loop-state-btn-container">
+                  <!-- Dynamicky generovaná tlačítka na základě vybrané smyčky -->
+                </div>
+              </div>
+
+              <div class="sim-state-info" id="loop-info-box">
+                <h4 id="loop-state-title">Název patologie</h4>
+                <p id="loop-state-desc">Popis vlivu na smyčku a klinické implikace.</p>
+              </div>
+            </div>
+
+            <!-- Zobrazovač smyčky -->
+            <div class="loop-display-card">
+              <div class="display-header">
+                <span id="loop-display-title">Tlak-Objemový diagram (P-V Loop)</span>
+                <span>Interaktivní vektorový graf</span>
+              </div>
+              
+              <!-- SVG kreslení pro absolutní přesnost a tooltipy -->
+              <div class="loop-svg-wrapper">
+                <svg id="loop-svg" viewBox="0 0 500 400" width="100%" height="100%">
+                  <!-- Mřížka a osy se kreslí dynamicky přes JS -->
+                  <g id="svg-grid"></g>
+                  <g id="svg-axes"></g>
+                  <!-- Křivka smyčky -->
+                  <path id="svg-loop-path" d="" fill="none" stroke="#00f0ff" stroke-width="4" />
+                  <!-- Referenční normální smyčka (přerušovaná) -->
+                  <path id="svg-ref-path" d="" fill="none" stroke="rgba(255,255,255,0.2)" stroke-dasharray="5,5" stroke-width="2" />
+                  <!-- Specifické body (např. Inflexní body nebo zobák) -->
+                  <circle id="svg-point-lip" cx="0" cy="0" r="6" fill="#fbbf24" style="display:none;" />
+                  <circle id="svg-point-uip" cx="0" cy="0" r="6" fill="#fbbf24" style="display:none;" />
+                  <!-- Popisky os -->
+                  <text id="svg-axis-x-label" x="250" y="380" fill="var(--text-muted)" text-anchor="middle" font-size="14">Tlak (cmH₂O)</text>
+                  <text id="svg-axis-y-label" x="20" y="200" fill="var(--text-muted)" text-anchor="middle" font-size="14" transform="rotate(-90 20 200)">Objem (ml)</text>
+                </svg>
+                
+                <div class="loop-tooltip" id="loop-tooltip"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= MODUL 6: ASYNCHRONIE ================= -->
+        <section id="modul-asynchronie" class="module-tab">
+          <div class="module-header">
+            <h1>Asynchronie ventilátor–pacient</h1>
+            <p class="subtitle">Klinická diagnostická matice pro identifikaci a řešení nesouladu mezi pacientem a přístrojem.</p>
+          </div>
+
+          <div class="asynchrony-container">
+            <!-- Levý seznam asynchronií -->
+            <div class="asynchrony-sidebar">
+              <h3>⚠️ Druhy poruch</h3>
+              <div class="asynchrony-list" id="asynchrony-list">
+                <!-- Generováno z data.js -->
+              </div>
+            </div>
+
+            <!-- Pravý detailní panel se 4 záložkami -->
+            <div class="asynchrony-detail" id="asynchrony-detail-panel">
+              <div class="asynchrony-detail-header">
+                <h2 id="asynch-title">Delayed triggering</h2>
+                <span class="badge badge-danger" id="asynch-badge">Triggering vada</span>
+              </div>
+
+              <!-- Záložky -->
+              <div class="asynch-tabs-header">
+                <button class="asynch-tab-btn active" data-tab="monitor">📟 Monitor (Graf)</button>
+                <button class="asynch-tab-btn" data-tab="pathophysiology">🧠 Patofyziologie</button>
+                <button class="asynch-tab-btn" data-tab="causes">❓ Příčiny</button>
+                <button class="asynch-tab-btn text-success-tab" data-tab="action">🔧 Klinické řešení</button>
+              </div>
+
+              <!-- Obsah záložek -->
+              <div class="asynch-tab-content active" id="asynch-tab-monitor">
+                <p id="asynch-monitor-desc">Popis grafického vyobrazení asynchronie.</p>
+                <div class="asynch-graphic-container">
+                  <!-- Tady bude statický SVG graf ukazující asynchronii -->
+                  <svg id="asynch-svg-graphic" viewBox="0 0 500 250" width="100%" height="250">
+                    <!-- Kreslí se dynamicky v app.js -->
+                  </svg>
+                </div>
+              </div>
+
+              <div class="asynch-tab-content" id="asynch-tab-pathophysiology">
+                <div class="info-block">
+                  <h4>Co se děje v těle pacienta?</h4>
+                  <p id="asynch-pathology-text">Text patofyziologie.</p>
+                </div>
+              </div>
+
+              <div class="asynch-tab-content" id="asynch-tab-causes">
+                <div class="info-block">
+                  <h4>Nejčastější spouštěče na JIP</h4>
+                  <p id="asynch-causes-text">Text příčin.</p>
+                </div>
+              </div>
+
+              <div class="asynch-tab-content" id="asynch-tab-action">
+                <div class="action-block">
+                  <h4>Klinické pokyny pro úpravu ventilátoru</h4>
+                  <div class="action-content" id="asynch-action-text">
+                    Text jak pomoci pacientovi.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= MODUL 7: ARDS STRATEGIE ================= -->
+        <section id="modul-ards" class="module-tab">
+          <div class="module-header">
+            <h1>ARDS ventilační strategie</h1>
+            <p class="subtitle">Standardizovaný klinický postup ochranné plicní ventilace u syndromu akutní respirační tísně (ARDS).</p>
+          </div>
+
+          <!-- Výpočet PBW pro ARDS -->
+          <div class="calculator-card ards-pbw-card">
+            <h3>🫁 Kalkulátor ochranné ventilace plic (ARDSnet)</h3>
+            <p>Dechový objem u ARDS nastavujeme striktně podle predikované hmotnosti (PBW) odvozené z výšky a pohlaví pacienta.</p>
+            
+            <div class="calculator-grid">
+              <div class="input-group">
+                <label>Pohlaví pacienta:</label>
+                <div class="radio-toggle-group">
+                  <input type="radio" id="pbw-male" name="pbw-gender" value="male" checked>
+                  <label for="pbw-male">Muž</label>
+                  <input type="radio" id="pbw-female" name="pbw-gender" value="female">
+                  <label for="pbw-female">Žena</label>
+                </div>
+              </div>
+              
+              <div class="input-group">
+                <label for="pbw-height">Výška pacienta [cm]:</label>
+                <input type="number" id="pbw-height" value="175" min="120" max="230">
+              </div>
+            </div>
+
+            <div class="calc-results pbw-results">
+              <div class="pbw-res-item">
+                <span class="pbw-lbl">Predikovaná hmotnost (PBW):</span>
+                <span class="pbw-val" id="pbw-val-kg">70.2 kg</span>
+              </div>
+              <div class="pbw-res-item">
+                <span class="pbw-lbl">Ideální VT při 6 ml/kg PBW:</span>
+                <span class="pbw-val text-primary-val" id="pbw-val-vt6">421 ml</span>
+              </div>
+              <div class="pbw-res-item">
+                <span class="pbw-lbl">Ideální VT při 4 ml/kg PBW (těžké ARDS):</span>
+                <span class="pbw-val text-danger-val" id="pbw-val-vt4">281 ml</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="checklist-grid" id="ards-checklist-container">
+            <!-- Dynamicky generovaný checklist z data.js -->
+          </div>
+        </section>
+
+        <!-- ================= MODUL 8: ICU PEARLS ================= -->
+        <section id="modul-pearls" class="module-tab">
+          <div class="module-header">
+            <h1>ICU Pearls & Rychlá diagnostika</h1>
+            <p class="subtitle">Praktický přehled rychlých klinických pravidel pro rozhodování u lůžka pacienta.</p>
+          </div>
+
+          <!-- Vyhledávací a indikační widget pro rychlé situace -->
+          <div class="quick-diagnostic-widget">
+            <h3>🚑 Rychlý pomocník při alarmu vysokého tlaku</h3>
+            <p>Zvolte klinický nález na ventilátoru a systém ihned napoví patofyziologii a první krok řešení.</p>
+            
+            <div class="quick-dg-selector">
+              <label for="quick-dg-select">Co vidíte na monitoru / ventilátoru?</label>
+              <select id="quick-dg-select" class="select-custom select-large">
+                <option value="none">-- Vyberte klinický alarm / stav --</option>
+                <!-- Možnosti se naplní z data.js v app.js -->
+              </select>
+            </div>
+
+            <div class="quick-dg-result" id="quick-dg-result-box" style="display: none;">
+              <div class="dg-res-section">
+                <h5>🔍 Pravděpodobná příčina</h5>
+                <p id="quick-dg-cause" class="text-large-val">Zvýšená rezistence dýchacích cest.</p>
+              </div>
+              <div class="dg-res-section">
+                <h5>🩺 Okamžité klinické opatření</h5>
+                <p id="quick-dg-action">Odsajte pacienta, zkontrolujte polohu ETK a vylučte bronchospasmus.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pearls-grid" id="pearls-cards-container">
+            <!-- Dynamicky generováno z data.js -->
+          </div>
+        </section>
+
+        <!-- ================= MODUL 9: WEANING & ODPOJOVÁNÍ ================= -->
+        <section id="modul-weaning" class="module-tab">
+          <div class="module-header">
+            <h1>Weaning & Extubace (Odpojování od ventilace)</h1>
+            <p class="subtitle">Metodické pokyny ČSARIM, interaktivní kalkulátor indexu RSBI a simulátor spontánního dýchacího testu (SBT).</p>
+          </div>
+
+          <div class="weaning-layout">
+            <!-- Levý sloupec: Teorie a kalkulátor -->
+            <div class="weaning-sidebar-panel">
+              <!-- Teoretický základ -->
+              <div class="weaning-card">
+                <h3>📖 Protokol odpojování (ČSARIM / ČSIM)</h3>
+                <div class="weaning-accordion" id="weaning-theory-container">
+                  <!-- Dynamicky generováno z data.js -->
+                </div>
+              </div>
+
+              <!-- RSBI Kalkulátor -->
+              <div class="weaning-card rsbi-calc-card">
+                <h3>🧮 Kalkulátor RSBI (Rapid Shallow Breathing Index)</h3>
+                <p class="calc-intro-text">Zadejte hodnoty pacienta dýchajícího spontánně (např. na CPAP/PS 5 nebo T-tubusu) k posouzení rizika vyčerpání.</p>
+                
+                <div class="calc-form">
+                  <div class="input-group">
+                    <label for="rsbi-rr">Spontánní dechová frekvence (f) [dech/min]:</label>
+                    <input type="number" id="rsbi-rr" value="20" min="5" max="50">
+                  </div>
+                  <div class="input-group">
+                    <label for="rsbi-vt">Spontánní dechový objem (V_T) [ml]:</label>
+                    <input type="number" id="rsbi-vt" value="500" min="50" max="1500" step="10">
+                  </div>
+                  
+                  <button class="btn btn-primary" id="btn-calc-rsbi">Spočítat index RSBI</button>
+                </div>
+
+                <div class="rsbi-results" id="rsbi-results-box" style="display: none;">
+                  <div class="rsbi-value-display">
+                    <span class="rsbi-num" id="rsbi-value">40</span>
+                    <span class="rsbi-unit">dechů/min/L</span>
+                  </div>
+                  <div class="rsbi-status-bar">
+                    <div class="rsbi-status-fill" id="rsbi-status-fill"></div>
+                  </div>
+                  <div class="rsbi-interpretation" id="rsbi-interpretation-text">
+                    Prognóza úspěšné extubace je vysoká (RSBI < 105).
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pravý sloupec: SBT Simulátor -->
+            <div class="weaning-main-panel">
+              <div class="weaning-card sbt-simulator-card">
+                <h3>⏳ Trenažér spontánního dechového testu (SBT)</h3>
+                <p class="sim-intro-text">Vyberte si pacienta ze seznamu a spustte 30-minutový zkušební test spontánního dýchání. Sledujte vývoj vitálních funkcí a rozhodněte o bezpečné extubaci.</p>
+                
+                <div class="sbt-setup">
+                  <label for="sbt-patient-select">Vyberte pacienta pro SBT:</label>
+                  <select id="sbt-patient-select" class="select-custom">
+                    <!-- Dynamicky z data.js -->
+                  </select>
+                  
+                  <div class="sbt-patient-info-box" id="sbt-patient-info-box">
+                    <!-- Zobrazí anamnézu pacienta -->
+                  </div>
+
+                  <button class="btn btn-primary" id="btn-start-sbt">🟢 Spustit 30-minutový SBT</button>
+                </div>
+
+                <div class="sbt-running-area" id="sbt-running-area" style="display: none;">
+                  <div class="sbt-progress-header">
+                    <span class="sbt-clock" id="sbt-clock">Čas: 0. minuta</span>
+                    <span class="sbt-running-status blinking">● TEST PROBÍHÁ (ZRYCHLENO)</span>
+                  </div>
+                  <div class="sbt-progress-bar-container">
+                    <div class="sbt-progress-bar-fill" id="sbt-progress-bar-fill"></div>
+                  </div>
+
+                  <!-- Vitální funkce pacienta během SBT -->
+                  <div class="sbt-vitals-grid">
+                    <div class="sbt-vital-card">
+                      <span class="label">Frekvence (f)</span>
+                      <span class="val" id="sbt-v-rr">16 /min</span>
+                    </div>
+                    <div class="sbt-vital-card">
+                      <span class="label">Objem (Vt)</span>
+                      <span class="val" id="sbt-v-vt">480 ml</span>
+                    </div>
+                    <div class="sbt-vital-card">
+                      <span class="label">Saturace (SpO₂)</span>
+                      <span class="val" id="sbt-v-spo2">98 %</span>
+                    </div>
+                    <div class="sbt-vital-card">
+                      <span class="label">Tep (HR)</span>
+                      <span class="val" id="sbt-v-hr">78 bpm</span>
+                    </div>
+                    <div class="sbt-vital-card">
+                      <span class="label">Tlak (MAP)</span>
+                      <span class="val" id="sbt-v-map">82 mmHg</span>
+                    </div>
+                    <div class="sbt-vital-card">
+                      <span class="label">pCO₂ (Astrup)</span>
+                      <span class="val" id="sbt-v-pco2">38 mmHg</span>
+                    </div>
+                  </div>
+
+                  <!-- Log s komentáři sestry -->
+                  <div class="sbt-log-box" id="sbt-log-box">
+                    <p class="log-entry">SBT test zahájen.</p>
+                  </div>
+
+                  <!-- Akční tlačítka k rozhodnutí -->
+                  <div class="sbt-actions" id="sbt-actions-block" style="display: none;">
+                    <button class="btn btn-success" id="btn-sbt-extubate">🟢 Extubovat pacienta</button>
+                    <button class="btn btn-danger" id="btn-sbt-abort">🔴 Přerušit SBT a reventilovat</button>
+                  </div>
+                </div>
+
+                <!-- Výsledek SBT testu -->
+                <div class="sbt-result-screen" id="sbt-result-screen" style="display: none;">
+                  <h4 id="sbt-result-title">SBT ÚSPĚŠNĚ DOKONČEN</h4>
+                  <p id="sbt-result-text"></p>
+                  <button class="btn btn-secondary" id="btn-reset-sbt">Nové testování</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= KVÍZ ================= -->
+        <section id="modul-kviz" class="module-tab">
+          <div class="module-header">
+            <h1>Ověření znalostí – Kvíz aktivních znalostí</h1>
+            <p class="subtitle">Otestujte své teoretické i praktické klinické znalosti o mechanické ventilaci. Každá otázka obsahuje detailní vysvětlení.</p>
+          </div>
+
+          <!-- Kvízový panel -->
+          <div class="quiz-container-card">
+            <!-- Úvodní obrazovka kvízu -->
+            <div class="quiz-step" id="quiz-intro">
+              <h3>Připravte se na test</h3>
+              <p>Kvíz obsahuje 10 náhodně vybraných klinických otázek zaměřených na patofyziologii, tlaky, režimy, křivky, smyčky, asynchronie a ARDS strategie.</p>
+              <div class="quiz-stats-summary">
+                <div class="stat-bubble">
+                  <span class="bubble-num">10</span>
+                  <span class="bubble-lbl">Otázek</span>
+                </div>
+                <div class="stat-bubble">
+                  <span class="bubble-num">4</span>
+                  <span class="bubble-lbl">Možnosti</span>
+                </div>
+                <div class="stat-bubble">
+                  <span class="bubble-num">100%</span>
+                  <span class="bubble-lbl">Česky</span>
+                </div>
+              </div>
+              <button class="btn btn-primary btn-large" id="start-quiz-btn">Spustit kvíz</button>
+            </div>
+
+            <!-- Aktivní kvíz -->
+            <div class="quiz-step" id="quiz-active" style="display: none;">
+              <div class="quiz-progress-bar-wrapper">
+                <div class="quiz-progress-fill" id="quiz-progress-fill" style="width: 10%"></div>
+              </div>
+              <div class="quiz-meta-info">
+                <span id="quiz-question-number">Otázka 1 z 10</span>
+                <span id="quiz-score-badge">Skóre: 0/0</span>
+              </div>
+              
+              <div class="quiz-question-card">
+                <h4 id="quiz-question-text">Text otázky bude zobrazen zde.</h4>
+                <div class="quiz-options-list" id="quiz-options-list">
+                  <!-- Tlačítka s možnostmi dynamicky -->
+                </div>
+              </div>
+
+              <!-- Vysvětlení (schované do odpovědi) -->
+              <div class="quiz-feedback-box" id="quiz-feedback-box" style="display: none;">
+                <h5 id="quiz-feedback-title">Správně!</h5>
+                <p id="quiz-feedback-explanation">Detailní medicínské vysvětlení, proč je tato možnost správná.</p>
+                <button class="btn btn-primary" id="next-question-btn">Další otázka</button>
+              </div>
+            </div>
+
+            <!-- Výsledková obrazovka -->
+            <div class="quiz-step" id="quiz-results" style="display: none;">
+              <h3>Kvíz dokončen!</h3>
+              <div class="results-score-circle">
+                <span class="results-score-val" id="results-score-pct">80%</span>
+                <span class="results-score-label" id="results-score-ratio">8 z 10 správně</span>
+              </div>
+              
+              <h4 id="results-headline">Skvělý výsledek!</h4>
+              <p id="results-text">Prokázali jste solidní znalosti mechanické ventilace. Doporučujeme prostudovat chybující témata.</p>
+              
+              <div class="results-actions">
+                <button class="btn btn-primary" id="restart-quiz-btn">Spustit znovu</button>
+                <button class="btn btn-secondary" id="results-review-theory-btn">Prohlížet teorii</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- ================= TISKOVÁ ZÓNA (KAPESNÍ TAHÁK A4) ================= -->
+  <!-- Schované na obrazovce, zobrazené při tisku pomocí CSS media query -->
+  <div class="print-guide-container" id="print-guide-container">
+    <div class="print-header">
+      <div class="print-title">Kapesní tahák UPV – Rychlá klinická orientace ARO/JIP</div>
+      <div class="print-meta">Standardy ČSARIM & ČSIM • LF OU Všeobecné lékařství</div>
+    </div>
+
+    <div class="print-row">
+      <!-- Sloupec 1: Fyzikální základy a tlaky -->
+      <div class="print-col">
+        <div class="print-section">
+          <h3>📐 Fyzikální rovnice pohybu</h3>
+          <div class="print-formula">$$P_{aw} = \frac{V_T}{C_{stat}} + (R \cdot \dot{V}) + PEEP$$</div>
+          <ul>
+            <li><strong>Poddajnost (Compliance):</strong> \(C_{stat} = \frac{V_T}{P_{plat} - PEEP}\) (norma: 50–80 ml/cmH₂O). Pokles značí plicní edém, ARDS, pneumotorax.</li>
+            <li><strong>Odpor (Rezistence):</strong> \(R = \frac{PIP - P_{plat}}{\dot{V}}\) (norma: 5–10 cmH₂O/L/s). Vzestup značí bronchospasmus, sekret, obstrukci kanyly.</li>
+            <li><strong>Časová konstanta:</strong> \(\tau = R \cdot C\) (čas pro 63% plnění/výdech). Kompletní výdech vyžaduje \(4-5\tau\) (cca 1.5–2 s).</li>
+          </ul>
+        </div>
+
+        <div class="print-section">
+          <h3>🎈 Klíčové ventilační tlaky</h3>
+          <ul>
+            <li><strong>PIP (Špičkový tlak):</strong> Max. inspirační tlak. Bezpečný limit: <strong>&lt; 35 cmH₂O</strong>.</li>
+            <li><strong>Pplat (Plateau tlak):</strong> Tlak v alveolech při inspirační pauze (nulový průtok). Cíl: <strong>&lt; 30 cmH₂O</strong>.</li>
+            <li><strong>Driving pressure (\(\Delta P\)):</strong> \(\Delta P = P_{plat} - PEEP\). Klíčová protekce. Cíl: <strong>&lt; 15 cmH₂O</strong>.</li>
+            <li><strong>Auto-PEEP:</strong> Přetlak v alveolu na konci výdechu při nedokončeném výdechu. Hrozí oběhový kolaps.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Sloupec 2: Režimy a ARDS strategie -->
+      <div class="print-col">
+        <div class="print-section">
+          <h3>🔄 Ventilační režimy</h3>
+          <table class="print-table">
+            <thead>
+              <tr>
+                <th>Režim</th>
+                <th>Řízení</th>
+                <th>Cyklování</th>
+                <th>Klinický význam</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>VCV</strong></td>
+                <td>Objem/Průtok</td>
+                <td>Objem</td>
+                <td>Garantuje V_T, nekontroluje tlak (PIP)</td>
+              </tr>
+              <tr>
+                <td><strong>PCV</strong></td>
+                <td>Tlak</td>
+                <td>Čas</td>
+                <td>Limity tlaku, decelerační tok, mění V_T</td>
+              </tr>
+              <tr>
+                <td><strong>PSV</strong></td>
+                <td>Tlak</td>
+                <td>Průtok</td>
+                <td>Spontánní dech s podporou, weaning</td>
+              </tr>
+              <tr>
+                <td><strong>CPAP</strong></td>
+                <td>Spontánní</td>
+                <td>Pacient</td>
+                <td>Kontinuální přetlak bez podpory objemu</td>
+              </tr>
+              <tr>
+                <td><strong>HFNC</strong></td>
+                <td>Kyslík</td>
+                <td>Není</td>
+                <td>Průtok 40-60 L/min, stabilní FiO2, PEEP 3-5</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="print-section">
+          <h3>🫁 Ochranná ventilace u ARDS</h3>
+          <ul>
+            <li><strong>Dechový objem (V_T):</strong> <strong>4–6 ml/kg PBW</strong> (počítat podle výšky, nikoli reálné váhy!).</li>
+            <li><strong>Plateau tlak (Pplat):</strong> Udržovat pod 30 cmH₂O.</li>
+            <li><strong>Driving Pressure (\(\Delta P\)):</strong> Udržovat pod 15 cmH₂O.</li>
+            <li><strong>Polohování na břicho (Prone):</strong> Indikováno při PaO₂/FiO₂ &lt; 150 mmHg po dobu <strong>&ge; 16 hod denně</strong>.</li>
+            <li><strong>Permisivní hyperkapnie:</strong> Tolerována, pokud neklesne pH pod 7.20. Kontraindikována u nitrolební hypertenze.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="print-row">
+      <!-- Sloupec 3: Rychlá diagnostika a asynchronie -->
+      <div class="print-col" style="flex: 2;">
+        <div class="print-section">
+          <h3>🚨 Rychlý klinický algoritmus při poplachu vysokého tlaku</h3>
+          <table class="print-table print-table-large">
+            <thead>
+              <tr>
+                <th>Nález na ventilátoru</th>
+                <th>Pravděpodobná diagnóza</th>
+                <th>První terapeutický krok</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>↑ PIP + normální Pplat</strong></td>
+                <td>Zvýšená rezistence (bronchospasmus, sekret, kousání ETK)</td>
+                <td>Odsát pacienta, vyloučit zalomení ETK, podat bronchodilatancia.</td>
+              </tr>
+              <tr>
+                <td><strong>↑ PIP + ↑ Pplat</strong></td>
+                <td>Snížená compliance (pneumotorax, fluidotorax, atelektázy, ARDS)</td>
+                <td>Auskultace, urgentní vyloučení PNO (UZ/RTG), zkontrolovat polohu ETK.</td>
+              </tr>
+              <tr>
+                <td><strong>Expirium nedosáhne nuly</strong></td>
+                <td>Air trapping / Auto-PEEP</td>
+                <td>Prodloužit expirační čas (snížit frekvenci, zkrátit Ti), uvolnit obstrukci.</td>
+              </tr>
+              <tr>
+                <td><strong>Tvar zobáku ('bird-beak') na P-V smyčce</strong></td>
+                <td>Plicní overdistenze (přepětí tkáně)</td>
+                <td>Snížit dechový objem (V_T) nebo inspirační tlak.</td>
+              </tr>
+              <tr>
+                <td><strong>Prohnutá tlaková křivka u VCV</strong></td>
+                <td>Flow starvation (hlad po průtoku)</td>
+                <td>Zvýšit inspirační průtok (Flow) nebo přepnout na PCV/PSV.</td>
+              </tr>
+              <tr>
+                <td><strong>Breath stacking (dva dechy u sebe)</strong></td>
+                <td>Double triggering (nedostatečný Ti/objem)</td>
+                <td>Prodloužit Ti, zvýšit dechový objem nebo prohloubit sedaci.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="print-footer">
+      Vytištěno z Lékařského Výukového Portálu • LF OU Ostrava. Určeno výhradně pro studijní účely.
+    </div>
+  </div>
+
+  <!-- Načtení dat a logiky -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
