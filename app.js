@@ -118,6 +118,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const grade = parseInt(card.getAttribute("data-grade"));
       selectGrade(grade);
     });
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        card.click();
+      }
+    });
   });
 
   // Výběr předmětu
@@ -263,6 +269,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const subject = card.getAttribute("data-subject");
       if (subject) {
         selectSubject(subject);
+      }
+    });
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        card.click();
       }
     });
   });
