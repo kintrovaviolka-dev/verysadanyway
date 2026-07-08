@@ -105,6 +105,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (targetId === "modul-smycky") {
       updateLoopsUI();
     }
+
+    // Překreslit MathJax rovnice po přepnutí záložky
+    if (window.MathJax && typeof window.MathJax.typesetPromise === "function") {
+      window.MathJax.typesetPromise();
+    }
   };
 
   navItems.forEach(item => {
@@ -396,7 +401,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <span class="pressure-badge">${t.abbreviation}</span>
         </div>
         <div class="pressure-card-body">
-          <p>${t.content}</p>
+          <p>${formatMarkdown(t.content)}</p>
         </div>
         <div class="pressure-card-footer">
           <span class="limit-label">Bezpečný limit:</span>
@@ -519,15 +524,19 @@ document.addEventListener("DOMContentLoaded", () => {
     window.openModeDetail = (mode) => {
       document.getElementById("modal-mode-name").textContent = mode.name;
       document.getElementById("modal-mode-fullname").textContent = mode.fullName;
-      document.getElementById("modal-trigger").textContent = mode.mechanics.trigger;
-      document.getElementById("modal-limit").textContent = mode.mechanics.limit;
-      document.getElementById("modal-cycle").textContent = mode.mechanics.cycle;
-      document.getElementById("modal-params").textContent = mode.standardParams;
-      document.getElementById("modal-indications").textContent = mode.indications;
-      document.getElementById("modal-advantages").textContent = mode.advantages;
-      document.getElementById("modal-disadvantages").textContent = mode.disadvantages;
+      document.getElementById("modal-trigger").innerHTML = formatMarkdown(mode.mechanics.trigger);
+      document.getElementById("modal-limit").innerHTML = formatMarkdown(mode.mechanics.limit);
+      document.getElementById("modal-cycle").innerHTML = formatMarkdown(mode.mechanics.cycle);
+      document.getElementById("modal-params").innerHTML = formatMarkdown(mode.standardParams);
+      document.getElementById("modal-indications").innerHTML = formatMarkdown(mode.indications);
+      document.getElementById("modal-advantages").innerHTML = formatMarkdown(mode.advantages);
+      document.getElementById("modal-disadvantages").innerHTML = formatMarkdown(mode.disadvantages);
 
       modal.classList.add("active");
+
+      if (window.MathJax && typeof window.MathJax.typesetPromise === "function") {
+        window.MathJax.typesetPromise([modal]);
+      }
     };
 
     // Zavřít modal
@@ -1315,10 +1324,19 @@ document.addEventListener("DOMContentLoaded", () => {
         badge.className = "badge badge-danger";
       }
 
-      document.getElementById("asynch-monitor-desc").textContent = asynch.monitor.desc;
+      document.getElementById("asynch-monitor-desc").innerHTML = formatMarkdown(asynch.monitor.desc);
       document.getElementById("asynch-pathology-text").innerHTML = formatMarkdown(asynch.pathology);
       document.getElementById("asynch-causes-text").innerHTML = formatMarkdown(asynch.causes);
       document.getElementById("asynch-action-text").innerHTML = formatMarkdown(asynch.treatment);
+
+      if (window.MathJax && typeof window.MathJax.typesetPromise === "function") {
+        window.MathJax.typesetPromise([
+          document.getElementById("asynch-monitor-desc"),
+          document.getElementById("asynch-pathology-text"),
+          document.getElementById("asynch-causes-text"),
+          document.getElementById("asynch-action-text")
+        ]);
+      }
 
       // Nakreslit statický SVG graf pro asynchronii
       drawStaticAsynchGraph(asynch.id);
@@ -1441,12 +1459,16 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="checklist-card">
         <div class="checklist-card-header">
           <span class="chk-badge">Krok ${idx + 1}</span>
-          <h4>${c.title}</h4>
+          <h4>${formatMarkdown(c.title)}</h4>
         </div>
-        <p><strong>Cíl:</strong> ${c.target}</p>
-        <p>${c.rationale}</p>
+        <p><strong>Cíl:</strong> ${formatMarkdown(c.target)}</p>
+        <p>${formatMarkdown(c.rationale)}</p>
       </div>
     `).join('');
+
+    if (window.MathJax && typeof window.MathJax.typesetPromise === "function") {
+      window.MathJax.typesetPromise([checklistContainer]);
+    }
 
     // Logika PBW kalkulátoru
     const genderMale = document.getElementById("pbw-male");
@@ -1498,13 +1520,17 @@ document.addEventListener("DOMContentLoaded", () => {
     // Vykreslit karty Pearls
     container.innerHTML = data.pearls.map(p => `
       <div class="pearl-card">
-        <h4>🔍 ${p.condition}</h4>
-        <p><strong>Nález / Patofyziologie:</strong> ${p.result}</p>
+        <h4>🔍 ${formatMarkdown(p.condition)}</h4>
+        <p><strong>Nález / Patofyziologie:</strong> ${formatMarkdown(p.result)}</p>
         <div class="pearl-action">
-          <strong>Klinická akce:</strong> ${p.action}
+          <strong>Klinická akce:</strong> ${formatMarkdown(p.action)}
         </div>
       </div>
     `).join('');
+
+    if (window.MathJax && typeof window.MathJax.typesetPromise === "function") {
+      window.MathJax.typesetPromise([container]);
+    }
 
     // Naplnit dropdown pro rychlou diagnostiku
     dgSelect.innerHTML = `<option value="none">-- Vyberte klinický alarm / stav --</option>` + 
@@ -1520,9 +1546,13 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const pearl = data.pearls[parseInt(idx)];
-      dgCauseText.textContent = pearl.result;
-      dgActionText.textContent = pearl.action;
+      dgCauseText.innerHTML = formatMarkdown(pearl.result);
+      dgActionText.innerHTML = formatMarkdown(pearl.action);
       dgResultBox.style.display = "flex";
+
+      if (window.MathJax && typeof window.MathJax.typesetPromise === "function") {
+        window.MathJax.typesetPromise([dgCauseText, dgActionText]);
+      }
     });
   };
 
@@ -1571,7 +1601,7 @@ document.addEventListener("DOMContentLoaded", () => {
       nextBtn.style.display = "none";
 
       const q = currentQuestions[currentIdx];
-      questionText.textContent = q.question;
+      questionText.innerHTML = formatMarkdown(q.question);
 
       // Pokrok
       const pct = ((currentIdx) / 10) * 100;
@@ -1580,8 +1610,12 @@ document.addEventListener("DOMContentLoaded", () => {
       scoreBadge.textContent = `Skóre: ${score}/${currentIdx}`;
 
       optionsList.innerHTML = q.options.map((opt, idx) => `
-        <button class="btn-option" data-idx="${idx}">${opt}</button>
+        <button class="btn-option" data-idx="${idx}">${formatMarkdown(opt)}</button>
       `).join('');
+
+      if (window.MathJax && typeof window.MathJax.typesetPromise === "function") {
+        window.MathJax.typesetPromise([questionText, optionsList]);
+      }
 
       // Click listenery pro možnosti
       const optionBtns = optionsList.querySelectorAll(".btn-option");
@@ -1614,6 +1648,10 @@ document.addEventListener("DOMContentLoaded", () => {
           feedbackExplanation.innerHTML = formatMarkdown(q.explanation);
           feedbackBox.style.display = "flex";
           nextBtn.style.display = "block";
+
+          if (window.MathJax && typeof window.MathJax.typesetPromise === "function") {
+            window.MathJax.typesetPromise([feedbackExplanation]);
+          }
           
           scoreBadge.textContent = `Skóre: ${score}/${currentIdx + 1}`;
         });
@@ -1685,17 +1723,21 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="accordion-header" style="padding: 12px 16px;">
             <div class="accordion-title-block">
               <span class="acc-bullet" style="color: var(--upv-color); font-weight: bold; margin-right: 8px;">•</span>
-              <h4 style="margin: 0; font-size: 14px;">${t.title}</h4>
+              <h4 style="margin: 0; font-size: 14px;">${formatMarkdown(t.title)}</h4>
             </div>
             <span class="acc-arrow">▼</span>
           </div>
           <div class="accordion-content" style="display: none; padding: 12px 16px; font-size: 13px; line-height: 1.5;">
             <ul style="margin: 0; padding-left: 20px;">
-              ${t.items.map(item => `<li style="margin-bottom: 6px;">${item.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\$(.*?)\$/g, '$1')}</li>`).join('')}
+              ${t.items.map(item => `<li style="margin-bottom: 6px;">${formatMarkdown(item)}</li>`).join('')}
             </ul>
           </div>
         </div>
       `).join('');
+
+      if (window.MathJax && typeof window.MathJax.typesetPromise === "function") {
+        window.MathJax.typesetPromise([theoryContainer]);
+      }
 
       // Přidat click listenery pro akordeon
       const headers = theoryContainer.querySelectorAll(".accordion-header");
@@ -1970,5 +2012,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const urlParams = new URLSearchParams(window.location.search);
   if (urlParams.get('print') === 'true') {
     setTimeout(triggerPrint, 1000);
+  }
+
+  // Spustit MathJax po inicializaci všech modulů
+  if (window.MathJax && typeof window.MathJax.typesetPromise === "function") {
+    window.MathJax.typesetPromise();
   }
 });
