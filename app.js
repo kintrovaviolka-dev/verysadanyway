@@ -109,14 +109,22 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // Kliknutí na ročník
+  const handleGradeClick = (card) => {
+    if (card.classList.contains("locked")) {
+      alert("Tento ročník se připravuje. Nyní jsou k dispozici portály pro 3. a 4. ročník.");
+      return;
+    }
+    const grade = parseInt(card.getAttribute("data-grade"));
+    selectGrade(grade);
+  };
+
   document.querySelectorAll(".grade-card").forEach(card => {
-    card.addEventListener("click", () => {
-      if (card.classList.contains("locked")) {
-        alert("Tento ročník se připravuje. Nyní jsou k dispozici portály pro 3. a 4. ročník.");
-        return;
+    card.addEventListener("click", () => handleGradeClick(card));
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        if (e.key === " ") e.preventDefault();
+        handleGradeClick(card);
       }
-      const grade = parseInt(card.getAttribute("data-grade"));
-      selectGrade(grade);
     });
   });
 
@@ -275,11 +283,19 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // Dynamické navázání click eventů na všechny karty předmětů podle data-subject
+  const handleSubjectClick = (card) => {
+    const subject = card.getAttribute("data-subject");
+    if (subject) {
+      selectSubject(subject);
+    }
+  };
+
   document.querySelectorAll(".subject-card").forEach(card => {
-    card.addEventListener("click", () => {
-      const subject = card.getAttribute("data-subject");
-      if (subject) {
-        selectSubject(subject);
+    card.addEventListener("click", () => handleSubjectClick(card));
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        if (e.key === " ") e.preventDefault();
+        handleSubjectClick(card);
       }
     });
   });
