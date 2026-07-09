@@ -566,7 +566,7 @@
 
       <form id="feedback-form" class="feedback-form">
         <div class="form-group">
-          <label for="feedback-type">Typ zprávy</label>
+          <label for="feedback-type">Typ zprávy <span style="color: #ef4444;" aria-hidden="true">*</span></label>
           <select id="feedback-type" class="select-custom" required>
             <option value="improvement">💡 Návrh na vylepšení</option>
             <option value="tip">📝 Tip nebo trik k předmětu</option>
@@ -575,7 +575,7 @@
         </div>
 
         <div class="form-group">
-          <label for="feedback-subject">Předmět / Okruh</label>
+          <label for="feedback-subject">Předmět / Okruh <span style="color: #ef4444;" aria-hidden="true">*</span></label>
           <select id="feedback-subject" class="select-custom" required>
             <option value="general">Celý portál (Obecné)</option>
             <option value="patfyz">Patofyziologie</option>
@@ -594,7 +594,7 @@
         </div>
 
         <div class="form-group">
-          <label for="feedback-message">Vaše zpráva / tip / trik</label>
+          <label for="feedback-message">Vaše zpráva / tip / trik <span style="color: #ef4444;" aria-hidden="true">*</span></label>
           <textarea id="feedback-message" class="textarea-custom" placeholder="Podělte se o své nápady, tipy na učení nebo chyby, které jste našli..." required maxlength="1500"></textarea>
           <div class="char-count"><span id="feedback-char-count">0</span> / 1500</div>
         </div>
@@ -626,7 +626,7 @@
   <!-- Floating Gemini Chatbot Widget -->
   <div class="gemini-chatbot-container" id="gemini-chatbot-container">
     <!-- Chat Button (FAB) -->
-    <button class="chatbot-fab" id="chatbot-fab" aria-label="Otevřít lékařského asistenta">
+    <button class="chatbot-fab" id="chatbot-fab" aria-expanded="false" aria-controls="chatbot-panel" aria-label="Otevřít lékařského asistenta">
       <span class="fab-icon">💬</span>
       <span class="fab-badge pulse-badge" id="chatbot-badge"></span>
     </button>
@@ -692,7 +692,7 @@
 
       <!-- Input Area -->
       <form class="chatbot-input-area" id="chatbot-input-form">
-        <input type="text" id="chatbot-input" placeholder="Zeptej se na cokoliv..." autocomplete="off" required />
+        <input type="text" id="chatbot-input" placeholder="Zeptej se na cokoliv..." aria-label="Zpráva pro asistenta" autocomplete="off" required />
         <button type="submit" id="chatbot-send-btn" aria-label="Odeslat zprávu">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <line x1="22" y1="2" x2="11" y2="13"></line>
