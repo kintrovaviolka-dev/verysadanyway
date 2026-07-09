@@ -14,3 +14,10 @@
 ## 2024-05-19 - Discoverable Disabled States for Custom Elements
 **Learning:** When using custom interactive elements (like `div` cards) that act as buttons, adding `aria-disabled="true"` instead of completely removing them from tab order or using `disabled` allows screen reader users to discover the element and hear the explanation for its locked state. Also `aria-hidden="true"` should be added to emoji/icons inside buttons to avoid screen readers reading them aloud confusingly.
 **Action:** When creating custom button-like elements that are locked or disabled but should still be discoverable (like level selectors), always use `role="button"`, `tabindex="0"`, and `aria-disabled="true"`. Make sure to attach keyboard event listeners for Enter and Space (with `e.preventDefault()`).
+## 2024-11-20 - Redundant Required Asterisk Annouoncements
+**Learning:** Adding visual 'required' asterisks to form labels is great for sighted users, but if the associated input is already marked with `required`, screen readers will announce "required asterisk required", which is confusing.
+**Action:** When adding visual 'required' indicators (e.g., asterisks) to form fields, explicitly hide them from screen readers using `aria-hidden="true"`.
+
+## 2024-11-20 - Dynamic ARIA States for Expandable Components
+**Learning:** Found an expandable chatbot FAB that lacked ARIA attributes reflecting its current state, making it difficult for screen reader users to understand if the panel was open or closed.
+**Action:** For interactive toggle elements like a FAB (Floating Action Button) or expandable panels, dynamically update the `aria-expanded` attribute via JavaScript (and set `aria-controls`) to accurately reflect the open/closed state for screen readers.

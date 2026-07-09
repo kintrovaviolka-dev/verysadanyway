@@ -852,6 +852,7 @@ document.addEventListener("DOMContentLoaded", () => {
   chatbotFab.addEventListener("click", () => {
     const isOpen = chatbotPanel.classList.toggle("open");
     chatbotFab.classList.toggle("open");
+    chatbotFab.setAttribute("aria-expanded", isOpen);
     if (isOpen) {
       chatbotBadge.style.display = "none";
       chatbotInput.focus();
@@ -862,6 +863,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("chatbot-close-btn").addEventListener("click", () => {
     chatbotPanel.classList.remove("open");
     chatbotFab.classList.remove("open");
+    chatbotFab.setAttribute("aria-expanded", "false");
   });
 
   // Settings Panel Toggle
