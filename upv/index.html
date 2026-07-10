@@ -76,6 +76,9 @@
         <button class="nav-item" data-target="modul-weaning">
           <span class="nav-icon">⏳</span> Weaning & Extubace
         </button>
+        <button class="nav-item" data-target="modul-alarmy">
+          <span class="nav-icon">🚨</span> JIP Alarmový trenažér
+        </button>
         
         <div class="nav-section-title">Ověření a zdroje</div>
         <button class="nav-item nav-quiz-btn" data-target="modul-kviz">
@@ -818,6 +821,185 @@
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+
+        <!-- ================= MODUL 10: ALARMOVÝ TRENAŽÉR JIP ================= -->
+        <section id="modul-alarmy" class="module-tab">
+          <div class="module-header">
+            <h1>Klinický trenažér – Řešení ventilačních alarmů na JIP</h1>
+            <p class="subtitle">Trénujte zvládání kritických krizových stavů u lůžka ventilovaného pacienta pod časovým tlakem. Postupujte podle protokolu D.O.P.E. a rozhodněte o správné intervenci.</p>
+          </div>
+
+          <div class="alarm-trainer-container">
+            <!-- Setup screen to select scenario -->
+            <div class="alarm-setup-screen" id="alarm-setup-screen">
+              <h3>Vyberte klinický scénář pro spuštění trenažéru:</h3>
+              <div class="scenarios-grid">
+                <div class="scenario-select-card" data-scenario="1">
+                  <div class="scenario-icon">💨</div>
+                  <h4>Případ A: Náhlý nárůst odporu v dýchacích cestách</h4>
+                  <p>Pacient po břišní operaci, tlumený, s alarmem vysokého tlaku na ventilátoru.</p>
+                  <button class="btn btn-primary btn-sm btn-start-scenario">Spustit simulaci</button>
+                </div>
+                <div class="scenario-select-card" data-scenario="2">
+                  <div class="scenario-icon">⚠️</div>
+                  <h4>Případ B: Rychlý propad saturace a šokový stav</h4>
+                  <p>Pacient na UPV po úrazu hrudníku. Náhlý rozvoj těžké hypoxémie a hypotenze.</p>
+                  <button class="btn btn-primary btn-sm btn-start-scenario">Spustit simulaci</button>
+                </div>
+                <div class="scenario-select-card" data-scenario="3">
+                  <div class="scenario-icon">🔌</div>
+                  <h4>Případ C: Pokles tlaků a objemů na nulu</h4>
+                  <p>Pacient v bezvědomí, z ničeho nic dochází k přerušení ventilace a poklesu dechového objemu.</p>
+                  <button class="btn btn-primary btn-sm btn-start-scenario">Spustit simulaci</button>
+                </div>
+                <div class="scenario-select-card" data-scenario="4">
+                  <div class="scenario-icon">🌬️</div>
+                  <h4>Případ D: Intenzivní pískoty a prodloužený výdech</h4>
+                  <p>Pacient s anamnézou astmatu na řízené ventilaci. Postupný vzestup PIP a protahování výdechové fáze.</p>
+                  <button class="btn btn-primary btn-sm btn-start-scenario">Spustit simulaci</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Active simulation layout (initially hidden) -->
+            <div class="alarm-active-simulation" id="alarm-active-simulation" style="display: none;">
+              <div class="alarm-trainer-layout">
+                
+                <!-- Left: Virtual Monitor Panel -->
+                <div class="alarm-monitor-panel" id="alarm-monitor-box">
+                  <div class="alarm-banner" id="alarm-banner">
+                    <span id="alarm-banner-text">MĚŘENÍ STABILNÍ</span>
+                  </div>
+                  
+                  <div class="alarm-timer-row">
+                    <div class="timer-title">STABILITA PACIENTA</div>
+                    <div class="timer-countdown" id="alarm-timer-countdown">45s</div>
+                  </div>
+                  <div class="alarm-progress-bar-container">
+                    <div class="alarm-progress-bar-fill" id="alarm-timer-fill" style="width: 100%;"></div>
+                  </div>
+
+                  <div class="alarm-monitor-grid">
+                    <div class="monitor-card card-pressure">
+                      <span class="label">PIP (Tlak)</span>
+                      <span class="val" id="monitor-pip">24</span>
+                      <span class="unit">cmH₂O</span>
+                    </div>
+                    <div class="monitor-card card-peep">
+                      <span class="label">PEEP</span>
+                      <span class="val" id="monitor-peep">8</span>
+                      <span class="unit">cmH₂O</span>
+                    </div>
+                    <div class="monitor-card card-vt">
+                      <span class="label">Dech. objem (V_T)</span>
+                      <span class="val" id="monitor-vt">450</span>
+                      <span class="unit">ml</span>
+                    </div>
+                    <div class="monitor-card card-rr">
+                      <span class="label">Frekvence (f)</span>
+                      <span class="val" id="monitor-rr">14</span>
+                      <span class="unit">/min</span>
+                    </div>
+                    <div class="monitor-card card-mv">
+                      <span class="label">Minutová vent. (MV)</span>
+                      <span class="val" id="monitor-mv">6.3</span>
+                      <span class="unit">L/min</span>
+                    </div>
+                    <div class="monitor-card card-spo2">
+                      <span class="label">Saturace (SpO₂)</span>
+                      <span class="val" id="monitor-spo2">98</span>
+                      <span class="unit">%</span>
+                    </div>
+                    <div class="monitor-card card-hr">
+                      <span class="label">Akce srdeční (HR)</span>
+                      <span class="val" id="monitor-hr">75</span>
+                      <span class="unit">/min</span>
+                    </div>
+                    <div class="monitor-card card-bp">
+                      <span class="label">Krevní tlak (BP)</span>
+                      <span class="val" id="monitor-bp">120/80</span>
+                      <span class="unit">mmHg</span>
+                    </div>
+                  </div>
+
+                  <div class="monitor-controls">
+                    <button class="btn btn-secondary btn-sm" id="btn-toggle-alarm-sound">
+                      🔊 Povolit beeper
+                    </button>
+                    <button class="btn btn-danger btn-sm" id="btn-abort-simulation">
+                      Ukončit trenažér
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Right: Diagnostics & Actions Panel -->
+                <div class="alarm-controls-panel">
+                  <div class="control-section-card">
+                    <h3>🔍 KROK 1: Klinické vyšetření a diagnostika</h3>
+                    <div class="actions-grid-three">
+                      <button class="btn btn-secondary btn-diag" id="btn-diag-stethoscope">
+                        Stetoskop (Auskultace)
+                      </button>
+                      <button class="btn btn-secondary btn-diag" id="btn-diag-ambubag">
+                        Odpojit na Ambubag
+                      </button>
+                      <button class="btn btn-secondary btn-diag" id="btn-diag-circuit">
+                        Zkontrolovat okruh
+                      </button>
+                    </div>
+                    <div class="diag-result-box" id="diag-result-box" style="display: none;">
+                      <h4 id="diag-result-title">Nález vyšetření:</h4>
+                      <p id="diag-result-text">Klikněte na libovolnou metodu vyšetření výše.</p>
+                    </div>
+                  </div>
+
+                  <div class="control-section-card">
+                    <h3>⚡ KROK 2: Urgentní klinická intervence</h3>
+                    <div class="actions-grid-four">
+                      <button class="btn btn-primary btn-action-emergency" data-action="suction">
+                        Odsátí z ETK
+                      </button>
+                      <button class="btn btn-primary btn-action-emergency" data-action="puncture">
+                        Jehlová dekomprese (PNO)
+                      </button>
+                      <button class="btn btn-primary btn-action-emergency" data-action="reconnect">
+                        Zapojit zpět okruh
+                      </button>
+                      <button class="btn btn-primary btn-action-emergency" data-action="bronchodilator">
+                        Bronchodilatace + Sedace
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="control-section-card">
+                    <h3>📝 Klinický log záchrany</h3>
+                    <div class="alarm-log-console" id="alarm-log-console">
+                      <div class="log-row"><span class="log-time">[00:00]</span> Systém: Simulace spuštěna. Zjistěte příčinu alarmu!</div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Result screen (initially hidden) -->
+            <div class="alarm-result-screen" id="alarm-result-screen" style="display: none;">
+              <h2 id="alarm-result-status-title">ZÁCHRANA PACIENTA ÚSPĚŠNÁ</h2>
+              <div class="alarm-result-content">
+                <div class="alarm-result-summary" id="alarm-result-summary-text">
+                  Detailní rozbor případu...
+                </div>
+                <div class="rationales-box" id="alarm-result-rationale">
+                  Proč byl tento postup správný...
+                </div>
+              </div>
+              <button class="btn btn-primary" id="btn-restart-alarm-trainer" style="margin-top: 20px;">
+                Zpět na výběr případů
+              </button>
+            </div>
+
           </div>
         </section>
 

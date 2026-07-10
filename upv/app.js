@@ -2008,6 +2008,356 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initWeaning();
 
+  // --- MODUL 10: INICIALIZACE ALARMOVÉHO TRENAŽÉRU ---
+  const initAlarmTrainer = () => {
+    const setupScreen = document.getElementById("alarm-setup-screen");
+    const activeSim = document.getElementById("alarm-active-simulation");
+    const resultScreen = document.getElementById("alarm-result-screen");
+    const logConsole = document.getElementById("alarm-log-console");
+    const diagBox = document.getElementById("diag-result-box");
+    const diagText = document.getElementById("diag-result-text");
+    const btnToggleSound = document.getElementById("btn-toggle-alarm-sound");
+    const btnAbort = document.getElementById("btn-abort-simulation");
+    const btnRestart = document.getElementById("btn-restart-alarm-trainer");
+
+    if (!setupScreen || !activeSim || !resultScreen) return;
+
+    let audioCtx = null;
+    let alarmIntervalId = null;
+    let isMuted = true;
+    let currentScenario = null;
+    let timeRemaining = 45;
+    let secondsElapsed = 0;
+    let simIntervalId = null;
+    let activeVitals = {};
+
+    const playBeep = (freq, durationMs) => {
+      if (isMuted) return;
+      try {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+        const osc = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+        osc.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gainNode.gain.setValueAtTime(0.15, audioCtx.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + durationMs / 1000);
+        osc.start(audioCtx.currentTime);
+        osc.stop(audioCtx.currentTime + durationMs / 1000);
+      } catch (e) {
+        console.error("Audio error:", e);
+      }
+    };
+
+    const startAlarmSound = () => {
+      stopAlarmSound();
+      if (isMuted) return;
+      const alarmLoop = () => {
+        playBeep(880, 150);
+        setTimeout(() => playBeep(880, 150), 250);
+        setTimeout(() => playBeep(880, 150), 500);
+      };
+      alarmLoop();
+      alarmIntervalId = setInterval(alarmLoop, 2500);
+    };
+
+    const stopAlarmSound = () => {
+      if (alarmIntervalId) {
+        clearInterval(alarmIntervalId);
+        alarmIntervalId = null;
+      }
+    };
+
+    const addLogEntry = (text, className = "") => {
+      const time = new Date();
+      const formatTime = (t) => t < 10 ? "0" + t : t;
+      const stamp = `${formatTime(time.getHours())}:${formatTime(time.getMinutes())}:${formatTime(time.getSeconds())}`;
+      const div = document.createElement("div");
+      div.className = "log-row";
+      div.innerHTML = `<span class="log-time">[${stamp}]</span> <span class="${className}">${text}</span>`;
+      logConsole.appendChild(div);
+      logConsole.scrollTop = logConsole.scrollHeight;
+    };
+
+    const getActionLabel = (action) => {
+      switch(action) {
+        case "suction": return "Odsátí z ETK";
+        case "puncture": return "Jehlová dekomprese (PNO)";
+        case "reconnect": return "Znovuzapojení okruhu";
+        case "bronchodilator": return "Podání bronchodilatancií a sedativ";
+        default: return action;
+      }
+    };
+
+    const updateMonitorUI = () => {
+      document.getElementById("monitor-pip").textContent = activeVitals.pip;
+      document.getElementById("monitor-peep").textContent = activeVitals.peep;
+      document.getElementById("monitor-vt").textContent = activeVitals.vt;
+      document.getElementById("monitor-rr").textContent = activeVitals.rr;
+      document.getElementById("monitor-mv").textContent = activeVitals.mv;
+      document.getElementById("monitor-spo2").textContent = activeVitals.spo2;
+      document.getElementById("monitor-hr").textContent = activeVitals.hr;
+      document.getElementById("monitor-bp").textContent = activeVitals.bp;
+
+      // Reset danger classes
+      const cards = document.querySelectorAll(".alarm-monitor-grid .monitor-card");
+      cards.forEach(c => c.classList.remove("danger-value"));
+
+      if (currentScenario.dangerFields.includes("pip") && activeVitals.pip !== 24 && activeVitals.pip !== 23 && activeVitals.pip !== 26 && activeVitals.pip !== 22) {
+        document.querySelector(".card-pressure").classList.add("danger-value");
+      }
+      if (currentScenario.dangerFields.includes("spo2") && activeVitals.spo2 < 93) {
+        document.querySelector(".card-spo2").classList.add("danger-value");
+      }
+      if (currentScenario.dangerFields.includes("bp") && (activeVitals.bp === "80/45" || activeVitals.bp.startsWith("70/") || activeVitals.bp.startsWith("65/") || activeVitals.bp.startsWith("50/"))) {
+        document.querySelector(".card-bp").classList.add("danger-value");
+      }
+      if (currentScenario.dangerFields.includes("vt") && activeVitals.vt === 0) {
+        document.querySelector(".card-vt").classList.add("danger-value");
+      }
+      if (currentScenario.dangerFields.includes("mv") && activeVitals.mv < 2.0) {
+        document.querySelector(".card-mv").classList.add("danger-value");
+      }
+    };
+
+    const startTimer = () => {
+      if (simIntervalId) clearInterval(simIntervalId);
+      secondsElapsed = 0;
+      timeRemaining = 45;
+      document.getElementById("alarm-timer-countdown").textContent = `${timeRemaining}s`;
+      document.getElementById("alarm-timer-fill").style.width = "100%";
+
+      simIntervalId = setInterval(() => {
+        timeRemaining--;
+        secondsElapsed++;
+        
+        document.getElementById("alarm-timer-countdown").textContent = `${timeRemaining}s`;
+        const percentage = (timeRemaining / 45) * 100;
+        document.getElementById("alarm-timer-fill").style.width = `${percentage}%`;
+
+        // Progress vitals
+        if (currentScenario.vitalsProgression && currentScenario.vitalsProgression.secondsPassed) {
+          const progression = currentScenario.vitalsProgression.secondsPassed.find(p => p.sec === secondsElapsed);
+          if (progression) {
+            if (progression.spo2 !== undefined) activeVitals.spo2 = progression.spo2;
+            if (progression.hr !== undefined) activeVitals.hr = progression.hr;
+            if (progression.bp !== undefined) activeVitals.bp = progression.bp;
+            
+            addLogEntry(`Pozor: Stav pacienta kolísá! SpO₂: ${activeVitals.spo2}%, HR: ${activeVitals.hr}/min.`, "text-danger");
+            updateMonitorUI();
+          }
+        }
+
+        if (timeRemaining <= 0) {
+          clearInterval(simIntervalId);
+          finishSimulation(false);
+        }
+      }, 1000);
+    };
+
+    const finishSimulation = (success) => {
+      clearInterval(simIntervalId);
+      stopAlarmSound();
+      
+      activeSim.style.display = "none";
+      setupScreen.style.display = "none";
+      resultScreen.style.display = "block";
+
+      const resultTitle = document.getElementById("alarm-result-status-title");
+      const resultSummaryText = document.getElementById("alarm-result-summary-text");
+      const resultRationale = document.getElementById("alarm-result-rationale");
+
+      if (success) {
+        resultScreen.className = "alarm-result-screen alarm-success";
+        resultTitle.textContent = "ZÁCHRANA PACIENTA ÚSPĚŠNÁ! 🎉";
+        resultSummaryText.innerHTML = formatMarkdown(currentScenario.results.success.summary);
+        resultRationale.innerHTML = formatMarkdown(currentScenario.results.success.rationale);
+      } else {
+        resultScreen.className = "alarm-result-screen alarm-fail";
+        resultTitle.textContent = "KLINICKÝ KOLAPS PACIENTA 🚨";
+        resultSummaryText.innerHTML = formatMarkdown(currentScenario.results.fail.summary);
+        resultRationale.innerHTML = formatMarkdown(currentScenario.results.fail.rationale);
+      }
+
+      if (window.MathJax && typeof window.MathJax.typesetPromise === "function") {
+        window.MathJax.typesetPromise([resultScreen]);
+      }
+    };
+
+    const handleAction = (actionName) => {
+      if (!currentScenario) return;
+      
+      addLogEntry(`Provedena intervence: ${getActionLabel(actionName)}...`);
+      
+      if (actionName === currentScenario.correctAction) {
+        addLogEntry("Zásah byl úspěšný! Stav pacienta se okamžitě stabilizuje.", "text-success");
+        
+        if (actionName === "suction") {
+          activeVitals.pip = 24;
+          activeVitals.spo2 = 98;
+          activeVitals.hr = 75;
+          activeVitals.bp = "120/80";
+        } else if (actionName === "puncture") {
+          activeVitals.pip = 23;
+          activeVitals.spo2 = 97;
+          activeVitals.hr = 88;
+          activeVitals.bp = "115/75";
+        } else if (actionName === "reconnect") {
+          activeVitals.pip = 22;
+          activeVitals.peep = 8;
+          activeVitals.vt = 450;
+          activeVitals.rr = 14;
+          activeVitals.mv = 6.3;
+          activeVitals.spo2 = 98;
+        } else if (actionName === "bronchodilator") {
+          activeVitals.pip = 26;
+          activeVitals.spo2 = 98;
+          activeVitals.hr = 88;
+          activeVitals.bp = "125/80";
+        }
+        
+        updateMonitorUI();
+        document.getElementById("alarm-banner-text").textContent = "MĚŘENÍ STABILNÍ";
+        document.getElementById("alarm-monitor-box").classList.remove("active-alarm");
+        
+        setTimeout(() => {
+          finishSimulation(true);
+        }, 2200);
+      } else {
+        addLogEntry("Zvolený úkon nezabírá! Stav pacienta se naopak kriticky horší.", "text-danger");
+        timeRemaining = Math.max(1, timeRemaining - 10);
+        document.getElementById("alarm-timer-countdown").textContent = `${timeRemaining}s`;
+        
+        activeVitals.hr = Math.min(150, activeVitals.hr + 10);
+        if (activeVitals.spo2 > 70) activeVitals.spo2 -= 4;
+        updateMonitorUI();
+      }
+    };
+
+    const startScenario = (scenarioId) => {
+      const scenario = data.alarmTrainer.scenarios.find(s => s.id === parseInt(scenarioId));
+      if (!scenario) return;
+
+      currentScenario = scenario;
+      activeVitals = { ...scenario.initialVitals };
+
+      // Switch screens
+      setupScreen.style.display = "none";
+      resultScreen.style.display = "none";
+      activeSim.style.display = "block";
+      
+      // Reset diagnostics UI
+      diagBox.style.display = "none";
+      diagText.textContent = "Klikněte na libovolnou metodu vyšetření výše.";
+
+      // Clear log console
+      logConsole.innerHTML = '<div class="log-row"><span class="log-time">[00:00:00]</span> Systém: Simulace spuštěna. Zjistěte příčinu alarmu!</div>';
+
+      // Set vitals and banner
+      document.getElementById("alarm-banner-text").textContent = scenario.alarmName;
+      document.getElementById("alarm-monitor-box").classList.add("active-alarm");
+
+      updateMonitorUI();
+      startTimer();
+      
+      // sound control
+      if (!isMuted) {
+        startAlarmSound();
+      }
+
+      addLogEntry(`Spuštěn scénář: ${scenario.title}. Pacient vykazuje alarmové hodnoty!`, "text-danger");
+    };
+
+    // Button event listeners
+    const scenarioCards = setupScreen.querySelectorAll(".scenario-select-card");
+    scenarioCards.forEach(card => {
+      const startBtn = card.querySelector(".btn-start-scenario");
+      startBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const id = card.getAttribute("data-scenario");
+        startScenario(id);
+      });
+    });
+
+    // Diagnostická tlačítka
+    document.getElementById("btn-diag-stethoscope").addEventListener("click", () => {
+      if (!currentScenario) return;
+      diagBox.style.display = "block";
+      diagText.innerHTML = formatMarkdown(currentScenario.diagnostics.stethoscope);
+      addLogEntry("Auskultace stetoskopem dokončena.");
+      if (window.MathJax && typeof window.MathJax.typesetPromise === "function") {
+        window.MathJax.typesetPromise([diagBox]);
+      }
+    });
+
+    document.getElementById("btn-diag-ambubag").addEventListener("click", () => {
+      if (!currentScenario) return;
+      diagBox.style.display = "block";
+      diagText.innerHTML = formatMarkdown(currentScenario.diagnostics.ambubag);
+      addLogEntry("Zkouška odporu vaku (Ambubag) dokončena.");
+      if (window.MathJax && typeof window.MathJax.typesetPromise === "function") {
+        window.MathJax.typesetPromise([diagBox]);
+      }
+    });
+
+    document.getElementById("btn-diag-circuit").addEventListener("click", () => {
+      if (!currentScenario) return;
+      diagBox.style.display = "block";
+      diagText.innerHTML = formatMarkdown(currentScenario.diagnostics.circuit);
+      addLogEntry("Kontrola okruhu a hadic dokončena.");
+      if (window.MathJax && typeof window.MathJax.typesetPromise === "function") {
+        window.MathJax.typesetPromise([diagBox]);
+      }
+    });
+
+    // Terapeutická tlačítka
+    const actionBtns = activeSim.querySelectorAll(".btn-action-emergency");
+    actionBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const action = btn.getAttribute("data-action");
+        handleAction(action);
+      });
+    });
+
+    // Mute sound toggle
+    btnToggleSound.addEventListener("click", () => {
+      isMuted = !isMuted;
+      if (isMuted) {
+        btnToggleSound.textContent = "🔊 Povolit beeper";
+        btnToggleSound.classList.remove("btn-primary");
+        btnToggleSound.classList.add("btn-secondary");
+        stopAlarmSound();
+      } else {
+        btnToggleSound.textContent = "🔇 Ztlumit beeper";
+        btnToggleSound.classList.remove("btn-secondary");
+        btnToggleSound.classList.add("btn-primary");
+        startAlarmSound();
+      }
+    });
+
+    btnAbort.addEventListener("click", () => {
+      clearInterval(simIntervalId);
+      stopAlarmSound();
+      activeSim.style.display = "none";
+      resultScreen.style.display = "none";
+      setupScreen.style.display = "block";
+    });
+
+    btnRestart.addEventListener("click", () => {
+      resultScreen.style.display = "none";
+      activeSim.style.display = "none";
+      setupScreen.style.display = "block";
+    });
+  };
+
+  initAlarmTrainer();
+
   // --- AUTOMATICKÉ SPOUŠTĚNÍ TISKU Z QUERY PARAMETRU ---
   const urlParams = new URLSearchParams(window.location.search);
   if (urlParams.get('print') === 'true') {

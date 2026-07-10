@@ -2163,4 +2163,364 @@ canvas {
   margin-bottom: 20px;
 }
 
+/* ==========================================================================
+   MODUL 10: ALARMOVÝ TRENAŽÉR JIP (Simulátor alarmů)
+   ========================================================================== */
+.alarm-trainer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.scenarios-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 14px;
+}
+
+@media (max-width: 768px) {
+  .scenarios-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.scenario-select-card {
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.3s ease;
+}
+
+.scenario-select-card:hover {
+  border-color: var(--upv-color);
+  background-color: rgba(11, 95, 165, 0.04);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.scenario-icon {
+  font-size: 32px;
+}
+
+.scenario-select-card h4 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.scenario-select-card p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.alarm-trainer-layout {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 992px) {
+  .alarm-trainer-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.alarm-monitor-panel {
+  background-color: #0d0f12;
+  border: 2px solid #2d3139;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Pulsující alarmový stav */
+.alarm-monitor-panel.active-alarm {
+  border-color: #ef4444;
+  animation: pulse-red-border 1.5s infinite alternate;
+}
+
+@keyframes pulse-red-border {
+  0% {
+    box-shadow: 0 0 5px rgba(239, 68, 68, 0.2);
+    border-color: rgba(239, 68, 68, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.6);
+    border-color: rgba(239, 68, 68, 1);
+  }
+}
+
+.alarm-banner {
+  background-color: #10b981;
+  color: #000000;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 14px;
+  padding: 8px;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+
+.alarm-monitor-panel.active-alarm .alarm-banner {
+  background-color: #ef4444;
+  color: #ffffff;
+  animation: flash-red-bg 0.8s infinite alternate;
+}
+
+@keyframes flash-red-bg {
+  0% { background-color: #7f1d1d; }
+  100% { background-color: #ef4444; }
+}
+
+.alarm-timer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+}
+
+.timer-title {
+  font-size: 11px;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.timer-countdown {
+  font-size: 20px;
+  font-weight: 800;
+  color: #ef4444;
+}
+
+.alarm-progress-bar-container {
+  width: 100%;
+  height: 6px;
+  background-color: rgba(255,255,255,0.06);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.alarm-progress-bar-fill {
+  height: 100%;
+  background-color: #ef4444;
+  transition: width 1s linear;
+}
+
+.alarm-monitor-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.monitor-card {
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid #23272f;
+  border-radius: 6px;
+  padding: 12px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  position: relative;
+}
+
+.monitor-card .label {
+  font-size: 9px;
+  color: #8c9ba5;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.monitor-card .val {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.monitor-card .unit {
+  font-size: 10px;
+  color: #8c9ba5;
+  margin-top: 2px;
+}
+
+/* Speciální barvy pro alarmující hodnoty */
+.monitor-card.danger-value .val {
+  color: #ef4444 !important;
+  animation: pulse-danger-text 1s infinite alternate;
+}
+
+@keyframes pulse-danger-text {
+  0% { opacity: 0.8; }
+  100% { opacity: 1; }
+}
+
+.monitor-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.monitor-controls button {
+  flex: 1;
+}
+
+.alarm-controls-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.control-section-card {
+  background-color: rgba(255, 255, 255, 0.01);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.control-section-card h3 {
+  margin: 0 0 14px 0;
+  font-family: var(--font-heading);
+  font-size: 13px;
+  color: var(--text-primary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 8px;
+}
+
+.actions-grid-three {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+@media (max-width: 600px) {
+  .actions-grid-three {
+    grid-template-columns: 1fr;
+  }
+}
+
+.actions-grid-four {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+@media (max-width: 480px) {
+  .actions-grid-four {
+    grid-template-columns: 1fr;
+  }
+}
+
+.diag-result-box {
+  background-color: rgba(11, 95, 165, 0.04);
+  border: 1px dashed var(--upv-color);
+  border-radius: 6px;
+  padding: 12px;
+  margin-top: 14px;
+  animation: fade-in 0.3s ease;
+}
+
+.diag-result-box h4 {
+  margin: 0 0 6px 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--upv-color);
+  font-family: var(--font-heading);
+}
+
+.diag-result-box p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.alarm-log-console {
+  background-color: #07080a;
+  border: 1px solid #1f232b;
+  border-radius: 6px;
+  padding: 10px;
+  height: 110px;
+  overflow-y: auto;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.log-row {
+  margin: 0;
+  line-height: 1.4;
+  border-bottom: 1px dashed rgba(255,255,255,0.02);
+  padding-bottom: 4px;
+}
+
+.log-row .log-time {
+  color: var(--upv-color);
+  font-weight: 600;
+  margin-right: 6px;
+}
+
+.alarm-result-screen {
+  background-color: rgba(255, 255, 255, 0.01);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 24px;
+  text-align: center;
+  animation: fade-in 0.5s ease;
+}
+
+.alarm-result-screen h2 {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+
+.alarm-result-screen.alarm-success h2 {
+  color: #10b981;
+}
+
+.alarm-result-screen.alarm-fail h2 {
+  color: #ef4444;
+}
+
+.alarm-result-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 750px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.alarm-result-summary {
+  font-size: 14px;
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.alarm-result-screen .rationales-box {
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
 

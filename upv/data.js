@@ -947,6 +947,180 @@ const UPV_DATA = {
         exit_recommendation: "Pacient splnil kritéria SBT pro chronického CHOPN pacienta. RSBI je 67 (< 105), pH 7.35 je stabilní. Extubaci lze zkusit, ideálně s okamžitým přechodem na neinvazivní podporu (NIV) nebo HFNC jako prevenci reintubace."
       }
     ]
+  },
+
+  // --- MODUL 10: ALARMOVÝ TRENAŽÉR JIP ---
+  alarmTrainer: {
+    scenarios: [
+      {
+        id: 1,
+        title: "Případ A: Náhlý nárůst odporu v dýchacích cestách",
+        description: "Pacient po břišní operaci, tlumený, s alarmem vysokého tlaku na ventilátoru.",
+        initialVitals: {
+          pip: 42,
+          peep: 8,
+          vt: 450,
+          rr: 14,
+          mv: 6.3,
+          spo2: 97,
+          hr: 82,
+          bp: "135/85"
+        },
+        alarmName: "🚨 ALARM: VYSOKÝ PIP (Špičkový tlak > 40 cmH₂O)",
+        dangerFields: ["pip"],
+        vitalsProgression: {
+          secondsPassed: [
+            { sec: 15, spo2: 95, hr: 88, bp: "140/90" },
+            { sec: 30, spo2: 91, hr: 95, bp: "145/95" },
+            { sec: 40, spo2: 86, hr: 105, bp: "150/100" }
+          ]
+        },
+        diagnostics: {
+          stethoscope: "Oboustranně jsou slyšitelné hrubé, vlhké chropoty. Výrazné oslabení dýchání bilaterálně.",
+          ambubag: "Ruční ventilace (baggování) přes Ambubag klade **vysoký odpor**. Cítíte značnou tuhost při stlačení vaku, což ukazuje na mechanickou překážku v dýchacích cestách pacienta.",
+          circuit: "Okruh pacienta je kompletně zapojený, hadice nejsou zalomené ani odpojené. Voda v kondenzačních nádobkách je v normě."
+        },
+        correctAction: "suction",
+        results: {
+          success: {
+            title: "ZÁCHRANA PACIENTA ÚSPĚŠNÁ",
+            summary: "Po odsátí z endotracheální kanyly (ETK) došlo k uvolnění velkého množství hustého sputa (hlenové zátky). Špičkový tlak (PIP) okamžitě klesl ze 42 na 24 cmH₂O, saturace SpO₂ stoupla na 98 % a srdeční akce se zklidnila.",
+            rationale: "<strong>Klinický rozbor:</strong> U tlumených pacientů na JIP bez dostatečné toalety dýchacích cest (odsávání, ohřívání a zvlhčování) dochází k zahuštění sekretu a ucpání ETK (hlenová zátka). To vede k náhlému zvýšení odporu dýchacích cest, nárůstu PIP a hypoventilaci. Správným krokem je odsátí z ETK. Odpojení na Ambubag sice potvrdí, že problém je v pacientovi (vysoký odpor vaku), ale samotný problém nevyřeší. Jehlová dekomprese by byla chybou a vystavila by pacienta riziku iatrogenního PNO."
+          },
+          fail: {
+            title: "KLINICKÝ KOLAPS PACIENTA",
+            summary: "Pacient byl vystaven dlouhodobé obstrukci dýchacích cest. Kvůli váhání či nesprávnému postupu došlo k těžké hypoxii (SpO₂ < 70 %), bradykardii a následné zástavě oběhu.",
+            rationale: "Při alarmu vysokého PIP je nutné rychle jednat podle D.O.P.E. Ucpání hlenem (Obstruction) je jednou z nejčastějších příčin, kterou lze okamžitě vyřešit odsátím z ETK."
+          }
+        }
+      },
+      {
+        id: 2,
+        title: "Případ B: Rychlý propad saturace a šokový stav",
+        description: "Pacient na UPV po úrazu hrudníku. Náhlý rozvoj těžké hypoxémie a hypotenze.",
+        initialVitals: {
+          pip: 46,
+          peep: 8,
+          vt: 350,
+          rr: 16,
+          mv: 5.6,
+          spo2: 82,
+          hr: 118,
+          bp: "80/45"
+        },
+        alarmName: "🚨 ALARM: VYSOKÝ PIP + TĚŽKÁ HYPOXIE + HYPOTENZE",
+        dangerFields: ["pip", "spo2", "bp"],
+        vitalsProgression: {
+          secondsPassed: [
+            { sec: 10, spo2: 78, hr: 125, bp: "70/40" },
+            { sec: 20, spo2: 72, hr: 132, bp: "65/35" },
+            { sec: 30, spo2: 60, hr: 45, bp: "50/25" }
+          ]
+        },
+        diagnostics: {
+          stethoscope: "Vpravo je dýchání **zcela vymizelé**! Vlevo slyšitelné čisté vezikulární dýchání. Hrudník se vpravo zdá mírně vyklenutý.",
+          ambubag: "Ruční ventilace vakem je **extrémně obtížná a tuhá**. Tlak v dýchacích cestách neklesá a vak lze stlačit jen s velkým úsilím.",
+          circuit: "Okruh je v pořádku. Všechny spoje drží, nikde nic nesyčí ani neuchází."
+        },
+        correctAction: "puncture",
+        results: {
+          success: {
+            title: "ZÁCHRANA PACIENTA ÚSPĚŠNÁ",
+            summary: "Provedena okamžitá jehlová dekomprese (punkce) tenzního pneumotoraxu (PNO) vpravo (ve 2. mezižeberním prostoru v medioklavikulární čáře). Z jehly unikl vzduch pod přetlakem, tlak PIP poklesl na 23 cmH₂O, saturace SpO₂ stoupla na 97 % a krevní tlak se stabilizoval na 115/75 mmHg.",
+            rationale: "<strong>Klinický rozbor:</strong> Tenzní pneumotorax (PNO) je život ohrožující stav, kdy vzduch uniká do pleurální dutiny a nemůže ven. Dochází ke stlačení plíce, přetlačení mediastina na zdravou stranu a kompresi velkých žil, což vede k obstrukčnímu šoku (hypotenzi) a hypoxii. Odsátí z ETK nebo rekonexe okruhu jsou bez efektu a ztrácí drahocenný čas. Jedinou správnou urgentní akcí je uvolnění přetlaku jehlovou dekompresí."
+          },
+          fail: {
+            title: "KLINICKÝ KOLAPS PACIENTA",
+            summary: "V důsledku tenzního přetlaku v hrudníku a útlaku velkých žil došlo k rozvoji elektromechanické disociace (PEA) a srdeční zástavě.",
+            rationale: "Tenzní PNO vyžaduje okamžitou punkci. Každá sekunda prodlení prohlubuje oběhové selhání kvůli zamezení žilního návratu k srdci."
+          }
+        }
+      },
+      {
+        id: 3,
+        title: "Případ C: Pokles tlaků a objemů na nulu",
+        description: "Pacient v bezvědomí, z ničeho nic dochází k přerušení ventilace a poklesu dechového objemu.",
+        initialVitals: {
+          pip: 4,
+          peep: 0,
+          vt: 0,
+          rr: 0,
+          mv: 0.0,
+          spo2: 98,
+          hr: 70,
+          bp: "120/80"
+        },
+        alarmName: "🚨 ALARM: APNOE / NÍZKÁ MINUTOVÁ VENTILACE",
+        dangerFields: ["pip", "vt", "mv"],
+        vitalsProgression: {
+          secondsPassed: [
+            { sec: 15, spo2: 95, hr: 80, bp: "125/82" },
+            { sec: 30, spo2: 89, hr: 96, bp: "135/88" },
+            { sec: 45, spo2: 78, hr: 110, bp: "140/90" }
+          ]
+        },
+        diagnostics: {
+          stethoscope: "Nad plícemi je **ticho bilat**. Neslyšíte žádný proud vzduchu ani dechové šelesty. Vzduch však syčí kdesi v okolí lůžka.",
+          ambubag: "Po odpojení pacienta a napojení na Ambubag je stlačování vaku **zcela volné a bez odporu**. Vzduch uniká mimo pacienta.",
+          circuit: "Při pohledu na okruh vidíte, že pacientská hadice se **zcela rozpojila** v místě spoje u HME filtru těsně nad tracheální rourkou!"
+        },
+        correctAction: "reconnect",
+        results: {
+          success: {
+            title: "ZÁCHRANA PACIENTA ÚSPĚŠNÁ",
+            summary: "Znovuzapojením okruhu u tracheální rourky došlo k okamžitému obnovení dodávky objemů, tlak PIP se vrátil na 22 cmH₂O, PEEP na 8 cmH₂O a dechové objemy stouply na cílových 450 ml. Saturace se udržela v normě.",
+            rationale: "<strong>Klinický rozbor:</strong> Rozpojení okruhu (Equipment/Disconnection) je častý mechanický problém na JIP. Projevuje se okamžitým poklesem tlaku a dechového objemu na nulu. Test na Ambubag ukáže nulový odpor, protože hadice je rozpojená. Správným krokem je kontrola okruhu a znovuzapojení. Zbytečné odsávání pacienta nebo podávání léků oddaluje rekonexi a vede k hypoxii."
+          },
+          fail: {
+            title: "KLINICKÝ KOLAPS PACIENTA",
+            summary: "Pacient byl ponechán bez přívodu kyslíku a ventilace příliš dlouho. Rozvinula se těžká hypoxémie a acidóza vedoucí k zástavě dechu a oběhu.",
+            rationale: "Při nulových tlacích a objemech je první povinností zkontrolovat celistvost okruhu. Rychlé znovuzapojení okamžitě odvrátí hrozící asfyxii."
+          }
+        }
+      },
+      {
+        id: 4,
+        title: "Případ D: Intenzivní pískoty a prodloužený výdech",
+        description: "Pacient s anamnézou astmatu na řízené ventilaci. Postupný vzestup PIP a protahování výdechové fáze.",
+        initialVitals: {
+          pip: 44,
+          peep: 10,
+          vt: 380,
+          rr: 15,
+          mv: 5.7,
+          spo2: 92,
+          hr: 105,
+          bp: "145/95"
+        },
+        alarmName: "🚨 ALARM: VYSOKÝ PIP (Zúžení dýchacích cest)",
+        dangerFields: ["pip", "spo2"],
+        vitalsProgression: {
+          secondsPassed: [
+            { sec: 15, spo2: 89, hr: 112, bp: "150/100" },
+            { sec: 30, spo2: 84, hr: 120, bp: "155/105" },
+            { sec: 45, spo2: 75, hr: 128, bp: "160/110" }
+          ]
+        },
+        diagnostics: {
+          stethoscope: "Oboustranně slyšíte výrazné prodloužené exspirium s **difúzními suchými pískoty, vrzoty** a distančním sípáním.",
+          ambubag: "Ventilace vakem Ambubag je **velmi tuhá**. Cítíte odpor po celou dobu stlačování vaku, což odpovídá difúznímu zúžení (spasmu) průdušek.",
+          circuit: "Okruh je těsný a správně zapojený, hadice jsou průchodné."
+        },
+        correctAction: "bronchodilator",
+        results: {
+          success: {
+            title: "ZÁCHRANA PACIENTA ÚSPĚŠNÁ",
+            summary: "Podáním inhalačního Ventolinu přes speciální adaptér v okruhu UPV a prohloubením sedace (Propofol + Sufentanil) došlo k uvolnění hladké svaloviny průdušek. Tlak PIP klesl na 26 cmH₂O, dechový objem se stabilizoval a výdechová fáze se zkrátila. Saturace stoupla na 98 %.",
+            rationale: "<strong>Klinický rozbor:</strong> Bronchospasmus (Obstruction) je stav zúžení průdušek vyvolaný hyperreaktivitou (např. u astmatu/CHOPN nebo při reakci na ETK). Způsobuje enormní nárůst odporu dýchacích cest a ohrožuje pacienta dynamic-hyperinflací (Auto-PEEP). Řešením je okamžité podání bronchodilatancií (beta-sympatomimetika) a prohloubení sedace, které tlumí bronchokonstrikční reflexy. Odsátí z ETK nepomůže a může bronchospasmus naopak zhoršit podrážděním sliznice. Jehlová dekomprese je kontraindikovaná, protože plíce není zkolabovaná PNO."
+          },
+          fail: {
+            title: "KLINICKÝ KOLAPS PACIENTA",
+            summary: "V důsledku těžkého bronchospasmu a narůstajícího Auto-PEEP (dynamické hyperinflace) došlo k zamezení žilního návratu, kritickému poklesu minutového objemu srdce a srdeční zástavě.",
+            rationale: "Bronchospasmus na UPV vyžaduje rychlou bronchodilatační léčbu. Neřešená obstrukce exspiria vede ke kritickému zadržování vzduchu a oběhovému kolapsu."
+          }
+        }
+      }
+    ]
   }
 };
 
