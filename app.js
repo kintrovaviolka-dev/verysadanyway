@@ -851,6 +851,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Open/Close Chat
   chatbotFab.addEventListener("click", () => {
     const isOpen = chatbotPanel.classList.toggle("open");
+    chatbotFab.setAttribute("aria-expanded", isOpen.toString());
     chatbotFab.classList.toggle("open");
     if (isOpen) {
       chatbotBadge.style.display = "none";
@@ -862,6 +863,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("chatbot-close-btn").addEventListener("click", () => {
     chatbotPanel.classList.remove("open");
     chatbotFab.classList.remove("open");
+    chatbotFab.setAttribute("aria-expanded", "false");
   });
 
   // Settings Panel Toggle
@@ -1404,6 +1406,7 @@ document.addEventListener("DOMContentLoaded", () => {
       feedbackForm.reset();
       updateCharCounter();
       
+      feedbackFab.setAttribute("aria-expanded", "true");
       feedbackDialog.showModal();
     });
   }
@@ -1412,6 +1415,10 @@ document.addEventListener("DOMContentLoaded", () => {
   if (feedbackCloseBtn && feedbackDialog) {
     feedbackCloseBtn.addEventListener("click", () => {
       feedbackDialog.close();
+    });
+
+    feedbackDialog.addEventListener("close", () => {
+      feedbackFab.setAttribute("aria-expanded", "false");
     });
   }
 
