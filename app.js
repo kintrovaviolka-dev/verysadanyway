@@ -852,6 +852,7 @@ document.addEventListener("DOMContentLoaded", () => {
   chatbotFab.addEventListener("click", () => {
     const isOpen = chatbotPanel.classList.toggle("open");
     chatbotFab.classList.toggle("open");
+    chatbotFab.setAttribute("aria-expanded", isOpen);
     if (isOpen) {
       chatbotBadge.style.display = "none";
       chatbotInput.focus();
@@ -862,6 +863,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("chatbot-close-btn").addEventListener("click", () => {
     chatbotPanel.classList.remove("open");
     chatbotFab.classList.remove("open");
+    chatbotFab.setAttribute("aria-expanded", "false");
   });
 
   // Settings Panel Toggle
@@ -1405,6 +1407,7 @@ document.addEventListener("DOMContentLoaded", () => {
       updateCharCounter();
       
       feedbackDialog.showModal();
+      feedbackFab.setAttribute("aria-expanded", "true");
     });
   }
 
@@ -1424,6 +1427,13 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!isInDialog) {
         feedbackDialog.close();
       }
+    });
+  }
+
+  // Reset aria-expanded on close (catches Escape key as well)
+  if (feedbackDialog && feedbackFab) {
+    feedbackDialog.addEventListener("close", () => {
+      feedbackFab.setAttribute("aria-expanded", "false");
     });
   }
 
