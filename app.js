@@ -852,6 +852,7 @@ document.addEventListener("DOMContentLoaded", () => {
   chatbotFab.addEventListener("click", () => {
     const isOpen = chatbotPanel.classList.toggle("open");
     chatbotFab.classList.toggle("open");
+    chatbotFab.setAttribute("aria-expanded", isOpen);
     if (isOpen) {
       chatbotBadge.style.display = "none";
       chatbotInput.focus();
@@ -862,6 +863,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("chatbot-close-btn").addEventListener("click", () => {
     chatbotPanel.classList.remove("open");
     chatbotFab.classList.remove("open");
+    chatbotFab.setAttribute("aria-expanded", "false");
   });
 
   // Settings Panel Toggle
@@ -1381,6 +1383,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Open feedback modal
   if (feedbackFab && feedbackDialog) {
     feedbackFab.addEventListener("click", () => {
+      feedbackFab.setAttribute("aria-expanded", "true");
       // Auto-set the selected subject in the feedback dropdown
       if (state.selectedSubject) {
         // Map selectedSubject code to form dropdown value
@@ -1424,6 +1427,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!isInDialog) {
         feedbackDialog.close();
       }
+    });
+
+    // Update ARIA expanded state on close
+    feedbackDialog.addEventListener("close", () => {
+      if (feedbackFab) feedbackFab.setAttribute("aria-expanded", "false");
     });
   }
 
