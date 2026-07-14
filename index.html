@@ -566,7 +566,7 @@
 
       <form id="feedback-form" class="feedback-form">
         <div class="form-group">
-          <label for="feedback-type">Typ zprávy</label>
+          <label for="feedback-type">Typ zprávy <span aria-hidden="true" style="color: var(--accent-red); margin-left: 4px;">*</span></label>
           <select id="feedback-type" class="select-custom" required>
             <option value="improvement">💡 Návrh na vylepšení</option>
             <option value="tip">📝 Tip nebo trik k předmětu</option>
@@ -575,7 +575,7 @@
         </div>
 
         <div class="form-group">
-          <label for="feedback-subject">Předmět / Okruh</label>
+          <label for="feedback-subject">Předmět / Okruh <span aria-hidden="true" style="color: var(--accent-red); margin-left: 4px;">*</span></label>
           <select id="feedback-subject" class="select-custom" required>
             <option value="general">Celý portál (Obecné)</option>
             <option value="patfyz">Patofyziologie</option>
@@ -594,7 +594,7 @@
         </div>
 
         <div class="form-group">
-          <label for="feedback-message">Vaše zpráva / tip / trik</label>
+          <label for="feedback-message">Vaše zpráva / tip / trik <span aria-hidden="true" style="color: var(--accent-red); margin-left: 4px;">*</span></label>
           <textarea id="feedback-message" class="textarea-custom" placeholder="Podělte se o své nápady, tipy na učení nebo chyby, které jste našli..." required maxlength="1500"></textarea>
           <div class="char-count"><span id="feedback-char-count">0</span> / 1500</div>
         </div>
