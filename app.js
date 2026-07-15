@@ -860,10 +860,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  document.getElementById("chatbot-close-btn").addEventListener("click", () => {
+  const closeChatbotPanel = () => {
     chatbotPanel.classList.remove("open");
     chatbotFab.classList.remove("open");
     chatbotFab.setAttribute("aria-expanded", "false");
+    chatbotFab.focus();
+  };
+
+  document.getElementById("chatbot-close-btn").addEventListener("click", () => {
+    closeChatbotPanel();
   });
 
   // Settings Panel Toggle
@@ -871,8 +876,27 @@ document.addEventListener("DOMContentLoaded", () => {
     chatbotSettingsOverlay.classList.add("open");
   });
 
-  chatbotSettingsCloseBtn.addEventListener("click", () => {
+  const closeSettingsOverlay = () => {
     chatbotSettingsOverlay.classList.remove("open");
+    chatbotSettingsBtn.focus();
+  };
+
+  chatbotSettingsCloseBtn.addEventListener("click", () => {
+    closeSettingsOverlay();
+  });
+
+  // Escape key support for keyboard accessibility
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      // Priority to close inner settings overlay first
+      if (chatbotSettingsOverlay.classList.contains("open")) {
+        closeSettingsOverlay();
+      }
+      // Otherwise close main chatbot panel if open
+      else if (chatbotPanel.classList.contains("open")) {
+        closeChatbotPanel();
+      }
+    }
   });
 
   // Save/Clear key locally
