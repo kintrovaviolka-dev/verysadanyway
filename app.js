@@ -408,7 +408,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     if (filtered.length === 0) {
-      questionsListContainer.innerHTML = `<div style="text-align: center; color: var(--text-secondary); padding: 20px;">Nebyly nalezeny žádné otázky.</div>`;
+      questionsListContainer.innerHTML = `
+        <div style="text-align: center; color: var(--text-secondary); padding: 40px 20px;">
+          <span style="font-size: 2.5rem; display: block; margin-bottom: 12px; opacity: 0.5;" aria-hidden="true">🔍</span>
+          <h4 style="color: var(--text-primary); margin-bottom: 8px; font-weight: 500;">Nebyly nalezeny žádné otázky</h4>
+          <p style="font-size: 0.9rem; margin-bottom: 20px;">Zkuste upravit hledaný výraz nebo zvolit jinou kategorii.</p>
+          <button class="btn btn-secondary btn-sm" id="clear-search-btn">Zrušit vyhledávání</button>
+        </div>
+      `;
+
+      const clearBtn = document.getElementById("clear-search-btn");
+      if (clearBtn) {
+        clearBtn.addEventListener("click", () => {
+          questionSearch.value = "";
+          activeCategory = "all";
+          renderCategories();
+          renderQuestionsList();
+        });
+      }
       return;
     }
 
