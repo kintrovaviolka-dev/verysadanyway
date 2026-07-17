@@ -3,6 +3,7 @@ import { GameSession, ChatMessage } from "../types";
 import EkgVisualization from "./EkgVisualization";
 import BedsideMonitor from "./BedsideMonitor";
 import EkgQuiz, { RHYTHMS, getCaseRhythm } from "./EkgQuiz";
+import ImagingViewer from "./ImagingViewer";
 import {
   Heart,
   Activity,
@@ -80,6 +81,7 @@ export default function Workspace({
   const [chatMessage, setChatMessage] = useState<string>("");
   const [showConsultantModal, setShowConsultantModal] = useState<boolean>(false);
   const [showEkgQuizModal, setShowEkgQuizModal] = useState<boolean>(false);
+  const [imagingModal, setImagingModal] = useState<{ modality: "rtg" | "echo" | "ct"; reportText: string } | null>(null);
 
   // Medication form state
   const [medName, setMedName] = useState<string>("");
@@ -640,9 +642,25 @@ export default function Workspace({
                           </button>
                         ) : isReady ? (
                           <div className="w-full space-y-2">
-                            <div className="bg-[#191b23] p-2 rounded border border-green-500/20 text-[11px] text-green-300 font-mono">
-                              {session.imagingResultsReceived?.[img.id] || "Výsledky se načítají..."}
-                            </div>
+                            {/* For non-EKG modalities: launch ImagingViewer */}
+                            {img.id !== "ekg" ? (
+                              <button
+                                onClick={() => setImagingModal({
+                                  modality: img.id as "rtg" | "echo" | "ct",
+                                  reportText: session.imagingResultsReceived?.[img.id] || ""
+                                })}
+                                className="w-full py-2.5 bg-gradient-to-r from-[#1d2027] to-[#272a31] hover:from-[#272a31] hover:to-[#32353c] border border-green-500/30 hover:border-green-400/60 text-green-400 font-bold text-xs rounded-lg transition-all active:scale-[0.98] cursor-pointer flex items-center justify-center gap-2"
+                              >
+                                <span className="text-base">
+                                  {img.id === "rtg" ? "🫁" : img.id === "echo" ? "🔊" : "🖥️"}
+                                </span>
+                                Zobrazit interaktivní snímek
+                              </button>
+                            ) : (
+                              <div className="bg-[#191b23] p-2 rounded border border-green-500/20 text-[11px] text-green-300 font-mono">
+                                {session.imagingResultsReceived?.[img.id] || "Výsledky se načítají..."}
+                              </div>
+                            )}
                             {img.id === "ekg" && (
                               <div className="text-[10px] text-[#adc6ff] bg-[#4d8eff]/10 px-2 py-1.5 rounded border border-[#4d8eff]/20 font-bold flex items-center justify-between mt-1 animate-pulse">
                                 <span>📈 INTERAKTIVNÍ KŘIVKA AKTIVNÍ</span>
@@ -951,6 +969,20 @@ export default function Workspace({
               session={session} 
               onAction={onAction} 
               onClose={() => setShowEkgQuizModal(false)} 
+            />
+          </div>
+        </div>
+      )}
+
+      {/* Imaging Viewer Modal */}
+      {imagingModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fade-in" onClick={() => setImagingModal(null)}>
+          <div className="w-full max-w-2xl shadow-2xl animate-zoom-in" onClick={e => e.stopPropagation()}>
+            <ImagingViewer
+              caseId={session.caseId}
+              modality={imagingModal.modality}
+              reportText={imagingModal.reportText}
+              onClose={() => setImagingModal(null)}
             />
           </div>
         </div>
