@@ -1,0 +1,6 @@
+{
+  "name": "Clinical Learning Portal",
+  "description": "Interactive platform for practicing Emergency Medicine algorithms with decision-making scenarios and learning Anesthesia medications via flashcards, calculators, and quizzes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
