@@ -25,30 +25,31 @@
     <section class="grades-section" id="grades-section">
       <h2 class="section-title">Vyberte ročník studia</h2>
       <div class="grades-grid">
-        <div class="grade-card locked" data-grade="1" role="button" tabindex="0" aria-disabled="true" aria-label="1. ročník (uzamčeno)">
-          <div class="lock-badge" aria-hidden="true">🔒</div>
+        <div class="grade-card locked" data-grade="1">
+          <div class="lock-badge">🔒</div>
           <div class="grade-number">1.</div>
           <div class="grade-label">ročník</div>
         </div>
-        <div class="grade-card locked" data-grade="2" role="button" tabindex="0" aria-disabled="true" aria-label="2. ročník (uzamčeno)">
-          <div class="lock-badge" aria-hidden="true">🔒</div>
+        <div class="grade-card locked" data-grade="2">
+          <div class="lock-badge">🔒</div>
           <div class="grade-number">2.</div>
           <div class="grade-label">ročník</div>
         </div>
-        <div class="grade-card active" data-grade="3" role="button" tabindex="0" aria-label="3. ročník">
+        <div class="grade-card active" data-grade="3">
           <div class="grade-number">3.</div>
           <div class="grade-label">ročník</div>
         </div>
-        <div class="grade-card" data-grade="4" role="button" tabindex="0" aria-label="4. ročník">
+        <div class="grade-card" data-grade="4">
           <div class="grade-number">4.</div>
           <div class="grade-label">ročník</div>
         </div>
-        <div class="grade-card" data-grade="5" role="button" tabindex="0" aria-label="5. ročník">
+        <div class="grade-card locked" data-grade="5">
+          <div class="lock-badge">🔒</div>
           <div class="grade-number">5.</div>
           <div class="grade-label">ročník</div>
         </div>
-        <div class="grade-card locked" data-grade="6" role="button" tabindex="0" aria-disabled="true" aria-label="6. ročník (uzamčeno)">
-          <div class="lock-badge" aria-hidden="true">🔒</div>
+        <div class="grade-card locked" data-grade="6">
+          <div class="lock-badge">🔒</div>
           <div class="grade-number">6.</div>
           <div class="grade-label">ročník</div>
         </div>
@@ -59,45 +60,50 @@
     <section class="subjects-section active" id="subjects-section">
       <h2 class="section-title">Zvolte předmět k přípravě</h2>
       <div class="subjects-grid">
-        <div class="subject-card patfyz" data-subject="patfyz" id="subject-patfyz" data-grade="3" role="button" tabindex="0">
-          <span class="icon" aria-hidden="true">⚡</span>
+        <div class="subject-card patfyz" data-subject="patfyz" id="subject-patfyz" role="button" tabindex="0" aria-label="Vybrat předmět Patofyziologie" data-grade="3">
+          <span class="icon">⚡</span>
           <h3>Patofyziologie</h3>
           <p>Studijní materiály, schémata patogeneze a procvičování na zápočty.</p>
         </div>
-        <div class="subject-card patola" data-subject="patola" id="subject-patola" data-grade="3" role="button" tabindex="0">
-          <span class="icon" aria-hidden="true">🔬</span>
+        <div class="subject-card patola" data-subject="patola" id="subject-patola" role="button" tabindex="0" aria-label="Vybrat předmět Patologie" data-grade="3">
+          <span class="icon">🔬</span>
           <h3>Patologie</h3>
           <p>Morfologické popisy, histologické taháky a seznam zkouškových témat.</p>
         </div>
-        <div class="subject-card oset" data-subject="oset" id="subject-oset" data-grade="3" role="button" tabindex="0">
-          <span class="icon" aria-hidden="true">🩺</span>
+        <div class="subject-card oset" data-subject="oset" id="subject-oset" role="button" tabindex="0" aria-label="Vybrat předmět Ošetřovatelství" data-grade="3">
+          <span class="icon">🩺</span>
           <h3>Ošetřovatelství</h3>
           <p>Studijní skripta ke stažení a složka se všemi podklady.</p>
         </div>
-        <div class="subject-card imunologie" data-subject="imunologie" id="subject-imunologie" data-grade="3" role="button" tabindex="0">
-          <span class="icon" aria-hidden="true">🛡️</span>
+        <div class="subject-card imunologie" data-subject="imunologie" id="subject-imunologie" role="button" tabindex="0" aria-label="Vybrat předmět Imunologie" data-grade="3">
+          <span class="icon">🛡️</span>
           <h3>Imunologie</h3>
           <p>Aktivní procvičování testových otázek a zkouškových okruhů.</p>
         </div>
-        <div class="subject-card farmakologie" data-subject="farmakologie" id="subject-farmakologie" data-grade="4" role="button" tabindex="0">
-          <span class="icon" aria-hidden="true">💊</span>
+        <div class="subject-card farmakologie" data-subject="farmakologie" id="subject-farmakologie" role="button" tabindex="0" aria-label="Vybrat předmět Farmakologie" data-grade="4">
+          <span class="icon">💊</span>
           <h3>Farmakologie</h3>
           <p>Příprava na zkoušku, farmakokinetický trenažér a stažení vypracovaných témat.</p>
         </div>
-        <div class="subject-card dermatologie" data-subject="dermatologie" id="subject-dermatologie" data-grade="4" role="button" tabindex="0">
-          <span class="icon" aria-hidden="true">☀️</span>
+        <div class="subject-card dermatologie" data-subject="dermatologie" id="subject-dermatologie" role="button" tabindex="0" aria-label="Vybrat předmět Dermatologie" data-grade="4">
+          <span class="icon">☀️</span>
           <h3>Dermatologie</h3>
           <p>Interaktivní portál obecné dermatologie, Leitnerovy krabičky a procvičování.</p>
         </div>
-        <div class="subject-card radiologie" data-subject="radiologie" id="subject-radiologie" data-grade="4" role="button" tabindex="0">
-          <span class="icon" aria-hidden="true">🩻</span>
+        <div class="subject-card radiologie" data-subject="radiologie" id="subject-radiologie" role="button" tabindex="0" aria-label="Vybrat předmět Radiologie" data-grade="4">
+          <span class="icon">🩻</span>
           <h3>Radiologie</h3>
           <p>Aktivní studium zobrazovacích metod, RTG, CT, MR, UZ a intervenční radiologie.</p>
         </div>
-        <div class="subject-card upv" data-subject="upv" id="subject-upv" data-grade="5" style="display: none;" role="button" tabindex="0">
-          <span class="icon" aria-hidden="true">🫁</span>
-          <h3>Mechanická ventilace</h3>
-          <p>Interaktivní výukový subportál pro ARO/JIP. Simulace křivek, smyček, asynchronie a kvízy.</p>
+        <div class="subject-card clinical-portal" data-subject="clinical-portal" id="subject-clinical-portal" role="button" tabindex="0" aria-label="Vybrat Resuscitaci a Anestezii" data-grade="4">
+          <span class="icon">🫁</span>
+          <h3>Resuscitace & Anestezie</h3>
+          <p>Trenažér resuscitace a anestetických léčiv s interaktivním váhovým kalkulátorem.</p>
+        </div>
+        <div class="subject-card urgentni-prijem" data-subject="urgentni-prijem" id="subject-urgentni-prijem" role="button" tabindex="0" aria-label="Vybrat Urgentní příjem" data-grade="4">
+          <span class="icon">🚨</span>
+          <h3>Urgentní příjem</h3>
+          <p>Klinický simulátor lékaře na urgentním příjmu. Vyřešte 13 realistických kazuistik.</p>
         </div>
       </div>
     </section>
@@ -145,8 +151,8 @@
         <!-- 3. Otázky & Materiály -->
         <div class="hub-card">
           <div class="hub-card-icon">📂</div>
-          <h4 id="materials-card-title">Otázky a materiály</h4>
-          <p id="materials-card-desc">Vyhledejte a procházejte seznam zkouškových otázek bez vypracování nebo si stáhněte doprovodné PDF skripta.
+          <h4>Otázky a materiály</h4>
+          <p>Vyhledejte a procházejte seznam zkouškových otázek bez vypracování nebo si stáhněte doprovodné PDF skripta.
           </p>
           <button class="btn btn-secondary" id="materials-trigger-btn">Zobrazit materiály</button>
         </div>
@@ -358,18 +364,16 @@
               <polyline points="15 3 21 3 21 9"></polyline>
               <line x1="10" y1="14" x2="21" y2="3"></line>
             </svg>
-          </a>
         </div>
       </div>
 
-      <!-- Rozcestník pro Mechanickou Ventilaci (UPV) -->
-      <div class="hub-grid" id="hub-grid-upv" style="display: none; max-width: 800px; margin: 0 auto;">
-        <!-- 1. Vstup do portálu -->
+      <!-- Rozcestník pro Resuscitaci a Anestezii -->
+      <div class="hub-grid" id="hub-grid-clinical-portal" style="display: none; max-width: 800px; margin: 0 auto;">
         <div class="hub-card">
-          <div class="hub-card-icon">🫁</div>
-          <h4>Výukový portál UPV</h4>
-          <p>Interaktivní simulátor křivek, P-V/F-V smyček, matice asynchronií a kvízy k ověření znalostí.</p>
-          <a href="upv/index.html" class="btn btn-primary btn-upv" id="upv-portal-btn">
+          <div class="hub-card-icon">🚀</div>
+          <h4>Interaktivní portál</h4>
+          <p>Kompletní studijní aplikace s resuscitací (ACLS/BLS), trenažérem anesteziologických léčiv a kalkulátorem dávek.</p>
+          <a href="/clinical-portal/" class="btn btn-primary btn-clinical" id="clinical-portal-btn">
             Otevřít portál
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round">
@@ -379,19 +383,21 @@
             </svg>
           </a>
         </div>
+      </div>
 
-        <!-- 2. Tahák do kapsy -->
+      <!-- Rozcestník pro Urgentní příjem -->
+      <div class="hub-grid" id="hub-grid-urgentni-prijem" style="display: none; max-width: 800px; margin: 0 auto;">
         <div class="hub-card">
-          <div class="hub-card-icon">📄</div>
-          <h4>Kapesní tahák (A4 k tisku)</h4>
-          <p>Zobrazit a vytisknout přehledný oboustranný A4 tahák plicní mechaniky a patologií pro klinickou praxi.</p>
-          <a href="upv/index.html?print=true" target="_blank" class="btn btn-secondary" id="upv-print-btn">
-            Vytisknout tahák (A4)
+          <div class="hub-card-icon">🚨</div>
+          <h4>Klinický simulátor</h4>
+          <p>Interaktivní hra lékaře na urgentním příjmu. Zajištění pacienta, triage, laboratoř, CT/EKG vyšetření a chat s konziliáři.</p>
+          <a href="/urgentni-prijem-game/" class="btn btn-primary btn-urgent" id="urgentni-prijem-btn">
+            Spustit simulátor
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round">
-              <path d="M6 9V2h12v7"></path>
-              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
-              <rect x="6" y="14" width="12" height="8"></rect>
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
             </svg>
           </a>
         </div>
@@ -546,88 +552,11 @@
     </div>
   </div>
 
-  <!-- Floating Feedback Button (FAB) -->
-  <button class="feedback-fab" id="feedback-fab" aria-label="Napsat zpětnou vazbu nebo tip" aria-expanded="false">
-    <span class="feedback-fab-icon" aria-hidden="true">💡</span>
-  </button>
-
-  <!-- Feedback Dialog Modal -->
-  <dialog id="feedback-dialog" class="feedback-modal">
-    <div class="feedback-dialog-content">
-      <div class="feedback-dialog-header">
-        <h3>💡 Zpětná vazba & Tipy</h3>
-        <button id="feedback-close-btn" class="feedback-close-btn" aria-label="Zavřít formulář">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-      </div>
-
-      <form id="feedback-form" class="feedback-form">
-        <div class="form-group">
-          <label for="feedback-type">Typ zprávy <span aria-hidden="true" style="color: var(--accent-red); margin-left: 4px;">*</span></label>
-          <select id="feedback-type" class="select-custom" required>
-            <option value="improvement">💡 Návrh na vylepšení</option>
-            <option value="tip">📝 Tip nebo trik k předmětu</option>
-            <option value="general">💬 Obecná zpětná vazba</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="feedback-subject">Předmět / Okruh <span aria-hidden="true" style="color: var(--accent-red); margin-left: 4px;">*</span></label>
-          <select id="feedback-subject" class="select-custom" required>
-            <option value="general">Celý portál (Obecné)</option>
-            <option value="patfyz">Patofyziologie</option>
-            <option value="patola">Patologie</option>
-            <option value="oset">Ošetřovatelství</option>
-            <option value="imunologie">Imunologie</option>
-            <option value="farmakologie">Farmakologie</option>
-            <option value="dermatologie">Dermatologie</option>
-            <option value="radiologie">Radiologie</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="feedback-name">Vaše jméno (nepovinné)</label>
-          <input type="text" id="feedback-name" class="input-custom" placeholder="Anonymní" maxlength="50">
-        </div>
-
-        <div class="form-group">
-          <label for="feedback-message">Vaše zpráva / tip / trik <span aria-hidden="true" style="color: var(--accent-red); margin-left: 4px;">*</span></label>
-          <textarea id="feedback-message" class="textarea-custom" placeholder="Podělte se o své nápady, tipy na učení nebo chyby, které jste našli..." required maxlength="1500"></textarea>
-          <div class="char-count"><span id="feedback-char-count">0</span> / 1500</div>
-        </div>
-
-        <div class="form-actions">
-          <button type="submit" class="btn btn-primary" id="feedback-submit-btn">Odeslat</button>
-        </div>
-      </form>
-
-      <!-- Status states -->
-      <div id="feedback-status-sending" class="feedback-status-state" style="display: none;">
-        <div class="feedback-spinner"></div>
-        <p>Odesílám zpětnou vazbu...</p>
-      </div>
-
-      <div id="feedback-status-success" class="feedback-status-state" style="display: none;">
-        <div class="status-icon success">✓</div>
-        <p>Děkuji! Vaše zpětná vazba byla úspěšně uložena.</p>
-      </div>
-
-      <div id="feedback-status-error" class="feedback-status-state" style="display: none;">
-        <div class="status-icon error">✗</div>
-        <p id="feedback-error-msg">Odeslání se nezdařilo. Zkuste to prosím znovu.</p>
-        <button type="button" id="feedback-error-back-btn" class="btn btn-secondary btn-sm" style="margin-top: 12px;">Zpět na formulář</button>
-      </div>
-    </div>
-  </dialog>
-
   <!-- Floating Gemini Chatbot Widget -->
   <div class="gemini-chatbot-container" id="gemini-chatbot-container">
     <!-- Chat Button (FAB) -->
-    <button class="chatbot-fab" id="chatbot-fab" aria-label="Otevřít lékařského asistenta" aria-expanded="false">
-      <span class="fab-icon" aria-hidden="true">💬</span>
+    <button class="chatbot-fab" id="chatbot-fab" aria-label="Otevřít lékařského asistenta">
+      <span class="fab-icon">💬</span>
       <span class="fab-badge pulse-badge" id="chatbot-badge"></span>
     </button>
 

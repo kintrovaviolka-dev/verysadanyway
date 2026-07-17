@@ -109,22 +109,14 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // Kliknutí na ročník
-  const handleGradeClick = (card) => {
-    if (card.classList.contains("locked")) {
-      alert("Tento ročník se připravuje. Nyní jsou k dispozici portály pro 3. a 4. ročník.");
-      return;
-    }
-    const grade = parseInt(card.getAttribute("data-grade"));
-    selectGrade(grade);
-  };
-
   document.querySelectorAll(".grade-card").forEach(card => {
-    card.addEventListener("click", () => handleGradeClick(card));
-    card.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
-        if (e.key === " ") e.preventDefault();
-        handleGradeClick(card);
+    card.addEventListener("click", () => {
+      if (card.classList.contains("locked")) {
+        alert("Tento ročník se připravuje. Nyní jsou k dispozici portály pro 3. a 4. ročník.");
+        return;
       }
+      const grade = parseInt(card.getAttribute("data-grade"));
+      selectGrade(grade);
     });
   });
 
@@ -138,7 +130,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const hubGridDermatologie = document.getElementById("hub-grid-dermatologie");
     const hubGridRadiologie = document.getElementById("hub-grid-radiologie");
     const hubGridImunologie = document.getElementById("hub-grid-imunologie");
-    const hubGridUpv = document.getElementById("hub-grid-upv");
+    const hubGridClinicalPortal = document.getElementById("hub-grid-clinical-portal");
+    const hubGridUrgentniPrijem = document.getElementById("hub-grid-urgentni-prijem");
  
     if (subject === "oset") {
       hubTitle.textContent = "Ošetřovatelství";
@@ -149,7 +142,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (hubGridDermatologie) hubGridDermatologie.style.display = "none";
       if (hubGridRadiologie) hubGridRadiologie.style.display = "none";
       if (hubGridImunologie) hubGridImunologie.style.display = "none";
-      if (hubGridUpv) hubGridUpv.style.display = "none";
+      if (hubGridClinicalPortal) hubGridClinicalPortal.style.display = "none";
+      if (hubGridUrgentniPrijem) hubGridUrgentniPrijem.style.display = "none";
     } else if (subject === "farmakologie") {
       hubTitle.textContent = "Farmakologie";
       hubTitle.style.color = "var(--farma-color)";
@@ -159,7 +153,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (hubGridDermatologie) hubGridDermatologie.style.display = "none";
       if (hubGridRadiologie) hubGridRadiologie.style.display = "none";
       if (hubGridImunologie) hubGridImunologie.style.display = "none";
-      if (hubGridUpv) hubGridUpv.style.display = "none";
+      if (hubGridClinicalPortal) hubGridClinicalPortal.style.display = "none";
+      if (hubGridUrgentniPrijem) hubGridUrgentniPrijem.style.display = "none";
     } else if (subject === "dermatologie") {
       hubTitle.textContent = "Dermatologie";
       hubTitle.style.color = "var(--derma-color)";
@@ -169,7 +164,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (hubGridDermatologie) hubGridDermatologie.style.display = "grid";
       if (hubGridRadiologie) hubGridRadiologie.style.display = "none";
       if (hubGridImunologie) hubGridImunologie.style.display = "none";
-      if (hubGridUpv) hubGridUpv.style.display = "none";
+      if (hubGridClinicalPortal) hubGridClinicalPortal.style.display = "none";
+      if (hubGridUrgentniPrijem) hubGridUrgentniPrijem.style.display = "none";
     } else if (subject === "radiologie") {
       hubTitle.textContent = "Radiologie";
       hubTitle.style.color = "var(--radio-color)";
@@ -179,7 +175,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (hubGridDermatologie) hubGridDermatologie.style.display = "none";
       if (hubGridRadiologie) hubGridRadiologie.style.display = "grid";
       if (hubGridImunologie) hubGridImunologie.style.display = "none";
-      if (hubGridUpv) hubGridUpv.style.display = "none";
+      if (hubGridClinicalPortal) hubGridClinicalPortal.style.display = "none";
+      if (hubGridUrgentniPrijem) hubGridUrgentniPrijem.style.display = "none";
     } else if (subject === "imunologie") {
       hubTitle.textContent = "Imunologie";
       hubTitle.style.color = "var(--imuno-color)";
@@ -189,17 +186,30 @@ document.addEventListener("DOMContentLoaded", () => {
       if (hubGridDermatologie) hubGridDermatologie.style.display = "none";
       if (hubGridRadiologie) hubGridRadiologie.style.display = "none";
       if (hubGridImunologie) hubGridImunologie.style.display = "grid";
-      if (hubGridUpv) hubGridUpv.style.display = "none";
-    } else if (subject === "upv") {
-      hubTitle.textContent = "Mechanická ventilace";
-      hubTitle.style.color = "var(--upv-color)";
+      if (hubGridClinicalPortal) hubGridClinicalPortal.style.display = "none";
+      if (hubGridUrgentniPrijem) hubGridUrgentniPrijem.style.display = "none";
+    } else if (subject === "clinical-portal") {
+      hubTitle.textContent = "Resuscitace & Anestezie";
+      hubTitle.style.color = "var(--clinical-color)";
       if (hubGridDefault) hubGridDefault.style.display = "none";
       if (hubGridOset) hubGridOset.style.display = "none";
       if (hubGridFarmakologie) hubGridFarmakologie.style.display = "none";
       if (hubGridDermatologie) hubGridDermatologie.style.display = "none";
       if (hubGridRadiologie) hubGridRadiologie.style.display = "none";
       if (hubGridImunologie) hubGridImunologie.style.display = "none";
-      if (hubGridUpv) hubGridUpv.style.display = "grid";
+      if (hubGridClinicalPortal) hubGridClinicalPortal.style.display = "grid";
+      if (hubGridUrgentniPrijem) hubGridUrgentniPrijem.style.display = "none";
+    } else if (subject === "urgentni-prijem") {
+      hubTitle.textContent = "Urgentní příjem";
+      hubTitle.style.color = "var(--urgent-color)";
+      if (hubGridDefault) hubGridDefault.style.display = "none";
+      if (hubGridOset) hubGridOset.style.display = "none";
+      if (hubGridFarmakologie) hubGridFarmakologie.style.display = "none";
+      if (hubGridDermatologie) hubGridDermatologie.style.display = "none";
+      if (hubGridRadiologie) hubGridRadiologie.style.display = "none";
+      if (hubGridImunologie) hubGridImunologie.style.display = "none";
+      if (hubGridClinicalPortal) hubGridClinicalPortal.style.display = "none";
+      if (hubGridUrgentniPrijem) hubGridUrgentniPrijem.style.display = "grid";
     } else {
       if (hubGridDefault) hubGridDefault.style.display = "grid";
       if (hubGridOset) hubGridOset.style.display = "none";
@@ -207,13 +217,10 @@ document.addEventListener("DOMContentLoaded", () => {
       if (hubGridDermatologie) hubGridDermatologie.style.display = "none";
       if (hubGridRadiologie) hubGridRadiologie.style.display = "none";
       if (hubGridImunologie) hubGridImunologie.style.display = "none";
-      if (hubGridUpv) hubGridUpv.style.display = "none";
-
+      if (hubGridClinicalPortal) hubGridClinicalPortal.style.display = "none";
+      if (hubGridUrgentniPrijem) hubGridUrgentniPrijem.style.display = "none";
+ 
       // Nastavení názvu a barev v rozcestníku
-      const matTitle = document.getElementById("materials-card-title");
-      const matDesc = document.getElementById("materials-card-desc");
-      const matBtn = document.getElementById("materials-trigger-btn");
-
       if (subject === "patfyz") {
         hubTitle.textContent = "Patofyziologie";
         hubTitle.style.color = "var(--patfyz-color)";
@@ -222,14 +229,6 @@ document.addEventListener("DOMContentLoaded", () => {
         
         // Nastavení odkazu na stažení PDF skript
         if (downloadsContainer) downloadsContainer.style.display = "block";
-        
-        // Obnovit texty karty materiálů pro Patfyziologii
-        if (matTitle && matDesc && matBtn) {
-          matTitle.textContent = "Otázky a materiály";
-          matDesc.textContent = "Vyhledejte a procházejte seznam zkouškových otázek bez vypracování nebo si stáhněte doprovodné PDF skripta.";
-          matBtn.textContent = "Zobrazit materiály";
-          matBtn.className = "btn btn-secondary";
-        }
         
         // Update beta app card
         if (betaAppDesc && betaAppLinkBtn) {
@@ -249,14 +248,6 @@ document.addEventListener("DOMContentLoaded", () => {
         
         // Skrytí stažení PDF pro patologii (nemáme soubor)
         if (downloadsContainer) downloadsContainer.style.display = "none";
-        
-        // Upravit texty karty materiálů pro Patologii (směr na Disk)
-        if (matTitle && matDesc && matBtn) {
-          matTitle.textContent = "Studijní materiály (Disk)";
-          matDesc.textContent = "Otevřít sdílenou složku Google Drive s vypracovanými tématy, poznámkami a podklady pro zkoušku z patologie.";
-          matBtn.textContent = "Otevřít složku";
-          matBtn.className = "btn btn-secondary btn-patola";
-        }
         
         // Update beta app card
         if (betaAppDesc && betaAppLinkBtn) {
@@ -283,19 +274,11 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // Dynamické navázání click eventů na všechny karty předmětů podle data-subject
-  const handleSubjectClick = (card) => {
-    const subject = card.getAttribute("data-subject");
-    if (subject) {
-      selectSubject(subject);
-    }
-  };
-
   document.querySelectorAll(".subject-card").forEach(card => {
-    card.addEventListener("click", () => handleSubjectClick(card));
-    card.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
-        if (e.key === " ") e.preventDefault();
-        handleSubjectClick(card);
+    card.addEventListener("click", () => {
+      const subject = card.getAttribute("data-subject");
+      if (subject) {
+        selectSubject(subject);
       }
     });
   });
@@ -322,11 +305,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let activeCategory = "all";
 
   materialsTriggerBtn.addEventListener("click", () => {
-    if (state.selectedSubject === "patola") {
-      window.open("https://drive.google.com/drive/folders/1IcASbnTn7jtZa1bj7ueDov-DKswOFZT7?usp=sharing", "_blank");
-      return;
-    }
-
     materialsPanelTitle.textContent = state.selectedSubject === "patfyz" ? "Materiály & Otázky (Patfyz)" : "Materiály & Otázky (Patologie)";
     materialsPanel.classList.add("active");
     quizPanel.classList.remove("active");
@@ -852,7 +830,6 @@ document.addEventListener("DOMContentLoaded", () => {
   chatbotFab.addEventListener("click", () => {
     const isOpen = chatbotPanel.classList.toggle("open");
     chatbotFab.classList.toggle("open");
-    chatbotFab.setAttribute("aria-expanded", isOpen);
     if (isOpen) {
       chatbotBadge.style.display = "none";
       chatbotInput.focus();
@@ -860,15 +837,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  const closeChatbotPanel = () => {
+  document.getElementById("chatbot-close-btn").addEventListener("click", () => {
     chatbotPanel.classList.remove("open");
     chatbotFab.classList.remove("open");
-    chatbotFab.setAttribute("aria-expanded", "false");
-    chatbotFab.focus();
-  };
-
-  document.getElementById("chatbot-close-btn").addEventListener("click", () => {
-    closeChatbotPanel();
   });
 
   // Settings Panel Toggle
@@ -876,27 +847,8 @@ document.addEventListener("DOMContentLoaded", () => {
     chatbotSettingsOverlay.classList.add("open");
   });
 
-  const closeSettingsOverlay = () => {
-    chatbotSettingsOverlay.classList.remove("open");
-    chatbotSettingsBtn.focus();
-  };
-
   chatbotSettingsCloseBtn.addEventListener("click", () => {
-    closeSettingsOverlay();
-  });
-
-  // Escape key support for keyboard accessibility
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      // Priority to close inner settings overlay first
-      if (chatbotSettingsOverlay.classList.contains("open")) {
-        closeSettingsOverlay();
-      }
-      // Otherwise close main chatbot panel if open
-      else if (chatbotPanel.classList.contains("open")) {
-        closeChatbotPanel();
-      }
-    }
+    chatbotSettingsOverlay.classList.remove("open");
   });
 
   // Save/Clear key locally
@@ -1287,7 +1239,9 @@ document.addEventListener("DOMContentLoaded", () => {
       "context-farmakologie",
       "context-dermatologie",
       "context-radiologie",
-      "context-imunologie"
+      "context-imunologie",
+      "context-clinical",
+      "context-urgent"
     );
     
     let contextLabel = "Obecný medicínský rádce 🤖";
@@ -1342,6 +1296,20 @@ document.addEventListener("DOMContentLoaded", () => {
         { label: "Aktivní vs Pasivní imunita", query: "Vysvětli rozdíl mezi aktivní a pasivní imunizací." },
         { label: "MHC molekuly", query: "Jaký je rozdíl v funkci MHC I. a II. třídy?" }
       ];
+    } else if (subject === "clinical-portal") {
+      chatbotContainer.classList.add("context-clinical");
+      contextLabel = "Asistent pro Resuscitaci & Anestezii 🫁";
+      suggestions = [
+        { label: "Komorová fibrilace", query: "Jaký je postup KPR u pacienta s bezpulsní komorovou fibrilací?" },
+        { label: "Indukce u šoku", query: "Které indukční anestetikum je nejvhodnější u pacienta v šoku a proč?" }
+      ];
+    } else if (subject === "urgentni-prijem") {
+      chatbotContainer.classList.add("context-urgent");
+      contextLabel = "Asistent pro Urgentní příjem 🚨";
+      suggestions = [
+        { label: "Triážní stupně", query: "Vysvětli rozdíly mezi triážními stupněmi 1 až 5 na urgentním příjmu." },
+        { label: "Status asthmaticus", query: "Jaký je terapeutický algoritmus u status asthmaticus u dítěte?" }
+      ];
     } else {
       // Default / General
       suggestions = [
@@ -1372,201 +1340,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initialize suggestions
   updateChatbotContext(state.selectedSubject);
-
-  // --- ZPĚTNÁ VAZBA & TIPY DIALOG LOGIKA ---
-
-  const feedbackFab = document.getElementById("feedback-fab");
-  const feedbackDialog = document.getElementById("feedback-dialog");
-  const feedbackCloseBtn = document.getElementById("feedback-close-btn");
-  const feedbackForm = document.getElementById("feedback-form");
-  const feedbackTypeSelect = document.getElementById("feedback-type");
-  const feedbackSubjectSelect = document.getElementById("feedback-subject");
-  const feedbackNameInput = document.getElementById("feedback-name");
-  const feedbackMessageInput = document.getElementById("feedback-message");
-  const feedbackCharCount = document.getElementById("feedback-char-count");
-  const feedbackSubmitBtn = document.getElementById("feedback-submit-btn");
-
-  const statusSending = document.getElementById("feedback-status-sending");
-  const statusSuccess = document.getElementById("feedback-status-success");
-  const statusError = document.getElementById("feedback-status-error");
-  const errorMsg = document.getElementById("feedback-error-msg");
-  const errorBackBtn = document.getElementById("feedback-error-back-btn");
-
-  // Helper to escape HTML to prevent XSS
-  const escapeHTML = (str) => {
-    if (!str) return "";
-    return str.toString()
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#039;")
-      .trim();
-  };
-
-  // Open feedback modal
-  if (feedbackFab && feedbackDialog) {
-    feedbackFab.addEventListener("click", () => {
-      feedbackFab.setAttribute("aria-expanded", "true");
-      // Auto-set the selected subject in the feedback dropdown
-      if (state.selectedSubject) {
-        // Map selectedSubject code to form dropdown value
-        if (state.selectedSubject === "patola") {
-          feedbackSubjectSelect.value = "patola";
-        } else if (state.selectedSubject === "patfyz") {
-          feedbackSubjectSelect.value = "patfyz";
-        } else {
-          feedbackSubjectSelect.value = state.selectedSubject;
-        }
-      } else {
-        feedbackSubjectSelect.value = "general";
-      }
-
-      // Reset form view
-      feedbackForm.style.display = "flex";
-      statusSending.style.display = "none";
-      statusSuccess.style.display = "none";
-      statusError.style.display = "none";
-      
-      feedbackForm.reset();
-      updateCharCounter();
-      
-      feedbackDialog.showModal();
-    });
-  }
-
-  // Close modal
-  if (feedbackCloseBtn && feedbackDialog) {
-    feedbackCloseBtn.addEventListener("click", () => {
-      feedbackDialog.close();
-    });
-  }
-
-  // Close when clicking backdrop
-  if (feedbackDialog) {
-    feedbackDialog.addEventListener("click", (e) => {
-      const rect = feedbackDialog.getBoundingClientRect();
-      const isInDialog = (rect.top <= e.clientY && e.clientY <= rect.top + rect.height &&
-        rect.left <= e.clientX && e.clientX <= rect.left + rect.width);
-      if (!isInDialog) {
-        feedbackDialog.close();
-      }
-    });
-
-    // Update ARIA expanded state on close
-    feedbackDialog.addEventListener("close", () => {
-      if (feedbackFab) feedbackFab.setAttribute("aria-expanded", "false");
-    });
-  }
-
-  // Update char count
-  const updateCharCounter = () => {
-    if (feedbackMessageInput && feedbackCharCount) {
-      feedbackCharCount.textContent = feedbackMessageInput.value.length;
-    }
-  };
-
-  if (feedbackMessageInput) {
-    feedbackMessageInput.addEventListener("input", updateCharCounter);
-  }
-
-  // Go back from error screen
-  if (errorBackBtn && feedbackForm && statusError) {
-    errorBackBtn.addEventListener("click", () => {
-      statusError.style.display = "none";
-      feedbackForm.style.display = "flex";
-    });
-  }
-
-  // Submit form logic
-  if (feedbackForm) {
-    feedbackForm.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      // Basic rate limiting check (1 min limit)
-      const lastSent = localStorage.getItem("feedback_last_sent");
-      const now = Date.now();
-      if (lastSent && (now - parseInt(lastSent) < 60 * 1000)) {
-        const remaining = Math.ceil((60 * 1000 - (now - parseInt(lastSent))) / 1000);
-        alert(`Prosím počkejte ještě ${remaining} sekund před dalším odesláním.`);
-        return;
-      }
-
-      // Read & sanitize inputs
-      const feedbackType = escapeHTML(feedbackTypeSelect.value);
-      const feedbackSubject = escapeHTML(feedbackSubjectSelect.value);
-      const feedbackName = escapeHTML(feedbackNameInput.value) || "Anonymní";
-      const feedbackMessage = escapeHTML(feedbackMessageInput.value);
-
-      if (!feedbackMessage) {
-        alert("Zpráva nesmí být prázdná.");
-        return;
-      }
-
-      // Transition to sending state
-      feedbackForm.style.display = "none";
-      statusSending.style.display = "flex";
-
-      try {
-        // Fetch config to get authorization token if needed, or use default token
-        let token = "super_secret_medical_study_token_2026";
-        try {
-          const configRes = await fetch("/api/config");
-          if (configRes.ok) {
-            const configData = await configRes.json();
-            if (configData.clientToken) {
-              token = configData.clientToken;
-            }
-          }
-        } catch (err) {
-          // Fall back to default local token
-        }
-
-        const response = await fetch("/api/feedback", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`
-          },
-          body: JSON.stringify({
-            type: feedbackType,
-            subject: feedbackSubject,
-            name: feedbackName,
-            message: feedbackMessage
-          })
-        });
-
-        if (!response.ok) {
-          throw new Error("Chyba při odesílání na server.");
-        }
-
-        const data = await response.json();
-        if (data.status === "error") {
-          throw new Error(data.message || "Chyba při zpracování požadavku.");
-        }
-
-        // Success state
-        statusSending.style.display = "none";
-        statusSuccess.style.display = "flex";
-        
-        // Record timestamp for rate limiting
-        localStorage.setItem("feedback_last_sent", Date.now().toString());
-
-        // Close after 2 seconds
-        setTimeout(() => {
-          feedbackDialog.close();
-        }, 2000);
-
-      } catch (err) {
-        // Error state
-        statusSending.style.display = "none";
-        statusError.style.display = "flex";
-        if (errorMsg) {
-          errorMsg.textContent = `Chyba při odesílání: ${err.message || "Zkuste to znovu."}`;
-        }
-      }
-    });
-  }
 
   // Inicializace výchozího stavu
   selectGrade(3);
