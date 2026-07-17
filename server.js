@@ -577,7 +577,8 @@ app.post("/api/case/init", (req, res) => {
       "Kardiolog": [],
       "Chirurg": [],
       "Neurolog": [],
-      "ARO": []
+      "ARO": [],
+      "Vedoucí lékař (Sokratický mentor)": []
     },
     labsOrdered: [],
     labsReady: [],
@@ -1065,7 +1066,7 @@ app.post("/api/case/consult", async (req, res) => {
 Jsi lékařský konzultant specializace [${specialty}] pracující v české nemocnici.
 Vaším úkolem je odpovědět sloužícímu lékaři na urgentním příjmu, který s vámi konzultuje pacienta.
 
-SPECIALISTA: ${specialty} (např. Kardiolog, Neurolog, Chirurg, ARO)
+SPECIALISTA: ${specialty} (např. Kardiolog, Neurolog, Chirurg, ARO, Vedoucí lékař (Sokratický mentor))
 AKTUALNÍ STAV PACIENTA NA URGENTU:
 ${clinicalContext}
 
@@ -1077,6 +1078,7 @@ PERSONA SPECIALISTY:
   - U febrilních křečí (Case 9) doporučuje paracetamol/ibuprofen a studené zábaly, pokud křeče pominuly po diazepamu. 
   - U těžkého dětského astmatu (Case 10) požaduje inhalační Ventolin/Atrovent, i.v. kortikoidy, a případně i.v. magnesium sulfát.
   - U epiglottitidy (Case 11) varuje před jakýmkoliv stresováním dítěte nebo vyšetřením krku špachtlí (hrozí udušení!) a doporučuje urgentní řízenou intubaci na sále s přítomností ARO lékaře.
+- Vedoucí lékař (Sokratický mentor): Ty jsi vedoucí lékař (primář) oddělení urgentního příjmu a mentor studenta. Tvojí rolí je pomáhat studentovi najít správnou diagnózu a terapeutické kroky pomocí sokratovské metody tázání. Neříkej mu diagnózu ani správné kroky napřímo! Místo toho klaď návodné otázky, upozorňuj na nesrovnalosti v jeho dosavadním postupu, odkazuj ho na vitální funkce, anamnézu nebo provedená vyšetření a veď ho k logickému uvažování (např. "Podíval ses na krevní tlak? Myslíš, že u takto hypotenzního pacienta je bezpečné podávat tento lék?" nebo "Co nám říká to rozšíření QRS na EKG?"). Reaguj česky, konstruktivně, podporujícím, ale profesionálním tónem.
 
 Napište realistickou, klinicky správnou odpověď v češtině, která odráží českou nemocniční realitu (mírně formální, přímá, někdy mírně kousavá nebo skeptická, pokud lékař na urgentu zapomněl zásadní kroky).
 
@@ -1177,6 +1179,8 @@ Napiš pouze samotný text odpovědi v češtině. Nepoužívej uvozovky ani mar
       } else {
         reply = "Pokud je pacient stabilní a nepotřebuje umělou plicní ventilaci ani vazopresory, uložte ho na standardní interní oddělení nebo JIP.";
       }
+    } else if (specialty === "Vedoucí lékař (Sokratický mentor)") {
+      reply = "Jako váš primář chci, abyste sami našli správné řešení. Podívejte se pozorně na monitor vitálních funkcí a provedená vyšetření. Co vám říkají ty hodnoty a nálezy o stavu pacienta? Jaké jsou vaše priority v stabilizaci a jaké specifické léky nebo zákroky jsou indikovány podle doporučených postupů?";
     }
   }
 
