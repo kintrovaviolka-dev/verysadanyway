@@ -152,7 +152,7 @@ export default function Workspace({
     }
   };
 
-  const availableConsultants = ["Kardiolog", "Chirurg", "Neurolog", "ARO"];
+  const availableConsultants = ["Kardiolog", "Chirurg", "Neurolog", "ARO", "Vedoucí lékař (Sokratický mentor)"];
 
   return (
     <div className="grid grid-cols-12 gap-6 max-w-[1600px] mx-auto h-[calc(100vh-140px)] animate-fade-in overflow-hidden">
