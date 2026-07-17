@@ -20,3 +20,6 @@
 ## 2024-11-20 - Escape Key Dismissal for Floating Panels
 **Learning:** Found custom floating panels (like the Chatbot and Settings overlay) that lack support for dismissal via the `Escape` key. This traps keyboard users who expect standard dialog behavior and breaks their navigation flow. Additionally, focus was not being properly restored to the trigger element (like the FAB) after closing.
 **Action:** Always implement a global `keydown` event listener that checks for the `Escape` key when custom floating panels or overlays are open. Ensure this dismisses the active layer (e.g., closing an overlay before the main panel) and explicitly restores focus (`.focus()`) back to the element that triggered the panel to maintain keyboard navigation context.
+## 2024-11-20 - Actionable Recovery Paths in Empty States
+**Learning:** Dead-end messages in search or filtered lists (e.g., "Nebyly nalezeny žádné otázky") offer no path forward, causing friction for users who then have to manually delete their query or figure out how to reset filters.
+**Action:** When implementing empty states for search or filtered lists, always provide an actionable recovery path, such as a "Clear search" or "Reset filters" button, directly within the empty state view to quickly restore the default state.
