@@ -830,6 +830,7 @@ document.addEventListener("DOMContentLoaded", () => {
   chatbotFab.addEventListener("click", () => {
     const isOpen = chatbotPanel.classList.toggle("open");
     chatbotFab.classList.toggle("open");
+    chatbotFab.setAttribute("aria-expanded", isOpen);
     if (isOpen) {
       chatbotBadge.style.display = "none";
       chatbotInput.focus();
@@ -840,15 +841,36 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("chatbot-close-btn").addEventListener("click", () => {
     chatbotPanel.classList.remove("open");
     chatbotFab.classList.remove("open");
+    chatbotFab.setAttribute("aria-expanded", "false");
+    chatbotFab.focus();
   });
 
   // Settings Panel Toggle
   chatbotSettingsBtn.addEventListener("click", () => {
     chatbotSettingsOverlay.classList.add("open");
+    chatbotSettingsBtn.setAttribute("aria-expanded", "true");
   });
 
   chatbotSettingsCloseBtn.addEventListener("click", () => {
     chatbotSettingsOverlay.classList.remove("open");
+    chatbotSettingsBtn.setAttribute("aria-expanded", "false");
+    chatbotSettingsBtn.focus();
+  });
+
+  // Escape key support to dismiss panels
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      if (chatbotSettingsOverlay.classList.contains("open")) {
+        chatbotSettingsOverlay.classList.remove("open");
+        chatbotSettingsBtn.setAttribute("aria-expanded", "false");
+        chatbotSettingsBtn.focus();
+      } else if (chatbotPanel.classList.contains("open")) {
+        chatbotPanel.classList.remove("open");
+        chatbotFab.classList.remove("open");
+        chatbotFab.setAttribute("aria-expanded", "false");
+        chatbotFab.focus();
+      }
+    }
   });
 
   // Save/Clear key locally
