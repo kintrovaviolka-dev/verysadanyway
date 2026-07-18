@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".subject-card").forEach(card => {
       const cardGrade = parseInt(card.getAttribute("data-grade"));
       if (cardGrade === grade) {
-        card.style.display = "flex";
+        card.style.display = "block";
       } else {
         card.style.display = "none";
       }
