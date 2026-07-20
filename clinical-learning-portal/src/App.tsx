@@ -6,15 +6,17 @@ import {
   GraduationCap,
   Shield,
   Stethoscope,
-  ChevronRight
+  ChevronRight,
+  Wind
 } from 'lucide-react';
 import EmergencyModule from './components/EmergencyModule';
 import AnesthesiaModule from './components/AnesthesiaModule';
+import VentilationModule from './components/VentilationModule';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 
 function AppContent() {
   const { language, setLanguage, t } = useLanguage();
-  const [activeModule, setActiveModule] = useState<'home' | 'emergency' | 'pharmacology'>('home');
+  const [activeModule, setActiveModule] = useState<'home' | 'emergency' | 'pharmacology' | 'ventilation'>('home');
   const [masteredCount, setMasteredCount] = useState(0);
   const [apiHealth, setApiHealth] = useState<{ configured: boolean; checking: boolean }>({
     configured: false,
@@ -76,7 +78,7 @@ function AppContent() {
             <div>
               <span className="text-[10px] uppercase font-bold tracking-widest text-slate-400 block -mb-0.5">LF OU • Clinical LMS</span>
               <h1 className="text-sm sm:text-base font-extrabold tracking-tight text-white">
-                {language === 'cs' ? 'Lékařský resuscitační a farmakologický portál' : 'Medical Resuscitation & Pharmacology Portal'}
+                {language === 'cs' ? 'Lékařský resuscitační, farmakologický a UPV portál' : 'Medical Resuscitation, Anesthesia & Ventilation Portal'}
               </h1>
             </div>
           </div>
@@ -106,6 +108,14 @@ function AppContent() {
               }`}
             >
               {t('pharmacologyHub')}
+            </button>
+            <button
+              onClick={() => setActiveModule('ventilation')}
+              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all border ${
+                activeModule === 'ventilation' ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30' : 'text-slate-400 hover:text-white border-transparent hover:bg-white/5'
+              }`}
+            >
+              {t('ventilationHub')}
             </button>
           </nav>
 
@@ -210,7 +220,7 @@ function AppContent() {
             </div>
 
             {/* Portal Module Entry Choices */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Emergency medicine box */}
               <div className="group glass-card glass-card-hover rounded-2xl p-6 shadow-sm flex flex-col justify-between">
                 <div className="flex flex-col gap-4">
@@ -296,6 +306,49 @@ function AppContent() {
                   <ChevronRight className="w-4 h-4" />
                 </button>
               </div>
+
+              {/* Mechanical Ventilation UPV box */}
+              <div className="group glass-card glass-card-hover rounded-2xl p-6 shadow-sm flex flex-col justify-between">
+                <div className="flex flex-col gap-4">
+                  <div className="w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-xl flex items-center justify-center border border-emerald-500/20">
+                    <Wind className="w-6 h-6 animate-pulse" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold tracking-tight text-white group-hover:text-emerald-400 transition-colors">
+                      {t('ventilationTitle')}
+                    </h3>
+                    <p className="text-xs text-slate-400 font-sans mt-1.5 leading-relaxed">
+                      {t('ventilationDesc')}
+                    </p>
+                  </div>
+
+                  <div className="glass-pill p-4 rounded-xl text-xs flex flex-col gap-2 mt-2">
+                    <span className="font-bold text-slate-300 block uppercase tracking-wide">{t('ventilationIncluded')}</span>
+                    <div className="grid grid-cols-1 gap-2 text-slate-400 font-medium">
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-emerald-400 font-bold">•</span>
+                        {t('ventilationFeat1')}
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-emerald-400 font-bold">•</span>
+                        {t('ventilationFeat2')}
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-emerald-400 font-bold">•</span>
+                        {t('ventilationFeat3')}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <button
+                  onClick={() => setActiveModule('ventilation')}
+                  className="mt-6 flex items-center justify-center gap-1.5 py-3 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 hover:text-white border border-emerald-500/20 hover:border-emerald-400/50 font-bold rounded-xl text-xs tracking-wider transition-all shadow-sm cursor-pointer"
+                >
+                  {t('ventilationBtn')}
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
             </div>
           </div>
         )}
@@ -310,6 +363,12 @@ function AppContent() {
         {activeModule === 'pharmacology' && (
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
             <AnesthesiaModule />
+          </motion.div>
+        )}
+
+        {activeModule === 'ventilation' && (
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
+            <VentilationModule />
           </motion.div>
         )}
       </main>

@@ -14,6 +14,30 @@
       "destination": "/clinical-learning-portal/dist/:path*"
     },
     {
+      "source": "/upv",
+      "destination": "/clinical-learning-portal/dist/index.html"
+    },
+    {
+      "source": "/upv/",
+      "destination": "/clinical-learning-portal/dist/index.html"
+    },
+    {
+      "source": "/upv/:path*",
+      "destination": "/clinical-learning-portal/dist/:path*"
+    },
+    {
+      "source": "/urgentni-prijem",
+      "destination": "/urgentni-prijem/dist/index.html"
+    },
+    {
+      "source": "/urgentni-prijem/",
+      "destination": "/urgentni-prijem/dist/index.html"
+    },
+    {
+      "source": "/urgentni-prijem/:path*",
+      "destination": "/urgentni-prijem/dist/:path*"
+    },
+    {
       "source": "/urgentni-prijem-game",
       "destination": "/urgentni-prijem/dist/index.html"
     },
