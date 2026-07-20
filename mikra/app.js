@@ -458,6 +458,14 @@ function handleQuizAnswer(e) {
 
 // ========== EVENTS ==========
 function bindEvents() {
+  // Back to hub button
+  const backHubBtn = document.getElementById('back-hub-btn');
+  if (backHubBtn) {
+    backHubBtn.addEventListener('click', () => {
+      window.location.href = '../index.html';
+    });
+  }
+
   // Dialog close
   const closeBtn = document.getElementById('dialog-close');
   if (closeBtn) closeBtn.addEventListener('click', closeDialog);
