@@ -5,7 +5,7 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
-    base: '/urgentni-prijem-game/',
+    base: '/urgentni-prijem/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
