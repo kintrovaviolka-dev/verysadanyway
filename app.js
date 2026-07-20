@@ -156,8 +156,8 @@ document.addEventListener("DOMContentLoaded", () => {
       destination = "./mikra/index.html";
     } else if (subject === "clinical-portal") {
       destination = "/clinical-portal/";
-    } else if (subject === "urgentni-prijem") {
-      destination = "/urgentni-prijem-game/";
+    } else if (subject === "urgentni-prijem" || subject === "upv") {
+      destination = "./upv/index.html";
     }
 
     if (destination) {

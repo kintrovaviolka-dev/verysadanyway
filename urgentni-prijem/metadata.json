@@ -1,0 +1,6 @@
+{
+  "name": "Urgentní příjem",
+  "description": "Klinický trenažér a simulátor rozhodování na urgentním příjmu podle standardů ČLS JEP.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

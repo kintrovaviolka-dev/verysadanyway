@@ -15,15 +15,15 @@
     },
     {
       "source": "/urgentni-prijem-game",
-      "destination": "/urgentní-příjem/dist/index.html"
+      "destination": "/urgentni-prijem/dist/index.html"
     },
     {
       "source": "/urgentni-prijem-game/",
-      "destination": "/urgentní-příjem/dist/index.html"
+      "destination": "/urgentni-prijem/dist/index.html"
     },
     {
       "source": "/urgentni-prijem-game/:path*",
-      "destination": "/urgentní-příjem/dist/:path*"
+      "destination": "/urgentni-prijem/dist/:path*"
     }
   ]
 }
