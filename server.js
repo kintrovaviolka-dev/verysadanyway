@@ -1398,10 +1398,14 @@ if (process.env.NODE_ENV !== 'production') {
   app.use('/upv', express.static(path.join(__dirname, 'upv')));
 }
 
-// Start the server
-app.listen(PORT, () => {
-  console.log(`===================================================`);
-  console.log(`  Lékařský Studijní Portál spuštěn na portu ${PORT}`);
-  console.log(`  Otevřete: http://localhost:${PORT}`);
-  console.log(`===================================================`);
-});
+// Export app for serverless or start server locally
+if (process.env.VERCEL || require.main !== module) {
+  module.exports = app;
+} else {
+  app.listen(PORT, () => {
+    console.log(`===================================================`);
+    console.log(`  Lékařský Studijní Portál spuštěn na portu ${PORT}`);
+    console.log(`  Otevřete: http://localhost:${PORT}`);
+    console.log(`===================================================`);
+  });
+}

@@ -11,20 +11,28 @@
       "destination": "/clinical-learning-portal/dist/index.html"
     },
     {
-      "source": "/clinical-portal/:path*",
-      "destination": "/clinical-learning-portal/dist/:path*"
+      "source": "/clinical-portal/index.html",
+      "destination": "/clinical-learning-portal/dist/index.html"
     },
     {
-      "source": "/upv",
-      "destination": "/upv/index.html"
+      "source": "/clinical-portal/(.*)",
+      "destination": "/clinical-learning-portal/dist/$1"
     },
     {
-      "source": "/upv/",
-      "destination": "/upv/index.html"
+      "source": "/clinical-learning-portal",
+      "destination": "/clinical-learning-portal/dist/index.html"
     },
     {
-      "source": "/upv/:path*",
-      "destination": "/upv/:path*"
+      "source": "/clinical-learning-portal/",
+      "destination": "/clinical-learning-portal/dist/index.html"
+    },
+    {
+      "source": "/clinical-learning-portal/index.html",
+      "destination": "/clinical-learning-portal/dist/index.html"
+    },
+    {
+      "source": "/clinical-learning-portal/(.*)",
+      "destination": "/clinical-learning-portal/dist/$1"
     },
     {
       "source": "/urgentni-prijem",
@@ -35,8 +43,12 @@
       "destination": "/urgentni-prijem/dist/index.html"
     },
     {
-      "source": "/urgentni-prijem/:path*",
-      "destination": "/urgentni-prijem/dist/:path*"
+      "source": "/urgentni-prijem/index.html",
+      "destination": "/urgentni-prijem/dist/index.html"
+    },
+    {
+      "source": "/urgentni-prijem/(.*)",
+      "destination": "/urgentni-prijem/dist/$1"
     },
     {
       "source": "/urgentni-prijem-game",
@@ -47,8 +59,24 @@
       "destination": "/urgentni-prijem/dist/index.html"
     },
     {
-      "source": "/urgentni-prijem-game/:path*",
-      "destination": "/urgentni-prijem/dist/:path*"
+      "source": "/urgentni-prijem-game/index.html",
+      "destination": "/urgentni-prijem/dist/index.html"
+    },
+    {
+      "source": "/urgentni-prijem-game/(.*)",
+      "destination": "/urgentni-prijem/dist/$1"
+    },
+    {
+      "source": "/upv",
+      "destination": "/upv/index.html"
+    },
+    {
+      "source": "/upv/",
+      "destination": "/upv/index.html"
+    },
+    {
+      "source": "/upv/(.*)",
+      "destination": "/upv/$1"
     }
   ]
 }
