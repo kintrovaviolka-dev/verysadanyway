@@ -623,6 +623,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // --- LOGIKA TLAČÍTKA ZPĚT NA ROZCESTNÍK ---
+  const backHubBtn = document.getElementById("back-hub-btn");
+  if (backHubBtn) {
+    backHubBtn.addEventListener("click", () => {
+      if (window.location.protocol === 'file:') {
+        window.location.href = '../index.html';
+      } else {
+        window.location.href = 'https://verysadanyway.vercel.app/';
+      }
+    });
+  }
+
   // --- LOGIKA GEMINI CHATBOTA ---
   // ==========================================
   const chatbotContainer = document.getElementById("gemini-chatbot-container");
