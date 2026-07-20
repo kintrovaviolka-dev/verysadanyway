@@ -105,7 +105,6 @@ const TRANSLATIONS: Record<Language, Record<string, string>> = {
     pharmacologyFeat3: 'Kazuistické testy s podrobným odůvodněním',
     pharmacologyBtn: 'Vstoupit do farmakologie',
 
-    ventilationHub: 'Mechanická ventilace (UPV)',
     ventilationTitle: 'Mechanická plicní ventilace (UPV)',
     ventilationDesc: 'Osvojte si fyzikální a patofyziologické principy UPV, ventilační režimy (VCV, PCV, PSV), PEEP a protektivní ventilaci u ARDS.',
     ventilationIncluded: 'Ventilační moduly a nástroje:',
