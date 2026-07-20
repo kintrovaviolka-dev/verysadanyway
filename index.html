@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lékařský Studijní Portál | Rozcestník 3. a 4. ročníku</title>
+  <title>Lékařský Studijní Portál | Rozcestník 3., 4. a 5. ročníku</title>
   <meta name="description"
-    content="Rozcestník studijních portálů pro 3. a 4. ročník všeobecného lékařství. Připravte se na zkoušky s našimi nástroji a materiály.">
+    content="Rozcestník studijních portálů pro 3., 4. a 5. ročník všeobecného lékařství. Připravte se na zkoušky s našimi nástroji a materiály.">
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -18,7 +18,7 @@
         <span>LF OU • Všeobecné Lékařství</span>
       </div>
       <h1>Lékařské Studijní Portály</h1>
-      <p>Centrální rozcestník pro přípravu na zkoušky a zápočty ve 3. a 4. ročníku všeobecného lékařství.</p>
+      <p>Centrální rozcestník pro přípravu na zkoušky a zápočty ve 3., 4. a 5. ročníku všeobecného lékařství.</p>
     </header>
 
     <!-- Volba ročníku -->
@@ -43,8 +43,7 @@
           <div class="grade-number">4.</div>
           <div class="grade-label">ročník</div>
         </div>
-        <div class="grade-card locked" data-grade="5" role="button" tabindex="0" aria-label="5. ročník (uzamčeno)" aria-disabled="true">
-          <div class="lock-badge" aria-hidden="true">🔒</div>
+        <div class="grade-card" data-grade="5" role="button" tabindex="0" aria-label="5. ročník">
           <div class="grade-number">5.</div>
           <div class="grade-label">ročník</div>
         </div>
@@ -80,6 +79,11 @@
           <h3>Imunologie</h3>
           <p>Aktivní procvičování testových otázek a zkouškových okruhů.</p>
         </div>
+        <div class="subject-card mikrobiologie" data-subject="mikrobiologie" id="subject-mikrobiologie" role="button" tabindex="0" aria-label="Vybrat předmět Mikrobiologie" data-grade="3">
+          <span class="icon">🦠</span>
+          <h3>Mikrobiologie</h3>
+          <p>Interaktivní dvojotázky s Leitnerovým systémem: bakteriologie, virologie, mykologie a diagnostika.</p>
+        </div>
         <div class="subject-card farmakologie" data-subject="farmakologie" id="subject-farmakologie" role="button" tabindex="0" aria-label="Vybrat předmět Farmakologie" data-grade="4">
           <span class="icon">💊</span>
           <h3>Farmakologie</h3>
@@ -95,12 +99,12 @@
           <h3>Radiologie</h3>
           <p>Aktivní studium zobrazovacích metod, RTG, CT, MR, UZ a intervenční radiologie.</p>
         </div>
-        <div class="subject-card clinical-portal" data-subject="clinical-portal" id="subject-clinical-portal" role="button" tabindex="0" aria-label="Vybrat Resuscitaci a Anestezii" data-grade="4">
+        <div class="subject-card clinical-portal" data-subject="clinical-portal" id="subject-clinical-portal" role="button" tabindex="0" aria-label="Vybrat Resuscitaci a Anestezii" data-grade="5">
           <span class="icon">🫁</span>
           <h3>Resuscitace & Anestezie</h3>
           <p>Trenažér resuscitace a anestetických léčiv s interaktivním váhovým kalkulátorem.</p>
         </div>
-        <div class="subject-card urgentni-prijem" data-subject="urgentni-prijem" id="subject-urgentni-prijem" role="button" tabindex="0" aria-label="Vybrat Urgentní příjem" data-grade="4">
+        <div class="subject-card urgentni-prijem" data-subject="urgentni-prijem" id="subject-urgentni-prijem" role="button" tabindex="0" aria-label="Vybrat Urgentní příjem" data-grade="5">
           <span class="icon">🚨</span>
           <h3>Urgentní příjem</h3>
           <p>Klinický simulátor lékaře na urgentním příjmu. Vyřešte 13 realistických kazuistik.</p>
@@ -108,448 +112,9 @@
       </div>
     </section>
 
-    <!-- Rozcestník akcí pro vybraný předmět (skrytý na začátku) -->
-    <section class="hub-section" id="hub-section">
-      <div class="hub-header">
-        <button class="back-btn" id="hub-back-btn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <line x1="19" y1="12" x2="5" y2="12"></line>
-            <polyline points="12 19 5 12 12 5"></polyline>
-          </svg>
-          Zpět na předměty
-        </button>
-        <h2 class="section-title" id="hub-title">Předmět</h2>
-      </div>
 
-      <div class="hub-grid" id="hub-grid-default">
-        <!-- 1. Studijní portál -->
-        <div class="hub-card">
-          <div class="hub-card-icon">🚀</div>
-          <h4>Příprava na zkoušku</h4>
-          <p>Kompletní interaktivní studijní portál s podrobnými texty, tabulkami referenčních hodnot a schématy rozvoje
-            chorob.</p>
-          <a href="#" target="_blank" class="btn btn-primary" id="portal-link-btn">
-            Přejít do portálu
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-              <polyline points="15 3 21 3 21 9"></polyline>
-              <line x1="10" y1="14" x2="21" y2="3"></line>
-            </svg>
-          </a>
-        </div>
+    <!-- Předměty navádí uživatele přímo do jejich výukových portálů -->
 
-        <!-- 2. Procvičování na zápočet -->
-        <div class="hub-card">
-          <div class="hub-card-icon">✍️</div>
-          <h4>Procvičovat na zápočet</h4>
-          <p>Vygenerujte si rychlý test z databáze otázek. Vhodné pro přípravu na průběžné testy a zápočtové testy.</p>
-          <button class="btn btn-primary" id="quiz-trigger-btn">Spustit test</button>
-        </div>
-
-        <!-- 3. Otázky & Materiály -->
-        <div class="hub-card">
-          <div class="hub-card-icon">📂</div>
-          <h4>Otázky a materiály</h4>
-          <p>Vyhledejte a procházejte seznam zkouškových otázek bez vypracování nebo si stáhněte doprovodné PDF skripta.
-          </p>
-          <button class="btn btn-secondary" id="materials-trigger-btn">Zobrazit materiály</button>
-        </div>
-
-        <!-- 4. Rychlé procvičování (Beta) -->
-        <div class="hub-card" id="beta-app-card">
-          <div class="hub-card-icon">🎮</div>
-          <h4>Rychlé procvičování <span class="beta-badge">BETA</span></h4>
-          <p id="beta-app-desc">Rychlá, herní forma studia základů vhodná pro chvíle, kdy je mozek už unavený.</p>
-          <a href="#" target="_blank" class="btn btn-secondary" id="beta-app-link-btn">
-            Spustit Beta aplikaci
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-              <polyline points="15 3 21 3 21 9"></polyline>
-              <line x1="10" y1="14" x2="21" y2="3"></line>
-            </svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Rozcestník pro Ošetřovatelství -->
-      <div class="hub-grid" id="hub-grid-oset" style="display: none; max-width: 800px; margin: 0 auto;">
-        <!-- 1. Stažení PDF -->
-        <div class="hub-card">
-          <div class="hub-card-icon">📄</div>
-          <h4>Studijní skripta</h4>
-          <p>Stáhněte si kompletní PDF materiály (oško_byznys.pdf) pro přípravu na předmět ošetřovatelství.</p>
-          <a href="oško_byznys.pdf" download class="btn btn-primary btn-oset" id="oset-download-btn">
-            Stáhnout PDF
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-          </a>
-        </div>
-
-        <!-- 2. Google Drive Složka -->
-        <div class="hub-card">
-          <div class="hub-card-icon">📁</div>
-          <h4>Všechny materiály</h4>
-          <p>Zobrazit celou složku se všemi doplňujícími materiály a podklady pro ošetřovatelství na Google Drive.</p>
-          <a href="https://drive.google.com/drive/folders/1mnZ45tCU28m38hUb77BGeXliiZyc9djm?usp=sharing" target="_blank"
-            class="btn btn-secondary" id="oset-drive-btn">
-            Otevřít složku
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-              <polyline points="15 3 21 3 21 9"></polyline>
-              <line x1="10" y1="14" x2="21" y2="3"></line>
-            </svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Rozcestník pro Farmakologii -->
-      <div class="hub-grid" id="hub-grid-farmakologie" style="display: none; max-width: 800px; margin: 0 auto;">
-        <!-- 1. Vstup do portálu -->
-        <div class="hub-card">
-          <div class="hub-card-icon">🚀</div>
-          <h4>Interaktivní portál</h4>
-          <p>Kompletní studijní aplikace s kartičkami, výkladem, PK/TDM trenažérem a poznámkami.</p>
-          <a href="farmakologie/index.html" class="btn btn-primary btn-farma" id="farmakologie-portal-btn">
-            Otevřít portál
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-              <polyline points="15 3 21 3 21 9"></polyline>
-              <line x1="10" y1="14" x2="21" y2="3"></line>
-            </svg>
-          </a>
-        </div>
-
-        <!-- 2. Stažení PDF - Vypracovaná témata -->
-        <div class="hub-card">
-          <div class="hub-card-icon">📄</div>
-          <h4>Vypracovaná témata</h4>
-          <p>Stáhněte si kompletní vypracované otázky z farmakologie ve formátu PDF.</p>
-          <a href="https://drive.google.com/file/d/1fgxfXNBTwIar-_X6yPSLrwYOnaMHP9Hq/view?usp=sharing" download
-            class="btn btn-secondary" id="farmakologie-download-main-btn">
-            Stáhnout PDF
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-          </a>
-        </div>
-
-        <!-- 3. Stažení PDF - Dodatky 2026 -->
-        <div class="hub-card">
-          <div class="hub-card-icon">✨</div>
-          <h4>Dodatky k vypracování (2026)</h4>
-          <p>Stáhněte si moderní dodatky k vypracovaným otázkám z farmakologie (2026).</p>
-          <a href="farmakologie/moderni_dodatky_2026.pdf" download class="btn btn-secondary"
-            id="farmakologie-download-supp-btn">
-            Stáhnout dodatky
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Rozcestník pro Dermatologii -->
-      <div class="hub-grid" id="hub-grid-dermatologie" style="display: none; max-width: 800px; margin: 0 auto;">
-        <!-- 1. Vstup do portálu -->
-        <div class="hub-card">
-          <div class="hub-card-icon">🚀</div>
-          <h4>Interaktivní portál</h4>
-          <p>Kompletní studijní aplikace s kartičkami, výkladem, Leitnerovým opakováním a kontrolními kvízy.</p>
-          <a href="derma/index.html" class="btn btn-primary btn-derma" id="dermatologie-portal-btn">
-            Otevřít portál
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-              <polyline points="15 3 21 3 21 9"></polyline>
-              <line x1="10" y1="14" x2="21" y2="3"></line>
-            </svg>
-          </a>
-        </div>
-
-        <!-- 2. Stažení PDF - Vypracovaná témata -->
-        <div class="hub-card">
-          <div class="hub-card-icon">📄</div>
-          <h4>Materiály ke zkoušce</h4>
-          <p>Procházejte nebo stáhněte si kompletní vypracované otázky z dermatovenerologie ve formátu PDF.</p>
-          <a href="derma/raw/Otázky-ke-zkoušce-K (1).pdf" download class="btn btn-secondary" id="dermatologie-download-btn">
-            Stáhnout PDF
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Rozcestník pro Radiologii -->
-      <div class="hub-grid" id="hub-grid-radiologie" style="display: none; max-width: 800px; margin: 0 auto;">
-        <!-- 1. Vstup do portálu -->
-        <div class="hub-card">
-          <div class="hub-card-icon">🚀</div>
-          <h4>Interaktivní portál</h4>
-          <p>Kompletní studijní aplikace s kartičkami, výkladem, Leitnerovým opakováním, kvízy a Gemini asistentem.</p>
-          <a href="radiolka/index.html" class="btn btn-primary btn-radio" id="radiologie-portal-btn">
-            Otevřít portál
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-              <polyline points="15 3 21 3 21 9"></polyline>
-              <line x1="10" y1="14" x2="21" y2="3"></line>
-            </svg>
-          </a>
-        </div>
-
-        <!-- 2. Zdrojová fakta (Markdown) -->
-        <div class="hub-card">
-          <div class="hub-card-icon">📄</div>
-          <h4>Zdrojová fakta (Markdown)</h4>
-          <p>Procházejte kompletní surová fakta z radiologie (facts.md) přímo v surovém textovém formátu.</p>
-          <a href="radiolka/facts.md" target="_blank" class="btn btn-secondary" id="radiologie-facts-btn">
-            Zobrazit facts.md
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-              <polyline points="15 3 21 3 21 9"></polyline>
-              <line x1="10" y1="14" x2="21" y2="3"></line>
-            </svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Rozcestník pro Imunologii -->
-      <div class="hub-grid" id="hub-grid-imunologie" style="display: none; max-width: 800px; margin: 0 auto;">
-        <!-- 1. Vstup do trenažéru -->
-        <div class="hub-card">
-          <div class="hub-card-icon">🛡️</div>
-          <h4>Testovací trenažér</h4>
-          <p>Aktivní procvičování single-choice otázek z imunologie s okamžitou zpětnou vazbou.</p>
-          <a href="imunologie-test/index.html" class="btn btn-primary btn-imuno" id="imunologie-portal-btn">
-            Spustit trenažér
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-              <polyline points="15 3 21 3 21 9"></polyline>
-              <line x1="10" y1="14" x2="21" y2="3"></line>
-            </svg>
-          </a>
-        </div>
-
-        <!-- 2. Surová databáze otázek (JSON) -->
-        <div class="hub-card">
-          <div class="hub-card-icon">📂</div>
-          <h4>Surová data otázek</h4>
-          <p>Zobrazit nebo stáhnout lokální datový soubor (questions.json) pro testování.</p>
-          <a href="imunologie-test/questions.json" target="_blank" class="btn btn-secondary" id="imunologie-questions-btn">
-            Zobrazit questions.json
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-              <polyline points="15 3 21 3 21 9"></polyline>
-              <line x1="10" y1="14" x2="21" y2="3"></line>
-            </svg>
-        </div>
-      </div>
-
-      <!-- Rozcestník pro Resuscitaci a Anestezii -->
-      <div class="hub-grid" id="hub-grid-clinical-portal" style="display: none; max-width: 800px; margin: 0 auto;">
-        <div class="hub-card">
-          <div class="hub-card-icon">🚀</div>
-          <h4>Interaktivní portál</h4>
-          <p>Kompletní studijní aplikace s resuscitací (ACLS/BLS), trenažérem anesteziologických léčiv a kalkulátorem dávek.</p>
-          <a href="/clinical-portal/" class="btn btn-primary btn-clinical" id="clinical-portal-btn">
-            Otevřít portál
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-              <polyline points="15 3 21 3 21 9"></polyline>
-              <line x1="10" y1="14" x2="21" y2="3"></line>
-            </svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Rozcestník pro Urgentní příjem -->
-      <div class="hub-grid" id="hub-grid-urgentni-prijem" style="display: none; max-width: 800px; margin: 0 auto;">
-        <div class="hub-card">
-          <div class="hub-card-icon">🚨</div>
-          <h4>Klinický simulátor</h4>
-          <p>Interaktivní hra lékaře na urgentním příjmu. Zajištění pacienta, triage, laboratoř, CT/EKG vyšetření a chat s konziliáři.</p>
-          <a href="/urgentni-prijem-game/" class="btn btn-primary btn-urgent" id="urgentni-prijem-btn">
-            Spustit simulátor
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-              <polyline points="15 3 21 3 21 9"></polyline>
-              <line x1="10" y1="14" x2="21" y2="3"></line>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Panel 1: Seznam otázek a stažení materiálů (skrytý) -->
-    <div class="panel-container" id="materials-panel">
-      <div class="panel-header">
-        <h2 class="section-title" id="materials-panel-title">Materiály k předmětu</h2>
-        <button class="panel-close-btn" id="materials-close-btn" aria-label="Zavřít panel materiálů">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-      </div>
-
-      <!-- Stažení PDF (Rozdělené) -->
-      <div class="downloads-container" id="downloads-container">
-        <h4 class="downloads-title">Materiály ke stažení</h4>
-        <div class="downloads-list">
-          <!-- 1. Seznam otázek (Sylabus) -->
-          <div class="download-row" id="download-questions-row">
-            <div class="download-info">
-              <h5>Seznam zkouškových otázek</h5>
-              <p>Oficiální přehled zkušebních témat z patofyziologie.</p>
-            </div>
-            <a href="quadruplety_patfyz.pdf" download class="btn btn-secondary btn-sm" id="pdf-download-questions">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="7 10 12 15 17 10"></polyline>
-                <line x1="12" y1="15" x2="12" y2="3"></line>
-              </svg>
-              Stáhnout témata
-            </a>
-          </div>
-          <!-- 2. Vypracovaná skripta -->
-          <div class="download-row" id="download-study-row">
-            <div class="download-info">
-              <h5>Vypracované materiály (Neúplné)</h5>
-              <p>Aktuálně vypracovaná témata (PDF skripta z LaTeX podkladů).</p>
-            </div>
-            <a href="patfyza_26.pdf" download class="btn btn-secondary btn-sm" id="pdf-download-study">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="7 10 12 15 17 10"></polyline>
-                <line x1="12" y1="15" x2="12" y2="3"></line>
-              </svg>
-              Stáhnout skripta
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Vyhledávání a filtrace otázek -->
-      <div class="search-wrapper">
-        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
-        <input type="text" id="question-search" class="search-input" placeholder="Vyhledat otázku ke zkoušce..."
-          aria-label="Vyhledat otázku ke zkoušce">
-      </div>
-
-      <!-- Kategorie -->
-      <div class="category-tabs" id="question-categories">
-        <!-- Generováno přes JS -->
-      </div>
-
-      <!-- Seznam otázek -->
-      <div class="questions-list" id="questions-list-container">
-        <!-- Generováno přes JS -->
-      </div>
-    </div>
-
-    <!-- Panel 2: Procvičování (Kvíz) (skrytý) -->
-    <div class="panel-container" id="quiz-panel">
-      <div class="panel-header">
-        <h2 class="section-title" id="quiz-panel-title">Procvičování</h2>
-        <button class="panel-close-btn" id="quiz-close-btn" aria-label="Zavřít panel procvičování">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-      </div>
-
-      <div class="quiz-wrapper">
-        <!-- 1. Nastavení kvízu -->
-        <div class="quiz-setup" id="quiz-setup">
-          <h3 class="quiz-setup-title">Zvolte počet otázek v testu:</h3>
-          <div class="quiz-size-options">
-            <button class="quiz-size-btn" data-size="10">10</button>
-            <button class="quiz-size-btn" data-size="20">20</button>
-            <button class="quiz-size-btn" data-size="50">50</button>
-          </div>
-          <button class="btn btn-primary" style="width: 200px;" id="start-test-btn">Generovat test</button>
-        </div>
-
-        <!-- 2. Aktivní hraní kvízu -->
-        <div class="quiz-active-area" id="quiz-active-area">
-          <div class="quiz-progress-bar">
-            <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
-          </div>
-          <div class="quiz-meta">
-            <span id="quiz-question-number">Otázka 1 z 10</span>
-            <div class="dopamine-indicators">
-              <span class="streak-badge" id="quiz-streak-badge" style="display: none;">🔥 <span
-                  id="quiz-streak-count">0</span></span>
-              <span class="xp-badge" id="quiz-xp-badge">✨ <span id="quiz-xp-count">0</span> XP (Lvl <span
-                  id="quiz-level-count">1</span>)</span>
-            </div>
-            <span id="quiz-score-indicator">Úspěšnost: 0 %</span>
-          </div>
-
-          <div class="quiz-card" id="quiz-question-card">
-            <!-- Otázka se vygeneruje sem -->
-          </div>
-        </div>
-
-        <!-- 3. Výsledky testu -->
-        <div class="quiz-results" id="quiz-results">
-          <div class="results-score" id="results-score">80 %</div>
-          <div class="results-title" id="results-title">Skvělý výsledek!</div>
-          <p class="results-text" id="results-text">Správně zodpovězeno 8 z 10 otázek.</p>
-          <div class="results-stats-dashboard">
-            <div class="stat-card">
-              <span class="stat-icon">🔥</span>
-              <span class="stat-label">Největší série</span>
-              <span class="stat-value" id="results-highest-streak">0</span>
-            </div>
-            <div class="stat-card">
-              <span class="stat-icon">✨</span>
-              <span class="stat-label">Získané XP</span>
-              <span class="stat-value" id="results-xp-earned">+0</span>
-            </div>
-            <div class="stat-card">
-              <span class="stat-icon">👑</span>
-              <span class="stat-label">Aktuální úroveň</span>
-              <span class="stat-value" id="results-new-level">Lvl 1</span>
-            </div>
-          </div>
-          <button class="btn btn-primary" id="restart-quiz-btn">Spustit nový test</button>
-        </div>
-      </div>
-    </div>
   </div>
 
   <!-- Floating Gemini Chatbot Widget -->
@@ -633,7 +198,7 @@
   </div>
 
   <footer>
-    <p>© 2026 Viola Kintrová • Developed because I can. Vytvořeno pro studenty 3. a 4. ročníku Všeobecného lékařství.</p>
+    <p>© 2026 Viola Kintrová • Developed because I can. Vytvořeno pro studenty 3., 4. a 5. ročníku Všeobecného lékařství.</p>
   </footer>
 
   <!-- Načtení dat a skriptů -->

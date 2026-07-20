@@ -1322,30 +1322,51 @@ Odpovězte výhradně v češtině, formátujte srozumitelně v Markdownu s eleg
 // --- VITE MIDDLEWARE & STATIC SERVING ---
 // ==========================================
 
+// Explicit redirection rules to ensure trailing slashes are appended
+app.get('/clinical-portal', (req, res) => {
+  res.redirect(301, '/clinical-portal/');
+});
+
+app.get('/urgentni-prijem-game', (req, res) => {
+  res.redirect(301, '/urgentni-prijem-game/');
+});
+
 if (process.env.NODE_ENV !== 'production') {
   try {
     const { createServer: createViteServer } = require('vite');
     
     const initViteDev = async () => {
-      const clinicalVite = await createViteServer({
-        root: path.join(__dirname, 'clinical-learning-portal'),
-        server: { middlewareMode: true },
-        appType: 'spa'
-      });
-      app.use('/clinical-portal', clinicalVite.middlewares);
-      console.log('Mounted Vite dev middleware for clinical-learning-portal at /clinical-portal/');
+      try {
+        const clinicalVite = await createViteServer({
+          root: path.join(__dirname, 'clinical-learning-portal'),
+          server: { middlewareMode: true },
+          appType: 'spa'
+        });
+        app.use('/clinical-portal', clinicalVite.middlewares);
+        console.log('Mounted Vite dev middleware for clinical-learning-portal at /clinical-portal/');
+      } catch (err) {
+        console.warn('Vite dev server for clinical-learning-portal could not be initialized. Falling back to static serving.', err.message);
+        app.use('/clinical-portal', express.static(path.join(__dirname, 'clinical-learning-portal/dist')));
+      }
 
-      const urgentVite = await createViteServer({
-        root: path.join(__dirname, 'urgentní-příjem'),
-        server: { middlewareMode: true },
-        appType: 'spa'
-      });
-      app.use('/urgentni-prijem-game', urgentVite.middlewares);
-      console.log('Mounted Vite dev middleware for urgentní-příjem at /urgentni-prijem-game/');
+      try {
+        const urgentVite = await createViteServer({
+          root: path.join(__dirname, 'urgentní-příjem'),
+          server: { middlewareMode: true },
+          appType: 'spa'
+        });
+        app.use('/urgentni-prijem-game', urgentVite.middlewares);
+        console.log('Mounted Vite dev middleware for urgentní-příjem at /urgentni-prijem-game/');
+      } catch (err) {
+        console.warn('Vite dev server for urgentní-příjem could not be initialized. Falling back to static serving.', err.message);
+        app.use('/urgentni-prijem-game', express.static(path.join(__dirname, 'urgentní-příjem/dist')));
+      }
     };
     initViteDev();
   } catch (e) {
-    console.warn('Vite dev server could not be initialized. Make sure dependencies are installed.', e);
+    console.warn('Vite dev server module could not be loaded. Falling back to static serving for all.', e.message);
+    app.use('/clinical-portal', express.static(path.join(__dirname, 'clinical-learning-portal/dist')));
+    app.use('/urgentni-prijem-game', express.static(path.join(__dirname, 'urgentní-příjem/dist')));
   }
 } else {
   // Serve static files from compiled dist folders in production

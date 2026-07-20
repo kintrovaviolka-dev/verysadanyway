@@ -1,0 +1,29 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/clinical-portal",
+      "destination": "/clinical-learning-portal/dist/index.html"
+    },
+    {
+      "source": "/clinical-portal/",
+      "destination": "/clinical-learning-portal/dist/index.html"
+    },
+    {
+      "source": "/clinical-portal/:path*",
+      "destination": "/clinical-learning-portal/dist/:path*"
+    },
+    {
+      "source": "/urgentni-prijem-game",
+      "destination": "/urgentní-příjem/dist/index.html"
+    },
+    {
+      "source": "/urgentni-prijem-game/",
+      "destination": "/urgentní-příjem/dist/index.html"
+    },
+    {
+      "source": "/urgentni-prijem-game/:path*",
+      "destination": "/urgentní-příjem/dist/:path*"
+    }
+  ]
+}

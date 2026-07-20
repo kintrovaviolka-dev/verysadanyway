@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mikrobiologie - Portál Efektivního Učení (3. ročník, 1. semestr)</title>
+  <meta name="description" content="Interaktivní studijní portál mikrobiologie pro 3. ročník všeobecného lékařství. Procvičování zkouškových dvojotázek s Leitnerovým systémem opakování.">
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+  <div class="app-container">
+
+    <!-- Hlavička aplikace -->
+    <header>
+      <div class="brand">
+        <div class="brand-icon">
+          <!-- Mikroskop SVG ikona -->
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 18h8"/><path d="M3 22h18"/><path d="M14 22a7 7 0 1 0 0-14h-1"/><path d="M9 14h2"/><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"/><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>Mikrobiologie</h1>
+          <span>Portál pro studium · 3. ročník, 1. semestr · <span id="total-questions-count">40</span> dvojotázek</span>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <!-- Stažení skripta -->
+        <div class="download-group">
+          <a href="skripta download only/Mikra-Výpracky-Skopelidou.docx" download class="btn btn-download" title="Stáhnout vypracovky (DOCX)">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Výpracky (DOCX)
+          </a>
+          <a href="skripta download only/nejake vypracky nevim.pdf" download class="btn btn-download" title="Stáhnout vypracovky (PDF)">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Výpracky (PDF)
+          </a>
+        </div>
+
+        <!-- Přepínač motivu -->
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Přepnout tmavý/světlý režim">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Dashboard statistik a Leitner systému -->
+    <section class="dashboard">
+      <div class="dashboard-grid">
+        <!-- Celkový pokrok -->
+        <div class="stat-card stat-total">
+          <span class="stat-label">Celkový pokrok</span>
+          <div class="stat-value" id="stat-progress-pct">0 %</div>
+          <div class="progress-bar-container">
+            <div class="progress-bar" id="stat-progress-bar" style="width: 0%"></div>
+          </div>
+          <span class="stat-desc" id="stat-progress-ratio">Zvládnuté: 0 z 40 dvojotázek</span>
+        </div>
+
+        <!-- Leitnerovy krabičky -->
+        <div class="stat-card stat-boxes-card">
+          <span class="stat-label">Leitnerovy krabičky</span>
+          <div class="boxes-container">
+            <div class="box-indicator box-1" title="Každý den">
+              <div class="box-badge">Box 1</div>
+              <div class="box-count" id="box-1-count">0</div>
+              <div class="box-sub">Denně</div>
+            </div>
+            <div class="box-indicator box-2" title="Každé 2 dny">
+              <div class="box-badge">Box 2</div>
+              <div class="box-count" id="box-2-count">0</div>
+              <div class="box-sub">Obden</div>
+            </div>
+            <div class="box-indicator box-3" title="Každých 5 dní">
+              <div class="box-badge">Box 3</div>
+              <div class="box-count" id="box-3-count">0</div>
+              <div class="box-sub">5 dní</div>
+            </div>
+            <div class="box-indicator box-4" title="Zvládnuto (každých 10 dní)">
+              <div class="box-badge">Box 4</div>
+              <div class="box-count" id="box-4-count">0</div>
+              <div class="box-sub">10 dní</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- K opakování dnes -->
+        <div class="stat-card stat-due" id="stat-due-card">
+          <span class="stat-label">K opakování dnes</span>
+          <span class="stat-value text-amber" id="stat-due-count">0</span>
+          <span class="stat-desc" id="stat-due-desc">Všechny karty jsou aktuální!</span>
+          <button id="study-due-btn" class="btn btn-secondary btn-due" style="display: none;">
+            Učit se dnešní karty
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filtrovací a vyhledávací panel -->
+    <section class="filter-bar">
+      <div class="search-wrapper">
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="search-input" class="search-input" placeholder="Hledat bakterii, virus, onemocnění, diagnostiku…">
+      </div>
+
+      <div class="filter-groups">
+        <div class="filter-group">
+          <label for="group-filter">Oblast:</label>
+          <select id="group-filter" class="select-custom">
+            <option value="all">Všechny oblasti</option>
+            <option value="Bakteriologie">Bakteriologie (část A)</option>
+            <option value="Virologie">Virologie (část B)</option>
+            <option value="Mykologie">Mykologie (část B)</option>
+            <option value="Diagnostika">Diagnostika (část B)</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="status-filter">Stav studia:</label>
+          <select id="status-filter" class="select-custom">
+            <option value="all">Všechny stavy</option>
+            <option value="due">K opakování (Due)</option>
+            <option value="box-1">Box 1 (Nové / Těžké)</option>
+            <option value="box-2">Box 2 (Mírně pokročilé)</option>
+            <option value="box-3">Box 3 (Známé)</option>
+            <option value="box-4">Box 4 (Zvládnuté)</option>
+            <option value="unstudied">Nestudované</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seznam karet -->
+    <main class="cards-grid" id="cards-grid">
+      <!-- Generuje se dynamicky přes JS -->
+    </main>
+
+  </div>
+
+  <!-- DETAIL OTÁZKY - MODÁLNÍ DIALOG -->
+  <dialog id="detail-dialog" class="detail-dialog">
+    <div class="dialog-content">
+      <header class="dialog-header">
+        <div class="dialog-title-area">
+          <span class="dialog-question-num" id="dialog-question-num">OTÁZKA 1</span>
+          <h2 class="dialog-title" id="dialog-title">Název otázky</h2>
+        </div>
+        <button class="dialog-close-btn" id="dialog-close" aria-label="Zavřít panel">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </header>
+
+      <!-- Záložky části A / B -->
+      <nav class="dialog-part-tabs">
+        <button class="part-tab-btn active" data-part="A" id="part-tab-a">
+          <span class="part-badge badge-a">A</span>
+          <span id="part-tab-a-title">Bakteriologie</span>
+        </button>
+        <button class="part-tab-btn" data-part="B" id="part-tab-b">
+          <span class="part-badge badge-b">B</span>
+          <span id="part-tab-b-title">Virologie</span>
+        </button>
+      </nav>
+
+      <div class="dialog-body">
+
+        <!-- PANEL ČÁSTI A -->
+        <div class="part-panel active" id="part-panel-A">
+          <!-- Záložky výkladu/kvízu pro část A -->
+          <nav class="dialog-tabs">
+            <button class="tab-btn active" data-tab="tab-study-a">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              Výklad
+            </button>
+            <button class="tab-btn" data-tab="tab-quiz-a">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+              Kvíz
+            </button>
+          </nav>
+
+          <div class="tab-panel active" id="tab-study-a">
+            <div class="study-content" id="study-content-a"><!-- JS fills --></div>
+            <!-- Spaced Repetition Hodnocení pro část A -->
+            <div class="spaced-repetition-controls">
+              <h4>Ohodnoť znalost části <span class="badge-a-inline">A</span> po přečtení:</h4>
+              <div class="leitner-btn-group">
+                <button class="leitner-btn l-btn-wrong" data-grade="wrong" data-target="a">
+                  <span class="btn-icon">❌</span>
+                  <span class="btn-text">Ztěžka</span>
+                  <span class="btn-sub">Bude brzy</span>
+                </button>
+                <button class="leitner-btn l-btn-good" data-grade="good" data-target="a">
+                  <span class="btn-icon">⚠️</span>
+                  <span class="btn-text">Slibné</span>
+                  <span class="btn-sub">Posunout o box</span>
+                </button>
+                <button class="leitner-btn l-btn-perfect" data-grade="perfect" data-target="a">
+                  <span class="btn-icon">✅</span>
+                  <span class="btn-text">Skvěle</span>
+                  <span class="btn-sub">Zvládnuté (Box 4)</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="tab-quiz-a">
+            <div class="quiz-container" id="quiz-container-a"></div>
+          </div>
+        </div>
+
+        <!-- PANEL ČÁSTI B -->
+        <div class="part-panel" id="part-panel-B">
+          <!-- Záložky výkladu/kvízu pro část B -->
+          <nav class="dialog-tabs">
+            <button class="tab-btn active" data-tab="tab-study-b">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              Výklad
+            </button>
+            <button class="tab-btn" data-tab="tab-quiz-b">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+              Kvíz
+            </button>
+          </nav>
+
+          <div class="tab-panel active" id="tab-study-b">
+            <div class="study-content" id="study-content-b"><!-- JS fills --></div>
+            <!-- Spaced Repetition Hodnocení pro část B -->
+            <div class="spaced-repetition-controls">
+              <h4>Ohodnoť znalost části <span class="badge-b-inline">B</span> po přečtení:</h4>
+              <div class="leitner-btn-group">
+                <button class="leitner-btn l-btn-wrong" data-grade="wrong" data-target="b">
+                  <span class="btn-icon">❌</span>
+                  <span class="btn-text">Ztěžka</span>
+                  <span class="btn-sub">Bude brzy</span>
+                </button>
+                <button class="leitner-btn l-btn-good" data-grade="good" data-target="b">
+                  <span class="btn-icon">⚠️</span>
+                  <span class="btn-text">Slibné</span>
+                  <span class="btn-sub">Posunout o box</span>
+                </button>
+                <button class="leitner-btn l-btn-perfect" data-grade="perfect" data-target="b">
+                  <span class="btn-icon">✅</span>
+                  <span class="btn-text">Skvěle</span>
+                  <span class="btn-sub">Zvládnuté (Box 4)</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="tab-quiz-b">
+            <div class="quiz-container" id="quiz-container-b"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Skripty -->
+  <script src="data_mikra.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

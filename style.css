@@ -50,6 +50,10 @@
   --urgent-glow: rgba(239, 68, 68, 0.25);
   --urgent-gradient: linear-gradient(135deg, #dc2626, #ef4444);
 
+  --mikra-color: #14b8a6;
+  --mikra-glow: rgba(20, 184, 166, 0.28);
+  --mikra-gradient: linear-gradient(135deg, #0d9488, #14b8a6);
+
   --accent-blue: #00f0ff;
   --accent-gold: #fbbf24;
   --accent-red: #ffb4ab;
@@ -103,7 +107,7 @@ body::before {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 40px 20px 120px;
 }
 
 /* Header styling */
@@ -307,6 +311,12 @@ header p {
 .subject-card.urgentni-prijem:hover {
   border-color: var(--urgent-color);
   box-shadow: 0 15px 30px -15px var(--urgent-glow);
+  transform: translateY(-6px);
+}
+
+.subject-card.mikrobiologie:hover {
+  border-color: var(--mikra-color);
+  box-shadow: 0 15px 30px -15px var(--mikra-glow);
   transform: translateY(-6px);
 }
 
@@ -1879,6 +1889,88 @@ select:focus-visible {
     bottom: 74px;
     width: calc(100vw - 28px);
     height: 500px;
+  }
+}
+
+/* --- MOBILE RESPONSIVENESS OPTIMIZATIONS --- */
+
+/* Chatbot Panel full width scaling for small devices to prevent overflow */
+@media (max-width: 520px) {
+  .gemini-chatbot-container {
+    right: 16px;
+    left: 16px;
+    bottom: 16px;
+  }
+  .chatbot-panel {
+    right: 0;
+    left: 0;
+    width: auto;
+    max-width: none;
+    height: 500px;
+    max-height: calc(100vh - 100px);
+    bottom: 74px;
+  }
+  .chatbot-fab {
+    margin-left: auto;
+  }
+}
+
+/* Material downloads list wrap for screens under 600px */
+@media (max-width: 600px) {
+  .download-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .download-row .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Layout scaling & padding reduction on viewports under 480px */
+@media (max-width: 480px) {
+  .container {
+    padding: 20px 12px 100px;
+  }
+  .grades-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 8px;
+  }
+  .grade-card {
+    padding: 16px 8px;
+  }
+  .grade-number {
+    font-size: 1.6rem;
+  }
+  .subjects-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .subject-card {
+    padding: 20px;
+  }
+  .hub-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .hub-card {
+    padding: 20px;
+  }
+  header {
+    margin-bottom: 30px;
+  }
+  header h1 {
+    font-size: 1.8rem;
+  }
+  .brand-badge {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+  }
+  .panel-container {
+    padding: 16px;
+    margin: 20px auto 0;
+    border-radius: 16px;
   }
 }
 

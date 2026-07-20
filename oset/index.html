@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ošetřovatelství | Studijní Portál</title>
+  <meta name="description" content="Studijní materiály a podklady z předmětu Ošetřovatelství pro studenty lékařství.">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    /* Custom page styles inheriting the premium UI theme */
+    .oset-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-top: 32px;
+    }
+    @media (min-width: 768px) {
+      .oset-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .oset-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 30px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.3);
+      transition: var(--transition-smooth);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .oset-card:hover {
+      border-color: rgba(251, 113, 133, 0.3);
+      box-shadow: 0 15px 35px -15px rgba(251, 113, 133, 0.15);
+    }
+    .oset-card-title {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .oset-card-icon {
+      font-size: 1.8rem;
+    }
+    .oset-card p {
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .oset-btn-group {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .notes-container {
+      display: flex;
+      flex-direction: column;
+      height: 350px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+    }
+    .notes-toolbar {
+      padding: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      gap: 8px;
+    }
+    .notes-btn {
+      background: none;
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      padding: 4px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: var(--transition-smooth);
+    }
+    .notes-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .notes-area {
+      flex: 1;
+      padding: 16px;
+      color: var(--text-primary);
+      background: transparent;
+      border: none;
+      resize: none;
+      font-family: inherit;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .notes-area:focus {
+      outline: none;
+    }
+    .notes-status {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 12px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .save-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .save-indicator.active {
+      opacity: 1;
+    }
+    .back-btn-container {
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 24px;
+    }
+    .btn-back-hub {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      padding: 8px 16px;
+      border-radius: 99px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+    .btn-back-hub:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateX(-2px);
+    }
+    .oset-badge {
+      background: rgba(251, 113, 133, 0.08);
+      border: 1px solid rgba(251, 113, 133, 0.25);
+      color: #fb7185;
+    }
+    .tips-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    .tips-list li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 12px;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+    .tips-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #fb7185;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="back-btn-container">
+      <button class="btn-back-hub" id="back-hub-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        Zpět na rozcestník
+      </button>
+    </div>
+
+    <!-- Hlavička -->
+    <header style="margin-bottom: 40px;">
+      <div class="brand-badge oset-badge">
+        <span>3. ročník • Ošetřovatelství</span>
+      </div>
+      <h1 style="background: linear-gradient(to right, #ffffff, #fda4af); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Ošetřovatelství</h1>
+      <p>Studijní podklady, skripta ke stažení a online složky se všemi materiály.</p>
+    </header>
+
+    <!-- Hlavní mřížka -->
+    <div class="oset-grid">
+      <!-- Karta 1: Materiály ke stažení -->
+      <div class="oset-card">
+        <div class="oset-card-title">
+          <span class="oset-card-icon">📂</span>
+          <span>Podklady & Složky</span>
+        </div>
+        <p>Zde najdete kompletní připravená skripta pro předmět ošetřovatelství a sdílenou složku na Google Drive, kde jsou shromážděny všechny doplňující soubory od studentů i vyučujících.</p>
+        
+        <div class="oset-btn-group">
+          <a href="../oško_byznys.pdf" download class="btn btn-primary" style="background: var(--oset-gradient); border: none; box-shadow: 0 4px 14px var(--oset-glow); text-align: center; display: block; padding: 12px; font-weight: bold; border-radius: 8px; color: #fff;">
+            Stáhnout PDF Skripta
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 6px;">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+          </a>
+          <a href="https://drive.google.com/drive/folders/1mnZ45tCU28m38hUb77BGeXliiZyc9djm?usp=sharing" target="_blank" class="btn btn-secondary" style="text-align: center; display: block; padding: 12px; font-weight: bold; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); color: var(--text-primary);">
+            Otevřít Google Drive Složku
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-left: 6px;">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Karta 2: Moje Poznámky -->
+      <div class="oset-card">
+        <div class="oset-card-title">
+          <span class="oset-card-icon">📝</span>
+          <span>Moje studijní poznámky</span>
+        </div>
+        <p>Vaše osobní poznámky k ošetřovatelství. Změny se automaticky ukládají do paměti prohlížeče, takže o ně nepřijdete ani po zavření okna.</p>
+        
+        <div class="notes-container">
+          <div class="notes-toolbar">
+            <button class="notes-btn" onclick="insertTemplate('sylabus')">Osnova sylabu</button>
+            <button class="notes-btn" onclick="insertTemplate('otazky')">Seznam otázek</button>
+            <button class="notes-btn" onclick="clearNotes()">Vymazat vše</button>
+          </div>
+          <textarea class="notes-area" id="notes-textarea" placeholder="Zde si můžete psát poznámky k přednáškám nebo kazuistikám..."></textarea>
+        </div>
+        <div class="notes-status">
+          <span id="char-count">0 znaků</span>
+          <span class="save-indicator" id="save-indicator">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; color: #10b981;">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Uloženo
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Karta 3: Studijní tipy a požadavky -->
+    <div class="oset-card" style="margin-top: 24px;">
+      <div class="oset-card-title">
+        <span class="oset-card-icon">💡</span>
+        <span>Jak úspěšně absolvovat Ošetřovatelství</span>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 10px;">
+        <div>
+          <ul class="tips-list">
+            <li><strong>Zápočtové požadavky:</strong> Aktivní účast na praktických cvičeních v pitevně a na odděleních nemocnice. Splnění zadaných ošetřovatelských protokolů.</li>
+            <li><strong>Odborné dovednosti:</strong> Důraz je kladen na techniku mytí rukou, sterilní rukavice, přípravu injekcí (intramuskulární, subkutánní) a základy péče o hospitalizovaného pacienta.</li>
+            <li><strong>Doporučení k učení:</strong> Prostudujte si PDF skripta "oško byznys" (odkaz výše). Pokrývají kompletně zkouškovou teorii ošetřovatelských diagnóz, polohování pacientů a kanylace periferní žíly.</li>
+            <li><strong>Praktická doporučení:</strong> Pamatujte na základy komunikace s pacientem a etické zásady, které jsou při hodnocení praktické části klíčové.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Logic for Back Button
+    document.getElementById('back-hub-btn').addEventListener('click', () => {
+      // Check if we are running locally and direct to local index
+      if (window.location.protocol === 'file:') {
+        window.location.href = '../index.html';
+      } else {
+        window.location.href = '/';
+      }
+    });
+
+    // Notes auto-save implementation
+    const notesTextarea = document.getElementById('notes-textarea');
+    const charCount = document.getElementById('char-count');
+    const saveIndicator = document.getElementById('save-indicator');
+    
+    // Load saved notes
+    const savedNotes = localStorage.getItem('verysadanyway_notes_oset');
+    if (savedNotes) {
+      notesTextarea.value = savedNotes;
+      updateStats();
+    }
+
+    let saveTimeout;
+    notesTextarea.addEventListener('input', () => {
+      updateStats();
+      
+      // Auto-save debouncer
+      clearTimeout(saveTimeout);
+      saveTimeout = setTimeout(() => {
+        localStorage.setItem('verysadanyway_notes_oset', notesTextarea.value);
+        saveIndicator.classList.add('active');
+        setTimeout(() => {
+          saveIndicator.classList.remove('active');
+        }, 1500);
+      }, 500);
+    });
+
+    function updateStats() {
+      const len = notesTextarea.value.length;
+      charCount.textContent = `${len} znaků`;
+    }
+
+    function insertTemplate(type) {
+      let text = '';
+      if (type === 'sylabus') {
+        text = `\n--- OSNOVA STUDIA OŠETŘOVATELSTVÍ ---\n1. Hygiena a dezinfekce rukou\n2. Měření fyziologických funkcí (TK, TF, TT, DF)\n3. Ošetřovatelská péče o rány, převazy\n4. Podávání léků (injekce, infuze, per os)\n5. Polohování pacienta a prevence dekubitů\n`;
+      } else if (type === 'otazky') {
+        text = `\n--- SEZNAM OTÁZEK KE ZKOUŠCE ---\nOtázka 1: Ošetřovatelský proces - fáze, diagnostika NANDA\nOtázka 2: Polohování a mobilizace, prevence imobilizačního syndromu\nOtázka 3: Asepse a antisepse, nozokomiální nákazy\nOtázka 4: Katetrizace močového měchýře a klyzma\nOtázka 5: Odběry biologického materiálu (krev, moč, sputum)\n`;
+      }
+      notesTextarea.value += text;
+      notesTextarea.focus();
+      updateStats();
+      // Trigger save
+      notesTextarea.dispatchEvent(new Event('input'));
+    }
+
+    function clearNotes() {
+      if (confirm('Opravdu chcete vymazat všechny poznámky?')) {
+        notesTextarea.value = '';
+        updateStats();
+        localStorage.removeItem('verysadanyway_notes_oset');
+        saveIndicator.classList.add('active');
+        setTimeout(() => {
+          saveIndicator.classList.remove('active');
+        }, 1500);
+      }
+    }
+  </script>
+</body>
+</html>

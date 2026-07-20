@@ -35,51 +35,54 @@ document.addEventListener("DOMContentLoaded", () => {
     currentStreak: 0
   };
 
+  // Helper to fallback to in-memory element if not found (prevents null reference errors)
+  const getEl = (id) => document.getElementById(id) || document.createElement("div");
+
   // --- HTML ELEMENTY ---
-  const gradesSection = document.getElementById("grades-section");
-  const subjectsSection = document.getElementById("subjects-section");
-  const hubSection = document.getElementById("hub-section");
+  const gradesSection = getEl("grades-section");
+  const subjectsSection = getEl("subjects-section");
+  const hubSection = getEl("hub-section");
   
   // Tlačítka a texty rozcestníku
-  const hubTitle = document.getElementById("hub-title");
-  const hubBackBtn = document.getElementById("hub-back-btn");
-  const portalLinkBtn = document.getElementById("portal-link-btn");
-  const quizTriggerBtn = document.getElementById("quiz-trigger-btn");
-  const materialsTriggerBtn = document.getElementById("materials-trigger-btn");
+  const hubTitle = getEl("hub-title");
+  const hubBackBtn = getEl("hub-back-btn");
+  const portalLinkBtn = getEl("portal-link-btn");
+  const quizTriggerBtn = getEl("quiz-trigger-btn");
+  const materialsTriggerBtn = getEl("materials-trigger-btn");
   
   // Panely
-  const materialsPanel = document.getElementById("materials-panel");
-  const materialsPanelTitle = document.getElementById("materials-panel-title");
-  const materialsCloseBtn = document.getElementById("materials-close-btn");
+  const materialsPanel = getEl("materials-panel");
+  const materialsPanelTitle = getEl("materials-panel-title");
+  const materialsCloseBtn = getEl("materials-close-btn");
   
-  const quizPanel = document.getElementById("quiz-panel");
-  const quizPanelTitle = document.getElementById("quiz-panel-title");
-  const quizCloseBtn = document.getElementById("quiz-close-btn");
+  const quizPanel = getEl("quiz-panel");
+  const quizPanelTitle = getEl("quiz-panel-title");
+  const quizCloseBtn = getEl("quiz-close-btn");
   
   // Vyhledávání a seznam otázek
-  const downloadsContainer = document.getElementById("downloads-container");
-  const questionSearch = document.getElementById("question-search");
-  const questionCategories = document.getElementById("question-categories");
-  const questionsListContainer = document.getElementById("questions-list-container");
+  const downloadsContainer = getEl("downloads-container");
+  const questionSearch = getEl("question-search");
+  const questionCategories = getEl("question-categories");
+  const questionsListContainer = getEl("questions-list-container");
   
   // Beta aplikace
-  const betaAppCard = document.getElementById("beta-app-card");
-  const betaAppDesc = document.getElementById("beta-app-desc");
-  const betaAppLinkBtn = document.getElementById("beta-app-link-btn");
+  const betaAppCard = getEl("beta-app-card");
+  const betaAppDesc = getEl("beta-app-desc");
+  const betaAppLinkBtn = getEl("beta-app-link-btn");
   
   // Kvízové komponenty
-  const quizSetup = document.getElementById("quiz-setup");
-  const quizActiveArea = document.getElementById("quiz-active-area");
-  const quizResults = document.getElementById("quiz-results");
-  const startTestBtn = document.getElementById("start-test-btn");
-  const restartQuizBtn = document.getElementById("restart-quiz-btn");
-  const progressFill = document.getElementById("quiz-progress-fill");
-  const questionNumberText = document.getElementById("quiz-question-number");
-  const scoreIndicatorText = document.getElementById("quiz-score-indicator");
-  const questionCard = document.getElementById("quiz-question-card");
-  const resultsScore = document.getElementById("results-score");
-  const resultsTitle = document.getElementById("results-title");
-  const resultsText = document.getElementById("results-text");
+  const quizSetup = getEl("quiz-setup");
+  const quizActiveArea = getEl("quiz-active-area");
+  const quizResults = getEl("quiz-results");
+  const startTestBtn = getEl("start-test-btn");
+  const restartQuizBtn = getEl("restart-quiz-btn");
+  const progressFill = getEl("quiz-progress-fill");
+  const questionNumberText = getEl("quiz-question-number");
+  const scoreIndicatorText = getEl("quiz-score-indicator");
+  const questionCard = getEl("quiz-question-card");
+  const resultsScore = getEl("results-score");
+  const resultsTitle = getEl("results-title");
+  const resultsText = getEl("results-text");
 
   // --- LOGIKA VOLBY ROČNÍKU A PŘEDMĚTU ---
 
@@ -112,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".grade-card").forEach(card => {
     const handleGradeClick = () => {
       if (card.classList.contains("locked")) {
-        alert("Tento ročník se připravuje. Nyní jsou k dispozici portály pro 3. a 4. ročník.");
+        alert("Tento ročník se připravuje. Nyní jsou k dispozici portály pro 3., 4. a 5. ročník.");
         return;
       }
       const grade = parseInt(card.getAttribute("data-grade"));
@@ -132,152 +135,33 @@ document.addEventListener("DOMContentLoaded", () => {
   const selectSubject = (subject) => {
     state.selectedSubject = subject;
     
-    const hubGridDefault = document.getElementById("hub-grid-default");
-    const hubGridOset = document.getElementById("hub-grid-oset");
-    const hubGridFarmakologie = document.getElementById("hub-grid-farmakologie");
-    const hubGridDermatologie = document.getElementById("hub-grid-dermatologie");
-    const hubGridRadiologie = document.getElementById("hub-grid-radiologie");
-    const hubGridImunologie = document.getElementById("hub-grid-imunologie");
-    const hubGridClinicalPortal = document.getElementById("hub-grid-clinical-portal");
-    const hubGridUrgentniPrijem = document.getElementById("hub-grid-urgentni-prijem");
- 
-    if (subject === "oset") {
-      hubTitle.textContent = "Ošetřovatelství";
-      hubTitle.style.color = "var(--oset-color)";
-      if (hubGridDefault) hubGridDefault.style.display = "none";
-      if (hubGridOset) hubGridOset.style.display = "grid";
-      if (hubGridFarmakologie) hubGridFarmakologie.style.display = "none";
-      if (hubGridDermatologie) hubGridDermatologie.style.display = "none";
-      if (hubGridRadiologie) hubGridRadiologie.style.display = "none";
-      if (hubGridImunologie) hubGridImunologie.style.display = "none";
-      if (hubGridClinicalPortal) hubGridClinicalPortal.style.display = "none";
-      if (hubGridUrgentniPrijem) hubGridUrgentniPrijem.style.display = "none";
+    const isLocal = window.location.protocol === 'file:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
+    let destination = "";
+    if (subject === "patfyz") {
+      destination = isLocal ? "./patfyza-main/index.html" : "https://patfyz.vercel.app/";
+    } else if (subject === "patola") {
+      destination = isLocal ? "./patolka-main/index.html" : "https://patolka.vercel.app/";
+    } else if (subject === "oset") {
+      destination = "./oset/index.html";
     } else if (subject === "farmakologie") {
-      hubTitle.textContent = "Farmakologie";
-      hubTitle.style.color = "var(--farma-color)";
-      if (hubGridDefault) hubGridDefault.style.display = "none";
-      if (hubGridOset) hubGridOset.style.display = "none";
-      if (hubGridFarmakologie) hubGridFarmakologie.style.display = "grid";
-      if (hubGridDermatologie) hubGridDermatologie.style.display = "none";
-      if (hubGridRadiologie) hubGridRadiologie.style.display = "none";
-      if (hubGridImunologie) hubGridImunologie.style.display = "none";
-      if (hubGridClinicalPortal) hubGridClinicalPortal.style.display = "none";
-      if (hubGridUrgentniPrijem) hubGridUrgentniPrijem.style.display = "none";
+      destination = "./farmakologie/index.html";
     } else if (subject === "dermatologie") {
-      hubTitle.textContent = "Dermatologie";
-      hubTitle.style.color = "var(--derma-color)";
-      if (hubGridDefault) hubGridDefault.style.display = "none";
-      if (hubGridOset) hubGridOset.style.display = "none";
-      if (hubGridFarmakologie) hubGridFarmakologie.style.display = "none";
-      if (hubGridDermatologie) hubGridDermatologie.style.display = "grid";
-      if (hubGridRadiologie) hubGridRadiologie.style.display = "none";
-      if (hubGridImunologie) hubGridImunologie.style.display = "none";
-      if (hubGridClinicalPortal) hubGridClinicalPortal.style.display = "none";
-      if (hubGridUrgentniPrijem) hubGridUrgentniPrijem.style.display = "none";
+      destination = "./derma/index.html";
     } else if (subject === "radiologie") {
-      hubTitle.textContent = "Radiologie";
-      hubTitle.style.color = "var(--radio-color)";
-      if (hubGridDefault) hubGridDefault.style.display = "none";
-      if (hubGridOset) hubGridOset.style.display = "none";
-      if (hubGridFarmakologie) hubGridFarmakologie.style.display = "none";
-      if (hubGridDermatologie) hubGridDermatologie.style.display = "none";
-      if (hubGridRadiologie) hubGridRadiologie.style.display = "grid";
-      if (hubGridImunologie) hubGridImunologie.style.display = "none";
-      if (hubGridClinicalPortal) hubGridClinicalPortal.style.display = "none";
-      if (hubGridUrgentniPrijem) hubGridUrgentniPrijem.style.display = "none";
+      destination = "./radiolka/index.html";
     } else if (subject === "imunologie") {
-      hubTitle.textContent = "Imunologie";
-      hubTitle.style.color = "var(--imuno-color)";
-      if (hubGridDefault) hubGridDefault.style.display = "none";
-      if (hubGridOset) hubGridOset.style.display = "none";
-      if (hubGridFarmakologie) hubGridFarmakologie.style.display = "none";
-      if (hubGridDermatologie) hubGridDermatologie.style.display = "none";
-      if (hubGridRadiologie) hubGridRadiologie.style.display = "none";
-      if (hubGridImunologie) hubGridImunologie.style.display = "grid";
-      if (hubGridClinicalPortal) hubGridClinicalPortal.style.display = "none";
-      if (hubGridUrgentniPrijem) hubGridUrgentniPrijem.style.display = "none";
+      destination = "./imunologie-test/index.html";
+    } else if (subject === "mikrobiologie") {
+      destination = "./mikra/index.html";
     } else if (subject === "clinical-portal") {
-      hubTitle.textContent = "Resuscitace & Anestezie";
-      hubTitle.style.color = "var(--clinical-color)";
-      if (hubGridDefault) hubGridDefault.style.display = "none";
-      if (hubGridOset) hubGridOset.style.display = "none";
-      if (hubGridFarmakologie) hubGridFarmakologie.style.display = "none";
-      if (hubGridDermatologie) hubGridDermatologie.style.display = "none";
-      if (hubGridRadiologie) hubGridRadiologie.style.display = "none";
-      if (hubGridImunologie) hubGridImunologie.style.display = "none";
-      if (hubGridClinicalPortal) hubGridClinicalPortal.style.display = "grid";
-      if (hubGridUrgentniPrijem) hubGridUrgentniPrijem.style.display = "none";
+      destination = "/clinical-portal/";
     } else if (subject === "urgentni-prijem") {
-      hubTitle.textContent = "Urgentní příjem";
-      hubTitle.style.color = "var(--urgent-color)";
-      if (hubGridDefault) hubGridDefault.style.display = "none";
-      if (hubGridOset) hubGridOset.style.display = "none";
-      if (hubGridFarmakologie) hubGridFarmakologie.style.display = "none";
-      if (hubGridDermatologie) hubGridDermatologie.style.display = "none";
-      if (hubGridRadiologie) hubGridRadiologie.style.display = "none";
-      if (hubGridImunologie) hubGridImunologie.style.display = "none";
-      if (hubGridClinicalPortal) hubGridClinicalPortal.style.display = "none";
-      if (hubGridUrgentniPrijem) hubGridUrgentniPrijem.style.display = "grid";
-    } else {
-      if (hubGridDefault) hubGridDefault.style.display = "grid";
-      if (hubGridOset) hubGridOset.style.display = "none";
-      if (hubGridFarmakologie) hubGridFarmakologie.style.display = "none";
-      if (hubGridDermatologie) hubGridDermatologie.style.display = "none";
-      if (hubGridRadiologie) hubGridRadiologie.style.display = "none";
-      if (hubGridImunologie) hubGridImunologie.style.display = "none";
-      if (hubGridClinicalPortal) hubGridClinicalPortal.style.display = "none";
-      if (hubGridUrgentniPrijem) hubGridUrgentniPrijem.style.display = "none";
- 
-      // Nastavení názvu a barev v rozcestníku
-      if (subject === "patfyz") {
-        hubTitle.textContent = "Patofyziologie";
-        hubTitle.style.color = "var(--patfyz-color)";
-        portalLinkBtn.href = "https://patfyz.vercel.app/";
-        portalLinkBtn.className = "btn btn-primary btn-patfyz";
-        
-        // Nastavení odkazu na stažení PDF skript
-        if (downloadsContainer) downloadsContainer.style.display = "block";
-        
-        // Update beta app card
-        if (betaAppDesc && betaAppLinkBtn) {
-          betaAppDesc.textContent = "Aktivní forma studia základů pro chvíle únavy. Obsahuje i interaktivní simulátory hemostázy (koagulace) a EKG.";
-          betaAppLinkBtn.href = "https://ai.studio/apps/74714c95-1dc9-4fd2-afea-37fb70cdc32c";
-          betaAppLinkBtn.className = "btn btn-primary btn-patfyz";
-          betaAppLinkBtn.innerHTML = `
-            Spustit Patfyz Beta
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-          `;
-        }
-      } else if (subject === "patola") {
-        hubTitle.textContent = "Patologie";
-        hubTitle.style.color = "var(--patola-color)";
-        portalLinkBtn.href = "https://patolka.vercel.app/";
-        portalLinkBtn.className = "btn btn-primary btn-patola";
-        
-        // Skrytí stažení PDF pro patologii (nemáme soubor)
-        if (downloadsContainer) downloadsContainer.style.display = "none";
-        
-        // Update beta app card
-        if (betaAppDesc && betaAppLinkBtn) {
-          betaAppDesc.textContent = "Duolingo-like herní procvičování základů patologie. Skvělé opakování pro momenty, kdy je mozek už unavený.";
-          betaAppLinkBtn.href = "https://pathology-master-521011567593.europe-west2.run.app/";
-          betaAppLinkBtn.className = "btn btn-primary btn-patola";
-          betaAppLinkBtn.innerHTML = `
-            Spustit Patolka Beta
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-          `;
-        }
-      }
+      destination = "/urgentni-prijem-game/";
     }
 
-    // Plynulé zobrazení rozcestníku
-    subjectsSection.classList.remove("active");
-    gradesSection.style.display = "none";
-    hubSection.classList.add("active");
-    
-    // Aktualizovat kontext chatbota podle zvoleného předmětu
-    if (typeof updateChatbotContext === "function") {
-      updateChatbotContext(subject);
+    if (destination) {
+      window.location.href = destination;
     }
   };
 
@@ -831,7 +715,8 @@ document.addEventListener("DOMContentLoaded", () => {
     farmakologie: "Jste odborník na farmakologii. Pomáháte studentům lékařství s mechanismy účinku léčiv, farmakokinetikou, nežádoucími účinky, indikacemi a interakcemi. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost.",
     dermatologie: "Jste odborník na dermatovenerologii. Pomáháte studentům lékařství s chorobami kůže a pohlavními chorobami, diagnostikou, eflorescencemi a léčbou. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost.",
     oset: "Jste odborník na ošetřovatelství a ošetřovatelskou péči. Pomáháte studentům lékařství a ošetřovatelství s ošetřovatelskými postupy, diagnózami a péčí o pacienta. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost.",
-    radiologie: "Jste odborník na radiologii a zobrazovací metody. Pomáháte studentům lékařství s fyzikálními principy RTG, CT, MR, UZ, intervenční radiologie, radiační ochranou, indikacemi vyšetření a popisem patologií v obrazech. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost."
+    radiologie: "Jste odborník na radiologii a zobrazovací metody. Pomáháte studentům lékařství s fyzikálními principy RTG, CT, MR, UZ, intervenční radiologie, radiační ochranou, indikacemi vyšetření a popisem patologií v obrazech. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost.",
+    mikrobiologie: "Jste odborník na lékařskou mikrobiologii. Pomáháte studentům 3. ročníku všeobecného lékařství s bakteriologií, virologií, mykologií a mikrobiologickou diagnostikou. Pomáháte porozumět faktorům virulence, patogenezi, diagnostickým metodám (PCR, sérologie, kultivace, ELISA) a cílené antibiotické léčbě. Vysvětlujte dvojotázky zkouškového formátu. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost."
   };
 
   // Load key from localStorage
@@ -1347,6 +1232,13 @@ document.addEventListener("DOMContentLoaded", () => {
       suggestions = [
         { label: "Triážní stupně", query: "Vysvětli rozdíly mezi triážními stupněmi 1 až 5 na urgentním příjmu." },
         { label: "Status asthmaticus", query: "Jaký je terapeutický algoritmus u status asthmaticus u dítěte?" }
+      ];
+    } else if (subject === "mikrobiologie") {
+      chatbotContainer.classList.add("context-mikrobiologie");
+      contextLabel = "Asistent pro Mikrobiologii 🦠";
+      suggestions = [
+        { label: "MRSA vs MSSA", query: "Vysvětli rozdíl mezi MRSA a MSSA a jaký má vliv na výběr antibiotik." },
+        { label: "PCR vs kultivace", query: "Kdy preferuji PCR diagnostiku a kdy kultivaci v mikrobiologické diagnostice?" }
       ];
     } else {
       // Default / General
