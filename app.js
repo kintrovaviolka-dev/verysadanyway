@@ -154,10 +154,12 @@ document.addEventListener("DOMContentLoaded", () => {
       destination = "./imunologie-test/index.html";
     } else if (subject === "mikrobiologie") {
       destination = "./mikra/index.html";
-    } else if (subject === "clinical-portal" || subject === "upv") {
-      destination = "/clinical-portal/";
+    } else if (subject === "clinical-portal" || subject === "clinical-learning-portal") {
+      destination = isLocal ? "./clinical-learning-portal/dist/index.html" : "/clinical-portal/";
+    } else if (subject === "upv") {
+      destination = isLocal ? "./upv/index.html" : "/upv/";
     } else if (subject === "urgentni-prijem") {
-      destination = window.location.protocol === 'file:' ? "./urgentni-prijem/dist/index.html" : "/urgentni-prijem-game/";
+      destination = isLocal ? "./urgentni-prijem/dist/index.html" : "/urgentni-prijem/";
     }
 
     if (destination) {

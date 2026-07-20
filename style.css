@@ -50,6 +50,10 @@
   --urgent-glow: rgba(239, 68, 68, 0.25);
   --urgent-gradient: linear-gradient(135deg, #dc2626, #ef4444);
 
+  --upv-color: #0ea5e9;
+  --upv-glow: rgba(14, 165, 233, 0.25);
+  --upv-gradient: linear-gradient(135deg, #0284c7, #38bdf8);
+
   --mikra-color: #14b8a6;
   --mikra-glow: rgba(20, 184, 166, 0.28);
   --mikra-gradient: linear-gradient(135deg, #0d9488, #14b8a6);
@@ -311,6 +315,12 @@ header p {
 .subject-card.urgentni-prijem:hover {
   border-color: var(--urgent-color);
   box-shadow: 0 15px 30px -15px var(--urgent-glow);
+  transform: translateY(-6px);
+}
+
+.subject-card.upv:hover {
+  border-color: var(--upv-color);
+  box-shadow: 0 15px 30px -15px var(--upv-glow);
   transform: translateY(-6px);
 }
 

@@ -15,15 +15,15 @@
     },
     {
       "source": "/upv",
-      "destination": "/clinical-learning-portal/dist/index.html"
+      "destination": "/upv/index.html"
     },
     {
       "source": "/upv/",
-      "destination": "/clinical-learning-portal/dist/index.html"
+      "destination": "/upv/index.html"
     },
     {
       "source": "/upv/:path*",
-      "destination": "/clinical-learning-portal/dist/:path*"
+      "destination": "/upv/:path*"
     },
     {
       "source": "/urgentni-prijem",

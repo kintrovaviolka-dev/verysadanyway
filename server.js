@@ -1327,16 +1327,20 @@ app.get('/clinical-portal', (req, res) => {
   res.redirect(301, '/clinical-portal/');
 });
 
-app.get('/upv', (req, res) => {
+app.get('/clinical-learning-portal', (req, res) => {
   res.redirect(301, '/clinical-portal/');
 });
 
+app.get('/upv', (req, res) => {
+  res.redirect(301, '/upv/');
+});
+
 app.get('/urgentni-prijem-game', (req, res) => {
-  res.redirect(301, '/urgentni-prijem-game/');
+  res.redirect(301, '/urgentni-prijem/');
 });
 
 app.get('/urgentni-prijem', (req, res) => {
-  res.redirect(301, '/urgentni-prijem-game/');
+  res.redirect(301, '/urgentni-prijem/');
 });
 
 if (process.env.NODE_ENV !== 'production') {
@@ -1351,12 +1355,12 @@ if (process.env.NODE_ENV !== 'production') {
           appType: 'spa'
         });
         app.use('/clinical-portal', clinicalVite.middlewares);
-        app.use('/upv', clinicalVite.middlewares);
+        app.use('/clinical-learning-portal', clinicalVite.middlewares);
         console.log('Mounted Vite dev middleware for clinical-learning-portal at /clinical-portal/');
       } catch (err) {
         console.warn('Vite dev server for clinical-learning-portal could not be initialized. Falling back to static serving.', err.message);
         app.use('/clinical-portal', express.static(path.join(__dirname, 'clinical-learning-portal/dist')));
-        app.use('/upv', express.static(path.join(__dirname, 'clinical-learning-portal/dist')));
+        app.use('/clinical-learning-portal', express.static(path.join(__dirname, 'clinical-learning-portal/dist')));
       }
 
       try {
@@ -1365,29 +1369,33 @@ if (process.env.NODE_ENV !== 'production') {
           server: { middlewareMode: true },
           appType: 'spa'
         });
-        app.use('/urgentni-prijem-game', urgentVite.middlewares);
         app.use('/urgentni-prijem', urgentVite.middlewares);
-        console.log('Mounted Vite dev middleware for urgentni-prijem at /urgentni-prijem-game/');
+        app.use('/urgentni-prijem-game', urgentVite.middlewares);
+        console.log('Mounted Vite dev middleware for urgentni-prijem at /urgentni-prijem/');
       } catch (err) {
         console.warn('Vite dev server for urgentni-prijem could not be initialized. Falling back to static serving.', err.message);
-        app.use('/urgentni-prijem-game', express.static(path.join(__dirname, 'urgentni-prijem/dist')));
         app.use('/urgentni-prijem', express.static(path.join(__dirname, 'urgentni-prijem/dist')));
+        app.use('/urgentni-prijem-game', express.static(path.join(__dirname, 'urgentni-prijem/dist')));
       }
+
+      app.use('/upv', express.static(path.join(__dirname, 'upv')));
     };
     initViteDev();
   } catch (e) {
     console.warn('Vite dev server module could not be loaded. Falling back to static serving for all.', e.message);
     app.use('/clinical-portal', express.static(path.join(__dirname, 'clinical-learning-portal/dist')));
-    app.use('/upv', express.static(path.join(__dirname, 'clinical-learning-portal/dist')));
-    app.use('/urgentni-prijem-game', express.static(path.join(__dirname, 'urgentni-prijem/dist')));
+    app.use('/clinical-learning-portal', express.static(path.join(__dirname, 'clinical-learning-portal/dist')));
     app.use('/urgentni-prijem', express.static(path.join(__dirname, 'urgentni-prijem/dist')));
+    app.use('/urgentni-prijem-game', express.static(path.join(__dirname, 'urgentni-prijem/dist')));
+    app.use('/upv', express.static(path.join(__dirname, 'upv')));
   }
 } else {
   // Serve static files from compiled dist folders in production
   app.use('/clinical-portal', express.static(path.join(__dirname, 'clinical-learning-portal/dist')));
-  app.use('/upv', express.static(path.join(__dirname, 'clinical-learning-portal/dist')));
-  app.use('/urgentni-prijem-game', express.static(path.join(__dirname, 'urgentni-prijem/dist')));
+  app.use('/clinical-learning-portal', express.static(path.join(__dirname, 'clinical-learning-portal/dist')));
   app.use('/urgentni-prijem', express.static(path.join(__dirname, 'urgentni-prijem/dist')));
+  app.use('/urgentni-prijem-game', express.static(path.join(__dirname, 'urgentni-prijem/dist')));
+  app.use('/upv', express.static(path.join(__dirname, 'upv')));
 }
 
 // Start the server
