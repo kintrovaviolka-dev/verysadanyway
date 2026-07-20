@@ -675,6 +675,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // --- LOGIKA TLAČÍTKA ZPĚT NA ROZCESTNÍK ---
+  const backHubBtn = document.getElementById("back-hub-btn");
+  if (backHubBtn) {
+    backHubBtn.addEventListener("click", () => {
+      if (window.location.protocol === 'file:') {
+        window.location.href = '../index.html';
+      } else {
+        window.location.href = 'https://verysadanyway.vercel.app/';
+      }
+    });
+  }
+
   // 17. PRVNÍ SPUŠTĚNÍ - INICIALIZACE STRÁNKY
   updateDashboard();
   renderQuestionsGrid();
