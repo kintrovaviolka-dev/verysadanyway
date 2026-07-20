@@ -1,147 +1,135 @@
-# Lékařský Studijní Portál
+# Lékařský Studijní Portál / Medical Study Portal
 
-Lékařský Studijní Portál je interaktivní vzdělávací webová aplikace (rozcestník) primárně určená pro studenty 3. ročníku oboru Všeobecné lékařství (např. LF OU). Aplikace poskytuje komplexní nástroje pro studium, testování znalostí a sledování pokroku.
+Krátký přehled
 
-## Hlavní funkce
+Lékařský Studijní Portál je sbírka jednoduchých webových aplikací a nástrojů určených pro klinické učení a přípravu studijních materiálů. Projekt obsahuje hlavní frontend (statické stránky + volitelný Express backend), nástroje pro generování PDF z Markdown/LaTeX a několik samostatných AI Studio (Gemini) aplikací.
 
-- **Rozcestník pro studium:** Přehledné rozdělení materiálů podle předmětů (Patologie, Patofyziologie, Farmakologie, atd.).
-- **Interaktivní kvízy a testy:** Integrované kvízy vycházející ze strukturovaných datových souborů pro ověření znalostí.
-- **Gamifikace:** Systém pro sledování postupu (XP, úrovně, streaks), který motivuje ke každodennímu studiu. Postup je ukládán na straně klienta (`localStorage`).
-- **Generování PDF materiálů:** Python skript pro kompilaci studijních poznámek z Markdownu a LaTeXu do přehledných PDF dokumentů.
-- **Gemini AI Asistent:** Integrace s Google Gemini API pro pokročilou nápovědu a interaktivní učení.
-- **Modulární struktura:** Samostatné aplikace pro různé domény (klinický portál, urgentní příjem, atd.).
+Hlavní funkce
 
-## Použité technologie
+- Rozcestník a organizace studijních materiálů podle předmětů (patologie, farmakologie, dermatologie, ...).
+- Interaktivní kvízy a testy založené na datových souborech (data_*.js).
+- Základní gamifikace (XP, úrovně, streaks) uložená v localStorage.
+- Skript pro kompilaci PDF materiálů (compile_pdf.py).
+- Dvě samostatné Gemini AI Studio aplikace (viz složky níže) pro interaktivní asistenci.
 
-- **Frontend:** HTML5, CSS3, Vanilla JavaScript
-- **Backend:** Express.js (`server.js`) pro lokální obsluhu a API integraci
-- **AI Integration:** Google Gemini API
-- **Nástroje:** Python (PDF kompilace, příprava dat)
+Použité technologie
 
-## Struktura projektu
+- Frontend: HTML5, CSS3, Vanilla JavaScript
+- Backend: Node.js + Express (server.js) — použitý lokálně, nevyžadovaný pro čistě statický provoz
+- AI: Google Gemini (integrace v podsložkách/AI studiu)
+- Nástroje: Python (skript pro generování PDF), případně pandoc/pdflatex
+
+Repo struktura (aktuální)
 
 ```
 .
-├── README.md                      # Tento soubor
-├── package.json                   # Node.js závislosti
-├── server.js                      # Express backend
-├── index.html                     # Hlavní vstupní bod
-├── app.js                         # Aplikační logika
-├── style.css                      # Styly
-├── compile_pdf.py                 # Python skript pro PDF generování
-├── data_*.js                      # Datové soubory kvízů
-├── clinical-learning-portal/      # Gemini AI studio aplikace
-├── urgentní-příjem/               # Gemini AI studio aplikace
-└── derma/                         # Materiály k dermatologii
-    farmakologie/                  # Materiály k farmakologii
-    ...                            # Další předmětové složky
+├── README.md
+├── package.json
+├── server.js                 # (volitelný) Express backend pro lokální vývoj
+├── index.html                # hlavní frontend vstup
+├── app.js                    # aplikační logika
+├── style.css                 # styly
+├── compile_pdf.py            # Python skript pro generování PDF
+├── data_*.js                 # datové soubory kvízů
+├── clinical-learning-portal/ # Gemini AI Studio app (lokální runner)
+├── clinical-portal/          # Gemini/AI studio varianty / rozšíření
+├── urgentní-příjem/          # Gemini AI Studio app (urgentní příjem)
+└── derma/                    # materiály k dermatologii (a další předmětové složky)
 ```
 
-## Instalace a spuštění
+Instalace a spuštění
 
-### Možnost 1: Pomocí Node.js / Express (Doporučeno)
+Poznámka: projekt lze provozovat buď jako statický web (bez backendu) nebo s lokálním Express serverem.
 
-Tato metoda spustí Express server, který obsluhuje aplikaci.
+1) Lokální vývoj s Node.js / Express (doporučeno pro plnou funkcionalitu)
 
-1. Ujistěte se, že máte nainstalovaný [Node.js](https://nodejs.org/).
-2. Nainstalujte závislosti:
-   ```bash
-   npm install
-   ```
-3. Vytvořte soubor `.env` a nastavte konfiguraci (např. PORT):
-   ```bash
-   PORT=3000
-   ```
-4. Spusťte vývojový server:
-   ```bash
-   npm run dev
-   ```
-   nebo produkční server:
-   ```bash
-   npm start
-   ```
-5. Otevřete prohlížeč a přejděte na `http://localhost:3000`.
+- Požadavky: Node.js, npm
 
-### Možnost 2: Pomocí Python HTTP Serveru
+```bash
+npm install
+# pokud v package.json existuje skript pro vývoj
+npm run dev
+# nebo produkčně
+npm start
+```
 
-Pokud chcete pouze prohlížet frontendovou část bez backendu:
+- Pokud používáte Express backend (`server.js`), nastavte volitelně `.env` soubor s proměnnými (např. PORT=3000).
 
-1. Ujistěte se, že máte nainstalovaný [Python 3](https://www.python.org/).
-2. Spusťte server v kořenovém adresáři projektu:
-   ```bash
-   python3 -m http.server 8000
-   ```
-3. Otevřete prohlížeč a přejděte na `http://localhost:8000`.
+2) Pouze frontend (statický)
 
-## Spuštění Gemini AI aplikací
+- Pokud chcete pouze prohlížet frontend bez backendu:
 
-Projektu obsahuje dvě Gemini AI Studio aplikace v podsložkách:
+```bash
+python3 -m http.server 8000
+# nebo (Python 2)
+# python -m SimpleHTTPServer 8000
+```
 
-### clinical-learning-portal/
+- Otevřete `http://localhost:8000`.
+
+Spuštění Gemini AI (AI Studio) aplikací
+
+Projekt obsahuje samostatné AI Studio aplikace ve složkách. Každá se spouští nezávisle:
+
+- clinical-learning-portal/
+- clinical-portal/
+- urgentní-příjem/
+
+Postup (v rámci každé podsložky):
+
 ```bash
 cd clinical-learning-portal
 npm install
+# přidejte GEMINI_API_KEY do .env.local nebo .env podle README v podsložce
 npm run dev
 ```
 
-### urgentní-příjem/
-```bash
-cd urgentní-příjem
-npm install
-npm run dev
-```
+Ujistěte se, že ve ` .env.local` nebo v systému máte nastavenou proměnnou GEMINI_API_KEY, pokud chcete používat Gemini integrace.
 
-Pro oba projektů je potřeba nastavit `GEMINI_API_KEY` v souboru `.env.local`.
+Generování PDF materiálů
 
-## Příprava PDF materiálů
-
-Pro zkompilování PDF ze zdrojových Markdown/LaTeX souborů spusťte:
+- Pro kompilaci PDF z Markdown/LaTeX spusťte:
 
 ```bash
 python3 compile_pdf.py
 ```
 
-*Poznámka: Tento skript může vyžadovat další závislosti (např. `pandoc`, `pdflatex`) a případnou úpravu cest uvnitř skriptu.*
+- Tento skript může vyžadovat další nástroje (pandoc, pdflatex) — viz komentáře v `compile_pdf.py` a nainstalujte je podle potřeby.
 
-## Gamifikace a uživatelský postup
+Gamifikace a ukládání průběhu
 
-Aplikace sleduje uživatelský postup pomocí:
+- Místní ukládání (localStorage) drží jednoduchý stav uživatele: XP, úroveň, streaky apod.
+- Data jsou zatím lokální (není trvalé uživatelské DB ani autentizace).
 
-- **XP (Experience Points):** Body za vyřešené kvízy a testy
-- **Úrovně:** Postup na vyšší úrovně se zvyšujícími se XP
-- **Streaky:** Sledování počtu po sobě jdoucích dní studia
-- **Místní úložiště:** Veškerá data jsou uložena v `localStorage` prohlížeče
-
-## Užitečné příkazy
+Užitečné příkazy
 
 ```bash
-# Instalace všech závislostí
+# Instalace
 npm install
 
-# Spuštění vývojového serveru
+# Vývoj (repo root nebo jednotlivé podsložky)
 npm run dev
 
-# Spuštění produkčního serveru
+# Produkce
 npm start
 
 # Generování PDF
 python3 compile_pdf.py
 ```
 
-## Příspívání
+Příspěvky
 
-Příspěvky jsou vítány! Pokud chcete přispět:
+Příspěvky jsou vítány:
 
-1. Vytvořte fork projektu
-2. Vytvořte feature branch (`git checkout -b feature/amazing-feature`)
-3. Commitněte své změny (`git commit -m 'Add amazing feature'`)
-4. Pushněte do branch (`git push origin feature/amazing-feature`)
-5. Otevřete Pull Request
+1. Fork projektu
+2. Vytvořte branch: `git checkout -b feature/nazev`
+3. Commit: `git commit -m "Add: popis změny"`
+4. Push a otevřete Pull Request
 
-## Licence
+Licence
 
-Projekt je dostupný pod licencí MIT.
+Projekt je licencován pod MIT.
 
-## Kontakt
+Kontakt
 
-Pro otázky a návrhy se prosím obraťte na správce projektu.
+Pro dotazy nebo nahlášení chyb otevřete issue v tomto repozitáři nebo použijte kontaktní údaje správce projektu.
