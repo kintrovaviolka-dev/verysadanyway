@@ -402,7 +402,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     if (filtered.length === 0) {
-      questionsListContainer.innerHTML = `<div style="text-align: center; color: var(--text-secondary); padding: 20px;">Nebyly nalezeny žádné otázky.</div>`;
+      questionsListContainer.innerHTML = `
+        <div style="text-align: center; color: var(--text-secondary); padding: 20px;">
+          <p style="margin-bottom: 12px;">Nebyly nalezeny žádné otázky.</p>
+          <button class="btn btn-secondary btn-sm" id="clear-search-btn">Zrušit vyhledávání</button>
+        </div>
+      `;
+      document.getElementById('clear-search-btn').addEventListener('click', () => {
+        questionSearch.value = '';
+        renderQuestionsList();
+        questionSearch.focus();
+      });
       return;
     }
 
