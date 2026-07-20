@@ -348,18 +348,23 @@ header {
 
 /* Leitner boxes */
 .boxes-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 0.5rem;
-  margin-top: 0.3rem;
+  margin-top: 0.5rem;
 }
 .box-indicator {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   background: var(--bg-tertiary);
   border-radius: var(--radius-sm);
   padding: 0.6rem 0.3rem;
   border: 1px solid var(--border-subtle);
   transition: var(--transition);
+  min-width: 0;
 }
 .box-indicator:hover { transform: translateY(-2px); }
 .box-badge {
@@ -1078,4 +1083,8 @@ header {
   .leitner-btn-group { gap: 0.4rem; }
   .spaced-repetition-controls { padding: 0.75rem 1.2rem 1rem; }
   .quiz-container { padding: 1rem 1.2rem; }
+}
+
+@media (max-width: 580px) {
+  .boxes-container { grid-template-columns: repeat(2, 1fr); }
 }
