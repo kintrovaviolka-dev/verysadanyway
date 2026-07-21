@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node --env-file=.env server.js",
-    "build": "cd clinical-learning-portal && npm install && npm run build && cd ../urgentni-prijem && npm install && npm run build"
+    "build": "cd clinical-learning-portal && npm install --legacy-peer-deps && npm run build && cd ../urgentni-prijem && npm install --legacy-peer-deps && npm run build"
   },
   "dependencies": {
     "@google/genai": "^2.12.0",
