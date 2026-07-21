@@ -155,11 +155,11 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (subject === "mikrobiologie") {
       destination = "./mikra/index.html";
     } else if (subject === "clinical-portal" || subject === "clinical-learning-portal") {
-      destination = isLocal ? "./clinical-learning-portal/dist/index.html" : "/clinical-portal/";
+      destination = "./clinical-learning-portal/index.html";
     } else if (subject === "upv") {
       destination = "./upv/index.html";
     } else if (subject === "urgentni-prijem") {
-      destination = isLocal ? "./urgentni-prijem/dist/index.html" : "/urgentni-prijem/";
+      destination = "./urgentni-prijem/index.html";
     }
 
     if (destination) {
