@@ -20,6 +20,11 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
+// Serve built dist directories for Vite subapps
+app.use('/urgentni-prijem', express.static(path.join(__dirname, 'urgentni-prijem/dist')));
+app.use('/clinical-learning-portal', express.static(path.join(__dirname, 'clinical-learning-portal/dist')));
+app.use('/clinical-portal', express.static(path.join(__dirname, 'clinical-learning-portal/dist')));
+
 // Serve static files from root directory
 app.use(express.static(__dirname));
 
