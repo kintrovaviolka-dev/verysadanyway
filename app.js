@@ -752,6 +752,7 @@ document.addEventListener("DOMContentLoaded", () => {
   chatbotSettingsBtn.addEventListener("click", () => {
     chatbotSettingsOverlay.classList.add("open");
     chatbotSettingsBtn.setAttribute("aria-expanded", "true");
+    chatbotApiKeyInput.focus();
   });
 
   chatbotSettingsCloseBtn.addEventListener("click", () => {
@@ -792,6 +793,7 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.removeItem("gemini_chat_local_key");
     chatbotApiKeyInput.value = "";
     alert("API klíč byl vymazán. Nyní se dotazy posílají přes proxy server.");
+    chatbotApiKeyInput.focus();
   });
 
   // Simple Markdown Parser for UI Bubble rendering

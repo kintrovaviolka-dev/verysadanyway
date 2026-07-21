@@ -23,3 +23,10 @@
 ## 2024-11-20 - Adding Accessibility to Interactive Elements
 **Learning:** Adding keydown listeners to custom card-based navigation components is required for accessibility, but when cards are "locked" and interactable (to show a reason for being locked), using `aria-disabled="true"` instead of removing `tabindex` is vital so keyboard users can still discover them and read the locked message.
 **Action:** When creating custom button-like elements using `div` or `span`, always explicitly assign `role="button"`, `tabindex="0"`, appropriate `aria-label`s or `aria-disabled` states, and pair standard `click` event listeners with `keydown` event listeners that trigger on the 'Enter' and 'Space' keys to ensure full keyboard accessibility. Make sure to attach keyboard event listeners for Enter and Space (with `e.preventDefault()`). Make sure both the HTML and Javascript are updated properly.
+## 2024-11-20 - Adding Accessibility to Standalone Input Fields
+**Learning:** Found input fields (`#chatbot-api-key-input` and `#chatbot-input`) that lacked connected `<label>` elements or `aria-label` attributes, making it impossible for screen reader users to understand what to type into them.
+**Action:** Always ensure standalone input fields (e.g., text, password) have either a connected `<label>` element or a descriptive `aria-label` attribute (written in Czech) to maintain accessibility for screen reader users.
+
+## 2024-11-20 - Focus Management on Interactive Overlay Open
+**Learning:** Found that when the Settings overlay was opened, keyboard focus remained on the trigger button instead of shifting into the overlay, requiring keyboard users to tab multiple times to reach the input field.
+**Action:** When opening a custom modal, settings panel, or interactive overlay, programmatically shift focus (using `.focus()`) to the first interactive element within it (e.g., a text input) to enhance keyboard navigation accessibility.
