@@ -135,13 +135,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const selectSubject = (subject) => {
     state.selectedSubject = subject;
     
-    const isFileProtocol = window.location.protocol === 'file:';
+    const isLocal = window.location.protocol === 'file:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
 
     let destination = "";
     if (subject === "patfyz") {
-      destination = isFileProtocol ? "./patfyza-main/index.html" : "https://patfyz.vercel.app/";
+      destination = isLocal ? "./patfyza-main/index.html" : "https://patfyz.vercel.app/";
     } else if (subject === "patola") {
-      destination = isFileProtocol ? "./patolka-main/index.html" : "https://patolka.vercel.app/";
+      destination = isLocal ? "./patolka-main/index.html" : "https://patolka.vercel.app/";
     } else if (subject === "oset") {
       destination = "./oset/index.html";
     } else if (subject === "farmakologie") {
@@ -155,11 +155,11 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (subject === "mikrobiologie") {
       destination = "./mikra/index.html";
     } else if (subject === "clinical-portal" || subject === "clinical-learning-portal") {
-      destination = isFileProtocol ? "./clinical-learning-portal/dist/index.html" : "/clinical-portal/";
+      destination = isLocal ? "./clinical-learning-portal/dist/index.html" : "/clinical-portal/";
     } else if (subject === "upv") {
       destination = "./upv/index.html";
     } else if (subject === "urgentni-prijem") {
-      destination = isFileProtocol ? "./urgentni-prijem/dist/index.html" : "/urgentni-prijem/";
+      destination = isLocal ? "./urgentni-prijem/dist/index.html" : "/urgentni-prijem/";
     }
 
     if (destination) {
