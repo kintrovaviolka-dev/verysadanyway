@@ -798,1084 +798,2388 @@ const MIKRA_QUESTIONS = [
       ]
     }
   },
-  {
-    id: "mikra-15",
-    cislo: 15,
-    skupina_a: "Bakteriologie",
-    skupina_b: "Mykologie",
-    cast_a: {
-      title: "Viridující streptokoky a Pneumokoky",
-      keywords: ["Streptococcus pneumoniae", "S. mutans", "alfa-hemolýza", "optochin", "zubní kaz", "komunitní pneumonie"],
-      content: {
-        definice: "Viridující streptokoky = alfa-hemolytické nebo non-beta-hemolytické streptokoky. Součást normální mikroflóry úst a nosohltanu. S. pneumoniae (pneumokok) = hlavní původce komunitní pneumonie.",
-        usni_streptokoky: "<strong>Ústní (orální) streptokoky:</strong> S. mutans, S. sobrinus, S. salivarius, S. sanguinis, S. oralis, S. gordonii. Leucinaminopeptidáza pozitivní, PYR negativní, nerostou v 6,5% NaCl.<br>Patogenita: oportunní – jen u disponovaných. Subakutní bakteriální endokarditida (SBE) = Loudavá sepse – kolonizace poškozených chlopní po bakteriémii z DÚ. S. mutans skupina → zubní kaz (glukosyltransferázy → glukany → plak → kyseliny → destrukce skloviny).<br>Léčba: cefotaxim, ceftriaxon, vankomycin (odolnost na peniciliny, makrolidy).",
-        pneumokok: "<strong>S. pneumoniae (pneumokok):</strong> G+ opouzdřený ovoidní kok, krátké řetízky, «lancetovitý» tvar diplo. Kultivace: vlhké obohacené půdy, CO₂, miskovité kolonie (autolýza ve středu). Alfa-hemolýza za přítomnosti O₂. Průkaz: optochinový test (zóna inhibice), žluč-solubilita (autolytické enzymy), PcG test (citlivost na penicilín = inhibiční zóna na KA).<br><br>Faktory virulence: polysacharidové pouzdro (antifagocytóza – HLAVNÍ faktor), adheziny (PspA, PspC, CbpA), invaziny (hyaluronidáza, neuraminidáza), pneumolyzin (nekrotizující, zánětu podporující), autolysin.<br><br>Onemocnění: komunitní pneumonie (20 %), purulentní meningitida (>60 let, batolata), otitis media, mastoiditida, sinusitida. Vakcinace: chemovakcína (23 sérotypů PnCPS), konjugovaná (13-valentní, PCV13) – pro děti.",
-        diagnostika: "Kultivace z krve, likvoru, synoviální tekutiny, sputa. Hemokultivace (pneumonie). Latexová aglutinace (likvor). Mikroskopie: lancetovité diplokoky s nebarveným pouzdrem."
-      },
-      quiz: [
-        {
-          q: "Optochinový test se používá k odlišení S. pneumoniae od ostatních viridujících streptokoků. Pneumokok:",
-          options: ["Je rezistentní na optochin", "Tvoří zónu inhibice kolem optochinového disku", "Je citlivý na bacitracin", "Tvoří modré kolonie"],
-          correct: 1,
-          explanation: "S. pneumoniae je citlivý na optochin (ethylhydrocupein) → tvoří inhibiční zónu ≥ 14 mm. Ostatní viridující streptokoky jsou na optochin rezistentní – klíčový diferenciační test."
+{
+    "id": "mikra-15",
+    "cislo": 15,
+    "skupina_a": "Bakteriologie",
+    "skupina_b": "Mykologie",
+    "cast_a": {
+        "title": "Viridující streptokoky a Pneumokoky",
+        "keywords": [
+            "Streptococcus pneumoniae",
+            "S. mutans",
+            "alfa-hemolýza",
+            "optochin",
+            "zubní kaz",
+            "komunitní pneumonie"
+        ],
+        "content": {
+            "definice": "<strong>Viridující streptokoky:</strong> Alfa-hemolytické nebo non-hemolytické streptokoky, fyziologicky osídlující ústní dutinu a nosohltan. <strong>S. pneumoniae (pneumokok):</strong> Významný opouzdřený lidský patogen vyvolávající lobární pneumonii, meningitidu a otitidu.",
+            "etiologie": "• Ústní streptokoky (např. <em>S. mutans, S. salivarius, S. sanguinis</em>) tvoří zubní plak (štěpením sacharidů na kyseliny demineralizují sklovinu) a při bakteriémii kolonizují poškozené srdeční chlopně.<br>• <em>S. pneumoniae</em> je grampozitivní lancetovitý diplokok s polysacharidovým pouzdrem.",
+            "patogeneze": "Pouzdro pneumokoka brání opsonizaci a fagocytóze. Pneumolyzin působí cytotoxicky (tvoří póry v membránách hostitelských buněk a inhibuje řasinkový epitel). Autolyzin (LytA) spouští lýzu stěny a uvolnění toxinů.",
+            "klinicky": "• Ústní streptokoky: Zubní kaz, subakutní bakteriální endokarditida (SBE, loudavá sepse).<br>• S. pneumoniae: Lobární pneumonie (rezavé sputum), purulentní meningitida, otitis media (časté u dětí), sinusitida.",
+            "laborator": "Mikroskopie: grampozitivní lancetovité diplokoky s jasným haló pouzdra. Kultivace: miskovité kolonie s alfa-hemolýzou. Diferenciace pneumokoka: <strong>optochinový test (citlivý)</strong> a <strong>žlučová rozpustnost (rozpustný)</strong>, viridující streptokoky jsou rezistentní.",
+            "terapie": "Lék volby: Penicilin G (při citlivosti). Při rezistenci Cefotaxim / Ceftriaxon nebo Vankomycin."
         },
-        {
-          q: "Hlavní faktor virulence pneumokoka je:",
-          options: ["Pneumolyzin", "Neuramidáza", "Polysacharidové pouzdro", "Protein A"],
-          correct: 2,
-          explanation: "Polysacharidové pouzdro S. pneumoniae je hlavním faktorem virulence – chrání bakterii před fagocytózou. 92 různých typů pouzdra → sérotypová specificita vakcinace."
-        }
-      ]
+        "quiz": [
+            {
+                "q": "Optochinový test se používá k odlišení S. pneumoniae od ostatních viridujících streptokoků. Pneumokok:",
+                "options": [
+                    "Je rezistentní na optochin",
+                    "Tvoří zónu inhibice kolem optochinového disku",
+                    "Je citlivý na bacitracin",
+                    "Tvoří modré kolonie"
+                ],
+                "correct": 1,
+                "explanation": "S. pneumoniae je citlivý na optochin (ethylhydrocuprein) → tvoří inhibiční zónu >= 14 mm. Ostatní viridující streptokoky jsou rezistentní."
+            },
+            {
+                "q": "Hlavním faktorem virulence Streptococcus pneumoniae, který brání opsonizaci a fagocytóze, je:",
+                "options": [
+                    "Pneumolyzin",
+                    "Teikoová kyselina",
+                    "Polysacharidové pouzdro",
+                    "M-protein"
+                ],
+                "correct": 2,
+                "explanation": "Polysacharidové pouzdro maskuje povrchové antigeny bakteriální stěny a brání navázání C3b and fagocytóze."
+            },
+            {
+                "q": "Který ústní streptokok je klíčovým původcem zubního kazu díky tvorbě glukanů ze sacharózy?",
+                "options": [
+                    "Streptococcus mutans",
+                    "Streptococcus pneumoniae",
+                    "Streptococcus pyogenes",
+                    "Streptococcus agalactiae"
+                ],
+                "correct": 0,
+                "explanation": "S. mutans syntetizuje pomocí glukosyltransferázy nerozpustné glukany, které tvoří matrix zubního plaku a metabolizují cukry na kyseliny."
+            }
+        ]
     },
-    cast_b: {
-      title: "Kvasinky a kvasinkové mikroorganismy (Candida)",
-      keywords: ["Candida albicans", "kandidóza", "flukonazol", "amfotericin B", "mykóza", "soor", "imunosuprese"],
-      content: {
-        definice: "Mykotická onemocnění jsou způsobena mikroskopickými houbami (mikromycety) – kvasinky a plísně. Kvasinky: kulatý/oválný tvar, množení pučením. Nejčastější systémové mykózy: kandidóza, aspergilóza, kryptokokóza.",
-        mikromycety: "Eukaryota. Základní sterol: ergosterol (cíl antimykotik). Buněčná stěna: peptidomanonany, beta-glukany, chitin (bez peptidoglykanu a LPS).",
-        candida: "<strong>Kandida (Candida):</strong> Kvasinky rodu Candida. 9 druhů patogenních pro člověka. Nejčastěji C. albicans, dále C. krusei, C. tropicalis, C. glabrata (nozokomiální MRSA analog), C. auris.<br><br>Rizikové faktory: neutropenie, ATB léčba (poruší baktovag. flóru), CŽK, diabetes mellitus, imunosuprese, kortikosteroidy.<br><br><strong>Formy kandidózy:</strong><br>• Kožní: diabetici (intertrigo, onychomykóza, balanitida)<br>• Slizniční: soor (mapovité bílé povlaky DÚ/hltanu – HIV, chemo, ATB), kandida kolpitida (tvarohový výtok, pálení)<br>• Systémová/orgánová: GIT, DC, UG trakt<br>• Diseminovaná + sepse: nejzávažnější – CŽK, horečka, exantém, retinální infiltráty",
-        diagnostika: "Mikroskopie + kultivace biologického materiálu. Histologie biopsie. Hemokultivace (diseminace). ELISA (beta-D-glukan – biomarker invasivní mykózy).",
-        terapie: "Systémová antimykotika: flukonazol (1. volba, dobrá tolerance), amfotericin B (těžký průběh, vedlejší účinky), vorikonazol (neutropeničtí), caspofungin/micafungin (echinokandiny)."
-      },
-      quiz: [
-        {
-          q: "Soor (oropharyngeální kandidóza) se typicky vyskytuje u:",
-          options: ["Zdravých dospělých", "Pacientů na ATB, HIV+ a onkologických pacientů na chemoterapii", "Dětí na školách", "Těhotných žen v 3. trimestru"],
-          correct: 1,
-          explanation: "Soor = oropharyngeální kandidóza (mapovité bílé povlaky na ústní sliznici). Vzniká při narušení lokální imunity: ATB léčba (poruší baktovaginální flóru), HIV+, imunosuprese, kortikoidy."
+    "cast_b": {
+        "title": "Kvasinky a kvasinkové mikroorganismy (Candida, Cryptococcus)",
+        "keywords": [
+            "Candida albicans",
+            "Cryptococcus neoformans",
+            "flukonazol",
+            "amfotericin B",
+            "soor",
+            "imunosuprese"
+        ],
+        "content": {
+            "definice": "<strong>Kvasinky:</strong> Jednobuněčné houby (mikromycety) množící se pučením. Hlavním oportunním patogenem je rod <em>Candida</em> (součást běžné flóry sliznic) a rod <em>Cryptococcus</em>.",
+            "etiologie": "• <em>Candida albicans:</em> Oportunní patogen. Ostatní druhy (<em>C. glabrata, C. krusei</em>) vykazují sníženou citlivost k azolům.<br>• <em>Cryptococcus neoformans:</em> Obalený kvasinkový organismus se silným polysacharidovým pouzdrem (zdroj: holubí trus).",
+            "klinicky": "• Candida: Soor (moudr - bílé povlaky DÚ), vulvovaginální kandidóza (tvarohový výtok, svědění), intertrigo v kožních záhybech diabetiků, invazivní kandidémie u neutropenie.<br>• Cryptococcus: Plicní kryptokokóza a život ohrožující subakutní meningoencefalitida u AIDS.",
+            "laborator": "Candida: Nativní preparát (pučící buňky a pseudohyfy), kultivace na Sabouraudově agaru a chromogenních půdách. Cryptococcus: <strong>tušový preparát (negativní barvení pouzdra)</strong>, latexová aglutinace kapsulárního antigenu v likvoru.",
+            "terapie": "Lokální: Nystatin, Clotrimazol. Systémová: Fluconazol, Echinokandiny (Caspofungin - lék volby pro kandidémii), Amfotericin B + Flucytosin (kryptokokóza)."
         },
-        {
-          q: "Základní sterol buněčné membrány hub, na který cílí antimykotika, je:",
-          options: ["Cholesterol", "Ergosterol", "Sitosterol", "Lanosterol"],
-          correct: 1,
-          explanation: "Ergosterol je specifický sterol hub (ekvivalent cholesterolu u savců). Na ergosterol cílí amfotericin B (přímá vazba) a azolová antimykotika (inhibice biosyntézy ergosterolu)."
-        }
-      ]
+        "quiz": [
+            {
+                "q": "Která z následujících kvasinek je přirozeně (intrinsicky) rezistentní vůči flukonazolu?",
+                "options": [
+                    "Candida albicans",
+                    "Candida krusei",
+                    "Candida tropicalis",
+                    "Candida parapsilosis"
+                ],
+                "correct": 1,
+                "explanation": "Candida krusei vykazuje přirozenou rezistenci k flukonazolu; k léčbě se používají echinokandiny, vorikonazol či amfotericin B."
+            },
+            {
+                "q": "Která diagnostická metoda se používá k průkazu polysacharidového pouzdra Cryptococcus neoformans v likvoru?",
+                "options": [
+                    "Ziehl-Neelsenovo barvení",
+                    "Tušový preparát (Burriho negativní barvení)",
+                    "Gramovo barvení za horka",
+                    "Neisserovo barvení"
+                ],
+                "correct": 1,
+                "explanation": "Polysacharidové pouzdro nepropouští částice tuše, takže se kryptokokové buňky zobrazí jako jasné dvorce na tmavém pozadí."
+            },
+            {
+                "q": "Co je lékem první volby u invazivní systémové kandidózy (kandidémie) u neutropenického pacienta?",
+                "options": [
+                    "Nystatin lokálně",
+                    "Echinokandiny (např. Caspofungin)",
+                    "Penicilin G",
+                    "Metronidazol"
+                ],
+                "correct": 1,
+                "explanation": "Echinokandiny blokují syntézu beta-glukanu stěny a jsou fungicidní vůči candidám s minimální toxicitou."
+            }
+        ]
     }
-  },
-  {
-    id: "mikra-16",
-    cislo: 16,
-    skupina_a: "Bakteriologie",
-    skupina_b: "Mykologie",
-    cast_a: {
-      title: "Enterokoky, Leuconostoc, Pediococcus, nutričně variantní streptokoky",
-      keywords: ["Enterococcus faecalis", "E. faecium", "VRE", "vankomycin", "endokarditida", "UTI", "Leuconostoc"],
-      content: {
-        definice: "Enterokoky: G+ oválné koky, facultativně anaerobní, kataláza negativní. Původně streptokoky skupiny D (Lancefieldova klasifikace). 90 % infekcí: E. faecalis; 7 % E. faecium.",
-        enterokoky: "Kultivace: KA (drobné šedobílé kolonie, virescence), Slanetzova-Bertleyho půda (růžové/červené kolonie). Hydrolyzují PYR a LAP – PYR+ LAP+. Odolné na teploty a pH. Skupinový antigen D (glycerol-teichoová kyselina).<br><br>Patogenita: uroinfekce, infekce ran, nitrobřišní záněty, endokarditida (drogaři), bakterémie, peritonitida. Nozokomiální infekce u pacientů s katetry a ATB.<br><br>Faktory virulence: želatináza, substanci feromony, sacharidové adhesiny, cytolysin (bakteriocin). Vzrůstající rezistence na vankomycin (VRE!).<br><br>Léčba: UTI – ampicilin, fluorochinolony, nitrofurantoin. Sepse/endokarditida: aminoglykosidy + penicilin/ampicilin nebo glykopeptidy.",
-        leuconostoc: "<strong>Leuconostoc:</strong> Rostliny, siláž, mléko. Patogeny pro imunosuprimované (abscesy, hemokultura). Léčba: penicilin, karbapenemy.",
-        pediococcus: "<strong>Pediococcus:</strong> Potravinářství. Rezistentní na vankomycin.",
-        nutritionally_variant: "<strong>Nutričně variantní streptokoky (NVS):</strong> Rody Abiotrophia a Granulicatella. G+, kataláza neg., PYR+. Potřebují cystein nebo vit. B5. Na KA rostou jen satelitovým fenoménem (u S. aureus). Endokarditidy, sepse."
-      },
-      quiz: [
-        {
-          q: "Vankomycin-rezistentní Enterococcus (VRE) je problémový zejména v:",
-          options: ["Komunitních infekcích u dětí", "Nozokomiálním prostředí u pacientů s ATB léčbou a katetry", "Potravních otravách", "Respiračních infekcích"],
-          correct: 1,
-          explanation: "VRE je typický nozokomiální patogen – selektuje se při léčbě vankomycinem a širokospektrými ATB. Infekce u pacientů s CŽK, CMP, s imunosupresí – obtížně léčitelné."
-        }
-      ]
-    },
-    cast_b: {
-      title: "Aspergilové infekce",
-      keywords: ["Aspergillus fumigatus", "aspergilóza", "invazivní aspergilóza", "aspergilom", "ABPA", "vorikonazol"],
-      content: {
-        definice: "Aspergillus: kosmopolitní houby, řadí se mezi vláknité houby (plísně). Původci nozokomiálních infekcí. Cestou vstupu jsou dýchací cesty (konidiospóry).",
-        typy: "<strong>1. Invazivní aspergilóza (IA):</strong> Nejzávažnější forma. A. fumigatus (nejčastěji). Konidiospóry v plicích dozrávají, pronikají do cév, CNS, krve. Rizikoví: leukémie, AIDS, CHOPN, chemo, transplantace plic, kortikosteroidy. Projevy: horečka, kašel, dyspnoe, hemoptýza. CT hrudníku: uzlíky + halo-sign. Diagnostika: histopatologie, kultivace, CT, ELISA (galaktomannan), PCR. Léčba: vorikonazol, amfotericin B, caspofungin, micafungin.<br><br><strong>2. Alergická bronchopulmonální aspergilóza (ABPA):</strong> Hypersenzitivita (I. a III. typ) na aspergilové antigeny u astmatiků, CF. Projevy: pisklavé dýchání, hnědé sputum, eozinofilie. Léčba: kortikosteroidy + itrakonazol.<br><br><strong>3. Chronická nekrotizující plicní aspergilóza:</strong> Pomalý průběh u CHOPN, TBC. Nekróza plicní tkáně. Léčba: vorikonazol, itrakonazol.<br><br><strong>4. Aspergilom:</strong> Nejčastější forma. Mycetoma v preexistující plicní dutině (po TBC, sarkoidóze). Hemoptýza. CT: móbilní útvar v dutině. Léčba: itrakonazol, chirurgie (u hemoptýzy).",
-        diagnostika: "Histopatologie: septované hyfy pod úhlem 45° (Aspergillus, šikmé větven). ELISA galaktomannan (marker invazivní aspergilózy z BAL nebo séra). CT hrudníku: halo-sign, air crescent sign."
-      },
-      quiz: [
-        {
-          q: "Halo-sign na CT hrudníku (uzlík obklopený zákalem – ground glass) je typický pro:",
-          options: ["Bakteriální pneumonii", "Plicní TBC", "Invazivní aspergilózu", "Virovou pneumonii"],
-          correct: 2,
-          explanation: "Halo-sign na CT hrudníku = area ground-glass opacity kolem nodulu → způsoben hemoragickou infiltrací nebo angioinvazí Aspergillus. Typický pro invazivní aspergilózu u neutropeniků."
-        }
-      ]
-    }
-  },
-  {
-    id: "mikra-17",
-    cislo: 17,
-    skupina_a: "Bakteriologie",
-    skupina_b: "Mykologie",
-    cast_a: {
-      title: "Korynebakteria, Bacillus",
-      keywords: ["Corynebacterium diphtheriae", "záškrt", "diftérie", "difteriový toxin", "Bacillus anthracis", "antrax", "spóry"],
-      content: {
-        definice: "<strong>Corynebacterium:</strong> G+ tyčinky, fakultativně aerobní, nesporulující. Kyjovitý tvar («havraní křídla»). Nejdůležitější: C. diphtheriae.<br><strong>Bacillus:</strong> G+ sporulující aerobní tyčinky. B. anthracis (antrax), B. cereus (potravinová intoxikace).",
-        diphteriae: "<strong>C. diphtheriae:</strong> Záškrt – původce. Toxin produkovaný jen kmeny lysogenizovanými fágem β (kódujícím gen pro toxin). <strong>Diftériový toxin</strong>: inhibice EF-2 (translokáza) → zastavení proteosyntézy → buněčná smrt. Projevy: pseudomembrány v krku (šedavý povlak), stridory, srdeční a nervové komplikace (myokarditida, polyneuropatie). Kultivace: Löfflerovo medium, telluritový agar (černé kolonie).<br>Prevence: DTaP vakcinace. Léčba: antidifteriové antitoxin + penicilín/erytromycin.",
-        bacillus: "<strong>B. anthracis:</strong> Původce antraxu. Tvoří spory odolné desítky let v půdě. 3 formy: kožní (karbunkl, maligní pustula – nejběžnější, 20 % mortalita bez léčby), plicní (inhalační, nejsmrtelnější – 80 % mort.), střevní. Bioterrorismus. Diagnóza: kultivace, PCR. Léčba: ciprofloxacin nebo doxycyklin.<br><br><strong>B. cereus:</strong> Potravinová intoxikace – 2 typy: zvracivý (rýžová forma, termostabilní ST toxin) a průjmový (LT enterotoxin). 6–24 h inkubace."
-      },
-      quiz: [
-        {
-          q: "Diftériový toxin inhibuje:",
-          options: ["Proteosyntézu blokací EF-2 (translokázy)", "Syntézu nukleových kyselin", "Metabolismus ATP", "Tvorbu buněčné stěny"],
-          correct: 0,
-          explanation: "Diftériový toxin (DTx) je ADP-ribosyltransferáza → ribosyluje EF-2 (elongation factor 2/translokáza) → zastaví translokaci ribosomů → přeruší proteosyntézu → buněčná smrt (myokard, nervy)."
-        }
-      ]
-    },
-    cast_b: {
-      title: "Laboratorní metody v mykologii",
-      keywords: ["přímý průkaz", "kultivace", "KOH preparát", "Sabouraudův agar", "antimykotická citlivost", "histologie"],
-      content: {
-        definice: "Diagnostika mykotických infekcí zahrnuje přímý průkaz houby ve vzorku, kultivaci, sérologické metody (průkaz antigenů/protilátek) a molekulární metody.",
-        metody: "<strong>1. Přímý mikroskopický průkaz:</strong><br>• Nativní preparát v 10–20% KOH (rozloží keratinové struktury → průkaz hyf a kvasinek)<br>• Calcoflour white fluorescenční barvení (chitin ve stěně hub)<br>• Gramovo barvení (kvasinky barví G+)<br>• PAS barvení (histologie – hyfy červeně)<br>• Grocott methenamine silver (GMS) – histologie, nejlepší pro hyfy<br><br><strong>2. Kultivace:</strong><br>• Sabouraudův dextrózo-agar (SDA) – standardní<br>• Při 25–30 °C (dermatofyty) a 37 °C (kvasinky, patogenní houby)<br>• Selektivní půdy (Candida CHROMagar – barevné kolonie → druhová identifikace)<br>• Dlouhá inkubace (týdny pro Aspergillus, dermatofyty)<br><br><strong>3. Sérologické metody:</strong><br>• ELISA galaktomannan (invazivní aspergilóza z séra/BAL)<br>• (1→3)-beta-D-glukan (obecný marker invazivní mykózy)<br>• Kryptokokový antigen (latexová aglutinace z likvoru/séra)<br><br><strong>4. Molekulární metody:</strong><br>• PCR z BAL, biopsie (detekce DNA Aspergillus, Candida)<br><br><strong>5. Antimykotická citlivost (AFST):</strong><br>• MIC pro flukonazol, vorikonazol, kaspofungin<br>• Diluce v bujonu (referenční) nebo Etest"
-      },
-      quiz: [
-        {
-          q: "KOH preparát se v mykologické diagnostice používá k:",
-          options: ["Barvení buněčných stěn", "Rozložení keratinu/tkáně → průkaz hyf a kvasinek v nativním vzorku", "Průkazu virů", "Sterilizaci vzorku"],
-          correct: 1,
-          explanation: "10–20% KOH (hydroxid draselný) chemicky rozloží keratin a lidské buňky ve vzorku (kůže, nehet, vlasy) → průhledný preparát → houbové elementy (hyfy, kvasinky) jsou detekovatelné mikroskopicky."
-        }
-      ]
-    }
-  },
-  {
-    id: "mikra-18",
-    cislo: 18,
-    skupina_a: "Bakteriologie",
-    skupina_b: "Mykologie",
-    cast_a: {
-      title: "Listeria, Erysipelothrix, Lactobacillus",
-      keywords: ["Listeria monocytogenes", "listeriόza", "Erysipelothrix", "Lactobacillus", "perinataální infekce", "meningitida"],
-      content: {
-        definice: "<strong>Listeria monocytogenes:</strong> G+ tyčinky, pohyblivé (převrhující pohyb), fakultativně intracelulární. Přežívá při 4 °C (chladnička)! Zoonóza.<br><strong>Erysipelothrix rhusiopathiae:</strong> G+ tyčinka, zoonóza (prasata, ryby).<br><strong>Lactobacillus:</strong> G+ tyčinky, mléčné bakterie, probiota.",
-        listeria: "<strong>Listeria monocytogenes:</strong> Kultivace: KA – beta-hemolytické kolonie, pohyb (deštníkový pohyb v semi-solid agaru). CAMP test +. Antigenní: O a H-antigeny, 13 sérotypů (4b – nejpatogennější).<br><br>Patogeneza: ActA protein → využití aktinu hostitele k intracelulárnímu pohybu (bez lýzy buňky). Listeriolysin O (LLO) → únik z fagozomu.<br><br>Klinicky: Gastroenteritida (zdraví jedinci), meningitida + sepse (starší, imunosuprimovaní, transplantace), perinatální listeriόza (těhotné → placentou na plod → granulomatosis infantiseptica, novorozenecká meningitida). Zdroj: nepasterizované mléčné výrobky, uzeniny, rybí produkty.<br>Léčba: ampicilin + gentamicin.",
-        erysipelothrix: "<strong>Erysipelothrix rhusiopathiae:</strong> Erysipeloid (kožní infekce po poranění u zpracovatelů masa/ryb). Léčba: penicilin.",
-        lactobacillus: "<strong>Lactobacillus:</strong> Normální mikroflóra DÚ, vaginy, GIT. Produkují kyselinu mléčnou + H₂O₂ → ochrana pochvy. Probiotika. Vzácně patogenní u imunosuprimovaných."
-      },
-      quiz: [
-        {
-          q: "Proč je Listeria monocytogenes nebezpečná v potravinách uložených v chladničce?",
-          options: ["Produkuje termostabilní toxin", "Roste a přežívá při 4 °C – standardní teplotě chladničky", "Tvoří spory odolné chladu", "Je odolná na zmrazení"],
-          correct: 1,
-          explanation: "L. monocytogenes je psychrofilní – roste při 4 °C (i méně). Na rozdíl od většiny patogenů ji chladnička nezabíjí, ale jen zpomaluje. Pomnožuje se v chladírenských potravinách (paštiková, uzeniny, sýry)."
-        }
-      ]
-    },
-    cast_b: {
-      title: "Kryptokokóza, Mukormykóza, Pneumocystis jirovecii",
-      keywords: ["Cryptococcus neoformans", "kryptokokóza", "Mucor", "Rhizopus", "Pneumocystis jirovecii", "PCP", "meningitida"],
-      content: {
-        definice: "Závažné systémové mykózy způsobené specifickými houbovými patogeny. Většina ohrožuje imunosuprimované.",
-        kryptokokoza: "<strong>Cryptococcus neoformans:</strong> Kvasinka s masivním mukopolysacharidovým pouzdrem (průkaz tuší – negativní barvení v likvoru). Rezervoár: ptačí trus (holubi). Inhalace spor → plicní infekce → šíří se do CNS. Kryptokoková meningitida – závažná, typicky HIV+ (CD4 < 100). Diagnostika: likvor (tušový preparát, latexová aglutinace kryptokokového antigenu = nejcitlivější). Léčba: amfotericin B + flucytosin (indukce), flukonazol (udržovací).",
-        mukormykoza: "<strong>Mukormykóza:</strong> Skupina infekcí způsobená plísněmi Mucorales (Mucor, Rhizopus, Lichtheimia). Angioinvazivní – napadá cévy → nekróza. Formy: rinosinusorbitální (nejvíce u DM s ketoacidózou!), plicní, diseminovaná. CT: reverzní halo sign. Léčba: amfotericin B + chirurgická debridement.",
-        pcp: "<strong>Pneumocystis jirovecii pneumonie (PCP):</strong> Původně považován za prvok, nyní houby. Atypická pneumonie – difúzní intersticiální infiltráty (CT: ground-glass). Typická u HIV+ (CD4 < 200). Diagnostika: BAL (průkaz cyst Calcoflour barvením, PCR). Léčba: kotrimoxazol (TMP-SMX) – volba; alternativa: pentamidin, atovaquone."
-      },
-      quiz: [
-        {
-          q: "Průkaz tušovým (India ink) preparátem v likvoru je typický pro:",
-          options: ["Bakteriální meningitidu", "Kryptokokovou meningitidu (Cryptococcus neoformans)", "TBC meningitidu", "Virovou meningitidu"],
-          correct: 1,
-          explanation: "Tušový preparát (negativní barvení): tušové partikule se vylučují z oblasti kolem masivního pouzdra kryptokok → průhledný halo kolem kvasinky na černém pozadí. Patognomický nález kryptokokové meningitidy."
-        }
-      ]
-    }
-  },
-  {
-    id: "mikra-19",
-    cislo: 19,
-    skupina_a: "Bakteriologie",
-    skupina_b: "Mykologie",
-    cast_a: {
-      title: "Nocardia, Actinomyces a příbuzné G+ tyčinky",
-      keywords: ["Nocardia", "Actinomyces", "aktinomykóza", "nokardiόza", "aerobní", "anaerobní", "větvené tyčinky"],
-      content: {
-        definice: "<strong>Nocardia:</strong> G+ vláknitá aerobní bakterie, slabě acidorezistentní (částečně kyselinorezistentní – modifikované barvení dle Ziehl-Neelsena). Výtrusná vlákna. Volně žijící v půdě.<br><strong>Actinomyces:</strong> G+ anaerobní/mikroaerofilní větvené tyčinky. Součást normální ústní mikroflóry.",
-        nocardia: "<strong>Nocardia (N. asteroides, N. brasiliensis):</strong> Inhalace → plicní infekce u imunosuprimovaných. Abscesy v plicích, mozku, kůži. Diagnostika: barvení Ziehl-Neelsen (modif. = slabá kyselinorezistence), kultivace (pomalu na KA nebo speciálních půdách). Léčba: kotrimoxazol (TMP-SMX, dlouhodobě), imipenem, amikacin.",
-        actinomyces: "<strong>Actinomyces israelii:</strong> Endogenní infekce – proniká přes porušenou sliznici (zubní ošetření, úraz). Aktinomykóza: pomalu progredující granulomatózní infekce s tuhými ložisky a píštělemi (fistulami). Typicky: cerviofaciální forma (čelist, krk), hrudní, abdominální. Síranová zrna (sulfur granules) v hnisu. Diagnostika: kultivace (anaerobní, pomalá), síranová zrna v histologii. Léčba: vysoké dávky penicilínu (6–12 měsíců).",
-        dalsi: "<strong>Tropheryma whipplei:</strong> Whippleova choroba – malabsorpce, artritis, lymfadenopatie. Diagnostika: PAS barvení biopsie tenkého střeva. Léčba: kotrimoxazol."
-      },
-      quiz: [
-        {
-          q: "Síranová zrna (sulfur granules) v hnisu jsou typická pro:",
-          options: ["Nokardiózu", "Aktinomykózu", "Stafylokokový absces", "Aspergilózu"],
-          correct: 1,
-          explanation: "Síranová (sírová) zrna = makroskopicky viditelné žluté shluky bakterií (Actinomyces) obklopené neutrofily ve vláknité struktuře – typický patognomonický nález aktinomykózy."
-        }
-      ]
-    },
-    cast_b: {
-      title: "Endemické a vzácné mykózy (Histoplasma, Coccidioides, Blastomyces)",
-      keywords: ["Histoplasma capsulatum", "histoplazmóza", "Coccidioides", "Blastomyces", "dimorfní houby", "endemické mykózy"],
-      content: {
-        definice: "Endemické mykózy jsou způsobeny dimorfními houbami (teplota-dependentní dimorfismus: plísňová forma v prostředí vs. kvasinkový/tělní tvar v hostiteli). Jsou geograficky vázány.",
-        viry: "<strong>Histoplasma capsulatum:</strong> Amerika (Ohio-Mississippi údolí), Afrika. Rezervoár: ptačí trus, netopýři. Inhalace konidií → plicní infekce (většina inaparentní). U imunosuprimovaných: diseminovaná histoplazmóza (játra, slezina, kostní dřeň). Diagnostika: kultivace, sérologická (precipitace, CF), Histoplasma urin antigen (ELISA). Léčba: itrakonazol (lehké), amfotericin B (těžké).<br><br><strong>Coccidioides immitis:</strong> JZ USA, Latinská Amerika (Valley Fever). Inhalace artrokonidií. V hostiteli: sférulie s endosporami. Plicní infekce (akutní, chronická, kaverna). Diseminace do mozku, kostí, kůže. Diagnostika: mikroskopie (sférulie), sérologie (CF, EIA). Léčba: flukonazol, amfotericin B.<br><br><strong>Blastomyces dermatitidis:</strong> Severní Amerika. Plíce + kůže + kosti. Diagnostika: mikroskopie (velké kvasinky s broad-based pučením), kultivace. Léčba: itrakonazol.",
-        dimorfismus: "Dimorfní houby: při 25–28 °C (prostředí) → plísňová forma (hyfy, konidie); při 37 °C (tkáně) → kvasinkový/parazitický tvar. Konverze je klíčová pro patogenitu."
-      },
-      quiz: [
-        {
-          q: "Dimorfismus hub znamená, že:",
-          options: ["Houby tvoří dva typy spor", "Houby mění morfologii (plísně/kvasinky) v závislosti na teplotě/prostředí", "Houby jsou viditelné dvěma mikroskopickými technikami", "Houby napadají dva orgány současně"],
-          correct: 1,
-          explanation: "Dimorfní houby: při nízké teplotě prostředí (25–28 °C) rostou jako plísně (hyfy/konidie), při tělesné teplotě hostitele (37 °C) konvertují na kvasinkový nebo jiný parazitický tvar – to je klíčová adaptace pro infekci."
-        }
-      ]
-    }
-  },
-  {
-    id: "mikra-20",
-    cislo: 20,
-    skupina_a: "Bakteriologie",
-    skupina_b: "Mykologie",
-    cast_a: {
-      title: "Grampozitivní anaerobní koky a tyčinky (Clostridium, Peptostreptococcus)",
-      keywords: ["Clostridium difficile", "Clostridium perfringens", "Clostridium tetani", "C. botulinum", "Peptostreptococcus", "plynatá sněť", "botulizmus"],
-      content: {
-        definice: "<strong>Clostridium:</strong> G+ anaerobní sporulující tyčinky. Spory velmi odolné. Saprofyti v půdě a střevě. Produkují exotoxiny.<br><strong>Peptostreptococcus (Finegoldia, Anaerococcus):</strong> G+ anaerobní koky, součást normální flóry.",
-        clostridium: "<strong>C. perfringens:</strong> Plynatá sněť (myonekróza). Toxin alfa (lecitináza, fosfolipáza C → lýza membrán). Inkubace hodin. Léčba: chirurgická débridement + penicilin + hyperbarická O₂.<br><br><strong>C. tetani:</strong> Tetanus. Spory v půdě. Tetanospasmin (neurotoxin): blokuje inhibiční synapse (glycin, GABA) → tonicko-klonické křeče, opistotonus. Prevence: tetanická vakcína (DTaP). Léčba: antitoxin (TIG) + penicilin + sedace.<br><br><strong>C. botulinum:</strong> Botulizmus. Botulotoxin: nejsilnější biologický toxin, blokuje uvolnění acetylcholinu v nervosvalové ploténce → chabá obrna. Formy: potravinový, novorozenecký (konzumace medu!), ranový. Léčba: antitoxin.<br><br><strong>C. difficile:</strong> Pseudomembranózní kolitida po ATB (klindamycin, ampicilin, cefalosporiny). Toxiny A (enterotoxin) + B (cytotoxin). Diagnostika: ELISA toxiny A+B v stolici nebo PCR tcdB. Léčba: metronidazol, vankomycin p.o., fidaxomicin.",
-        peptostreptococcus: "<strong>Peptostreptococcus (Finegoldia, Parvimonas):</strong> Normální mikroflóra DÚ, vaginy, GIT. Smíšené anaerobi infekce (abscesy, peritonitidy, aspirační pneumonie). Léčba: penicilin, klindamycin, metronidazol."
-      },
-      quiz: [
-        {
-          q: "Botulotoxin způsobuje paralýzu mechanizmem:",
-          options: ["Blokace glycinových receptorů na inhibičních synapích", "Inhibice uvolnění acetylcholinu v nervosvalové ploténce", "Destrukce motorických nervů", "Aktivace cholinestrázy"],
-          correct: 1,
-          explanation: "Botulotoxin štěpí SNARE proteiny (synaptobrevin) → znemožní fúzi váčků s acetylcholinem s presynaptickou membránou → žádné uvolnění ACh → chabá (periferní) paralýza."
+},
+{
+    "id": "mikra-16",
+    "cislo": 16,
+    "skupina_a": "Bakteriologie",
+    "skupina_b": "Mykologie",
+    "cast_a": {
+        "title": "Enterokoky, Leuconostoc, Pediococcus, nutričně variantní streptokoky",
+        "keywords": [
+            "Enterococcus faecalis",
+            "Enterococcus faecium",
+            "VRE",
+            "Leuconostoc",
+            "vankomycin",
+            "resistentní"
+        ],
+        "content": {
+            "definice": "<strong>Enterokoky:</strong> G+ koky v řetízcích, dříve řazené mezi streptokoky D. Součást běžné flóry GIT, vysoce odolné (rostou v 6,5% NaCl, při 45 °C a v přítomnosti žluči). Oportunní nosokomiální patogeny.",
+            "etiologie": "• <em>Enterococcus faecalis (85 %):</em> Běžnější, citlivější.<br>• <em>Enterococcus faecium (10 %):</em> Častěji rezistentní k ampicilinu a vankomycinu (VRE z genů vanA/vanB - změna zakončení peptidoglykanu z D-Ala-D-Ala na D-Ala-D-Lac).<br>• <em>Leuconostoc, Pediococcus:</em> G+ koky, přirozeně rezistentní k vankomycinu.",
+            "klinicky": "Nozokomiální infekce močových cest (spojené s katetrem), nitrobřišní a pánevní abscesy, bakteriemie, subakutní endokarditida.",
+            "laborator": "Kultivace: šedavé kolonie, PYR test pozitivní, žluč-esculinový agar (štěpení esculinu barví půdu do černa). VRE se potvrzuje PCR detekcí genů vanA/B.",
+            "terapie": "Lék volby: Ampicilin. Pro endokarditidy synergická kombinace Ampicilin + Gentamicin (aminoglykosid). U VRE: Linezolid, Daptomycin nebo Tigecyklin."
         },
-        {
-          q: "Pseudomembranózní kolitida způsobená C. difficile typicky vzniká po:",
-          options: ["Konzumaci kontaminovaného masa", "Dlouhodobé antibiotické léčbě (klindamycin, cefalosporiny)", "Inhalaci spor C. difficile", "Kousnutí zvířetem"],
-          correct: 1,
-          explanation: "ATB léčba narušuje normální střevní mikroflóru → přemnožení C. difficile (rezistentní na mnohá ATB) → produkce toxinů A a B → destrukce sliznice kolon → pseudomembranózní kolitida (hlen, krev, průjem)."
-        }
-      ]
+        "quiz": [
+            {
+                "q": "Které dva rody grampozitivních koků vykazují přirozenou (intrinsickou) rezistenci k vankomycinu?",
+                "options": [
+                    "Staphylococcus a Streptococcus",
+                    "Leuconostoc a Pediococcus",
+                    "Enterococcus a Peptostreptococcus",
+                    "Streptococcus a Enterococcus"
+                ],
+                "correct": 1,
+                "explanation": "Leuconostoc a Pediococcus mají pozměněnou stěnu zakončenou D-Ala-D-laktátem, takže na ně vankomycin nepůsobí."
+            },
+            {
+                "q": "Jaký je mechanismus rezistence u kmenů VRE (vankomycin-rezistentní enterokoky)?",
+                "options": [
+                    "Změna cílového místa vazby glykopeptidů v buněčné stěně (D-Ala-D-Laktát namísto D-Ala-D-Ala)",
+                    "Produkce specifické vankomycinázy štěpící antibiotikum",
+                    "Aktivní efluxní pumpa odstraňující léčivo z buňky",
+                    "Ztráta porinových kanálků v membráně"
+                ],
+                "correct": 0,
+                "explanation": "Geny vanA a vanB kódují enzymy měnící terminální dipeptid peptidoglykanu na D-Ala-D-laktát, ke kterému má vankomycin nízkou afinitu."
+            },
+            {
+                "q": "Které antibiotikum je doporučeným lékem volby pro terapii infekcí způsobených VRE kmeny?",
+                "options": [
+                    "Ampicilin",
+                    "Ceftriaxon",
+                    "Linezolid",
+                    "Imipenem"
+                ],
+                "correct": 2,
+                "explanation": "Linezolid (inhibitor proteosyntézy) je schválen pro léčbu závažných infekcí způsobených VRE."
+            }
+        ]
     },
-    cast_b: {
-      title: "Dermatofyty a povrchové mykózy",
-      keywords: ["Trichophyton", "Microsporum", "Epidermophyton", "tinea", "dermatofytóza", "keratin", "onychomykóza"],
-      content: {
-        definice: "Dermatofyty – houby schopné utilizovat keratin – napadají kůži, vlasy, nehty. Tři rody: Trichophyton, Microsporum, Epidermophyton. Způsobují dermatofytózy (tinea).",
-        formy: "<strong>Tinea capitis:</strong> Infekce vlasů (Trichophyton, Microsporum) – plešatění, vypadávání vlasů.<br><strong>Tinea corporis:</strong> Prstencové léze na hladké kůži.<br><strong>Tinea pedis:</strong> Atletická noha – meziprstí, chodidla (T. rubrum, T. mentagrophytes).<br><strong>Tinea unguium (onychomykóza):</strong> Infekce nehtů – žloutnutí, zhrubnutí, drolení (T. rubrum). Nejobtížněji léčitelná.<br><strong>Tinea cruris:</strong> Třísla, šourek.<br><strong>Tinea versicolor (Pityriasis):</strong> Způsobena Malassezia furfur – hypo/hyperpigmentované skvrny na trupu.",
-        diagnostika: "KOH preparát z kůže/vlasů/nehtů → průkaz hyf a artrokonidií. Kultivace: Sabouraudův agar, 25–28 °C, 2–4 týdny. Wood's lamp (UV světlo) – fluorescence M. canis (zelená).",
-        terapie: "Lokální: azolová antifungika (klotrimazol, ekonazol), terbinafin. Systémová (tinea capitis, onychomykóza): terbinafin, itrakonazol, griseofulvin. Onychomykóza: terbinafin 3–6 měsíců."
-      },
-      quiz: [
-        {
-          q: "KOH preparát v dermatologické diagnostice mykóz slouží k:",
-          options: ["Barvení buněčných stěn hub", "Rozkladu keratinu a lidských buněk → průkaz hyf/spor v nativním preparátu", "Sterilizaci vzorku před kultivací", "Průkazu protilátky IgG"],
-          correct: 1,
-          explanation: "KOH (10–20%) rozloží keratin a lidské struktury → průhledný preparát. Houbové elementy (hyfy, artrokonidie) jsou viditelné fázovým kontrastem nebo barvením calcoflour white (fluorescence chitinu)."
-        }
-      ]
-    }
-  },
-  {
-    id: "mikra-21",
-    cislo: 21,
-    skupina_a: "Bakteriologie",
-    skupina_b: "Mykologie",
-    cast_a: {
-      title: "Mycobacterium tuberculosis",
-      keywords: ["TBC", "Kochův bacil", "Ziehl-Neelsen", "Löwenstein-Jensen", "antituberotika", "Mantoux"],
-      content: {
-        definice: "<strong>Mycobacterium tuberculosis (Kochův bacil, BK):</strong> Štíhlá, acidorezistentní tyčinka. Obligátně aerobní, intracelulární patogen. Součást M. tuberculosis komplexu (spolu s <em>M. bovis, M. africanum, BCG kmenem</em>). Nevytváří toxiny; virulence závisí na schopnosti přežívat a množit se uvnitř nevnímavých makrofágů.",
-        etiologie: "<strong>Acidorezistence:</strong> Dána vysokým obsahem lipidů a mykolových kyselin v buněčné stěně (až 60 % suché hmotnosti). Zabraňuje klasickému barvení dle Grama.<br><strong>Barvení:</strong> Metoda dle Ziehla-Neelsena (karbolfuchsin za horka → odbarvení kyselým alkoholem → dobarvení malachitovou zelení/methylenovou modří; tyčinky červené na modrém pozadí). Fluorescenční barvení (auramin O / rhodamin).<br><strong>Kultivace:</strong> Pomalá (3–6 týdnů). Pevná vaječná půda Löwenstein-Jensenova (drolivé kolonie typu R, krémové, květákovité). Tekutá Šulova půda (krupicovitý sediment).",
-        patogeneze: "Inhalace kapének do alveolů → pohlcení alveolárními makrofágy → inhibice fúze fagosomu s lysosomem → tvorba tuberkulózního granulomu (kaseózní nekróza v centru, Langhansovy obrovské buňky, epiteloidní buňky, T-lymfocyty). Ghonův primární komplex = plicní ložisko + zánět regionálních mízních uzlin.",
-        klinicky: "<strong>Primární TBC:</strong> Většinou asymptomatická nebo lehká; zhojení kalcifikací (Ghonův komplex). U dětí risk TBC meningitidy (báze lebeční) nebo krtic (scrofulosis – krční lymfadenitida).<br><strong>Postprimární (reaktivovaná) TBC:</strong> Postižení plicních hrotů (apikální segmenty). Příznaky: chronický kašel, hemoptýza, noční poty, subfebrilie, váhový úbytek, kachexie. Extrapulmonální formy: urogenitální TBC, kostní TBC (Pottova nemoc), lupus vulgaris (kožní).",
-        laborator: "1. Mikroskopie (Z-N barvení, reakce pozitivní při ≥10⁴ BK/ml sputa).<br>2. Kultivace (L-J, Šula, MGIT automatizovaný systém).<br>3. Molekulární metody (real-time PCR, GeneXpert – detekce DNA i rezistence na rifampicin).<br>4. Nepřímé testy: Mantoux II (tuberkulinový kožní test) a IGRA (Interferon-Gamma Release Assay – QuantiFERON-TB, stanovení IFN-γ u T-lymfocytů).",
-        terapie: "Kombinovaná antituberulotická terapie podávaná pod dohledem (DOTS). <strong>Iniciální fáze (2 měsíce):</strong> čtyřkombinace HRZE – Isoniazid (H), Rifampicin (R), Pyrazinamid (Z), Ethambutol (E). <strong>Pokračovací fáze (4–6 měsíců):</strong> dvojkombinace HR (Isoniazid + Rifampicin)."
-      },
-      quiz: [
-        {
-          q: "Která barvící metoda se používá pro průkaz Mycobacterium tuberculosis?",
-          options: ["Barvení dle Grama", "Barvení dle Ziehla-Neelsena", "Giemsovo barvení", "Burriho metoda"],
-          correct: 1,
-          explanation: "Metoda Ziehla-Neelsena využívá karbolfuchsin za horka a odbarvení kyselým alkoholem. Acidorezistentní mykobakterie zůstanou zářivě červené."
+    "cast_b": {
+        "title": "Aspergilové infekce",
+        "keywords": [
+            "Aspergillus fumigatus",
+            "aspergilom",
+            "ABPA",
+            "galaktomannan",
+            "vorikonazol",
+            "inhalace spor"
+        ],
+        "content": {
+            "definice": "<strong>Aspergillus spp. (A. fumigatus, A. flavus, A. niger):</strong> Vláknité houby (plísně) se septovanými hyfami větvícími se pod úhlem 45°. Původci plicních a systémových mykóz u imunokompromitovaných.",
+            "etiologie": "Nákaza inhalací konidií (spor) z vnějšího prostředí. Virulenci zvyšuje produkce proteáz a elastáz poškozujících tkáň plic.",
+            "klinicky": "1. <strong>Aspergilom:</strong> Růst mycelia v preexistující dutině plic (např. po TBC), projevuje se hemoptýzou.<br>2. <strong>Alergická bronchopulmonální aspergilóza (ABPA):</strong> Hypersenzitivní reakce u astmatiků a pacientů s cystickou fibrózou.<br>3. <strong>Invazivní plicní aspergilóza (IPA):</strong> Těžká angioinvazivní infekce u pacientů s hlubokou neutropenií (hematologické malignity) vedoucí k plicním infarktům a hematogenní diseminaci do CNS.",
+            "laborator": "Mikroskopie: septované hyfy větvené pod ostrým úhlem (45°). Kultivace: Sabouraudův agar (sametové kolonie). Průkaz <strong>galaktomannanu</strong> v séru a BAL, detekce β-1,3-D-glukanu.",
+            "terapie": "Lék volby: **Vorikonazol** (nebo Isavukonazol / liposomální Amfotericin B). Aspergilom se léčí chirurgickou resekcí."
         },
-        {
-          q: "Která čtyřkombinace antituberkulotik se podává v iniciální 2měsíční fázi léčení TBC?",
-          options: ["Penicilin, Streptomycin, Doxycyklin, Ciprofloxacin", "Isoniazid, Rifampicin, Pyrazinamid, Ethambutol", "Vancomycin, Gentamicin, Metronidazol, Azitromycin", "Fluconazol, Klindamycin, Cotrimoxazol, Erytromycin"],
-          correct: 1,
-          explanation: "Standardní iniciální regimen pro TBC je HRZE: Isoniazid, Rifampicin, Pyrazinamid a Ethambutol po dobu 2 měsíců."
-        }
-      ]
-    },
-    cast_b: {
-      title: "Pneumocystová pneumonie (PJP)",
-      keywords: ["Pneumocystis jirovecii", "intersticiální pneumonie", "AIDS", "cotrimoxazol", "indukované sputum"],
-      content: {
-        definice: "<strong>Pneumocystis jirovecii (dříve P. carinii):</strong> Atrofická mikromyceta (historicky řazená mezi prvoky, dnes ascomycetní houba). Původce oportunní intersticiální pneumonie (PCP/PJP) u pacientů s těžkou poruchou buněčné imunity (CD4+ T-lymfocyty < 200/µl – AIDS, hematologické malignity, imunosuprese po transplantaci).",
-        etiologie: "Pneumocystis má stěnu bohatou na β-1,3-D-glukan. V plicích existuje ve formě trofozoitů (adherují k pneumocytům I. typu) a cyst (obsahují 8 introcystických tělísek/sporozoitů). Nelze kultivovat na běžných in vitro médiích!",
-        patogeneze: "Reaktivace latentní nákazy nebo nová inhalace → selhání CD4+ T-buněčné imunity → nekontrolované množení pneumocyst v alveolech → alveoly plněny pěnovitým exsudátem bohatým na proteiny a houby → ztluštění alveolokapilární membrány → těžká porucha difuze O₂ a hypoxémie.",
-        klinicky: "Atypická pneumonie s pozvolným nástupem: triáda neproduktivní (suchý) dráždivý kašel, progresivní námahová dušnost (dyspnoe), febrilie/subfebrilie. Fyzikální nález na plicích často chudý (nesoulad mezi nálezem a dušností). RTG hrudníku: oboustranné difuzní retikulonodulární infiltráty (připomínající mléčné sklo).",
-        laborator: "Přímý průkaz: Indukované sputum (po inhalaci 15% NaCl) nebo bronchoalveolární laváž (BAL – 90% záchyt).<br>1. Mikroskopie: Grocottovo stříbření (černé cysty), Giemsa nebo IF s konklonálními protilátkami.<br>2. PCR (real-time PCR): vysoká citlivost a specifita.<br>3. Stanovení (1,3)-β-D-glukanu v séru (pomocný marker invazivních mykóz).",
-        terapie: "<strong>Lék volby:</strong> Vysokodávkovaný Co-trimoxazol (Trimethoprim-Sulfamethoxazol) i.v. nebo p.o. po dobu 21 dnů. Při závažné hypoxii (PaO₂ < 70 mmHg) se přidávají kortikosteroidy (Prednison). Alternativy: Pentamidin, Atovaquon, Clindamycin + Primaquin."
-      },
-      quiz: [
-        {
-          q: "Pneumocystis jirovecii je z taxonomického hlediska:",
-          options: ["Prvok (Protozoon)", "Gramnegativní bakterie", "Houba (Mikromyceta)", "Virus"],
-          correct: 2,
-          explanation: "Přestože byla Pneumocystis jirovecii dlouho považována za prvoka, sekvenování DNA prokázalo, že patří mezi houby (mikromycety, Ascomycota)."
+        "quiz": [
+            {
+                "q": "Které antimykotikum je lékem první volby pro léčbu invazivní plicní aspergilózy?",
+                "options": [
+                    "Fluconazol",
+                    "Vorikonazol",
+                    "Nystatin",
+                    "Flucytosin"
+                ],
+                "correct": 1,
+                "explanation": "Vorikonazol vykazuje vyšší účinnost a nižší toxicitu než amfotericin B, a proto je lékem první volby pro léčbu invazivní aspergilózy."
+            },
+            {
+                "q": "Detekce kterého specifického buněčného antigenu v séru a bronchoalveolární laváži (BAL) pomáhá diagnostikovat invazivní aspergilózu?",
+                "options": [
+                    "Galaktomannan",
+                    "Mannan",
+                    "Kapsulární antigen",
+                    "Teikoová kyselina"
+                ],
+                "correct": 0,
+                "explanation": "Galaktomannan je polysacharid přítomný v buněčné stěně rodu Aspergillus, uvolňovaný během aktivního růstu hyf."
+            }
+        ]
+    }
+},
+{
+    "id": "mikra-17",
+    "cislo": 17,
+    "skupina_a": "Bakteriologie",
+    "skupina_b": "Mykologie",
+    "cast_a": {
+        "title": "Korynebakteria, Bacillus sp.",
+        "keywords": [
+            "Corynebacterium diphtheriae",
+            "Bacillus anthracis",
+            "Bacillus cereus",
+            "difterický toxin",
+            "antrax",
+            "Clauberg"
+        ],
+        "content": {
+            "definice": "<strong>Grampozitivní tyčinky:</strong> Corynebacterium je nesporulující pleomorfní aerobní tyčinka, Bacillus tvoří odolné endospory.",
+            "etiologie": "• <em>C. diphtheriae:</em> Původce záškrtu (diftérie). Kmeny produkující difterický toxin (fágem kódovaný AB toxin).<br>• <em>B. anthracis:</em> Původce antraxu (sněti slezinné). Spory přetrvávají v půdě.<br>• <em>B. cereus:</em> Spory kontaminují rýži a těstoviny.",
+            "patogeneze": "• Difterický toxin: ADP-ribosylace EF-2 → blokáda proteosyntézy → nekróza sliznice.<br>• Antraxový toxin: Edémový faktor (aktivuje adenylátcyklázu) + Letální faktor (štěpí MAP-kinázy) + Protektivní antigen (vazba na buňku).<br>• B. cereus: Emetický toxin (cereulid, termostabilní preformovaný v rýži) nebo enterotoxin (termolabilní ve střevě).",
+            "klinicky": "• Záškrt: Pablánová (pseudomembranózní) angína, bull neck (otok krku), toxic myocarditis, dušení.<br>• Antrax: Kožní (pustula maligna - černý nebolestivý vřed), plicní (hadrářská nemoc - mediastinitida, krvavý exsudát), gastrointestinální.<br>• B. cereus: Alimentární intoxikace (emetický typ s rychlým nástupem nebo průjmový typ s delší inkubací).",
+            "laborator": "• C. diphtheriae: Mikroskopie (kyjovité tyčinky, Neisserovo barvení na metachromatická Ernst-Babesova zrna). Kultivace na Claubergově telluritovém agaru (černé kolonie). Elekův test na průkaz toxigenicity.<br>• B. anthracis: G+ tyčky s bambusovým vzhledem.",
+            "terapie": "Záškrt: Antitoxin + Penicilin G / Erytromycin. Antrax: Ciprofloxacin / Doxycyklin."
         },
-        {
-          q: "Lékem první volby v terapii i profilaxi pneumocystové pneumonie je:",
-          options: ["Amfotericin B", "Co-trimoxazol (TMP-SMX)", "Penicilin G", "Ciprofloxacin"],
-          correct: 1,
-          explanation: "Co-trimoxazol ve vysoké dávce je lékem první volby pro léčbu i chemoprofilaxi pneumocystové pneumonie u imunokompromitovaných."
-        }
-      ]
-    }
-  },
-  {
-    id: "mikra-22",
-    cislo: 22,
-    skupina_a: "Bakteriologie",
-    skupina_b: "Mykologie",
-    cast_a: {
-      title: "Atypická (netuberkulózní) mykobakteria",
-      keywords: ["NTM", "M. avium", "M. kansasii", "M. marinum", "mykobakteriózy", "mycolacton"],
-      content: {
-        definice: "<strong>Atypická (netuberkulózní, NTM) mykobakteria:</strong> Podmíněně patogenní mykobakteria běžně se vyskytující v prostředí (půda, voda, prach, vodovodní potrubí). Není pozorován přenos z člověka na člověka. Vyvolávají tzv. mykobakteriózy u osob s oslabenou imunitou nebo poškozenými plícemi (CHOPN, silikóza, bronchiektázie, HIV).",
-        etiologie: "<strong>Klinicky významné druhy:</strong><br>• <strong>M. avium-intracellulare komplex (MAC):</strong> Lymfadenitida krčních uzlin u dětí, TBC-like plicní procesy u CHOPN a těžké diseminované infekce u pacientů s AIDS.<br>• <strong>M. kansasii:</strong> Časté v průmyslových a důlních oblastech (Ostravsko). Vyvolává plicní infekce identické s TBC; je však dobře citlivé na antituberkulotika.<br>• <strong>M. marinum:</strong> Vyskytuje se v akváriích a bazénech. Po poranění kůže způsobuje chronické granulomatózní léze na končetinách (tzv. akvarijní granulom).<br>• <strong>M. ulcerans:</strong> Tropické onemocnění (vřed Buruli) vyvolané exotoxinem <em>mycolactonem</em>, způsobuje rozsáhlé nekrotické destrukce kůže.<br>• <strong>M. abscessus / M. chelonae / M. fortuitum:</strong> Rychle rostoucí mykobakteria, původci nosokomiálních infekcí ran po plastických operacích, liposukcích, tetování a pedikúře.",
-        laborator: "<strong>Zpracování vzorku:</strong><br>1. Dekontaminace (např. 4% NaOH dle Petroffa) pro odstranění běžné flóry, využití acidorezistence mykobakterií.<br>2. Homogenizace a centrifugace vzorku.<br>3. Kultivace: Löwenstein-Jensen, Šula, MGIT (při 37 °C, u M. marinum a M. ulcerans při 30 °C!). Spolehlivá identifikace pomocí PCR / DNA sond / hmotnostní spektrometrie MALDI-TOF.",
-        terapie: "Často rezistentní k běžným antituberkulotikům. Terapie vyžaduje dlouhodobou kombinaci makrolidů (Klaritromycin/Azitromycin) + Ethambutol + Rifampicin/Rifabutin."
-      },
-      quiz: [
-        {
-          q: "Které netuberkulózní mykobakterium vyvolává tzv. 'akvarijní granulom' po poranění ve vodě?",
-          options: ["Mycobacterium kansasii", "Mycobacterium marinum", "Mycobacterium bovis", "Mycobacterium leprae"],
-          correct: 1,
-          explanation: "M. marinum se vyskytuje ve sladké i slané vodě a akváriích. Vstupuje drobnými oděrkami a tvoří perilymfatické granulomatózní léze na kůži."
-        }
-      ]
+        "quiz": [
+            {
+                "q": "Jaký je molekulární mechanismus účinku difterického exotoxinu?",
+                "options": [
+                    "Štěpení synaptických proteinů SNARE",
+                    "ADP-ribosylace elongačního faktoru 2 (EF-2) a zástava proteosyntézy",
+                    "Degradace fosfolipidů buněčné membrány",
+                    "Stimulace adenylátcyklázy"
+                ],
+                "correct": 1,
+                "explanation": "Difterický toxin je A-B toxin, jehož aktivní podjednotka A katalyzuje přenos ADP-ribózy na EF-2, čímž zastaví translokaci ribozomů a proteosyntézu."
+            },
+            {
+                "q": "Které medium a biochemická vlastnost se využívají k diagnostice záškrtu (C. diphtheriae)?",
+                "options": [
+                    "Růžové kolonie na Endově agaru",
+                    "Telluritový agar (Claubergova půda), na kterém bakterie tvoří černé kolonie",
+                    "Kyselé pH na Sabouraudově agaru",
+                    "Modré zbarvení na Löwenstein-Jensenově půdě"
+                ],
+                "correct": 1,
+                "explanation": "C. diphtheriae redukuje telluričitan draselný v Claubergově půdě na kovový tellur, což barví kolonie šedočerně."
+            },
+            {
+                "q": "Které stádium Bacillus anthracis je odpovědné za přenos a extrémní odolnost v prostředí?",
+                "options": [
+                    "Vegetativní buňka",
+                    "Bakteriální spóra (endospóra)",
+                    "Toxinový komplex",
+                    "Kapsulární antigen"
+                ],
+                "correct": 1,
+                "explanation": "Endospory Bacillus anthracis jsou vysoce odolné vůči teplu, suchu i dezinfekci a mohou přežívat v půdě desítky let."
+            }
+        ]
     },
-    cast_b: {
-      title: "Dermatomykózy a povrchové mykózy",
-      keywords: ["Dermatofyty", "Trichophyton", "Microsporum", "Epidermophyton", "Candida", "Pityriasis versicolor"],
-      content: {
-        definice: "<strong>Dermatomykózy:</strong> Houbová onemocnění kůže, vlasů a nehtů vyvolaná dermatofyty, kvasinkami nebo Malasseziemi.",
-        etiologie: "<strong>1. Dermatofytózy (Tinea):</strong> Vláknité houby využívající keratin. Rody: <em>Trichophyton, Microsporum, Epidermophyton</em>.<br>• Tinea capitis (vlasy – M. canis, T. tonsurans)<br>• Tinea corporis (trup – T. rubrum)<br>• Tinea pedis (atletická noha – T. rubrum, T. interdigitale – 50 % populace)<br>• Tinea unguium / Onychomykóza (nehty – T. rubrum)<br><br><strong>2. Kandidózy kůže a sliznic:</strong> <em>Candida albicans</em>. Manifestace v místech zápařky (intertrigo), orificií a kožních řas u diabetiků a obézních osob. Svědivé zarudnutí s macerovaným bílým lemem a satelitními pustulami.<br><br><strong>3. Keratomykózy:</strong> Postihují pouze rohovou vrstvu epidermis.<br>• <em>Pityriasis versicolor:</em> Původce <em>Malassezia furfur</em>. Hypo- nebo hyperpigmentované makuly na hrudníku a zádech, odlupující se šupinky.<br>• <em>Erythrasma:</em> Corynebacterium minutissimum (bakteriální pseudo-mykóza), ohraničené červenohnědé skvrny v tříslech, červená fluorescence v Woodově lampě.",
-        diagnostika: "Odběr šupin kůže, podnehtové drti nebo vlasů. Louhový preparát: 10–20% KOH (+ Parkerův inkoust) k rozvolnění keratinu → přímá mikroskopie hyf a artrokonidií. Kultivace na Sabouraudově / Mykosel agaru (1–4 týdny, 25 °C). Woodova lampa (UV fluorescence u Microsporum).",
-        terapie: "Lokální: Allylaminy (Terbinafin – na dermatofyty), Imidazoly (Clotrimazol, Bifonazol), Polyeny (Nystatin – na kvasinky). Systémová (onychomykóza, tinea capitis): Terbinafin p.o., Fluconazol, Itraconazol."
-      },
-      quiz: [
-        {
-          q: "Pityriasis versicolor je povrchové mykotické onemocnění vyvolané:",
-          options: ["Trichophyton rubrum", "Malassezia furfur", "Candida albicans", "Microsporum canis"],
-          correct: 1,
-          explanation: "Malassezia furfur tvoří charakteristické šupinaté hyper/hypopigmentované skvrny na trupu (Pityriasis versicolor)."
-        }
-      ]
+    "cast_b": {
+        "title": "Laboratorní techniky přímého a nepřímého průkazu mykotických nákaz",
+        "keywords": [
+            "Sabouraudův agar",
+            "KOH preparát",
+            "galaktomannan",
+            "β-D-glukan",
+            "Calcofluor",
+            "latexová aglutinace"
+        ],
+        "content": {
+            "definice": "<strong>Diagnostika mykóz:</strong> Zahrnuje rychlou mikroskopii, kultivaci (zlatý standard), stanovení solubilních antigenů a PCR.",
+            "laborator": "1. <strong>Mikroskopie:</strong> Nativní preparát s 10–20% KOH (rozpustí lidský keratin a epitelie), Calcofluor white (fluorescenční barvení chitinu ve stěně hub).<br>2. <strong>Kultivace:</strong> Sabouraudův glukózový agar (SDA) s chloramfenikolem (k zábraně růstu bakterií), kultivace při 25–30 °C po dobu 1–4 týdnů.<br>3. <strong>Sérologie / Antigeny:</strong> Průkaz kapsulárního antigenu <em>Cryptococcus</em> v likvoru aglutinací, detekce **galaktomannanu** (Aspergillus) a **(1,3)-β-D-glukanu** (panfungální marker invazivních mykóz s výjimkou zygomycet a kryptokoků) v séru."
+        },
+        "quiz": [
+            {
+                "q": "Který polysaccharide buněčné stěny hub slouží jako panfungální marker v séru pro včasnou diagnózu invazivních mykóz (např. kandidémie, aspergilózy)?",
+                "options": [
+                    "(1,3)-β-D-glukan",
+                    "Galaktomannan",
+                    "LPS (lipopolysacharid)",
+                    "Peptidoglykan"
+                ],
+                "correct": 0,
+                "explanation": "(1,3)-beta-D-glukan je součástí stěny většiny medicínsky významných hub a detekuje se v séru; chybí však u zygomycet a kryptokoků."
+            },
+            {
+                "q": "Proč se k Sabouraudovu agaru při kultivaci hub standardně přidává chloramfenikol?",
+                "options": [
+                    "K potlačení růstu kontaminujících bakterií",
+                    "K urychlení klíčení spor hub",
+                    "K inhibici růstu saprofytických kvasinek",
+                    "K úpravě pH půdy"
+                ],
+                "correct": 0,
+                "explanation": "Chloramfenikol je stabilní širokospektré antibiotikum, které brání přerůstání pomalu rostoucích hub doprovodnými bakteriemi."
+            }
+        ]
     }
-  },
-  {
-    id: "mikra-23",
-    cislo: 23,
-    skupina_a: "Bakteriologie",
-    skupina_b: "Mykologie",
-    cast_a: {
-      title: "Mycobacterium leprae a odběry na mykobakteria",
-      keywords: ["M. leprae", "lepra", "Hansenův bacil", "facies leontina", "dekontaminace", "Petroff"],
-      content: {
-        definice: "<strong>Mycobacterium leprae (Hansenův bacil):</strong> Acidorezistentní bakterie s tropismem pro periferní nervy (Schwannovy buňky) a kůži. Nelze kultivovat na umělých médiích in vitro!",
-        etiologie: "Dlouhá generační doba (12–14 dní). Množí se v chladnějších částech těla (kůže, nosní sliznice, uši, prsty). Přenos kapénkovou infekcí nosním sekretem při dlouhodobém těsném kontaktu.",
-        patogeneze: "<strong>Tuberkuloidní lepra:</strong> Silná T-buněčná imunita (Th1). Množství granulomů a poškození periferních nervů (necitlivé depigmentované skvrny, ztráta citlivosti). Bakterie mikroskopicky téměř nelze prokázat.<br><strong>Lepromatózní lepra:</strong> Deficitní buněčná imunita. Masivní množení lepromatózních buněk plných mykobakterií. Znetvoření obličeje (facies leontina), propadnutí nosu, slepota, ztráta prstů. V mikroskopii hojné shluky tyčinek (globi).",
-        laborator: "<strong>Diagnostika M. leprae:</strong> Seškraby z kožních lézí nebo nosní sliznice barvené dle Ziehla-Neelsena (průkaz acidorezistentních tyčinek a globi v makrofázích). Terapie: Dapsone + Rifampicin + Clofazimine.<br><br><strong>Odběr a zpracování vzorků na ostatní TBC/NTM:</strong><br>• Plicní TBC: 3 vzorky sputa 3 dny po sobě ráno, BAL, žaludeční výplach u dětí.<br>• Dekontaminace vzorků s nespecifickou flórou: 4% NaOH (metoda dle Petroffa) zničí běžné bakterie, acidorezistentní mykobakterie přežijí.<br>• Očkování na Löwenstein-Jensen (vaječná) a Šulovu (tekutá) půdu."
-      },
-      quiz: [
-        {
-          q: "Proč nelze Mycobacterium leprae dokázat kultivací na Löwenstein-Jensenově půdě?",
-          options: ["Je to anaerobní bakterie", "Je to obligátní intracelulární patogen nelze kultivovat in vitro", "Kultivační půdu zničí svými toxiny", "Roste pouze v agarovém médiu s krví"],
-          correct: 1,
-          explanation: "M. leprae nelze kultivovat na umělých živných médiích in vitro (množí se pouze v živých tkáních, např. u pásovců nebo imunosuprimovaných myší)."
-        }
-      ]
+},
+{
+    "id": "mikra-18",
+    "cislo": 18,
+    "skupina_a": "Bakteriologie",
+    "skupina_b": "Mykologie",
+    "cast_a": {
+        "title": "Listeria, laktobacily",
+        "keywords": [
+            "Listeria monocytogenes",
+            "Lactobacillus",
+            "chladová kultivace",
+            "ampicilin",
+            "Döderleinův bacil"
+        ],
+        "content": {
+            "definice": "<strong>Listeria a Lactobacillus:</strong> Grampozitivní, nesporulující pravidelné tyčinky.",
+            "etiologie": "• <em>Listeria monocytogenes:</em> Pohyblivý, fakultativně anaerobní patogen. Vyskytuje se v půdě, siláži, exkretech zvířat. Schopná růst při chladničkových teplotách (4 °C) a v solích.<br>• <em>Lactobacillus spp.:</em> Mikroaerofilní/anaerobní tyčky, fermentující cukry na kyselinu mléčnou.",
+            "klinicky": "• Listeria: U těhotných chřipkovité příznaky → infekce plodu (granulomatosis infantiseptica, abort, předčasný porod). U novorozenců (časná a pozdní sepse/meningitida) a u seniorů/imunodeficitů purulentní meningitida.<br>• Laktobacily: Součást normální mikroflóry pochvy (Döderleinův bacil - udržuje pH < 4.5, brání vaginózám) a GIT. Zřídka vyvolávají oportunní endokarditidu.",
+            "laborator": "• Listeria: Kultivace na KA (úzká zóna beta-hemolýzy, roste při 4 °C - chladový obohacovací test), pozitivní kataláza, charakteristický vířivý pohyb (tumbling motility) při 25 °C.<br>• Laktobacily: PYR a kataláza negativní, kultivace na MRS agaru.",
+            "terapie": "Lék volby pro Listerii: **Ampicilin** (popř. s Gentamicinem). **Listeria vykazuje přirozenou rezistenci k cefalosporinům!**"
+        },
+        "quiz": [
+            {
+                "q": "Proč je při empirické antibiotické léčbě hnisavé meningitidy u novorozenců a starších dospělých nutné kombinovat cefalosporiny III. generace s Ampicilinem?",
+                "options": [
+                    "Protože Listeria monocytogenes vykazuje intrinsickou (přirozenou) rezistenci k cefalosporinům",
+                    "Pro synergický účinek na Streptococcus pneumoniae",
+                    "Cefalosporiny nepůsobí na Haemophilus influenzae",
+                    "Ampicilin snižuje otok mozku"
+                ],
+                "correct": 0,
+                "explanation": "Listeria monocytogenes je přirozeně rezistentní ke všem cefalosporinům, proto je nutné u rizikových skupin (novorozenci, senioři, imunosuprimovaní) přidat k empirické léčbě ampicilin."
+            },
+            {
+                "q": "Který mikroorganismus tvoří klíčovou součást vaginální mikroflóry zdravé ženy a udržuje kyselé pH pochvy?",
+                "options": [
+                    "Gardnerella vaginalis",
+                    "Lactobacillus spp. (Döderleinův bacil)",
+                    "Candida albicans",
+                    "Streptococcus agalactiae"
+                ],
+                "correct": 1,
+                "explanation": "Laktobacily produkují kyselinu mléčnou a H2O2, čímž udržují kyselé pH pochvy (< 4,5), které inhibuje růst anaerobů a kvasinek."
+            },
+            {
+                "q": "Jaký charakteristický typ pohyb vužíva Listeria monocytogenes při pokojové teplotě (20–25 °C)?",
+                "options": [
+                    "Rychlý přímý pohyb bičíky",
+                    "Vířivý / přemetový pohyb (tumbling motility)",
+                    "Plazivý pohyb (swarming)",
+                    "Bakterie je zcela nepohyblivá"
+                ],
+                "correct": 1,
+                "explanation": "Listeria monocytogenes má při teplotách pod 30 °C peritrichální bičíky vyvolávající typický přemetový (tumbling) pohyb, zatímco při 37 °C bičíky netvoří."
+            }
+        ]
     },
-    cast_b: {
-      title: "Fusarióza, feohyfomykózy a chromoblastomykózy",
-      keywords: ["Fusarium", "feohyfomykózy", "chromoblastomykóza", "sklerotická tělíska", "mykotoxiny"],
-      content: {
-        definice: "Vzácnější oportunní a subkutánní houbové infekce vyvolané vláknitými mikromycetami.",
-        etiologie: "<strong>1. Fusarióza:</strong> Rody <em>Fusarium solani, F. oxysporum</em>. Původci onychomykóz, keratóz, endoftalmitid a u imunosuprimovaných pacientů těžkých diseminovaných infekcí. Produkují mykotoxiny.<br><strong>2. Feohyfomykózy:</strong> Infekce vyvolané tmave pigmentovanými (dematiaceovými) vláknitými houbami tvořícími v kůži tmavé septované hyfy (rody <em>Alternaria, Bipolaris, Cladophialophora</em> – abscesy CNS).<br><strong>3. Chromoblastomykóza:</strong> Chronická tropická subkutánní mykóza (rody <em>Phialophora, Cladosporium, Fonsecaea</em>). Vzniká po poranění kůže (nohy, ruce). V tkáni tvoří typická <strong>sklerotická (muriformní) tělíska</strong> – tmavě hnědé kulovité kvasinkovité buňky.",
-        diagnostika: "Histologie a KOH preparát (nález tmavých hyf nebo sklerotických tělísek). Kultivace na Sabouraudově agaru.",
-        terapie: "Amfotericin B, Vorikonazol, Posakonazol, chirurgie."
-      },
-      quiz: [
-        {
-          q: "Typickým mikroskopickým nálezem v tkáňovém vzorku u chromoblastomykózy jsou:",
-          options: ["Cysty Pneumocystis jirovecii", "Sklerotická (muriformní) tělíska", "Endospory Coccidioides", "Sphaeruly"],
-          correct: 1,
-          explanation: "Pro chromoblastomykózu jsou patognomická sklerotická tělíska (hnědé silnostěnné kulovité buněčné sestavy v tkáni)."
-        }
-      ]
+    "cast_b": {
+        "title": "Kryptokoková meningoencefalitida",
+        "keywords": [
+            "Cryptococcus neoformans",
+            "holubí trus",
+            "tušový preparát",
+            "latexová aglutinace",
+            "amfotericin B"
+        ],
+        "content": {
+            "definice": "<strong>Kryptokokóza:</strong> Závažná oportunní infekce vyvolaná opouzdřenou kvasinkou <em>Cryptococcus neoformans</em>.",
+            "etiologie": "Inhalace kvasinek či spor ze suchého trusu holubů a jiných ptáků. Kvasinka má silné polysacharidové pouzdro (glukuronoxylomannan) chránící před fagocytózou a metabolizuje dopamin na melanin.",
+            "klinicky": "Primární plicní ložiska (často asymptomatická) → hematogenní diseminace s afinitou k CNS. Subakutní/chronická purulentní meningitida a meningoencefalitida (bolesti hlavy, horečka, meningismus, edém papily). Hlavní příčina úmrtí u pacientů s AIDS.",
+            "laborator": "Mikroskopie likvoru: **tušový preparát** (negativní barvení odhalí silná pouzdra). Průkaz kapsulárního antigenu latexovou aglutinací nebo LFA v likvoru a séru (citlivost >95 %). Kultivace na SDA (hladké krémové kolonie).",
+            "terapie": "Indukční fáze: **Amfotericin B i.v. + Flucytosin** po dobu 2 týdnů. Konsolidační a udržovací fáze: Fluconazol p.o."
+        },
+        "quiz": [
+            {
+                "q": "Který zástupce mykóz je nejčastějším původcem subakutní meningoencefalitidy u pacientů v pokročilém stádiu AIDS?",
+                "options": [
+                    "Aspergillus fumigatus",
+                    "Cryptococcus neoformans",
+                    "Mucor indicus",
+                    "Candida krusei"
+                ],
+                "correct": 1,
+                "explanation": "Cryptococcus neoformans vykazuje vysokou neurotropii a je nejčastější příčinou plísňové meningitidy u HIV pozitivních pacientů."
+            },
+            {
+                "q": "Co tvoří hlavní faktor virulence Cryptococcus neoformans chránící kvasinku před imunitním systémem hostitele?",
+                "options": [
+                    "Masivní polysacharidové pouzdro",
+                    "Termolabilní enterotoxin",
+                    "Endotoxická stěna s LPS",
+                    "Bičík s tumbling pohybem"
+                ],
+                "correct": 0,
+                "explanation": "Tlusté polysacharidové pouzdro brání fagocytóze a opsonizaci a potlačuje leukocytární infiltraci."
+            }
+        ]
     }
-  },
-  {
-    id: "mikra-24",
-    cislo: 24,
-    skupina_a: "Diagnostika",
-    skupina_b: "Virologie",
-    cast_a: {
-      title: "Antimykotika – klasifikace a mechanizmus účinku",
-      keywords: ["Amfotericin B", "Azoly", "Echinokandiny", "Flucytosin", "Terbinafin", "ergosterol"],
-      content: {
-        definice: "<strong>Antimykotika:</strong> Léčiva určená k terapii fungálních infekcí. Cílí na struktury specifické pro houbovou buňku (ergosterol v membráně, β-1,3-D-glukan v buněčné stěně).",
-        etiologie: "<strong>Rozdělení podle mehanismu účinku:</strong><br><br><strong>1. Polyeny (Amfotericin B, Nystatin, Natamycin):</strong><br>• Vážou se na ergosterol v buněčné membráně → tvorba pórů → únik K⁺ a lýza.<br>• <em>Amfotericin B:</em> Zlatý standard pro invazivní mykózy. Výrazná nefrotoxicita (konstrikce renálních cév, ztráty K⁺/Mg²⁺), akutní infuzní reakce (febrilie, třesavka). Nystatin vyhrazen pouze pro lokální podání.<br><br><strong>2. Azoly (Imidazoly: Ketoconazol, Clotrimazol; Triazoly: Fluconazol, Itraconazol, Voriconazol, Posaconazol):</strong><br>• Inhibice 14-α-demethylázy lanosterolu (cytochrom P450) → blokáda syntézy ergosterolu.<br>• Fungistatický účinek.<br>• Nežádoucí účinky: hepatotoxicita, inhibice CYP450 (interakce!), gynekomastie u ketokonazolu.<br><br><strong>3. Echinokandiny (Caspofungin, Micafungin, Anidulafungin):</strong><br>• Inhibice β-(1,3)-D-glukan syntetázy → narušení buněčné stěny houby.<br>• Fungicidní pro Kandidy, fungistatické pro Aspergily. Výborná tolerance, nízká toxicita. První volba pro kandidémii.<br><br><strong>4. Antimetabolity (Flucytosin / 5-FC):</strong><br>• Konverze na 5-fluorouracil v houbové buňce → inhibice RNA a DNA syntézy. Použití v kombinaci s Amfotericinem B u kryptokokové meningitidy.<br><br><strong>5. Allylaminy (Terbinafin):</strong><br>• Inhibice skvalenepoxidázy → fungicidní účinek. Léčba dermatofytóz a onychomykóz.",
-        laborator: "Testování citlivosti: Diskový difuzní test, E-test (gradientový), mikrodiluční bujónová metoda (EUCAST / CLSI)."
-      },
-      quiz: [
-        {
-          q: "Která skupina antimykotik působí inhibicí syntézy β-(1,3)-D-glukanu buněčné stěny hub?",
-          options: ["Polyeny", "Azoly", "Echinokandiny", "Allylaminy"],
-          correct: 2,
-          explanation: "Echinokandiny (caspofungin, anidulafungin) blokují tvorbu β-(1,3)-D-glukanu, čímž způsobují osmotickou lýzu houbové buňky."
-        }
-      ]
+},
+{
+    "id": "mikra-19",
+    "cislo": 19,
+    "skupina_a": "Bakteriologie",
+    "skupina_b": "Mykologie",
+    "cast_a": {
+        "title": "Nocardia, Arcanobacterium a příbuzné G+ tyčinky",
+        "keywords": [
+            "Nocardia asteroides",
+            "Arcanobacterium haemolyticum",
+            "kyselozdornost",
+            "abscesy plic",
+            "cotrimoxazol"
+        ],
+        "content": {
+            "definice": "<strong>Nocardia a Arcanobacterium:</strong> G+ tyčinky s odlišnou morfologií a spektrem onemocnění.",
+            "etiologie": "• <em>Nocardia (N. asteroides, N. brasiliensis):</em> Aerobní, větvící se vláknité tyčinky, slabě acidorezistentní (částečně kyselovzdorné). Půdní bakterie.<br>• <em>Arcanobacterium haemolyticum:</em> Pleomorfní, fakultativně anaerobní tyčinka vyvolávající záněty krku.",
+            "klinicky": "• Nokardióza: Inhalační nákaza u imunosuprimovaných (glukokortikoidy, transplantace). Plicní nokardióza (nekrotizující pneumonie, abscesy) s častou hematogenní diseminací do mozku (abscesy CNS) a kůže.<br>• Arcanobacterium: Faryngitida a tonzilitida s drobným exantémem napodobujícím spálu (postihuje adolescenty, vyžaduje odlišení od S. pyogenes).",
+            "laborator": "• Nocardia: Barvení dle Grama (G+ větvící se nitě) a modifikované barvení dle Ziehla-Neelsena (Kinyoun) – slabě acidorezistentní. Kultivace trvá až 2 týdny (křídově bílé, vrásčité kolonie).<br>• Arcanobacterium: Kultivace na krevním agaru (velmi drobná beta-hemolýza), kataláza negativní.",
+            "terapie": "Nokardióza: **Co-trimoxazol** (lék volby, dlouhodobě 6–12 měsíců). Arcanobacterium: Erytromycin nebo Penicilin."
+        },
+        "quiz": [
+            {
+                "q": "Která z následujících vlastností je charakteristická pro rod Nocardia a odlišuje jej od rodu Actinomyces?",
+                "options": [
+                    "Je to striktní anaerob",
+                    "Je to striktní aerob a je částečně acidorezistentní (kyselovzdorný)",
+                    "Působí výhradně vaginózy",
+                    "Tvoří termostabilní endospory"
+                ],
+                "correct": 1,
+                "explanation": "Nocardia je striktní aerob a díky mykolovým kyselinám ve stěně je slabě acidorezistentní (zatímco Actinomyces je anaerobní a acidorezistentní není)."
+            },
+            {
+                "q": "Lékem první volby pro terapii plicní a systémové nokardiózy je:",
+                "options": [
+                    "Co-trimoxazol (TMP-SMX)",
+                    "Penicilin G i.v.",
+                    "Metronidazol",
+                    "Amfotericin B"
+                ],
+                "correct": 0,
+                "explanation": "Vysokodávkovaný Co-trimoxazol je lékem první volby a podává se po dobu několika měsíců pro zamezení relapsu."
+            },
+            {
+                "q": "Který patogen vyvolává u mladistvých faryngitidu doprovázenou skarlatiniformním (spálovým) exantémem, čímž napodobuje Streptococcus pyogenes?",
+                "options": [
+                    "Nocardia asteroides",
+                    "Arcanobacterium haemolyticum",
+                    "Listeria monocytogenes",
+                    "Bacillus anthracis"
+                ],
+                "correct": 1,
+                "explanation": "Arcanobacterium haemolyticum vyvolává u adolescentů angínu s kožním exantémem; je přirozeně rezistentní k některým antibiotikům, ale dobře citlivý na erytromycin."
+            }
+        ]
     },
-    cast_b: {
-      title: "HIV – charakteristika, klinika a diagnostika",
-      keywords: ["HIV-1", "AIDS", "CD4+ lymfocyty", "opportunní infekce", "Western blot", "HAART/ART"],
-      content: {
-        definice: "<strong>HIV (Human Immunodeficiency Virus):</strong> Obalený ssRNA-RT virus z čeledi <em>Retroviridae</em>, rod <em>Lentivirus</em>. Způsobuje chronickou destrukci CD4+ T-lymfocytů vedoucí k AIDS (Acquired Immunodeficiency Syndrome).",
-        etiologie: "Dva typy: HIV-1 (pohlavní přenos celosvětově), HIV-2 (Západní Afrika, méně patogenní). Viriony obsahují 2 kopie gRNA, reverzní transkriptázu, integrázu, proteázu a obalové glykoproteiny gp120 a gp41.<br>Vstup do buňky: gp120 se váže na receptor CD4 a koreceptory CCR5 nebo CXCR4 na T-lymfocytech a makrofázích.",
-        patogeneze: "Přenos krví, sexuálním stykem a vertikálně (z matky na plod/mlékem). Replikace viru v lymfatické tkáni → pozvolný pokles CD4+ T-buněk. Pokles CD4 < 200/µl definuje pokročilé stádium AIDS s vysokým rizikem oportunních infekcí (Pneumocystis, Toxoplasma, CMV, Cándida esophagitis, TBC) a malignit (Kaposiho sarkom vyvolaný HHV-8, non-Hodgkinovy lymfomy).",
-        klinicky: "1. Akutní retrovirální syndrom (2–4 týdny po infekci): chřipkovité onemocnění, exantém, lymfadenopatie.<br>2. Klinická latence (roky až desetiletí): asymptomatické množení viru.<br>3. Symptomatická fáze / AIDS: horečky, průjmy, úbytek váhy (wasting syndrom), oportunní infekce.",
-        laborator: "• Screening: Kombinovaný test 4. generace (průkaz protilátek anti-HIV-1/2 a antigenu p24 v séru).<br>• Konfirmace: Western blot nebo Line Immunoassay (LIA).<br>• Sledování: Kvantitativní real-time RT-PCR (virová nálož / viral load) a stanovení absolutního počtu CD4+ lymfocytů flow-cytometrií.",
-        terapie: "Antiretrovirová terapie (ART / HAART): Kombinace 3 léčiv (např. 2x NRTI + 1x NNRTI nebo integrázový inhibitor). Cíl: nedetekovatelná virová nálož."
-      },
-      quiz: [
-        {
-          q: "Který antigen se detekuje v kombinovaném sérologickém testu 4. generace pro včasnou diagnostiku HIV?",
-          options: ["gp120", "p24", "gp41", "p17"],
-          correct: 1,
-          explanation: "Kapsidový antigen p24 se objevuje v séru ještě před tvorbou protilátek (v okně 2–3 týdnů po nákaze)."
-        }
-      ]
+    "cast_b": {
+        "title": "Mukormykóza (Zygomykóza)",
+        "keywords": [
+            "Mucor",
+            "Rhizopus",
+            "rhinocerebrální",
+            "angioinvaze",
+            "diabetes",
+            "amfotericin B"
+        ],
+        "content": {
+            "definice": "<strong>Mukormykóza (zygomykóza):</strong> Rychle progredující, vysoce agresivní oportunní mykóza způsobená plísněmi rodu <em>Mucor, Rhizopus, Lichtheimia</em>.",
+            "etiologie": "Široké, neseptované nebo málo septované hyfy větvící se pod úhlem 90°. Rizikové skupiny: pacienti s dekompenzovaným diabetem a ketoacidózou, hematologičtí pacienti v neutropenii.",
+            "patogeneze": "Vysoká angioinvazivita → hyfy prorůstají stěnou cév → trombóza a infarkt tkáně → rozsáhlé černé nekrózy.",
+            "klinicky": "1. <strong>Rhinocerebrální mukormykóza:</strong> Začíná v nosní dutině a sinech, prorůstá přes lamina cribrosa do orbity a mozku. Černé nekrotické povlaky na tvrdém patře a nosní sliznici, proptóza oka, parézy.<br>2. <strong>Plicní a diseminovaná forma.</strong>",
+            "laborator": "Rychlá mikroskopie z biopsie/aspirátu: nález širokých neseptovaných hyf větvících se v úhlu 90°. Kultivace roste rychle (vlnovité plísňové kolonie).",
+            "terapie": "1. **Radikální chirurgický débridement** nekrotické tkáně (klíč k přežití). 2. **Liposomální Amfotericin B i.v.** nebo **Isavukonazol**."
+        },
+        "quiz": [
+            {
+                "q": "Které stádium dekompenzace diabetu představuje kritický rizikový faktor pro rozvoj rhinocerebrální mukormykózy?",
+                "options": [
+                    "Chronická mírná hyperglykémie",
+                    "Diabetická ketoacidóza (nízké pH stimuluje růst zygomycet)",
+                    "Hypoglykemické koma",
+                    "Diabetická retinopatie"
+                ],
+                "correct": 1,
+                "explanation": "V kyselém prostředí (ketoacidóze) a při dostupnosti volného železa rostou zygomycety extrémně rychle a snadno invadují cévy."
+            },
+            {
+                "q": "Jak vypadají mikroskopická vlákna (hyfy) zygomycet (Mucor, Rhizopus) v nativním preparátu z tkáně?",
+                "options": [
+                    "Úzké, septované hyfy větvící se pod ostrým úhlem 45°",
+                    "Široké, neseptované (cenocytické) hyfy větvící se pod pravým úhlem 90°",
+                    "Drobné pučící kvasinky s pseudohyfami",
+                    "Jednoduché bičíkaté trofozoity"
+                ],
+                "correct": 1,
+                "explanation": "Zygomycety charakterizují robustní neseptovaná vlákna větvená v pravém úhlu, na rozdíl od Aspergilla, který je úzký a septovaný pod úhlem 45°."
+            }
+        ]
     }
-  },
-  {
-    id: "mikra-25",
-    cislo: 25,
-    skupina_a: "Bakteriologie",
-    skupina_b: "Parazitologie",
-    cast_a: {
-      title: "Mykoplasmata a chlamydie",
-      keywords: ["Mycoplasma pneumoniae", "Chlamydia trachomatis", "elementární tělísko", "atypická pneumonie", "tetracykliny"],
-      content: {
-        definice: "<strong>Mykoplasmata a Chlamydie:</strong> Bakterie neschopné syntetizovat klasickou pevnou peptidoglykanovou buněčnou stěnu, nebo obligátní intracelulární patogeni.",
-        etiologie: "<strong>1. Mykoplasmata (Mycoplasma pneumoniae, M. hominis, Ureaplasma urealyticum):</strong><br>• Nemají buněčnou stěnu (jsou pleomorfní, rezistentní k β-laktamům!). Buněčná membrána obsahuje cholesterol.<br>• <em>M. pneumoniae:</em> Adherin P1 k řasinkám. Vyvolává primární atypickou pneumonii (komunitní, stěhovavé plicní infiltráty na RTG, chladové aglutininy).<br>• <em>M. hominis a U. urealyticum:</em> Urogenitální nákazy (uretritidy, cervicitidy, post-partum febrilie).<br><br><strong>2. Chlamydie (Chlamydia trachomatis, Chlamydophila pneumoniae, C. psittaci):</strong><br>• Obligátně intracelulární patogeni (energetičtí parazité, neschopní tvořit ATP). Gram-like stěna bez peptidoglykanu.<br>• Dvojfázový životní cyklus: <strong>Elementární tělísko (EB)</strong> = infekční, metabolicky inaktivní, extracelulární; <strong>Retikulární tělísko (RB)</strong> = metabolicky aktivní, dělí se intracelulárně ve fagosomu.<br>• <em>C. trachomatis:</em> Sériovary A-C (Trachom – slepota), D-K (trachomové urogenitální nákazy, novorozenecká konjunktivitida a pneumonie), L1-L3 (Lymphogranuloma venereum).<br>• <em>C. psittaci:</em> Psitakóza (papouščí nemoc, těžká atypická pneumonie se splenomegalií).",
-        laborator: "Kultivace chlamydií pouze na tkáňových kulturách (McCoy buňky). Metody volby: Real-time PCR (NAAT testy z moče/výtěrů). Výtěry ze spojivky, uretry, cervixu.",
-        terapie: "Makrolidy (Azitromycin) nebo Tetracykliny (Doxycyklin). β-laktamy jsou NEÚČINNÉ!"
-      },
-      quiz: [
-        {
-          q: "Forma chlamydie, která je infekční a přežívá v extracelulárním prostředí, se nazývá:",
-          options: ["Retikulární tělísko", "Elementární tělísko", "Tachyzoit", "Sporozoit"],
-          correct: 1,
-          explanation: "Elementární tělísko (EB) je infekční forma chlamydie s denzním jádrem a pevnou membránou přizpůsobená přežití mimo buňku."
-        }
-      ]
+},
+{
+    "id": "mikra-20",
+    "cislo": 20,
+    "skupina_a": "Bakteriologie",
+    "skupina_b": "Mykologie",
+    "cast_a": {
+        "title": "Grampozitivní anaerobní koky a tyčinky",
+        "keywords": [
+            "Clostridium difficile",
+            "Clostridium perfringens",
+            "Clostridium tetani",
+            "C. botulinum",
+            "Peptostreptococcus"
+        ],
+        "content": {
+            "definice": "<strong>G+ anaerobní tyčinky (Clostridium) a koky (Peptostreptococcus):</strong> Striktně anaerobní mikroorganismy. Rod Bacillus tvoří spory v aerobním prostředí, rodu Clostridium anaerobně. Peptostreptococcus je součástí běžné flóry.",
+            "etiologie": "• <em>C. perfringens:</em> Plynatá sněť. Exotoxin alfa-toxin (lecitináza štěpící buněčné membrány).<br>• <em>C. tetani:</em> Tetanus. Tetanospasmin (neurotoxin blokuje uvolnění GABA a glycinu).<br>• <em>C. botulinum:</em> Botulismus. Botulotoxin (neurotoxin blokuje uvolnění acetylcholinu).<br>• <em>C. difficile:</em> Pseudomembranózní kolitida po ATB. Toxiny A (enterotoxin) a B (cytotoxin).",
+            "klinicky": "• Plynatá sněť: Myonekróza s krepitací (plyn ve tkáni), sepse.<br>• Tetanus: Trismus (křeč žvýkacích svalů), risus sardonicus, opistotonus, spastická paralýza.<br>• Botulismus: Chabá paralýza (diplopie, dysfagie, dyspnoe). U kojenců z medu.<br>• C. difficile: Profúzní průjmy, hlen, pseudomembrány na sliznici tlustého střeva.",
+            "laborator": "Odběr materiálu v anaerobních transportních systémech. Kultivace na VL agaru v anaerostatu. Průkaz toxinů C. difficile ve stolici (ELISA / PCR).",
+            "terapie": "C. perfringens: chirurgie + Penicilin G. Tetanus: Antitoxin (TIG) + Metronidazol + očkování. C. difficile: **Vankomycin p.o.** nebo **Fidaxomycin p.o.**"
+        },
+        "quiz": [
+            {
+                "q": "Který z následujících toxinů působí jako zinková metaloproteáza štěpící synaptobrevin, čímž blokuje uvolnění inhibičních mediátorů glycinu a GABA v míše?",
+                "options": [
+                    "Botulotoxin",
+                    "Tetanospasmin",
+                    "Difterický toxin",
+                    "Choleratoxin"
+                ],
+                "correct": 1,
+                "explanation": "Tetanospasmin retrográdně putuje do míšních interneuronů, kde zablokuje uvolnění tlumivých mediátorů → nekontrolovaná stimulace motorických neuronů a spastické křeče."
+            },
+            {
+                "q": "Proč je podávání Vankomycinu intravenózně neúčinné při léčbě kolitidy vyvolané Clostridioides difficile?",
+                "options": [
+                    "Vankomycin neproniká stěnou kapilár",
+                    "Vankomycin se po i.v. podání nevylučuje do střevního lumen a nedosáhne tam terapeutické koncentrace",
+                    "C. difficile je přirozeně rezistentní k vankomycinu",
+                    "C. difficile se nachází pouze v krvi"
+                ],
+                "correct": 1,
+                "explanation": "Vankomycin se z trávicího traktu téměř nevstřebává, což se využívá při podání p.o. (kdy působí přímo ve střevě). Při podání i.v. se do střeva nedostane."
+            },
+            {
+                "q": "Který klostridiový toxin funguje jako lecitináza (fosfolipáza C) rozrušující buněčné membrány a vyvolávající myonekrózu u plynaté sněti?",
+                "options": [
+                    "Alfa-toxin Clostridium perfringens",
+                    "Tetanospasmin",
+                    "Toxin B Clostridium difficile",
+                    "Botulotoxin"
+                ],
+                "correct": 0,
+                "explanation": "Alfa-toxin C. perfringens hydrolyzuje lecitin v buněčných membránách erytrocytů, destiček a svalových buněk, což vede k nekróze a hemolýze."
+            }
+        ]
     },
-    cast_b: {
-      title: "Trypanosomy – spavá nemoc a Chagasova choroba",
-      keywords: ["Trypanosoma brucei", "Trypanosoma cruzi", "moucha tse-tse", "Chagasova nemoc", "Winterbottom", "Romana"],
-      content: {
-        definice: "<strong>Trypanosomy:</strong> Bičíkovití krevní a tkáňoví prvoci (Kinetoplastea) přenášení krvesajícím hmyzem v Africe a Latinské Americe.",
-        etiologie: "<strong>1. Africká trypanosomóza (Spavá nemoc):</strong><br>• <em>Trypanosoma brucei gambiense</em> (Západní Afrika, chronická) a <em>T. b. rhodesiense</em> (Východní Afrika, akutní).<br>• Extracelulární paraziti v krevní plazmě a likvoru. Antigenická variace povrchového glykoproteinu (VSG) způsobuje opakované vlny virémie.<br>• Přenašeč: Moucha Tse-tse (rod <em>Glossina</em>).<br>• Průběh: Šankr v místě kousnutí → Lymfatická fáze (zduření krčních uzlin = Winterbottomovo znamení, nepravidelné horečky) → CNS fáze (meningoencefalitida, letargie, inverze spánku, koma).<br><br><strong>2. Americká trypanosomóza (Chagasova nemoc):</strong><br>• <em>Trypanosoma cruzi:</em> Intracelulární (amastigoti ve svalech a nervových pleteních) i extracelulární (trypomastigoti v krvi).<br>• Přenašeč: Dravé ploštice (rod <em>Triatoma / Rhodnius</em> – defekace při sání na kůži).<br>• Akutní fáze: Chagoma (kožní uzel), Romanův příznak (jednostranný nebolestivý otok víčka a spojivky), hepatosplenomegalie, myocarditis.<br>• Chronická fáze (po 10–20 letech): Dilatační kardiomyopatie, megacolon, megaesophagus (destrukce myenterického pleteně).",
-        laborator: "Mikroskopie periferní krve (tlustá kapka, nátěr barvený Giemsou), likvoru. PCR. U Chagasovy choroby v chronické fázi sérologie (ELISA) nebo xenodiagnostika.",
-        terapie: "Africká: Suramin / Pentamidin (1. fáze), Melarsoprol / Eflornithin (2. fáze – CNS). Americká: Nifurtimox, Benznidazol."
-      },
-      quiz: [
-        {
-          q: "Jednostranný otok očních víček (Romanův příznak) je typický pro akutní fázi:",
-          options: ["Spavé nemoci", "Chagasovy nemoci", "Leishmaniózy", "Toxoplazmózy"],
-          correct: 1,
-          explanation: "Romanův příznak (otok obou víček jednoho oka po vpravení výkalů ploštice) je patognomický pro akutní Trypanosoma cruzi nákazu."
-        }
-      ]
+    "cast_b": {
+        "title": "Endemické a vzácné mykózy",
+        "keywords": [
+            "Histoplasma",
+            "Coccidioides",
+            "Blastomyces",
+            "dimorfismus",
+            "mykózy"
+        ],
+        "content": {
+            "definice": "<strong>Endemické (systémové) mykózy:</strong> Infekce vyvolané dimorfními houbami, které vykazují vysokou geografickou vázanost a postihují i imunokompetentní hostitele.",
+            "etiologie": "Původci vykazují teplotní dimorfismus (při 25 °C plísňová forma v půdě, při 37 °C kvasinkové buňky nebo sférulie v tkáni hostitele). Inhalace konidií/artrokonidií ze suché půdy.<br>• <em>Histoplasma capsulatum:</em> USA (Mississippi), ptačí a netopýří trus.<br>• <em>Coccidioides immitis:</em> JZ USA, suchá pouštní půda. V hostiteli tvoří sférulie s endosporami.<br>• <em>Blastomyces dermatitidis:</em> Severní Amerika.",
+            "laborator": "Mikroskopie (morfologie v tkáni: např. u Histoplasmy drobné intracelulární kvasinky v makrofázích, u Coccidioides sférulie). Kultivace na SDA s rizikem nákazy personálu! Průkaz antigenů v moči/séru.",
+            "terapie": "Mírné formy: Itrakonazol. Závažné/diseminované: i.v. **Amfotericin B**."
+        },
+        "quiz": [
+            {
+                "q": "Který rezervoár je typický pro zdroj nákazy Histoplasma capsulatum v endemických oblastech?",
+                "options": [
+                    "Půda bohatá na ptačí a netopýří trus (jeskyně, kurníky)",
+                    "Sladkovodní ryby",
+                    "Domácí kočky",
+                    "Nesterilní jehly"
+                ],
+                "correct": 0,
+                "explanation": "Ptačí a netopýří exkrementy poskytují ideální organické médium pro růst plísňové formy Histoplasma capsulatum."
+            },
+            {
+                "q": "Nález robustních, kulatých struktur zvaných 'sférulie' naplněných desítkami drobných endospor v plicní biopsii je typický pro:",
+                "options": [
+                    "Coccidioides immitis",
+                    "Histoplasma capsulatum",
+                    "Blastomyces dermatitidis",
+                    "Candida albicans"
+                ],
+                "correct": 0,
+                "explanation": "Coccidioides immitis v hostiteli netvoří kvasinky, nýbrž sférulie (průměr 20–80 µm), které praskají a uvolňují endospory."
+            }
+        ]
     }
-  },
-  {
-    id: "mikra-26",
-    cislo: 26,
-    skupina_a: "Bakteriologie",
-    skupina_b: "Parazitologie",
-    cast_a: {
-      title: "Spirochety (Borrelia, Treponema, Leptospira)",
-      keywords: ["Borrelia burgdorferi", "Treponema pallidum", "Leptospira", "Erythema migrans", "Syfilis", "Weilova nemoc"],
-      content: {
-        definice: "<strong>Spirochety:</strong> Tenké, spirálovité, gramnegativní flexibilní bakterie s aktivním kmitavým pohybem zprostředkovaným endoflagely v periplasmatickém prostoru.",
-        etiologie: "<strong>1. Rod Borrelia:</strong><br>• <em>Lymská borelióza:</em> B. burgdorferi s.s., B. afzelii (kožní formy), B. garinii (neuroborelióza). Přenašeč: Klíště <em>Ixodes ricinus</em>. Fáze: 1. Časná lokalizovaná (Erythema migrans – červená skvrna s výbledem v centru); 2. Časná diseminovaná (neuroborelióza – Bannwarthův syndrom, borreliový lymfocytom, karditida); 3. Pozdní (Acrodermatitis chronica atrophicans, chronická artritida). Terapie: Doxycyklin, Amoxicilin, Ceftriaxon i.v.<br>• <em>Návratné horečky:</em> B. recurrentis (veš šatní). Intermitentní horečnaté periody.<br><br><strong>2. Rod Treponema (T. pallidum subsp. pallidum – Syfilis / Lues):</strong><br>• Přenos pohlavně nebo transplacentárně.<br>• Primární syfilis: Tvrdý nebolestivý vřed (Ulcus durum) + zvětšení uzlin.<br>• Sekundární syfilis: Generalizovaný vyrážkový exantém, condylomata lata na sliznicích.<br>• Terciární syfilis: Gummata (granulomy), kardiovaskulární syfilis (aneurysma aorty), neurosyfilis (tabes dorsalis, progresivní paralysis). Kongenitální syfilis (Hutchinsonovy zuby, hluchota). Terapie: Depotní Penicilin G.<br><br><strong>3. Rod Leptospira (L. icterohaemorrhagiae, L. grippotyphosa):</strong><br>• Zoonóza (moč hlodavců → voda). Anikterická forma (chřipkovité onemocnění, aseptická meningitida) vs. Ikterická forma (Weilova nemoc – ikterus, selhání ledvin, krvácení).",
-        laborator: "• Borelióza: Sérologie (ELISA + konfirmace Western blot).<br>• Syfilis: Přímá mikroskopie v zástinu z spodiny ulcus durum; Netreponemové testy (RRR, VDRL) a Treponemové testy (TPHA, TPAE, ELISA, WB).<br>• Leptospiry: Mikroskopický aglutinační test (MAT)."
-      },
-      quiz: [
-        {
-          q: "Tvrdý nebolestivý vřed (Ulcus durum) v místě vstupu infekce je projev:",
-          options: ["Primární syfilis", "Sekundární syfilis", "Lymské boreliózy 1. fází", "Leptospirózy"],
-          correct: 0,
-          explanation: "Ulcus durum je patognomickým projevem primárního stádia syfilis (Treponema pallidum) vznikajícím cca 3 týdny po infekci."
-        }
-      ]
+},
+{
+    "id": "mikra-21",
+    "cislo": 21,
+    "skupina_a": "Bakteriologie",
+    "skupina_b": "Mykologie",
+    "cast_a": {
+        "title": "Mycobacterium tuberculosis",
+        "keywords": [
+            "TBC",
+            "Kochův bacil",
+            "Ziehl-Neelsen",
+            "Löwenstein-Jensen",
+            "antituberotika",
+            "Mantoux"
+        ],
+        "content": {
+            "definice": "<strong>Mycobacterium tuberculosis (Kochův bacil, BK):</strong> Štíhlá acidorezistentní tyčinka. Obligátně aerobní, intracelulární patogen.",
+            "etiologie": "Buněčná stěna s vysokým obsahem lipidů a mykolových kyselin (až 60 % suché hmotnosti) → způsobuje acidorezistenci (odolnost k odbarvení kyselým alkoholem) a gram-labilní barvení.",
+            "patogeneze": "Inhalace kapének → pohlcení alveolárními makrofágy → inhibice fúze fagosomu s lysosomem → intracelulární přežívání a dělení → aktivace Th1 buněk → tvorba tuberkulózního granulomu s kaseózní nekrózou (Langhansovy buňky). Primární (Ghonův) komplex = plicní ložisko + regionální lymfadenitida.",
+            "klinicky": "• Primární TBC: Většinou asymptomatická, zhojení kalcifikací.<br>• Postprimární (reaktivovaná) TBC: Postihuje plicní hroty. Kašel, hemoptýza, noční poty, kachexie (úbytek hmotnosti). Extrapulmonální: bazální meningitida (hlavně u dětí), urogenitální, kostní (Pottova nemoc).",
+            "laborator": "1. Mikroskopie: **Ziehl-Neelsenovo barvení** (červené tyčinky na modrém pozadí). 2. Kultivace: Löwenstein-Jensenova pevná půda (krémové drolivé kolonie, roste 3–6 týdnů), Šulova tekutá půda. 3. PCR GeneXpert (detekce DNA a rezistence k rifampicinu). 4. Nepřímé: IGRA (QuantiFERON-TB) a Mantoux (tuberkulinový test).",
+            "terapie": "Iniciální fáze (2 měsíce): čtyřkombinace HRZE (Isoniazid, Rifampicin, Pyrazinamid, Ethambutol). Pokračovací fáze (4 měsíce): dvojkombinace HR."
+        },
+        "quiz": [
+            {
+                "q": "Která barvící metoda se používá pro průkaz Mycobacterium tuberculosis?",
+                "options": [
+                    "Barvení dle Grama",
+                    "Barvení dle Ziehla-Neelsena",
+                    "Giemsovo barvení",
+                    "Burriho metoda"
+                ],
+                "correct": 1,
+                "explanation": "Ziehl-Neelsenovo barvení využívá karbolfuchsin za horka a odbarvení kyselým alkoholem. Acidorezistentní mykobakterie zůstanou červené."
+            },
+            {
+                "q": "Která čtyřkombinace antituberkulotik se podává v iniciální 2měsíční fázi léčení TBC?",
+                "options": [
+                    "Penicilin, Streptomycin, Doxycyklin, Ciprofloxacin",
+                    "Isoniazid, Rifampicin, Pyrazinamid, Ethambutol",
+                    "Vancomycin, Gentamicin, Metronidazol, Azitromycin",
+                    "Fluconazol, Klindamycin, Cotrimoxazol, Erytromycin"
+                ],
+                "correct": 1,
+                "explanation": "Standardní iniciální regimen pro TBC je HRZE: Isoniazid, Rifampicin, Pyrazinamid a Ethambutol po dobu 2 měsíců."
+            },
+            {
+                "q": "Které buňky tvoří charakteristické jádro tuberkulózního granulomu v plicích?",
+                "options": [
+                    "Neutrofilní granulocyty",
+                    "Langhansovy obrovské vícejaderné buňky a epiteloidní buňky",
+                    "Eosinofily",
+                    "Mastocyty"
+                ],
+                "correct": 1,
+                "explanation": "Při TBC granulomu splývají aktivované makrofágy v epiteloidní buňky a Langhansovy vícejaderné obrovské buňky obklopující kaseózní nekrózu."
+            }
+        ]
     },
-    cast_b: {
-      title: "Leishmanie – kožní, slizniční a viscerální leishmanióza",
-      keywords: ["Leishmania donovani", "Leishmania tropica", "Phlebotomus", "Kala-azar", "amastigoti", "espundia"],
-      content: {
-        definice: "<strong>Leishmanie:</strong> Intracelulární prvoci napadající makrofágy a buněčné složky retikuloendotelového systému. Přenášeni krvesajícím hmyzem rodu <em>Phlebotomus</em> (Starý svět) a <em>Lutzomyia</em> (Nový svět).",
-        etiologie: "<strong>Dvě vývojové formy:</strong> Promastigoti (extracelulární s bičíkem u přenašeče) a Amastigoti (bezbičíkatí intracelulární v makrofázích savce).<br><br><strong>1. Kožní leishmanióza Starého světa:</strong> <em>L. major</em> (vlhký vřed), <em>L. tropica</em> (suchý vřed). Nezhoubné ložiskové vředy kůže (leishmaniom) hojící se jizvou.<br><strong>2. Kožně-slizniční leishmanióza Nového světa:</strong> <em>L. braziliensis</em> (espundia). Závažná forma s destrukcí nosní přepážky, patra a obličeje.<br><strong>3. Viscerální leishmanióza (Kala-azar):</strong> <em>L. donovani, L. infantum, L. chagasi</em>. Napadá játra, slezinu a kostní dřeň. Symptomy: masivní hepatosplenomegalie, iregulární horečky, pancytopenie, kachexie, hyperpigmentace kůže. Bez léčby smrtelná!",
-        laborator: "Mikroskopie Giemsou obarvených nátěrů z aspirátu kostní dřeně, sleziny nebo uzlin (nález amastigotů v makrofázích). PCR.",
-        terapie: "Preparáty 5-mocného antimonu (stiboglukát), Lipozomální Amfotericin B, Miltefosin."
-      },
-      quiz: [
-        {
-          q: "Který orgánový systém je primárně postižen při viscerální leishmanióze (Kala-azar)?",
-          options: ["Plíce a pleura", "Retikuloendotelový systém (játra, slezina, kostní dřeň)", "Střední ucho a labyrinth", "Periferní nervy"],
-          correct: 1,
-          explanation: "L. donovani se množí v makrofázích jater, sleziny a kostní dřeně, což vede k hepatosplenomegalii a útlumu kostní dřeně."
-        }
-      ]
+    "cast_b": {
+        "title": "Pneumocystová pneumonie (PJP)",
+        "keywords": [
+            "Pneumocystis jirovecii",
+            "intersticiální pneumonie",
+            "AIDS",
+            "cotrimoxazol",
+            "indukované sputum"
+        ],
+        "content": {
+            "definice": "<strong>Pneumocystis jirovecii:</strong> Atypická mikromyceta (ascomycetní houba). Původce oportunní intersticiální pneumonie u pacientů s poklesem CD4+ T-lymfocytů < 200/µl (AIDS).",
+            "etiologie": "Nemá ergosterol v membráně (neúčinkují azoly a amfotericin B!), stěna obsahuje 1,3-β-D-glukan. Nelze kultivovat in vitro!",
+            "patogeneze": "Reaktivace latentní nákazy v alveolech → plnění alveolů pěnovitým exsudátem → ztluštění alveolokapilární membrány → severe hypoxémie.",
+            "klinicky": "Triáda: neproduktivní dráždivý kašel, progresivní námahová dyspnoe a subfebrilie.",
+            "laborator": "BAL (bronchoalveolární laváž) nebo indukované sputum. Barvení stříbřením dle Grocotta, imunofluorescence s mAb, PCR.",
+            "terapie": "Lék volby: Vysokodávkovaný Co-trimoxazol (TMP-SMX) i.v. po dobu 21 dní. Při hypoxii kortikosteroidy."
+        },
+        "quiz": [
+            {
+                "q": "Pneumocystis jirovecii je z taxonomického hlediska:",
+                "options": [
+                    "Prvok (Protozoon)",
+                    "Gramnegativní bakterie",
+                    "Houba (Mikromyceta)",
+                    "Virus"
+                ],
+                "correct": 2,
+                "explanation": "Sekvenování DNA jednoznačně zařadilo Pneumocystis jirovecii mezi houby."
+            },
+            {
+                "q": "Lékem první volby v terapii i profilaxi pneumocystové pneumonie je:",
+                "options": [
+                    "Amfotericin B",
+                    "Co-trimoxazol (TMP-SMX)",
+                    "Penicilin G",
+                    "Ciprofloxacin"
+                ],
+                "correct": 1,
+                "explanation": "Co-trimoxazol (Trimethoprim-Sulfamethoxazol) je lékem první volby pro léčbu i profilaxi PJP."
+            },
+            {
+                "q": "Pneumocystová pneumonie se rozvíjí typicky u HIV pozitivních pacientů, pokud poklesne hladina CD4+ T-lymfocytů pod:",
+                "options": [
+                    "500 / µl",
+                    "200 / µl",
+                    "50 / µl",
+                    "1000 / µl"
+                ],
+                "correct": 1,
+                "explanation": "Kritickou hranicí pro vznik PJP je pokles CD4+ T-buněk pod 200 v 1 mm³ krve."
+            }
+        ]
     }
-  },
-  {
-    id: "mikra-27",
-    cislo: 27,
-    skupina_a: "Farmakoterapie",
-    skupina_b: "Parazitologie",
-    cast_a: {
-      title: "Peniciliny a inhibitory β-laktamáz",
-      keywords: ["Penicilin G", "Oxacilin", "Amoxicilin", "Augmentin", "Piperacilin", "β-laktamázy"],
-      content: {
-        definice: "<strong>Peniciliny:</strong> Základní skupina β-laktamových baktericidních antibiotik. Blokují syntézu buněčné stěny vazbou na PBP (Penicillin-Binding Proteins).",
-        etiologie: "<strong>Rozdělení penicilinů:</strong><br><br><strong>1. Základní peniciliny (úzkospektré):</strong><br>• <em>Penicilin G (benzylpenicilin):</em> i.v./i.m. Lék volby pro meningokokové a streptokokové meningitidy, pneumokokové infekce, syfilis, klostridiové infekce měkkých tkání, actinomykózu.<br>• <em>Penicilin V (fenoxymethylpenicilin):</em> p.o. Lék volby pro streptokokovou tonzilofaryngitidu (S. pyogenes).<br><br><strong>2. Antistafylokokové peniciliny (rezistentní k penicillináze):</strong><br>• <em>Oxacilin:</em> i.v. Lék volby pro citlivé stafylokokové infekce (MSSA – osteomyelitida, endokarditida, sepse).<br><br><strong>3. Aminopeniciliny (širokospektré):</strong><br>• <em>Ampicilin (i.v.), Amoxicilin (p.o.):</em> Léčba komunitních respiračních (pneumokok, hemofil) a uroinfekcí. Ampicilin je lékem volby pro <em>Listeria monocytogenes</em> a enterokokové endokarditidy.<br><br><strong>4. Peniciliny s inhibitory β-laktamáz:</strong><br>• <em>Amoxicilin + kyselina klavulanová (Augmentin):</em> p.o./i.v. Působí na kmeny produkující běžné β-laktamázy (H. influenzae, M. catarrhalis, E. coli, B. fragilis, MSSA). Kousnutí zvířetem/člověkem, sinuzitidy, komunitní smíšené infekce.<br>• <em>Ampicilin + sulbaktam (Unasyn):</em> i.v. analog.<br><br><strong>5. Antipseudomonádové peniciliny:</strong><br>• <em>Piperacilin + tazobaktam (Tazocin):</em> i.v. Širokospektrý přípravek účinný na <em>Pseudomonas aeruginosa</em> a závažné nozokomiální nosičské a břišní infekce."
-      },
-      quiz: [
-        {
-          q: "Který penicilin je lékem prví volby pro závažné stavy vyvolané Listeria monocytogenes?",
-          options: ["Oxacilin", "Ampicilin", "Penicilin V", "Piperacilin"],
-          correct: 1,
-          explanation: "Ampicilin (obvykle v kombinaci s Gentamicinem) je lékem volby pro infekce způsobené Listeria monocytogenes."
-        }
-      ]
+},
+{
+    "id": "mikra-22",
+    "cislo": 22,
+    "skupina_a": "Bakteriologie",
+    "skupina_b": "Mykologie",
+    "cast_a": {
+        "title": "Atypická (netuberkulózní) mykobakteria",
+        "keywords": [
+            "NTM",
+            "M. avium",
+            "M. kansasii",
+            "M. marinum",
+            "mykobakteriózy",
+            "mycolacton"
+        ],
+        "content": {
+            "definice": "<strong>Atypická (netuberkulózní, NTM) mykobakteria:</strong> Enviromentální mykobakteria v půdě a vodě. Nepřenášejí se z člověka na člověka.",
+            "etiologie": "• <em>M. avium complex (MAC):</em> Plicní procesy u CHOPN, diseminované nákazy u AIDS.<br>• <em>M. kansasii:</em> Plicní plaky identické s TBC.<br>• <em>M. marinum:</em> Z vod a akvárií. U člověka tvoří akvarijní granulom na kůži končetin po poranění.<br>• <em>M. ulcerans:</em> Tvoří toxin mycolacton vyvolávající vřed Buruli v tropech.",
+            "laborator": "Dekontaminace 4% NaOH (Petroff), kultivace (L-J, Šula) při 37 °C (u M. marinum při 30 °C!). identification pomocí MALDI-TOF, PCR.",
+            "terapie": "Dlouhodobá kombinace: Klaritromycin/Azitromycin + Ethambutol + Rifampicin."
+        },
+        "quiz": [
+            {
+                "q": "Které netuberkulózní mykobakterium vyvolává tzv. 'akvarijní granulom' po poranění ve vodě?",
+                "options": [
+                    "Mycobacterium kansasii",
+                    "Mycobacterium marinum",
+                    "Mycobacterium bovis",
+                    "Mycobacterium leprae"
+                ],
+                "correct": 1,
+                "explanation": "M. marinum se vyskytuje ve vodě a akváriích a vstupuje drobnými oděrkami na kůži."
+            },
+            {
+                "q": "Čím se liší netuberkulózní mykobakteriózy od klasické tuberkulózy vyvolané M. tuberculosis?",
+                "options": [
+                    "Nejsou acidorezistentní",
+                    "Nepřenášejí se z člověka na člověka (jsou to enviromentální nákazy)",
+                    "Způsobují je spirochety",
+                    "Nelze je léčit žádnými antibiotiky"
+                ],
+                "correct": 1,
+                "explanation": "NTM nákazy vznikají z prostředí; přenos z člověka na člověka nenastává."
+            }
+        ]
     },
-    cast_b: {
-      title: "Střevní protozoární nákazy (Giardia, Entamoeba, Cryptosporidium)",
-      keywords: ["Giardia intestinalis", "Entamoeba histolytica", "Cryptosporidium", "metronidazol", "amébová dysenterie"],
-      content: {
-        definice: "<strong>Střevní protozoózy:</strong> Průjmová onemocnění vyvolaná prvoky napadajícími sliznici tenkého a tlustého střeva.",
-        etiologie: "<strong>1. Giardia intestinalis (lamblia):</strong><br>• Trofozoit tvaru rozkrojené hrušky se 2 jádry a přísavným diskem. Cysty se 4 jádry. Fekálně-orální přenos kontaminovanou vodou/potravou.<br>• Kolonizuje duodenum a jejunum (non-invazivní) → kryje enterocyty → malabsorpce tuků a vitamínů.<br>• Příznaky: mastné páchnoucí průjmy bez krve, flatulence, epigastrické křeče. Terapie: Metronidazol / Tinidazol.<br><br><strong>2. Entamoeba histolytica (Měňavka úplavičná):</strong><br>• Forma <em>minuta</em> (lumilární neinvazivní, tvoří 4-jaderné cysty) a Forma <em>magna</em> (invazivní s fagocytovanými erytrocyty).<br>• Působí nekrózy a lahvovité vředy v tlustém střevě → <strong>Amébová dysenterie</strong> (bolestivé malinové stolice s krví a hlenem, bez febrilií). Mimostřevní forma: Amébový jaterní absces (čokoládově hnisavá náplň). Terapie: Metronidazol + luminalní amebicid (Cloroxin).<br><br><strong>3. Cryptosporidium parvum / hominis:</strong><br>• Střevní kokcidie. Tvoří infekční silnostěnné oocysty (přežívají v chlorované vodě) a tenkostěnné oocysty (autoinfekce).<br>• Vodnaté průjmy u dětí; u pacientů s AIDS způsobuje profuzní, život ohrožující průjmy. Terapie: Rehydratace, Nitazoxanid, Spiramycin."
-      },
-      quiz: [
-        {
-          q: "Stolice s krví a hlenem charakteru 'malinového želé' bez vysokých horeček je typická pro:",
-          options: ["Giardiózu", "Amébovou dysenterii (Entamoeba histolytica)", "Cryptosporidiózu", "Salmonelózu"],
-          correct: 1,
-          explanation: "Entamoeba histolytica forma magna narušuje stěnu tlustého střeva za vzniku ulcerací a typické stolicu tvaru malinového rosolu."
-        }
-      ]
+    "cast_b": {
+        "title": "Dermatomykózy a povrchové mykózy",
+        "keywords": [
+            "Dermatofyty",
+            "Trichophyton",
+            "Microsporum",
+            "Epidermophyton",
+            "Candida",
+            "Pityriasis versicolor"
+        ],
+        "content": {
+            "definice": "<strong>Dermatomykózy:</strong> Houbová onemocnění kůže, vlasů a nehtů vyvolaná dermatofyty, kvasinkami nebo Malasseziemi.",
+            "etiologie": "• Dermatofytózy (Tinea): Vláknité houby využívající keratin. Rody: <em>Trichophyton, Microsporum, Epidermophyton</em>.<br>• Kandidózy kůže: <em>Candida albicans</em> (intertrigo, onychomykóza).<br>• <em>Pityriasis versicolor:</em> <em>Malassezia furfur</em>.<br>• <em>Erythrasma:</em> Corynebacterium minutissimum (bakteriální pseudo-mykóza).",
+            "laborator": "KOH preparát (hydroxid rozpustí keratin) → přímá mikroskopie hyf a artrokonidií. Kultivace na Sabouraudově / Mykosel agaru. Woodova lampa (UV fluorescence u Microsporum).",
+            "terapie": "Lokální: Terbinafin, Clotrimazol, Bifonazol, Nystatin. Systémová: Terbinafin p.o., Fluconazol, Itraconazol."
+        },
+        "quiz": [
+            {
+                "q": "Pityriasis versicolor je povrchové mykotické onemocnění vyvolané:",
+                "options": [
+                    "Trichophyton rubrum",
+                    "Malassezia furfur",
+                    "Candida albicans",
+                    "Microsporum canis"
+                ],
+                "correct": 1,
+                "explanation": "Malassezia furfur tvoří charakteristické šupinaté hyper/hypopigmentované skvrny na trupu."
+            },
+            {
+                "q": "Které činidlo se přidává k seškrabu kůže při přímé mikroskopii pro rozvolnění lidského keratinu?",
+                "options": [
+                    "Čistý ethanol",
+                    "10–20% KOH (hydroxid draselný)",
+                    "Kyselina chlorovodíková",
+                    "Formalín"
+                ],
+                "correct": 1,
+                "explanation": "Hydroxid draselný rozpustí lidský keratin a epitelie, což odhalí odolné stěny houbových hyf."
+            }
+        ]
     }
-  },
-  {
-    id: "mikra-28",
-    cislo: 28,
-    skupina_a: "Farmakoterapie",
-    skupina_b: "Parazitologie",
-    cast_a: {
-      title: "Cefalosporiny – generace a indikace",
-      keywords: ["Cefazolin", "Cefuroxim", "Cefotaxim", "Ceftriaxon", "Ceftazidim", "Cefepim"],
-      content: {
-        definice: "<strong>Cefalosporiny:</strong> Širokospektrá β-laktamová baktericidní antibiotika rozdělená do 5 generací podle spektra účinku a odolnosti vůči β-laktamázám.",
-        etiologie: "<strong>1. Cefalosporiny I. generace (Cefazolin i.v., Cefadroxil p.o.):</strong><br>• Účinné na G+ koky (MSSA, streptokoky) a základní G- tyčky (E. coli, P. mirabilis). Perioperační atb profylaxe v chirurgii.<br><br><strong>2. Cefalosporiny II. generace (Cefuroxim i.v./p.o.):</strong><br>• Rozšířený účinek na H. influenzae, M. catarrhalis, Klebsiella. Respirační a močové infekce.<br><br><strong>3. Cefalosporiny III. generace:</strong><br>• <em>Základní (Cefotaxim, Ceftriaxon i.v.):</em> Vysoká účinnost na G- tyčky a pneumokoky, průnik do likvoru! Indikace: Purulentní meningitidy, těžké komunitní pneumonie, urosepse, Ceftriaxon = jednorázová léčba kapavky. Neúčinkují na Pseudomonas!<br>• <em>Antipseudomonádové (Ceftazidim i.v.):</em> Vysoká účinnost na <em>Pseudomonas aeruginosa</em>.<br><br><strong>4. Cefalosporiny IV. generace (Cefepim i.v.):</strong><br>• Vysoce odolné vůči AmpC β-laktamázám (Enterobacter, Serratia). Těžké nozokomiální infekce, febrilní neutropenie.<br><br><strong>5. Cefalosporiny V. generace (Ceftarolin):</strong><br>• Vázají PBP2a → účinné i na MRSA (Methicillin-Resistant S. aureus)."
-      },
-      quiz: [
-        {
-          q: "Který cefalosporin III. generace má výrazný protipseudomonádový účinek?",
-          options: ["Cefotaxim", "Ceftriaxon", "Ceftazidim", "Cefazolin"],
-          correct: 2,
-          explanation: "Ceftazidim je cefalosporin 3. generace se specifickým vysokým účinkem proti Pseudomonas aeruginosa."
-        }
-      ]
+},
+{
+    "id": "mikra-23",
+    "cislo": 23,
+    "skupina_a": "Bakteriologie",
+    "skupina_b": "Mykologie",
+    "cast_a": {
+        "title": "Mycobacterium leprae a odběry na mykobakteria",
+        "keywords": [
+            "M. leprae",
+            "lepra",
+            "Hansenův bacil",
+            "facies leontina",
+            "dekontaminace",
+            "Petroff"
+        ],
+        "content": {
+            "definice": "<strong>Mycobacterium leprae (Hansenův bacil):</strong> Acidorezistentní bakterie s tropismem pro periferní nervy (Schwannovy buňky) a kůži. Nelze kultivovat in vitro!",
+            "etiologie": "Přenos dlouhodobým těsným kontaktem. Vyvolává buď tuberkuloidní lepru (silná Th1 imunita, málo bakterií), nebo lepromatózní lepru (slabí Th1, masivní infekce).",
+            "klinicky": "• Tuberkuloidní: necitlivé depigmentované skvrny na kůži, postižení nervů.<br>• Lepromatózní: znetvoření obličeje (facies leontina), ztráta prstů, slepota, masivní ložiska.",
+            "laborator": "Seškraby z kožních lézí nebo nosní sliznice barvené dle Ziehla-Neelsena (acidorezistentní tyčinky a globi).<br>Odběr na TBC: 3 vzorky sputa, dekontaminace 4% NaOH (Petroff) k selekci mykobakterií."
+        },
+        "quiz": [
+            {
+                "q": "Proč nelze Mycobacterium leprae dokázat kultivací na Löwenstein-Jensenově půdě?",
+                "options": [
+                    "Je to anaerobní bakterie",
+                    "Je to obligátní intracelulární patogen nelze kultivovat in vitro",
+                    "Kultivační půdu zničí svými toxiny",
+                    "Roste pouze v agarovém médiu s krví"
+                ],
+                "correct": 1,
+                "explanation": "M. leprae nelze kultivovat na umělých živných médiích in vitro (množí se pouze v živých tkáních)."
+            },
+            {
+                "q": "Metoda dekontaminace nesterilních vzorků sputa dle Petroffa před kultivací TBC využívá vlastností mykobakterií odolávat působení:",
+                "options": [
+                    "4% NaOH (hydroxidu sodného)",
+                    "Horké vodě",
+                    "Čistému acetonu",
+                    "Ultrafialovému záření"
+                ],
+                "correct": 0,
+                "explanation": "Působení 4% NaOH zničí doprovodnou flóru úst a dýchacích cest, zatímco odolné stěny mykobakterií přežijí."
+            }
+        ]
     },
-    cast_b: {
-      title: "Trichomonas vaginalis a urogenitální bičíkovci",
-      keywords: ["Trichomonas vaginalis", "trichomoniáza", "poševní výtok", "metronidazol", "axostyl"],
-      content: {
-        definice: "<strong>Trichomonas vaginalis (Bičenka poševní):</strong> Bičíkovec napadající urogenitální trakt člověka. Přenáší se výhradně sexuálním stykem. Netvoří cysty!",
-        etiologie: "Trofozoit má hruškovitý tvar, 4 volné přední bičíky, 1 bičík tvořící undulující membránu a osní tyčinku (axostyl). Přemnožuje se při zvýšení pH pochvy (> 4.5).",
-        klinicky: "• <strong>Ženy:</strong> Akutní vaginitida/kolpitida. Hojný, zpěněný, zelenokřídlový páchnoucí výtok, zarudnutí sliznice (jahodové hrdlo), dysurie a pruritus.<br>• <strong>Muži:</strong> Většinou asymptomatické nosičství v uretře a prostatě; méně často způsobuje mírnou uretritidu.",
-        laborator: "1. Nativní mikroskopický preparát z poševního sekretu (záchyt kmitajících trichomonád).<br>2. Kultivace na speciálních transportně-kultivačních médiích (C.A.T. médium).<br>3. Giermsovo barvení nátěru, PCR.",
-        terapie: "Metronidazol p.o. (jednorázově 2g nebo 500mg 7 dní). **MANDATORNÍ je současná přísná léčba obou sexuálních partnerů!**"
-      },
-      quiz: [
-        {
-          q: "Proč je nutné přiléčit sexuálního partnera při záchytu Trichomonas vaginalis u ženy?",
-          options: ["Partner má vždy těžkou formou orchitidy", "Muži bývají asymptomatičtí přenašeči a došlo by k okamžité reinfekci", "Trichomonas způsobuje neplodnost u mužů do 24h", "Prvok se přenáší pouze vzduchem v domácnosti"],
-          correct: 1,
-          explanation: "Muži bývají bezpříznakovými rezerváory v uretře; bez léčby obou partnerů nastává ping-pong efekt okamžité reinfekce."
-        }
-      ]
+    "cast_b": {
+        "title": "Fusarióza, feohyfomykózy a chromoblastomykózy",
+        "keywords": [
+            "Fusarium",
+            "feohyfomykózy",
+            "chromoblastomykóza",
+            "sklerotická tělíska",
+            "mykotoxiny"
+        ],
+        "content": {
+            "definice": "Vzácnější oportunní a subkutánní houbové infekce vyvolané vláknitými mikromycetami.",
+            "etiologie": "• Fusarióza: Rody <em>Fusarium solani, F. oxysporum</em>. Keratózy, onychomykózy a u neutropenických těžké diseminované infekce.<br>• Feohyfomykózy: Působeny tmavě pigmentovanými (dematiaceovými) houbami (melanin ve stěně, e.g. <em>Alternaria, Cladophialophora</em>).<br>• Chromoblastomykóza: Tropická subkutánní infekce po poranění, tvořící <strong>sklerotická (muriformní) tělíska</strong> (hnědé buňky)."
+        },
+        "quiz": [
+            {
+                "q": "Typickým mikroskopickým nálezem v tkáňovém vzorku u chromoblastomykózy jsou:",
+                "options": [
+                    "Cysty Pneumocystis jirovecii",
+                    "Sklerotická (muriformní) tělíska",
+                    "Endospory Coccidioides",
+                    "Sphaeruly"
+                ],
+                "correct": 1,
+                "explanation": "Pro chromoblastomykózu jsou patognomická sklerotická tělíska (hnědé silnostěnné kulovité buněčné sestavy)."
+            },
+            {
+                "q": "Jaké zbarvení mají vlákna a struktury feohyfomykózních hub v mikroskopickém preparátu?",
+                "options": [
+                    "Bezbarvé / průhledné",
+                    "Tmavě hnědé až černé (díky melaninu v buněčné stěně)",
+                    "Světle růžové",
+                    "Zelenožluté"
+                ],
+                "correct": 1,
+                "explanation": "Dematiaceoví houby syntetizují melanin, který dává jejich hyfám a konidiím tmavě hnědé až černé zbarvení."
+            }
+        ]
     }
-  },
-  {
-    id: "mikra-29",
-    cislo: 29,
-    skupina_a: "Farmakoterapie",
-    skupina_b: "Parazitologie",
-    cast_a: {
-      title: "Karbapenemy a karbapenemázy",
-      keywords: ["Meropenem", "Imipenem", "Ertapenem", "KPC", "NDM", "ESBL", "nozokomiální"],
-      content: {
-        definice: "<strong>Karbapenemy:</strong> Ultra-širokospektrá β-laktamová záložní antibiotika vyhrazená pro těžké nozokomiální infekce a kmeny s produkcí ESBL a AmpC.",
-        etiologie: "<strong>Zástupci:</strong> Meropenem, Imipenem (+ Cilastatin pro inhibici renální dehydropeptidázy), Ertapenem.<br>• Účinek: Baktericidní na G+, G- (včetně P. aeruginosa a Acinetobacter) i anaeroby (B. fragilis). Ertapenem NEÚČINKUJE na Pseudomonas a Acinetobacter!<br>• Neúčinkují na MRSA a Enterococcus faecium.<br><br><strong>Karbapenemázy:</strong> β-laktamázy schopné hydrolyzovat karbapenemy.<br>• Třída A: KPC (Klebsiella pneumoniae carbapenemase).<br>• Třída B (Metalo-β-laktamázy / MBL): NDM-1 (New Delhi), VIM, IMP.<br>• Třída D: OXA-48 (u Enterobakterií a Acinetobacteru)."
-      },
-      quiz: [
-        {
-          q: "Který karbapenem Nemá účinek proti Pseudomonas aeruginosa?",
-          options: ["Meropenem", "Imipenem", "Ertapenem", "Doripenem"],
-          correct: 2,
-          explanation: "Ertapenem má sice dlouhý poločas (dávkování 1x denně), ale chybí mu účinnost proti Pseudomonas aeruginosa a Acinetobacter spp."
-        }
-      ]
+},
+{
+    "id": "mikra-24",
+    "cislo": 24,
+    "skupina_a": "Farmakoterapie",
+    "skupina_b": "Virologie",
+    "cast_a": {
+        "title": "Antimykotika – klasifikace a mechanizmus účinku",
+        "keywords": [
+            "Amfotericin B",
+            "Azoly",
+            "Echinokandiny",
+            "Flucytosin",
+            "Terbinafin",
+            "ergosterol"
+        ],
+        "content": {
+            "definice": "<strong>Antimykotika:</strong> Léčiva určená k terapii fungálních infekcí. Cílí na struktury specifické pro houbovou buňku (ergosterol v membráně, β-1,3-D-glukan v buněčné stěně).",
+            "klasifikace": "• <strong>Polyeny (Amfotericin B, Nystatin):</strong> Vážou se na ergosterol → tvorba pórů → lýza. Výrazná nefrotoxicita.<br>• <strong>Azoly (Fluconazol, Voriconazol, Posaconazol):</strong> Inhibice 14-α-demethylázy lanosterolu → blokáda syntézy ergosterolu. Fungistatické.<br>• <strong>Echinokandiny (Caspofungin, Micafungin, Anidulafungin):</strong> Inhibice β-(1,3)-D-glukan syntetázy → narušení buněčné stěny. Fungicidní pro Kandidy.<br>• <strong>Antimetabolity (Flucytosin):</strong> Inhibice RNA a DNA syntézy. Použití u kryptokokové meningitidy.<br>• <strong>Allylaminy (Terbinafin):</strong> Inhibice skvalenepoxidázy → na dermatofyty."
+        },
+        "quiz": [
+            {
+                "q": "Která skupina antimykotik působí inhibicí syntézy β-(1,3)-D-glukanu buněčné stěny hub?",
+                "options": [
+                    "Polyeny",
+                    "Azoly",
+                    "Echinokandiny",
+                    "Allylaminy"
+                ],
+                "correct": 2,
+                "explanation": "Echinokandiny (caspofungin, anidulafungin) blokují tvorbu β-(1,3)-D-glukanu, čímž způsobují osmotickou lýzu houbové buňky."
+            },
+            {
+                "q": "Hlavním orgánově limitujícím nežádoucím účinkem systémově podávaného Amfotericinu B je:",
+                "options": [
+                    "Nefrotoxicita",
+                    "Kardiomyopatie",
+                    "Aplastická anémie",
+                    "Ototoxicita"
+                ],
+                "correct": 0,
+                "explanation": "Amfotericin B vyvolává renální vasokonstrikci a přímé poškození tubulů vedoucí k nefrotoxicitě."
+            },
+            {
+                "q": "Flucytosin (5-FC) se v terapii systémových mykóz podává nejčastěji v kombinaci s Amfotericinem B u:",
+                "options": [
+                    "Kandidové kolpitidy",
+                    "Kryptokokové meningitidy",
+                    "Tinea pedis",
+                    "Pityriasis versicolor"
+                ],
+                "correct": 1,
+                "explanation": "Kombinace Amfotericinu B a Flucytosinu je u kryptokokové meningitidy (C. neoformans) synergická."
+            }
+        ]
     },
-    cast_b: {
-      title: "Volně žijící améby (Naegleria, Acanthamoeba, Balamuthia)",
-      keywords: ["Naegleria fowleri", "Acanthamoeba", "Balamuthia", "PAM", "amébová keratitida", "kontaktní čočky"],
-      content: {
-        definice: "<strong>Volně žijící (amfizoické) améby:</strong> Měňavky běžně žijící v prostředí (teplá voda, půda), které mohou způsobit letální neuroinfekce a oční infekce.",
-        etiologie: "<strong>1. Naegleria fowleri:</strong> Původce **Primární amébové meningoencefalitidy (PAM)**. Z teplé vody (koupání v bazénech/jezerech) proniká přes cribriformní desku čichového nervu do mozku → fulminantní hnisavá hemorrhagic-nekrotická meningoencefalitida. Smrtnost > 98 % během několika dnů! Terapie: Amfotericin B + Miltefosin.<br><br><strong>2. Acanthamoeba spp.:</strong><br>• *Granulomatózní amébová encefalitida (GAE):* U imunosuprimovaných osob (chronické léze mozku).<br>• *Amébová keratitida:* U nositelů kontaktních čoček (oplachování čočky vodou z vodovodu). Krutá bolest oka, ulcerace rohovky, prstencový infiltrát. Terapie: Chlorhexidin / Propamidin oční kapky.<br><br><strong>3. Balamuthia mandrillaris:</strong> GAE u dětí i dospělých, téměř 100% mortalita."
-      },
-      quiz: [
-        {
-          q: "Naegleria fowleri proniká do mozku člověka nejčastěji při koupání cestou:",
-          options: ["Zvukovodu", "Sliznice nosní přes lamina cribrosa čichové kosti", "Oční spojivky", "Kousnutím komára"],
-          correct: 1,
-          explanation: "Voda s trofozoity vnikne do nosu → parazit proniká podél nervus olfactorius přes lamina cribrosa přímo do čelního laloku mozku."
-        }
-      ]
+    "cast_b": {
+        "title": "HIV – charakteristika, klinika a diagnostika",
+        "keywords": [
+            "HIV-1",
+            "AIDS",
+            "CD4+ lymfocyty",
+            "opportunní infekce",
+            "Western blot",
+            "HAART/ART"
+        ],
+        "content": {
+            "definice": "<strong>HIV (Human Immunodeficiency Virus):</strong> Obalený ssRNA-RT virus z čeledi <em>Retroviridae</em>, rod <em>Lentivirus</em>. Způsobuje chronickou destrukci CD4+ T-lymfocytů vedoucí k AIDS.",
+            "etiologie": "Obsahuje reverzní transkriptázu, integrázu, proteázu a obalové glykoproteiny gp120 a gp41. gp120 se váže na CD4 a koreceptory CCR5/CXCR4.",
+            "klinicky": "• Akutní retrovirální syndrom (chřipkovité příznaky, p24 antigen).<br>• Klinická latence.<br>• AIDS (CD4 < 200/µl): oportunní infekce (PJP, kryptokokóza, CMV, Toxoplasma) a Kaposiho sarkom.",
+            "laborator": "Screening: ELISA 4. generace (průkaz protilátek a antigenu p24). Konfirmace: Western blot / LIA. Sledování: RT-PCR (virová nálož) a počet CD4+ lymfocytů.",
+            "terapie": "Kombinovaná antiretrovirová terapie (ART / HAART) kombinující různé třídy léků (NRTI, NNRTI, integrázové a proteázové inhibitory)."
+        },
+        "quiz": [
+            {
+                "q": "Který antigen se detekuje v kombinovaném sérologickém testu 4. generace pro včasnou diagnostiku HIV?",
+                "options": [
+                    "gp120",
+                    "p24",
+                    "gp41",
+                    "p17"
+                ],
+                "correct": 1,
+                "explanation": "Kapsidový antigen p24 se objevuje v séru ještě před tvorbou protilátek (v okně 2–3 týdnů po nákaze)."
+            },
+            {
+                "q": "Pokles počtu CD4+ T-lymfocytů pod jakou hranici je kritériem pro definici stádia AIDS?",
+                "options": [
+                    "500 / µl",
+                    "200 / µl",
+                    "50 / µl",
+                    "1000 / µl"
+                ],
+                "correct": 1,
+                "explanation": "Hladina CD4+ lymfocytů pod 200/µl indikuje těžký imunodeficit."
+            }
+        ]
     }
-  },
-  {
-    id: "mikra-30",
-    cislo: 30,
-    skupina_a: "Farmakoterapie",
-    skupina_b: "Parazitologie",
-    cast_a: {
-      title: "Aminoglykosidy – spektrum a toxicita",
-      keywords: ["Gentamicin", "Amikacin", "Tobramycin", "Streptomycin", "nefrotoxicita", "ototoxicita"],
-      content: {
-        definice: "<strong>Aminoglykosidy:</strong> Rychle baktericidní antibiotika inhibující proteosyntézu ireverzibilní vazbou na 30S podjednotku ribozomu. Vyznačují se výrazným koncentračně závislým účinkem a postantibiotickým efektem (PAE).",
-        etiologie: "<strong>Spektrum účinku:</strong> Aerobní G- tyčky (Enterobakterie, <em>Pseudomonas aeruginosa</em>) a stafylokoky. Neúčinkují na anaeroby a streptokoky/enterokoky (chybí přenašečový systém; kombinují se však se zástupci β-laktamů!).<br><br><strong>Zástupci:</strong><br>• <em>Gentamicin:</em> Základní aminoglykosid (sepse, endokarditidy v synergii s PNC).<br>• <em>Amikacin:</em> Rezervní aminoglykosid odolný k mnoha inaktivujícím enzymům.<br>• <em>Tobramycin:</em> Vysoká účinnost na P. aeruginosa (i v inhalacích u CF).<br>• <em>Streptomycin:</em> Antituberkulotikum 1. linie, tularemie.<br><br><strong>Toxicita:</strong><br>1. Nefrotoxicita (reverzibilní poškození tubulů).<br>2. Ototoxicita (ireverzibilní poškození kohleárního a vestibulárního aparátu). Nutný TDM (Therapeutic Drug Monitoring – sledování údolních a vrcholových hladin v séru)."
-      },
-      quiz: [
-        {
-          q: "Které dva hlavní toxické nežádoucí účinky limitují podávání aminoglykosidů?",
-          options: ["Hepatotoxicita a kardiotoxicita", "Nefrotoxicita a ototoxicita", "Kardiomyopatie a myelotoxita", "Pankreatitida a neurotoxicita"],
-          correct: 1,
-          explanation: "Aminoglykosidy se kumulují v ledvinných tubulech a ve vnitřním uchu, což působí nefrotoxicitu a ototoxicitu."
-        }
-      ]
+},
+{
+    "id": "mikra-25",
+    "cislo": 25,
+    "skupina_a": "Bakteriologie",
+    "skupina_b": "Parazitologie",
+    "cast_a": {
+        "title": "Mykoplasmata a chlamydie",
+        "keywords": [
+            "Mycoplasma pneumoniae",
+            "Chlamydia trachomatis",
+            "elementární tělísko",
+            "atypická pneumonie",
+            "tetracykliny"
+        ],
+        "content": {
+            "definice": "<strong>Mykoplasmata a Chlamydie:</strong> Bakterie bez klasické peptidoglykanové stěny, respektive obligátní intracelulární patogeni.",
+            "etiologie": "• Mykoplasmata (M. pneumoniae, Ureaplasma): nemají stěnu (pouze steroly v membráně) → rezistence k β-laktamům!<br>• Chlamydie (C. trachomatis, C. pneumoniae): životní cyklus s **elementárním tělískem** (infekční, extracelulární) a **retikulárním tělískem** (intracelulární, dělí se).",
+            "klinicky": "• M. pneumoniae: atypická pneumonie (chladové aglutininy, suchý kašel).<br>• C. trachomatis: sérotypy A-C (trachom), D-K (uretritidy, cervicitidy, novorozenecká konjunktivitida), L1-L3 (Lymphogranuloma venereum).",
+            "laborator": "Chlamydie nelze kultivovat na agaru! Metoda volby: PCR (NAAT).",
+            "terapie": "Makrolidy (Azitromycin) nebo Tetracykliny (Doxycyklin). β-laktamy jsou neúčinné!"
+        },
+        "quiz": [
+            {
+                "q": "Forma chlamydie, která je infekční a přežívá v extracelulárním prostředí, se nazývá:",
+                "options": [
+                    "Retikulární tělísko",
+                    "Elementární tělísko",
+                    "Tachyzoit",
+                    "Sporozoit"
+                ],
+                "correct": 1,
+                "explanation": "Elementární tělísko (EB) je infekční forma chlamydie přizpůsobená přežití mimo buňku hostitele."
+            },
+            {
+                "q": "Proč jsou peniciliny a cefalosporiny zcela neúčinné při léčbě infekcí vyvolaných Mycoplasma pneumoniae?",
+                "options": [
+                    "Mykoplasmata produkují masivně penicilinázu",
+                    "Mykoplasmata nemají buněčnou stěnu (chybí peptidoglykan)",
+                    "Mykoplasmata jsou striktní anaeroby",
+                    "Mykoplasmata se vyskytují pouze v nehtové ploténce"
+                ],
+                "correct": 1,
+                "explanation": "Mykoplasmata postrádají buněčnou stěnu a peptidoglykan, na jehož syntézu β-laktamová antibiotika cílí."
+            }
+        ]
     },
-    cast_b: {
-      title: "Toxoplasmóza – Toxoplasma gondii",
-      keywords: ["Toxoplasma gondii", "kočka", "oocysta", "tkáňová cysta", "kongenitální toxoplazmóza", "Janků"],
-      content: {
-        definice: "<strong>Toxoplasma gondii:</strong> Oportunní tkáňová kokcidie. Definitivním hostitelem jsou kočkovité šelmy, mezihostitelem všichni teplokrevní živočichové včetně člověka.",
-        etiologie: "<strong>Infekční stádia:</strong><br>1. Oocysty (vylučované trusem koček, zrají v prostředí 2–3 dny).<br>2. Tachyzoiti (rychle se dělící trofozoiti v akutní fázi).<br>3. Bradyzoiti / Tkáňové cysty (ve svalech a mozku mezihostitele v chronické fázi).<br><br><strong>Klinické formy:</strong><br>• <em>Postnatální získaná toxoplazmóza:</em> U imunokompetentních často asymptomatická nebo uzlinová forma (příznaky chřipky, cervikální lymfadenitida).<br>• <em>Kongenitální toxoplazmóza (Morbus Janků):</em> Transplacentární přenos při primoinfekci matky v graviditě. Triáda: Hydrocefalus, intrakraniální kalcifikace, chorioretinitida.<br>• <em>Reaktivovaná toxoplazmóza u AIDS:</em> Toxoplazmová encefalitida (ložiskové nekrotické léze mozku s prstencovitým sycením na CT/MR).",
-        laborator: "1. Sérologie: ELISA (IgM, IgA pro akutní nákazu; IgG s testem avidity k odlišení staré/nové nákazy), KFR.<br>2. Real-time PCR (amniová tekutina u gravidity, likvor).",
-        terapie: "Pyrimethamin + Sulfadiazine (+ kyselina folinová). U těhotných v 1. trimestru Spiramycin."
-      },
-      quiz: [
-        {
-          q: "Které zvíře je definitivním hostitelem Toxoplasma gondii a vylučuje oocysty trusem?",
-          options: ["Pes", "Kočka", "Prase", "Skot"],
-          correct: 1,
-          explanation: "Pouze v střevním epitelu kočkovitých šelem probíhá sexuální cyklus T. gondii zakončený tvorbou a vylučováním oocyst."
-        }
-      ]
+    "cast_b": {
+        "title": "Trypanosomy – spavá nemoc a Chagasova choroba",
+        "keywords": [
+            "Trypanosoma brucei",
+            "Trypanosoma cruzi",
+            "moucha tse-tse",
+            "Chagasova nemoc",
+            "Winterbottom",
+            "Romana"
+        ],
+        "content": {
+            "definice": "<strong>Trypanosomy:</strong> Bičíkovití krevní a tkáňoví prvoci přenášení krvesajícím hmyzem.",
+            "etiologie": "• Africká trypanosomóza: <em>Trypanosoma brucei</em>. Přenáší moucha Tse-tse. Povrchový VSG antigen podléhá rychlé variaci.<br>• Americká trypanosomóza: <em>Trypanosoma cruzi</em>. Přenáší dravé ploštice výkaly při kousnutí.",
+            "klinicky": "• Spavá nemoc: Winterbottomovo znamení (zduření krčních uzlin) → CNS fáze (meningoencefalitida, somnolence, koma).<br>• Chagasova nemoc: Romanův příznak (otok víčka) → chronická kardiomyopatie, megacolon a megaesophagus.",
+            "laborator": "Mikroskopie periferní krve (tlustá kapka a nátěr barvený Giemsou), likvoru. Průkaz amastigotů v biopsii.",
+            "terapie": "Africká: Suramin, Pentamidin (1. fáze), Melarsoprol, Eflornithin (2. fáze). Americká: Benznidazol, Nifurtimox."
+        },
+        "quiz": [
+            {
+                "q": "Který členovec slouží jako hlavní přenašeč (vektor) spavé nemoci vyvolané Trypanosoma brucei?",
+                "options": [
+                    "Komár rodu Anopheles",
+                    "Moucha Tse-tse (rod Glossina)",
+                    "Dravá ploštice (rod Triatoma)",
+                    "Blecha morová"
+                ],
+                "correct": 1,
+                "explanation": "Spavou nemoc přenáší moucha Tse-tse (Glossina) slinami během sání krve hostitele."
+            },
+            {
+                "q": "Co tvoří charakteristický klinický nález u akutní fáze Chagasova onemocnění?",
+                "options": [
+                    "Opistotonus",
+                    "Romanův příznak (jednostranný nebolestivý otok očních víček a spojivky)",
+                    "Winterbottomovo znamení",
+                    "Zubní kaz"
+                ],
+                "correct": 1,
+                "explanation": "Romanův příznak je klasický projev průniku T. cruzi do spojivky po vmasírování výkalů ploštice."
+            }
+        ]
     }
-  },
-  {
-    id: "mikra-31",
-    cislo: 31,
-    skupina_a: "Farmakoterapie",
-    skupina_b: "Parazitologie",
-    cast_a: {
-      title: "Fluorochinolony – spektrum a indikace",
-      keywords: ["Ciprofloxacin", "Moxifloxacin", "DNA-gyráza", "topoizomeráza IV", "respirační chinolony", "kontraindikace"],
-      content: {
-        definice: "<strong>Fluorochinolony:</strong> Baktericidní syntetická chemoterapeutika. Působí koncentračně závislým efektem a mají vynikající tkáňovou distribuci. Kontraindikovány jsou u dětí (riziko poškození kloubních chrupavek) a těhotných.",
-        etiologie: "<strong>Mechanismus účinku:</strong> Inhibice bakteriálních enzymů <strong>DNA gyrázy</strong> (u G- bakterií, brání rozvolnění nadšroubovicového vinutí DNA) a <strong>topoizomerázy IV</strong> (u G+ bakterií, brání separaci replikovaných dceřiných chromozomů).<br><br><strong>Rozdělení a zástupci:</strong><br>• <em>Ciprofloxacin (II. gen):</em> Výborný účinek na G- aerobní bakterie. <strong>Nejsilnější protipseudomonádový chinolon!</strong> Neúčinný na pneumokoky a anaeroby. Indikace: Uroinfekce, otitis externa maligna (P. aeruginosa), legionelóza, závažné infekční průjmy (Salmonella, Shigella).<br>• <em>Moxifloxacin (IV. gen – respirační chinolon):</em> Zvýšená účinnost na G+ bakterie (včetně <em>S. pneumoniae</em>), atypické patogeny (Chlamydia, Mycoplasma) a anaeroby. Indikace: Komunitní respirační infekce (alternativa u závažné alergie na β-laktamy)."
-      },
-      quiz: [
-        {
-          q: "Který fluorochinolon má nejsilnější antimikrobiální účinek proti Pseudomonas aeruginosa?",
-          options: ["Moxifloxacin", "Ciprofloxacin", "Ofloxacin", "Norfloxacin"],
-          correct: 1,
-          explanation: "Ciprofloxacin je nejúčinnější protipseudomonádový fluorochinolon, používaný např. u maligní otitis externa."
-        }
-      ]
+},
+{
+    "id": "mikra-26",
+    "cislo": 26,
+    "skupina_a": "Bakteriologie",
+    "skupina_b": "Parazitologie",
+    "cast_a": {
+        "title": "Spirochety (Borrelia, Treponema, Leptospira)",
+        "keywords": [
+            "Borrelia burgdorferi",
+            "Treponema pallidum",
+            "Leptospira interrogans",
+            "syfilis",
+            "borelióza",
+            "Weilova nemoc"
+        ],
+        "content": {
+            "definice": "<strong>Spirochety:</strong> Tenké spirálovité bakterie s endoflagely zajišťujícími rotační pohyb.",
+            "etiologie": "• <em>Treponema pallidum:</em> Původce syfilis. Nelze kultivovat in vitro.<br>• <em>Borrelia burgdorferi:</em> Původce Lymské boreliózy. Přenašeč klíště <em>Ixodes ricinus</em>.<br>• <em>Leptospira interrogans:</em> Původce leptospirózy. Přenos vodou kontaminovanou močí hlodavců.",
+            "klinicky": "• Syfilis: 1. stadium (ulcus durum), 2. stadium (exantém, condylomata lata), 3. stadium (gummata, tabes dorsalis, kardiovaskulární postižení).<br>• Borelióza: 1. stadium (erythema migrans), 2. stadium (neuroborelióza, lymfocytom, meningoradikulitida), 3. stadium (artritida, acrodermatitis chronica atrophicans).<br>• Leptospiróza: chřipkovité stadium → Weilova nemoc (žloutenka, renální selhání, krvácení).",
+            "laborator": "Syfilis: zástinová mikroskopie z vředu, screening netreponemový (RRR, VDRL), konfirmace specifickými treponemovými testy (TPHA, ELISA, WB). Borelióza: sérologie ELISA + Western Blot.",
+            "terapie": "Syfilis: Lék volby: **Penicilin G** (i.m. benzathin-penicilin). Borelióza: Doxycyklin, Ceftriaxon."
+        },
+        "quiz": [
+            {
+                "q": "Který sérologický test na syfilis patří mezi specifické treponemové testy používané k potvrzení reaktivity screeningu?",
+                "options": [
+                    "RRR (Rychlá reaginová reakce)",
+                    "VDRL (Venereal Disease Research Laboratory)",
+                    "TPHA (Treponema pallidum hemaglutinační test)",
+                    "Weilova-Felixova reakce"
+                ],
+                "correct": 2,
+                "explanation": "TPHA využívá specifické treponemové antigeny a zůstává pozitivní po celý život i po úspěšném vyléčení."
+            },
+            {
+                "q": "Jaký klinický projev je typický pro první stádium Lymské boreliózy a objevuje se obvykle 1–3 týdny po přisátí klíštěte?",
+                "options": [
+                    "Opistotonus",
+                    "Erythema migrans (stěhovavé zarudnutí s centrálním vyblednutím)",
+                    "Ulcus durum",
+                    "Karditida"
+                ],
+                "correct": 1,
+                "explanation": "Erythema migrans je patognomická kožní léze s průměrem větším než 5 cm, která se centrifugálně šíří a uprostřed bledne."
+            }
+        ]
     },
-    cast_b: {
-      title: "Malárie – Plasmodium sp.",
-      keywords: ["Plasmodium falciparum", "Anopheles", "horečka terciána", "horečka kvartána", "tlustá kapka", "chinin"],
-      content: {
-        definice: "<strong>Malárie:</strong> Transmisivní horečnaté onemocnění vyvolané intracelulárními parazity rodu <em>Plasmodium</em>. Přenašečem je samička komára <em>Anopheles</em>.",
-        etiologie: "<strong>Klinicky významné druhy:</strong><br>• <em>P. falciparum:</em> Tropická malárie (nejtěžší, nepravidelná horečka, risk ucpání kapilár – mozková malárie, orgánové selhání, DIC).<br>• <em>P. vivax a P. ovale:</em> Třídenní malárie (horečka terciána – paroxysmy co 48h). Mohou přežívat v játrech jako hypnozoiti → recidivy.<br>• <em>P. malariae:</em> Čtyřdenní malárie (horečka kvartána – paroxysmy co 72h).<br><br><strong>Životní cyklus:</strong> Komár vstříkne <strong>sporozoity</strong> → jaterní (exoerytrocytární) fáze (množení v hepatocytech, uvolnění merozoitů) → erytrocytární fáze (merozoity napadají erytrocyty → prstence → schizonti → prasknutí erytrocytu vyvolá horečnatý záchvat). Vznik gametocytů (nasávány komárem).",
-        laborator: "Odběr krve při záchvatu (vzestup horečky).<br>1. Mikroskopie: <strong>Tlustá kapka</strong> (koncentrační metoda pro průkaz přítomnosti plasmodií) a <strong>tenký krevní nátěr</strong> (obarvený Giemsou, pro přesné určení druhu a stupně parazitémie).<br>2. Imunochromatografické rychlotesty (detekce HRP-2 nebo LDH).",
-        terapie: "Artemisinin-based kombinovaná terapie (ACT), Chinin (pro těžké formy), Chlorochin (pro citlivé kmeny), Primachin (k eliminaci hypnozoitů v játrech)."
-      },
-      quiz: [
-        {
-          q: "Která metoda se v laboratoři standardně používá k určení druhu plasmodia u pacienta s malárií?",
-          options: ["Kultivace na Sabouraudově agaru", "Tlustá kapka", "Tenký krevní nátěr barvený Giemsou", "Průkaz protilátek KFR"],
-          correct: 2,
-          explanation: "Tenký krevní nátěr zachovává morfologii erytrocytů a umožňuje spolehlivě odlišit jednotlivé druhy plasmodií."
-        }
-      ]
+    "cast_b": {
+        "title": "Leishmanie – kožní, slizniční a viscerální leishmanióza",
+        "keywords": [
+            "Leishmania donovani",
+            "kala-azar",
+            "pískomil",
+            "amastigot",
+            "antimon"
+        ],
+        "content": {
+            "definice": "<strong>Leishmanie:</strong> Intracelulární prvoci napadající makrofágy. Přenašečem je krevsající hmyz rodu <em>Phlebotomus</em>.",
+            "etiologie": "• Viscerální leishmanióza (kala-azar): <em>Leishmania donovani, L. infantum</em>.<br>• Kožní leishmanióza (orientální vřed): <em>L. tropica, L. major</em>.<br>• Mukokutánní leishmanióza (espundia): <em>L. braziliensis</em> (destrukce chrupavek nosu a úst).",
+            "klinicky": "Viscerální (kala-azar): splenomegalie, hepatomegalie, horečky, pancytopenie a šedavá hyperpigmentace kůže (černá nemoc). Kožní: nebolestivý vřed s vyvýšenými okraji v místě kousnutí.",
+            "laborator": "Nález **amastigotů** (bezbičíkatých buněk s kinetoplastem) v nátěrech z kostní dřeně, sleziny nebo biopsie z okrajů vředu barvených Giemsou. PCR.",
+            "terapie": "Pentavalentní antimon (Meglumin), Amfotericin B, Miltefosin."
+        },
+        "quiz": [
+            {
+                "q": "Které stádium leishmanií se nachází v buňkách mononukleárního fagocytárního systému (makrofázích) infikovaného člověka?",
+                "options": [
+                    "Promastigot (bičíkatá forma)",
+                    "Amastigot (bezbičíkatá intracelulární forma)",
+                    "Sporozoit",
+                    "Cysta"
+                ],
+                "correct": 1,
+                "explanation": "Promastigoti z phlebotoma jsou pohlceni makrofágy, kde ztrácejí bičík a transformují se v amastigoty."
+            },
+            {
+                "q": "Viscerální leishmanióza (kala-azar) vyvolaná Leishmania donovani se projevuje triádou:",
+                "options": [
+                    "Horečka, masivní hepatosplenomegalie a pancytopenie",
+                    "Hematurie, dysurie a kalcifikace měchýře",
+                    "Chabá paréza, slepota a vypadávání vlasů",
+                    "Opistotonus, trismus a risus sardonicus"
+                ],
+                "correct": 0,
+                "explanation": "Masivní splenomegalie s útlumem kostní dřeně a horečkami je typický obraz kala-azar."
+            }
+        ]
     }
-  },
-  {
-    id: "mikra-32",
-    cislo: 32,
-    skupina_a: "Farmakoterapie",
-    skupina_b: "Parazitologie",
-    cast_a: {
-      title: "Makrolidy, azalidy a linkosamidy",
-      keywords: ["Klaritromycin", "Azitromycin", "Klindamycin", "inhibice proteosyntézy", "atypické pneumonie", "toxický šok"],
-      content: {
-        definice: "<strong>Makrolidy, azalidy a linkosamidy:</strong> Bakteriostatická antibiotika blokující proteosyntézu vazbou na 50S podjednotku ribozomu. Vykazují vysoké tkáňové koncentrace a dobrou účinnost na intracelulární patogeny.",
-        etiologie: "<strong>1. Makrolidy a azalidy:</strong><br>• Spektrum: G+ koky, atypické patogeny (Mycoplasma, Chlamydia, Legionella), někteří G- (Campylobacter, Bordetella).<br>• <em>Erytromycin:</em> Krátkodobý, GIT nežádoucí účinky. Lék volby pro záškrt, pertusi, mycoplasmovou pneumonii.<br>• <em>Klaritromycin:</em> Střednědobý. Součást eradikace <em>Helicobacter pylori</em>.<br>• <em>Azitromycin:</em> Dlouhodobý azalid s extrémním tkáňovým poločasem (léčba 3 dny). Urogenitální chlamydióza, legionelóza.<br>• <em>Spiramycin:</em> Léčba toxoplasmózy u těhotných.<br><br><strong>2. Linkosamidy (Klindamycin):</strong><br>• Spektrum: G+ koky (stafylokoky, streptokoky) a <strong>striktní anaeroby</strong> (včetně <em>Bacteroides fragilis</em>).<br>• Indikace: Abscedující nitrobřišní a pánevní infekce (v kombinaci), infekce kostí a kloubů. Jako inhibitor proteosyntézy potlačuje tvorbu toxinů u stafylokokového/streptokokového syndromu toxického šoku."
-      },
-      quiz: [
-        {
-          q: "Které antibiotikum se jako inhibitor proteosyntézy přidává k potlačení produkce toxinů u syndromu toxického šoku?",
-          options: ["Amoxicilin", "Klindamycin", "Gentamicin", "Ciprofloxacin"],
-          correct: 1,
-          explanation: "Klindamycin tlumí proteosyntézu v bakteriální buňce, čímž zastavuje syntézu a uvolňování bakteriálních exotoxinů."
-        }
-      ]
+},
+{
+    "id": "mikra-27",
+    "cislo": 27,
+    "skupina_a": "Farmakoterapie",
+    "skupina_b": "Parazitologie",
+    "cast_a": {
+        "title": "Peniciliny – základní a kombinované",
+        "keywords": [
+            "Penicilin G",
+            "Amoxicilin",
+            "Kyselina klavulanová",
+            "ampicilin",
+            "oxacilin",
+            "betalaktamáza"
+        ],
+        "content": {
+            "definice": "<strong>Peniciliny:</strong> β-laktamová baktericidní antibiotika. Blokují transpeptidázy (PBP - penicillin-binding proteins) odpovědné za syntézu peptidoglykanu stěny.",
+            "klasifikace": "• <strong>Základní:</strong> Penicilin G (i.v. - syfilis, streptokokové infekce, meningokok), Penicilin V (p.o. - streptokoková tonzilitida).<br>• <strong>Odolné k penicilináze:</strong> Oxacilin (lék volby pro citlivé S. aureus - MSSA).<br>• <strong>Aminopeniciliny:</strong> Ampicilin, Amoxicilin (G+, Listeria, enterokoky, někteří G-).<br>• <strong>Potencované peniciliny (s inhibitory β-laktamáz):</strong> Amoxicilin/klavulanát (p.o.), Ampicilin/sulbaktam (i.v.), Piperacilin/tazobaktam (i.v. - s protipseudomonádovým účinkem)."
+        },
+        "quiz": [
+            {
+                "q": "Které antibiotikum je lékem první volby pro cílenou léčbu infekcí vyvolaných meticilin-citlivým Staphylococcus aureus (MSSA)?",
+                "options": [
+                    "Oxacilin",
+                    "Ampicilin",
+                    "Penicilin G",
+                    "Vankomycin"
+                ],
+                "correct": 0,
+                "explanation": "Oxacilin je stabilní vůči stafylokokové beta-laktamáze a představuje lék volby pro závažné MSSA infekce."
+            },
+            {
+                "q": "Který inhibitor beta-laktamáz se přidává k amoxicilinu k obnovení jeho účinku proti kmenům produkujícím širokospektré beta-laktamázy?",
+                "options": [
+                    "Sulbaktam",
+                    "Tazobaktam",
+                    "Kyselina klavulanová",
+                    "Cilastatin"
+                ],
+                "correct": 2,
+                "explanation": "Kyselina klavulanová se ireverzibilně váže na aktivní místo beta-laktamázy (sebevražedný inhibitor) a chrání amoxicilin před degradací."
+            }
+        ]
     },
-    cast_b: {
-      title: "Motolice (Trematoda) – Schistosomy",
-      keywords: ["Schistosoma", "krevnička", "cerkárie", "elefantiáza", "hematurie", "praziquantel"],
-      content: {
-        definice: "<strong>Schistosomy (krevničky):</strong> Ploší červi (motolice) s odděleným pohlavím. Způsobují schistosomózu (bilharziózu) – závažné urogenitální a střevní/jaterní onemocnění v tropech.",
-        etiologie: "<strong>Klinicky významné druhy:</strong><br>• <em>Schistosoma haematobium:</em> Urogenitální schistosomóza. Samičky kladou vajíčka s trnem do žilního plexu močového měchýře. Příznaky: terminální hematurie, cystitida, tvorba granulomů a kalcifikace měchýře (riziko karcinomu!).<br>• <em>Schistosoma mansoni a S. japonicum:</em> Střevní a jaterní schistosomóza. Vajíčka pronikají do střeva (krvavé průjmy) a portálního oběhu jater (granulomy, periportální fibróza, portální hypertenze, splenomegalie, ascites).<br><br><strong>Životní cyklus:</strong> Vajíčka vyloučená močí/stolicí do vody → líhne se miracidium → vývoj v plži (mezihostitel) → cerkárie opouštějí plže a aktivně provrtávají kůži člověka při koupání → migrace krví do cílových žil.",
-        laborator: "Mikroskopický průkaz typických vajíček s trnem (močový sediment po cvičení u S. haematobium, stolice u S. mansoni/japonicum). ELISA.",
-        terapie: "Lék volby: Praziquantel."
-      },
-      quiz: [
-        {
-          q: "Který druh krevničky typicky způsobuje urogenitální formu schistosomózy s hematurií a fibrózou močového měchýře?",
-          options: ["Schistosoma mansoni", "Schistosoma japonicum", "Schistosoma haematobium", "Fasciola hepatica"],
-          correct: 2,
-          explanation: "Schistosoma haematobium dospívá v cévních pleteních močového měchýře, kam klade vajíčka s typickým terminálním trnem."
-        }
-      ]
+    "cast_b": {
+        "title": "Střevní protozoární nákazy (Giardia, Entamoeba, Cryptosporidium)",
+        "keywords": [
+            "Giardia lamblia",
+            "Entamoeba histolytica",
+            "Cryptosporidium parvum",
+            "dysenterie",
+            "cysty",
+            "metronidazol"
+        ],
+        "content": {
+            "definice": "<strong>Střevní protozoózy:</strong> Infekce vyvolané jednobuněčnými prvoky, přenášené fekálně-orální cestou pozřením odolných cyst z kontaminované vody nebo potravy.",
+            "etiologie": "• <em>Entamoeba histolytica:</em> Původce amébové úplavice. Invazivní trofozoit tvoří proteázy, narušuje sliznici (vředy tvaru lahve).<br>• <em>Giardia lamblia (bičenka střevní):</em> Trofozoit s přísavným diskem přisedá na enterocyty duodena → malabsorpce tuků.<br>• <em>Cryptosporidium parvum:</em> Coccidie parazitující v enterocytech. Oocysty jsou acidorezistentní.",
+            "klinicky": "• Amébiáza: krvavé hlenovité průjmy s tenesmy (amébová úplavice), komplikací je amébový absces jater (čokoládový hnis).<br>• Giardiáza: vodnaté, mastné a silně páchnoucí stolice, nadýmání, hubnutí.<br>• Kryptosporidióza: profúzní vodnaté průjmy; u pacientů s AIDS těžká dehydratace s rizikem smrti.",
+            "laborator": "Mikroskopie stolice (nativ a barvení Faustovou koncentrační metodou k průkazu cyst). Průkaz antigenů (ELISA), PCR. U Cryptosporidia barvení dle Miláčka (modifikované Ziehl-Neelsen).",
+            "terapie": "Metronidazol (pro Amébu a Giardii). Pro Cryptosporidium: Nitazoxanid, rehydratace."
+        },
+        "quiz": [
+            {
+                "q": "Který střevní prvok způsobuje krvavě-hlenovité průjmy a může u pacienta vyvolat mimostřevní komplikaci v podobě jaterního abscesu?",
+                "options": [
+                    "Giardia lamblia",
+                    "Entamoeba histolytica",
+                    "Cryptosporidium parvum",
+                    "Trichomonas vaginalis"
+                ],
+                "correct": 1,
+                "explanation": "Entamoeba histolytica invaduje střevní stěnu a portálním oběhem může vycestovat do jater, kde zakládá amébový absces."
+            },
+            {
+                "q": "Giardia lamblia parazituje v tenkém střevě (duodenu) člověka. Její přítomnost vede typicky k:",
+                "options": [
+                    "Tvorbě hlubokých vředů s krvácením",
+                    "Malabsorpci tuků (steatorhei) a nadýmání bez přítomnosti krve ve stolici",
+                    "Vzniku plicních eozinofilních infiltrátů",
+                    "Ztrátě vlasů"
+                ],
+                "correct": 1,
+                "explanation": "Trofozoiti mechanicky pokrývají sliznici duodena a jejuna přísavnými disky, čímž blokují absorpci tuků."
+            }
+        ]
     }
-  },
-  {
-    id: "mikra-33",
-    cislo: 33,
-    skupina_a: "Farmakoterapie",
-    skupina_b: "Parazitologie",
-    cast_a: {
-      title: "Tetracykliny a glycylcykliny",
-      keywords: ["Doxycyklin", "Tigecyklin", "zubní sklovina", "atypické patogeny", "lymsea borelióza", "MDR patogeny"],
-      content: {
-        definice: "<strong>Tetracykliny a glycylcykliny:</strong> Širokospektrá bakteriostatická antibiotika inhibující proteosyntézu vazbou na 30S podjednotku ribozomu.",
-        etiologie: "<strong>1. Tetracykliny (Doxycyklin):</strong><br>• Široké spektrum: G+, G-, atypičtí patogeny (Chlamydia, Mycoplasma, Rickettsia, Coxiella), spirochety, některé prvoky.<br>• Indikace: Lymská borelióza (časná kožní fáze), urogenitální chlamydióza, tularemie, brucelóza, leptospiróza.<br>• Nežádoucí účinky: Ukládání do kostí a zubní skloviny u dětí (kontraindikace do 8 let), fototoxicita, GIT intolerance.<br><br><strong>2. Glycylcykliny (Tigecyklin):</strong><br>• Odvozen od tetracyklinů, odolný vůči běžným mechanismům rezistence (eflux, protekce ribozomu).<br>• Spektrum: Extrémně široké, působí na MRSA, VRE, ESBL a G- rezistentní kmeny. **Neúčinkuje na Pseudomonas a Proteus!**<br>• Indikace: Pouze jako alternativa u multirezistentních smíšených infekcí kůže a nitrobřišních procesů. V séru dosahuje nízkých koncentrací (nehodí se pro urosepsi/bakteriemii)."
-      },
-      quiz: [
-        {
-          q: "Proč jsou tetracykliny (např. Doxycyklin) kontraindikovány u dětí do 8 let a těhotných?",
-          options: ["Způsobují akutní selhání ledvin", "Vážou se na vápník a ukládají se v kostech a vyvíjející se zubní sklovině", "Vyvolávají aplastickou anémii", "Způsobují chabou obrnu svalstva"],
-          correct: 1,
-          explanation: "Tetracykliny chelatují vápník a ukládají se v kalcifikujících tkáních, což vede k trvalé diskoloraci zubů a defektům skloviny."
-        }
-      ]
+},
+{
+    "id": "mikra-28",
+    "cislo": 28,
+    "skupina_a": "Farmakoterapie",
+    "skupina_b": "Parazitologie",
+    "cast_a": {
+        "title": "Cefalosporiny – rozdělení a indikace",
+        "keywords": [
+            "Cefazolin",
+            "Cefuroxim",
+            "Ceftriaxon",
+            "Cefepim",
+            "Ceftarolin",
+            "pseudomonas"
+        ],
+        "content": {
+            "definice": "<strong>Cefalosporiny:</strong> β-laktamová baktericidní antibiotika. Vyšší odolnost k β-laktamázám než peniciliny. S vyšší generací roste účinnost na G- a klesá/mění se účinnost na G+.",
+            "klasifikace": "• <strong>I. generace (Cefazolin i.v.):</strong> Výborný na G+ (stafylokoky, streptokoky). Cefazolin je lékem volby pro chirurgickou profylaxi!<br>• <strong>II. generace (Cefuroxim, Cefoxitin):</strong> Vyšší G- spektrum. Komunitní infekce.<br>• <strong>III. generace (Ceftriaxon, Cefotaxim, Ceftazidim):</strong> Ceftriaxon/Cefotaxim výborně pronikají do likvoru (léčba meningitid). **Ceftazidim má protipseudomonádový účinek!**<br>• <strong>IV. generace (Cefepim):</strong> Široké G+ i G- spektrum včetně <em>P. aeruginosa</em>. Sepse.<br>• <strong>V. generace (Ceftarolin):</strong> Účinný na **MRSA** (vazba na mutantní PBP2a)."
+        },
+        "quiz": [
+            {
+                "q": "Který cefalosporin III. generace má výrazný protipseudomonádový účinek?",
+                "options": [
+                    "Cefotaxim",
+                    "Ceftriaxon",
+                    "Ceftazidim",
+                    "Cefazolin"
+                ],
+                "correct": 2,
+                "explanation": "Ceftazidim je cefalosporin 3. generace se specifickým vysokým účinkem proti Pseudomonas aeruginosa."
+            },
+            {
+                "q": "Jednorázové i.m. nebo i.v. podání Ceftriaxonu je standardním způsobem léčby pro:",
+                "options": [
+                    "Nekomplikovanou kapavku (Neisseria gonorrhoeae)",
+                    "Lymskou boreliózu 3. fáze",
+                    "Pneumocystovou pneumonii",
+                    "Pseudomembranózní kolitidu"
+                ],
+                "correct": 0,
+                "explanation": "Ceftriaxon (500 mg až 1 g i.m. s lidokainem) je lékem volby pro nekomplikované kapavčité infekce."
+            }
+        ]
     },
-    cast_b: {
-      title: "Plicní a jaterní motolice (Fasciola, Paragonimus)",
-      keywords: ["Fasciola hepatica", "Paragonimus westermani", "bahnatka", "metacerkárie", "rak", "hemoptýza"],
-      content: {
-        definice: "<strong>Plicní a jaterní motolice:</strong> Ploší červi parazitující v parenchymu a vývodech jater a plic mezihostitelů a definitivních hostitelů.",
-        etiologie: "<strong>1. Fasciola hepatica (Motolice jaterní):</strong><br>• Žije ve žlučovodech ovcí, skotu a člověka.<br>• Životní cyklus: Vajíčko do vody → miracidium → sladkovodní plž (bahnatka malá) → cerkárie encystuje na vodních rostlinách (metacerkárie / adoleskárie). Člověk se nakazí pozřením rostlin (řeřišnice). Larva proniká ze střeva do jater a žlučovodů (žije až 9 let).<br>• Projevy: Hepatomegalie, ucpání žlučovodů, cholangitida, eosinofilie. Terapie: Triklabendazol.<br><br><strong>2. Paragonimus westermani (Motolice plicní):</strong><br>• Uhnízděná v cystických ložiscích plic.<br>• Cyklus: První mezihostitel plž → druhý mezihostitel sladkovodní krab/rak (encystace metacerkárií). Člověk se nakazí pozřením syrových korýšů. Larvy migrují přes střevo a bránici do plic.<br>• Projevy: Suchý kašel, vykašlávání rezavého sputa s rybím pachem (obsahuje vajíčka), hemoptýza (napodobuje TBC). Terapie: Praziquantel.",
-        laborator: "Mikroskopický průkaz vajíček ve stolici/duodenální šťávě (Fasciola) nebo ve sputu/stolici (Paragonimus). Sérologie (ELISA)."
-      },
-      quiz: [
-        {
-          q: "Jak se člověk nejčastěji nakazí motolicí plicní (Paragonimus westermani)?",
-          options: ["Pozřením nedostatečně tepelně upravených sladkovodních krabů nebo raků", "Vdechnutím infekčních vajíček z prachu", "Aktivním provrtáním cerkárií kůží při koupání", "Kousnutím komára Anopheles"],
-          correct: 0,
-          explanation: "Infekčním stádiem P. westermani jsou metacerkárie ve svalech sladkovodních krabů a raků; k nákaze dochází jejich konzumací za syrova."
-        }
-      ]
+    "cast_b": {
+        "title": "Trichomonas vaginalis a urogenitální bičíkovci",
+        "keywords": [
+            "Trichomonas vaginalis",
+            "trichomoniáza",
+            "poševní výtok",
+            "metronidazol",
+            "axostyl"
+        ],
+        "content": {
+            "definice": "<strong>Trichomonas vaginalis (Bičenka poševní):</strong> Bičíkovec napadající urogenitální trakt člověka. Přenáší se výhradně sexuálním stykem. **Netvoří cystické stádium!**",
+            "etiologie": "Trofozoit tvaru hrušky se 4 volnými bičíky, undulující membránou a osní tyčinkou (axostyl). Přemnožuje se při poševním pH > 4.5.",
+            "klinicky": "Ženy: zpěněný, hojný zelenokřídlový páchnoucí výtok, jahodové hrdlo, dysurie, pruritus.<br>Muži: asymptomatické nosičství v uretře a prostatě; mírná uretritida.",
+            "laborator": "1. Nativní preparát z poševního sekretu (záchyt kmitajících trofozoitů).<br>2. Kultivace v C.A.T. médiu, PCR.",
+            "terapie": "Metronidazol p.o. **Vždy je nutná současná léčba obou sexuálních partnerů!**"
+        },
+        "quiz": [
+            {
+                "q": "Proč je nutné přiléčit sexuálního partnera při záchytu Trichomonas vaginalis u ženy?",
+                "options": [
+                    "Partner má vždy těžkou formou orchitidy",
+                    "Muži bývají asymptomatičtí přenašeči a došlo by k okamžité reinfekci",
+                    "Trichomonas způsobuje neplodnost u mužů do 24h",
+                    "Prvok se přenáší pouze vzduchem v domácnosti"
+                ],
+                "correct": 1,
+                "explanation": "Muži bývají bezpříznakovými rezervoáry v uretře; bez léčby obou partnerů nastává okamžitá reinfekce."
+            },
+            {
+                "q": "Čím se Trichomonas vaginalis liší od většiny ostatních střevních a tkáňových prvoků?",
+                "options": [
+                    "Vytváří extrémně odolné dvojité cysty",
+                    "Vytváří pouze trofozoity a zcela netvoří cystické stádium",
+                    "Nemá žádná jádra ani bičíky",
+                    "Množí se pouze v erytrocytech"
+                ],
+                "correct": 1,
+                "explanation": "Trichomonas vaginalis existuje výhradně ve formě trofozoitu a netvoří odolné cysty, proto je odkázána na přímý přenos slizničním kontaktem."
+            }
+        ]
     }
-  },
-  {
-    id: "mikra-34",
-    cislo: 34,
-    skupina_a: "Farmakoterapie",
-    skupina_b: "Parazitologie",
-    cast_a: {
-      title: "Rifampicin, metronidazol, nitrofurantoin a fidaxomycin",
-      keywords: ["Rifampicin", "Metronidazol", "Nitrofurantoin", "Fidaxomycin", "Clostridium difficile", "uroinfekce"],
-      content: {
-        definice: "<strong>Rifampicin, metronidazol, nitrofurantoin a fidaxomycin:</strong> Různorodá skupina atb a chemoterapeutik se specifickými indikacemi (TBC, anaeroby, uroinfekce, klostridiová kolitida).",
-        etiologie: "<strong>1. Rifampicin:</strong><br>• Blokuje bakteriální RNA-polymerázu. Výborný průnik do tkání a makrofágů. Rychlý vznik rezistence (nikdy v monoterapii!). Indikace: Tuberkulóza, multirezistentní stafylokokové infekce (s rifampicinem u implantátů), profylaxe meningokokové meningitidy.<br><br><strong>2. Metronidazol:</strong><br>• Nitroimidazol. Ve striktně anaerobním prostředí se redukuje na toxické radikály štěpící DNA. Indikace: **Infekce vyvolané anaeroby** (B. fragilis, Clostridia), gynekologické nitrobřišní procesy, pseudomembranózní kolitida (C. difficile), protozoární infekce (Trichomonas, Entamoeba, Giardia).<br><br><strong>3. Nitrofurantoin:</strong><br>• Cílí na bakteriální ribozomy a metabolické enzymy. Dosahuje terapeutické koncentrace **pouze v moči** (rychlá eliminace). Indikace: Nekomplikované uroinfekce (cystitidy). Rezistentní jsou Proteus a Pseudomonas.<br><br><strong>4. Fidaxomycin:</strong><br>• Úzkospektré makrocyklické atb. Minimálně se vstřebává z GIT. Selektivně účinkuje na <em>Clostridium difficile</em> (nižší riziko recidivy než u vankomycinu)."
-      },
-      quiz: [
-        {
-          q: "Které z léčiv je indikováno výhradně pro nekomplikované infekce močových cest (cystitidy) kvůli absenci systémového účinku?",
-          options: ["Rifampicin", "Metronidazol", "Nitrofurantoin", "Fidaxomycin"],
-          correct: 2,
-          explanation: "Nitrofurantoin se po podání rychle vylučuje do moče, kde dosahuje vysokých koncentrací, zatímco sérové a tkáňové hladiny jsou neúčinné."
-        }
-      ]
+},
+{
+    "id": "mikra-29",
+    "cislo": 29,
+    "skupina_a": "Farmakoterapie",
+    "skupina_b": "Parazitologie",
+    "cast_a": {
+        "title": "Karbapenemy a karbapenemázy",
+        "keywords": [
+            "Meropenem",
+            "Imipenem",
+            "Ertapenem",
+            "KPC",
+            "NDM",
+            "ESBL",
+            "nozokomiální"
+        ],
+        "content": {
+            "definice": "<strong>Karbapenemy:</strong> Ultra-širokospektrá β-laktamová záložní antibiotika vyhrazená pro těžké nozokomiální infekce a kmeny s produkcí ESBL a AmpC.",
+            "klasifikace": "Meropenem, Imipenem (+ Cilastatin), Ertapenem.<br>• Účinek: Baktericidní na G+, G- (včetně P. aeruginosa) a anaeroby.<br>• Ertapenem NEÚČINKUJE na Pseudomonas a Acinetobacter!<br>• Karbapenemázy: KPC (třída A), NDM-1 / MBL (třída B), OXA-48 (třída D).",
+            "terapie": "Nozokomiální sepse, febrilní neutropenie, závažné intraabdominální infekce."
+        },
+        "quiz": [
+            {
+                "q": "Který karbapenem nemá účinek proti Pseudomonas aeruginosa?",
+                "options": [
+                    "Meropenem",
+                    "Imipenem",
+                    "Ertapenem",
+                    "Doripenem"
+                ],
+                "correct": 2,
+                "explanation": "Ertapenem má sice dlouhý poločas, ale chybí mu účinnost proti Pseudomonas aeruginosa a Acinetobacter spp."
+            },
+            {
+                "q": "Novodobé Metalo-β-laktamázy (MBL, např. NDM-1) způsobují rezistenci bakterií vůči karbapenemům a vyžadují k činnosti iont:",
+                "options": [
+                    "Vápníku (Ca²⁺)",
+                    "Zinku (Zn²⁺)",
+                    "Železa (Fe³⁺)",
+                    "Hořčíku (Mg²⁺)"
+                ],
+                "correct": 1,
+                "explanation": "Metalo-beta-laktamázy (třída B, např. NDM-1) využívají ve svém aktivním místě iont zinku Zn²⁺ k hydrolytickému štěpení β-laktamového kruhu."
+            }
+        ]
     },
-    cast_b: {
-      title: "Tasemnice (Cestoda) – střevní a tkáňové formy",
-      keywords: ["Taenia saginata", "Taenia solium", "cysticerkóza", "boubel", "skolex", "praziquantel"],
-      content: {
-        definice: "<strong>Tasemnice:</strong> Ploší červi cizopasící ve střevě dospělého hostitele (střevní teniózy) nebo ve tkáních jako larvy (tkáňové formy). Nemají trávicí trakt, živiny vstřebávají povrchem těla.",
-        etiologie: "<strong>1. Tasemnice bezbranná (Taenia saginata):</strong><br>• Mezihostitel: skot (boubel = <em>Cysticercus bovis</em> ve svalech). Definitivní hostitel: pouze člověk.<br>• Skolex nese pouze přísavky (bez háčků). Články jsou aktivně pohyblivé, děloha je bohatě větvená (> 15 větví).<br>• Projevy: mírné zažívací potíže. Terapie: Praziquantel, Niklosamid.<br><br><strong>2. Tasemnice dlouhočlenná (Taenia solium):</strong><br>• Mezihostitel: prase, **ale i člověk!** Definitivní hostitel: pouze člověk.<br>• Skolex nese přísavky i věnec háčků (ozbrojená). Články nepohyblivé, děloha chudě větvená (< 12 větví).<br>• Střevní forma: tenióza (pozření vepřového s boubelem <em>Cysticercus cellulosae</em>).<br>• Tkáňová forma: **Cysticerkóza**. Vzniká pozřením vajíček T. solium (kontaminovaná potrava/voda, autoinfekce při zvracení článků). Larvy (cysticerkové) migrují do svalů, oka a CNS (neurocysticerkóza – vyvolává epilepsii, nitrolební hypertenzi, hydrocefalus). Terapie: Albendazol + dexamethason, chirurgie."
-      },
-      quiz: [
-        {
-          q: "Pozřením čeho se člověk nakazí nebezpečnou tkáňovou formou tasemnice – cysticerkózou (Taenia solium)?",
-          options: ["Pozřením larvy (boubele) v hovězím mase", "Pozřením vajíček Taenia solium", "Pozřením dospělého červa", "Průnikem larev přes kůži při chůzi naboso"],
-          correct: 1,
-          explanation: "Cysticerkóza vzniká tehdy, pokud člověk funguje jako mezihostitel, což nastává výhradně po pozření vajíček (nikoli larev) T. solium."
-        }
-      ]
+    "cast_b": {
+        "title": "Volně žijící améby (Naegleria, Acanthamoeba, Balamuthia)",
+        "keywords": [
+            "Naegleria fowleri",
+            "Acanthamoeba",
+            "Balamuthia",
+            "PAM",
+            "amébová keratitida",
+            "kontaktní čočky"
+        ],
+        "content": {
+            "definice": "<strong>Volně žijící (amfizoické) améby:</strong> Měňavky běžně žijící v prostředí (teplá voda, půda), které mohou způsobit letální neuroinfekce a oční infekce.",
+            "etiologie": "1. <em>Naegleria fowleri:</em> Primární amébová meningoencefalitida (PAM) po koupání v teplé vodě přes čichovou kost. Smrtnost > 98 %.<br>2. <em>Acanthamoeba spp.:</em> Amébová keratitida u nositelů kontaktních čoček (nákaza z vodovodu). GAE u imunodeficitů.<br>3. <em>Balamuthia mandrillaris:</em> Chronická granulomatózní encefalitida.",
+            "terapie": "Naegleria: Amfotericin B + Miltefosin. Acanthamoeba keratitida: Chlorhexidin / Propamidin oční kapky."
+        },
+        "quiz": [
+            {
+                "q": "Naegleria fowleri proniká do mozku člověka nejčastěji při koupání cestou:",
+                "options": [
+                    "Zvukovodu",
+                    "Sliznice nosní přes lamina cribrosa čichové kosti",
+                    "Oční spojivky",
+                    "Kousnutím komára"
+                ],
+                "correct": 1,
+                "explanation": "Voda s trofozoity vnikne do nosu → parazit proniká podél nervus olfactorius přes lamina cribrosa přímo do čelního laloku mozku."
+            },
+            {
+                "q": "Nebezpečná amébová keratitida způsobená Acanthamoeba spp. vzniká nejčastěji v souvislosti s:",
+                "options": [
+                    "Konzumací mořských ryb",
+                    "Nedostatečnou hygienou a oplachováním kontaktních čoček vodovodní vodou",
+                    "Inhalací spor v lesním prostředí",
+                    "Aplikací očních kapek s neomycinem"
+                ],
+                "correct": 1,
+                "explanation": "Oplachování neschválených kontaktních čoček vodou z vodovodu přenáší Acanthamoebu na rohovku s vznikem krutě bolestivé keratitidy."
+            }
+        ]
     }
-  },
-  {
-    id: "mikra-35",
-    cislo: 35,
-    skupina_a: "Diagnostika",
-    skupina_b: "Parazitologie",
-    cast_a: {
-      title: "Diagnostika sepse a infekcí krevního řečiště",
-      keywords: ["sepse", "hemokultura", "SIRS", "biomarkery", "prokalcitonin", "katétrová sepse"],
-      content: {
-        definice: "<strong>Sepse:</strong> Život ohrožující orgánová dysfunkce způsobená dysregulovanou odpovědí hostitele na infekci. Běžně se hodnotí pomocí qSOFA (alterace vědomí, hypotenze, tachypnoe) nebo kritérií SIRS.",
-        etiologie: "<strong>Hemokultivace:</strong> Zlatý standard diagnostiky.<br>• Odběr: Vždy před zahájením ATB léčby! Zajištění aseptického postupu (desinfekce kůže k zamezení kontaminace kožním staphylococcus epidermidis).<br>• Sada: 1 aerobní + 1 anaerobní lahvička. Odebírají se standardně 2 sady (ze dvou různých venepunkcí, celkem 4 lahvičky). Objem krve: 8–10 ml na lahvičku.<br>• Detekce: Automatizované kultivační systémy detekují nárůst CO₂ produkovaný metabolizujícími bakteriemi.<br><br><strong>Biomarkery sepse:</strong><br>• Prokalcitonin (PCT): vysoce specifický pro bakteriální infekce (stoupá do 4–6 hodin).<br>• CRP: nespecifický protein akutní fáze (stoupá do 12–24 hodin).<br>• Presepsin, IL-6.<br><br><strong>Infekce krevního řečiště (BSI):</strong> Často asociované s centrálními žilními katétry (CRBSI – katétrová sepse). Diagnostika vyžaduje současný odběr hemokultury z katétru a z periferie s průkazem shodného patogena a kratšího času k pozitivitě z katétru."
-      },
-      quiz: [
-        {
-          q: "Jaký objem krve se standardně odebírá do jedné hemokultivační lahvičky u dospělých?",
-          options: ["1–2 ml", "8–10 ml", "20–30 ml", "0,5 ml"],
-          correct: 1,
-          explanation: "Optimální poměr krve a kultivačního média vyžaduje 8–10 ml krve pro zachování citlivosti záchytu patogenů."
-        }
-      ]
+},
+{
+    "id": "mikra-30",
+    "cislo": 30,
+    "skupina_a": "Farmakoterapie",
+    "skupina_b": "Parazitologie",
+    "cast_a": {
+        "title": "Aminoglykosidy – spektrum a toxicita",
+        "keywords": [
+            "Gentamicin",
+            "Amikacin",
+            "Tobramycin",
+            "Streptomycin",
+            "nefrotoxicita",
+            "ototoxicita"
+        ],
+        "content": {
+            "definice": "<strong>Aminoglykosidy:</strong> Rychle baktericidní antibiotika inhibující proteosyntézu ireverzibilní vazbou na 30S podjednotku ribozomu.",
+            "klasifikace": "Gentamicin, Amikacin, Tobramycin, Streptomycin.<br>• Spektrum: Aerobní G- tyčky a stafylokoky. Neúčinkují na anaeroby.<br>• Toxicita: Nefrotoxicita a Ototoxicita. Vyžadují TDM (monitrování hladin).",
+            "terapie": "G- urosepse, endokarditidy (v synergii s peniciliny)."
+        },
+        "quiz": [
+            {
+                "q": "Které dva hlavní toxické nežádoucí účinky limitují podávání aminoglykosidů?",
+                "options": [
+                    "Hepatotoxicita a kardiotoxicita",
+                    "Nefrotoxicita a ototoxicita",
+                    "Kardiomyopatie a myelotoxita",
+                    "Pankreatitida a neurotoxicita"
+                ],
+                "correct": 1,
+                "explanation": "Aminoglykosidy se kumulují v ledvinných tubulech a ve vnitřním uchu, což působí nefrotoxicitu a ototoxicitu."
+            },
+            {
+                "q": "Aminoglykosidy usmrcují bakterie mechanizmem inhibice proteosyntézy po vazbě na:",
+                "options": [
+                    "50S podjednotku ribozomu",
+                    "30S podjednotku ribozomu",
+                    "RNA-polymerázu",
+                    "DNA-gyrázu"
+                ],
+                "correct": 1,
+                "explanation": "Aminoglykosidy se vazují na 30S podjednotku ribozomu, čímž způsobují chybné čtení mRNA a zástavu proteosyntézy."
+            }
+        ]
     },
-    cast_b: {
-      title: "Echinokokózy – Echinococcus granulosus a multilocularis",
-      keywords: ["Echinococcus granulosus", "Echinococcus multilocularis", "hydatida", "alveokokóza", "psovití", "albendazol"],
-      content: {
-        definice: "<strong>Echinokokózy:</strong> Závažné tkáňové helmintózy vyvolané larválními stádii (cystami) měchožilů.",
-        etiologie: "<strong>1. Echinococcus granulosus (Měchožil zhoubný):</strong><br>• Definitivní hostitel: psovité šelmy. Mezihostitel: ovce, skot, člověk (slepá ulička).<br>• Člověk se nakazí pozřením vajíček (kontakt s psem, kontaminované lesní plody). Larva proniká stěnou střeva → portální oběh → játra (60–70 %), plíce. Tvoří jednokomorové cysty (**hydatidy**, průměr až 20 cm) s vazivovým obalem hostitele. Uvnitř dceřiné cysty a skolexy. Nebezpečí anafylaktického šoku při prasknutí cysty! Terapie: Albendazol, chirurgie (metoda PAIR).<br><br><strong>2. Echinococcus multilocularis (Měchožil větvený):</strong><br>• Definitivní hostitel: liška, pes. Mezihostitel: drobní hlodavci, člověk.<br>• Způsobuje **alveolární hydatidózu**. Larva v játrech tvoří drobné, infiltrující cysty, které agresivně prorůstají tkání a metastázují (chová se jako maligní tumor). Hostitel netvoří ohraničující pouzdro. Smrtnost bez léčby > 90 %! Terapie: radikální resekce + celoživotní podávání Albendazolu."
-      },
-      quiz: [
-        {
-          q: "Který patogen způsobuje alveolární hydatidózu, která svými vlastnostmi infiltrace a metastazování připomíná maligní nádor?",
-          options: ["Echinococcus granulosus", "Echinococcus multilocularis", "Taenia solium", "Fasciola hepatica"],
-          correct: 1,
-          explanation: "Echinococcus multilocularis (měchožil větvený) tvoří multiloculární infiltrující cysty bez vazivového ohraničení, které metastázují do mozku a plic."
-        }
-      ]
+    "cast_b": {
+        "title": "Toxoplasmóza – Toxoplasma gondii",
+        "keywords": [
+            "Toxoplasma gondii",
+            "kočka",
+            "oocysta",
+            "tkáňová cysta",
+            "kongenitální toxoplazmóza",
+            "Janků"
+        ],
+        "content": {
+            "definice": "<strong>Toxoplasma gondii:</strong> Oportunní tkáňová kokcidie. Definitivním hostitelem jsou kočkovité šelmy, mezihostitelem všichni teplokrevní živočichové včetně člověka.",
+            "etiologie": "1. Oocysty (vylučované trusem koček). 2. Tachyzoiti (akutní fáze). 3. Bradyzoiti / Tkáňové cysty (chronické stádium ve svalech a mozku).",
+            "klinicky": "• Postnatální: lymfadenitida krčních uzlin.<br>• Kongenitální (Morbus Janků): Triáda: Hydrocefalus, intrakraniální kalcifikace, chorioretinitida.<br>• HIV/AIDS: Toxoplazmová encefalitida z reaktivace.",
+            "laborator": "ELISA (IgM, IgG, test avidity IgG), PCR z amniové tekutiny nebo likvoru.",
+            "terapie": "Pyrimethamin + Sulfadiazine (+ kyselina folinová). Těhotné: Spiramycin."
+        },
+        "quiz": [
+            {
+                "q": "Které zvíře je definitivním hostitelem Toxoplasma gondii a vylučuje oocysty trusem?",
+                "options": [
+                    "Pes",
+                    "Kočka",
+                    "Prase",
+                    "Skot"
+                ],
+                "correct": 1,
+                "explanation": "Pouze v střevním epitelu kočkovitých šelem probíhá sexuální cyklus T. gondii zakončený tvorbou a vylučováním oocyst."
+            },
+            {
+                "q": "Klasická klinická triáda u kongenitální toxoplazmózy (Morbus Janků) zahrnuje:",
+                "options": [
+                    "Kataraktu, hluchotu a srdeční vadu",
+                    "Hydrocefalus, chorioretinitidu a intrakraniální kalcifikace",
+                    "Mikrocefalii, anémii a hepatitidu",
+                    "Spina bifida, rozštěp patra a polydaktylii"
+                ],
+                "correct": 1,
+                "explanation": "Těžká kongenitální toxoplazmóza novorozenců se projevuje hydrocefalem, intrakraniálními kalcifikacemi a zánětem sítnice a cévnatky."
+            }
+        ]
     }
-  },
-  {
-    id: "mikra-36",
-    cislo: 36,
-    skupina_a: "Diagnostika",
-    skupina_b: "Parazitologie",
-    cast_a: {
-      title: "Infekce dýchacích cest a odběry",
-      keywords: ["sputum", "výtěr z krku", "Amies", "Bordet-Gengou", "legionela", "BAL"],
-      content: {
-        definice: "<strong>Infekce dýchacích cest:</strong> Nejčastější infekce v komunitě. Tři čtvrtiny jsou virového původu. Bakteriální etiologie vyžaduje specifickou diagnostiku.",
-        etiologie: "<strong>Metodika odběrů a kultivace:</strong><br>• <strong>Výtěr z krku:</strong> Sterilní vatový tampón, stěr z mandlí a patrových oblouků bez doteku sliznice úst. Transport v Amiesově transportní půdě. Očkování na krevní agar (záchyt <em>Streptococcus pyogenes</em>).<br>• <strong>Výtěr z nosu:</strong> K záchytu nosičství (např. MRSA).<br>• <strong>Sputum:</strong> Ranní sputum z hloubky dýchacích cest po vypláchnutí úst vodou. Kontrola kvality pod mikroskopem: vzorek s vysokým počtem dlaždicových epitelových buněk a málo leukocyty jsou pouze sliny (nehodnotí se). Očkování na krevní agar, Endovu půdu, čokoládový agar (pro Haemophilus v synergii se stafylokokem).<br>• <strong>Záchyt specifických patogenů:</strong><br>  - <em>Bordetella pertussis:</em> Výtěr z nosohltanu, kultivace na Bordet-Gengouově agaru / PCR.<br>  - <em>Legionella pneumophila:</em> sputum/BAL na BCYE agar, průkaz antigenu v moči.<br>  - <em>Corynebacterium diphtheriae:</em> Claubergova půda s telluričitanem."
-      },
-      quiz: [
-        {
-          q: "Jak se pod mikroskopem hodnotí kvalita sputa před kultivačním vyšetřením?",
-          options: ["Podle zbarvení hlenu", "Podle poměru polymorfonukleárních leukocytů a dlaždicových epitelových buněk", "Podle přítomnosti bublin vzduchu", "Podle přítomnosti laktobacilů"],
-          correct: 1,
-          explanation: "Kvalitní sputum z DDC obsahuje mnoho leukocytů a málo dlaždicových epitelií z dutiny ústní. Převaha plochých epitelií značí kontaminaci slinami."
-        }
-      ]
+},
+{
+    "id": "mikra-31",
+    "cislo": 31,
+    "skupina_a": "Farmakoterapie",
+    "skupina_b": "Parazitologie",
+    "cast_a": {
+        "title": "Fluorochinolony – spektrum a indikace",
+        "keywords": [
+            "Ciprofloxacin",
+            "Moxifloxacin",
+            "DNA-gyráza",
+            "topoizomeráza IV",
+            "respirační chinolony",
+            "kontraindikace"
+        ],
+        "content": {
+            "definice": "<strong>Fluorochinolony:</strong> Baktericidní syntetická chemoterapeutika. Působí koncentračně závislým efektem a mají vynikající tkáňovou distribuci. Kontraindikovány jsou u dětí (riziko poškození kloubních chrupavek) a těhotných.",
+            "etiologie": "Inhibice bakteriální <strong>DNA gyrázy</strong> (G- bakterie) a <strong>topoizomerázy IV</strong> (G+ bakterie) → blokáda replikace DNA.",
+            "klasifikace": "• <em>Ciprofloxacin (II. gen):</em> Výborný účinek na G- aerobní bakterie. **Nejsilnější protipseudomonádový chinolon!** Neúčinný na pneumokoky.<br>• <em>Moxifloxacin (IV. gen):</em> Respirační chinolon. Účinný na G+ koky (pneumokok), atypické patogeny a anaeroby.",
+            "klinicky": "Ciprofloxacin: Uroinfekce, otitis externa maligna, salmonelóza, shigelóza, legionelóza.<br>Moxifloxacin: Závažné komunitní pneumonie u alergiků na penicilin.",
+            "terapie": "Podání p.o. i i.v. Pozor na tendinitidy a ruptury Achillovy šlachy."
+        },
+        "quiz": [
+            {
+                "q": "Který fluorochinolon má nejsilnější antimikrobiální účinek proti Pseudomonas aeruginosa?",
+                "options": [
+                    "Moxifloxacin",
+                    "Ciprofloxacin",
+                    "Ofloxacin",
+                    "Norfloxacin"
+                ],
+                "correct": 1,
+                "explanation": "Ciprofloxacin je nejúčinnější protipseudomonádový fluorochinolon."
+            },
+            {
+                "q": "Proč jsou fluorochinolony kontraindikovány u dětí a dospívajících v období růstu?",
+                "options": [
+                    "Způsobují nevratnou hluchotu",
+                    "Vypalují ledvinné glomeruly",
+                    "Způsobují chondrotoxicitu s poškozením růstových chrupavek",
+                    "Vyvolávají hypoglykemické koma"
+                ],
+                "correct": 2,
+                "explanation": "Fluorochinolony mohou poškodit vývoj kloubních chrupavek (chondrotoxicita) u rostoucího organismu."
+            }
+        ]
     },
-    cast_b: {
-      title: "Střevní nematodózy (Enterobius, Ascaris, Strongyloides, Ancylostoma)",
-      keywords: ["Enterobius vermicularis", "Ascaris lumbricoides", "roup dětský", "škrkavka", "Grahamova metoda", "Loefflerův syndrom"],
-      content: {
-        definice: "<strong>Střevní nematodózy:</strong> Infekce vyvolané hlísticemi (obloukovitými červi) parazitujícími v gastrointestinálním traktu.",
-        etiologie: "<strong>1. Enterobius vermicularis (Roup dětský):</strong><br>• Samičky kladou asymetrická vajíčka v noci v perianálních řasách. Autoinfekce (škrábání → prsty do úst).<br>• Projevy: perianální pruritus (svědění), neklid, nespavost u dětí.<br>• Diagnostika: **Grahamova metoda** (otisk průhledné lepicí pásky z perianální oblasti ráno před mytím). Vajíčka ve stolici chybí!<br><br><strong>2. Ascaris lumbricoides (Škrkavka dětská):</strong><br>• Cyklus: Pozření vajíček → uvolnění larev ve střevě → migrace přes stěnu střeva, játra do plic → vykašlání a spolknutí → dospívání v tenkém střevě.<br>• Projevy: Plicní fáze (Loefflerův syndrom – kašel, dušnost, eosinofilní infiltráty, eosinofilie); Střevní fáze (zažívací potíže, u dětí risk obstrukce střeva). Diagnostika: Průkaz vajíček ve stolici.<br><br><strong>3. Strongyloides stercoralis (Hádě střevní):</strong><br>• Parazitují partenogenetické samičky zavrtané v sliznici střeva. Larvy pronikají kůží z půdy. Risk hyperinfekčního syndromu u imunosuprimovaných. Diagnostika: Nález pohyblivých larev ve stolici.<br><br><strong>4. Ancylostoma duodenale (Měchovec lidský):</strong><br>• Fixace v duodenu ozubenou ústní kapsulou → saje krev → rozvoj mikrocytární sideropenické anémie. Larvy pronikají kůží z půdy."
-      },
-      quiz: [
-        {
-          q: "Grahamova metoda (lepicí páska) je standardní diagnostickou metodou pro průkaz:",
-          options: ["Ascaris lumbricoides", "Enterobius vermicularis", "Strongyloides stercoralis", "Taenia saginata"],
-          correct: 1,
-          explanation: "Roup dětský (E. vermicularis) klade vajíčka v perianální krajině, nikoli do stolice, proto se k průkazu používá otisk lepicí pásky."
-        }
-      ]
+    "cast_b": {
+        "title": "Malárie – Plasmodium sp.",
+        "keywords": [
+            "Plasmodium falciparum",
+            "Anopheles",
+            "horečka terciána",
+            "horečka kvartána",
+            "tlustá kapka",
+            "chinin"
+        ],
+        "content": {
+            "definice": "<strong>Malárie:</strong> Transmisivní horečnaté onemocnění vyvolané intracelulárními parazity rodu <em>Plasmodium</em>. Přenašečem je samička komára <em>Anopheles</em>.",
+            "etiologie": "• <em>P. falciparum:</em> Tropická malárie (nepravidelná horečka, risk mozkové malárie).<br>• <em>P. vivax / P. ovale:</em> Horečka terciána (co 48h, hypnozoiti v játrech).<br>• <em>P. malariae:</em> Horečka kvartána (co 72h).",
+            "patogeneze": "Sporozoity → jaterní schizogonie → uvolnění merozoitů → napadení erytrocytů → schizonti → rozpad erytrocytů vyvolá horečnatý záchvat.",
+            "laborator": "Odběr krve při vzestupu horečky. Mikroskopie: **Tlustá kapka** a **tenký krevní nátěr** barvený Giemsou. Antigeny HRP-2 a LDH.",
+            "terapie": "ACT kombinace, Chinin i.v., Chlorochin, Primachin."
+        },
+        "quiz": [
+            {
+                "q": "Která metoda se v laboratoři standardně používá k určení druhové příslušnosti plasmodia u pacienta s malárií?",
+                "options": [
+                    "Kultivace na Sabouraudově agaru",
+                    "Tlustá kapka",
+                    "Tenký krevní nátěr barvený Giemsou",
+                    "Průkaz protilátek KFR"
+                ],
+                "correct": 2,
+                "explanation": "Tenký krevní nátěr zachovává neporušenou morfologii erytrocytů a umožňuje přesné určení druhu plasmodia."
+            },
+            {
+                "q": "Které stádium Plasmodium vivax a P. ovale přežívá v játrech a způsobuje pozdní relapsy malárie?",
+                "options": [
+                    "Tachyzoity",
+                    "Hypnozoity",
+                    "Sporozoity",
+                    "Merozoity"
+                ],
+                "correct": 1,
+                "explanation": "Hypnozoiti jsou dormantní jaterní formy P. vivax a P. ovale, které mohou vyvolat reaktivaci malárie."
+            }
+        ]
     }
-  },
-  {
-    id: "mikra-37",
-    cislo: 37,
-    skupina_a: "Diagnostika",
-    skupina_b: "Parazitologie",
-    cast_a: {
-      title: "Infekce kůže a měkkých tkání, normální flóra",
-      keywords: ["Staphylococcus aureus", "Streptococcus pyogenes", "normální flóra", "erysipelas", "nosokomiální", "kolonizační rezistence"],
-      content: {
-        definice: "<strong>Infekce kůže a měkkých tkání (SSTI):</strong> Široká škála zánětů od povrchových pyodermií po život ohrožující nekrotizující fasciitidy. Jsou úzce spjaté s narušením bariéry kůže a fyziologické flóry.",
-        etiologie: "<strong>Fyziologická mikroflóra kůže:</strong> Koaguláza-negativní stafylokoky (<em>S. epidermidis</em>), korynebakterie, propionibakterie (<em>Cutibacterium acnes</em>). Zajišťují kolonizační rezistenci.<br><br><strong>Typické patogeny a jednotky:</strong><br>• Impetigo, furunkl, karbunkl: <em>Staphylococcus aureus</em>, případně <em>Streptococcus pyogenes</em>.<br>• Erysipel (růže): <em>Streptococcus pyogenes</em> (ohraničené zarudnutí, horečka, postihuje dermis a lymfatické cévy).<br>• Celulitida: <em>S. aureus, S. pyogenes</em> (neohraničený zánět podkoží).<br>• Nekrotizující fasciitida: Streptococcus pyogenes (skupina A, 'masožravé bakterie') nebo polymikrobiální (Clostridia, anaeroby).<br>• Infekce ran: Po kousnutí zvířetem (<em>Pasteurella multocida</em>), operační rány (stafylokoky, enterobakterie), popáleniny (<em>Pseudomonas aeruginosa</em>).",
-        laborator: "Odběr hnisu (nejlépe aspirace stříkačkou z hloubky, nikoli povrchový stěr tamponem). Kultivace na KA, Endově půdě, anaerobní kultivace."
-      },
-      quiz: [
-        {
-          q: "Který patogen je hlavním původcem erysipelu (růže) – ostře ohraničeného kožního zánětu s horečkou?",
-          options: ["Staphylococcus aureus", "Streptococcus pyogenes", "Pseudomonas aeruginosa", "Propionibacterium acnes"],
-          correct: 1,
-          explanation: "Erysipel je klasická streptokoková infekce vyvolaná Streptococcus pyogenes (skupina A), šířící se lymfatickými cévami."
-        }
-      ]
+},
+{
+    "id": "mikra-32",
+    "cislo": 32,
+    "skupina_a": "Farmakoterapie",
+    "skupina_b": "Parazitologie",
+    "cast_a": {
+        "title": "Makrolidy, azalidy a linkosamidy",
+        "keywords": [
+            "Klaritromycin",
+            "Azitromycin",
+            "Klindamycin",
+            "inhibice proteosyntézy",
+            "atypické pneumonie",
+            "toxický šok"
+        ],
+        "content": {
+            "definice": "<strong>Makrolidy, azalidy a linkosamidy:</strong> Bakteriostatická antibiotika inhibující proteosyntézu vazbou na 50S podjednotku ribozomu.",
+            "klasifikace": "1. <strong>Makrolidy/azalidy:</strong> Erytromycin (diftérie, pertuse), Klaritromycin (eradikace H. pylori), Azitromycin (chlamydie, legionely), Spiramycin (toxoplazmóza těhotných).<br>2. <strong>Linkosamidy:</strong> Klindamycin (stafylokoky, streptokoky a striktní anaeroby jako <em>Bacteroides fragilis</em>).",
+            "terapie": "Klindamycin potlačuje tvorbu exotoxinů u staphylokokového/streptokokového syndromu toxického šoku (TSS)."
+        },
+        "quiz": [
+            {
+                "q": "Které antibiotikum se jako inhibitor proteosyntézy přidává k potlačení produkce toxinů u syndromu toxického šoku?",
+                "options": [
+                    "Amoxicilin",
+                    "Klindamycin",
+                    "Gentamicin",
+                    "Ciprofloxacin"
+                ],
+                "correct": 1,
+                "explanation": "Klindamycin tlumí proteosyntézu v bakteriální buňce, čímž zastavuje syntézu a uvolňování exotoxinů."
+            },
+            {
+                "q": "Které antibiotikum je indikováno pro léčbu toxoplazmózy u těhotných žen v 1. trimestru?",
+                "options": [
+                    "Spiramycin",
+                    "Klaritromycin",
+                    "Ciprofloxacin",
+                    "Klindamycin"
+                ],
+                "correct": 0,
+                "explanation": "Spiramycin se akumuluje v placentární tkáni a brání přestupu T. gondii na plod."
+            }
+        ]
     },
-    cast_b: {
-      title: "Tkáňové nematodózy (Toxocara, Trichinella, Dracunculus)",
-      keywords: ["Toxocara canis", "Trichinella spiralis", "Dracunculus medinensis", "larva migrans", "svalovec Stočený"],
-      content: {
-        definice: "<strong>Tkáňové nematodózy:</strong> Onemocnění způsobená larvami hlístic, které migrují lidskými tkáněmi a orgány bez dokončení vývoje v dospělého červa (člověk je mezihostitelem).",
-        etiologie: "<strong>1. Toxocara canis / cati (Škrkavka psí/kočičí):</strong><br>• Definitivní hostitel: pes, kočka. Člověk se nakazí pozřením vajíček (kontaminovaný písek na pískovištích). Larvy se uvolní v střevě, migrují tělem a uvíznou v tkáních → **Toxokaróza**.<br>• *Viscerální forma (larva migrans visceralis):* hepatomegalie, plicní příznaky, horečka, eosinofilie.<br>• *Oční forma (larva migrans ocularis):* larva uvízne v oku, granulom sítnice (hrozí enukleace pro záměnu s retinoblastomem). Terapie: Albendazol.<br><br><strong>2. Trichinella spiralis (Svalovec stočený):</strong><br>• Přenos pozřením syrového masa (černé prase, divočák) s opouzdřenými larvami. Larvy dozrávají ve střevě, samičky rodí živé larvy → migrace krví do příčně pruhovaných svalů (bránice, žvýkací svaly, jazyk) → opouzdření.<br>• Projevy: horečky, myalgie (bolest svalů), periorbitální edém obličeje, dyspnoe (při postižení bránice). Terapie: Albendazol + kortikosteroidy.<br><br><strong>3. Dracunculus medinensis (Vlasovec medinský):</strong><br>• Přenos pitnou vodou s buchanatkami (mezihostitel s larvou). Samička migruje do podkoží dolních končetin, tvoří bolestivý vřed. Při kontaktu s vodou rodí larvy. Terapie: Namotávání červa na dřívko."
-      },
-      quiz: [
-        {
-          q: "Který parazit se přenáší na člověka konzumací nedostatečně tepelně upraveného masa divočáků a tvoří cysty ve svalech?",
-          options: ["Toxocara canis", "Trichinella spiralis", "Dracunculus medinensis", "Ascaris lumbricoides"],
-          correct: 1,
-          explanation: "Trichinella spiralis (svalovec) parazituje u prasat a divoké zvěře; larvy se usídlují v svalových vláknech hostitele."
-        }
-      ]
+    "cast_b": {
+        "title": "Motolice (Trematoda) – Schistosomy",
+        "keywords": [
+            "Schistosoma",
+            "krevnička",
+            "cerkárie",
+            "elefantiáza",
+            "hematurie",
+            "praziquantel"
+        ],
+        "content": {
+            "definice": "<strong>Schistosomy (krevničky):</strong> Ploší červi vyvolávající urogenitální a střevní schistosomózu.",
+            "etiologie": "• <em>Schistosoma haematobium:</em> Urogenitální forma. Vajíčka s terminálním trnem kladena do žil močového měchýře.<br>• <em>Schistosoma mansoni:</em> Střevní/jaterní forma. Vajíčka s bočním trnem.",
+            "patogeneze": "Cerkárie z plžů (mezihostitel) provrtávají kůži člověka při koupání → migrace do žilních pletení.",
+            "klinicky": "S. haematobium: terminální hematurie, granulomatózní cystitida, riziko karcinomu měchýře.<br>S. mansoni: krvavý průjem, portální hypertenze.",
+            "laborator": "Mikroskopie vajíček s trnem (močový sediment u S. haematobium, stolice u S. mansoni).",
+            "terapie": "Lék volby: Praziquantel."
+        },
+        "quiz": [
+            {
+                "q": "Který druh krevničky typicky způsobuje urogenitální formu schistosomózy s hematurií a fibrózou močového měchýře?",
+                "options": [
+                    "Schistosoma mansoni",
+                    "Schistosoma japonicum",
+                    "Schistosoma haematobium",
+                    "Fasciola hepatica"
+                ],
+                "correct": 2,
+                "explanation": "Schistosoma haematobium dospívá v cévních pleteních močového měchýře, kam klade vajíčka s typickým terminálním trnem."
+            },
+            {
+                "q": "Infekční stádium schistosom, které ve sladké vodě aktivně provrtává kůži člověka, se nazývá:",
+                "options": [
+                    "Miracidium",
+                    "Cerkárie",
+                    "Metacerkárie",
+                    "Sporocysta"
+                ],
+                "correct": 1,
+                "explanation": "Cerkárie opouštějí tělo plže a během koupání aktivně pronikají neporušenou pokožkou člověka."
+            }
+        ]
     }
-  },
-  {
-    id: "mikra-38",
-    cislo: 38,
-    skupina_a: "Diagnostika",
-    skupina_b: "Parazitologie",
-    cast_a: {
-      title: "Sexuálně přenosné infekce (STI)",
-      keywords: ["Kapavka", "Syfilis", "Chlamydie", "Herpes genitalis", "diagnostika STI", "uretritida"],
-      content: {
-        definice: "<strong>Sexuálně přenosné infekce (STI):</strong> Skupina nákaz přenášených převážně pohlavním stykem, postihující urogenitální aparát i celkový organismus.",
-        etiologie: "<strong>Klíčoví původci a diagnostika:</strong><br><br><strong>1. Bakteriální STI:</strong><br>• <em>Kapavka (Neisseria gonorrhoeae):</em> Hnisavá uretritida u mužů, cervicitida u žen. Diagnostika: Mikroskopie (G- intraselulární diplokoky v PMN leukocytech), kultivace na čokoládovém agaru, PCR (NAAT).<br>• <em>Syfilis (Treponema pallidum):</em> Ulcus durum, exantém, pozdní orgánové změny. Diagnostika: zástinová mikroskopie, sérologie (netreponemové RRR a treponemové TPHA, ELISA, WB).<br>• <em>Urogenitální chlamydióza (Chlamydia trachomatis sérotypy D-K):</em> Často asymptomatická, risk neplodnosti. Diagnostika: PCR (NAAT) z prvního proudu moče (muži) nebo cervikálního stěru (ženy).<br><br><strong>2. Virové STI:</strong><br>• <em>Herpes genitalis (HSV-2):</em> Bolestivé puchýřky na genitálu. Diagnostika: PCR, průkaz inkluzí.<br>• <em>Papilomaviry (HPV):</em> Sériovary 6, 11 (condylomata acuminata), 16, 18 (karcinom děložního hrdla). Diagnostika: PCR.<br>• <em>HIV a HBV.</em><br><br><strong>3. Ostatní STI:</strong><br>• Kandidózy (kvasinky), Trichomoniáza (bičenka poševní), Svrab (zákožka)."
-      },
-      quiz: [
-        {
-          q: "Která diagnostická metoda je nejcitlivější a v současnosti doporučovaná jako zlatý standard pro průkaz Chlamydia trachomatis v urogenitálním traktu?",
-          options: ["Gramovo barvení", "Kultivace na krevním agaru", "Metody PCR a NAAT (amplifikace nukleových kyselin)", "Weilova-Felixova reakce"],
-          correct: 2,
-          explanation: "NAAT (PCR) testy vykazují nejvyšší specifitu a citlivost u chlamydií, které nelze kultivovat na neživých médiích."
-        }
-      ]
+},
+{
+    "id": "mikra-33",
+    "cislo": 33,
+    "skupina_a": "Farmakoterapie",
+    "skupina_b": "Parazitologie",
+    "cast_a": {
+        "title": "Tetracykliny a glycylcykliny",
+        "keywords": [
+            "Doxycyklin",
+            "Tigecyklin",
+            "atypické patogeny",
+            "borelióza",
+            "zubní sklovina",
+            "VRE"
+        ],
+        "content": {
+            "definice": "<strong>Tetracykliny a glycylcykliny:</strong> Širokospektrá bakteriostatická antibiotika inhibující proteosyntézu vazbou na 30S podjednotku ribozomu.",
+            "klasifikace": "• <strong>Tetracykliny (Doxycyklin):</strong> Široké spektrum (atypická pneumonie, chlamydie, rickettsie, spirochety/borelióza). Kontraindikovány u dětí do 8 let (ukládají se v kostech a sklovině, žluté zbarvení).<br>• <strong>Glycylcykliny (Tigecyklin):</strong> Vyhýbá se efluxu. Působí na multirezistentní MRSA, VRE, ESBL. Neúčinný na <em>Pseudomonas</em>."
+        },
+        "quiz": [
+            {
+                "q": "Proč jsou tetracykliny (např. Doxycyklin) kontraindikovány u dětí do 8 let a těhotných?",
+                "options": [
+                    "Způsobují akutní selhání ledvin",
+                    "Vážou se na vápník a ukládají se v kostech a vyvíjející se zubní sklovině",
+                    "Vyvolávají aplastickou anémii",
+                    "Způsobují chabou obrnu svalstva"
+                ],
+                "correct": 1,
+                "explanation": "Tetracykliny chelatují vápník a ukládají se v kalcifikujících tkáních, což vede k trvalé diskoloraci zubů."
+            },
+            {
+                "q": "Na které z následujících bakterií nemá Tigecyklin (glycylcyklin) žádný účinek?",
+                "options": [
+                    "MRSA",
+                    "VRE",
+                    "Pseudomonas aeruginosa",
+                    "ESBL produkující E. coli"
+                ],
+                "correct": 2,
+                "explanation": "Tigecyklin je přirozeně neúčinný proti Pseudomonas aeruginosa a Proteus spp."
+            }
+        ]
     },
-    cast_b: {
-      title: "Filárie – Wuchereria, Brugia, Loa Loa, Onchocerca",
-      keywords: ["Wuchereria bancrofti", "Brugia malayi", "Loa loa", "Onchocerca volvulus", "elefantiáza", "mikrofilárie"],
-      content: {
-        definice: "<strong>Filárie (vlasovci):</strong> Tkáňové hlístice parazitující v mízním systému, podkoží nebo oku. Samičky rodí živé larvy (**mikrofilárie**), které kolují v krvi nebo kůži a jsou přenášeny krevsajícím hmyzem.",
-        etiologie: "<strong>Klinicky významné druhy:</strong><br>• <em>Wuchereria bancrofti a Brugia malayi (Vlasovec mízní/malajský):</em> Dospělci žijí v lymfatických cévách. Lymfostáza → **elefantiáza** (sloní noha, masivní otoky končetin/šourku), chylurie (míza v moči). Přenašeč: komáři. Mikrofilárie kolují v krvi v noci (*microfilaria nocturna*).<br>• <em>Loa loa (Vlasovec oční):</em> Dospělci migrují podkožím (Calabarské otoky) a pod oční spojivkou. Přenašeč: ovád (rod <em>Chrysops</em>). Mikrofilárie v krvi přes den (*microfilaria diurna*). Terapie: Ivermektin, chirurgická extrakce z oka.<br>• <em>Onchocerca volvulus (Vlasovec kožní):</em> Dospělci v podkožních uzlech. Larvy migrují kůží (dermatitida) a do oka → **říční slepota** (onchocerkóza – hlavní příčina slepoty v tropech). Přenašeč: muchnička (rod <em>Simulium</em>). Terapie: Ivermektin."
-      },
-      quiz: [
-        {
-          q: "Který parazit přenášený muchničkami je původcem tzv. 'říční slepoty' v tropických oblastech?",
-          options: ["Wuchereria bancrofti", "Loa loa", "Onchocerca volvulus", "Brugia malayi"],
-          correct: 2,
-          explanation: "Onchocerca volvulus (vlasovec kožní) způsobuje říční slepotu po migraci larev do struktur oční rohovky a sítnice."
-        }
-      ]
+    "cast_b": {
+        "title": "Plicní a jaterní motolice (Fasciola, Paragonimus)",
+        "keywords": [
+            "Fasciola hepatica",
+            "Paragonimus westermani",
+            "bahnatka",
+            "metacerkárie",
+            "rak",
+            "hemoptýza"
+        ],
+        "content": {
+            "definice": "<strong>Plicní a jaterní motolice:</strong> Ploší červi parazitující v parenchymu jater a plic.",
+            "etiologie": "• <em>Fasciola hepatica (Motolice jaterní):</em> V žlučovodech. Přenos metacerkáriemi z řeřišnice. Cholangitida.<br>• <em>Paragonimus westermani (Motolice plicní):</em> Metacerkárie v rakoch/kraboch. Hemoptýza a kašel (napodobuje TBC).",
+            "laborator": "Mikroskopie vajíček ve stolici/duodenální šťávě (Fasciola) nebo ve sputu (Paragonimus).",
+            "terapie": "Fasciola: Triklabendazol. Paragonimus: Praziquantel."
+        },
+        "quiz": [
+            {
+                "q": "Jak se člověk nejčastěji nakazí motolicí plicní (Paragonimus westermani)?",
+                "options": [
+                    "Pozřením nedostatečně tepelně upravených sladkovodních krabů nebo raků",
+                    "Vdechnutím infekčních vajíček z prachu",
+                    "Aktivním provrtáním cerkárií kůží při koupání",
+                    "Kousnutím komára Anopheles"
+                ],
+                "correct": 0,
+                "explanation": "Infekčním stádiem P. westermani jsou metacerkárie ve svalech sladkovodních krabů a raků."
+            },
+            {
+                "q": "Pozřením které kontaminované potraviny dochází k nákaze motolicí jaterní (Fasciola hepatica)?",
+                "options": [
+                    "Surových ryb",
+                    "Vodních rostlin (např. divoké řeřišnice) s přichycenými metacerkáriemi",
+                    "Nedovařeného hovězího masa",
+                    "Nepasterizovaného ovčího mléka"
+                ],
+                "correct": 1,
+                "explanation": "Metacerkárie F. hepatica se přichycují na vodní rostliny (řeřišnice), jejichž konzumací za syrova dochází k infekci."
+            }
+        ]
     }
-  },
-  {
-    id: "mikra-39",
-    cislo: 39,
-    skupina_a: "Diagnostika",
-    skupina_b: "Parazitologie",
-    cast_a: {
-      title: "Infekce centrálního nervového systému a likvor",
-      keywords: ["meningitida", "likvor", "lumbální punkce", "purulentní", "aseptická", "PCR"],
-      content: {
-        definice: "<strong>Infekce CNS:</strong> Život ohrožující stavy (meningitidy, encefalitidy, abscesy) vyžadující urgentní diagnostiku z mozkomíšního moku (likvoru) odebraného lumbální punkcí.",
-        etiologie: "<strong>Diferenciální diagnostika likvoru:</strong><br>• <strong>Purulentní (bakteriální) meningitida:</strong> Likvor je zakalený, vysoký tlak, vysoký počet buněk (polymorfonukleáry v tisících), extrémní zvýšení bílkoviny (hyperproteinorhachie), **výrazný pokles glukózy** (pod 40 % glykémie). Původci: <em>N. meningitidis, S. pneumoniae, H. influenzae</em>, u novorozenců <em>S. agalactiae</em>, u starších <em>Listeria</em>.<br>• <strong>Aseptická (virová) meningitida:</strong> Likvor čirý, mírně zvýšený tlak, buňky v desítkách/stovek (lymfocyty), protein lehce zvýšený, **glukóza v normě**. Původci: Enteroviry, virus klíšťové encefalitidy, HSV-2, příušnice.<br>• <strong>Tuberculózní / Mykotická meningitida:</strong> Likvor čirý/opálový, lymfocyty, vysoký protein, nízká glukóza.",
-        laborator: "Odběr likvoru do sterilní zkumavky, rychlý transport. Diagnostika: 1. Mikroskopie (Gramovo barvení, acidorezistence u TBC); 2. Rychlý průkaz antigenů (latexová aglutinace); 3. Kultivace (KA, čokoládový agar); 4. Multiplexová PCR (detekce DNA/RNA nejčastějších virů a bakterií)."
-      },
-      quiz: [
-        {
-          q: "Pro purulentní (hnisavou bakteriální) meningitidu je v biochemickém nálezu likvoru typický:",
-          options: ["Vysoká glukóza a nízký protein", "Výrazný pokles glukózy a vysoký protein (hyperproteinorhachie)", "Čirý vzhled a převaha lymfocytů", "Absence jakýchkoli buněk"],
-          correct: 1,
-          explanation: "Bakterie spotřebovávají glukózu z likvoru k metabolismu → prudký pokles glukózy (laktát naopak stoupá) doprovázený vysokou bílkovinou ze zánětlivého exsudátu."
-        }
-      ]
+},
+{
+    "id": "mikra-34",
+    "cislo": 34,
+    "skupina_a": "Farmakoterapie",
+    "skupina_b": "Parazitologie",
+    "cast_a": {
+        "title": "Rifampicin, metronidazol, nitrofurantoin a fidaxomycin",
+        "keywords": [
+            "Rifampicin",
+            "Metronidazol",
+            "Nitrofurantoin",
+            "Fidaxomycin",
+            "Clostridium difficile",
+            "uroinfekce"
+        ],
+        "content": {
+            "definice": "<strong>Specifická antibiotika a chemoterapeutika:</strong>",
+            "klasifikace": "• <em>Rifampicin:</em> Blokuje RNA-polymerázu. TBC, stafylokokové nákazy na cizích tělesech. Rychlá rezistence (vždy v kombinaci).<br>• <em>Metronidazol:</em> Štěpí DNA v anaerobním prostředí. Anaeroby (<em>B. fragilis</em>), C. difficile kolitida, Giardia, Trichomonas.<br>• <em>Nitrofurantoin:</em> Účinný pouze v moči. Nekomplikované cystitidy.<br>• <em>Fidaxomycin:</em> Nevstřebává se z GIT. Selektivní pro kolitidy vyvolané <em>Clostridium difficile</em>.",
+            "terapie": "Metronidazol p.o./i.v. Při podávání kontraindikován alkohol (disulfiramový efekt!)."
+        },
+        "quiz": [
+            {
+                "q": "Které z léčiv je indikováno výhradně pro nekomplikované infekce močových cest (cystitidy) kvůli absenci systémového účinku?",
+                "options": [
+                    "Rifampicin",
+                    "Metronidazol",
+                    "Nitrofurantoin",
+                    "Fidaxomycin"
+                ],
+                "correct": 2,
+                "explanation": "Nitrofurantoin se rychle vylučuje do moče, kde dosahuje vysokých koncentrací."
+            },
+            {
+                "q": "Která reakce vzniká při požití alkoholu během léčby Metronidazolem?",
+                "options": [
+                    "Disulfiramový (antabusový) efekt – nevolnost, zvracení, hypotenze",
+                    "Aplastická anémie",
+                    "Syndrom šedého dítěte",
+                    "Akutní selhání ledvin"
+                ],
+                "correct": 0,
+                "explanation": "Metronidazol inhibuje aldehyddehydrogenázu, což způsobuje nahromadění acetaldehydu."
+            }
+        ]
     },
-    cast_b: {
-      title: "Členovci (Arthropoda) jako parazité a vektory",
-      keywords: ["Ixodes ricinus", "komár", "vektor", "nymfa", "čmelík kuří", "přenašeči"],
-      content: {
-        definice: "<strong>Členovci:</strong> Největší živočišný kmen. V medicínské mikrobiologii fungují jako ektoparazité (přímé poškození) nebo jako **vektory** (přenašeči) infekčních patogenů.",
-        etiologie: "<strong>Klíčoví zástupci a jimi přenášená onemocnění:</strong><br><br><strong>1. Roztoči (Acari):</strong><br>• <em>Ixodes ricinus (Klíště obecné):</em> Tříhostitelský cyklus (larva, nymfa, dospělec). Nymfy a dospělci přenášejí: Lymskou boreliózu (bakterie), klíšťovou encefalitidu (virus), anaplazmózu.<br>• <em>Dermacentor reticulatus (Piják lužní):</em> Jižní Morava. Přenos tularémie, babesiózy.<br>• <em>Neotrombicula autumnalis (Sametka podzimní):</em> Larvy vyvolávají v srpnu svědivou trombikulózu (srpnová vyrážka).<br>• <em>Demodex folliculorum (Trudník tukový):</em> Parazituje v mazových žlázách a řasách (kosmetický vliv).<br>• <em>Dermatophagoides (Prachovka):</em> Alergeny v exkretech roztočů (astma, rýma).<br><br><strong>2. Hmyz (Insecta):</strong><br>• <em>Komáři (Culicidae):</em> Samičky přenášejí malárii (<em>Anopheles</em>), žlutou zimnici, dengue, virus Zika (<em>Aedes</em>), západonilskou horečku (<em>Culex</em>).<br>• <em>Blechy (Siphonaptera):</em> <em>Pulex irritans</em> (blecha obecná). Vektor moru (<em>Yersinia pestis</em>) a skvrnitého tyfu (<em>Rickettsia typhi</em>).<br>• <em>Mouchy (Diptera):</em> Moucha tse-tse (spavá nemoc), muchničky (říční slepota)."
-      },
-      quiz: [
-        {
-          q: "Které vývojové stádium klíštěte Ixodes ricinus nepřenáší na člověka žádné patogeny?",
-          options: ["Larva", "Nymfa", "Dospělá samička", "Sameček"],
-          correct: 0,
-          explanation: "Larva klíštěte se líhne z vajíčka neinfikovaná (transovariální přenos u většiny patogenů neprobíhá nebo je vzácný) a nakazí se až při prvním sání na drobných hlodavcích."
-        }
-      ]
+    "cast_b": {
+        "title": "Tasemnice (Cestoda) – střevní a tkáňové formy",
+        "keywords": [
+            "Taenia saginata",
+            "Taenia solium",
+            "cysticerkóza",
+            "boubel",
+            "skolex",
+            "praziquantel"
+        ],
+        "content": {
+            "definice": "<strong>Tasemnice:</strong> Ploší červi cizopasící ve střevě dospělého hostitele nebo ve tkáních jako larvy (boubele).",
+            "etiologie": "• <em>Taenia saginata (bezbranná):</em> Mezihostitel skot. Skolex bez háčků. Střevní tenióza.<br>• <em>Taenia solium (dlouhočlenná):</em> Mezihostitel prase i **člověk**. Skolex s háčky.<br>  - Střevní: tenióza z nedovařeného masa s boubely.<br>  - Tkáňová: **Cysticerkóza** z pozření vajíček! Neurocysticerkóza vyvolává epileptické záchvaty.",
+            "laborator": "Průkaz článků a vajíček ve stolici. U cysticerkózy MR mozku, sérologie.",
+            "terapie": "Tenióza: Praziquantel. Cysticerkóza: Albendazol + Dexamethason."
+        },
+        "quiz": [
+            {
+                "q": "Pozřením čeho se člověk nakazí nebezpečnou tkáňovou formou tasemnice – cysticerkózou (Taenia solium)?",
+                "options": [
+                    "Pozřením larvy (boubele) v hovězím mase",
+                    "Pozřením vajíček Taenia solium",
+                    "Pozřením dospělého červa",
+                    "Průnikem larev přes kůži při chůzi naboso"
+                ],
+                "correct": 1,
+                "explanation": "Cysticerkóza vzniká tehdy, pokud člověk pozře vajíčka T. solium a stane se mezihostitelem larev."
+            },
+            {
+                "q": "Která tasemnice má skolex opatřený kromě čtyř přísavek také věncem úchopových háčků?",
+                "options": [
+                    "Taenia saginata",
+                    "Taenia solium",
+                    "Hymenolepis nana",
+                    "Diphyllobothrium latum"
+                ],
+                "correct": 1,
+                "explanation": "Taenia solium má na svém rostellu charakteristický věnec chitinových háčků."
+            }
+        ]
     }
-  },
-  {
-    id: "mikra-40",
-    cislo: 40,
-    skupina_a: "Diagnostika",
-    skupina_b: "Parazitologie",
-    cast_a: {
-      title: "Gastrointestinální infekce a odběr stolice",
-      keywords: ["Salmonella", "Shigella", "Campylobacter", "rotaviry", "rektální výtěr", "Amies"],
-      content: {
-        definice: "<strong>Gastrointestinální infekce:</strong> Průjmová onemocnění doprovázená zvracením, horečkou a dehydratací. Rozlišují se bakteriální enteroinfekce, virové gastroenteritidy a intoxikace z potravin.",
-        etiologie: "<strong>Metodika odběru a vyšetření:</strong><br>• <strong>Bakteriologie:</strong> Rektální výtěr (odběrový tampón se zavede cca 5 cm do konečníku, otočí se a vloží do Amiesovy transportní půdy). Záchyt: <em>Salmonella enteritidis, Campylobacter jejuni</em> (krev ve stolici, nejčastější u nás), <em>Shigella sonnei</em> (tenesmy, hlen), <em>Yersinia enterocolitica</em>, patogenní <em>E. coli</em>.<br>• <strong>Virologie a Parazitologie:</strong> Kus kusové stolice (velikosti vlašského ořechu). Detekce rotavirů, norovirů (ELISA, latexová aglutinace, PCR) a vajíček/cyst prvoků.<br>• <strong>Intoxikace z potravy:</strong> Rychlý nástup (do 6h - zvracení, bez horečky). Způsobeno preformovaným toxinem: <em>Staphylococcus aureus</em> (enterotoxin) nebo <em>Bacillus cereus</em>."
-      },
-      quiz: [
-        {
-          q: "Jaký odběrový materiál je dostatečný pro rutinní bakteriologické vyšetření stolice (průkaz Salmonel, Campylobacterů)?",
-          options: ["Kus kusové stolice ve sterilní nádobce", "Rektální výtěr na tamponu v transportní půdě (např. Amiesově)", "Otisk lepicí páskou z konečníku", "Odběr močového sedimentu"],
-          correct: 1,
-          explanation: "Rektální výtěr zavedený do Amiesovy transportní půdy je standardní a dostatečný materiál pro běžnou kultivaci střevních bakteriálních patogenů."
-        }
-      ]
+},
+{
+    "id": "mikra-35",
+    "cislo": 35,
+    "skupina_a": "Diagnostika",
+    "skupina_b": "Parazitologie",
+    "cast_a": {
+        "title": "Diagnostika sepse a infekcí krevního řečiště",
+        "keywords": [
+            "sepse",
+            "hemokultura",
+            "SIRS",
+            "biomarkery",
+            "prokalcitonin",
+            "katétrová sepse"
+        ],
+        "content": {
+            "definice": "<strong>Sepse:</strong> Život ohrožující orgánová dysfunkce způsobená dysregulovanou odpovědí na infekci.",
+            "etiologie": "<strong>Hemokultivace:</strong> Zlatý standard.<br>• Odběr před započetím ATB. Aseptická desinfekce kůže k zamezení kontaminace <em>S. epidermidis</em>.<br>• Odebírají se 2 sady (1 aerobní + 1 anaerobní lahvička na sadu). Objem krve: 8–10 ml/lahvička.<br>• Katétrová sepse (CRBSI): Odběr z katétru i z periferie současně.",
+            "laborator": "Biomarkery: <strong>Prokalcitonin (PCT)</strong> – stoupá do 4–6 hodin specificky u bakteriálních sepsí. CRP stoupá do 12–24h."
+        },
+        "quiz": [
+            {
+                "q": "Jaký objem krve se standardně odebírá do jedné hemokultivační lahvičky u dospělých?",
+                "options": [
+                    "1–2 ml",
+                    "8–10 ml",
+                    "20–30 ml",
+                    "0,5 ml"
+                ],
+                "correct": 1,
+                "explanation": "Optimální poměr krve a kultivačního média vyžaduje 8–10 ml krve."
+            },
+            {
+                "q": "Který biomarker v séru stoupá nejrychleji a nejspecifičtěji u bakteriální sepse?",
+                "options": [
+                    "Kreatinin",
+                    "Prokalcitonin (PCT)",
+                    "CRP",
+                    "Albumin"
+                ],
+                "correct": 1,
+                "explanation": "Prokalcitonin stoupá velmi rychle (4–6 hodin po začátku se bakteriální sepse)."
+            }
+        ]
     },
-    cast_b: {
-      title: "Zákožka svrabová a vši",
-      keywords: ["Sarcoptes scabiei", "svrab", "Pediculus capitis", "veš dětská", "veš šatní", "hnidy"],
-      content: {
-        definice: "<strong>Zákožka svrabová a vši:</strong> Ektoparazitičtí členovci (roztoči a hmyz) cizopasící v kůži, ochlupení nebo na oděvech člověka.",
-        etiologie: "<strong>1. Zákožka svrabová (Sarcoptes scabiei):</strong><br>• Samičky si vrtají chodbičky v stratum corneum epidermis, kde kladou vajíčka. Samečci po kopulaci hynou. Přenos těsným kontaktem (kůže na kůži, sex) a prádlem.<br>• Projevy: **Svrab (scabies)**. Intenzivní svědění (horší v teple pod peřinou), papuly a chodbičky v místech jemné kůže (meziprstí rukou, zápěstí, podpaží, genitál – trenýrkový příznak). U imunosuprimovaných *Scabies norvegica* (těžká krustózní forma).<br>• Diagnostika: seškrab kůže z konce chodbičky, rozpuštění v 10% KOH → mikroskopický průkaz roztoče/vajíček. Terapie: Permethrin 5% krém na celé tělo, sirná mast.<br><br><strong>2. Vši (Anoplura):</strong><br>• Bezkřídlý hmyz, živí se sáním krve. Samičky lepí vajíčka (**hnidy**) na vlasy/vlákna.<br>• <em>Veš dětská (Pediculus capitis):</em> Cizopasí ve vlasech (spánková a týlní krajina). Pruritus, riziko sekundární impetiginizace ranek. Diagnostika: nález živých vší/hnid. Terapie: Pedikulocida.<br>• <em>Veš šatní (Pediculus humanus):</em> Žije v záhybech oděvů, na tělo leze jen sát. **Vektor skvrnitého tyfu (Rickettsia prowazekii) a návratné horečky**.<br>• <em>Veš muňka (Phthirus pubis):</em> Pubické ochlupení, zanechává namodralé skvrny (maculae caeruleae)."
-      },
-      quiz: [
-        {
-          q: "Který zástupce vší je významným vektorem (přenašečem) epidemického skvrnitého tyfu?",
-          options: ["Veš dětská (Pediculus capitis)", "Veš šatní (Pediculus humanus)", "Veš muňka (Phthirus pubis)", "Zákožka svrabová"],
-          correct: 1,
-          explanation: "Veš šatní (P. humanus) přenáší Rickettsia prowazekii (skvrnitý tyfus) a Borrelia recurrentis (návratná horečka) ve svých výkalech vetřených do kůže při škrábání."
-        }
-      ]
+    "cast_b": {
+        "title": "Echinokokózy – Echinococcus granulosus a multilocularis",
+        "keywords": [
+            "Echinococcus granulosus",
+            "Echinococcus multilocularis",
+            "hydatida",
+            "alveokokóza",
+            "psovití",
+            "albendazol"
+        ],
+        "content": {
+            "definice": "<strong>Echinokokózy:</strong> Závažné tkáňové helmintózy vyvolané larvami měchožilů.",
+            "etiologie": "• <em>Echinococcus granulosus:</em> Pes (def.), ovce/člověk (mezihost.). Cesty: jednokomorové cysty (**hydatidy**) v játrech a plicích. Nebezpečí anafylaxe při prasknutí.<br>• <em>Echinococcus multilocularis:</em> Liška (def.). Alveolární hydatida – droboučké cysty agresivně infiltrující játra (chová se jako maligní nádor). Smrtnost bez léčby > 90 %.",
+            "terapie": "Albendazol. Chirurgické řešení."
+        },
+        "quiz": [
+            {
+                "q": "Který patogen způsobuje alveolární hydatidózu, která svými vlastnostmi infiltrace a metastazování připomíná maligní nádor?",
+                "options": [
+                    "Echinococcus granulosus",
+                    "Echinococcus multilocularis",
+                    "Taenia solium",
+                    "Fasciola hepatica"
+                ],
+                "correct": 1,
+                "explanation": "Echinococcus multilocularis tvoří infiltrující cysty bez ohraničení v játrech."
+            },
+            {
+                "q": "Proč je prasknutí hydatidové cysty Echinococcus granulosus v těle pacienta nebezpečné?",
+                "options": [
+                    "Způsobuje okamžitý rozvoj diabetu",
+                    "Rozlévá tekutinu s rizikem smrtelného anafylaktického šoku a diseminace dceřiných cyst",
+                    "Způsobuje infarkt myokardu",
+                    "Vede k okamžité slepotě"
+                ],
+                "correct": 1,
+                "explanation": "Hydatidová tekutina vyvolává těžkou anafylaktickou reakci a uvolněné skolexy zakládají sekundární cysty."
+            }
+        ]
     }
-  }
+},
+{
+    "id": "mikra-36",
+    "cislo": 36,
+    "skupina_a": "Diagnostika",
+    "skupina_b": "Parazitologie",
+    "cast_a": {
+        "title": "Infekce dýchacích cest a odběry",
+        "keywords": [
+            "sputum",
+            "výtěr z krku",
+            "Amies",
+            "Bordet-Gengou",
+            "legionela",
+            "BAL"
+        ],
+        "content": {
+            "definice": "<strong>Infekce dýchacích cest:</strong> Diagnostika závisí na správném odběru a vyhodnocení biologického materiálu.",
+            "etiologie": "• Výtěr z krku: z mandlí a patrových oblouků (Amiesova půda → krevní agar pro <em>S. pyogenes</em>).<br>• Sputum: z hloubky dýchacích cest. Kontrola pod mikroskopem: hodnocení poměru PMN leukocytů a plochých epitelových buněk ze slin.<br>• Specifické půdy: <em>Bordetella pertussis</em> (Bordet-Gengou / Regan-Lowe), <em>Legionella</em> (BCYE agar).",
+            "laborator": "Sputum odebírat ráno nalačno po vypláchnutí úst vodou."
+        },
+        "quiz": [
+            {
+                "q": "Jak se pod mikroskopem hodnotí kvalita sputa před kultivačním vyšetřením?",
+                "options": [
+                    "Podle zbarvení hlenu",
+                    "Podle poměru polymorfonukleárních leukocytů a dlaždicových epitelových buněk",
+                    "Podle přítomnosti bublin vzduchu",
+                    "Podle přítomnosti laktobacilů"
+                ],
+                "correct": 1,
+                "explanation": "Kvalitní sputum z DDC obsahuje mnoho leukocytů a málo dlaždicových epitelií ze slin."
+            },
+            {
+                "q": "Která speciální půda se používá pro kultivační průkaz Bordetella pertussis (černého kašle)?",
+                "options": [
+                    "Endův agar",
+                    "Bordet-Gengouova půda s krví",
+                    "Sabouraudův agar",
+                    "Claubergova půda"
+                ],
+                "correct": 1,
+                "explanation": "Bordetella pertussis vyžaduje pro nárůst bramborovo-glycerinový agar s krví."
+            }
+        ]
+    },
+    "cast_b": {
+        "title": "Střevní nematodózy (Enterobius, Ascaris, Strongyloides, Ancylostoma)",
+        "keywords": [
+            "Enterobius vermicularis",
+            "Ascaris lumbricoides",
+            "roup dětský",
+            "škrkavka",
+            "Grahamova metoda",
+            "Loefflerův syndrom"
+        ],
+        "content": {
+            "definice": "<strong>Střevní hlístice:</strong> Obloukovití červi parazitující v traktu človeka.",
+            "etiologie": "• <em>Enterobius vermicularis (Roup):</em> Perianální pruritus v noci. Diagnostika: **Grahamova metoda** (otisk lepicí pásky).<br>• <em>Ascaris lumbricoides (Škrkavka):</em> Plicní fáze (Loefflerův eozinofilní syndrom) → střevní fáze (obstrukce). Průkaz vajíček ve stolici.<br>• <em>Strongyloides stercoralis:</em> Rhabditiformní larvy ve stolici.<br>• <em>Ancylostoma duodenale:</em> Saje krev v duodenu → sideropenická anémie.",
+            "terapie": "Mebendazol, Albendazol."
+        },
+        "quiz": [
+            {
+                "q": "Grahamova metoda (lepicí páska) je standardní diagnostickou metodou pro průkaz:",
+                "options": [
+                    "Ascaris lumbricoides",
+                    "Enterobius vermicularis",
+                    "Strongyloides stercoralis",
+                    "Taenia saginata"
+                ],
+                "correct": 1,
+                "explanation": "Roup dětský klade vajíčka v perianálních řasách, proto se odebírají otiskem lepicí pásky."
+            },
+            {
+                "q": "Která hlístice způsobuje při migraci larev plícemi tvoření přechodných eozinofilních infiltrátů (Loefflerův syndrom)?",
+                "options": [
+                    "Enterobius vermicularis",
+                    "Ascaris lumbricoides",
+                    "Trichomonas vaginalis",
+                    "Taenia solium"
+                ],
+                "correct": 1,
+                "explanation": "Larvy Ascaris lumbricoides migrují ze střeva přes plíce do dýchacích cest, což vyvolává plynoucí plicní eosinofilii."
+            }
+        ]
+    }
+},
+{
+    "id": "mikra-37",
+    "cislo": 37,
+    "skupina_a": "Diagnostika",
+    "skupina_b": "Parazitologie",
+    "cast_a": {
+        "title": "Infekce kůže a měkkých tkání, normální flóra",
+        "keywords": [
+            "Staphylococcus aureus",
+            "Streptococcus pyogenes",
+            "normální flóra",
+            "erysipelas",
+            "nosokomiální",
+            "kolonizační rezistence"
+        ],
+        "content": {
+            "definice": "<strong>Infekce kůže a měkkých tkání:</strong> Od hnisavých pyodermií po nekrotizující záněty.",
+            "etiologie": "• Normální flóra kůže: <em>S. epidermidis, Cutibacterium acnes, Corynebacterium</em>.<br>• Erysipel (růže): <em>Streptococcus pyogenes</em> (ostře ohraničené zarudnutí, lymfangitida, febrilie).<br>• Impetigo, furunkl: <em>S. aureus, S. pyogenes</em>.<br>• Nekrotizující fasciitida: <em>S. pyogenes</em> (skupina A) nebo polymikrobiální anaeroby.",
+            "laborator": "Aspirace hnisu stříkačkou z hloubky zánětu, nikoli povrchový stěr."
+        },
+        "quiz": [
+            {
+                "q": "Který patogen je hlavním původcem erysipelu (růže) – ostře ohraničeného kožního zánětu s horečkou?",
+                "options": [
+                    "Staphylococcus aureus",
+                    "Streptococcus pyogenes",
+                    "Pseudomonas aeruginosa",
+                    "Propionibacterium acnes"
+                ],
+                "correct": 1,
+                "explanation": "Erysipel je streptokoková infekce způsobená Streptococcus pyogenes (skupina A)."
+            },
+            {
+                "q": "Která bakterie je hlavním anaerobním zástupcem fyziologické mikroflóry kožních mazových žláz?",
+                "options": [
+                    "Cutibacterium (Propionibacterium) acnes",
+                    "Staphylococcus aureus",
+                    "Pseudomonas aeruginosa",
+                    "Clostridium perfringens"
+                ],
+                "correct": 0,
+                "explanation": "Cutibacterium acnes je lipofilní anaerob žijící v pórách a mazových žlázách kůže."
+            }
+        ]
+    },
+    "cast_b": {
+        "title": "Tkáňové nematodózy (Toxocara, Trichinella, Dracunculus)",
+        "keywords": [
+            "Toxocara canis",
+            "Trichinella spiralis",
+            "Dracunculus medinensis",
+            "larva migrans",
+            "svalovec stočený"
+        ],
+        "content": {
+            "definice": "<strong>Tkáňové nematodózy:</strong> Larvy hlístic migrují tkáněmi nevhodného hostitele.",
+            "etiologie": "• <em>Toxocara canis:</em> Ze psů (vajíčka z pískovišť). Larva migrans visceralis (játra, eozinofilie) a ocularis (sítnice).<br>• <em>Trichinella spiralis (Svalovec):</em> Z kanců. Larvy se spirálovitě opouzdřují ve svalech (myalgie, periorbitální edém).<br>• <em>Dracunculus medinensis:</em> Pitnou vodou s buchanatkami. Červ v podkoží dolních končetin.",
+            "terapie": "Albendazol + kortikosteroidy."
+        },
+        "quiz": [
+            {
+                "q": "Který parazit se přenáší na člověka konzumací nedostatečně tepelně upraveného masa divočáků a tvoří cysty ve svalech?",
+                "options": [
+                    "Toxocara canis",
+                    "Trichinella spiralis",
+                    "Dracunculus medinensis",
+                    "Ascaris lumbricoides"
+                ],
+                "correct": 1,
+                "explanation": "Trichinella spiralis se přenáší nákazou ze svaloviny černého vepřového masa nebo divočáků."
+            },
+            {
+                "q": "Nález granulomu na sítnici oka u dítěte s anamnézou hraní na pískovišti vzbuzuje podezření na:",
+                "options": [
+                    "Larva migrans ocularis (Toxocara canis)",
+                    "Trichinellózu",
+                    "Skvrnitý tyfus",
+                    "Leptospirózu"
+                ],
+                "correct": 0,
+                "explanation": "Larvy Toxocara canis uvíznuté v cévách oka tvoří retinální granulom."
+            }
+        ]
+    }
+},
+{
+    "id": "mikra-38",
+    "cislo": 38,
+    "skupina_a": "Diagnostika",
+    "skupina_b": "Parazitologie",
+    "cast_a": {
+        "title": "Sexuálně přenosné infekce (STI)",
+        "keywords": [
+            "Kapavka",
+            "Syfilis",
+            "Chlamydie",
+            "Herpes genitalis",
+            "diagnostika STI",
+            "uretritida"
+        ],
+        "content": {
+            "definice": "<strong>STI:</strong> Přenos pohlavním stykem.",
+            "etiologie": "• <em>Neisseria gonorrhoeae:</em> Hnisavá uretritida. Mikroskopie: G- diplokoky v PMN leukocytech. Čokoládový agar.<br>• <em>Treponema pallidum:</em> Syfilis. Zástinová mikroskopie, RRR, TPHA, ELISA.<br>• <em>Chlamydia trachomatis (D-K):</em> PCR (NAAT) z prvního proudu moče.<br>• <em>HSV-2, HPV, HIV, Trichomonas.</em>"
+        },
+        "quiz": [
+            {
+                "q": "Která diagnostická metoda je nejcitlivější a v současnosti doporučovaná jako zlatý standard pro průkaz Chlamydia trachomatis v urogenitálním traktu?",
+                "options": [
+                    "Gramovo barvení",
+                    "Kultivace na krevním agaru",
+                    "Metody PCR a NAAT (amplifikace nukleových kyselin)",
+                    "Weilova-Felixova reakce"
+                ],
+                "correct": 2,
+                "explanation": "NAAT (PCR) testy vykazují nejvyšší specifitu a citlivost pro průkaz chlamydií."
+            },
+            {
+                "q": "Mikroskopický záchyt gramnegativních intruleukocytárních diplokoků v hnisavém sekretu uretry u muže potvrzuje dg.:",
+                "options": [
+                    "Syfilis",
+                    "Kapavky (Neisseria gonorrhoeae)",
+                    "Chlamydiové uretritidy",
+                    "Trichomoniázy"
+                ],
+                "correct": 1,
+                "explanation": "Intracelulárně uložené G- diplokoky v neutrofilech jsou patognomické pro akutní kapavku."
+            }
+        ]
+    },
+    "cast_b": {
+        "title": "Filárie – Wuchereria, Brugia, Loa Loa, Onchocerca",
+        "keywords": [
+            "Wuchereria bancrofti",
+            "Brugia malayi",
+            "Loa loa",
+            "Onchocerca volvulus",
+            "elefantiáza",
+            "mikrofilárie"
+        ],
+        "content": {
+            "definice": "<strong>Vlasovci:</strong> Tkáňové hlístice rodící mikrofilárie.",
+            "etiologie": "• <em>Wuchereria bancrofti:</em> Žije v mízních cévách → **elefantiáza** končetin. Přenašeč: komáři.<br>• <em>Loa loa:</em> Migruje v podkoží a pod oční spojivkou (Calabarské otoky). Přenašeč: ovádi.<br>• <em>Onchocerca volvulus:</em> Uzly v kůži, larvy způsobují **říční slepotu**. Přenašeč: muchničky.",
+            "terapie": "Ivermektin, Diethylkarbamazin."
+        },
+        "quiz": [
+            {
+                "q": "Který parazit přenášený muchničkami je původcem tzv. 'říční slepoty' v tropických oblastech?",
+                "options": [
+                    "Wuchereria bancrofti",
+                    "Loa loa",
+                    "Onchocerca volvulus",
+                    "Brugia malayi"
+                ],
+                "correct": 2,
+                "explanation": "Onchocerca volvulus vyvolává po migraci larev rohovkové nekrózy a slepotu."
+            },
+            {
+                "q": "Který vlasovec je charakteristický svou migrací přímo pod oční spojivkou a přenáší se ovády Chrysops?",
+                "options": [
+                    "Wuchereria bancrofti",
+                    "Loa loa (vlasovec oční)",
+                    "Onchocerca volvulus",
+                    "Dracunculus medinensis"
+                ],
+                "correct": 1,
+                "explanation": "Loa loa dospělec viditelně přechází přes oční bělmo a spojivku."
+            }
+        ]
+    }
+},
+{
+    "id": "mikra-39",
+    "cislo": 39,
+    "skupina_a": "Diagnostika",
+    "skupina_b": "Parazitologie",
+    "cast_a": {
+        "title": "Infekce centrálního nervového systému a likvor",
+        "keywords": [
+            "meningitida",
+            "likvor",
+            "lumbální punkce",
+            "purulentní",
+            "aseptická",
+            "PCR"
+        ],
+        "content": {
+            "definice": "<strong>Infekce CNS:</strong> Urgentní stav vyžadující rozbor likvoru z lumbální punkce.",
+            "etiologie": "• <strong>Purulentní meningitida:</strong> Zakalený likvor, tisíce polymorfonukleárů, **výrazný pokles glukózy**, vysoký protein. (Pneumokok, Meningokok, Hemofil, Listeria).<br>• <strong>Aseptická meningitida:</strong> Čirý likvor, lymfocyty, **glukóza v normě**. (Enteroviry, klíšťová encefalitida, HSV-2).",
+            "laborator": "Gramovo barvení, latexová aglutinace antigenů, PCR, kultivace."
+        },
+        "quiz": [
+            {
+                "q": "Pro purulentní (hnisavou bakteriální) meningitidu je v biochemickém nálezu likvoru typický:",
+                "options": [
+                    "Vysoká glukóza a nízký protein",
+                    "Výrazný pokles glukózy a vysoký protein (hyperproteinorhachie)",
+                    "Čirý vzhled a převaha lymfocytů",
+                    "Absence jakýchkoli buněk"
+                ],
+                "correct": 1,
+                "explanation": "Bakterie spotřebovávají glukózu → výrazná hypoglykorhachie a vysoký zánětlivý protein."
+            },
+            {
+                "q": "Vzhled mozkomíšního moku a normální hladina glukózy při převaze lymfocytů svědčí pro meningitidu:",
+                "options": [
+                    "Purulentní meningokokové",
+                    "Virové (aseptické)",
+                    "Pseudomonádové",
+                    "Klostridiové"
+                ],
+                "correct": 1,
+                "explanation": "Virové meningitidy nezpůsobují spotřebu glukózy, proto zůstává koncentrace glukózy v likvoru v rozmezí normy."
+            }
+        ]
+    },
+    "cast_b": {
+        "title": "Členovci (Arthropoda) jako parazité a vektory",
+        "keywords": [
+            "Ixodes ricinus",
+            "komár",
+            "vektor",
+            "nymfa",
+            "čmelík kuří",
+            "přenašeči"
+        ],
+        "content": {
+            "definice": "<strong>Členovci:</strong> Ektoparazité a přenašeči patogenů.",
+            "etiologie": "• <em>Ixodes ricinus (Klíště):</em> Nymfy/dospělci přenášejí boreliózu, klíšťovou encefalitidu, anaplazmózu.<br>• <em>Komáři (Culicidae):</em> <em>Anopheles</em> (malárie), <em>Aedes</em> (dengue, zika, žlutá zimnice), <em>Culex</em> (západonilská horečka).<br>• <em>Blechy:</em> <em>Pulex irritans</em>, <em>Xenopsylla cheopis</em> (mor - <em>Yersinia pestis</em>).<br>• <em>Mouchy:</em> Tse-tse (spavá nemoc), muchničky (říční slepota)."
+        },
+        "quiz": [
+            {
+                "q": "Které vývojové stádium klíštěte Ixodes ricinus nepřenáší na člověka žádné patogeny?",
+                "options": [
+                    "Larva",
+                    "Nymfa",
+                    "Dospělá samička",
+                    "Sameček"
+                ],
+                "correct": 0,
+                "explanation": "Larvy se líhnou nenakažené a patogeny získají až prvním sáním."
+            },
+            {
+                "q": "Komár rodu Aedes is hlavním přenašečem:",
+                "options": [
+                    "Malárie",
+                    "Spavé nemoci",
+                    "Viru Dengue, Žluté zimnice a viru Zika",
+                    "Moru"
+                ],
+                "correct": 2,
+                "explanation": "Komáři rodu Aedes jsou přenašeči arbovirů (Dengue, Zika, žlutá zimnice)."
+            }
+        ]
+    }
+},
+{
+    "id": "mikra-40",
+    "cislo": 40,
+    "skupina_a": "Diagnostika",
+    "skupina_b": "Parazitologie",
+    "cast_a": {
+        "title": "Gastrointestinální nákazy a odběr stolice",
+        "keywords": [
+            "Salmonella",
+            "Shigella",
+            "Campylobacter",
+            "rotaviry",
+            "rektální výtěr",
+            "Amies"
+        ],
+        "content": {
+            "definice": "<strong>Gastrointestinální nákazy:</strong> Záněty střev vyvolané bakteriemi, viry a parazity.",
+            "etiologie": "• Bakteriologický odběr: **Rektální výtěr** v Amiesově transportní půdě.<br>• Virologický / parazitologický odběr: Kusová stolice na rotaviry/noroviry (ELISA, PCR) a cysty parazitů.<br>• Preformované toxiny: <em>Staphylococcus aureus, Bacillus cereus</em>."
+        },
+        "quiz": [
+            {
+                "q": "Jaký odběrový materiál je dostatečný pro rutinní bakteriologické vyšetření stolice (průkaz Salmonel, Campylobacterů)?",
+                "options": [
+                    "Kus kusové stolice ve sterilní nádobce",
+                    "Rektální výtěr na tamponu v transportní půdě (např. Amiesově)",
+                    "Otisk lepicí páskou z konečníku",
+                    "Odběr močového sedimentu"
+                ],
+                "correct": 1,
+                "explanation": "Rektální výtěr v Amiesově transportní půdě je standardním vzorkem."
+            },
+            {
+                "q": "Průjmové onemocnění s velmi rychlým nástupem (do 1–6 hodin po jídle) s dominujícím zvracením bez horečky svědčí pro:",
+                "options": [
+                    "Infekci Salmonella enteritidis",
+                    "Bakteriální intoxikaci preformovaným enterotoxinem (např. S. aureus)",
+                    "Břišní tyfus",
+                    "Kryptosporidiózu"
+                ],
+                "correct": 1,
+                "explanation": "Krátká inkubační doba bez horečky je typická pro alimentární intoxikace preformovaným stefylokokovým enterotoxinem."
+            }
+        ]
+    },
+    "cast_b": {
+        "title": "Zákožka svrabová a vši",
+        "keywords": [
+            "Sarcoptes scabiei",
+            "svrab",
+            "Pediculus capitis",
+            "veš dětská",
+            "veš šatní",
+            "hnidy"
+        ],
+        "content": {
+            "definice": "<strong>Ektoparazitičtí členovci:</strong>",
+            "etiologie": "• <em>Sarcoptes scabiei (Zákožka svrabová):</em> Vrtá chodbičky v kožní rohovce. Svrab (scabies). Intenzivní svědění v teple. Diagnóza: seškrab v 10% KOH. Léčba: Permethrin krém.<br>• <em>Pediculus capitis (Veš dětská):</em> Hnidy ve vlasech.<br>• <em>Pediculus humanus (Veš šatní):</em> V záhybech šatů. **Vektor skvrnitého tyfu (Rickettsia prowazekii)**."
+        },
+        "quiz": [
+            {
+                "q": "Který zástupce vší je významným vektorem (přenašečem) epidemického skvrnitého tyfu?",
+                "options": [
+                    "Veš dětská (Pediculus capitis)",
+                    "Veš šatní (Pediculus humanus)",
+                    "Veš muňka (Phthirus pubis)",
+                    "Zákožka svrabová"
+                ],
+                "correct": 1,
+                "explanation": "Veš šatní (P. humanus) přenáší Rickettsia prowazekii."
+            },
+            {
+                "q": "Které mikroskopické vyšetření se používá k průkazu zákožky svrabové z kožního seškrabu?",
+                "options": [
+                    "Gramovo barvení",
+                    "Nativní preparát po projasnění 10–20% KOH",
+                    "Kultivace na krevním agaru",
+                    "PCR z krve"
+                ],
+                "correct": 1,
+                "explanation": "Seškrab kůže z chodbičky se kapkou 10–20% KOH projasní, čímž se rozpustí keratin."
+            }
+        ]
+    }
+}
 ];
-
-
