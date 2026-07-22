@@ -275,8 +275,104 @@
     </div>
   </dialog>
 
+  <!-- Floating Gemini Chatbot Widget -->
+  <div class="gemini-chatbot-container context-mikra" id="gemini-chatbot-container">
+    <!-- Chat Button (FAB) -->
+    <button class="chatbot-fab" id="chatbot-fab" aria-label="Otevřít lékařského asistenta">
+      <span class="fab-icon">💬</span>
+      <span class="fab-badge pulse-badge" id="chatbot-badge"></span>
+    </button>
+
+    <!-- Chat Panel -->
+    <div class="chatbot-panel" id="chatbot-panel">
+      <!-- Panel Header -->
+      <div class="chatbot-header" id="chatbot-header">
+        <div class="chatbot-title-area">
+          <div class="chatbot-avatar-container">
+            <span class="chatbot-avatar">🤖</span>
+            <span class="avatar-status-dot online"></span>
+          </div>
+          <div class="chatbot-info">
+            <h4 class="chatbot-name">Gemini Asistent</h4>
+            <span class="chatbot-status" id="chatbot-subject-context">Asistent pro Mikrobiologii 🔬</span>
+          </div>
+        </div>
+        <div class="chatbot-header-actions">
+          <button class="chatbot-header-btn" id="chatbot-settings-btn" title="Nastavení" aria-label="Nastavení chatu">⚙️</button>
+          <button class="chatbot-header-btn" id="chatbot-close-btn" title="Zavřít" aria-label="Zavřít chat">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Settings Overlay -->
+      <div class="chatbot-settings-overlay" id="chatbot-settings-overlay">
+        <h5>Nastavení API klíče</h5>
+        <p>Pro přímé volání API z prohlížeče (bez serveru) můžete zadat svůj klíč. Ukládá se pouze lokálně u vás (localStorage).</p>
+        <div class="settings-input-group">
+          <input type="password" id="chatbot-api-key-input" placeholder="AIzaSy..." />
+          <button class="btn btn-primary btn-sm" id="chatbot-save-key-btn">Uložit</button>
+        </div>
+        <button class="btn btn-secondary btn-sm" id="chatbot-clear-key-btn" style="margin-top: 8px;">Smazat uložený klíč</button>
+        <button class="chatbot-settings-close" id="chatbot-settings-close-btn">Zpět do chatu</button>
+      </div>
+
+      <!-- Messages Area -->
+      <div class="chatbot-messages" id="chatbot-messages">
+        <div class="message assistant">
+          <div class="message-content">
+            Ahoj! Jsem tvůj medicínský asistent pro Mikrobiologii. Pomohu ti s bakteriologií, virologií, mykologií, parazitologií a diagnostickými metodami. S čím dnes začneme?
+          </div>
+        </div>
+      </div>
+
+      <!-- Suggestion chips (dynamic/contextual) -->
+      <div class="chatbot-suggestions" id="chatbot-suggestions">
+        <button type="button" class="suggestion-chip" data-query="Jaký je princip Gramova barvení a jaký je rozdíl v buněčné stěně G+ a G- bakterií?">Gramovo barvení</button>
+        <button type="button" class="suggestion-chip" data-query="Které medicínsky významné bakterie tvoří spory a jaké jsou metody jejich sterilizace?">Bakteriální spory</button>
+        <button type="button" class="suggestion-chip" data-query="Jak funguje metoda PCR a jaké jsou její výhody při diagnostice virových infekcí?">PCR v diagnostice</button>
+      </div>
+
+      <!-- Typing Indicator -->
+      <div class="chatbot-typing-indicator" id="chatbot-typing-indicator">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+
+      <!-- Input Area -->
+      <form class="chatbot-input-area" id="chatbot-input-form">
+        <input type="text" id="chatbot-input" placeholder="Zeptej se na cokoliv..." autocomplete="off" required />
+        <button type="submit" id="chatbot-send-btn" aria-label="Odeslat zprávu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </form>
+    </div>
+    
+    <footer>
+      <div class="footer-content">
+        <p>© 2026 Viola Kintrová • Developed because I can. Vytvořeno pro studenty 3., 4. a 5. ročníku Všeobecného lékařství.</p>
+        <a href="https://revolut.me/v_kintrova" target="_blank" rel="noopener noreferrer" class="support-btn">
+          <svg class="support-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <path d="M7 5c0.8 3.5 -0.4 10 0.8 14" stroke="currentColor" />
+            <path d="M12 2c1 4.5 -0.5 13 1 20" stroke="currentColor" />
+            <path d="M17 5c0.5 3 -0.5 9.5 0.8 14" stroke="currentColor" />
+          </svg>
+          <span>Pomohl ti můj portál? Buy me a Monster! (please) </span>
+        </a>
+      </div>
+    </footer>
+  </div>
+
   <!-- Skripty -->
   <script src="data_mikra.js"></script>
   <script src="app.js"></script>
+  <script src="../feedback.js"></script>
 </body>
 </html>
