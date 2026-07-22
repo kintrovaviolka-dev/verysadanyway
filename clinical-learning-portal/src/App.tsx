@@ -13,6 +13,8 @@ import EmergencyModule from './components/EmergencyModule';
 import AnesthesiaModule from './components/AnesthesiaModule';
 import VentilationModule from './components/VentilationModule';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
+import SupportButton from './components/SupportButton';
+import FeedbackButton from './components/FeedbackButton';
 
 function AppContent() {
   const { language, setLanguage, t } = useLanguage();
@@ -375,14 +377,20 @@ function AppContent() {
 
       {/* High-quality Academic medical footer */}
       <footer className="bg-white/5 border-t border-white/10 mt-16 text-slate-400 py-8 text-xs font-sans backdrop-blur-md">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-center md:text-left leading-relaxed">
-            {t('academicFooter')}
-          </p>
-          <div className="flex gap-4">
-            <span className="hover:text-white transition-colors cursor-pointer">{t('privacyAndTerms')}</span>
-            <span>•</span>
-            <span className="hover:text-white transition-colors cursor-pointer">{t('academicOnly')}</span>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col gap-2.5 max-w-2xl text-center md:text-left">
+            <p className="leading-relaxed">
+              {t('academicFooter')}
+            </p>
+            <div className="flex justify-center md:justify-start gap-4">
+              <span className="hover:text-white transition-colors cursor-pointer">{t('privacyAndTerms')}</span>
+              <span>•</span>
+              <span className="hover:text-white transition-colors cursor-pointer">{t('academicOnly')}</span>
+            </div>
+          </div>
+          <div className="flex justify-center shrink-0 gap-3 items-center flex-wrap">
+            <SupportButton />
+            <FeedbackButton />
           </div>
         </div>
       </footer>
