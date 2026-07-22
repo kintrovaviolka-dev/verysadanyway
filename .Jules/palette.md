@@ -23,3 +23,6 @@
 ## 2024-11-20 - Adding Accessibility to Interactive Elements
 **Learning:** Adding keydown listeners to custom card-based navigation components is required for accessibility, but when cards are "locked" and interactable (to show a reason for being locked), using `aria-disabled="true"` instead of removing `tabindex` is vital so keyboard users can still discover them and read the locked message.
 **Action:** When creating custom button-like elements using `div` or `span`, always explicitly assign `role="button"`, `tabindex="0"`, appropriate `aria-label`s or `aria-disabled` states, and pair standard `click` event listeners with `keydown` event listeners that trigger on the 'Enter' and 'Space' keys to ensure full keyboard accessibility. Make sure to attach keyboard event listeners for Enter and Space (with `e.preventDefault()`). Make sure both the HTML and Javascript are updated properly.
+## 2024-11-20 - Missing ARIA Labels on Form Fields
+**Learning:** Found multiple form fields (`input`) in the chatbot container lacking explicit ARIA labels. This causes screen readers to skip announcing the input's purpose, hindering accessibility for keyboard navigation.
+**Action:** Always ensure that standalone input fields have appropriate `aria-label` attributes to explicitly describe their function to assistive technologies.
