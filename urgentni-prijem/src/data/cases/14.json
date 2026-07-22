@@ -1,0 +1,76 @@
+{
+  "id": "14",
+  "level": 2,
+  "difficulty": "medium",
+  "specialty": "Kardiologie",
+  "title": "Akutní koronární syndrom bez elevací ST (NSTEMI)",
+  "name": "Pavel Mareš",
+  "age": 58,
+  "sex": "Muž",
+  "mainComplaint": "Tlaková bolest na hrudi, opocení",
+  "complaintDetail": "Pacient si stěžuje na tupou, pálivou bolest za hrudní kostí vyzařující do levého ramene, která začala v klidu před 2 hodinami. Pociťuje mírnou dušnost a nauzeu. Na EKG nejsou zřejmé ST elevace, ale jsou přítomny deprese ST 1mm ve svodech V4-V6.",
+  "history": [
+    "Hypertenze",
+    "Dyslipidémie",
+    "Rodinná anamnéza: Otec zemřel na infarkt v 50 letech"
+  ],
+  "allergies": [
+    "Bez známých alergií"
+  ],
+  "triageClass": "3",
+  "vitals": {
+    "tf": 88,
+    "tk_sys": 145,
+    "tk_dia": 90,
+    "spo2": 95,
+    "gcs": 15,
+    "temp": 36.5,
+    "rr": 18
+  },
+  "secretDiagnosis": "Akutní infarkt myokardu bez elevací ST (NSTEMI)",
+  "secretDiagnosisCode": "I21.4",
+  "labsResult": {
+    "ko": "KO: Leukocyty 9.2 x10^9/l, Hemoglobin 150 g/l, Trombocyty 220 x10^9/l.",
+    "biochem": "Biochemie STATIM: Troponin I: 120 ng/l (norma <14) - POZITIVNÍ, CK-MB: 3.5 ug/l, Kreatinin: 95 umol/l, Urea: 6.8 mmol/l, CRP: 3.1 mg/l, Draslík: 4.0 mmol/l, Sodík: 140 mmol/l.",
+    "coag": "Koagulace: INR 1.0, APTT 28 s.",
+    "mochem": "Moč chemicky: Negativní.",
+    "abr": "Astrup (ABR): pH 7.41, pCO2 4.9 kPa, pO2 11.2 kPa, HCO3- 24.0 mmol/l, BE 0.0 mmol/l."
+  },
+  "imagingResult": {
+    "ekg": "12svodové EKG: Sinusový rytmus 88/min, deprese ST segmentu 1 mm ve svodech V4-V6, bez ST elevací.",
+    "rtg": "RTG Srdce+Plíce: Srdeční stín nezvětšen, plicní pole bez ložiskových změn či městnání.",
+    "echo": "Echokardiografie: EF levé komory 50%, hypokineze anterolaterální stěny levé komory.",
+    "ct": "CT Pulmonální angiografie: Bez známek plicní embolie."
+  },
+  "patientHistory": [
+    "Hypertenze",
+    "Dyslipidémie",
+    "Rodinná anamnéza: Otec zemřel na infarkt v 50 letech"
+  ],
+  "vitalSigns": {
+    "tf": 88,
+    "tk_sys": 145,
+    "tk_dia": 90,
+    "spo2": 95,
+    "gcs": 15,
+    "temp": 36.5,
+    "rr": 18
+  },
+  "physicalExam": "Pacient je při vědomí, plně orientovaný, bledý, opocený. Dýchání čisté alveolární, bez šelestů či chrupků. Srdeční akce pravidelná, ozvy ohraničené. Břicho prohmatné, nebolestivé, bez rezistence. Dolní končetiny bez otoků či známek hluboké žilní trombózy.",
+  "labValues": {
+    "ko": "KO: Leukocyty 9.2 x10^9/l, Hemoglobin 150 g/l, Trombocyty 220 x10^9/l.",
+    "biochem": "Biochemie STATIM: Troponin I: 120 ng/l (norma <14) - POZITIVNÍ, CK-MB: 3.5 ug/l, Kreatinin: 95 umol/l, Urea: 6.8 mmol/l, CRP: 3.1 mg/l, Draslík: 4.0 mmol/l, Sodík: 140 mmol/l."
+  },
+  "decisionNodes": [
+    {
+      "question": "Jaký je bezprostřední léčebný postup u pacienta s NSTEMI?",
+      "options": [
+        "Okamžitá trombolýza",
+        "Podání kyslíku, ASA 400mg p.o., Heparin i.v. a monitorování",
+        "Doporučení klidu na lůžku a kontrolní troponin za 12 hodin"
+      ],
+      "feedback": "Správný postup zahrnuje stabilizaci pacienta, podání antiagregace (kyselina acetylsalicylová), antikoagulace (Heparin) a monitorování s plánováním selektivní koronarografie do 24 hodin."
+    }
+  ],
+  "feedback": "Případ NSTEMI vyžaduje rychlou diagnostiku pomocí troponinu a EKG, podání antiagregační a antikoagulační terapie a včasný převoz na katetrizační sál."
+}

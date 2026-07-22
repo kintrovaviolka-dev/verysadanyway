@@ -1,0 +1,75 @@
+{
+  "id": "5",
+  "level": 3,
+  "title": "Meningokoková sepse a meningitida",
+  "name": "Eliška Novotná",
+  "age": 8,
+  "sex": "Dívka",
+  "mainComplaint": "Horečka, úporná bolest hlavy, zvracení, fialové skvrnky na kůži",
+  "complaintDetail": "Dítě je schvácené, spavé, těžko komunikuje. Trpí silnou bolestí hlavy, světloplachostí a opakovně zvrací. Matka si před hodinou všimla drobných červenofialových skvrnek na stehnech a břiše, které neblednou při zatlačení skleničkou.",
+  "history": [
+    "Dosud zdravá, neočkovaná proti meningokoku typu B"
+  ],
+  "allergies": [
+    "Bez známých alergií"
+  ],
+  "triageClass": "1",
+  "vitals": {
+    "tf": 155,
+    "tk_sys": 80,
+    "tk_dia": 42,
+    "spo2": 90,
+    "gcs": 11,
+    "temp": 39.9,
+    "rr": 32
+  },
+  "secretDiagnosis": "Meningokoková sepse a meningitida",
+  "secretDiagnosisCode": "A39.0",
+  "labsResult": {
+    "ko": "KO: Leukocytóza 24.5 x10^9/l s posunem doleva, Hemoglobin 112 g/l, Trombocytopenie 85 x10^9/l (hrozící DIC).",
+    "biochem": "Biochemie STATIM: CRP: 185 mg/l - VYSOKÉ, Laktát: 5.4 mmol/l (závažný laktátový šok), Kreatinin: 110 umol/l, Urea: 8.2 mmol/l, Glykémie: 3.2 mmol/l.",
+    "coag": "Koagulace: INR 1.65 (prodlouženo), APTT 52 s, Fibrinogen 1.1 g/l (spotřební koagulopatie), D-dimery: 4200 ng/ml.",
+    "mochem": "Moč: Bílkovina +, krev +.",
+    "abr": "Astrup (ABR): pH 7.21 (těžká metabolická acidóza s laktátem), pCO2 3.8 kPa, pO2 7.5 kPa, HCO3- 14.5 mmol/l, BE -11.5 mmol/l."
+  },
+  "imagingResult": {
+    "ekg": "EKG: Sinusová tachykardie 155/min, bez ložiskové ischemie.",
+    "rtg": "RTG Hrudníku: Bez ložiskových změn v plicním parenchymu.",
+    "echo": "Echokardiografie: Hyperdynamická levá komora, EF 70%, bez chlopenních vegetací.",
+    "ct": "CT Mozku: Bez nitrolebního krvácení, mírný edém mozku, známky meningitidy."
+  },
+  "specialty": "Infektologie",
+  "difficulty": "hard",
+  "patientHistory": [
+    "Dosud zdravá, neočkovaná proti meningokoku typu B"
+  ],
+  "vitalSigns": {
+    "tf": 155,
+    "tk_sys": 80,
+    "tk_dia": 42,
+    "spo2": 90,
+    "gcs": 11,
+    "temp": 39.9,
+    "rr": 32
+  },
+  "physicalExam": "Fyzikální vyšetření: Dítě je schvácené, spavé, těžko komunikuje. Trpí silnou bolestí hlavy, světloplachostí a opakovně zvrací. Matka si před hodinou všimla drobných červenofialových skvrnek na stehnech a břiše, které neblednou při zatlačení skleničkou.",
+  "labValues": {
+    "ko": "KO: Leukocytóza 24.5 x10^9/l s posunem doleva, Hemoglobin 112 g/l, Trombocytopenie 85 x10^9/l (hrozící DIC).",
+    "biochem": "Biochemie STATIM: CRP: 185 mg/l - VYSOKÉ, Laktát: 5.4 mmol/l (závažný laktátový šok), Kreatinin: 110 umol/l, Urea: 8.2 mmol/l, Glykémie: 3.2 mmol/l.",
+    "coag": "Koagulace: INR 1.65 (prodlouženo), APTT 52 s, Fibrinogen 1.1 g/l (spotřební koagulopatie), D-dimery: 4200 ng/ml.",
+    "mochem": "Moč: Bílkovina +, krev +.",
+    "abr": "Astrup (ABR): pH 7.21 (těžká metabolická acidóza s laktátem), pCO2 3.8 kPa, pO2 7.5 kPa, HCO3- 14.5 mmol/l, BE -11.5 mmol/l."
+  },
+  "decisionNodes": [
+    {
+      "question": "Jaký je klíčový první krok u pacienta s diagnózou: Meningokoková sepse a meningitida?",
+      "options": [
+        "Zahájit specifickou emergentní léčbu a monitoring vitálních funkcí",
+        "Odeslat pacienta na ambulantní došetření",
+        "Pouze sledovat bez aktivní intervence"
+      ],
+      "feedback": "Meningokoková sepse vyžaduje okamžité podání širokospektrých antibiotik STATIM."
+    }
+  ],
+  "feedback": "Meningokoková sepse vyžaduje okamžité podání širokospektrých antibiotik STATIM."
+}

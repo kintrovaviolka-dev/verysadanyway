@@ -5,10 +5,14 @@ import EkgQuiz from "./components/EkgQuiz";
 import TriageDashboard from "./components/TriageDashboard";
 import Workspace from "./components/Workspace";
 import DispositionScreen from "./components/DispositionScreen";
+import ProgressDashboard from "./components/ProgressDashboard";
+import FocusReviewSession from "./components/FocusReviewSession";
+import { useProgress } from "./context/ProgressContext";
 import { Activity, Heart, Clock } from "lucide-react";
 
 export default function App() {
-  const [view, setView] = useState<"welcome" | "triage" | "workspace" | "disposition" | "ekg-quiz">("welcome");
+  const { logCaseCompletion } = useProgress();
+  const [view, setView] = useState<"welcome" | "triage" | "workspace" | "disposition" | "ekg-quiz" | "dashboard" | "focus-review">("welcome");
   const [session, setSession] = useState<GameSession | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [consultingLoading, setConsultingLoading] = useState<boolean>(false);
@@ -143,6 +147,22 @@ export default function App() {
       if (!res.ok) throw new Error("Chyba při uzavírání");
       const data: GameSession = await res.json();
       setSession(data);
+
+      // Parse score from debriefing and log case completion
+      let score = 75; // Default fallback score
+      if (data.debriefing) {
+        const match = data.debriefing.match(/hodnocení\s*:?\s*(\*+)?\s*([0-9]+\s*%)/i);
+        if (match && match[2]) {
+          score = parseInt(match[2].trim().replace("%", ""), 10) || 75;
+        } else {
+          const parts = data.debriefing.split(/hodnocení:/i);
+          if (parts.length > 1) {
+            const parsedVal = parseInt(parts[1].trim().split("\n")[0].replace(/[^0-9]/g, ""), 10);
+            if (!isNaN(parsedVal)) score = parsedVal;
+          }
+        }
+      }
+      logCaseCompletion(data.caseId, data.patient.name, "", score, data.elapsedTime);
     } catch (err) {
       console.error(err);
       alert("Nepodařilo se vygenerovat hodnocení případu.");
@@ -216,11 +236,21 @@ export default function App() {
             onStartGame={startNewGame} 
             loading={loading} 
             onLaunchEkgQuiz={() => setView("ekg-quiz")} 
+            onLaunchDashboard={() => setView("dashboard")}
+            onLaunchFocusReview={() => setView("focus-review")}
           />
         )}
 
         {view === "ekg-quiz" && (
           <EkgQuiz standalone={true} onClose={() => setView("welcome")} />
+        )}
+
+        {view === "dashboard" && (
+          <ProgressDashboard onClose={() => setView("welcome")} />
+        )}
+
+        {view === "focus-review" && (
+          <FocusReviewSession onClose={() => setView("welcome")} />
         )}
 
         {view === "triage" && session && (

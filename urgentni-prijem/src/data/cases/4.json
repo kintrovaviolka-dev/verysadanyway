@@ -1,0 +1,75 @@
+{
+  "id": "4",
+  "level": 1,
+  "title": "Akutní subglotická laryngitida (Croup)",
+  "name": "Tobiášek Veselý",
+  "age": 3,
+  "sex": "Chlapec",
+  "mainComplaint": "Štěkavý kašel, inspirační stridor a ztížené dýchání",
+  "complaintDetail": "Matka uvádí, že dítě šlo spát zdravé, jen s lehkou rýmou. Kolem půlnoci se probudilo s drsným, štěkavým kašlem a sípáním při nádechu. Je neklidné, pláče, což zhoršuje dušnost. Má zatahování podžebří a jugula.",
+  "history": [
+    "Běžná dětská onemocnění, očkován řádně"
+  ],
+  "allergies": [
+    "Bez známých alergií"
+  ],
+  "triageClass": "2",
+  "vitals": {
+    "tf": 142,
+    "tk_sys": 95,
+    "tk_dia": 60,
+    "spo2": 91,
+    "gcs": 15,
+    "temp": 37.8,
+    "rr": 36
+  },
+  "secretDiagnosis": "Akutní subglotická laryngitida (Croup)",
+  "secretDiagnosisCode": "J05.0",
+  "labsResult": {
+    "ko": "KO: Leukocyty 10.5 x10^9/l (mírná leukocytóza), Hb 125 g/l, Trombocyty 310 x10^9/l.",
+    "biochem": "Biochemie: CRP: 8.5 mg/l (virová etiologie odpovídá nízkému CRP), Draslík: 4.2 mmol/l, Sodík: 140 mmol/l, Glykémie: 5.6 mmol/l.",
+    "coag": "Koagulace: V normě (INR 1.0, APTT 30 s).",
+    "mochem": "Moč: Negativní.",
+    "abr": "Astrup (ABR): pH 7.41, pCO2 5.0 kPa, pO2 8.4 kPa (lehká hypoxémie), HCO3- 24.0 mmol/l, BE 0.2 mmol/l."
+  },
+  "imagingResult": {
+    "ekg": "EKG: Sinusová tachykardie 142/min, bez patologických změn.",
+    "rtg": "RTG krku / hrudníku: Zužování subglotického prostoru (klasické znamení 'kostelní věže' / steeple sign), plíce bez infiltrací.",
+    "echo": "Echokardiografie: Není indikována u akutní laryngitidy, srdce strukturálně bez patologie.",
+    "ct": "CT krku: Není indikováno, riziko zbytečné sedace u dítěte."
+  },
+  "specialty": "Pediatrie",
+  "difficulty": "easy",
+  "patientHistory": [
+    "Běžná dětská onemocnění, očkován řádně"
+  ],
+  "vitalSigns": {
+    "tf": 142,
+    "tk_sys": 95,
+    "tk_dia": 60,
+    "spo2": 91,
+    "gcs": 15,
+    "temp": 37.8,
+    "rr": 36
+  },
+  "physicalExam": "Fyzikální vyšetření: Matka uvádí, že dítě šlo spát zdravé, jen s lehkou rýmou. Kolem půlnoci se probudilo s drsným, štěkavým kašlem a sípáním při nádechu. Je neklidné, pláče, což zhoršuje dušnost. Má zatahování podžebří a jugula.",
+  "labValues": {
+    "ko": "KO: Leukocyty 10.5 x10^9/l (mírná leukocytóza), Hb 125 g/l, Trombocyty 310 x10^9/l.",
+    "biochem": "Biochemie: CRP: 8.5 mg/l (virová etiologie odpovídá nízkému CRP), Draslík: 4.2 mmol/l, Sodík: 140 mmol/l, Glykémie: 5.6 mmol/l.",
+    "coag": "Koagulace: V normě (INR 1.0, APTT 30 s).",
+    "mochem": "Moč: Negativní.",
+    "abr": "Astrup (ABR): pH 7.41, pCO2 5.0 kPa, pO2 8.4 kPa (lehká hypoxémie), HCO3- 24.0 mmol/l, BE 0.2 mmol/l."
+  },
+  "decisionNodes": [
+    {
+      "question": "Jaký je klíčový první krok u pacienta s diagnózou: Akutní subglotická laryngitida (Croup)?",
+      "options": [
+        "Zahájit specifickou emergentní léčbu a monitoring vitálních funkcí",
+        "Odeslat pacienta na ambulantní došetření",
+        "Pouze sledovat bez aktivní intervence"
+      ],
+      "feedback": "Subglotická laryngitida u dětí se léčí chladným vzduchem a kortikoidy (dexamethason)."
+    }
+  ],
+  "feedback": "Subglotická laryngitida u dětí se léčí chladným vzduchem a kortikoidy (dexamethason)."
+}

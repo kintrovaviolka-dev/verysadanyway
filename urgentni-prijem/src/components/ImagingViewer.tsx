@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState, useCallback } from "react";
 import { GameSession } from "../types";
+import { useProgress } from "../context/ProgressContext";
 import { ZoomIn, ZoomOut, RotateCcw, ChevronUp, ChevronDown, Info, CheckCircle2, AlertTriangle, Layers, Activity } from "lucide-react";
 
 // Import authentic image assets
@@ -1496,6 +1497,7 @@ interface ImagingViewerProps {
 }
 
 export default function ImagingViewer({ caseId, modality, reportText, onClose }: ImagingViewerProps) {
+  const { logIncorrectChoice, logQuizScore } = useProgress();
   const [showAnnotations, setShowAnnotations] = useState(true);
   const [quizAnswer, setQuizAnswer] = useState<number | null>(null);
   const [quizAnswered, setQuizAnswered] = useState(false);
@@ -1693,6 +1695,15 @@ export default function ImagingViewer({ caseId, modality, reportText, onClose }:
                       onClick={() => {
                         setQuizAnswer(i);
                         setQuizAnswered(true);
+                        const correct = i === quiz.correctIndex;
+                        const quizId = `imaging_${caseId}_${modality}`;
+                        const title = `Výukový snímek (${modality.toUpperCase()})`;
+                        if (correct) {
+                          logQuizScore(quizId, title, "", 1, 1);
+                        } else {
+                          logIncorrectChoice(quizId, "", opt, quiz.question, quiz.options[quiz.correctIndex]);
+                          logQuizScore(quizId, title, "", 0, 1);
+                        }
                       }}
                       className={`p-3 border rounded-lg text-left text-xs transition-all cursor-pointer flex items-center gap-2 ${btnClass}`}
                     >

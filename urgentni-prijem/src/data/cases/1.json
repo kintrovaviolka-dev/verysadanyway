@@ -1,0 +1,80 @@
+{
+  "id": "1",
+  "level": 1,
+  "title": "Akutní infarkt myokardu spodní stěny (STEMI)",
+  "name": "František Novák",
+  "age": 45,
+  "sex": "Muž",
+  "mainComplaint": "Bolest na hrudi, dušnost",
+  "complaintDetail": "Pacient uvádí náhlý začátek svíravé bolesti s vyzařováním do levé paže a zadní stěny krku. Trvá cca 20 minut, doprovázeno studeným potem.",
+  "history": [
+    "ICHS",
+    "Hypertenze",
+    "Nikotinismus (20 cigaret denně)"
+  ],
+  "allergies": [
+    "PENICILIN",
+    "JÓD"
+  ],
+  "triageClass": "2",
+  "vitals": {
+    "tf": 110,
+    "tk_sys": 160,
+    "tk_dia": 95,
+    "spo2": 92,
+    "gcs": 15,
+    "temp": 37.2,
+    "rr": 22
+  },
+  "secretDiagnosis": "Akutní infarkt myokardu spodní stěny (STEMI)",
+  "secretDiagnosisCode": "I21.1",
+  "labsResult": {
+    "ko": "KO: Leukocytóza 12.4 x10^9/l, Erytrocyty 4.8 x10^12/l, Hb 145 g/l, Trombocyty 250 x10^9/l.",
+    "biochem": "Biochemie STATIM: Troponin I: 450 ng/l (norma <14) - SILNĚ POZITIVNÍ, CK-MB: 4.2 ug/l (norma <2.5), Urea: 6.2 mmol/l, Kreatinin: 88 umol/l, CRP: 5.2 mg/l, Draslík: 3.9 mmol/l, Sodík: 139 mmol/l.",
+    "coag": "Koagulace: INR 1.05, APTT 32 s, Fibrinogen 3.1 g/l.",
+    "mochem": "Moč chemicky: Negativní.",
+    "abr": "Astrup (ABR): pH 7.39, pCO2 5.1 kPa, pO2 9.5 kPa, HCO3- 24.2 mmol/l, BE 0.1 mmol/l, Saturace 92%."
+  },
+  "imagingResult": {
+    "ekg": "12svodové EKG: Sinusová tachykardie 110/min, ST elevace 3 mm ve svodech II, III, aVF s recipročními depresemi v I, aVL.",
+    "rtg": "RTG Srdce+Plíce: Srdeční stín nezvětšen, plicní křídla bez městnání či ložiskových změn.",
+    "echo": "Echokardiografie: Hypokineze dolní stěny levé komory, EF levé komory 45-50%, bez chlopenních vad.",
+    "ct": "CT Pulmonální angiografie: Bez známek plicní embolie."
+  },
+  "specialty": "Kardiologie",
+  "difficulty": "easy",
+  "patientHistory": [
+    "ICHS",
+    "Hypertenze",
+    "Nikotinismus (20 cigaret denně)"
+  ],
+  "vitalSigns": {
+    "tf": 110,
+    "tk_sys": 160,
+    "tk_dia": 95,
+    "spo2": 92,
+    "gcs": 15,
+    "temp": 37.2,
+    "rr": 22
+  },
+  "physicalExam": "Fyzikální vyšetření: Pacient uvádí náhlý začátek svíravé bolesti s vyzařováním do levé paže a zadní stěny krku. Trvá cca 20 minut, doprovázeno studeným potem.",
+  "labValues": {
+    "ko": "KO: Leukocytóza 12.4 x10^9/l, Erytrocyty 4.8 x10^12/l, Hb 145 g/l, Trombocyty 250 x10^9/l.",
+    "biochem": "Biochemie STATIM: Troponin I: 450 ng/l (norma <14) - SILNĚ POZITIVNÍ, CK-MB: 4.2 ug/l (norma <2.5), Urea: 6.2 mmol/l, Kreatinin: 88 umol/l, CRP: 5.2 mg/l, Draslík: 3.9 mmol/l, Sodík: 139 mmol/l.",
+    "coag": "Koagulace: INR 1.05, APTT 32 s, Fibrinogen 3.1 g/l.",
+    "mochem": "Moč chemicky: Negativní.",
+    "abr": "Astrup (ABR): pH 7.39, pCO2 5.1 kPa, pO2 9.5 kPa, HCO3- 24.2 mmol/l, BE 0.1 mmol/l, Saturace 92%."
+  },
+  "decisionNodes": [
+    {
+      "question": "Jaký je klíčový první krok u pacienta s diagnózou: Akutní infarkt myokardu spodní stěny (STEMI)?",
+      "options": [
+        "Zahájit specifickou emergentní léčbu a monitoring vitálních funkcí",
+        "Odeslat pacienta na ambulantní došetření",
+        "Pouze sledovat bez aktivní intervence"
+      ],
+      "feedback": "Akutní STEMI vyžaduje okamžitou reperfuzi (PCI) a podání antiagregace a heparinu."
+    }
+  ],
+  "feedback": "Akutní STEMI vyžaduje okamžitou reperfuzi (PCI) a podání antiagregace a heparinu."
+}

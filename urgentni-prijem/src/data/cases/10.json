@@ -1,0 +1,75 @@
+{
+  "id": "10",
+  "level": 2,
+  "title": "Těžký akutní astmatický stav (Status asthmaticus) u dítěte",
+  "name": "Sofinka Marešová",
+  "age": 6,
+  "sex": "Dívka",
+  "mainComplaint": "Těžká klidová dušnost, slyšitelné pískání, vyčerpání",
+  "complaintDetail": "Šestiletá dívka s astmatem trpí záchvatem dušnosti od odpoledne. Doma matka podala celkem 6 dávek Ventolinu inhalačně bez většího efektu. Nyní je neklidná, mluví pouze v jednotlivých slovech, má výrazné zatahování jugula, podžebří a alární kmit. Poslechově je dýchání velmi oslabené s oboustrannými pískoty (fenomén 'tichých plic' / silent chest, varovné znamení blížícího se udušení).",
+  "history": [
+    "Průduškové astma (středně těžké, užívá Ventolin a Flixotide), alergie na prach a roztoče"
+  ],
+  "allergies": [
+    "Bez známých lékových alergií"
+  ],
+  "triageClass": "2",
+  "vitals": {
+    "tf": 148,
+    "tk_sys": 105,
+    "tk_dia": 65,
+    "spo2": 89,
+    "gcs": 15,
+    "temp": 36.9,
+    "rr": 42
+  },
+  "secretDiagnosis": "Status asthmaticus",
+  "secretDiagnosisCode": "J46",
+  "labsResult": {
+    "ko": "KO: Leukocyty 11.1 x10^9/l, mírná eosinofilie (vztah k astmatu), Hb 130 g/l, Trombocyty 255 x10^9/l.",
+    "biochem": "Biochemie: CRP: 12 mg/l, Draslík: 3.5 mmol/l (hraniční draslík - riziko poklesu po opakovaných inhalacích beta2-mimetik!), Sodík: 139 mmol/l, Glykémie: 5.8 mmol/l.",
+    "coag": "Koagulace: V normě (INR 1.0, APTT 29 s).",
+    "mochem": "Moč chemicky: Negativní.",
+    "abr": "Astrup (ABR): pH 7.31 (počínající respirační acidóza v důsledku dechového vyčerpání a retence CO2), pCO2 6.2 kPa (hyperkapnie - kritické znamení vyčerpání dýchacího aparátu!), pO2 7.2 kPa (výrazná hypoxémie), HCO3- 23.8 mmol/l, BE -1.5 mmol/l."
+  },
+  "imagingResult": {
+    "ekg": "EKG: Výrazná sinusová tachykardie 148/min, známky zatížení pravého srdce (P pulmonale).",
+    "rtg": "RTG hrudníku: Výrazná hyperinflace obou plicních křídel, oploštění bránice (obraz astmatického záchvatu), zvýšená bronchovaskulární kresba perihilózně. Žádný pneumotorax či ložiskový zápal plic.",
+    "echo": "Echokardiografie: Bez strukturální vady, hyperdynamická kontraktilita, bez přetížení pravé komory.",
+    "ct": "CT hrudníku: Není indikováno u nekomplikovaného astmatického záchvatu z důvodu zbytečné zátěže."
+  },
+  "specialty": "Pediatrie",
+  "difficulty": "medium",
+  "patientHistory": [
+    "Průduškové astma (středně těžké, užívá Ventolin a Flixotide), alergie na prach a roztoče"
+  ],
+  "vitalSigns": {
+    "tf": 148,
+    "tk_sys": 105,
+    "tk_dia": 65,
+    "spo2": 89,
+    "gcs": 15,
+    "temp": 36.9,
+    "rr": 42
+  },
+  "physicalExam": "Fyzikální vyšetření: Šestiletá dívka s astmatem trpí záchvatem dušnosti od odpoledne. Doma matka podala celkem 6 dávek Ventolinu inhalačně bez většího efektu. Nyní je neklidná, mluví pouze v jednotlivých slovech, má výrazné zatahování jugula, podžebří a alární kmit. Poslechově je dýchání velmi oslabené s oboustrannými pískoty (fenomén 'tichých plic' / silent chest, varovné znamení blížícího se udušení).",
+  "labValues": {
+    "ko": "KO: Leukocyty 11.1 x10^9/l, mírná eosinofilie (vztah k astmatu), Hb 130 g/l, Trombocyty 255 x10^9/l.",
+    "biochem": "Biochemie: CRP: 12 mg/l, Draslík: 3.5 mmol/l (hraniční draslík - riziko poklesu po opakovaných inhalacích beta2-mimetik!), Sodík: 139 mmol/l, Glykémie: 5.8 mmol/l.",
+    "coag": "Koagulace: V normě (INR 1.0, APTT 29 s).",
+    "mochem": "Moč chemicky: Negativní.",
+    "abr": "Astrup (ABR): pH 7.31 (počínající respirační acidóza v důsledku dechového vyčerpání a retence CO2), pCO2 6.2 kPa (hyperkapnie - kritické znamení vyčerpání dýchacího aparátu!), pO2 7.2 kPa (výrazná hypoxémie), HCO3- 23.8 mmol/l, BE -1.5 mmol/l."
+  },
+  "decisionNodes": [
+    {
+      "question": "Jaký je klíčový první krok u pacienta s diagnózou: Těžký akutní astmatický stav (Status asthmaticus) u dítěte?",
+      "options": [
+        "Zahájit specifickou emergentní léčbu a monitoring vitálních funkcí",
+        "Odeslat pacienta na ambulantní došetření",
+        "Pouze sledovat bez aktivní intervence"
+      ],
+      "feedback": "Status asthmaticus vyžaduje inhalaci beta-mimetik, kyslík a systémové kortikoidy."
+    }
+  ],
+  "feedback": "Status asthmaticus vyžaduje inhalaci beta-mimetik, kyslík a systémové kortikoidy."
+}

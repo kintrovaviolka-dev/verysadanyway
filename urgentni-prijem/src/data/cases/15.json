@@ -1,0 +1,78 @@
+{
+  "id": "15",
+  "level": 2,
+  "difficulty": "medium",
+  "specialty": "Pneumologie",
+  "title": "Exacerbace CHOPN (Chronická obstrukční plicní nemoc)",
+  "name": "Jaroslav Beneš",
+  "age": 67,
+  "sex": "Muž",
+  "mainComplaint": "Těžká dušnost, produktivní kašel, sípání",
+  "complaintDetail": "Dlouholetý kuřák s anamnézou CHOPN III. stupně přichází pro progresi dušnosti za poslední 3 dny. Nyní je výrazně dušný i v klidu, nemůže domluvit větu. Kašle s produkcí žlutozeleného sputa. Na monitoru SpO2 84% při dýchání vzduchu, slyšitelné exspirační vrzoty a pískoty oboustranně.",
+  "history": [
+    "CHOPN III. st. na dlouhodobé inhalační terapii",
+    "Těžký nikotinismus (50 balíčkoroků)",
+    "Arteriální hypertenze",
+    "Stav po infarktu myokardu před 5 lety"
+  ],
+  "allergies": [
+    "Bez známých alergií"
+  ],
+  "triageClass": "2",
+  "vitals": {
+    "tf": 105,
+    "tk_sys": 150,
+    "tk_dia": 85,
+    "spo2": 84,
+    "gcs": 15,
+    "temp": 37.8,
+    "rr": 28
+  },
+  "secretDiagnosis": "Akutní exacerbace chronické obstrukční plicní nemoci",
+  "secretDiagnosisCode": "J44.1",
+  "labsResult": {
+    "ko": "KO: Leukocytóza 13.8 x10^9/l, Erytrocyty 5.1 x10^12/l, Hb 158 g/l, Trombocyty 240 x10^9/l.",
+    "biochem": "Biochemie STATIM: CRP: 48.5 mg/l (zvýšené), Urea: 7.2 mmol/l, Kreatinin: 92 umol/l, Draslík: 4.2 mmol/l, Sodík: 139 mmol/l, Troponin I: 12 ng/l (v normě).",
+    "coag": "Koagulace: INR 1.02, APTT 30 s.",
+    "mochem": "Moč chemicky: Negativní.",
+    "abr": "Astrup (ABR): pH 7.32 (respirační acidóza), pCO2 7.1 kPa (hyperkapnie), pO2 6.8 kPa (hypoxemie), HCO3- 28.5 mmol/l, BE +2.5 mmol/l, Saturace 84%."
+  },
+  "imagingResult": {
+    "ekg": "12svodové EKG: P-pulmonale ve svodech II, III, aVF (přetížení pravé síně), sinusová tachykardie 105/min, osa doprava, bez akutních ischemických změn.",
+    "rtg": "RTG Hrudníku: Hyperinflace plicních křídel, oploštění bránice (plicní emfyzém), zvýšená bronchovaskulární kresba oboustranně, bez ložiskového infiltrátu či pneumotoraxu.",
+    "echo": "Echokardiografie: Cor pulmonale, dilatace pravé komory, mírná plicní hypertenze, odhadovaný sPAP 45 mmHg.",
+    "ct": "CT Angiografie plicnice: Negativní pro plicní embolii, potvrzena těžká plicní difúzní emfyzematóza."
+  },
+  "patientHistory": [
+    "CHOPN III. st. na dlouhodobé inhalační terapii",
+    "Těžký nikotinismus (50 balíčkoroků)",
+    "Arteriální hypertenze",
+    "Stav po infarktu myokardu před 5 lety"
+  ],
+  "vitalSigns": {
+    "tf": 105,
+    "tk_sys": 150,
+    "tk_dia": 85,
+    "spo2": 84,
+    "gcs": 15,
+    "temp": 37.8,
+    "rr": 28
+  },
+  "physicalExam": "Pacient sedí v ortopnoické poloze, zapojuje pomocné dýchací svaly. Výrazná cyanóza rtů. Při dýchání slyšitelné distanční pískoty. Poklep plic hypersonorní. Dýchání oslabené, s prodlouženým exspiriem, oboustranně vrzoty a pískoty. Srdeční ozvy tiché, akce pravidelná.",
+  "labValues": {
+    "ko": "KO: Leukocytóza 13.8 x10^9/l, Erytrocyty 5.1 x10^12/l, Hb 158 g/l, Trombocyty 240 x10^9/l.",
+    "biochem": "Biochemie STATIM: CRP: 48.5 mg/l, Kreatinin: 92 umol/l, Draslík: 4.2 mmol/l."
+  },
+  "decisionNodes": [
+    {
+      "question": "Jaká je cílová saturace kyslíkem u pacienta s exacerbací CHOPN?",
+      "options": [
+        "100 % k zajištění maximálního okysličení tkání",
+        "88 - 92 % k zamezení hyperkapnického útlumu dýchacího centra",
+        "Kyslík je zcela kontraindikován"
+      ],
+      "feedback": "U pacientů s chronickou hyperkapnií (např. těžká CHOPN) je dýchací centrum stimulováno hypoxií. Nekontrolované podání vysokých koncentrací kyslíku může vést k hypoventilaci, retenci CO2 a kómatu. Cílová saturace je 88-92%."
+    }
+  ],
+  "feedback": "Exacerbace CHOPN vyžaduje podání kyslíku s cílem 88-92%, inhalační bronchodilatancia, kortikoidy, a v případě purulentního sputa či vysokého CRP také antibiotika."
+}

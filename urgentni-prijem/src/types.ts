@@ -69,3 +69,41 @@ export interface GameSession {
   selectedTriageClass: string;
   rhythmInterpreted?: boolean;
 }
+
+export interface CompletedCase {
+  caseId: string;
+  title: string;
+  specialty: string;
+  score: number; // overall accuracy %
+  elapsedTime: number;
+  timestamp: string;
+}
+
+export interface QuizScore {
+  quizId: string;
+  title: string;
+  specialty: string;
+  score: number;
+  total: number;
+  timestamp: string;
+}
+
+export interface IncorrectDecision {
+  questionId: string;
+  specialty: string;
+  selectedChoice: string;
+  correctChoice?: string;
+  questionText: string;
+  timestamp: string;
+}
+
+export interface DomainMastery {
+  specialty: "Emergency" | "Anesthesia";
+  mastery: number; // 0 to 100
+}
+
+export interface StudentProgress {
+  completedCases: CompletedCase[];
+  quizScores: QuizScore[];
+  incorrectDecisions: IncorrectDecision[];
+}

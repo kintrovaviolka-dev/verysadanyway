@@ -1,0 +1,75 @@
+{
+  "id": "7",
+  "level": 2,
+  "title": "Akutní pankreatitida s počínající peritonitidou",
+  "name": "Hana Součková",
+  "age": 39,
+  "sex": "Žena",
+  "mainComplaint": "Náhlá krutá bolest v nadbřišku, zvracení, schvácenost",
+  "complaintDetail": "Pacientka uvádí náhlý vznik extrémní bolesti v epigastriu po včerejší oslavě narozenin (tučné jídlo, alkohol). Bolest vyzařuje pásovitě do zad, opakovaně zvrací žluč, nemůže najít úlevovou polohu. Břicho je difúzně citlivé, stažené, přítomna palpační bolestivost.",
+  "history": [
+    "Cholecystoliáza (žlučníkové kameny), hypertriglyceridémie"
+  ],
+  "allergies": [
+    "JÓD"
+  ],
+  "triageClass": "3",
+  "vitals": {
+    "tf": 112,
+    "tk_sys": 110,
+    "tk_dia": 70,
+    "spo2": 95,
+    "gcs": 15,
+    "temp": 38.4,
+    "rr": 20
+  },
+  "secretDiagnosis": "Akutní biliární pankreatitida",
+  "secretDiagnosisCode": "K85.9",
+  "labsResult": {
+    "ko": "KO: Leukocytóza 16.8 x10^9/l, Hb 155 g/l (hemokoncentrace), Trombocyty 280 x10^9/l.",
+    "biochem": "Biochemie STATIM: Amyláza v séru: 1450 U/l (norma <100) - EXTRÉMNĚ ZVÝŠENÁ, Lipáza v séru: 2200 U/l (norma <60) - SILNĚ POZITIVNÍ, CRP: 110 mg/l, Bilirubin: 42 umol/l, ALT: 2.1 ukat/l, AST: 1.8 ukat/l, Triglyceridy: 8.5 mmol/l.",
+    "coag": "Koagulace: INR 1.15, APTT 34 s.",
+    "mochem": "Moč: Zvýšená amyláza v moči (6800 U/l).",
+    "abr": "Astrup (ABR): pH 7.37, pCO2 4.8 kPa, pO2 10.2 kPa, HCO3- 22.1 mmol/l, BE -2.1 mmol/l."
+  },
+  "imagingResult": {
+    "ekg": "EKG: Sinusová tachykardie 112/min, bez známek ischemie.",
+    "rtg": "RTG břicha ve stoje: Bez volného plynu pod bránicí (vylučuje perforaci gastroduodena), přítomen meteorismus a 'strážný kličkový' stín v epigastriu.",
+    "echo": "Sonografie břicha: Prosáknutí a zvětšení hlavy pankreatu, kolekce volné tekutiny peripankreaticky, cholecystoliáza - mnohočetné drobné konkrementy ve žlučníku, mírná dilatace choledochu (7mm).",
+    "ct": "CT Břicha (Upozornění: Alergie na JÓD!): S premedikací antihistaminiky: Akutní pankreatitida s peripankreatickými tekutinovými kolekcemi (Balthazar C-D), bez prokázané nekrózy parenchymu."
+  },
+  "specialty": "Chirurgie",
+  "difficulty": "medium",
+  "patientHistory": [
+    "Cholecystoliáza (žlučníkové kameny), hypertriglyceridémie"
+  ],
+  "vitalSigns": {
+    "tf": 112,
+    "tk_sys": 110,
+    "tk_dia": 70,
+    "spo2": 95,
+    "gcs": 15,
+    "temp": 38.4,
+    "rr": 20
+  },
+  "physicalExam": "Fyzikální vyšetření: Pacientka uvádí náhlý vznik extrémní bolesti v epigastriu po včerejší oslavě narozenin (tučné jídlo, alkohol). Bolest vyzařuje pásovitě do zad, opakovaně zvrací žluč, nemůže najít úlevovou polohu. Břicho je difúzně citlivé, stažené, přítomna palpační bolestivost.",
+  "labValues": {
+    "ko": "KO: Leukocytóza 16.8 x10^9/l, Hb 155 g/l (hemokoncentrace), Trombocyty 280 x10^9/l.",
+    "biochem": "Biochemie STATIM: Amyláza v séru: 1450 U/l (norma <100) - EXTRÉMNĚ ZVÝŠENÁ, Lipáza v séru: 2200 U/l (norma <60) - SILNĚ POZITIVNÍ, CRP: 110 mg/l, Bilirubin: 42 umol/l, ALT: 2.1 ukat/l, AST: 1.8 ukat/l, Triglyceridy: 8.5 mmol/l.",
+    "coag": "Koagulace: INR 1.15, APTT 34 s.",
+    "mochem": "Moč: Zvýšená amyláza v moči (6800 U/l).",
+    "abr": "Astrup (ABR): pH 7.37, pCO2 4.8 kPa, pO2 10.2 kPa, HCO3- 22.1 mmol/l, BE -2.1 mmol/l."
+  },
+  "decisionNodes": [
+    {
+      "question": "Jaký je klíčový první krok u pacienta s diagnózou: Akutní pankreatitida s počínající peritonitidou?",
+      "options": [
+        "Zahájit specifickou emergentní léčbu a monitoring vitálních funkcí",
+        "Odeslat pacienta na ambulantní došetření",
+        "Pouze sledovat bez aktivní intervence"
+      ],
+      "feedback": "Akutní pankreatitida vyžaduje intenzivní hydrataci, analgézii a klid střev."
+    }
+  ],
+  "feedback": "Akutní pankreatitida vyžaduje intenzivní hydrataci, analgézii a klid střev."
+}

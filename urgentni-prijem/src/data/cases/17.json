@@ -1,0 +1,75 @@
+{
+  "id": "17",
+  "level": 2,
+  "difficulty": "medium",
+  "specialty": "Pediatrie",
+  "title": "Pediatrická anafylaxe po bodnutí hmyzem",
+  "name": "Ema Nováková",
+  "age": 6,
+  "sex": "Žena",
+  "mainComplaint": "Celková slabost, ztížené dýchání, kopřivka",
+  "complaintDetail": "Šestiletá dívka bodnutá vosou do paže před 20 minutami na zahradě. Během 10 minut se rozvinul generalizovaný erytém, svědivá kopřivka na trupu a končetinách, otok rtů a víček. Nyní si stěžuje na ztížené dýchání, je slyšitelný jemný inspirační stridor a exspirační vrzoty. Dívka je neklidná, bledá.",
+  "history": [
+    "Atopický ekzém",
+    "Alergická rinitida"
+  ],
+  "allergies": [
+    "Roztoči",
+    "Pelyněk"
+  ],
+  "triageClass": "2",
+  "vitals": {
+    "tf": 140,
+    "tk_sys": 80,
+    "tk_dia": 45,
+    "spo2": 90,
+    "gcs": 15,
+    "temp": 36.8,
+    "rr": 32
+  },
+  "secretDiagnosis": "Anafylaktická reakce po bodnutí hmyzem",
+  "secretDiagnosisCode": "T78.2",
+  "labsResult": {
+    "ko": "KO: Leukocyty 10.5 x10^9/l, Erytrocyty 4.4 x10^12/l, Hb 130 g/l, Trombocyty 260 x10^9/l.",
+    "biochem": "Biochemie STATIM: CRP: 1.2 mg/l, Kreatinin: 45 umol/l, Urea: 4.1 mmol/l, Draslík: 4.0 mmol/l, Sodík: 138 mmol/l, Tryptáza: odebrána (výsledek bude dostupný později).",
+    "coag": "Koagulace: INR 1.0, APTT 30 s.",
+    "mochem": "Moč chemicky: V normě.",
+    "abr": "Astrup (ABR): pH 7.38, pCO2 4.6 kPa, pO2 8.5 kPa, HCO3- 23.8 mmol/l, BE -0.5 mmol/l."
+  },
+  "imagingResult": {
+    "ekg": "12svodové EKG: Sinusová tachykardie 140/min, bez akutních změn.",
+    "rtg": "RTG Hrudníku: Srdeční stín nezvětšen, plíce bez ložiskových změn či edému.",
+    "echo": "Echokardiografie: Není urgentně indikována.",
+    "ct": "CT Angiografie: Kontraindikována z důvodu oběhové nestability."
+  },
+  "patientHistory": [
+    "Atopický ekzém",
+    "Alergická rinitida"
+  ],
+  "vitalSigns": {
+    "tf": 140,
+    "tk_sys": 80,
+    "tk_dia": 45,
+    "spo2": 90,
+    "gcs": 15,
+    "temp": 36.8,
+    "rr": 32
+  },
+  "physicalExam": "Generalizovaná kopřivka, angioedém rtů a očních víček. Auskultačně na plicích prodloužené exspirium, spastické fenomény (pískoty, vrzoty), slyšitelný inspirační stridor. Dívka je tachypnoická, zapojuje pomocné svaly. Srdeční akce pravidelná, ozvy ohraničené, tachykardie. Výrazná studená periferie, opožděný kapilární návrat (3 s).",
+  "labValues": {
+    "ko": "KO: Leukocyty 10.5 x10^9/l, Erytrocyty 4.4 x10^12/l, Hb 130 g/l.",
+    "biochem": "Biochemie STATIM: CRP 1.2 mg/l, Kreatinin 45 umol/l."
+  },
+  "decisionNodes": [
+    {
+      "question": "Jaká je okamžitá léčba první volby u pediatrické anafylaxe s příznaky obstrukce dýchacích cest a hypotenze?",
+      "options": [
+        "Hydrokortison i.v.",
+        "Adrenalin i.m. (intramuskulárně) do stehna",
+        "Inhalace salbutamolu maskou"
+      ],
+      "feedback": "Klíčovým a život zachraňujícím lékem u anafylaxe je intramuskulární podání adrenalinu (do stehna) co nejdříve. Kortikoidy a antihistaminika jsou léky druhé řady a mají pomalý nástup účinku."
+    }
+  ],
+  "feedback": "Při anafylaxi je klíčové rychlé podání adrenalinu i.m., oxygenoterapie, volumoterapie (krystaloidy) k řešení hypotenze a stabilizace dýchacích cest."
+}

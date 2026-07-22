@@ -1,0 +1,75 @@
+{
+  "id": "9",
+  "level": 1,
+  "title": "Komplikované febrilní křeče u batolete",
+  "name": "Honzík Novotný",
+  "age": 1.5,
+  "sex": "Chlapec",
+  "mainComplaint": "Generalizované křeče celého těla, horečka a porucha vědomí",
+  "complaintDetail": "Matka uvádí, že osmnáctiměsíční dítě mělo od rána rýmu a teplotu 38.5 °C. Před 10 minutami doma náhle ztuhlo, začalo škubat všemi končetinami, stočilo oči v sloup a přestalo reagovat. Záchvat trval přes 5 minut. RZP podala rektální Diazepam desitin tube 5mg. Nyní na urgentu křeče pominuly, ale chlapec je v hlubokém postiktálním útlumu (GCS 10) a má horečku 39.4 °C.",
+  "history": [
+    "Běžná dětská onemocnění, strýc v dětství febrilní křeče"
+  ],
+  "allergies": [
+    "Bez známých alergií"
+  ],
+  "triageClass": "2",
+  "vitals": {
+    "tf": 135,
+    "tk_sys": 90,
+    "tk_dia": 55,
+    "spo2": 92,
+    "gcs": 10,
+    "temp": 39.4,
+    "rr": 24
+  },
+  "secretDiagnosis": "Komplikované febrilní křeče",
+  "secretDiagnosisCode": "R56.0",
+  "labsResult": {
+    "ko": "KO: Leukocytóza 14.8 x10^9/l (častá u horečky), Hemoglobin 122 g/l, Trombocyty 290 x10^9/l.",
+    "biochem": "Biochemie: CRP: 48 mg/l (mírně zvýšené, svědčí pro infekt), Draslík: 4.0 mmol/l, Sodík: 136 mmol/l, Glykémie: 4.8 mmol/l (vylučuje hypoglykemickou genezi křečí).",
+    "coag": "Koagulace: V normě (INR 1.0, APTT 30 s).",
+    "mochem": "Moč chemicky: Negativní nález (vylučuje uroinfekt jako zdroj horečky).",
+    "abr": "Astrup (ABR): pH 7.32 (lehká metabolická laktátová acidóza po křečích), pCO2 5.3 kPa, pO2 8.6 kPa, HCO3- 20.1 mmol/l, BE -4.5 mmol/l, laktát 3.1 mmol/l."
+  },
+  "imagingResult": {
+    "ekg": "EKG: Sinusová tachykardie 135/min, bez patologických změn.",
+    "rtg": "RTG hrudníku: Plicní parenchym bez infiltrací či ložiskových změn.",
+    "echo": "Echokardiografie: Není indikována u febrilních křečí.",
+    "ct": "CT Mozku: Kontraindikováno! U febrilních křečí bez ložiskového nálezu či traumatu hlavy je CT mozku zbytečnou radiační zátěží. Neuroinfekce či strukturální změny se řeší klinickým vyšetřením, lumbální punkcí či MRI."
+  },
+  "specialty": "Pediatrie",
+  "difficulty": "easy",
+  "patientHistory": [
+    "Běžná dětská onemocnění, strýc v dětství febrilní křeče"
+  ],
+  "vitalSigns": {
+    "tf": 135,
+    "tk_sys": 90,
+    "tk_dia": 55,
+    "spo2": 92,
+    "gcs": 10,
+    "temp": 39.4,
+    "rr": 24
+  },
+  "physicalExam": "Fyzikální vyšetření: Matka uvádí, že osmnáctiměsíční dítě mělo od rána rýmu a teplotu 38.5 °C. Před 10 minutami doma náhle ztuhlo, začalo škubat všemi končetinami, stočilo oči v sloup a přestalo reagovat. Záchvat trval přes 5 minut. RZP podala rektální Diazepam desitin tube 5mg. Nyní na urgentu křeče pominuly, ale chlapec je v hlubokém postiktálním útlumu (GCS 10) a má horečku 39.4 °C.",
+  "labValues": {
+    "ko": "KO: Leukocytóza 14.8 x10^9/l (častá u horečky), Hemoglobin 122 g/l, Trombocyty 290 x10^9/l.",
+    "biochem": "Biochemie: CRP: 48 mg/l (mírně zvýšené, svědčí pro infekt), Draslík: 4.0 mmol/l, Sodík: 136 mmol/l, Glykémie: 4.8 mmol/l (vylučuje hypoglykemickou genezi křečí).",
+    "coag": "Koagulace: V normě (INR 1.0, APTT 30 s).",
+    "mochem": "Moč chemicky: Negativní nález (vylučuje uroinfekt jako zdroj horečky).",
+    "abr": "Astrup (ABR): pH 7.32 (lehká metabolická laktátová acidóza po křečích), pCO2 5.3 kPa, pO2 8.6 kPa, HCO3- 20.1 mmol/l, BE -4.5 mmol/l, laktát 3.1 mmol/l."
+  },
+  "decisionNodes": [
+    {
+      "question": "Jaký je klíčový první krok u pacienta s diagnózou: Komplikované febrilní křeče u batolete?",
+      "options": [
+        "Zahájit specifickou emergentní léčbu a monitoring vitálních funkcí",
+        "Odeslat pacienta na ambulantní došetření",
+        "Pouze sledovat bez aktivní intervence"
+      ],
+      "feedback": "Febrilní křeče u dětí vyžadují podání diazepamu rektálně při trvání nad 5 minut."
+    }
+  ],
+  "feedback": "Febrilní křeče u dětí vyžadují podání diazepamu rektálně při trvání nad 5 minut."
+}

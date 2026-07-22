@@ -1,0 +1,75 @@
+{
+  "id": "12",
+  "level": 3,
+  "title": "Kardiogenní šok při extenzivním infarktu myokardu (STEMI)",
+  "name": "Josef Horák",
+  "age": 68,
+  "sex": "Muž",
+  "mainComplaint": "Extrémní dušnost, studený lepkavý pot, zmatenost, slabost",
+  "complaintDetail": "Pacient s narůstající pálivou bolestí za hrudní kostí od včerejšího večera (nikam nevolal). RZP ho přiváží v těžkém kardiogenním šoku. Je bledý, studeně opocený, na končetinách má mramorovanou kůži. Je mírně zmatený z hypoperfúze mozku. Poslechově na plicích slyšíte oboustranně vlhké chrápky do poloviny polí svědčící pro závažný plicní edém.",
+  "history": [
+    "Arteriální hypertenze, diabetes mellitus 2. typu na inzulínu, těžká obezita, hypercholesterolemie"
+  ],
+  "allergies": [
+    "Bez známých alergií"
+  ],
+  "triageClass": "1",
+  "vitals": {
+    "tf": 122,
+    "tk_sys": 78,
+    "tk_dia": 45,
+    "spo2": 83,
+    "gcs": 13,
+    "temp": 36.2,
+    "rr": 32
+  },
+  "secretDiagnosis": "Kardiogenní šok při akutním infarktu myokardu s plicním edémem",
+  "secretDiagnosisCode": "R57.0",
+  "labsResult": {
+    "ko": "KO: Leukocytóza 15.1 x10^9/l, Hb 138 g/l, Trombocyty 220 x10^9/l.",
+    "biochem": "Biochemie STATIM: Troponin I: 5800 ng/l (extrémní poškození myokardu) - EXTRÉMNĚ POZITIVNÍ, CK-MB: 48 ug/l, Kreatinin: 165 umol/l (počínající renální selhávání při šoku), Draslík: 4.8 mmol/l, Sodík: 137 mmol/l, Laktát: 4.2 mmol/l (těžký tkáňový šok).",
+    "coag": "Koagulace: INR 1.10, APTT 34 s.",
+    "mochem": "Moč: V normě.",
+    "abr": "Astrup (ABR): pH 7.22 (smíšená metabolicko-respirační acidóza z plicního edému a šoku), pCO2 5.9 kPa, pO2 6.1 kPa (závažná hypoxie), HCO3- 17.5 mmol/l, BE -8.2 mmol/l, laktát 4.2."
+  },
+  "imagingResult": {
+    "ekg": "12svodové EKG: Sinusová tachykardie 122/min, masivní ST elevace 5 mm ve svodech V1, V2, V3, V4, V5 (extenzivní přední STEMI), reciproční deprese ve II, III, aVF.",
+    "rtg": "RTG Hrudníku: Výrazné městnání v malém oběhu s motýlovitým zastřením kolem hilů (alveolární plicní edém), srdeční stín je výrazně zvětšený doleva.",
+    "echo": "Bedside Echokardiografie: Těžká difúzní porucha kinetiky levé komory (hypokineze až akineze přední stěny a hrotu), ejekční frakce levé komory kriticky snížena na 20-25%. Známky plicní hypertenze, dilatace levé síně. Bez mechanických komplikací (ruptura septa či papilárního svalu nezjištěna).",
+    "ct": "CT vyšetření: Kontraindikováno! Pacient je oběhově extrémně nestabilní pro transport na CT, hrozí okamžitá zástava oběhu."
+  },
+  "specialty": "Kardiologie",
+  "difficulty": "hard",
+  "patientHistory": [
+    "Arteriální hypertenze, diabetes mellitus 2. typu na inzulínu, těžká obezita, hypercholesterolemie"
+  ],
+  "vitalSigns": {
+    "tf": 122,
+    "tk_sys": 78,
+    "tk_dia": 45,
+    "spo2": 83,
+    "gcs": 13,
+    "temp": 36.2,
+    "rr": 32
+  },
+  "physicalExam": "Fyzikální vyšetření: Pacient s narůstající pálivou bolestí za hrudní kostí od včerejšího večera (nikam nevolal). RZP ho přiváží v těžkém kardiogenním šoku. Je bledý, studeně opocený, na končetinách má mramorovanou kůži. Je mírně zmatený z hypoperfúze mozku. Poslechově na plicích slyšíte oboustranně vlhké chrápky do poloviny polí svědčící pro závažný plicní edém.",
+  "labValues": {
+    "ko": "KO: Leukocytóza 15.1 x10^9/l, Hb 138 g/l, Trombocyty 220 x10^9/l.",
+    "biochem": "Biochemie STATIM: Troponin I: 5800 ng/l (extrémní poškození myokardu) - EXTRÉMNĚ POZITIVNÍ, CK-MB: 48 ug/l, Kreatinin: 165 umol/l (počínající renální selhávání při šoku), Draslík: 4.8 mmol/l, Sodík: 137 mmol/l, Laktát: 4.2 mmol/l (těžký tkáňový šok).",
+    "coag": "Koagulace: INR 1.10, APTT 34 s.",
+    "mochem": "Moč: V normě.",
+    "abr": "Astrup (ABR): pH 7.22 (smíšená metabolicko-respirační acidóza z plicního edému a šoku), pCO2 5.9 kPa, pO2 6.1 kPa (závažná hypoxie), HCO3- 17.5 mmol/l, BE -8.2 mmol/l, laktát 4.2."
+  },
+  "decisionNodes": [
+    {
+      "question": "Jaký je klíčový první krok u pacienta s diagnózou: Kardiogenní šok při extenzivním infarktu myokardu (STEMI)?",
+      "options": [
+        "Zahájit specifickou emergentní léčbu a monitoring vitálních funkcí",
+        "Odeslat pacienta na ambulantní došetření",
+        "Pouze sledovat bez aktivní intervence"
+      ],
+      "feedback": "Kardiogenní šok vyžaduje inotropní podporu, ventilaci a emergentní revaskularizaci."
+    }
+  ],
+  "feedback": "Kardiogenní šok vyžaduje inotropní podporu, ventilaci a emergentní revaskularizaci."
+}

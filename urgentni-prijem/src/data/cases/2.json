@@ -1,0 +1,79 @@
+{
+  "id": "2",
+  "level": 2,
+  "title": "Akutní plicní embolie se středním rizikem",
+  "name": "Alena Dvořáková",
+  "age": 52,
+  "sex": "Žena",
+  "mainComplaint": "Náhlý kolaps, dušnost a pleurální bolest na hrudi",
+  "complaintDetail": "Byla přivezena RZP po náhlém kolapsu při vstaní z postele. Nyní stěžuje na výraznou dušnost, ostrý píchavý tlak na pravé straně hrudníku zhoršující se při nádechu, a suchý dráždivý kašel.",
+  "history": [
+    "Hormonální antikoncepce (HAK)",
+    "Varixy dolních končetin",
+    "Sádrová fixace pravého bérce pro zlomeninu před 3 týdny"
+  ],
+  "allergies": [
+    "JÓD"
+  ],
+  "triageClass": "2",
+  "vitals": {
+    "tf": 124,
+    "tk_sys": 105,
+    "tk_dia": 65,
+    "spo2": 88,
+    "gcs": 14,
+    "temp": 36.8,
+    "rr": 26
+  },
+  "secretDiagnosis": "Akutní embolizace plicnice",
+  "secretDiagnosisCode": "I26.9",
+  "labsResult": {
+    "ko": "KO: Leukocyty 9.8 x10^9/l, Hb 132 g/l, Trombocyty 290 x10^9/l.",
+    "biochem": "Biochemie STATIM: Troponin I: 55 ng/l (lehce zvýšený), D-Dimery: 3450 ng/ml (norma <500) - EXTRÉMNĚ POZITIVNÍ, CRP: 15.1 mg/l, Kreatinin: 75 umol/l, Urea: 5.1 mmol/l.",
+    "coag": "Koagulace: INR 1.01, APTT 30 s.",
+    "mochem": "Moč chemicky: Negativní.",
+    "abr": "Astrup (ABR): pH 7.46 (respirační alkalóza), pCO2 4.1 kPa (hypokapnie), pO2 7.8 kPa (hypoxemie), HCO3- 23.5 mmol/l, BE 0.8 mmol/l."
+  },
+  "imagingResult": {
+    "ekg": "12svodové EKG: Sinusová tachykardie 124/min, nespecifické změny ST-T, přítomen S1Q3T3 vzorec (hluboké S v I, kmit Q v III a negativní T v III), inkompletní blokáda pravého raménka (iRBBB).",
+    "rtg": "RTG Srdce+Plíce: Mírné projasnění vpravo (Westermarkovo znamení), bez pleurálního výpotku.",
+    "echo": "Echokardiografie u lůžka (Bedside): Dilatace pravé komory (RV/LV poměr 1.1), oploštění mezikomorového septa, mírná trikuspidální regurgitace s odhadem gradientu 40 mmHg. Známky přetížení pravé komory.",
+    "ct": "CT Pulmonální angiografie (Upozornění: Alergie na JÓD!): Po premedikaci methylprednisolonem a dithiadenem: Prokázán masivní embolus v pravé plicní tepně zasahující do lobárních větví."
+  },
+  "specialty": "Pneumologie",
+  "difficulty": "medium",
+  "patientHistory": [
+    "Hormonální antikoncepce (HAK)",
+    "Varixy dolních končetin",
+    "Sádrová fixace pravého bérce pro zlomeninu před 3 týdny"
+  ],
+  "vitalSigns": {
+    "tf": 124,
+    "tk_sys": 105,
+    "tk_dia": 65,
+    "spo2": 88,
+    "gcs": 14,
+    "temp": 36.8,
+    "rr": 26
+  },
+  "physicalExam": "Fyzikální vyšetření: Byla přivezena RZP po náhlém kolapsu při vstaní z postele. Nyní stěžuje na výraznou dušnost, ostrý píchavý tlak na pravé straně hrudníku zhoršující se při nádechu, a suchý dráždivý kašel.",
+  "labValues": {
+    "ko": "KO: Leukocyty 9.8 x10^9/l, Hb 132 g/l, Trombocyty 290 x10^9/l.",
+    "biochem": "Biochemie STATIM: Troponin I: 55 ng/l (lehce zvýšený), D-Dimery: 3450 ng/ml (norma <500) - EXTRÉMNĚ POZITIVNÍ, CRP: 15.1 mg/l, Kreatinin: 75 umol/l, Urea: 5.1 mmol/l.",
+    "coag": "Koagulace: INR 1.01, APTT 30 s.",
+    "mochem": "Moč chemicky: Negativní.",
+    "abr": "Astrup (ABR): pH 7.46 (respirační alkalóza), pCO2 4.1 kPa (hypokapnie), pO2 7.8 kPa (hypoxemie), HCO3- 23.5 mmol/l, BE 0.8 mmol/l."
+  },
+  "decisionNodes": [
+    {
+      "question": "Jaký je klíčový první krok u pacienta s diagnózou: Akutní plicní embolie se středním rizikem?",
+      "options": [
+        "Zahájit specifickou emergentní léčbu a monitoring vitálních funkcí",
+        "Odeslat pacienta na ambulantní došetření",
+        "Pouze sledovat bez aktivní intervence"
+      ],
+      "feedback": "Plicní embolie se středním rizikem vyžaduje antikoagulační léčbu a pečlivý monitoring."
+    }
+  ],
+  "feedback": "Plicní embolie se středním rizikem vyžaduje antikoagulační léčbu a pečlivý monitoring."
+}

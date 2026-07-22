@@ -1,0 +1,75 @@
+{
+  "id": "8",
+  "level": 3,
+  "title": "Úmyslná intoxikace tricyklickými antidepresivy",
+  "name": "Martin Dvořák",
+  "age": 21,
+  "sex": "Muž",
+  "mainComplaint": "Porucha vědomí, křeče a arytmie",
+  "complaintDetail": "Pacient nalezen matkou v pokoji ležící na zemi, vedle něj prázdné blistry od Amitriptylinu (cca 30 tablet po 50mg). Při příjezdu RZP byl v bezvědomí, prodělal jeden generalizovaný tonicko-klonický záchvat křečí trvající 2 minuty. Nyní reaguje pouze na bolestivý podnět hlubokým sténáním.",
+  "history": [
+    "Depresivní porucha, psychiatrická péče, v minulosti jeden pokus o sebepoškození"
+  ],
+  "allergies": [
+    "Bez známých alergií"
+  ],
+  "triageClass": "2",
+  "vitals": {
+    "tf": 128,
+    "tk_sys": 85,
+    "tk_dia": 50,
+    "spo2": 91,
+    "gcs": 8,
+    "temp": 37.6,
+    "rr": 10
+  },
+  "secretDiagnosis": "Úmyslná intoxikace tricyklickými antidepresivy",
+  "secretDiagnosisCode": "T43.0",
+  "labsResult": {
+    "ko": "KO: V normě (Leukocyty 8.2 x10^9/l, Hb 142 g/l, Tr 210 x10^9/l).",
+    "biochem": "Biochemie: Kreatinin: 95 umol/l, Laktát: 3.1 mmol/l, Draslík: 3.6 mmol/l, Sodík: 138 mmol/l, Glykémie: 5.4 mmol/l. Toxikologický screening z moči: Pozitivní na Tricyklická antidepresiva (TCA).",
+    "coag": "Koagulace: V normě (INR 1.05, APTT 32 s).",
+    "mochem": "Moč: TCA pozitivní.",
+    "abr": "Astrup (ABR): pH 7.25 (respirační a metabolická acidóza), pCO2 6.5 kPa (retence CO2), pO2 8.1 kPa, HCO3- 20.2 mmol/l, BE -6.1 mmol/l."
+  },
+  "imagingResult": {
+    "ekg": "EKG: Sinusová tachykardie 128/min, extrémní rozšíření komplexu QRS (140 ms), prodloužení intervalu QTc (510 ms), hluboké S ve svodech I a aVL (TCA toxicita).",
+    "rtg": "RTG Hrudníku: Bez patologického nálezu.",
+    "echo": "Echokardiografie: Snížená systolická funkce obou komor, EF levé komory 40%, bez chlopenních vad.",
+    "ct": "CT Mozku: Bez strukturálních patologií, bez známek krvácení či ložiskových změn."
+  },
+  "specialty": "Toxikologie",
+  "difficulty": "hard",
+  "patientHistory": [
+    "Depresivní porucha, psychiatrická péče, v minulosti jeden pokus o sebepoškození"
+  ],
+  "vitalSigns": {
+    "tf": 128,
+    "tk_sys": 85,
+    "tk_dia": 50,
+    "spo2": 91,
+    "gcs": 8,
+    "temp": 37.6,
+    "rr": 10
+  },
+  "physicalExam": "Fyzikální vyšetření: Pacient nalezen matkou v pokoji ležící na zemi, vedle něj prázdné blistry od Amitriptylinu (cca 30 tablet po 50mg). Při příjezdu RZP byl v bezvědomí, prodělal jeden generalizovaný tonicko-klonický záchvat křečí trvající 2 minuty. Nyní reaguje pouze na bolestivý podnět hlubokým sténáním.",
+  "labValues": {
+    "ko": "KO: V normě (Leukocyty 8.2 x10^9/l, Hb 142 g/l, Tr 210 x10^9/l).",
+    "biochem": "Biochemie: Kreatinin: 95 umol/l, Laktát: 3.1 mmol/l, Draslík: 3.6 mmol/l, Sodík: 138 mmol/l, Glykémie: 5.4 mmol/l. Toxikologický screening z moči: Pozitivní na Tricyklická antidepresiva (TCA).",
+    "coag": "Koagulace: V normě (INR 1.05, APTT 32 s).",
+    "mochem": "Moč: TCA pozitivní.",
+    "abr": "Astrup (ABR): pH 7.25 (respirační a metabolická acidóza), pCO2 6.5 kPa (retence CO2), pO2 8.1 kPa, HCO3- 20.2 mmol/l, BE -6.1 mmol/l."
+  },
+  "decisionNodes": [
+    {
+      "question": "Jaký je klíčový první krok u pacienta s diagnózou: Úmyslná intoxikace tricyklickými antidepresivy?",
+      "options": [
+        "Zahájit specifickou emergentní léčbu a monitoring vitálních funkcí",
+        "Odeslat pacienta na ambulantní došetření",
+        "Pouze sledovat bez aktivní intervence"
+      ],
+      "feedback": "Předávkování TCA vyžaduje natrium bikarbonát k prevenci a léčbě kardiotoxicity."
+    }
+  ],
+  "feedback": "Předávkování TCA vyžaduje natrium bikarbonát k prevenci a léčbě kardiotoxicity."
+}

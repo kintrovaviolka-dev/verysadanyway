@@ -1,0 +1,75 @@
+{
+  "id": "11",
+  "level": 3,
+  "title": "Akutní epiglotitida (Kritický dětský stav)",
+  "name": "Adámek Kučera",
+  "age": 4,
+  "sex": "Chlapec",
+  "mainComplaint": "Extrémní bolest v krku, neschopnost polykat (slintání), inspirační stridor",
+  "complaintDetail": "Čtyřletý chlapec s rychlou progresí horečky a těžké dušnosti během několika hodin. Na urgentním příjmu sedí v tzv. tripodální poloze (v předklonu, s nataženým krkem a pootevřenými ústy), masivně mu vytékají sliny z úst (neschopnost polykat pro extrémní bolestivost) a mluví tichým, 'knedlíkovým' hlasem. Přítomen tichý inspirační stridor.",
+  "history": [
+    "Dítě nebylo očkováno proti Haemophilus influenzae typu b (rodiče odmítli Hexavakcínu)"
+  ],
+  "allergies": [
+    "Bez známých alergií"
+  ],
+  "triageClass": "1",
+  "vitals": {
+    "tf": 155,
+    "tk_sys": 95,
+    "tk_dia": 60,
+    "spo2": 90,
+    "gcs": 14,
+    "temp": 39.7,
+    "rr": 35
+  },
+  "secretDiagnosis": "Akutní epiglotitida",
+  "secretDiagnosisCode": "J05.1",
+  "labsResult": {
+    "ko": "KO: Výrazná bakteriální leukocytóza 18.5 x10^9/l s výrazným posunem doleva, Hb 120 g/l, Trombocyty 340 x10^9/l.",
+    "biochem": "Biochemie STATIM: CRP: 145 mg/l (velmi vysoká bakteriální aktivita), prokalcitonin: 3.2 ug/l, Draslík: 4.1 mmol/l, Sodík: 138 mmol/l.",
+    "coag": "Koagulace: V normě (INR 1.05, APTT 31 s).",
+    "mochem": "Moč: Negativní.",
+    "abr": "Astrup (ABR): pH 7.34, pCO2 5.2 kPa, pO2 7.8 kPa (hypoxémie), HCO3- 22.0 mmol/l, BE -3.0 mmol/l."
+  },
+  "imagingResult": {
+    "ekg": "EKG: Sinusová tachykardie 155/min, bez dalších změn.",
+    "rtg": "RTG krku boční: Výrazné prosáknutí a zduření příklopky hrtanové (epiglotis) - tzv. 'znamení palce' (thumb sign), kritické zúžení vchodu do hrtanu. Upozornění: Jakákoliv manipulace s krkem či polohování dítěte na záda je přísně zakázáno!",
+    "echo": "Echokardiografie: Není indikována.",
+    "ct": "CT krku: Absolutně kontraindikováno! Jakýkoliv zbytečný stres, transport či manipulace s hrdlem hrozí reflexní laryngeální obstrukcí (laryngospasmem) a okamžitým udušením."
+  },
+  "specialty": "Pediatrie",
+  "difficulty": "hard",
+  "patientHistory": [
+    "Dítě nebylo očkováno proti Haemophilus influenzae typu b (rodiče odmítli Hexavakcínu)"
+  ],
+  "vitalSigns": {
+    "tf": 155,
+    "tk_sys": 95,
+    "tk_dia": 60,
+    "spo2": 90,
+    "gcs": 14,
+    "temp": 39.7,
+    "rr": 35
+  },
+  "physicalExam": "Fyzikální vyšetření: Čtyřletý chlapec s rychlou progresí horečky a těžké dušnosti během několika hodin. Na urgentním příjmu sedí v tzv. tripodální poloze (v předklonu, s nataženým krkem a pootevřenými ústy), masivně mu vytékají sliny z úst (neschopnost polykat pro extrémní bolestivost) a mluví tichým, 'knedlíkovým' hlasem. Přítomen tichý inspirační stridor.",
+  "labValues": {
+    "ko": "KO: Výrazná bakteriální leukocytóza 18.5 x10^9/l s výrazným posunem doleva, Hb 120 g/l, Trombocyty 340 x10^9/l.",
+    "biochem": "Biochemie STATIM: CRP: 145 mg/l (velmi vysoká bakteriální aktivita), prokalcitonin: 3.2 ug/l, Draslík: 4.1 mmol/l, Sodík: 138 mmol/l.",
+    "coag": "Koagulace: V normě (INR 1.05, APTT 31 s).",
+    "mochem": "Moč: Negativní.",
+    "abr": "Astrup (ABR): pH 7.34, pCO2 5.2 kPa, pO2 7.8 kPa (hypoxémie), HCO3- 22.0 mmol/l, BE -3.0 mmol/l."
+  },
+  "decisionNodes": [
+    {
+      "question": "Jaký je klíčový první krok u pacienta s diagnózou: Akutní epiglotitida (Kritický dětský stav)?",
+      "options": [
+        "Zahájit specifickou emergentní léčbu a monitoring vitálních funkcí",
+        "Odeslat pacienta na ambulantní došetření",
+        "Pouze sledovat bez aktivní intervence"
+      ],
+      "feedback": "Akutní epiglotitida je kritický stav vyžadující klid, inhalaci adrenalinu a připravenost k intubaci."
+    }
+  ],
+  "feedback": "Akutní epiglotitida je kritický stav vyžadující klid, inhalaci adrenalinu a připravenost k intubaci."
+}

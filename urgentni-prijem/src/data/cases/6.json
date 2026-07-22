@@ -1,0 +1,75 @@
+{
+  "id": "6",
+  "level": 2,
+  "title": "Anafylaktický šok po bodnutí vosou",
+  "name": "Jakub Král",
+  "age": 28,
+  "sex": "Muž",
+  "mainComplaint": "Dušnost, otok obličeje, celotělová kopřivka a kolaps",
+  "complaintDetail": "Pacienta na zahradě bodla vosa do krku. Během 10 minut se u něj rozvinul masivní otok rtů, jazyka a krku, sípání, svědivá vyrážka po celém těle a následně zkolaboval na zem. Manželka zavolala RZP, na místě podán Epipen, na urgent přivezen stále dušný s poklesem tlaku.",
+  "history": [
+    "Alergie na bodnutí blanokřídlým hmyzem, astma bronchiale"
+  ],
+  "allergies": [
+    "VOSÍ JED"
+  ],
+  "triageClass": "1",
+  "vitals": {
+    "tf": 132,
+    "tk_sys": 75,
+    "tk_dia": 40,
+    "spo2": 85,
+    "gcs": 13,
+    "temp": 36.5,
+    "rr": 30
+  },
+  "secretDiagnosis": "Anafylaktický šok po bodnutí hmyzem",
+  "secretDiagnosisCode": "T78.2",
+  "labsResult": {
+    "ko": "KO: Leukocyty 11.2 x10^9/l, Hb 148 g/l, Trombocyty 220 x10^9/l.",
+    "biochem": "Biochemie: CRP: 2.1 mg/l, Kreatinin: 82 umol/l, Troponin I: 12 ng/l, Draslík: 4.1 mmol/l. IgE specifické na vosí jed: Extrémně zvýšené.",
+    "coag": "Koagulace: INR 1.02, APTT 31 s.",
+    "mochem": "Moč: Negativní.",
+    "abr": "Astrup (ABR): pH 7.28 (smíšená acidóza), pCO2 6.1 kPa (hyperkapnie z dechové obstrukce), pO2 6.8 kPa (těžká hypoxémie), HCO3- 19.8 mmol/l, BE -5.2 mmol/l."
+  },
+  "imagingResult": {
+    "ekg": "EKG: Sinusová tachykardie 132/min, nespecifické oploštění vln T.",
+    "rtg": "RTG Hrudníku: Hyperinflace plic (obraz astmatického záchvatu), bez ložiskových změn.",
+    "echo": "Echokardiografie: Bez chlopenních vad, kontraktilita dobrá, dolní dutá žíla kolabuje (relativní hypovolemie při redistribuci tekutin).",
+    "ct": "CT Krku: Masivní edém hrtanu a měkkých tkání krku, výrazné zúžení dýchacích cest."
+  },
+  "specialty": "Alergologie",
+  "difficulty": "medium",
+  "patientHistory": [
+    "Alergie na bodnutí blanokřídlým hmyzem, astma bronchiale"
+  ],
+  "vitalSigns": {
+    "tf": 132,
+    "tk_sys": 75,
+    "tk_dia": 40,
+    "spo2": 85,
+    "gcs": 13,
+    "temp": 36.5,
+    "rr": 30
+  },
+  "physicalExam": "Fyzikální vyšetření: Pacienta na zahradě bodla vosa do krku. Během 10 minut se u něj rozvinul masivní otok rtů, jazyka a krku, sípání, svědivá vyrážka po celém těle a následně zkolaboval na zem. Manželka zavolala RZP, na místě podán Epipen, na urgent přivezen stále dušný s poklesem tlaku.",
+  "labValues": {
+    "ko": "KO: Leukocyty 11.2 x10^9/l, Hb 148 g/l, Trombocyty 220 x10^9/l.",
+    "biochem": "Biochemie: CRP: 2.1 mg/l, Kreatinin: 82 umol/l, Troponin I: 12 ng/l, Draslík: 4.1 mmol/l. IgE specifické na vosí jed: Extrémně zvýšené.",
+    "coag": "Koagulace: INR 1.02, APTT 31 s.",
+    "mochem": "Moč: Negativní.",
+    "abr": "Astrup (ABR): pH 7.28 (smíšená acidóza), pCO2 6.1 kPa (hyperkapnie z dechové obstrukce), pO2 6.8 kPa (těžká hypoxémie), HCO3- 19.8 mmol/l, BE -5.2 mmol/l."
+  },
+  "decisionNodes": [
+    {
+      "question": "Jaký je klíčový první krok u pacienta s diagnózou: Anafylaktický šok po bodnutí vosou?",
+      "options": [
+        "Zahájit specifickou emergentní léčbu a monitoring vitálních funkcí",
+        "Odeslat pacienta na ambulantní došetření",
+        "Pouze sledovat bez aktivní intervence"
+      ],
+      "feedback": "Anafylaktický šok vyžaduje okamžitou intramuskulární aplikaci adrenalinu."
+    }
+  ],
+  "feedback": "Anafylaktický šok vyžaduje okamžitou intramuskulární aplikaci adrenalinu."
+}

@@ -1,0 +1,76 @@
+{
+  "id": "16",
+  "level": 2,
+  "difficulty": "medium",
+  "specialty": "Neurologie",
+  "title": "Akutní ischemická cévní mozková příhoda v levém povodí ACM",
+  "name": "Marie Svobodová",
+  "age": 69,
+  "sex": "Žena",
+  "mainComplaint": "Porucha řeči, ochrnutí pravé poloviny těla",
+  "complaintDetail": "Pacientka náhle přestala mluvit a ochrnula na pravou ruku a nohu před 90 minutami při sledování televize. Je přítomna těžká motorická afázie, pokleslý pravý koutek úst a pravostranná hemiparéza. NIHSS skóre odhadnuto na 14.",
+  "history": [
+    "Arteriální hypertenze",
+    "Ischemická choroba srdeční",
+    "Diabetes mellitus II. typu na perorálních antidiabeticích"
+  ],
+  "allergies": [
+    "Bez známých alergií"
+  ],
+  "triageClass": "2",
+  "vitals": {
+    "tf": 82,
+    "tk_sys": 180,
+    "tk_dia": 100,
+    "spo2": 97,
+    "gcs": 14,
+    "temp": 36.4,
+    "rr": 16
+  },
+  "secretDiagnosis": "Akutní ischemická cévní mozková příhoda",
+  "secretDiagnosisCode": "I63.9",
+  "labsResult": {
+    "ko": "KO: Leukocyty 8.1 x10^9/l, Erytrocyty 4.2 x10^12/l, Hb 128 g/l, Trombocyty 195 x10^9/l.",
+    "biochem": "Biochemie STATIM: CRP: 2.5 mg/l, Glykémie: 7.5 mmol/l (klíčové k vyloučení hypoglykémie jako imitátoru mrtvice!), Kreatinin: 85 umol/l, Urea: 5.9 mmol/l, Draslík: 4.1 mmol/l, Sodík: 142 mmol/l.",
+    "coag": "Koagulace: INR 1.01 (vylučuje warfarinizaci), APTT 29 s.",
+    "mochem": "Moč chemicky: Negativní.",
+    "abr": "Astrup (ABR): pH 7.42, pCO2 4.8 kPa, pO2 12.0 kPa, HCO3- 24.5 mmol/l, BE 0.5 mmol/l."
+  },
+  "imagingResult": {
+    "ekg": "12svodové EKG: Sinusový rytmus 82/min, bez akutních změn.",
+    "rtg": "RTG Hrudníku: Bez ložiskových zánětlivých změn.",
+    "echo": "Echokardiografie: Není akutně indikována.",
+    "ct": "CT Mozku: Nativní CT mozku bez známek intracerebrálního krvácení. CT angiografie prokazuje uzávěr levé arteria cerebri media v segmentu M1. Pacientka splňuje kritéria pro trombolýzu a mechanickou trombektomii."
+  },
+  "patientHistory": [
+    "Arteriální hypertenze",
+    "Ischemická choroba srdeční",
+    "Diabetes mellitus II. typu"
+  ],
+  "vitalSigns": {
+    "tf": 82,
+    "tk_sys": 180,
+    "tk_dia": 100,
+    "spo2": 97,
+    "gcs": 14,
+    "temp": 36.4,
+    "rr": 16
+  },
+  "physicalExam": "Pacientka při vědomí, motorická afázie (nerozumí řečenému a není schopna sama mluvit), pokleslý pravý ústní koutek, těžká pravostranná hemiparéza (pravá ruka bez pohybu, nohu pouze zvedne nad podložku). NIHSS skóre 14.",
+  "labValues": {
+    "ko": "KO: Leukocyty 8.1 x10^9/l, Hemoglobin 128 g/l, Trombocyty 195 x10^9/l.",
+    "biochem": "Biochemie STATIM: Glykémie 7.5 mmol/l, CRP 2.5 mg/l."
+  },
+  "decisionNodes": [
+    {
+      "question": "Jaký je první diagnostický krok u podezření na akutní CMP?",
+      "options": [
+        "Natočení 12svodového EKG",
+        "Nativní CT mozku k vyloučení krvácení",
+        "Odběr krve na koagulace a biochemie"
+      ],
+      "feedback": "Klíčovým krokem v managementu akutní CMP je okamžité provedení nativního CT mozku k vyloučení intracerebrální hemoragie. Bez tohoto vyšetření nelze podat systémovou trombolýzu."
+    }
+  ],
+  "feedback": "Rychlá CT diagnostika, podání systémové trombolýzy a případná endovaskulární léčba (trombektomie) jsou základními pilíři úspěšné léčby ischemické CMP."
+}

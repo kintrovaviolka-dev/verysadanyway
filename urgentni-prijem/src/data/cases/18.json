@@ -1,0 +1,74 @@
+{
+  "id": "18",
+  "level": 1,
+  "difficulty": "easy",
+  "specialty": "Nefrologie",
+  "title": "Akutní poškození ledvin (AKI) prerenální etiologie",
+  "name": "Josef Kovář",
+  "age": 74,
+  "sex": "Muž",
+  "mainComplaint": "Celková slabost, oligurie, dehydratace",
+  "complaintDetail": "Starší pacient přichází pro výraznou celkovou slabost, motání hlavy při vstaní a snížené močení (za posledních 24 hodin vymočil cca 200 ml). Před 3 dny prodělal gastroenteritidu s četnými průjmy a zvracením, od té doby vykazoval minimální příjem tekutin. Na monitoru hraniční krevní tlak, suché sliznice, snížený turgor kůže.",
+  "history": [
+    "Arteriální hypertenze (užívá Ramipril 5mg denně)",
+    "Benigní hyperplazie prostaty"
+  ],
+  "allergies": [
+    "Bez známých alergií"
+  ],
+  "triageClass": "3",
+  "vitals": {
+    "tf": 96,
+    "tk_sys": 100,
+    "tk_dia": 60,
+    "spo2": 96,
+    "gcs": 15,
+    "temp": 36.6,
+    "rr": 16
+  },
+  "secretDiagnosis": "Akutní poškození ledvin prerenální (při dehydrataci)",
+  "secretDiagnosisCode": "N17.0",
+  "labsResult": {
+    "ko": "KO: Leukocyty 9.0 x10^9/l, Erytrocyty 4.9 x10^12/l, Hb 155 g/l (mírná hemokoncentrace), Trombocyty 210 x10^9/l.",
+    "biochem": "Biochemie STATIM: Urea: 24.5 mmol/l (silně zvýšená), Kreatinin: 310 umol/l (silně zvýšený, KDIGO 3 kritéria), CRP: 12.1 mg/l, Draslík: 5.2 mmol/l (mírná hyperkalémie), Sodík: 144 mmol/l, Kyselina močová: 550 umol/l.",
+    "coag": "Koagulace: INR 1.0, APTT 30 s.",
+    "mochem": "Moč chemicky: Specifická váha 1.030 (vysoká koncentrace značí prerenální etiologii), bílkovina +, erytrocyty negativní.",
+    "abr": "Astrup (ABR): pH 7.35 (mírná metabolická acidóza), pCO2 4.7 kPa, pO2 10.5 kPa, HCO3- 20.2 mmol/l, BE -3.5 mmol/l."
+  },
+  "imagingResult": {
+    "ekg": "12svodové EKG: Sinusový rytmus 96/min, bez akutních ischemických změn, bez projevů hyperkalémie (hrotnaté T vlny nepřítomny).",
+    "rtg": "RTG Hrudníku: Srdeční stín nezvětšen, plíce bez ložiskových či městnavých změn.",
+    "echo": "Echokardiografie: Dobrá systolická funkce LK (EF 60%), dolní dutá žíla (IVC) je kolabovaná (odpovídá těžké hypovolémii).",
+    "ct": "CT / Ultrazvuk ledvin: Ledviny normální velikosti, bez známek obstrukce (dilatace dutého systému vyloučena, což popírá postrenální AKI)."
+  },
+  "patientHistory": [
+    "Arteriální hypertenze",
+    "Benigní hyperplazie prostaty"
+  ],
+  "vitalSigns": {
+    "tf": 96,
+    "tk_sys": 100,
+    "tk_dia": 60,
+    "spo2": 96,
+    "gcs": 15,
+    "temp": 36.6,
+    "rr": 16
+  },
+  "physicalExam": "Pacient při vědomí, orientovaný, apatický, výrazně dehydratovaný. Sliznice dutiny ústní oschlé, kožní turgor snížený. Plíce bez vedlejších fenoménů. Srdeční akce pravidelná. Břicho měkké, nebolestivé. Poklep nad sponou detekuje prázdný močový měchýř (oligurie není způsobena retencí moči).",
+  "labValues": {
+    "ko": "KO: Leukocyty 9.0 x10^9/l, Hemoglobin 155 g/l, Trombocyty 210 x10^9/l.",
+    "biochem": "Biochemie STATIM: Urea 24.5 mmol/l, Kreatinin 310 umol/l, Draslík 5.2 mmol/l."
+  },
+  "decisionNodes": [
+    {
+      "question": "Jaký je klíčový léčebný a diagnostický krok u tohoto pacienta?",
+      "options": [
+        "Okamžitá hemodialýza",
+        "Podání vysokých dávek furosemidu (kličkové diuretikum)",
+        "Intravenózní infuzní rehydratace (krystaloidy), vysazení Ramiprilu a zavedení močového katetru k měření diurézy"
+      ],
+      "feedback": "Základem terapie prerenálního AKI je rehydratace k obnovení perfuze ledvin a vysazení potenciálně nefrotoxických či krevní tlak snižujících léků (jako jsou ACE inhibitory - Ramipril). Furosemid je v hypovolémii kontraindikován. Hemodialýza není v této fázi indikována."
+    }
+  ],
+  "feedback": "Prerenální AKI při dehydrataci vyžaduje agresivní, ale kontrolovanou intravenózní rehydrataci krystaloidy, dočasné vysazení ACE inhibitorů a přísnou monitoraci hodinové diurézy."
+}

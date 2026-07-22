@@ -1,0 +1,75 @@
+{
+  "id": "3",
+  "level": 3,
+  "title": "Masivní polytrauma s hemoragickým šokem",
+  "name": "Jan Kučera",
+  "age": 32,
+  "sex": "Muž",
+  "mainComplaint": "Polytrauma po nehodě na motocyklu",
+  "complaintDetail": "Mladý motorkář po střetu s autem ve vysoké rychlosti. Přivezen v bezvědomí, zaveden krční límec. Viditelná deformita pánve, tržné rány na stehně s masivním zevním krvácením, asymetrie hrudníku, dýchání povrchní.",
+  "history": [
+    "Dosud zdráv",
+    "Aktivní sportovec"
+  ],
+  "allergies": [],
+  "triageClass": "1",
+  "vitals": {
+    "tf": 138,
+    "tk_sys": 82,
+    "tk_dia": 40,
+    "spo2": 86,
+    "gcs": 9,
+    "temp": 35.5,
+    "rr": 28
+  },
+  "secretDiagnosis": "Polytrauma, hemoragický šok, nestabilní zlomenina pánve, hemotorax vpravo",
+  "secretDiagnosisCode": "T07",
+  "labsResult": {
+    "ko": "KO: Hemoglobin 85 g/l (značný pokles), Erytrocyty 2.9 x10^12/l, Hematokrit 0.25, Leukocyty 14.5 x10^9/l, Trombocyty 160 x10^9/l.",
+    "biochem": "Biochemie STATIM: Urea: 7.5 mmol/l, Kreatinin: 120 umol/l, Laktát: 4.8 mmol/l (těžká tkáňová hypoxie), Troponin I: 18 ng/l (v normě). Krevní skupina: B Rh negativní.",
+    "coag": "Koagulace: INR 1.45 (traumatická koagulopatie), APTT 45 s, Fibrinogen 1.4 g/l (kritický deficit).",
+    "mochem": "Moč chemicky: Hematurie.",
+    "abr": "Astrup (ABR): pH 7.24 (metabolická acidóza), pCO2 4.9 kPa, pO2 7.1 kPa, HCO3- 16.8 mmol/l, BE -8.5 mmol/l, laktát 4.8."
+  },
+  "imagingResult": {
+    "ekg": "12svodové EKG: Sinusová tachykardie 138/min, bez ložiskových změn.",
+    "rtg": "RTG Pánve a Hrudníku: Zlomenina pánve typu 'otevřená kniha' s diastázou symfýzy 4 cm. RTG hrudníku vykazuje fluidotorax vpravo (hemotorax) s kolapsem plíce, zlomeniny 4.-7. žebra vpravo.",
+    "echo": "FAST Ultrasonografie (Trauma USG): Volná tekutina v hepatorenálním prostoru (Morisonova kapsa) - pozitivní, a masivní anechogenní zóna v pravé pleurální dutině (hemotorax). Volná tekutina v pánvi.",
+    "ct": "CT Celotělové (Pan-scan): CT hlavy bez krvácení. Hrudník: hemotorax vpravo, kontuze plicní. Břicho a pánev: hematom retroperitonea z pánevního plexus venosus, aktivní arteriální krvácení z a. iliaca interna vpravo."
+  },
+  "specialty": "Traumatologie",
+  "difficulty": "hard",
+  "patientHistory": [
+    "Dosud zdráv",
+    "Aktivní sportovec"
+  ],
+  "vitalSigns": {
+    "tf": 138,
+    "tk_sys": 82,
+    "tk_dia": 40,
+    "spo2": 86,
+    "gcs": 9,
+    "temp": 35.5,
+    "rr": 28
+  },
+  "physicalExam": "Fyzikální vyšetření: Mladý motorkář po střetu s autem ve vysoké rychlosti. Přivezen v bezvědomí, zaveden krční límec. Viditelná deformita pánve, tržné rány na stehně s masivním zevním krvácením, asymetrie hrudníku, dýchání povrchní.",
+  "labValues": {
+    "ko": "KO: Hemoglobin 85 g/l (značný pokles), Erytrocyty 2.9 x10^12/l, Hematokrit 0.25, Leukocyty 14.5 x10^9/l, Trombocyty 160 x10^9/l.",
+    "biochem": "Biochemie STATIM: Urea: 7.5 mmol/l, Kreatinin: 120 umol/l, Laktát: 4.8 mmol/l (těžká tkáňová hypoxie), Troponin I: 18 ng/l (v normě). Krevní skupina: B Rh negativní.",
+    "coag": "Koagulace: INR 1.45 (traumatická koagulopatie), APTT 45 s, Fibrinogen 1.4 g/l (kritický deficit).",
+    "mochem": "Moč chemicky: Hematurie.",
+    "abr": "Astrup (ABR): pH 7.24 (metabolická acidóza), pCO2 4.9 kPa, pO2 7.1 kPa, HCO3- 16.8 mmol/l, BE -8.5 mmol/l, laktát 4.8."
+  },
+  "decisionNodes": [
+    {
+      "question": "Jaký je klíčový první krok u pacienta s diagnózou: Masivní polytrauma s hemoragickým šokem?",
+      "options": [
+        "Zahájit specifickou emergentní léčbu a monitoring vitálních funkcí",
+        "Odeslat pacienta na ambulantní došetření",
+        "Pouze sledovat bez aktivní intervence"
+      ],
+      "feedback": "Masivní polytrauma s hemoragickým šokem vyžaduje okamžitou stabilizaci oběhu a trauma tým."
+    }
+  ],
+  "feedback": "Masivní polytrauma s hemoragickým šokem vyžaduje okamžitou stabilizaci oběhu a trauma tým."
+}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { GameSession } from "../types";
+import { useProgress } from "../context/ProgressContext";
 import { Activity, CheckCircle2, AlertTriangle, HelpCircle, ArrowRight, RotateCcw, Volume2, VolumeX } from "lucide-react";
 
 // Pre-defined list of ECG rhythms
@@ -321,6 +322,7 @@ interface EkgQuizProps {
 }
 
 export default function EkgQuiz({ standalone = false, session, onAction, onClose }: EkgQuizProps) {
+  const { logIncorrectChoice, logQuizScore } = useProgress();
   // Standalone mode state
   const [currentRhythm, setCurrentRhythm] = useState<string>("nsr");
   const [options, setOptions] = useState<string[]>([]);
@@ -472,6 +474,13 @@ export default function EkgQuiz({ standalone = false, session, onAction, onClose
         setStreak(prev => prev + 1);
       } else {
         setStreak(0);
+        logIncorrectChoice(
+          `ekg_rhythm_${currentRhythm}`,
+          "Emergency",
+          RHYTHMS[optionKey]?.name || optionKey,
+          `Jaký rytmus ukazuje EKG monitor?`,
+          RHYTHMS[currentRhythm]?.name || currentRhythm
+        );
       }
     } else {
       // In Case Mode
@@ -675,7 +684,12 @@ export default function EkgQuiz({ standalone = false, session, onAction, onClose
       {standalone && (
         <div className="flex justify-between items-center pt-2">
           <button
-            onClick={onClose}
+            onClick={() => {
+              if (questionCount > 1) {
+                logQuizScore("ekg_rhythm_quiz", "EKG trenažér rytmů", "Emergency", score, questionCount - 1);
+              }
+              onClose();
+            }}
             className="px-4 py-2 bg-[#272a31]/60 hover:bg-[#272a31] text-[#c2c6d6] hover:text-white rounded-lg text-xs font-bold transition-colors cursor-pointer"
           >
             ← ZPĚT NA HOME SCREEN
