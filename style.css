@@ -1372,6 +1372,12 @@ select:focus-visible {
   --chat-context-gradient: var(--imuno-gradient);
 }
 
+.gemini-chatbot-container.context-mikra {
+  --chat-context-color: var(--mikra-color);
+  --chat-context-glow: var(--mikra-glow);
+  --chat-context-gradient: var(--mikra-gradient);
+}
+
 .gemini-chatbot-container {
   position: fixed;
   bottom: 24px;
