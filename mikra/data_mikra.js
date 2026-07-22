@@ -483,6 +483,12 @@ const MIKRA_QUESTIONS = [
           options: ["Primoinfekcí dengue u kojenců", "Reinfekci jiným sérotypem dengue u dětí", "Infekci u imunosuprimovaných", "Přenosu krvavou transfuzí"],
           correct: 1,
           explanation: "Při reinfekci jiným sérotypem dengue existující protilátky zesilují vstup viru do makrofágů (antibody-dependent enhancement) → těžší průběh → hemoragická horečka dengue (DHF) nebo šokový syndrom (DSS)."
+        },
+        {
+          q: "Který členovec slouží jako hlavní vektor pro virus klíšťové encefalitidy (TBEV) ve střední Evropě?",
+          options: ["Komár rodu Culex", "Blecha morová (Xenopsylla cheopis)", "Klíště obecné (Ixodes ricinus)", "Veš šatní (Pediculus humanus)"],
+          correct: 2,
+          explanation: "Klíště obecné (Ixodes ricinus) je hlavním vektorem i rezervoárem viru klíšťové encefalitidy ve střední Evropě. Přenos nastává při sání krve klíštěte na hostiteli."
         }
       ]
     }
@@ -508,6 +514,12 @@ const MIKRA_QUESTIONS = [
           options: ["Destrukce střevní sliznice toxinem", "Choleragen aktivuje adenylátcyklázu → zvýšení cAMP → hypersekrece vody a elektrolytů", "Invaze Vibria do slizničních buněk", "Produkce neurotoxinu"],
           correct: 1,
           explanation: "Choleragen (CT) se váže na GM1 receptor enterocytů → aktivuje adenylátcyklázu → cAMP ↑ → otevření CFTR kanálů → hypersekrece Cl⁻, Na⁺, H₂O → profúzní vodnatý průjem (rýžová stolice)."
+        },
+        {
+          q: "Která selektivní půda se standardně používá pro kultivaci a odlišení Vibrio cholerae od ostatních vibrií?",
+          options: ["Krevní agar s bacitracinem", "Cetrimidový agar", "TCŽS agar (thiosulfát-citrát-žlučové soli-sacharóza)", "Endův agar"],
+          correct: 2,
+          explanation: "TCŽS (TCBS) agar je vysoce selektivní půda pro vibria. Vibrio cholerae fermentuje sacharózu, a proto na něm roste v podobě charakteristických žlutých kolonií."
         }
       ]
     },
@@ -633,7 +645,13 @@ const MIKRA_QUESTIONS = [
           q: "Která BSL (biosafety level) je vyžadována pro práci s Ebolou a Marburgem?",
           options: ["BSL-1", "BSL-2", "BSL-3", "BSL-4"],
           correct: 3,
-          explanation: "Ebola a Marburg jsou BSL-4 patogeny – vyžadují práci v prostředí s nejvyšší biologickou bezpečností (plně hermetické oblečení, negativní tlak v laboratoři, neopravitelné poškození)."
+          explanation: "Ebola a Marburg are BSL-4 patogeny – vyžadují práci v prostředí s nejvyšší biologickou bezpečností (plně hermetické oblečení, negativní tlak v laboratoři, neopravitelné poškození)."
+        },
+        {
+          q: "Který z následujících virů způsobujících hemoragické horečky má jako hlavní rezervoár hlodavce a přenáší se vdechováním jejich aerosolizovaných exkretů?",
+          options: ["Virus Lassa (čeleď Arenaviridae)", "Virus Marburg (čeleď Filoviridae)", "Virus Ebola (čeleď Filoviridae)", "Virus Žluté zimnice (čeleď Flaviviridae)"],
+          correct: 0,
+          explanation: "Virus Lassa (Arenaviridae) má jako hlavní rezervoár hlodavce rodu Mastomys natalensis. Člověk se nejčastěji nakazí vdechnutím aerosolu kontaminovaného močí či trusem těchto hlodavců, případně přímým kontaktem."
         }
       ]
     }
@@ -683,6 +701,12 @@ const MIKRA_QUESTIONS = [
           options: ["PCR je levnější", "PCR detekuje jedinou kopii DNA, hybridizace potřebuje 10⁴–10⁵ kopií", "Hybridizace je náchylnější ke kontaminaci", "PCR nevyžaduje čistou DNA"],
           correct: 1,
           explanation: "Amplifikační metody (PCR) mají výrazně vyšší analytickou citlivost – detekují i jednu kopii cílové DNA ve vzorku. Hybridizační metody potřebují minimálně 10⁴–10⁵ kopií DNA pro detekovatelný signál."
+        },
+        {
+          q: "Která z následujících hybridizačních metod se používá přímo na tkáňovém řezu v patologické laboratoři k lokalizaci virové DNA v hostitelské buňce bez nutnosti extrakce DNA?",
+          options: ["PCR (polymerázová řetězová reakce)", "In situ hybridizace (ISH)", "Multiplexová PCR", "Sangerovo sekvenování"],
+          correct: 1,
+          explanation: "In situ hybridizace (ISH) umožňuje přímou vizualizaci a lokalizaci specifické nukleové kyseliny přímo v buňkách nebo tkáňových řezech (in situ = na místě) bez její předchozí izolace."
         }
       ]
     }
