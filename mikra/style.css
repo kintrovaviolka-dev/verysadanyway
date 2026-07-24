@@ -235,6 +235,9 @@ header {
   color: var(--primary);
   border-color: rgba(20, 184, 166, 0.3);
 }
+.btn-text-mobile {
+  display: none;
+}
 
 .btn-due {
   margin-top: 0.75rem;
@@ -1080,7 +1083,8 @@ header {
 =========================== */
 @media (max-width: 700px) {
   .header-controls { gap: 0.5rem; }
-  .download-group { display: none; }
+  .btn-text-desktop { display: none; }
+  .btn-text-mobile { display: inline; }
   .dialog-content { width: 98vw; max-height: 96vh; border-radius: var(--radius-lg); }
   .dialog-header { padding: 1rem 1.2rem 0.75rem; }
   .study-content { padding: 1rem 1.2rem; }
