@@ -21,14 +21,131 @@ import { ANESTHESIA_QUIZ_CS } from '../data/quizzes_cs';
 import { Medication, QuizQuestion, MedCategory } from '../types';
 import { useLanguage } from '../context/LanguageContext';
 
+const getVolumeCalculation = (medId: string, min: number, max: number, language: string) => {
+  let volMin = 0;
+  let volMax = 0;
+  let textEn = '';
+  let textCs = '';
+
+  switch (medId) {
+    case 'propofol':
+      volMin = min / 10;
+      volMax = max / 10;
+      textEn = `Draw exactly ${volMin.toFixed(1)} mL to ${volMax.toFixed(1)} mL of 1% propofol emulsion (10 mg/mL).`;
+      textCs = `Natáhněte přesně ${volMin.toFixed(1)} mL až ${volMax.toFixed(1)} mL 1% propofolové emulze (10 mg/mL).`;
+      break;
+    case 'ketamine':
+      volMin = min / 10;
+      volMax = max / 10;
+      textEn = `Draw exactly ${volMin.toFixed(1)} mL to ${volMax.toFixed(1)} mL from a 10 mg/mL solution.`;
+      textCs = `Natáhněte přesně ${volMin.toFixed(1)} mL až ${volMax.toFixed(1)} mL z roztoku o koncentraci 10 mg/mL.`;
+      break;
+    case 'etomidate':
+      volMin = min / 2;
+      volMax = max / 2;
+      textEn = `Draw exactly ${volMin.toFixed(1)} mL to ${volMax.toFixed(1)} mL from a 2 mg/mL vial.`;
+      textCs = `Natáhněte přesně ${volMin.toFixed(1)} mL až ${volMax.toFixed(1)} mL z ampule o koncentraci 2 mg/mL.`;
+      break;
+    case 'succinylcholine':
+      volMin = min / 20;
+      volMax = max / 20;
+      textEn = `Draw exactly ${volMin.toFixed(1)} mL to ${volMax.toFixed(1)} mL from a 20 mg/mL vial.`;
+      textCs = `Natáhněte přesně ${volMin.toFixed(1)} mL až ${volMax.toFixed(1)} mL z ampule o koncentraci 20 mg/mL.`;
+      break;
+    case 'rocuronium':
+      volMin = min / 10;
+      volMax = max / 10;
+      textEn = `Draw exactly ${volMin.toFixed(1)} mL to ${volMax.toFixed(1)} mL of 10 mg/mL solution.`;
+      textCs = `Natáhněte přesně ${volMin.toFixed(1)} mL až ${volMax.toFixed(1)} mL z ampule o koncentraci 10 mg/mL.`;
+      break;
+    case 'fentanyl':
+      volMin = min / 50;
+      volMax = max / 50;
+      textEn = `Draw exactly ${volMin.toFixed(1)} mL to ${volMax.toFixed(1)} mL from a 50 mcg/mL solution.`;
+      textCs = `Natáhněte přesně ${volMin.toFixed(1)} mL až ${volMax.toFixed(1)} mL z ampule o koncentraci 50 mcg/mL.`;
+      break;
+    case 'midazolam':
+      volMin = min / 1;
+      volMax = max / 1;
+      textEn = `Draw exactly ${volMin.toFixed(1)} mL to ${volMax.toFixed(1)} mL from a 1 mg/mL solution.`;
+      textCs = `Natáhněte přesně ${volMin.toFixed(1)} mL až ${volMax.toFixed(1)} mL z roztoku o koncentraci 1 mg/mL.`;
+      break;
+    case 'phenylephrine':
+      volMin = min / 100;
+      volMax = max / 100;
+      textEn = `Draw exactly ${volMin.toFixed(1)} mL to ${volMax.toFixed(1)} mL of diluted 100 mcg/mL solution.`;
+      textCs = `Natáhněte přesně ${volMin.toFixed(1)} mL až ${volMax.toFixed(1)} mL z naředěného roztoku o koncentraci 100 mcg/mL.`;
+      break;
+    case 'ephedrine':
+      volMin = min / 5;
+      volMax = max / 5;
+      textEn = `Draw exactly ${volMin.toFixed(1)} mL to ${volMax.toFixed(1)} mL of diluted 5 mg/mL solution.`;
+      textCs = `Natáhněte přesně ${volMin.toFixed(1)} mL až ${volMax.toFixed(1)} mL z naředěného roztoku o koncentraci 5 mg/mL.`;
+      break;
+    case 'sugammadex':
+      volMin = min / 100;
+      volMax = max / 100;
+      textEn = `Draw exactly ${volMin.toFixed(1)} mL to ${volMax.toFixed(1)} mL from a 100 mg/mL vial.`;
+      textCs = `Natáhněte přesně ${volMin.toFixed(1)} mL až ${volMax.toFixed(1)} mL z lahvičky o koncentraci 100 mg/mL.`;
+      break;
+    case 'thiopental':
+      volMin = min / 25;
+      volMax = max / 25;
+      textEn = `Draw exactly ${volMin.toFixed(1)} mL to ${volMax.toFixed(1)} mL of reconstituted 2.5% solution (25 mg/mL).`;
+      textCs = `Natáhněte přesně ${volMin.toFixed(1)} mL až ${volMax.toFixed(1)} mL z rekonstituovaného 2,5% roztoku (25 mg/mL).`;
+      break;
+    case 'dexmedetomidine':
+      volMin = min / 4;
+      volMax = max / 4;
+      textEn = `Draw exactly ${volMin.toFixed(1)} mL to ${volMax.toFixed(1)} mL of diluted 4 mcg/mL infusion mixture.`;
+      textCs = `Natáhněte přesně ${volMin.toFixed(1)} mL až ${volMax.toFixed(1)} mL z naředěné infuzní směsi o koncentraci 4 mcg/mL.`;
+      break;
+    case 'norepinephrine':
+      volMin = min / 16;
+      volMax = max / 16;
+      textEn = `For peripheral infusion, draw exactly ${volMin.toFixed(1)} mL to ${volMax.toFixed(1)} mL of standard 16 mcg/mL dilution.`;
+      textCs = `Pro periferní infuzi natáhněte ${volMin.toFixed(1)} mL až ${volMax.toFixed(1)} mL ze standardního ředění 16 mcg/mL.`;
+      break;
+    case 'atropine':
+      volMin = min / 1;
+      volMax = max / 1;
+      textEn = `Draw exactly ${volMin.toFixed(1)} mL to ${volMax.toFixed(1)} mL from a 1 mg/mL solution.`;
+      textCs = `Natáhněte přesně ${volMin.toFixed(1)} mL až ${volMax.toFixed(1)} mL z ampule o koncentraci 1 mg/mL.`;
+      break;
+    case 'naloxone':
+      volMin = min / 0.4;
+      volMax = max / 0.4;
+      textEn = `Draw exactly ${volMin.toFixed(1)} mL to ${volMax.toFixed(1)} mL from a 0.4 mg/mL solution.`;
+      textCs = `Natáhněte přesně ${volMin.toFixed(1)} mL až ${volMax.toFixed(1)} mL z ampule o koncentraci 0,4 mg/mL.`;
+      break;
+    case 'neostigmine':
+      volMin = min / 0.5;
+      volMax = max / 0.5;
+      textEn = `Draw exactly ${volMin.toFixed(1)} mL to ${volMax.toFixed(1)} mL from a 0.5 mg/mL solution.`;
+      textCs = `Natáhněte přesně ${volMin.toFixed(1)} mL až ${volMax.toFixed(1)} mL z ampule o koncentraci 0,5 mg/mL.`;
+      break;
+    case 'dexamethasone':
+      volMin = min / 4;
+      volMax = max / 4;
+      textEn = `Draw exactly ${volMin.toFixed(1)} mL to ${volMax.toFixed(1)} mL from a 4 mg/mL solution.`;
+      textCs = `Natáhněte přesně ${volMin.toFixed(1)} mL až ${volMax.toFixed(1)} mL z ampule o koncentraci 4 mg/mL.`;
+      break;
+    default:
+      textEn = 'Draw and titrate strictly according to response and targeted clinical endpoint.';
+      textCs = 'Dávkujte a titrujte přísně podle klinické odezvy a cílového účinku.';
+  }
+
+  return language === 'cs' ? textCs : textEn;
+};
+
 export default function AnesthesiaModule() {
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
 
   // Select localized data
   const medsData = language === 'cs' ? ANESTHESIA_MEDS_CS : ANESTHESIA_MEDS;
   const quizData = language === 'cs' ? ANESTHESIA_QUIZ_CS : ANESTHESIA_QUIZ;
 
-  const [activeTab, setActiveTab] = useState<'cards' | 'calculator' | 'quiz'>('cards');
+  const [activeTab, setActiveTab] = useState<'cards' | 'calculator' | 'quiz' | 'recall'>('cards');
 
   // Flashcards state
   const [searchTerm, setSearchString] = useState('');
@@ -72,6 +189,159 @@ export default function AnesthesiaModule() {
     setQuizScore(0);
     setQuizCompleted(false);
   }, [quizData]);
+
+  // Active Recall Center State
+  const [recallGameMode, setRecallGameMode] = useState<'menu' | 'sorter' | 'trainer'>('menu');
+  
+  // Game 1: Category Sorter State
+  const [sorterMeds, setSorterMeds] = useState<Medication[]>([]);
+  const [sorterIndex, setSorterIndex] = useState(0);
+  const [sorterScore, setSorterScore] = useState(0);
+  const [sorterSelectedCat, setSorterSelectedCat] = useState<MedCategory | null>(null);
+  const [sorterIsChecked, setSorterIsChecked] = useState(false);
+  const [sorterCompleted, setSorterCompleted] = useState(false);
+
+  // Game 2: Dose Master Trainer State
+  const [trainerRound, setTrainerRound] = useState(0);
+  const [trainerScore, setTrainerScore] = useState(0);
+  const [trainerQuestion, setTrainerQuestion] = useState<{
+    med: Medication;
+    weight: number;
+    status: 'standard' | 'elderly' | 'shock' | 'pediatric';
+    correctRange: string;
+    options: string[];
+    unit: string;
+  } | null>(null);
+  const [trainerSelectedOpt, setTrainerSelectedOpt] = useState<string | null>(null);
+  const [trainerIsChecked, setTrainerIsChecked] = useState(false);
+  const [trainerCompleted, setTrainerCompleted] = useState(false);
+
+  const startSorterGame = () => {
+    const shuffled = [...medsData].sort(() => 0.5 - Math.random()).slice(0, 10);
+    setSorterMeds(shuffled);
+    setSorterIndex(0);
+    setSorterScore(0);
+    setSorterSelectedCat(null);
+    setSorterIsChecked(false);
+    setSorterCompleted(false);
+    setRecallGameMode('sorter');
+  };
+
+  const handleSorterChoice = (cat: MedCategory) => {
+    if (sorterIsChecked) return;
+    setSorterSelectedCat(cat);
+  };
+
+  const verifySorterChoice = () => {
+    if (sorterSelectedCat === null || sorterIsChecked) return;
+    const currentMed = sorterMeds[sorterIndex];
+    if (sorterSelectedCat === currentMed.category) {
+      setSorterScore(prev => prev + 1);
+    }
+    setSorterIsChecked(true);
+  };
+
+  const nextSorterQuestion = () => {
+    if (sorterIndex < sorterMeds.length - 1) {
+      setSorterIndex(prev => prev + 1);
+      setSorterSelectedCat(null);
+      setSorterIsChecked(false);
+    } else {
+      setSorterCompleted(true);
+    }
+  };
+
+  const generateTrainerQuestion = () => {
+    const eligibleMeds = medsData.filter(m => 
+      ['propofol', 'ketamine', 'etomidate', 'succinylcholine', 'rocuronium', 'sugammadex', 'thiopental', 'midazolam', 'fentanyl', 'dexmedetomidine', 'norepinephrine', 'atropine', 'naloxone', 'neostigmine', 'dexamethasone', 'ephedrine', 'phenylephrine'].includes(m.id)
+    );
+    const randomMed = eligibleMeds[Math.floor(Math.random() * eligibleMeds.length)];
+    
+    const weights = [50, 60, 65, 70, 75, 80, 85, 90, 100];
+    const weight = weights[Math.floor(Math.random() * weights.length)];
+    
+    const statuses: ('standard' | 'elderly' | 'shock' | 'pediatric')[] = ['standard', 'elderly', 'shock', 'pediatric'];
+    let status = statuses[Math.floor(Math.random() * statuses.length)];
+    
+    if (status === 'pediatric' && randomMed.id === 'sugammadex') {
+      status = 'standard';
+    }
+
+    const calculated = calculateDose(randomMed.id, weight, status);
+    if (!calculated) return;
+
+    const unit = ['fentanyl', 'dexmedetomidine', 'norepinephrine', 'phenylephrine'].includes(randomMed.id) ? 'mcg' : 'mg';
+    const correctRange = calculated.minMg === calculated.maxMg ? `${calculated.minMg}` : `${calculated.minMg} - ${calculated.maxMg}`;
+    
+    const incorrects = new Set<string>();
+    
+    const halfMin = Math.round((calculated.minMg / 2) * 10) / 10;
+    const halfMax = Math.round((calculated.maxMg / 2) * 10) / 10;
+    const halfRange = halfMin === halfMax ? `${halfMin}` : `${halfMin} - ${halfMax}`;
+    if (halfRange !== correctRange) incorrects.add(halfRange);
+
+    const doubleMin = Math.round((calculated.minMg * 2) * 10) / 10;
+    const doubleMax = Math.round((calculated.maxMg * 2) * 10) / 10;
+    const doubleRange = doubleMin === doubleMax ? `${doubleMin}` : `${doubleMin} - ${doubleMax}`;
+    if (doubleRange !== correctRange) incorrects.add(doubleRange);
+
+    const diffMin = Math.round((calculated.minMg + 10) * 10) / 10;
+    const diffMax = Math.round((calculated.maxMg + 15) * 10) / 10;
+    const diffRange = diffMin === diffMax ? `${diffMin}` : `${diffMin} - ${diffMax}`;
+    if (diffRange !== correctRange) incorrects.add(diffRange);
+
+    while (incorrects.size < 3) {
+      const offset = (incorrects.size + 1) * 5;
+      const fMin = Math.round(Math.max(1, calculated.minMg - offset) * 10) / 10;
+      const fMax = Math.round((calculated.maxMg + offset) * 10) / 10;
+      const fRange = fMin === fMax ? `${fMin}` : `${fMin} - ${fMax}`;
+      if (fRange !== correctRange) incorrects.add(fRange);
+    }
+
+    const options = [correctRange, ...Array.from(incorrects).slice(0, 3)].sort(() => 0.5 - Math.random());
+
+    setTrainerQuestion({
+      med: randomMed,
+      weight,
+      status,
+      correctRange,
+      options,
+      unit
+    });
+  };
+
+  const startTrainerGame = () => {
+    setTrainerRound(0);
+    setTrainerScore(0);
+    setTrainerSelectedOpt(null);
+    setTrainerIsChecked(false);
+    setTrainerCompleted(false);
+    setRecallGameMode('trainer');
+  };
+
+  useEffect(() => {
+    if (recallGameMode === 'trainer' && trainerRound < 10 && !trainerCompleted) {
+      generateTrainerQuestion();
+    }
+  }, [trainerRound, recallGameMode, trainerCompleted]);
+
+  const verifyTrainerChoice = () => {
+    if (trainerSelectedOpt === null || trainerIsChecked) return;
+    if (trainerSelectedOpt === trainerQuestion?.correctRange) {
+      setTrainerScore(prev => prev + 1);
+    }
+    setTrainerIsChecked(true);
+  };
+
+  const nextTrainerQuestion = () => {
+    if (trainerRound < 9) {
+      setTrainerRound(prev => prev + 1);
+      setTrainerSelectedOpt(null);
+      setTrainerIsChecked(false);
+    } else {
+      setTrainerCompleted(true);
+    }
+  };
 
   const toggleMastery = (medId: string, e: React.MouseEvent) => {
     e.stopPropagation(); // Prevent card flipping on bookmark click
@@ -225,6 +495,214 @@ export default function AnesthesiaModule() {
       comments = language === 'cs'
         ? 'Enkapsulační reverzní látka: Dávkování závisí na hloubce bloku. Návrat TOF 2: použijte 2 mg/kg IV. Hluboký blok (post-tetanic count 1-2): použijte 4 mg/kg IV. Urgentní zrušení hluboké blokády (krátce po RSI): použijte okamžitě bolus 16 mg/kg IV.'
         : 'SRBA: Dose varies by block depth. Re reappearance of TOF 2: use 2 mg/kg IV. For deep post-tetanic count 1-2 block: use 4 mg/kg IV. For emergency rescue of profound block (RSI rescue): use 16 mg/kg IV bolus immediately.';
+    } else if (medId === 'fentanyl') {
+      if (status === 'elderly' || status === 'shock') {
+        doseMgMin = weight * 0.5;
+        doseMgMax = weight * 1.0;
+        comments = language === 'cs'
+          ? 'Snížená dávka u starších osob / šoku k zabránění závažné dechové deprese a hypotenze.'
+          : 'Reduced dose in elderly/shock to prevent severe respiratory depression and hypotension.';
+      } else {
+        doseMgMin = weight * 1.0;
+        doseMgMax = weight * 2.0;
+        comments = language === 'cs'
+          ? 'Syntetický opioid. Tlumí presorickou reakci (vzestup TK a SF) při laryngoskopii a intubaci.'
+          : 'Synthetic opioid. Blunts pressor response (hypertension/tachycardia) during laryngoscopy and intubation.';
+      }
+    } else if (medId === 'midazolam') {
+      if (status === 'elderly' || status === 'shock') {
+        doseMgMin = weight * 0.01;
+        doseMgMax = weight * 0.03;
+        comments = language === 'cs'
+          ? 'Anxiolýza/Sedace: Výrazně snížená dávka, riziko synergie s opioidy a rozvoje těžké hypotenze.'
+          : 'Anxiolysis/Sedation: Highly reduced dose, risk of synergy with opioids and severe hypotension.';
+      } else if (status === 'pediatric') {
+        doseMgMin = weight * 0.05;
+        doseMgMax = weight * 0.15;
+        comments = language === 'cs'
+          ? 'Pediatričtí pacienti: Často podáván perorálně (0,25 - 0,5 mg/kg) k premedikaci před úvodem.'
+          : 'Pediatric: Often administered orally (0.25 - 0.5 mg/kg) for pre-medication before induction.';
+      } else {
+        doseMgMin = weight * 0.02;
+        doseMgMax = weight * 0.05;
+        comments = language === 'cs'
+          ? 'Sedativum/Anxiolytikum: Zajišťuje vynikající anterográdní amnesii a zklidnění před výkonem.'
+          : 'Sedative/Anxiolytic: Provides excellent anterograde amnesia and pre-procedure calming.';
+      }
+    } else if (medId === 'phenylephrine') {
+      if (status === 'elderly') {
+        doseMgMin = weight * 0.5;
+        doseMgMax = weight * 1.0;
+        comments = language === 'cs'
+          ? 'Čistý alpha-1 agonista. U starších osob opatrně s reflexní bradykardií.'
+          : 'Pure alpha-1 agonist. Exercise caution in elderly due to reflex bradycardia.';
+      } else if (status === 'pediatric') {
+        doseMgMin = weight * 5.0;
+        doseMgMax = weight * 10.0;
+        comments = language === 'cs'
+          ? 'Pediatrický bolus: Používá se k léčbě hypotenze při anestezii u dětí.'
+          : 'Pediatric bolus: Used to treat anesthesia-induced hypotension in children.';
+      } else {
+        doseMgMin = weight * 0.5;
+        doseMgMax = weight * 2.0;
+        comments = language === 'cs'
+          ? 'Čistý alpha-1 agonista. Lék volby pro léčbu hypotenze vyvolané spinální anestezií.'
+          : 'Pure alpha-1 agonist. Drug of choice for spinal anesthesia-induced hypotension.';
+      }
+    } else if (medId === 'ephedrine') {
+      if (status === 'elderly') {
+        doseMgMin = weight * 0.05;
+        doseMgMax = weight * 0.1;
+        comments = language === 'cs'
+          ? 'Starší pacienti: Zvažte nižší dávky kvůli riziku tachykardie a ischemie myokardu.'
+          : 'Elderly: Consider lower doses due to risk of tachycardia and myocardial ischemia.';
+      } else {
+        doseMgMin = weight * 0.07;
+        doseMgMax = weight * 0.15;
+        comments = language === 'cs'
+          ? 'Smíšené sympatomimetikum. Zvyšuje TK i SF. Vhodný při hypotenzi doprovázené bradykardií.'
+          : 'Mixed sympathomimetic. Raises BP and HR. Ideal for hypotension accompanied by bradycardia.';
+      }
+    } else if (medId === 'thiopental') {
+      if (status === 'elderly') {
+        doseMgMin = weight * 1.5;
+        doseMgMax = weight * 2.5;
+        comments = language === 'cs'
+          ? 'Starší pacienti: Výrazně snížená dávka kvůli kardiodepresivním účinkům a vazodilataci.'
+          : 'Elderly: Significantly reduced dose due to cardiodepressant effects and vasodilation.';
+      } else if (status === 'shock') {
+        doseMgMin = weight * 1.0;
+        doseMgMax = weight * 2.0;
+        comments = language === 'cs'
+          ? 'KONTRAINDIKACE/NEBEZPEČÍ: Thiopental způsobuje těžkou venodilataci a depresi myokardu. V šoku nepodávat!'
+          : 'CONTRAINDICATION/DANGER: Thiopental causes severe venodilation and myocardial depression. Avoid in shock!';
+      } else if (status === 'pediatric') {
+        doseMgMin = weight * 5.0;
+        doseMgMax = weight * 7.0;
+        comments = language === 'cs'
+          ? 'Pediatričtí pacienti: Vyžadují vyšší váhové dávky kvůli rychlejšímu metabolismu.'
+          : 'Pediatric: Require higher weight-based doses due to faster metabolic clearance.';
+      } else {
+        doseMgMin = weight * 3.0;
+        doseMgMax = weight * 5.0;
+        comments = language === 'cs'
+          ? 'Barbiturátové anestetikum. Snižuje ICP a průtok krve mozkem. Kontraindikován u porfyrie.'
+          : 'Barbiturate anesthetic. Decreases ICP and cerebral blood flow. Contraindicated in porphyria.';
+      }
+    } else if (medId === 'dexmedetomidine') {
+      if (status === 'elderly') {
+        doseMgMin = weight * 0.15;
+        doseMgMax = weight * 0.5;
+        comments = language === 'cs'
+          ? 'Starší pacienti: Udržovací infuze bez nasycovací dávky (prevence těžké bradykardie).'
+          : 'Elderly: Maintenance infusion without loading dose (prevents severe bradycardia).';
+      } else if (status === 'pediatric') {
+        doseMgMin = weight * 0.2;
+        doseMgMax = weight * 1.0;
+        comments = language === 'cs'
+          ? 'Pediatrická sedace: Vhodný pro sedaci na JIP nebo premedikaci.'
+          : 'Pediatric sedation: Suitable for ICU sedation or pre-medication.';
+      } else {
+        doseMgMin = weight * 0.2;
+        doseMgMax = weight * 0.7;
+        comments = language === 'cs'
+          ? 'Selektivní alpha-2 agonista. Zajišťuje kooperativní sedaci bez útlumu dýchání.'
+          : 'Selective alpha-2 agonist. Provides cooperative sedation without respiratory depression.';
+      }
+    } else if (medId === 'norepinephrine') {
+      if (status === 'elderly') {
+        doseMgMin = weight * 0.05;
+        doseMgMax = weight * 0.3;
+        comments = language === 'cs'
+          ? 'Starší pacienti: Nižší udržovací dávky, monitorujte končetinovou a orgánovou perfuzi.'
+          : 'Elderly: Lower maintenance doses, monitor limb and organ perfusion closely.';
+      } else if (status === 'shock') {
+        doseMgMin = weight * 0.1;
+        doseMgMax = weight * 1.0;
+        comments = language === 'cs'
+          ? 'Septický/kardiogenní šok: Lék první volby. Titrujte kontinuálně na MAP > 65 mmHg.'
+          : 'Septic/Cardiogenic Shock: First-line vasopressor. Titrate continuously to MAP > 65 mmHg.';
+      } else {
+        doseMgMin = weight * 0.05;
+        doseMgMax = weight * 0.5;
+        comments = language === 'cs'
+          ? 'Vasopresor: Silná vazokonstrikce. Podávat přednostně do centrální žíly.'
+          : 'Vasopressor: Potent vasoconstriction. Administer preferably via central line.';
+      }
+    } else if (medId === 'atropine') {
+      if (status === 'pediatric') {
+        doseMgMin = weight * 0.02;
+        doseMgMax = weight * 0.02;
+        comments = language === 'cs'
+          ? 'Pediatrický bolus: Minimální jednorázová dávka je 0,1 mg k zamezení paradoxní bradykardie.'
+          : 'Pediatric bolus: Minimum single dose is 0.1 mg to prevent paradoxical bradycardia.';
+      } else {
+        doseMgMin = weight * 0.01;
+        doseMgMax = weight * 0.02;
+        comments = language === 'cs'
+          ? 'Anticholinergikum. První volba u symptomatické bradykardie. Dávky < 0,5 mg jsou zakázány.'
+          : 'Anticholinergic. First choice in symptomatic bradycardia. Doses < 0.5 mg are prohibited.';
+      }
+    } else if (medId === 'naloxone') {
+      if (status === 'elderly') {
+        doseMgMin = weight * 0.0005;
+        doseMgMax = weight * 0.005;
+        comments = language === 'cs'
+          ? 'Starší pacienti: Titrujte velmi pomalu, abyste zabránili náhlému rozvoji bolesti a neklidu.'
+          : 'Elderly: Titrate very slowly to prevent sudden emergence of severe pain and agitation.';
+      } else if (status === 'pediatric') {
+        doseMgMin = weight * 0.01;
+        doseMgMax = weight * 0.1;
+        comments = language === 'cs'
+          ? 'Pediatrický reverz opioidů: Podávejte podle klinického účinku dýchání.'
+          : 'Pediatric opioid reversal: Administer based on clinical respiratory response.';
+      } else {
+        doseMgMin = weight * 0.001;
+        doseMgMax = weight * 0.01;
+        comments = language === 'cs'
+          ? 'Antidotum opioidů. Krátká doba účinku (30-90 min), hrozí renarkotizace!'
+          : 'Opioid antidote. Short duration of action (30-90 min), risk of re-narcotization!';
+      }
+    } else if (medId === 'neostigmine') {
+      if (status === 'elderly') {
+        doseMgMin = weight * 0.03;
+        doseMgMax = weight * 0.05;
+        comments = language === 'cs'
+          ? 'Starší pacienti: Vyšší citlivost na nežádoucí účinky (bradykardie). Vždy podat s atropinem.'
+          : 'Elderly: Higher sensitivity to adverse effects (bradycardia). Always administer with atropine.';
+      } else if (status === 'shock') {
+        doseMgMin = weight * 0.03;
+        doseMgMax = weight * 0.03;
+        comments = language === 'cs'
+          ? 'NEBEZPEČÍ: Neostigmin v šoku může vyvolat těžkou bradykardii až asystolii. Podávat extrémně opatrně.'
+          : 'DANGER: Neostigmine in shock can trigger severe bradycardia or asystole. Administer with extreme care.';
+      } else {
+        doseMgMin = weight * 0.03;
+        doseMgMax = weight * 0.07;
+        comments = language === 'cs'
+          ? 'Inhibitor acetylcholinesterázy. Musí být VŽDY podán s anticholinergikem k prevenci bradykardie.'
+          : 'Acetylcholinesterase inhibitor. Must ALWAYS be given with anticholinergic to prevent bradycardia.';
+      }
+    } else if (medId === 'dexamethasone') {
+      if (status === 'pediatric') {
+        doseMgMin = weight * 0.15;
+        doseMgMax = weight * 0.5;
+        comments = language === 'cs'
+          ? 'Pediatrické použití: Prevence laryngoedému nebo jako antiemetikum (max. 10 mg).'
+          : 'Pediatric use: Prevention of laryngeal edema or as antiemetic (max 10mg).';
+      } else if (status === 'elderly') {
+        doseMgMin = weight * 0.05;
+        doseMgMax = weight * 0.1;
+        comments = language === 'cs'
+          ? 'Starší pacienti: Nižší dávky (např. 4 - 8 mg), sledujte hladinu glykémie (riziko hyperglykémie).'
+          : 'Elderly: Lower doses (e.g. 4 - 8 mg), monitor blood glucose (hyperglycemia risk).';
+      } else {
+        doseMgMin = weight * 0.1;
+        doseMgMax = weight * 0.15;
+        comments = language === 'cs'
+          ? 'Kortikosteroid. Profylaxe PONV (4 - 10 mg IV). Pomalejší nástup účinku (1-2 hodiny).'
+          : 'Corticosteroid. PONV prophylaxis (4 - 10 mg IV). Slower onset of action (1-2 hours).';
+      }
     } else {
       doseMgMin = weight * 0.5;
       doseMgMax = weight * 1.0;
@@ -240,6 +718,7 @@ export default function AnesthesiaModule() {
   };
 
   const currentCalc = calculateDose(calcMedId, calcWeight, patientStatus);
+  const doseUnit = ['fentanyl', 'dexmedetomidine', 'norepinephrine', 'phenylephrine'].includes(calcMedId) ? 'mcg' : 'mg';
 
   // Quiz progression
   const handleAnswerClick = (index: number) => {
@@ -293,7 +772,7 @@ export default function AnesthesiaModule() {
         </div>
 
         {/* Tab Selection buttons */}
-        <div className="flex bg-white/5 p-1 rounded-lg border border-white/10 mt-4 md:mt-0 max-w-sm backdrop-blur-md">
+        <div className="flex bg-white/5 p-1 rounded-lg border border-white/10 mt-4 md:mt-0 max-w-lg backdrop-blur-md">
           <button
             onClick={() => setActiveTab('cards')}
             className={`flex-1 py-1.5 px-4 text-xs font-semibold rounded-md transition-all font-sans flex items-center justify-center gap-1.5 cursor-pointer ${
@@ -303,7 +782,7 @@ export default function AnesthesiaModule() {
             }`}
           >
             <Compass className="w-3.5 h-3.5" />
-            {language === 'cs' ? 'Kartičky a průzkumník' : 'Flashcards & Explorer'}
+            {language === 'cs' ? 'Kartičky' : 'Flashcards'}
           </button>
           <button
             onClick={() => setActiveTab('calculator')}
@@ -326,6 +805,17 @@ export default function AnesthesiaModule() {
           >
             <FileText className="w-3.5 h-3.5" />
             {language === 'cs' ? 'Kazuistický kvíz' : 'Case Quiz'}
+          </button>
+          <button
+            onClick={() => setActiveTab('recall')}
+            className={`flex-1 py-1.5 px-4 text-xs font-semibold rounded-md transition-all font-sans flex items-center justify-center gap-1.5 cursor-pointer ${
+              activeTab === 'recall'
+                ? 'bg-white/10 border border-white/15 text-white shadow-sm'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            <RotateCw className="w-3.5 h-3.5" />
+            {language === 'cs' ? 'Aktivní trénink' : 'Active Recall'}
           </button>
         </div>
       </div>
@@ -680,12 +1170,11 @@ export default function AnesthesiaModule() {
                   onChange={e => setCalcMedId(e.target.value)}
                   className="bg-slate-900 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-slate-200 outline-none focus:border-teal-500/50"
                 >
-                  <option value="propofol">Propofol ({language === 'cs' ? 'indukční anestetikum' : 'Induction Agent'})</option>
-                  <option value="ketamine">Ketamine ({language === 'cs' ? 'indukční anestetikum / disociativní' : 'Induction Agent / Dissociative'})</option>
-                  <option value="etomidate">Etomidate ({language === 'cs' ? 'hemodynamicky stabilní' : 'Induction Agent - CV Stable'})</option>
-                  <option value="succinylcholine">Succinylcholine ({language === 'cs' ? 'depolarizující relaxans' : 'Depolarizing Paralytic'})</option>
-                  <option value="rocuronium">Rocuronium ({language === 'cs' ? 'nedepolarizující relaxans' : 'Non-depolarizing Paralytic'})</option>
-                  <option value="sugammadex">Sugammadex ({language === 'cs' ? 'enkapsulační reverzní látka' : 'Reversal Agent'})</option>
+                  {medsData.map(med => (
+                    <option key={med.id} value={med.id}>
+                      {med.name} ({med.categoryLabel})
+                    </option>
+                  ))}
                 </select>
               </div>
 
@@ -784,7 +1273,7 @@ export default function AnesthesiaModule() {
                           <span className="text-4xl font-extrabold font-mono tracking-tight text-white">
                             {currentCalc.minMg === currentCalc.maxMg ? currentCalc.minMg : `${currentCalc.minMg} - ${currentCalc.maxMg}`}
                           </span>
-                          <span className="text-xl font-bold font-sans text-teal-300">mg</span>
+                          <span className="text-xl font-bold font-sans text-teal-300">{doseUnit}</span>
                         </div>
                       </div>
                     </div>
@@ -803,61 +1292,7 @@ export default function AnesthesiaModule() {
                           {language === 'cs' ? 'Objem vypočtené dávky' : 'Calculated Dose Volume'}
                         </span>
                         <p className="text-xs text-slate-200 mt-1 font-semibold leading-relaxed font-sans">
-                          {calcMedId === 'propofol' ? (
-                            language === 'cs' ? (
-                              <span>
-                                Natáhněte přesně <span className="text-yellow-300 font-mono font-bold">{(currentCalc.minMg / 10).toFixed(1)} mL</span> až{' '}
-                                <span className="text-yellow-300 font-mono font-bold">{(currentCalc.maxMg / 10).toFixed(1)} mL</span> 1% propofolové emulze.
-                              </span>
-                            ) : (
-                              <span>
-                                Draw exactly <span className="text-yellow-300 font-mono font-bold">{(currentCalc.minMg / 10).toFixed(1)} mL</span> to{' '}
-                                <span className="text-yellow-300 font-mono font-bold">{(currentCalc.maxMg / 10).toFixed(1)} mL</span> of 1% propofol emulsion.
-                              </span>
-                            )
-                          ) : calcMedId === 'succinylcholine' ? (
-                            language === 'cs' ? (
-                              <span>
-                                Natáhněte přesně <span className="text-yellow-300 font-mono font-bold">{(currentCalc.minMg / 20).toFixed(1)} mL</span> až{' '}
-                                <span className="text-yellow-300 font-mono font-bold">{(currentCalc.maxMg / 20).toFixed(1)} mL</span> z ampule o koncentraci 20 mg/mL.
-                              </span>
-                            ) : (
-                              <span>
-                                Draw exactly <span className="text-yellow-300 font-mono font-bold">{(currentCalc.minMg / 20).toFixed(1)} mL</span> to{' '}
-                                <span className="text-yellow-300 font-mono font-bold">{(currentCalc.maxMg / 20).toFixed(1)} mL</span> from a 20 mg/mL vial.
-                              </span>
-                            )
-                          ) : calcMedId === 'rocuronium' ? (
-                            language === 'cs' ? (
-                              <span>
-                                Natáhněte přesně <span className="text-yellow-300 font-mono font-bold">{(currentCalc.minMg / 10).toFixed(1)} mL</span> až{' '}
-                                <span className="text-yellow-300 font-mono font-bold">{(currentCalc.maxMg / 10).toFixed(1)} mL</span> z ampule o koncentraci 10 mg/mL.
-                              </span>
-                            ) : (
-                              <span>
-                                Draw exactly <span className="text-yellow-300 font-mono font-bold">{(currentCalc.minMg / 10).toFixed(1)} mL</span> to{' '}
-                                <span className="text-yellow-300 font-mono font-bold">{(currentCalc.maxMg / 10).toFixed(1)} mL</span> of 10 mg/mL solution.
-                              </span>
-                            )
-                          ) : calcMedId === 'etomidate' ? (
-                            language === 'cs' ? (
-                              <span>
-                                Natáhněte přesně <span className="text-yellow-300 font-mono font-bold">{(currentCalc.minMg / 2).toFixed(1)} mL</span> až{' '}
-                                <span className="text-yellow-300 font-mono font-bold">{(currentCalc.maxMg / 2).toFixed(1)} mL</span> z ampule o koncentraci 2 mg/mL etomidátu.
-                              </span>
-                            ) : (
-                              <span>
-                                Draw exactly <span className="text-yellow-300 font-mono font-bold">{(currentCalc.minMg / 2).toFixed(1)} mL</span> to{' '}
-                                <span className="text-yellow-300 font-mono font-bold">{(currentCalc.maxMg / 2).toFixed(1)} mL</span> of 2 mg/mL etomidate.
-                              </span>
-                            )
-                          ) : (
-                            language === 'cs' ? (
-                              <span>Dávkujte a titrujte přísně podle klinické odezvy a cílového účinku.</span>
-                            ) : (
-                              <span>Draw and titrate strictly according to response and targeted clinical endpoint.</span>
-                            )
-                          )}
+                          {getVolumeCalculation(calcMedId, currentCalc.minMg, currentCalc.maxMg, language)}
                         </p>
                       </div>
                     </div>
@@ -1072,6 +1507,401 @@ export default function AnesthesiaModule() {
                   )}
                 </AnimatePresence>
               </div>
+            )}
+          </div>
+        )}
+
+        {/* Tab 4: Pharmacology Active Recall Center */}
+        {activeTab === 'recall' && (
+          <div className="max-w-2xl mx-auto bg-white/5 border border-white/10 rounded-xl p-6 shadow-lg font-sans backdrop-blur-xl animate-fade-in" id="pharmacology-recall-board">
+            
+            {recallGameMode === 'menu' && (
+              /* --- MENU STATE --- */
+              <div className="flex flex-col gap-6">
+                <div className="text-center py-4">
+                  <div className="w-14 h-14 bg-teal-500/10 border border-teal-500/20 rounded-full flex items-center justify-center mx-auto mb-3 text-teal-300 shadow-lg shadow-teal-500/5">
+                    <RotateCw className="w-7 h-7" />
+                  </div>
+                  <h3 className="text-xl font-extrabold text-white tracking-tight">
+                    {t('recallTitle')}
+                  </h3>
+                  <p className="text-xs text-slate-400 mt-1 max-w-md mx-auto leading-relaxed">
+                    {t('recallDesc')}
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {/* Game 1: Category Sorter Card */}
+                  <div className="bg-white/5 border border-white/10 rounded-xl p-5 hover:border-teal-500/30 hover:bg-white/8 transition-all flex flex-col justify-between gap-4 shadow-sm">
+                    <div>
+                      <h4 className="font-bold text-white flex items-center gap-2 text-sm">
+                        <Compass className="w-4.5 h-4.5 text-teal-400" />
+                        {t('sorterTitle')}
+                      </h4>
+                      <p className="text-xs text-slate-400 mt-2 leading-relaxed font-medium">
+                        {t('sorterDesc')}
+                      </p>
+                    </div>
+                    <button
+                      onClick={startSorterGame}
+                      className="w-full py-2 bg-teal-500/20 hover:bg-teal-500/30 border border-teal-500/30 text-teal-300 hover:text-white text-xs font-bold rounded-lg transition-all cursor-pointer shadow-sm shadow-teal-500/5"
+                    >
+                      {t('startGame')}
+                    </button>
+                  </div>
+
+                  {/* Game 2: Dose Master Trainer Card */}
+                  <div className="bg-white/5 border border-white/10 rounded-xl p-5 hover:border-teal-500/30 hover:bg-white/8 transition-all flex flex-col justify-between gap-4 shadow-sm">
+                    <div>
+                      <h4 className="font-bold text-white flex items-center gap-2 text-sm">
+                        <Calculator className="w-4.5 h-4.5 text-teal-400" />
+                        {t('trainerTitle')}
+                      </h4>
+                      <p className="text-xs text-slate-400 mt-2 leading-relaxed font-medium">
+                        {t('trainerDesc')}
+                      </p>
+                    </div>
+                    <button
+                      onClick={startTrainerGame}
+                      className="w-full py-2 bg-teal-500/20 hover:bg-teal-500/30 border border-teal-500/30 text-teal-300 hover:text-white text-xs font-bold rounded-lg transition-all cursor-pointer shadow-sm shadow-teal-500/5"
+                    >
+                      {t('startGame')}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {recallGameMode === 'sorter' && (
+              /* --- GAME 1: SORTER STATE --- */
+              sorterCompleted ? (
+                /* --- Sorter Completed Screen --- */
+                <div className="text-center py-6">
+                  <div className="w-16 h-16 bg-teal-500/10 border border-teal-500/20 rounded-full flex items-center justify-center mx-auto mb-4 text-teal-300">
+                    <Award className="w-9 h-9" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white">
+                    {t('finalScore')}
+                  </h3>
+                  <div className="my-6 max-w-xs mx-auto bg-white/5 border border-white/10 rounded-xl p-5 shadow-inner">
+                    <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                      {language === 'cs' ? 'Skóre zařazování' : 'Sorting Accuracy'}
+                    </span>
+                    <span className="text-5xl font-black font-mono text-teal-300">
+                      {Math.round((sorterScore / sorterMeds.length) * 100)}%
+                    </span>
+                    <span className="block text-xs font-semibold text-slate-400 mt-1">
+                      {sorterScore} {language === 'cs' ? 'z' : 'of'} {sorterMeds.length} {language === 'cs' ? 'správně' : 'correct'}
+                    </span>
+                  </div>
+                  <div className="flex gap-3 justify-center">
+                    <button
+                      onClick={startSorterGame}
+                      className="px-4 py-2 bg-teal-500/20 hover:bg-teal-500/30 border border-teal-500/30 text-teal-300 hover:text-white font-bold rounded-lg text-xs transition-all cursor-pointer shadow-sm"
+                    >
+                      {t('playAgain')}
+                    </button>
+                    <button
+                      onClick={() => setRecallGameMode('menu')}
+                      className="px-4 py-2 bg-white/10 border border-white/15 text-slate-300 hover:bg-white/20 hover:text-white font-semibold rounded-lg text-xs transition-all cursor-pointer"
+                    >
+                      {t('backToMenu')}
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                /* --- Sorter Game Active Round --- */
+                <div className="flex flex-col gap-4">
+                  <div className="flex justify-between items-center text-xs text-slate-400 border-b border-white/10 pb-3">
+                    <span className="font-medium">{t('sorterTitle')}</span>
+                    <span className="font-bold text-slate-300">
+                      {t('questionCount')} {sorterIndex + 1} / {sorterMeds.length}
+                    </span>
+                  </div>
+
+                  <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-teal-500 transition-all duration-300"
+                      style={{ width: `${((sorterIndex + 1) / sorterMeds.length) * 100}%` }}
+                    />
+                  </div>
+
+                  <div className="bg-white/5 border border-white/10 p-6 rounded-xl text-center flex flex-col gap-2 mt-2 backdrop-blur-md">
+                    <span className="text-[10px] text-teal-400 font-bold uppercase tracking-widest">{t('selectCategory')}</span>
+                    <h4 className="text-2xl font-black text-white leading-tight">{sorterMeds[sorterIndex]?.name}</h4>
+                    <p className="text-xs text-slate-400 italic font-mono">{sorterMeds[sorterIndex]?.genericName}</p>
+                    <div className="text-left bg-white/5 p-3.5 rounded-lg border border-white/5 text-[11px] text-slate-300 leading-relaxed mt-3 w-full">
+                      <div className="mb-1"><strong className="text-teal-300">Class:</strong> {sorterMeds[sorterIndex]?.class}</div>
+                      <div><strong className="text-teal-300">Mechanism:</strong> {sorterMeds[sorterIndex]?.mechanism}</div>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2 mt-2">
+                    {(['induction', 'paralytics', 'analgesics', 'sedatives', 'vasoactive', 'reversal'] as MedCategory[]).map(cat => {
+                      const isSelected = sorterSelectedCat === cat;
+                      const isCorrect = sorterMeds[sorterIndex]?.category === cat;
+                      let btnClass = 'border-white/10 bg-white/5 text-slate-300 hover:bg-white/10 hover:text-white';
+                      
+                      if (sorterIsChecked) {
+                        if (isCorrect) {
+                          btnClass = 'border-green-500/50 bg-green-500/20 text-green-200 font-semibold';
+                        } else if (isSelected) {
+                          btnClass = 'border-red-500/50 bg-red-500/20 text-red-200 font-semibold';
+                        } else {
+                          btnClass = 'border-white/5 bg-white/5 text-slate-500 opacity-40';
+                        }
+                      } else if (isSelected) {
+                        btnClass = 'border-teal-500/50 bg-teal-500/10 text-teal-200 font-semibold';
+                      }
+
+                      const labelMap: Record<string, string> = {
+                        induction: language === 'cs' ? 'Indukční anestetikum' : 'Induction Agent',
+                        paralytics: language === 'cs' ? 'Svalové relaxans' : 'Muscle Relaxant',
+                        analgesics: language === 'cs' ? 'Analgetikum (Opioid)' : 'Analgesic (Opioid)',
+                        sedatives: language === 'cs' ? 'Sedativum / Anxiolytikum' : 'Sedative / Anxiolytic',
+                        vasoactive: language === 'cs' ? 'Kardiovaskulární / Vasoaktivní' : 'Vasoactive',
+                        reversal: language === 'cs' ? 'Antidotum / Reversal' : 'Reversal Agent'
+                      };
+
+                      return (
+                        <button
+                          key={cat}
+                          disabled={sorterIsChecked}
+                          onClick={() => handleSorterChoice(cat)}
+                          className={`text-center py-3 rounded-lg border text-xs transition-all font-sans cursor-pointer ${btnClass}`}
+                        >
+                          {labelMap[cat]}
+                        </button>
+                      );
+                    })}
+                  </div>
+
+                  <div className="flex justify-between items-center border-t border-white/10 pt-4 mt-2">
+                    <div className="text-xs text-slate-400 font-semibold">
+                      {t('points')}: {sorterScore}
+                    </div>
+
+                    {!sorterIsChecked ? (
+                      <button
+                        onClick={verifySorterChoice}
+                        disabled={sorterSelectedCat === null}
+                        className="px-5 py-2 bg-teal-500/20 hover:bg-teal-500/30 disabled:bg-white/5 disabled:text-slate-500 border border-teal-500/30 hover:border-teal-500/50 text-teal-300 disabled:border-transparent font-bold rounded-lg text-xs transition-all cursor-pointer"
+                      >
+                        {language === 'cs' ? 'Ověřit' : 'Verify'}
+                      </button>
+                    ) : (
+                      <button
+                        onClick={nextSorterQuestion}
+                        className="px-5 py-2 bg-white/10 border border-white/15 hover:bg-white/20 text-white font-bold rounded-lg text-xs transition-all cursor-pointer flex items-center gap-1"
+                      >
+                        {sorterIndex === sorterMeds.length - 1 ? t('backToMenu') : language === 'cs' ? 'Další' : 'Next'}
+                        <ChevronRight className="w-3.5 h-3.5" />
+                      </button>
+                    )}
+                  </div>
+
+                  <AnimatePresence>
+                    {sorterIsChecked && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="bg-white/5 border border-white/10 p-4 rounded-xl text-xs leading-relaxed text-slate-300 mt-2"
+                      >
+                        {sorterSelectedCat === sorterMeds[sorterIndex]?.category ? (
+                          <span className="text-green-400 font-bold block mb-1">✓ {t('correct')}</span>
+                        ) : (
+                          <span className="text-red-400 font-bold block mb-1">✗ {t('incorrect')}</span>
+                        )}
+                        <p className="text-[11px] leading-relaxed">
+                          <strong>{sorterMeds[sorterIndex]?.name}</strong> {language === 'cs' ? 'patří do skupiny:' : 'belongs to the group:'}{' '}
+                          <strong className="text-teal-300">
+                            {sorterMeds[sorterIndex]?.categoryLabel}
+                          </strong>.
+                        </p>
+                        <ul className="list-disc pl-4 mt-2 space-y-1 text-[11px] text-slate-400 leading-relaxed">
+                          {sorterMeds[sorterIndex]?.pearls.slice(0, 2).map((pearl, i) => (
+                            <li key={i}>{pearl}</li>
+                          ))}
+                        </ul>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              )
+            )}
+
+            {recallGameMode === 'trainer' && (
+              /* --- GAME 2: DOSE TRAINER STATE --- */
+              trainerCompleted ? (
+                /* --- Trainer Completed Screen --- */
+                <div className="text-center py-6">
+                  <div className="w-16 h-16 bg-teal-500/10 border border-teal-500/20 rounded-full flex items-center justify-center mx-auto mb-4 text-teal-300">
+                    <Award className="w-9 h-9" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white">
+                    {t('finalScore')}
+                  </h3>
+                  <div className="my-6 max-w-xs mx-auto bg-white/5 border border-white/10 rounded-xl p-5 shadow-inner">
+                    <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                      {language === 'cs' ? 'Přesnost dávkování' : 'Dosing Accuracy'}
+                    </span>
+                    <span className="text-5xl font-black font-mono text-teal-300">
+                      {Math.round((trainerScore / 10) * 100)}%
+                    </span>
+                    <span className="block text-xs font-semibold text-slate-400 mt-1">
+                      {trainerScore} {language === 'cs' ? 'z' : 'of'} 10 {language === 'cs' ? 'správně' : 'correct'}
+                    </span>
+                  </div>
+                  <div className="flex gap-3 justify-center">
+                    <button
+                      onClick={startTrainerGame}
+                      className="px-4 py-2 bg-teal-500/20 hover:bg-teal-500/30 border border-teal-500/30 text-teal-300 hover:text-white font-bold rounded-lg text-xs transition-all cursor-pointer"
+                    >
+                      {t('playAgain')}
+                    </button>
+                    <button
+                      onClick={() => setRecallGameMode('menu')}
+                      className="px-4 py-2 bg-white/10 border border-white/15 text-slate-300 hover:bg-white/20 hover:text-white font-semibold rounded-lg text-xs transition-all cursor-pointer"
+                    >
+                      {t('backToMenu')}
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                /* --- Trainer Game Active Round --- */
+                trainerQuestion ? (
+                  <div className="flex flex-col gap-4">
+                    <div className="flex justify-between items-center text-xs text-slate-400 border-b border-white/10 pb-3">
+                      <span className="font-medium">{t('trainerTitle')}</span>
+                      <span className="font-bold text-slate-300">
+                        {t('questionCount')} {trainerRound + 1} / 10
+                      </span>
+                    </div>
+
+                    <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+                      <div
+                        className="h-full bg-teal-500 transition-all duration-300"
+                        style={{ width: `${((trainerRound + 1) / 10) * 100}%` }}
+                      />
+                    </div>
+
+                    <div className="bg-white/5 border border-white/10 p-5 rounded-xl flex flex-col gap-2 mt-2 backdrop-blur-md shadow-sm">
+                      <span className="text-[10px] text-teal-400 font-bold uppercase tracking-widest">{t('doseQuestion')}</span>
+                      <h4 className="text-xl font-bold text-white leading-tight">{trainerQuestion.med.name}</h4>
+                      
+                      <div className="grid grid-cols-2 gap-3 mt-3 text-xs bg-white/5 p-3 rounded-lg border border-white/5 w-full">
+                        <div>
+                          <span className="text-slate-400 block font-medium">{t('patientWeight')}</span>
+                          <strong className="text-white text-sm font-mono font-extrabold">{trainerQuestion.weight} kg</strong>
+                        </div>
+                        <div>
+                          <span className="text-slate-400 block font-medium">{t('patientStatusLabel')}</span>
+                          <strong className="text-white text-xs font-bold capitalize">
+                            {language === 'cs' 
+                              ? (trainerQuestion.status === 'standard' ? 'Standardní dospělý' : trainerQuestion.status === 'elderly' ? 'Starší pacient' : trainerQuestion.status === 'shock' ? 'Kardiovaskulární nestabilita / Šok' : 'Dětský pacient')
+                              : trainerQuestion.status}
+                          </strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col gap-2 mt-1">
+                      {trainerQuestion.options.map((opt, idx) => {
+                        const isSelected = trainerSelectedOpt === opt;
+                        const isCorrect = trainerQuestion.correctRange === opt;
+                        let btnClass = 'border-white/10 bg-white/5 text-slate-300 hover:bg-white/10 hover:text-white';
+                        
+                        if (trainerIsChecked) {
+                          if (isCorrect) {
+                            btnClass = 'border-green-500/50 bg-green-500/20 text-green-200 font-semibold';
+                          } else if (isSelected) {
+                            btnClass = 'border-red-500/50 bg-red-500/20 text-red-200 font-semibold';
+                          } else {
+                            btnClass = 'border-white/5 bg-white/5 text-slate-500 opacity-40';
+                          }
+                        } else if (isSelected) {
+                          btnClass = 'border-teal-500/50 bg-teal-500/10 text-teal-200 font-semibold';
+                        }
+
+                        return (
+                          <button
+                            key={idx}
+                            disabled={trainerIsChecked}
+                            onClick={() => {
+                              if (!trainerIsChecked) setTrainerSelectedOpt(opt);
+                            }}
+                            className={`w-full text-left p-3.5 rounded-lg border text-sm transition-all font-sans flex justify-between items-center cursor-pointer ${btnClass}`}
+                          >
+                            <span>
+                              <span className="font-bold text-slate-400 mr-2">{String.fromCharCode(65 + idx)})</span>
+                              {opt} <span className="font-mono text-xs text-slate-400 font-semibold">{trainerQuestion.unit}</span>
+                            </span>
+                            {trainerIsChecked && isCorrect && <Check className="w-4 h-4 text-green-400 shrink-0" />}
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    <div className="flex justify-between items-center border-t border-white/10 pt-4 mt-2">
+                      <div className="text-xs text-slate-400 font-semibold">
+                        {t('points')}: {trainerScore}
+                      </div>
+
+                      {!trainerIsChecked ? (
+                        <button
+                          onClick={verifyTrainerChoice}
+                          disabled={trainerSelectedOpt === null}
+                          className="px-5 py-2 bg-teal-500/20 hover:bg-teal-500/30 disabled:bg-white/5 disabled:text-slate-500 border border-teal-500/30 hover:border-teal-500/50 text-teal-300 disabled:border-transparent font-bold rounded-lg text-xs transition-all cursor-pointer shadow-sm"
+                        >
+                          {language === 'cs' ? 'Ověřit' : 'Verify'}
+                        </button>
+                      ) : (
+                        <button
+                          onClick={nextTrainerQuestion}
+                          className="px-5 py-2 bg-white/10 border border-white/15 hover:bg-white/20 text-white font-bold rounded-lg text-xs transition-all cursor-pointer flex items-center gap-1"
+                        >
+                          {trainerRound === 9 ? t('backToMenu') : language === 'cs' ? 'Další' : 'Next'}
+                          <ChevronRight className="w-3.5 h-3.5" />
+                        </button>
+                      )}
+                    </div>
+
+                    <AnimatePresence>
+                      {trainerIsChecked && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: 'auto' }}
+                          exit={{ opacity: 0, height: 0 }}
+                          className="bg-white/5 border border-white/10 p-4 rounded-xl text-xs leading-relaxed text-slate-300 mt-2"
+                        >
+                          {trainerSelectedOpt === trainerQuestion.correctRange ? (
+                            <span className="text-green-400 font-bold block mb-1">✓ {t('correct')}</span>
+                          ) : (
+                            <span className="text-red-400 font-bold block mb-1">✗ {t('incorrect')}</span>
+                          )}
+                          <p className="text-[11px] leading-relaxed">
+                            {language === 'cs' ? 'Správné doporučené dávkování pro' : 'The correct recommended dosage range for'}{' '}
+                            <strong>{trainerQuestion.med.name}</strong> ({trainerQuestion.weight} kg,{' '}
+                            {trainerQuestion.status}) {language === 'cs' ? 'je:' : 'is:'}{' '}
+                            <strong className="text-yellow-300 font-mono font-bold">
+                              {trainerQuestion.correctRange} {trainerQuestion.unit}
+                            </strong>.
+                          </p>
+                          <p className="mt-2 text-[11px] text-slate-400 leading-relaxed border-t border-white/5 pt-2">
+                            <strong>{language === 'cs' ? 'Klinické odůvodnění:' : 'Clinical Rationale:'}</strong>{' '}
+                            {calculateDose(trainerQuestion.med.id, trainerQuestion.weight, trainerQuestion.status)?.comments}
+                          </p>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ) : (
+                  <div className="text-center py-12">
+                    <p className="text-slate-400 text-xs font-sans animate-pulse">Generating dose training scenario...</p>
+                  </div>
+                )
+              )
             )}
           </div>
         )}

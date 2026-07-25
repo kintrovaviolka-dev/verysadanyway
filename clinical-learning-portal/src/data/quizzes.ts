@@ -112,5 +112,103 @@ export const ANESTHESIA_QUIZ: QuizQuestion[] = [
     correctAnswerIndex: 2,
     explanation: 'Malignant Hyperthermia (MH) is a rare, life-threatening genetic hypermetabolic crisis triggered by exposure to volatile inhalational anesthetic gases (e.g. Sevoflurane, Isoflurane) or the depolarizing muscle relaxant Succinylcholine. It causes uncontrolled calcium release from the sarcoplasmic reticulum, causing severe muscle rigidity, hyperthermia, metabolic acidosis, rhabdomyolysis, and tachycardia. Non-depolarizing paralytics like Rocuronium and induction agents like Propofol/Ketamine are completely safe in MH-susceptible patients.',
     medicationId: 'succinylcholine'
+  },
+  {
+    id: 'q9',
+    caseContext: 'A 32-year-old female is scheduled for elective laparoscopic appendectomy. During pre-op assessment, she mentions a history of acute intermittent porphyria (AIP) in her family. The resident anesthesiologist prepares Thiopental for induction.',
+    question: 'What is the most appropriate safety action regarding the use of Thiopental in this patient?',
+    options: [
+      'Administer Thiopental as planned; AIP is not a contraindication.',
+      'Avoid Thiopental completely; it is a potent inducer of ALA synthetase and can trigger a life-threatening crisis.',
+      'Administer Thiopental but co-administer high-dose Fentanyl to prevent the crisis.',
+      'Avoid Thiopental only if the patient has active abdominal pain at the time of surgery.'
+    ],
+    correctAnswerIndex: 1,
+    explanation: 'Thiopental (and all barbiturates) are absolutely contraindicated in patients with acute intermittent porphyria (AIP) or other hepatic porphyrias. Barbiturates induce the enzyme delta-aminolevulinic acid (ALA) synthetase, which leads to a massive accumulation of porphyrins. This can trigger a severe, life-threatening porphyric crisis characterized by severe abdominal pain, psychiatric symptoms, autonomic instability, and ascending motor paralysis. Propofol or Ketamine are safe alternatives.',
+    medicationId: 'thiopental'
+  },
+  {
+    id: 'q10',
+    caseContext: 'A 45-year-old male with severe COPD is in the ICU, recovering from emergency abdominal surgery. He is extubated but highly agitated, tachycardic, and refusing his non-invasive ventilation mask, putting him at high risk for re-intubation.',
+    question: 'Which sedative agent is the most appropriate to manage his agitation without compromising his respiratory drive?',
+    options: [
+      'Propofol continuous infusion',
+      'Midazolam IV boluses as needed',
+      'Dexmedetomidine continuous infusion',
+      'Fentanyl continuous infusion'
+    ],
+    correctAnswerIndex: 2,
+    explanation: 'Dexmedetomidine is unique among sedatives because it provides "cooperative sedation" and does not cause respiratory depression (unlike propofol, benzodiazepines, or opioids). It acts on presynaptic alpha-2 receptors in the locus coeruleus, preserving the patient\'s respiratory drive and response to hypercapnia. This makes it the ideal agent for patients who are agitated but need to maintain spontaneous ventilation, such as those on non-invasive ventilation (NIV/BiPAP) or undergoing weaning from mechanical ventilation.',
+    medicationId: 'dexmedetomidine'
+  },
+  {
+    id: 'q11',
+    caseContext: 'A patient in septic shock is receiving a continuous infusion of Norepinephrine via a temporary peripheral IV line in the forearm. During your rounds, you notice that the insertion site is swollen, cold, and pale, and the patient complains of severe burning pain.',
+    question: 'What is the most immediate and appropriate action to take?',
+    options: [
+      'Increase the infusion rate to maintain the target MAP, and apply a warm compress.',
+      'Stop the infusion immediately, aspirate residual drug from the catheter, and administer subcutaneous Phentolamine locally.',
+      'Apply ice packs to the area and flush the catheter with 10 mL of heparinized saline.',
+      'Slow the infusion rate by half and elevate the arm above the level of the heart.'
+    ],
+    correctAnswerIndex: 1,
+    explanation: 'Norepinephrine extravasation is a medical emergency because local vasoconstriction can cause severe ischemic tissue necrosis and sloughing. The infusion must be stopped immediately. You should leave the cannula in place to attempt to aspirate any remaining drug, then inject the antidote Phentolamine (an alpha-receptor antagonist, usually 5-10 mg diluted in 10 mL saline) through the catheter and subcutaneously around the infiltrated area to reverse the vasoconstriction.',
+    medicationId: 'norepinephrine'
+  },
+  {
+    id: 'q12',
+    caseContext: 'An anesthetist is treating a 75-year-old male who develops severe sinus bradycardia (HR 32 bpm) and hypotension (BP 72/40 mmHg) during surgery. The resident prepares Atropine but administers a very small dose of 0.1 mg IV, fearing tachycardia.',
+    question: 'What is the likely pharmacological consequence of administering this sub-therapeutic dose of Atropine?',
+    options: [
+      'A mild but adequate increase in heart rate to around 50 bpm.',
+      'No change in heart rate; 0.1 mg is completely inert in adults.',
+      'A paradoxical worsening of the bradycardia and potential heart block.',
+      'Immediate severe sinus tachycardia and myocardial ischemia.'
+    ],
+    correctAnswerIndex: 2,
+    explanation: 'Low doses of Atropine (less than 0.5 mg in adults or 0.1 mg in children) can cause a paradoxical worsening of bradycardia. This occurs because low doses block presynaptic inhibitory muscarinic (M1) receptors on vagal nerve endings, which increases acetylcholine release, or due to direct central vagal stimulation. Therefore, the standard adult ACLS dose of Atropine is 1.0 mg IV, and lower doses should be strictly avoided.',
+    medicationId: 'atropine'
+  },
+  {
+    id: 'q13',
+    caseContext: 'You successfully reverse respiratory depression (RR 4/min, SpO2 78%) in a post-operative patient in the recovery room by administering Naloxone 0.2 mg IV. The patient is now awake, alert, and breathing at 14 breaths/min with SpO2 98%.',
+    question: 'What is the most critical monitoring requirement for this patient following Naloxone administration?',
+    options: [
+      'Discharge the patient immediately to the ward as the airway is safe.',
+      'Monitor the patient closely for at least 1-2 hours, as the duration of Naloxone is shorter than most opioids, risking recurrent respiratory depression.',
+      'Check the patient\'s pupils every 5 minutes; if dilated, administer another dose of Naloxone.',
+      'Start a continuous Naloxone infusion immediately in all reversed patients.'
+    ],
+    correctAnswerIndex: 1,
+    explanation: 'The duration of action of Naloxone (approx. 30-90 minutes) is significantly shorter than the duration of action of most clinical opioids (e.g. morphine, fentanyl, hydromorphone). Once Naloxone is metabolized and cleared, the remaining opioid molecules can re-bind to the receptors, causing recurrent respiratory depression and sedation ("re-narcotization"). Therefore, patients must be observed for at least 1-2 hours after the last dose of Naloxone.',
+    medicationId: 'naloxone'
+  },
+  {
+    id: 'q14',
+    caseContext: 'At the end of a surgery, the surgical team requests reversal of Rocuronium. The patient has a Train-of-Four (TOF) count of 3. The anesthesia resident decides to administer Neostigmine 2.5 mg IV.',
+    question: 'What other pharmacological action MUST the resident take when administering Neostigmine?',
+    options: [
+      'Administer Neostigmine alone; no adjunct is required.',
+      'Co-administer an anticholinergic agent (such as Glycopyrrolate or Atropine) to block severe muscarinic side effects.',
+      'Co-administer Sugammadex to double the speed of reversal.',
+      'Administer a beta-blocker to prevent severe tachycardia caused by Neostigmine.'
+    ],
+    correctAnswerIndex: 1,
+    explanation: 'Neostigmine is an acetylcholinesterase inhibitor that increases acetylcholine levels at BOTH nicotinic receptors (reversing neuromuscular blockade) and muscarinic receptors. Muscarinic stimulation causes severe bradycardia, AV block, bronchospasm, hypersalivation, and increased GI motility. To prevent these life-threatening parasympathetic side effects, Neostigmine must ALWAYS be co-administered with an antimuscarinic/anticholinergic drug (such as Glycopyrrolate or Atropine).',
+    medicationId: 'neostigmine'
+  },
+  {
+    id: 'q15',
+    caseContext: 'A 60-year-old male is scheduled for a major orthopedic surgery. He has a high risk of postoperative nausea and vomiting (PONV) based on his Apfel score. The anesthesiologist decides to administer Dexamethasone shortly after induction.',
+    question: 'What is the primary mechanism and clinical advantage of Dexamethasone in this scenario?',
+    options: [
+      'It acts as an immediate sedative, reducing the requirement for Propofol.',
+      'It is a potent antiemetic that reduces prostaglandin synthesis and central serotonin levels, working synergistically with Ondansetron.',
+      'It reverses neuromuscular blockade by accelerating acetylcholine release.',
+      'It is a pure analgesic that completely replaces the need for intraoperative opioids.'
+    ],
+    correctAnswerIndex: 1,
+    explanation: 'Dexamethasone (4-10 mg IV) is a highly effective antiemetic used for PONV prophylaxis. It acts by reducing prostaglandin synthesis and decreasing central serotonin levels. When combined with a 5-HT3 receptor antagonist like Ondansetron, it exhibits significant synergy. It is administered shortly after induction due to its delayed onset (1-2 hours). Awake patients should be warned of temporary perineal pruritus/burning if injected rapidly.',
+    medicationId: 'dexamethasone'
   }
 ];

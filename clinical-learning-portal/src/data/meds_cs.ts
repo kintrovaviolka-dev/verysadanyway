@@ -331,5 +331,239 @@ export const ANESTHESIA_MEDS_CS: Medication[] = [
       'Dokáže zrušit hluboký, vysokodávkový blok rokuroniem (1,2 mg/kg) za méně než 3 minuty — rychleji než přirozené zotavení ze sukcinylcholinu, což řeší bezpečnostní dilemata u RSI.',
       'Neruší depolarizující látky (sukcinylcholin) ani benzylisochinoliny (cisatrakurium).'
     ]
+  },
+  {
+    id: 'thiopental',
+    name: 'Thiopental',
+    genericName: 'Thiopental sodium (Pentothal)',
+    category: 'induction',
+    categoryLabel: 'Indukční anestetikum',
+    class: 'Barbiturát / modulátor GABA-A',
+    mechanism: 'Váže se na GABA-A receptory, prodlužuje dobu otevření chloridových kanálů, což vede k hyperpolarizaci neuronů a rychlé cerebrální depresi.',
+    indications: [
+      'Úvod do celkové anestezie (zejména v neuroanestezii při zvýšeném ICP)',
+      'Refrakterní status epilepticus',
+      'Cerebrální protekce při fokální ischemii'
+    ],
+    dosageInduction: '3,0 - 5,0 mg/kg IV bolus (Snížit na 1,5 - 2,5 mg/kg u starších nebo hemodynamicky nestabilních pacientů).',
+    pediatricDosage: '5,0 - 7,0 mg/kg IV (vyšší dávkové požadavky kvůli rychlému metabolismu a většímu distribučnímu objemu).',
+    standardPrep: 'Rekonstituovaný prášek, typicky připravovaný jako 2,5% roztok (25 mg/mL).',
+    onset: '15 - 30 sekund.',
+    duration: '5 - 15 minut (rychlý pokles účinku v důsledku redistribuce do kosterního svalstva).',
+    contraindications: [
+      'Akutní intermitentní porfyrie nebo porfyrie variegata (absolutní)',
+      'Těžký kardiovaskulární kolaps nebo hypovolemický šok',
+      'Známá přecitlivělost na barbituráty'
+    ],
+    adverseEffects: [
+      'Výrazná arteriální vazodilatace a deprese myokardu (hypotenze)',
+      'Deprese dýchání a apnoe',
+      'Těžká tkáňová nekróza a spasmus při intraarteriálním podání nebo extravazaci (vysoce alkalické pH ~10,5)',
+      'Laryngospasmus nebo bronchospasmus při manipulaci v dýchacích cestách před dosažením dostatečné hloubky anestezie'
+    ],
+    pearls: [
+      'Silný cerebrální vazokonstriktor: snižuje průtok krve mozkem (CBF), cerebrální metabolický obrat kyslíku (CMRO2) a intrakraniální tlak (ICP), což z něj činí vynikající neuroprotektivum.',
+      'Absolutní kontraindikace u porfyrie: indukuje ALA syntetázu, což spouští život ohrožující porfyrickou krizi (paralýza, kruté bolesti břicha).',
+      'Při náhodném podání do arterie ponechte kanylu na místě, aplikujte vazodilatancia (např. papaverin, lidokain) a heparinizujte k prevenci trombózy.'
+    ]
+  },
+  {
+    id: 'dexmedetomidine',
+    name: 'Dexmedetomidine',
+    genericName: 'Dexmedetomidin (Precedex / Dexdor)',
+    category: 'sedatives',
+    categoryLabel: 'Sedativum',
+    class: 'Vysoce selektivní agonista alpha-2 receptorů',
+    mechanism: 'Selektivně stimuluje presynaptické alpha-2 receptory v locus coeruleus, čímž snižuje uvolňování noradrenalinu a vede ke kooperativní sedaci (napodobující přirozený spánek) a analgezii.',
+    indications: [
+      'Sedace na JIP u ventilovaných pacientů',
+      'Procedurální sedace (např. při bdělé intubaci)',
+      'Adstringens k redukci spotřeby opioidů a prevenci pooperačního deliria'
+    ],
+    dosageInduction: 'Nasycovací dávka: 0,5 - 1,0 mcg/kg IV během 10 minut (často se vynechává kvůli riziku bradykardie/hypotenze). Udržovací: 0,2 - 0,7 mcg/kg/h kontinuální infuzí.',
+    pediatricDosage: 'Sedace: 0,2 - 1,0 mcg/kg/h IV.',
+    standardPrep: '100 mcg/mL, musí být zředěn na 4 mcg/mL pro infuzi.',
+    onset: '10 - 15 minut (pomalejší než propofol nebo midazolam).',
+    duration: '1 - 2 hodiny po ukončení infuze (eliminační poločas ~2 hodiny).',
+    contraindications: [
+      'Těžká bradykardie nebo pokročilý AV blok (2. nebo 3. stupně) bez kardiostimulátoru',
+      'Dekompenzované srdeční selhání nebo těžká hypotenze'
+    ],
+    adverseEffects: [
+      'Bradykardie (v důsledku snížení sympatického tonu a aktivace vagu)',
+      'Hypotenze (při rychlém podání nasycovací dávky může nastat přechodná hypertenze kvůli periferní alpha-2b vazokonstrikci)',
+      'Sucho v ústech'
+    ],
+    pearls: [
+      'Poskytuje "kooperativní sedaci": pacient je snadno probuditelný, schopen spolupráce a plnění příkazů, což usnadňuje odpojování (weaning) od ventilátoru.',
+      'Nezpůsobuje depresi dýchání (neovlivňuje dechové centrum ani reakci na hyperkapnii), což z něj činí velmi bezpečné sedativum pro neintubované pacienty.',
+      'Vysoce účinný v prevenci "emergence delirium" u dětí a při tlumení pooperační třesavky.'
+    ]
+  },
+  {
+    id: 'norepinephrine',
+    name: 'Norepinephrine',
+    genericName: 'Noradrenalin (Levophed)',
+    category: 'vasoactive',
+    categoryLabel: 'Kardiovaskulární / Vasoaktivní',
+    class: 'Přímé sympatomimetikum (agonista alpha-1 > beta-1)',
+    mechanism: 'Přímo stimuluje alpha-1 receptory a způsobuje silnou arteriální a žilní vazokonstrikci; mírně stimuluje beta-1 receptory, čímž zvyšuje kontraktilitu myokardu.',
+    indications: [
+      'Lék první volby u septického, kardiogenního nebo neurogenního šoku',
+      'Refrakterní hypotenze nereagující na tekutinovou resuscitaci'
+    ],
+    dosageInduction: 'Kontinuální infuze: 0,05 - 1,0 mcg/kg/min IV, titrováno na cílový střední arteriální tlak (MAP > 65 mmHg).',
+    pediatricDosage: '0,05 - 0,5 mcg/kg/min IV infuzí.',
+    standardPrep: 'Typicky 4 mg ve 250 mL fyziologického roztoku (16 mcg/mL) nebo koncentrovaný roztok 4 mg v 50 mL (80 mcg/mL) do lineárního dávkovače.',
+    onset: '1 - 2 minuty IV.',
+    duration: '1 - 2 minuty po zastavení infuze (rychlá metabolizace COMT a MAO).',
+    contraindications: [
+      'Hypovolemie (před zahájením je nutné doplnit objem, kromě urgentních život zachraňujících situací)',
+      'Známá přecitlivělost na noradrenalin'
+    ],
+    adverseEffects: [
+      'Závažná orgánová nebo končetinová ischemie při nadměrné vazokonstrikci',
+      'Reflexní bradykardie (často maskovaná beta-1 chronotropií)',
+      'Arytmie (tachykardie, fibrilace síní)',
+      'Nekróza tkáně při extravazaci'
+    ],
+    pearls: [
+      'Noradrenalin je absolutním lékem první volby u septického šoku; má nižší výskyt arytmií a nižší mortalitu ve srovnání s dopaminem.',
+      'Extravazace je urgentní stav! Při paravenózním podání okamžitě aplikujte lokálně phentolamin (alpha-blokátor) k zamezení nekrózy.',
+      'Přednostně se podává do centrálního žilního katetru; periferní podání je možné pouze krátkodobě do velké a bezpečné žíly.'
+    ]
+  },
+  {
+    id: 'atropine',
+    name: 'Atropine',
+    genericName: 'Atropin sulfát',
+    category: 'vasoactive',
+    categoryLabel: 'Kardiovaskulární / Vasoaktivní',
+    class: 'Anticholinergikum / Antimuskarinikum',
+    mechanism: 'Nekompetitivní antagonista acetylcholinu na muskarinových receptorech. Blokuje parasympatický (vagový) vliv na SA a AV uzel, což zvyšuje srdeční frekvenci.',
+    indications: [
+      'Symptomatická nebo hemodynamicky nestabilní bradykardie (ACLS lék první volby)',
+      'Snížení sekrece slin a v dýchacích cestách před operací',
+      'Antidotum při otravě organofosfáty nebo cholinergní krizi'
+    ],
+    dosageInduction: 'Bradykardie: 1,0 mg IV bolus, opakovat každých 3-5 minut (max. celková dávka 3,0 mg). Tlumivý efekt na sekreci: 0,4 - 0,6 mg IV/IM.',
+    pediatricDosage: '0,02 mg/kg IV (minimální jednorázová dávka 0,1 mg k zamezení paradoxní bradykardie).',
+    standardPrep: '0,5 mg/mL nebo 1,0 mg/mL ampule.',
+    onset: '2 - 4 minuty IV.',
+    duration: '2 - 4 hodiny (účinek na zornici přetrvává déle).',
+    contraindications: [
+      'Známá přecitlivělost na anticholinergika',
+      'Glaukom s uzavřeným úhlem (hrozí akutní záchvat)',
+      'Tyreotoxikóza nebo akutní ischémie myokardu (tachykardie zvyšuje spotřebu kyslíku)'
+    ],
+    adverseEffects: [
+      'Tachykardie, palpitace, arytmie',
+      'Anticholinergní příznaky: sucho v ústech, rozmazané vidění (mydriáza), retence moči, zácpa, zmatenost/delirium (zejména u starších osob)'
+    ],
+    pearls: [
+      'Dle aktualizovaných doporučení ACLS byla úvodní dávka u bradykardie zvýšena z 0,5 mg na 1,0 mg IV.',
+      'Dávky nižší než 0,5 mg u dospělých jsou zakázány; mohou vyvolat paradoxní bradykardii centrální stimulací vagu.',
+      'Atropin je neúčinný u pacientů po transplantaci srdce (chybí vagová inervace) a je málo účinný u AV blokády II. stupně typu Mobitz II a AV blokády III. stupně s širokým QRS komplexem (zde je indikována kardiostimulace).'
+    ]
+  },
+  {
+    id: 'naloxone',
+    name: 'Naloxone',
+    genericName: 'Naloxon (Narcan)',
+    category: 'reversal',
+    categoryLabel: 'Antidotum / Reversal agent',
+    class: 'Nekompetitivní antagonista opioidních receptorů',
+    mechanism: 'Kompetitivní antagonista s vysokou afinitou k receptorům mu, kappa a delta. Vytěsňuje molekuly opioidů z vazby a kompletně ruší jejich účinky.',
+    indications: [
+      'Reverz (zrušení) útlumu dýchání a sedace vyvolané opioidy',
+      'Diagnostika a léčba podezření na akutní předávkování opioidy'
+    ],
+    dosageInduction: 'Pooperační reverz: 0,04 - 0,1 mg IV postupně titrovat k obnově dýchání bez ztráty analgezie. Akutní předávkování: 0,4 - 2,0 mg IV/IM/IN každé 2-3 minuty podle potřeby.',
+    pediatricDosage: '0,01 - 0,1 mg/kg IV/IM.',
+    standardPrep: '0,4 mg/mL ampule.',
+    onset: '1 - 2 minuty IV; 2 - 5 minut IM.',
+    duration: '30 - 90 minut (kratší než účinek většiny opioidů, hrozí riziko návratu dechové deprese).',
+    contraindications: [
+      'Známá přecitlivělost na naloxon',
+      'Opioidní závislost (relativní - vyvolá akutní odvykací syndrom)'
+    ],
+    adverseEffects: [
+      'Akutní abstinenční syndrom: extrémní neklid, pocení, nauzea, zvracení, hypertenze, tachykardie',
+      'Akutní plicní edém nebo maligní arytmie (způsobené masivním vyplavením katecholaminů při rychlém zrušení analgezie)'
+    ],
+    pearls: [
+      'Klíčové varování: účinek naloxonu (45-90 min) je kratší než účinek většiny opioidů (např. morfin, fentanyl). Pacient musí být sledován z důvodu rizika návratu hypoventilace ("renarkotizace").',
+      'U pooperačních pacientů titrujte v minidávkách (např. po 0,04 mg), abyste obnovili dýchání, ale ponechali pacientovi analgezii.',
+      'Rychlý zvrat účinku opioidů může vyvolat masivní sympatickou reakci, která u rizikových kardiaků může vést k plicnímu edému, hypertenzní krizi nebo srdeční zástavě.'
+    ]
+  },
+  {
+    id: 'neostigmine',
+    name: 'Neostigmine',
+    genericName: 'Neostigmin methylsulfát',
+    category: 'reversal',
+    categoryLabel: 'Antidotum / Reversal agent',
+    class: 'Inhibitor acetylcholinesterázy',
+    mechanism: 'Reverzibilně inhibuje acetylcholinesterázu, čímž brání štěpení acetylcholinu. Nahromaděný acetylcholin v nervosvalové ploténce pak vytěsňuje nedepolarizující svalová relaxancia z receptorů.',
+    indications: [
+      'Reverz (zrušení) blokády vyvolané nedepolarizujícími svalovými relaxancii (rokuronium, cisatrakurium) na konci operace',
+      'Léčba myasthenia gravis nebo akutní střevní pseudoobstrukce (Ogilvieho syndrom)'
+    ],
+    dosageInduction: '0,03 - 0,07 mg/kg IV (max. jednorázová dávka 5,0 mg). Musí být VŽDY podán společně s anticholinergikem (glykopyrrolát nebo atropin) k zabránění těžké bradykardie.',
+    pediatricDosage: '0,03 - 0,07 mg/kg IV v kombinaci s atropinem.',
+    standardPrep: '0,5 mg/mL nebo 1,0 mg/mL ampule.',
+    onset: '7 - 11 minut (pomalý nástup, vyžaduje přítomnost spontánních záškubů na TOF).',
+    duration: '60 - 120 minut.',
+    contraindications: [
+      'Mechanická neprůchodnost střev nebo močových cest',
+      'Těžká bradykardie nebo aktivní bronchospasmus',
+      'Přecitlivělost na neostigmin'
+    ],
+    adverseEffects: [
+      'Těžká bradykardie, AV blokády až asystolie (parasympatická hyperstimulace)',
+      'Bronchokonstrikce a zvýšená sekrece v dýchacích cestách (bronchospasmus)',
+      'Zvýšená motilita střev, křeče v břiše, hypersalivace',
+      'Miosis'
+    ],
+    pearls: [
+      'Musí být VŽDY podán společně s atropinem (0,015 mg/kg) nebo glykopyrrolátem (0,2 mg na každých 1,0 mg neostigminu) k vyblokování závažných muskarinových účinků (bradykardie, asystolie, bronchospasmus).',
+      'Lze podat pouze při známkách spontánního odeznívání blokády (minimálně 2-4 záškuby na TOF monitoru). Pokud je podán při hluboké blokádě, může nadbytek acetylcholinu blokádu naopak prohloubit.',
+      'Neúčinkuje na sukcinylcholin! Naopak prodlužuje jeho účinek, protože neostigmin inhibuje také plazmatickou pseudocholinesterázu.'
+    ]
+  },
+  {
+    id: 'dexamethasone',
+    name: 'Dexamethasone',
+    genericName: 'Dexamethason (Decadron / Fortecortin)',
+    category: 'reversal',
+    categoryLabel: 'Antiemetikum / Kortikosteroid',
+    class: 'Syntetický kortikosteroid / agonista glukokortikoidních receptorů',
+    mechanism: 'Potlačuje zánět a imunitní odpověď; snižuje syntézu prostaglandinů a uvolňování serotoninu v CNS, čímž předchází pooperační nevolnosti a zvracení (PONV).',
+    indications: [
+      'Profylaxe pooperační nevolnosti a zvracení (PONV)',
+      'Prevence a léčba edému hrtanu / otoku dýchacích cest',
+      'Adjuvantní léčba anafylaxe nebo těžké laryngitidy'
+    ],
+    dosageInduction: '4 - 10 mg IV bolus (typicky podáván krátce po úvodu k profylaxi PONV).',
+    pediatricDosage: '0,15 - 0,5 mg/kg IV (max. 10 mg).',
+    standardPrep: '4 mg/mL nebo 8 mg/mL ampule.',
+    onset: '1 - 2 hodiny (opožděný genomický účinek, ačkoliv protizánětlivý efekt začíná dříve).',
+    duration: '36 - 72 hodin (dlouhý biologický poločas).',
+    contraindications: [
+      'Aktivní systémové plísňové infekce',
+      'Těžký nekompenzovaný diabetes (relativní)',
+      'Přecitlivělost na dexamethason'
+    ],
+    adverseEffects: [
+      'Přechodné pálení v perineální oblasti (při rychlém IV podání u bdělého pacienta)',
+      'Hyperglykémie (zvyšuje hladinu glukózy v krvi)',
+      'Zpomalené hojení ran nebo zvýšené riziko infekce (při dlouhodobém užívání, vzácné u jedné dávky)',
+      'Nespavost nebo mírný neklid'
+    ],
+    pearls: [
+      'Vysoce účinný v profylaxi PONV, zejména v kombinaci s ondansetronem (působí synergicky přes různé receptory).',
+      'Varujte bdělé pacienty před rychlým podáním: způsobuje typický, odeznívající, ale intenzivní pocit pálení/svědění v perineu.',
+      'Výrazně snižuje otok dýchacích cest po traumatické nebo dlouhé intubaci; ideální k prevenci poextubačního stridoru.'
+    ]
   }
 ];

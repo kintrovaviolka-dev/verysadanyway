@@ -331,5 +331,239 @@ export const ANESTHESIA_MEDS: Medication[] = [
       'Can reverse a profound, high-dose rocuronium block (1.2 mg/kg) in under 3 minutes—faster than the natural recovery time of succinylcholine, solving safety dilemmas for RSI.',
       'Does not reverse depolarizing agents (succinylcholine) or benzylisoquinoliniums (cisatracurium).'
     ]
+  },
+  {
+    id: 'thiopental',
+    name: 'Thiopental',
+    genericName: 'Thiopental sodium (Pentothal)',
+    category: 'induction',
+    categoryLabel: 'Induction Agent',
+    class: 'Barbiturate / GABA-A Modulator',
+    mechanism: 'Binds to GABA-A receptors, prolonging the opening time of chloride channels, leading to neuronal hyperpolarization and rapid cerebral suppression.',
+    indications: [
+      'Induction of general anesthesia (especially in neurosurgery with elevated ICP)',
+      'Refractory status epilepticus',
+      'Cerebral protection during focal ischemia'
+    ],
+    dosageInduction: '3.0 - 5.0 mg/kg IV bolus (Reduce to 1.5 - 2.5 mg/kg in elderly or hemodynamically compromised patients).',
+    pediatricDosage: '5.0 - 7.0 mg/kg IV (higher dose requirements due to rapid metabolism and larger volume of distribution).',
+    standardPrep: 'Reconstituted powder, typically prepared as a 2.5% solution (25 mg/mL).',
+    onset: '15 - 30 seconds.',
+    duration: '5 - 15 minutes (rapid termination due to redistribution into skeletal muscle).',
+    contraindications: [
+      'Acute intermittent porphyria or porphyria variegata (absolute)',
+      'Severe cardiovascular collapse or hypovolemic shock',
+      'Known hypersensitivity to barbiturates'
+    ],
+    adverseEffects: [
+      'Severe arterial vasodilation and myocardial depression (hypotension)',
+      'Respiratory depression and apnea',
+      'Severe tissue necrosis and spasm if injected intra-arterially or extravasated (alkaline pH ~10.5)',
+      'Laryngospasm or bronchospasm if airway manipulated before depth is reached'
+    ],
+    pearls: [
+      'Potent cerebral vasoconstrictor: decreases cerebral blood flow (CBF), cerebral metabolic rate of oxygen (CMRO2), and intracranial pressure (ICP), making it highly neuroprotective.',
+      'Absolute contraindication in porphyria: induces ALA synthetase, which triggers a life-threatening porphyric crisis (paralysis, severe abdominal pain).',
+      'If accidental intra-arterial injection occurs, keep the catheter in place, inject vasodilators (e.g., papaverine, lidocaine) and heparinize to prevent thrombosis.'
+    ]
+  },
+  {
+    id: 'dexmedetomidine',
+    name: 'Dexmedetomidine',
+    genericName: 'Dexmedetomidine (Precedex)',
+    category: 'sedatives',
+    categoryLabel: 'Sedative',
+    class: 'Highly selective alpha-2 Adrenergic Agonist',
+    mechanism: 'Selectively stimulates presynaptic alpha-2 receptors in the locus coeruleus, decreasing norepinephrine release and leading to cooperative sedation (resembling natural sleep) and analgesia.',
+    indications: [
+      'ICU sedation for mechanically ventilated patients',
+      'Procedural sedation (e.g. awake fiberoptic intubation)',
+      'Anesthetic adjunct to reduce opioid requirements and prevent emergence delirium'
+    ],
+    dosageInduction: 'Loading dose: 0.5 - 1.0 mcg/kg IV over 10 minutes (often omitted to prevent bradycardia/hypotension). Maintenance: 0.2 - 0.7 mcg/kg/hr continuous infusion.',
+    pediatricDosage: 'Sedation: 0.2 - 1.0 mcg/kg/hr IV infusion.',
+    standardPrep: '100 mcg/mL solution, must be diluted to 4 mcg/mL for infusion.',
+    onset: '10 - 15 minutes (slower than propofol or midazolam).',
+    duration: '1 - 2 hours after stopping infusion (terminal half-life ~2 hours).',
+    contraindications: [
+      'Severe bradycardia or advanced heart block (2nd or 3rd degree) without a pacemaker',
+      'Uncompensated heart failure or severe hypotension'
+    ],
+    adverseEffects: [
+      'Bradycardia (due to decreased sympathetic tone and vagal activation)',
+      'Hypotension (initial transient hypertension may occur during rapid loading due to peripheral alpha-2b vasoconstriction)',
+      'Dry mouth'
+    ],
+    pearls: [
+      'Provides "cooperative sedation": patients remain easily rousable, cooperative, and able to follow commands, which facilitates weaning from mechanical ventilation.',
+      'Provides sedation without causing respiratory depression (does not affect respiratory drive or hypercapnic response), making it uniquely safe for non-intubated patients.',
+      'Highly effective at preventing emergence delirium in pediatric patients and reducing shivering in the post-anesthesia care unit.'
+    ]
+  },
+  {
+    id: 'norepinephrine',
+    name: 'Norepinephrine',
+    genericName: 'Norepinephrine (Levophed)',
+    category: 'vasoactive',
+    categoryLabel: 'Cardiovascular / Vasoactive',
+    class: 'Direct-acting Sympathomimetic (Alpha-1 > Beta-1 agonist)',
+    mechanism: 'Directly stimulates alpha-1 receptors to cause potent arterial and venous vasoconstriction; moderately stimulates beta-1 receptors to increase cardiac contractility.',
+    indications: [
+      'First-line vasopressor for septic, cardiogenic, or neurogenic shock',
+      'Refractory hypotension unresponsive to fluid resuscitation'
+    ],
+    dosageInduction: 'Infusion: 0.05 - 1.0 mcg/kg/min IV, titrated to target Mean Arterial Pressure (MAP > 65 mmHg).',
+    pediatricDosage: '0.05 - 0.5 mcg/kg/min IV infusion.',
+    standardPrep: 'Typically 4 mg in 250 mL D5W or Normal Saline (16 mcg/mL) for peripheral/central administration, or concentrated 4 mg in 50 mL (80 mcg/mL) for central venous syringe pump.',
+    onset: '1 - 2 minutes IV.',
+    duration: '1 - 2 minutes after infusion is discontinued (rapidly metabolized by COMT and MAO).',
+    contraindications: [
+      'Hypovolemia (must correct volume status first, unless used as temporary emergency measure)',
+      'Known hypersensitivity to norepinephrine'
+    ],
+    adverseEffects: [
+      'Severe organ or limb ischemia due to excessive vasoconstriction',
+      'Reflex bradycardia (though offset by beta-1 chronotropy)',
+      'Arrhythmias (tachycardia, atrial fibrillation)',
+      'Tissue necrosis and sloughing if extravasation occurs'
+    ],
+    pearls: [
+      'The absolute first-line vasopressor in septic shock, superior to dopamine as it is less arrhythmogenic and associated with lower mortality.',
+      'Extravasation is a medical emergency! If peripheral infiltration occurs, treat immediately with local subcutaneous phentolamine (alpha-blocker) to prevent tissue necrosis.',
+      'Preferably administered via a central venous catheter; peripheral infusion should only be short-term in a large, secure vein.'
+    ]
+  },
+  {
+    id: 'atropine',
+    name: 'Atropine',
+    genericName: 'Atropine sulfate',
+    category: 'vasoactive',
+    categoryLabel: 'Cardiovascular / Vasoactive',
+    class: 'Anticholinergic / Antimuscarinic',
+    mechanism: 'Competitive antagonist of acetylcholine at muscarinic receptors, blocking parasympathetic vagal activity on the sinoatrial and atrioventricular nodes, thereby increasing heart rate.',
+    indications: [
+      'Symptomatic or hemodynamically unstable bradycardia (ACLS first-line)',
+      'Preoperative reduction of salivary/airway secretions',
+      'Antidote for organophosphate poisoning or cholinergic crisis'
+    ],
+    dosageInduction: 'Bradycardia: 1.0 mg IV bolus, repeat every 3-5 minutes (Max total dose 3.0 mg). Secretions: 0.4 - 0.6 mg IV/IM.',
+    pediatricDosage: '0.02 mg/kg IV (minimum dose 0.1 mg to prevent paradoxical bradycardia).',
+    standardPrep: '0.5 mg/mL or 1 mg/mL syringes/vials.',
+    onset: '2 - 4 minutes IV.',
+    duration: '2 - 4 hours (longer for pupil dilation).',
+    contraindications: [
+      'Known hypersensitivity to anticholinergics',
+      'Narrow-angle glaucoma (absolute contraindicated due to risk of pupillary block)',
+      'Thyrotoxicosis or active myocardial ischemia (tachycardia increases oxygen demand)'
+    ],
+    adverseEffects: [
+      'Tachycardia, arrhythmias, or palpitations',
+      'Anticholinergic symptoms: dry mouth, blurred vision, urinary retention, flushed skin, hyperthermia, and central anticholinergic syndrome (confusion/delirium in elderly)'
+    ],
+    pearls: [
+      'ACLS guidelines recommend an initial bradycardia dose of 1.0 mg IV, repeated every 3-5 minutes.',
+      'Doses less than 0.5 mg IV in adults must be avoided, as low doses can cause paradoxical bradycardia due to central vagal stimulation or presynaptic M1 receptor blockade.',
+      'Will not reverse bradycardia in patients with heart transplants or high-degree block (Type II 2nd degree or 3rd degree AV block with wide QRS) because these lack vagal innervation (requires transcutaneous pacing).'
+    ]
+  },
+  {
+    id: 'naloxone',
+    name: 'Naloxone',
+    genericName: 'Naloxone hydrochloride (Narcan)',
+    category: 'reversal',
+    categoryLabel: 'Reversal Agent',
+    class: 'Competitive Opioid Receptor Antagonist',
+    mechanism: 'Competitive antagonist with high affinity for mu, kappa, and delta opioid receptors, displacing opioid molecules and completely reversing opioid-mediated effects.',
+    indications: [
+      'Reversal of opioid-induced respiratory depression and sedation',
+      'Diagnosis of suspected acute opioid overdose'
+    ],
+    dosageInduction: '0.04 - 0.4 mg IV/IM/SC, titrated slowly in post-operative patients to reverse respiratory depression without losing analgesia. In emergency overdose, 0.4 - 2.0 mg IV/IM/IN, repeat every 2-3 minutes.',
+    pediatricDosage: '0.01 - 0.1 mg/kg IV/IM.',
+    standardPrep: '0.4 mg/mL vial or prefilled syringes.',
+    onset: '1 - 2 minutes IV; 2 - 5 minutes IM/SC.',
+    duration: '30 - 90 minutes (shorter than the duration of most opioids, requiring monitoring for re-sedation).',
+    contraindications: [
+      'Known hypersensitivity to naloxone',
+      'Opioid dependence (relative - will precipitate acute withdrawal)'
+    ],
+    adverseEffects: [
+      'Acute opioid withdrawal syndrome: severe agitation, sweating, nausea/vomiting, hypertension, tachycardia, and gooseflesh',
+      'Severe pulmonary edema or ventricular arrhythmias (associated with rapid reversal of high-dose opioids due to massive catecholamine surge)'
+    ],
+    pearls: [
+      'Crucial watch-out: the duration of action of Naloxone (~45-90 min) is shorter than that of many opioids (e.g., morphine, methadone, fentanyl patches). Patients must be monitored closely for recurrent respiratory depression ("re-narcotization").',
+      'In post-operative patients, titrate in tiny increments (e.g., 0.04 mg) to restore adequate ventilation while preserving some level of pain control.',
+      'The sudden opioid reversal can trigger a massive surge in endogenous catecholamines, which can cause acute pulmonary edema, severe hypertension, or cardiac arrest in patients with pre-existing heart disease.'
+    ]
+  },
+  {
+    id: 'neostigmine',
+    name: 'Neostigmine',
+    genericName: 'Neostigmine methylsulfate',
+    category: 'reversal',
+    categoryLabel: 'Reversal Agent',
+    class: 'Acetylcholinesterase Inhibitor',
+    mechanism: 'Reversibly binds to and inhibits acetylcholinesterase, preventing the breakdown of acetylcholine. This increases acetylcholine concentration at the neuromuscular junction, outcompeting non-depolarizing muscle relaxants.',
+    indications: [
+      'Reversal of non-depolarizing neuromuscular blockade (rocuronium, vecuronium, cisatracurium) at the end of surgery',
+      'Treatment of myasthenia gravis or acute colonic pseudo-obstruction (Ogilvie syndrome)'
+    ],
+    dosageInduction: '0.03 - 0.07 mg/kg IV (Max single dose 5.0 mg in adults). Must be co-administered with an anticholinergic (usually Glycopyrrolate or Atropine) to prevent profound bradycardia.',
+    pediatricDosage: '0.03 - 0.07 mg/kg IV combined with atropine.',
+    standardPrep: '0.5 mg/mL or 1.0 mg/mL vials.',
+    onset: '7 - 11 minutes (slow onset, requires active twitches on Train-of-Four).',
+    duration: '60 - 120 minutes.',
+    contraindications: [
+      'Mechanical intestinal or urinary tract obstruction',
+      'Severe bradycardia or active bronchospasm',
+      'Known hypersensitivity to neostigmine'
+    ],
+    adverseEffects: [
+      'Severe bradycardia, AV blocks, or asystole (parasympathetic overstimulation)',
+      'Bronchoconstriction and increased airway secretions (bronchospasm)',
+      'Increased gastrointestinal motility, cramping, and salivation',
+      'Miosis'
+    ],
+    pearls: [
+      'Must ALWAYS be administered with an anticholinergic agent (Glycopyrrolate 0.2 mg per 1.0 mg of Neostigmine, or Atropine 0.015 mg/kg) to block the severe muscarinic side effects (bradycardia, salivation, bronchospasm).',
+      'Can only be administered when there is evidence of spontaneous recovery (at least 2-4 twitches on Train-of-Four monitoring). If given during deep neuromuscular blockade, it can cause a depolarizing-like block due to excess acetylcholine, worsening paralysis.',
+      'Does not reverse depolarizing blockers like succinylcholine—it actually prolongs succinylcholine-induced paralysis by inhibiting pseudocholinesterase.'
+    ]
+  },
+  {
+    id: 'dexamethasone',
+    name: 'Dexamethasone',
+    genericName: 'Dexamethasone (Decadron)',
+    category: 'reversal',
+    categoryLabel: 'Antiemetic / Corticosteroid',
+    class: 'Synthetic Corticosteroid / Glucocorticoid Receptor Agonist',
+    mechanism: 'Suppresses inflammation and normal immune response; reduces prostaglandin synthesis and serotonin in the central nervous system, preventing postoperative nausea and vomiting.',
+    indications: [
+      'Prophylaxis of post-operative nausea and vomiting (PONV)',
+      'Reduction of laryngeal edema / airway swelling',
+      'Adjunctive treatment of severe croup or anaphylaxis'
+    ],
+    dosageInduction: '4 - 10 mg IV bolus (typically administered shortly after induction for PONV prophylaxis).',
+    pediatricDosage: '0.15 - 0.5 mg/kg IV (max 10mg).',
+    standardPrep: '4 mg/mL or 8 mg/mL vials.',
+    onset: '1 - 2 hours (delayed genomic effects, though anti-inflammatory effects begin sooner).',
+    duration: '36 - 72 hours (long biological half-life).',
+    contraindications: [
+      'Active systemic fungal infections',
+      'Severe uncontrolled diabetes (relative)',
+      'Known hypersensitivity to dexamethasone'
+    ],
+    adverseEffects: [
+      'Transient perineal burning or pruritus (if injected rapidly in awake patients)',
+      'Hyperglycemia (increases blood glucose levels)',
+      'Delayed wound healing or increased infection risk (with prolonged use, rare with single dose)',
+      'Insomnia or mild agitation'
+    ],
+    pearls: [
+      'Extremely effective for PONV prophylaxis when combined with Ondansetron (acting synergistically via different pathways).',
+      'Warn awake patients before administering rapidly: it causes a characteristic, self-limiting but intense burning sensation in the perineal region.',
+      'Significantly reduces swelling and airway edema after traumatic or prolonged intubations; ideal for post-extubation stridor prevention.'
+    ]
   }
 ];

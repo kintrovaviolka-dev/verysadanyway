@@ -13,6 +13,7 @@ import EmergencyModule from './components/EmergencyModule';
 import AnesthesiaModule from './components/AnesthesiaModule';
 import VentilationModule from './components/VentilationModule';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
+import { ANESTHESIA_MEDS } from './data/meds';
 import SupportButton from './components/SupportButton';
 import FeedbackButton from './components/FeedbackButton';
 
@@ -195,7 +196,7 @@ function AppContent() {
                   </div>
                   <div>
                     <span className="text-slate-400 block font-medium">{t('masteredTracker')}</span>
-                    <strong className="text-white font-bold">{masteredCount} {t('masteredOf')} 8 {t('masteredTitle')}</strong>
+                    <strong className="text-white font-bold">{masteredCount} {t('masteredOf')} {ANESTHESIA_MEDS.length} {t('masteredTitle')}</strong>
                   </div>
                 </div>
 
