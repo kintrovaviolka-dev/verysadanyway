@@ -752,6 +752,7 @@ document.addEventListener("DOMContentLoaded", () => {
   chatbotSettingsBtn.addEventListener("click", () => {
     chatbotSettingsOverlay.classList.add("open");
     chatbotSettingsBtn.setAttribute("aria-expanded", "true");
+    chatbotApiKeyInput.focus();
   });
 
   chatbotSettingsCloseBtn.addEventListener("click", () => {
