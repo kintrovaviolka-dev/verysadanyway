@@ -1,5 +1,45 @@
 const { useState, useEffect } = React;
 
+// Embedded fallback questions (used when fetch fails, e.g., opening index.html via file://)
+const EMBEDDED_QUESTIONS = [
+  {
+    "id": 1,
+    "question": "Která třída imunoglobulinů (protilátek) je jako jediná schopna aktivně procházet placentární bariérou a zajišťovat pasivní imunitu plodu?",
+    "options": [
+      "IgA",
+      "IgM",
+      "IgE",
+      "IgG"
+    ],
+    "correct": 3,
+    "explanation": "IgG je jedinou třídou imunoglobulinů, která díky vazbě na specifické Fc receptory (FcRn) na buňkách syncytiotrofoblastu aktivně prochází placentou do krevního oběhu plodu. Ostatní třídy placentární bariérou za fyziologických podmínek neprocházejí."
+  },
+  {
+    "id": 2,
+    "question": "Které z následujících orgánů řadíme mezi primární (centrální) lymfatické orgány člověka?",
+    "options": [
+      "Slezina a lymfatické uzliny",
+      "Kostní dřeň a brzlík (thymus)",
+      "Kostní dřeň a slezina",
+      "Mandle (tonsillae) a Peyerovy plaky"
+    ],
+    "correct": 1,
+    "explanation": "Primární (centrální) lymfatické orgány jsou místem vzniku a zrání (imunokompetence) lymfocytů. U člověka se jedná o kostní dřeň (kde vznikají všechny krevní buňky a dozrávají B-lymfocyty) a brzlík (thymus, kde dozrávají T-lymfocyty). Slezina, uzliny a MALT jsou sekundární lymfatické orgány."
+  },
+  {
+    "id": 3,
+    "question": "Který z následujících buněčných typů je hlavním zástupcem specifické (adaptivní) buněčné imunity a nese antigen-specifický receptor TCR?",
+    "options": [
+      "NK buňky (Natural Killers)",
+      "B-lymfocyty",
+      "T-lymfocyty",
+      "Makrofágy"
+    ],
+    "correct": 2,
+    "explanation": "T-lymfocyty jsou hlavními buňkami specifické buněčné imunity. Každý T-lymfocyt nese na svém povrchu unikátní receptor TCR (T-Cell Receptor), který rozpoznává cizorodé antigeny prezentované v komplexu s HLA/MHC molekulami. B-lymfocyty odpovídají za humorální imunitu, NK buňky a makrofágy patří do nespecifické imunity."
+  }
+];
+
 function App() {
   const [questions, setQuestions] = useState([]);
   const [activeQuestions, setActiveQuestions] = useState([]);
@@ -47,7 +87,8 @@ function App() {
         }
       })
       .catch(err => {
-        setError(err.message);
+        console.warn('Failed to fetch questions.json — using embedded fallback.', err);
+        setQuestions(EMBEDDED_QUESTIONS);
         setLoading(false);
       });
   }, []);
