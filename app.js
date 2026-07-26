@@ -784,8 +784,11 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("gemini_chat_local_key", key);
       alert("API klíč byl uložen do vašeho prohlížeče.");
       chatbotSettingsOverlay.classList.remove("open");
+      chatbotSettingsBtn.setAttribute("aria-expanded", "false");
+      chatbotSettingsBtn.focus();
     } else {
       alert("Prosím zadejte platný klíč.");
+      chatbotApiKeyInput.focus();
     }
   });
 
@@ -793,6 +796,7 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.removeItem("gemini_chat_local_key");
     chatbotApiKeyInput.value = "";
     alert("API klíč byl vymazán. Nyní se dotazy posílají přes proxy server.");
+    chatbotApiKeyInput.focus();
   });
 
   // Simple Markdown Parser for UI Bubble rendering
