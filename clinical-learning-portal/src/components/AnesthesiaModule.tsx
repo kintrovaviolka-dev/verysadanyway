@@ -12,7 +12,8 @@ import {
   Check,
   Compass,
   FileText,
-  AlertTriangle
+  AlertTriangle,
+  Activity
 } from 'lucide-react';
 import { ANESTHESIA_MEDS } from '../data/meds';
 import { ANESTHESIA_MEDS_CS } from '../data/meds_cs';
@@ -138,6 +139,174 @@ const getVolumeCalculation = (medId: string, min: number, max: number, language:
   return language === 'cs' ? textCs : textEn;
 };
 
+export interface BroselowData {
+  zone: string;
+  zoneLabelCs: string;
+  zoneLabelEn: string;
+  color: string;
+  textColor: string;
+  bgGradient: string;
+  weightRange: string;
+  tubeSize: string;
+  tubeDepth: string;
+  bladeSize: string;
+  maskSize: string;
+  defibJoules: number;
+  adrenalinDose: string;
+  amiodaronDose: string;
+  atropinDose: string;
+  exacylDose: string;
+  glucoseDose: string;
+}
+
+export const getBroselowData = (weight: number): BroselowData => {
+  const w = Math.max(3, Math.min(36, weight));
+  
+  if (w < 6) {
+    return {
+      zone: 'grey', zoneLabelCs: 'Šedá (Grey)', zoneLabelEn: 'Grey',
+      color: '#708090', textColor: 'text-slate-200', bgGradient: 'from-slate-600 to-slate-900 border-slate-500/50 shadow-slate-900/40',
+      weightRange: '3 - 5 kg',
+      tubeSize: '3.0 uncuffed / 3.0 cuffed',
+      tubeDepth: '9.0 - 10.0 cm',
+      bladeSize: '0 straight (Miller)',
+      maskSize: '0 (Neonate/Infant)',
+      defibJoules: Math.round(w * 4),
+      adrenalinDose: `${(w * 0.01).toFixed(2)} mg (i.v./i.o. bolus)`,
+      amiodaronDose: `${(w * 5).toFixed(0)} mg (i.v./i.o. bolus)`,
+      atropinDose: `${(w * 0.02).toFixed(2)} mg (i.v./i.o. bolus)`,
+      exacylDose: `${(w * 15).toFixed(0)} mg (i.v./i.o. infuze)`,
+      glucoseDose: `${(w * 5).toFixed(0)} ml (G10% pomalu i.v./i.o.)`
+    };
+  } else if (w < 8) {
+    return {
+      zone: 'pink', zoneLabelCs: 'Růžová (Pink)', zoneLabelEn: 'Pink',
+      color: '#ec4899', textColor: 'text-pink-100', bgGradient: 'from-pink-600 to-pink-900 border-pink-500/50 shadow-pink-900/40',
+      weightRange: '6 - 7 kg',
+      tubeSize: '3.5 uncuffed / 3.0 cuffed',
+      tubeDepth: '10.0 - 10.5 cm',
+      bladeSize: '1 straight (Miller)',
+      maskSize: '1 (Infant/Toddler)',
+      defibJoules: Math.round(w * 4),
+      adrenalinDose: `${(w * 0.01).toFixed(2)} mg (i.v./i.o. bolus)`,
+      amiodaronDose: `${(w * 5).toFixed(0)} mg (i.v./i.o. bolus)`,
+      atropinDose: `${(w * 0.02).toFixed(2)} mg (i.v./i.o. bolus)`,
+      exacylDose: `${(w * 15).toFixed(0)} mg (i.v./i.o. infuze)`,
+      glucoseDose: `${(w * 5).toFixed(0)} ml (G10% pomalu i.v./i.o.)`
+    };
+  } else if (w < 10) {
+    return {
+      zone: 'red', zoneLabelCs: 'Červená (Red)', zoneLabelEn: 'Red',
+      color: '#ef4444', textColor: 'text-red-100', bgGradient: 'from-red-600 to-red-900 border-red-500/50 shadow-red-900/40',
+      weightRange: '8 - 9 kg',
+      tubeSize: '3.5 or 4.0 uncuffed / 3.5 cuffed',
+      tubeDepth: '10.5 - 11.0 cm',
+      bladeSize: '1 straight (Miller)',
+      maskSize: '1 (Toddler)',
+      defibJoules: Math.round(w * 4),
+      adrenalinDose: `${(w * 0.01).toFixed(2)} mg (i.v./i.o. bolus)`,
+      amiodaronDose: `${(w * 5).toFixed(0)} mg (i.v./i.o. bolus)`,
+      atropinDose: `${(w * 0.02).toFixed(2)} mg (i.v./i.o. bolus)`,
+      exacylDose: `${(w * 15).toFixed(0)} mg (i.v./i.o. infuze)`,
+      glucoseDose: `${(w * 5).toFixed(0)} ml (G10% pomalu i.v./i.o.)`
+    };
+  } else if (w < 12) {
+    return {
+      zone: 'purple', zoneLabelCs: 'Fialová (Purple)', zoneLabelEn: 'Purple',
+      color: '#a855f7', textColor: 'text-purple-100', bgGradient: 'from-purple-600 to-purple-900 border-purple-500/50 shadow-purple-900/40',
+      weightRange: '10 - 11 kg',
+      tubeSize: '4.0 uncuffed / 3.5 cuffed',
+      tubeDepth: '11.5 - 12.0 cm',
+      bladeSize: '1.5 or 2 (Mac/Miller)',
+      maskSize: '2 (Toddler/Child)',
+      defibJoules: Math.round(w * 4),
+      adrenalinDose: `${(w * 0.01).toFixed(2)} mg (i.v./i.o. bolus)`,
+      amiodaronDose: `${(w * 5).toFixed(0)} mg (i.v./i.o. bolus)`,
+      atropinDose: `${(w * 0.02).toFixed(2)} mg (i.v./i.o. bolus)`,
+      exacylDose: `${(w * 15).toFixed(0)} mg (i.v./i.o. infuze)`,
+      glucoseDose: `${(w * 5).toFixed(0)} ml (G10% pomalu i.v./i.o.)`
+    };
+  } else if (w < 15) {
+    return {
+      zone: 'yellow', zoneLabelCs: 'Žlutá (Yellow)', zoneLabelEn: 'Yellow',
+      color: '#eab308', textColor: 'text-amber-100', bgGradient: 'from-amber-600 to-amber-900 border-amber-500/50 shadow-amber-950/40',
+      weightRange: '12 - 14 kg',
+      tubeSize: '4.5 uncuffed / 4.0 cuffed',
+      tubeDepth: '12.5 - 13.0 cm',
+      bladeSize: '2 (Macintosh)',
+      maskSize: '2 (Child)',
+      defibJoules: Math.round(w * 4),
+      adrenalinDose: `${(w * 0.01).toFixed(2)} mg (i.v./i.o. bolus)`,
+      amiodaronDose: `${(w * 5).toFixed(0)} mg (i.v./i.o. bolus)`,
+      atropinDose: `${(w * 0.02).toFixed(2)} mg (i.v./i.o. bolus)`,
+      exacylDose: `${(w * 15).toFixed(0)} mg (i.v./i.o. infuze)`,
+      glucoseDose: `${(w * 5).toFixed(0)} ml (G10% pomalu i.v./i.o.)`
+    };
+  } else if (w < 19) {
+    return {
+      zone: 'white', zoneLabelCs: 'Bílá (White)', zoneLabelEn: 'White',
+      color: '#ffffff', textColor: 'text-slate-800', bgGradient: 'from-slate-100 to-slate-200 border-slate-300 shadow-slate-400/20',
+      weightRange: '15 - 18 kg',
+      tubeSize: '5.0 uncuffed / 4.5 cuffed',
+      tubeDepth: '13.5 - 14.0 cm',
+      bladeSize: '2 (Macintosh)',
+      maskSize: '3 (Child)',
+      defibJoules: Math.round(w * 4),
+      adrenalinDose: `${(w * 0.01).toFixed(2)} mg (i.v./i.o. bolus)`,
+      amiodaronDose: `${(w * 5).toFixed(0)} mg (i.v./i.o. bolus)`,
+      atropinDose: `${(w * 0.02).toFixed(2)} mg (i.v./i.o. bolus)`,
+      exacylDose: `${(w * 15).toFixed(0)} mg (i.v./i.o. infuze)`,
+      glucoseDose: `${(w * 5).toFixed(0)} ml (G10% pomalu i.v./i.o.)`
+    };
+  } else if (w < 23) {
+    return {
+      zone: 'blue', zoneLabelCs: 'Modrá (Blue)', zoneLabelEn: 'Blue',
+      color: '#3b82f6', textColor: 'text-blue-100', bgGradient: 'from-blue-600 to-blue-900 border-blue-500/50 shadow-blue-900/40',
+      weightRange: '19 - 22 kg',
+      tubeSize: '5.5 uncuffed / 5.0 cuffed',
+      tubeDepth: '14.5 - 15.0 cm',
+      bladeSize: '2 or 3 (Macintosh)',
+      maskSize: '3 (Child)',
+      defibJoules: Math.round(w * 4),
+      adrenalinDose: `${(w * 0.01).toFixed(2)} mg (i.v./i.o. bolus)`,
+      amiodaronDose: `${(w * 5).toFixed(0)} mg (i.v./i.o. bolus)`,
+      atropinDose: `${(w * 0.02).toFixed(2)} mg (i.v./i.o. bolus)`,
+      exacylDose: `${(w * 15).toFixed(0)} mg (i.v./i.o. infuze)`,
+      glucoseDose: `${(w * 5).toFixed(0)} ml (G10% pomalu i.v./i.o.)`
+    };
+  } else if (w < 30) {
+    return {
+      zone: 'orange', zoneLabelCs: 'Oranžová (Orange)', zoneLabelEn: 'Orange',
+      color: '#f97316', textColor: 'text-orange-100', bgGradient: 'from-orange-600 to-orange-950 border-orange-500/50 shadow-orange-900/40',
+      weightRange: '23 - 29 kg',
+      tubeSize: '6.0 cuffed',
+      tubeDepth: '15.5 - 16.5 cm',
+      bladeSize: '3 (Macintosh)',
+      maskSize: '4 (Child/Adult Small)',
+      defibJoules: Math.round(w * 4),
+      adrenalinDose: `${(w * 0.01).toFixed(2)} mg (i.v./i.o. bolus)`,
+      amiodaronDose: `${(w * 5).toFixed(0)} mg (i.v./i.o. bolus)`,
+      atropinDose: `${(w * 0.02).toFixed(2)} mg (i.v./i.o. bolus)`,
+      exacylDose: `${(w * 15).toFixed(0)} mg (i.v./i.o. infuze)`,
+      glucoseDose: `${(w * 5).toFixed(0)} ml (G10% pomalu i.v./i.o.)`
+    };
+  } else {
+    return {
+      zone: 'green', zoneLabelCs: 'Zelená (Green)', zoneLabelEn: 'Green',
+      color: '#10b981', textColor: 'text-green-100', bgGradient: 'from-green-600 to-green-900 border-green-500/50 shadow-green-900/40',
+      weightRange: '30 - 36 kg',
+      tubeSize: '6.5 cuffed',
+      tubeDepth: '17.0 - 18.0 cm',
+      bladeSize: '3 (Macintosh)',
+      maskSize: '4 (Adult Small)',
+      defibJoules: Math.round(w * 4),
+      adrenalinDose: `${(w * 0.01).toFixed(2)} mg (i.v./i.o. bolus)`,
+      amiodaronDose: `${(w * 5).toFixed(0)} mg (i.v./i.o. bolus)`,
+      atropinDose: `${(w * 0.02).toFixed(2)} mg (i.v./i.o. bolus)`,
+      exacylDose: `${(w * 15).toFixed(0)} mg (i.v./i.o. infuze)`,
+      glucoseDose: `${(w * 5).toFixed(0)} ml (G10% pomalu i.v./i.o.)`
+    };
+
 export default function AnesthesiaModule() {
   const { language, t } = useLanguage();
 
@@ -145,7 +314,12 @@ export default function AnesthesiaModule() {
   const medsData = language === 'cs' ? ANESTHESIA_MEDS_CS : ANESTHESIA_MEDS;
   const quizData = language === 'cs' ? ANESTHESIA_QUIZ_CS : ANESTHESIA_QUIZ;
 
-  const [activeTab, setActiveTab] = useState<'cards' | 'calculator' | 'quiz' | 'recall'>('cards');
+  const [activeTab, setActiveTab] = useState<'cards' | 'calculator' | 'broselow' | 'quiz' | 'recall'>('cards');
+
+  // Broselow state
+  const [pediatricWeight, setPediatricWeight] = useState<number>(14);
+  const [pediatricAge, setPediatricAge] = useState<number>(3); // years
+  const [pediatricInputMode, setPediatricInputMode] = useState<'weight' | 'age'>('weight');
 
   // Flashcards state
   const [searchTerm, setSearchString] = useState('');
@@ -796,6 +970,17 @@ export default function AnesthesiaModule() {
             {language === 'cs' ? 'Kalkulátor dávek' : 'Dosage Calc'}
           </button>
           <button
+            onClick={() => setActiveTab('broselow')}
+            className={`flex-1 py-1.5 px-4 text-xs font-semibold rounded-md transition-all font-sans flex items-center justify-center gap-1.5 cursor-pointer ${
+              activeTab === 'broselow'
+                ? 'bg-white/10 border border-white/15 text-white shadow-sm'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            <Activity className="w-3.5 h-3.5" />
+            {language === 'cs' ? 'Pediatrická resuscitace' : 'Pediatric CPR'}
+          </button>
+          <button
             onClick={() => setActiveTab('quiz')}
             className={`flex-1 py-1.5 px-4 text-xs font-semibold rounded-md transition-all font-sans flex items-center justify-center gap-1.5 cursor-pointer ${
               activeTab === 'quiz'
@@ -1324,6 +1509,239 @@ export default function AnesthesiaModule() {
         )}
 
         {/* Tab 3: Pharmacology Case Quiz */}
+        {activeTab === 'broselow' && (
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 font-sans" id="anesthesia-broselow">
+            {/* Left Controls Card */}
+            <div className="lg:col-span-5 flex flex-col gap-6 bg-white/5 border border-white/10 rounded-xl p-6 shadow-lg backdrop-blur-xl">
+              <h3 className="text-lg font-bold text-white border-b border-white/10 pb-3 flex items-center gap-1.5">
+                <Activity className="w-5 h-5 text-rose-400 animate-pulse" />
+                {language === 'cs' ? 'Pediatrický urgentní kalkulátor' : 'Pediatric Emergency Calc'}
+              </h3>
+
+              {/* Mode Toggle */}
+              <div className="flex bg-slate-900/80 p-1 rounded-lg border border-white/5">
+                <button
+                  onClick={() => setPediatricInputMode('weight')}
+                  className={`flex-1 py-1.5 text-xs font-semibold rounded-md transition-all cursor-pointer ${
+                    pediatricInputMode === 'weight'
+                      ? 'bg-teal-500/20 text-teal-300 border border-teal-500/30'
+                      : 'text-slate-400 hover:text-slate-200'
+                  }`}
+                >
+                  {language === 'cs' ? 'Zadat hmotnost' : 'Enter Weight'}
+                </button>
+                <button
+                  onClick={() => setPediatricInputMode('age')}
+                  className={`flex-1 py-1.5 text-xs font-semibold rounded-md transition-all cursor-pointer ${
+                    pediatricInputMode === 'age'
+                      ? 'bg-teal-500/20 text-teal-300 border border-teal-500/30'
+                      : 'text-slate-400 hover:text-slate-200'
+                  }`}
+                >
+                  {language === 'cs' ? 'Odhadnout podle věku' : 'Estimate by Age'}
+                </button>
+              </div>
+
+              {pediatricInputMode === 'weight' ? (
+                /* Weight Input Controls */
+                <div className="flex flex-col gap-4">
+                  <div className="flex justify-between text-xs font-bold text-slate-400 uppercase tracking-wide">
+                    <span>{language === 'cs' ? 'Tělesná hmotnost' : 'Body Weight'}</span>
+                    <span className="text-teal-300 font-mono text-sm">{pediatricWeight} kg</span>
+                  </div>
+                  <input
+                    type="range"
+                    min="3"
+                    max="45"
+                    step="1"
+                    value={pediatricWeight}
+                    onChange={e => setPediatricWeight(parseInt(e.target.value))}
+                    className="w-full accent-teal-500"
+                  />
+                  <div className="flex gap-2">
+                    <input
+                      type="number"
+                      min="3"
+                      max="100"
+                      value={pediatricWeight}
+                      onChange={e => setPediatricWeight(Math.max(3, parseInt(e.target.value) || 3))}
+                      className="w-24 bg-slate-900 border border-white/10 rounded px-2.5 py-1.5 text-center font-mono text-sm text-white outline-none focus:border-teal-500/50"
+                    />
+                    <span className="text-xs text-slate-400 self-center">
+                      {language === 'cs' ? 'Zadejte hmotnost dítěte v kg přímo.' : 'Enter child weight in kg directly.'}
+                    </span>
+                  </div>
+                </div>
+              ) : (
+                /* Age Input Controls */
+                <div className="flex flex-col gap-4">
+                  <div className="flex justify-between text-xs font-bold text-slate-400 uppercase tracking-wide">
+                    <span>{language === 'cs' ? 'Věk dítěte' : 'Child Age'}</span>
+                    <span className="text-teal-300 font-mono text-sm">
+                      {pediatricAge === 0 
+                        ? (language === 'cs' ? 'Kojenec (< 1 rok)' : 'Infant (< 1 yr)') 
+                        : `${pediatricAge} ${language === 'cs' ? (pediatricAge < 5 ? (pediatricAge === 1 ? 'rok' : 'roky') : 'let') : (pediatricAge === 1 ? 'yr' : 'yrs')}`}
+                    </span>
+                  </div>
+                  <input
+                    type="range"
+                    min="0"
+                    max="12"
+                    step="1"
+                    value={pediatricAge}
+                    onChange={e => {
+                      const age = parseInt(e.target.value);
+                      setPediatricAge(age);
+                      // Estimate weight based on APLS formulas:
+                      // < 1 yr: 4kg (0)
+                      // 1-5 yrs: (age * 2) + 8
+                      // 6-12 yrs: (age * 3) + 7
+                      let estW = 4;
+                      if (age >= 1 && age <= 5) {
+                        estW = age * 2 + 8;
+                      } else if (age >= 6) {
+                        estW = age * 3 + 7;
+                      }
+                      setPediatricWeight(estW);
+                    }}
+                    className="w-full accent-teal-500"
+                  />
+                  <div className="text-xs text-slate-400 bg-slate-900/50 border border-white/5 rounded-lg p-3 italic">
+                    {language === 'cs' 
+                      ? `Orientační odhad podle APLS vzorce: Hmotnost = ${pediatricAge === 0 ? '4 kg' : pediatricAge <= 5 ? '(Věk × 2) + 8' : '(Věk × 3) + 7'}. Vypočtená hmotnost: ${pediatricWeight} kg.`
+                      : `Standard APLS formula: Weight = ${pediatricAge === 0 ? '4 kg' : pediatricAge <= 5 ? '(Age × 2) + 8' : '(Age × 3) + 7'}. Estimated weight: ${pediatricWeight} kg.`}
+                  </div>
+                </div>
+              )}
+
+              {/* Broselow Tape Visual indicator */}
+              {pediatricWeight <= 36 ? (
+                <div className="flex flex-col gap-2 mt-2">
+                  <span className="text-xs font-bold text-slate-400 uppercase tracking-wide">
+                    {language === 'cs' ? 'Broselowova barevná zóna' : 'Broselow Color Zone'}
+                  </span>
+                  <div className={`p-4 rounded-xl border font-bold text-center capitalize transition-all shadow-md bg-gradient-to-r ${getBroselowData(pediatricWeight).bgGradient} ${getBroselowData(pediatricWeight).textColor}`}>
+                    {language === 'cs' ? getBroselowData(pediatricWeight).zoneLabelCs : getBroselowData(pediatricWeight).zoneLabelEn}
+                    <span className="block text-xs font-normal opacity-90 mt-1">
+                      {language === 'cs' ? 'Hmotnostní rozmezí zóny' : 'Zone Weight Range'}: {getBroselowData(pediatricWeight).weightRange}
+                    </span>
+                  </div>
+                </div>
+              ) : (
+                <div className="flex flex-col gap-2 mt-2">
+                  <span className="text-xs font-bold text-slate-400 uppercase tracking-wide">
+                    {language === 'cs' ? 'Limit Broselowovy pásky' : 'Broselow Tape Limit'}
+                  </span>
+                  <div className="p-4 rounded-xl border border-yellow-500/30 bg-yellow-500/10 font-semibold text-center text-yellow-300 text-sm leading-relaxed">
+                    {language === 'cs' 
+                      ? 'Pacient přesahuje 36 kg. Broselowova páska končí na zelené zóně. Použijte standardní pediatrické/dospělé dávkování.'
+                      : 'Patient exceeds 36 kg. Broselow tape limits end on the Green zone. Apply standard pediatric/adult dosing.'}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Right Display Card - Results split into Equipment and Drugs */}
+            <div className="lg:col-span-7 flex flex-col gap-6">
+              {(() => {
+                const b = getBroselowData(pediatricWeight);
+                return (
+                  <div className="bg-white/5 border border-white/10 rounded-xl p-6 text-white shadow-xl flex flex-col justify-between h-full backdrop-blur-xl">
+                    <div className="flex flex-col gap-6">
+                      <div className="flex justify-between items-start border-b border-white/10 pb-3">
+                        <div>
+                          <h4 className="text-lg font-bold text-teal-300 uppercase tracking-wider">
+                            {language === 'cs' ? 'Pediatrický pohotovostní rozpis' : 'Pediatric Emergency Protocol'}
+                          </h4>
+                          <p className="text-xs text-slate-400 mt-0.5">
+                            {language === 'cs' ? (
+                              <span>
+                                Vypočteno pro hmotnost <span className="font-bold text-white">{pediatricWeight} kg</span>
+                              </span>
+                            ) : (
+                              <span>
+                                Calculated for weight <span className="font-bold text-white">{pediatricWeight} kg</span>
+                              </span>
+                            )}
+                          </p>
+                        </div>
+                        <span className="text-xs px-2 py-0.5 rounded bg-teal-500/10 text-teal-300 font-mono font-bold uppercase border border-teal-500/20">
+                          APLS / ERC
+                        </span>
+                      </div>
+
+                      {/* Section A: Equipment */}
+                      <div className="flex flex-col gap-3">
+                        <h5 className="text-xs font-bold text-teal-400 uppercase tracking-wider border-b border-white/5 pb-1">
+                          🩻 {language === 'cs' ? 'Pomůcky a technické zajištění' : 'Equipment & Airway Sizes'}
+                        </h5>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+                          <div className="bg-slate-900/60 border border-white/5 rounded-lg p-3">
+                            <span className="text-xs text-slate-400 block">{language === 'cs' ? 'Intubační kanyla (ETK)' : 'Endotracheal Tube'}</span>
+                            <span className="font-bold text-white font-mono">{b.tubeSize}</span>
+                            <span className="text-[11px] text-slate-400 block mt-0.5">
+                              {language === 'cs' ? `Zavedení (hloubka): ${b.tubeDepth}` : `Insertion Depth: ${b.tubeDepth}`}
+                            </span>
+                          </div>
+                          <div className="bg-slate-900/60 border border-white/5 rounded-lg p-3">
+                            <span className="text-xs text-slate-400 block">{language === 'cs' ? 'Laryngoskopická lžíce' : 'Laryngoscope Blade'}</span>
+                            <span className="font-bold text-white font-mono">{b.bladeSize}</span>
+                          </div>
+                          <div className="bg-slate-900/60 border border-white/5 rounded-lg p-3">
+                            <span className="text-xs text-slate-400 block">{language === 'cs' ? 'Obličejová maska a vak' : 'Bag-Valve Mask'}</span>
+                            <span className="font-bold text-white font-mono">{b.maskSize}</span>
+                          </div>
+                          <div className="bg-slate-900/60 border border-white/5 rounded-lg p-3">
+                            <span className="text-xs text-slate-400 block">{language === 'cs' ? 'Defibrilační výboj' : 'Defibrillation Shock'}</span>
+                            <span className="font-bold text-rose-400 font-mono">{b.defibJoules} J</span>
+                            <span className="text-[11px] text-slate-400 block mt-0.5">
+                              {language === 'cs' ? 'Vypočteno jako 4 J/kg (STATIM KPR)' : 'Calculated as 4 J/kg (STATIM CPR)'}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Section B: Resuscitation Drugs */}
+                      <div className="flex flex-col gap-3">
+                        <h5 className="text-xs font-bold text-rose-400 uppercase tracking-wider border-b border-white/5 pb-1">
+                          💊 {language === 'cs' ? 'Resuscitační a emergency farmaka' : 'Emergency & Resuscitation Drugs'}
+                        </h5>
+                        <div className="flex flex-col gap-2">
+                          {[
+                            { name: 'Adrenalin (Epinephrine)', dose: b.adrenalinDose, desc_cs: 'Kardiostimulace a vazokonstrikce při asystolii / PEA / VF. Opakovat každých 3-5 minut.', desc_en: 'Cardiac stimulation & vasoconstriction in arrest. Repeat every 3-5 min.' },
+                            { name: 'Amiodaron (Cordarone)', dose: b.amiodaronDose, desc_cs: 'Podat po 3. a 5. neúspěšném defibrilačním výboji u komorové fibrilace.', desc_en: 'Administer after 3rd and 5th shocks for refractory VF/pVT.' },
+                            { name: 'Atropin sulfát', dose: b.atropinDose, desc_cs: 'Indikováno u závažné symptomatické bradykardie (např. před podáním sukcinylcholinu).', desc_en: 'Indicated for severe symptomatic bradycardia (e.g. pre-succinylcholine).' },
+                            { name: 'Exacyl (Tranexamic Acid)', dose: b.exacylDose, desc_cs: 'Antifibrinolytikum při závažném traumatickém krvácení.', desc_en: 'Antifibrinolytic for severe traumatic hemorrhage.' },
+                            { name: 'Glukóza 10%', dose: b.glucoseDose, desc_cs: 'Léčba hypoglykémie při resuscitaci nebo křečích.', desc_en: 'Treatment of hypoglycemia during CPR or active seizures.' }
+                          ].map((d, idx) => (
+                            <div key={idx} className="bg-slate-900/60 border border-white/5 rounded-lg p-3 flex justify-between items-start gap-4">
+                              <div className="flex flex-col">
+                                <span className="font-bold text-slate-100 text-sm">{d.name}</span>
+                                <span className="text-[11px] text-slate-400 mt-1 leading-normal">
+                                  {language === 'cs' ? d.desc_cs : d.desc_en}
+                                </span>
+                              </div>
+                              <span className="font-mono text-sm font-bold text-teal-300 bg-teal-500/10 border border-teal-500/20 px-2 py-1 rounded shrink-0">
+                                {d.dose}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="text-[10px] text-slate-500 text-center border-t border-white/10 pt-4 mt-6 italic">
+                      {language === 'cs'
+                        ? 'Pediatrické dávkování odpovídá aktuálním guidelines ERC 2021. Výpočty jsou pouze pro studijní účely.'
+                        : 'Pediatric dosing corresponds to current ERC 2021 guidelines. Computations are for educational training purposes only.'}
+                    </div>
+                  </div>
+                );
+              })()}
+            </div>
+          </div>
+        )}}
+
         {activeTab === 'quiz' && (
           <div className="max-w-2xl mx-auto bg-white/5 border border-white/10 rounded-xl p-6 shadow-lg font-sans backdrop-blur-xl" id="anesthesia-quiz-board">
             {shuffledQuestions.length === 0 ? (
