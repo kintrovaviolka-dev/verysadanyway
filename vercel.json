@@ -5,19 +5,19 @@
   "rewrites": [
     {
       "source": "/api/case/(.*)",
-      "destination": "/api/case.js"
+      "destination": "/api/case"
     },
     {
       "source": "/api/gemini/(.*)",
-      "destination": "/api/gemini.js"
+      "destination": "/api/gemini"
     },
     {
       "source": "/api/generate-script",
-      "destination": "/api/case.js"
+      "destination": "/api/case"
     },
     {
       "source": "/api/generate-audio",
-      "destination": "/api/case.js"
+      "destination": "/api/case"
     },
     {
       "source": "/clinical-portal",
