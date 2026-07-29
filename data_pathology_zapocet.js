@@ -44,7 +44,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
       "Polyarteritis nodosa",
       "Obrovskobuněčná arteritis Horton",
       "Wegenerova granulomatóza",
-      "Buergova choroba",
+      "Buergerova choroba",
       "Diabetická angiopatie"
     ],
     "correct": 2
@@ -65,7 +65,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
     "id": 6,
     "question": "25 let stará nekuřačka má problémy se zrakem a má nízký puls na a.radialis",
     "options": [
-      "Mönckenbergova choroba",
+      "Mönckebergova choroba",
       "Takayasuova choroba",
       "Syfilis",
       "Granulomatózní zánět temporální arterie",
@@ -825,7 +825,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
       "Membranoproliferativní glomerulonefritida",
       "Membranózní glomerulopatie",
       "Postinfekční glomerulonefritida",
-      "Godpasteurův syndrom"
+      "Goodpastureův syndrom"
     ],
     "correct": 2
   },
@@ -843,7 +843,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
   },
   {
     "id": 71,
-    "question": "Paciant s leukémií prodělává léčbu chemoterapeutiky, počet maligních buněk v krvi výrazně klesl. Náhle vznikla ledvinná kolika, pacient posléze vymočil drobný kamének složený nejpíše z:",
+    "question": "Pacient s leukémií prodělává léčbu chemoterapeutiky, počet maligních buněk v krvi výrazně klesl. Náhle vznikla ledvinná kolika, pacient posléze vymočil drobný kamének složený nejpíše z:",
     "options": [
       "Kalcium oxalátu",
       "Fosfátu",
@@ -991,7 +991,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
     "options": [
       "Deficienci α1-anitrypsinu",
       "Fenylketonurii",
-      "Tay-Sachsou nemoc",
+      "Tay-Sachsovu nemoc",
       "Turnerův syndrom",
       "Wilsonovu chorobu"
     ],
@@ -1683,7 +1683,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
   },
   {
     "id": 141,
-    "question": "Arnosdovu-Chiariho malformaci představuje hydrocefalus a",
+    "question": "Arnold-Chiariho malformaci představuje hydrocefalus a",
     "options": [
       "Oploštělý pons",
       "Syringomyelie",
@@ -3829,7 +3829,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
     "options": [
       "Hyperplastický polyp",
       "Juvenilní polyp",
-      "Peutz-Jeghrsonův polyp",
+      "Peutz-Jeghersův polyp",
       "Tubulární adenom",
       "Vilózní adenom"
     ],
@@ -4511,9 +4511,9 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
     "id": 377,
     "question": "Vyberte správné tvrzení týkající se osteomyelitidy",
     "options": [
-      "Sekvestr je nektorická kortikalis a involukrum je periostální reaktivní kost",
-      "Sekvestr je nektorická kortikalis a involukrum je infekční nidus kostní dřeně",
-      "Sekvestr je  periostální reaktivní kost a involukrum je nektorická kortikalis",
+      "Sekvestr je nekrotická kortikalis a involukrum je periostální reaktivní kost",
+      "Sekvestr je nekrotická kortikalis a involukrum je infekční nidus kostní dřeně",
+      "Sekvestr je  periostální reaktivní kost a involukrum je nekrotická kortikalis",
       "Sekvestr je sekvestrovaný infekční nidus kostní dřeně a involukrum je nekrotická kortikalis",
       "Sekvestr je sekvestrovaný infekční nidus kostní dřeně a involukrum je periostální reaktivní kost"
     ],
