@@ -88,6 +88,11 @@ export default function Workspace({
   const [medDose, setMedDose] = useState<string>("");
   const [medRoute, setMedRoute] = useState<string>("i.v.");
 
+  // Suggested therapy and consiliary states
+  const [suggestedTherapy, setSuggestedTherapy] = useState<string>("");
+  const [sidebarConsultant, setSidebarConsultant] = useState<string>("Kardiolog");
+  const [sidebarConsultMessage, setSidebarConsultMessage] = useState<string>("");
+
   // Infusion input
   const [infusionText, setInfusionText] = useState<string>("");
 
@@ -186,23 +191,105 @@ export default function Workspace({
           </div>
         </div>
 
-        {/* Trauma activation */}
-        {session.level === 3 && (
-          <div className="p-4 bg-[#0b0e15] border-t border-[#424754] shrink-0">
+        {/* Bottom panel: Trauma (if level 3), Suggested Therapy, and Consiliary */}
+        <div className="p-4 bg-[#0b0e15] border-t border-[#424754] space-y-4 shrink-0">
+          {/* 1. Trauma activation */}
+          {session.level === 3 && (
             <button
               onClick={() => onAction({ actionId: "activate_trauma" })}
               disabled={session.traumaTeamActivated}
-              className={`w-full py-2.5 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 transition-all ${
+              className={`w-full py-2 flex items-center justify-center gap-1.5 rounded-lg font-bold text-xs transition-all active:scale-[0.98] ${
                 session.traumaTeamActivated
                   ? "bg-red-950/20 text-red-400 border border-red-500/20"
-                  : "bg-red-600 hover:bg-red-700 text-white cursor-pointer"
+                  : "bg-red-600 hover:bg-red-700 text-white cursor-pointer shadow-lg hover:shadow-red-600/20"
               }`}
             >
               <ShieldAlert className="w-4 h-4" />
-              {session.traumaTeamActivated ? "TRAUMA TÝM AKTIVNÍ" : "AKTIVUJE TRAUMA TÝM"}
+              {session.traumaTeamActivated ? "TRAUMA TÝM AKTIVNÍ" : "AKTIVOVAT TRAUMA TÝM"}
             </button>
+          )}
+
+          {/* 2. Suggested Therapy (Navrhnout terapii) */}
+          <div className="space-y-1.5">
+            <span className="text-[10px] font-bold text-[#c2c6d6] uppercase tracking-wider block">
+              Návrh celkové terapie (AI)
+            </span>
+            <div className="flex gap-2">
+              <textarea
+                placeholder="Zadejte celkovou terapii a další postup..."
+                value={suggestedTherapy}
+                onChange={(e) => setSuggestedTherapy(e.target.value)}
+                className="flex-1 min-h-[44px] bg-[#1d2027] border border-[#424754] rounded-lg px-2.5 py-1.5 text-xs text-white placeholder-[#c2c6d6] focus:outline-none focus:border-[#4d8eff] resize-none"
+              />
+              <button
+                onClick={() => {
+                  if (suggestedTherapy.trim()) {
+                    onAction({ actionText: suggestedTherapy });
+                    setSuggestedTherapy("");
+                  }
+                }}
+                className="px-3 bg-[#4d8eff] hover:bg-[#adc6ff] text-white font-bold rounded-lg text-xs transition-all cursor-pointer flex items-center justify-center shrink-0 active:scale-[0.98]"
+              >
+                PODAT
+              </button>
+            </div>
           </div>
-        )}
+
+          {/* 3. Consiliary Specialist Query */}
+          <div className="space-y-1.5 pt-2 border-t border-[#424754]/30">
+            <span className="text-[10px] font-bold text-[#c2c6d6] uppercase tracking-wider block">
+              Konziliární vyšetření (AI Chat)
+            </span>
+            <div className="space-y-2">
+              <select
+                value={sidebarConsultant}
+                onChange={(e) => setSidebarConsultant(e.target.value)}
+                className="w-full bg-[#1d2027] border border-[#424754] rounded-lg px-2 py-1.5 text-xs text-white focus:outline-none focus:border-[#4d8eff]"
+              >
+                {availableConsultants.map((specialty) => (
+                  <option key={specialty} value={specialty}>
+                    {specialty}
+                  </option>
+                ))}
+              </select>
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  placeholder="Dotaz na specialistu..."
+                  value={sidebarConsultMessage}
+                  onChange={(e) => setSidebarConsultMessage(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" && sidebarConsultMessage.trim()) {
+                      onConsult(sidebarConsultant, sidebarConsultMessage);
+                      setSidebarConsultMessage("");
+                    }
+                  }}
+                  className="flex-1 bg-[#1d2027] border border-[#424754] rounded-lg px-2.5 py-1.5 text-xs text-white placeholder-[#c2c6d6] focus:outline-none focus:border-[#4d8eff]"
+                />
+                <button
+                  onClick={() => {
+                    if (sidebarConsultMessage.trim()) {
+                      onConsult(sidebarConsultant, sidebarConsultMessage);
+                      setSidebarConsultMessage("");
+                    }
+                  }}
+                  className="px-3 bg-[#4d8eff] hover:bg-[#adc6ff] text-white font-bold rounded-lg text-xs transition-all cursor-pointer flex items-center justify-center shrink-0 active:scale-[0.98]"
+                >
+                  ZEPTAT
+                </button>
+              </div>
+              <button
+                onClick={() => {
+                  setActiveConsultant(sidebarConsultant);
+                  setShowConsultantModal(true);
+                }}
+                className="w-full text-center text-[10px] text-[#adc6ff] hover:underline cursor-pointer pt-0.5 block"
+              >
+                Zobrazit historii chatu a konzilií 💬
+              </button>
+            </div>
+          </div>
+        </div>
       </aside>
 
       {/* 2. Central Section: Anamneza, chat, and action box */}
@@ -227,8 +314,8 @@ export default function Workspace({
                 ALERGIE: {alg}
               </span>
             ))}
-            <span className={`px-2 py-0.5 rounded ${getTriageColor(session.selectedTriageClass || session.patient.triageClass)}`}>
-              TRIÁŽ: {getTriageName(session.selectedTriageClass || session.patient.triageClass)}
+            <span className={`px-2 py-0.5 rounded ${getTriageColor(session.selectedTriageClass)}`}>
+              TRIÁŽ: {getTriageName(session.selectedTriageClass)}
             </span>
           </div>
         </div>
@@ -492,7 +579,7 @@ export default function Workspace({
         <div className="p-4 bg-[#191b23] border-t border-[#424754] flex justify-between items-center shrink-0">
           <div className="flex items-center gap-2 text-xs text-[#c2c6d6]">
             <Clock className="w-4 h-4 text-[#adc6ff]" />
-            <span>Čas na lůžku: **{session.elapsedTime} minut**</span>
+            <span>Čas na lůžku: <strong>{session.elapsedTime} minut</strong></span>
           </div>
 
           <button

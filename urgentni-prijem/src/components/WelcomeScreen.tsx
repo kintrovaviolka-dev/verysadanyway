@@ -111,7 +111,7 @@ export default function WelcomeScreen({
           Urgentní příjem
         </h1>
         <p className="text-lg text-[#c2c6d6] max-w-2xl mx-auto">
-          Pokročilý klinický trenažér a simulátor rozhodování v reálném čase. Otestujte své diagnostické schopnosti, rychlost a dodržování standardů **ČLS JEP**.
+          Pokročilý klinický trenažér a simulátor rozhodování v reálném čase. Otestujte své diagnostické schopnosti, rychlost a dodržování standardů <strong>ČLS JEP</strong>.
         </p>
         <div className="pt-3 flex flex-wrap justify-center gap-4">
           <button
@@ -170,7 +170,7 @@ export default function WelcomeScreen({
             Vyhodnocovací modul
           </h2>
           <p className="text-sm text-[#c2c6d6] leading-relaxed">
-            Na konci případu po stanovení definitivní dispozice a sepsání **epikrízy** provede atestační komise složená z primářů urgentních příjmů přísný debriefing pokrývající:
+            Na konci případu po stanovení definitivní dispozice a sepsání <strong>epikrízy</strong> provede atestační komise složená z primářů urgentních příjmů přísný debriefing pokrývající:
           </p>
           <div className="grid grid-cols-2 gap-3 text-xs text-[#c2c6d6]">
             <div className="flex items-center gap-2 bg-[#1d2027] p-2 rounded border border-[#424754]/30">
