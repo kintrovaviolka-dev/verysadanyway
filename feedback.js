@@ -1,6 +1,317 @@
 // feedback.js - Globální kód pro zpětnou vazbu se screenshotem napříč všemi statickými portály
 
 (function () {
+  // Inject feedback modal styles dynamically
+  const css = `
+    .feedback-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #94a3b8;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .feedback-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(59, 130, 246, 0.3);
+      color: #fff;
+      transform: translateY(-1px) scale(1.02);
+    }
+
+    .feedback-icon {
+      width: 16px;
+      height: 16px;
+      color: #64748b;
+      transition: color 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .feedback-btn:hover .feedback-icon {
+      color: #3b82f6;
+    }
+
+    /* Feedback Modal Overlay */
+    .feedback-modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      background: rgba(3, 7, 18, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .feedback-modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Feedback Modal Card */
+    .feedback-modal-card {
+      width: 100%;
+      max-width: 500px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      overflow: hidden;
+      transform: scale(0.95);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .feedback-modal-overlay.open .feedback-modal-card {
+      transform: scale(1);
+    }
+
+    /* Header */
+    .feedback-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .feedback-modal-header h3 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0;
+    }
+
+    .feedback-modal-close-btn {
+      background: transparent;
+      border: none;
+      color: #64748b;
+      cursor: pointer;
+      padding: 4px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .feedback-modal-close-btn:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+    }
+
+    /* Form & Body */
+    .feedback-modal-body {
+      padding: 20px;
+    }
+
+    .feedback-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .feedback-textarea {
+      width: 100%;
+      height: 120px;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.85rem;
+      resize: none;
+      box-sizing: border-box;
+      transition: border-color 0.2s ease;
+    }
+
+    .feedback-textarea:focus {
+      outline: none;
+      border-color: #3b82f6;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    /* Screenshot panel */
+    .feedback-screenshot-panel {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .feedback-checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.75rem;
+      color: #94a3b8;
+      font-weight: 600;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .feedback-checkbox-label input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: #3b82f6;
+      cursor: pointer;
+    }
+
+    .feedback-screenshot-status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.7rem;
+      color: #64748b;
+    }
+
+    .feedback-screenshot-preview {
+      width: 100%;
+      max-height: 140px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+      background: rgba(0,0,0,0.3);
+    }
+
+    .feedback-screenshot-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      max-height: 140px;
+      display: block;
+    }
+
+    /* Footer / Action buttons */
+    .feedback-modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-top: 8px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .feedback-btn-cancel {
+      padding: 8px 16px;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #94a3b8;
+      font-size: 0.75rem;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .feedback-btn-cancel:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+    }
+
+    .feedback-btn-submit {
+      padding: 8px 20px;
+      background: #3b82f6;
+      border: none;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .feedback-btn-submit:hover {
+      background: #2563eb;
+    }
+
+    .feedback-btn-submit:disabled {
+      background: rgba(255, 255, 255, 0.05);
+      color: #64748b;
+      box-shadow: none;
+      cursor: not-allowed;
+    }
+
+    /* Success View */
+    .feedback-success-view {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      gap: 16px;
+    }
+
+    .feedback-success-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      color: #10b981;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .feedback-success-view h4 {
+      font-size: 1rem;
+      color: #fff;
+      margin: 0;
+    }
+
+    /* Spinner loader */
+    .feedback-spinner {
+      width: 14px;
+      height: 14px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      border-top-color: #fff;
+      animation: feedback-spin 0.8s linear infinite;
+      display: inline-block;
+    }
+
+    @keyframes feedback-spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .feedback-error-text {
+      color: #f87171;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+  `;
+  const styleElement = document.createElement('style');
+  styleElement.textContent = css;
+  document.head.appendChild(styleElement);
+
   let html2canvasLoaded = false;
   let screenshotBase64 = null;
 
@@ -148,16 +459,6 @@
         }
       });
     }
-
-    // Dismiss with Escape key
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        const overlay = document.getElementById('feedback-modal-overlay');
-        if (overlay && overlay.classList.contains('open')) {
-          closeModal();
-        }
-      }
-    });
   }
 
   // 3. Otevření modálu a vygenerování screenshotu
@@ -174,10 +475,7 @@
 
     // Reset formuláře
     overlay.classList.add('open');
-    if (commentInput) {
-      commentInput.value = '';
-      commentInput.focus();
-    }
+    if (commentInput) commentInput.value = '';
     if (errorText) {
       errorText.style.display = 'none';
       errorText.innerHTML = '';
@@ -247,10 +545,6 @@
     
     const overlay = document.getElementById('feedback-modal-overlay');
     if (overlay) overlay.classList.remove('open');
-
-    // Návrat fokusu na tlačítko, které modal otevřelo
-    const triggerBtn = document.getElementById('feedback-trigger-btn');
-    if (triggerBtn) triggerBtn.focus();
   }
 
   // 5. Odeslání formuláře na Apps Script backend
