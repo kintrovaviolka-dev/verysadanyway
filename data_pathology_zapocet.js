@@ -29,9 +29,9 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
     "id": 3,
     "question": "Co není charakteristické pro maligní hypertenzi?",
     "options": [
-      "Poškození, které vyvolává, vede k dalsímu zvýšení krevního tlaku",
+      "Poškození, které vyvolává, vede k dalšímu zvýšení krevního tlaku",
       "Dochází k akumulaci plasmatických proteinů ve stěně cév",
-      "Dochází k finrinouidní nekróze stěny arteriol",
+      "Dochází k fibrinoidní nekróze stěny arteriol",
       "Dochází k proliferaci buněk hladkého svalu arteriol",
       "Ve stěnách cév jsou přítomny četné makrofágy obsahující lipidy"
     ],
@@ -44,7 +44,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
       "Polyarteritis nodosa",
       "Obrovskobuněčná arteritis Horton",
       "Wegenerova granulomatóza",
-      "Buergova choroba",
+      "Buergerova choroba",
       "Diabetická angiopatie"
     ],
     "correct": 2
