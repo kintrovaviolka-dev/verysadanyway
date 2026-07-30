@@ -1,1 +1,11 @@
+.env
 node_modules/
+.DS_Store
+.Jules/
+# Mikra - interní skripta (pouze pro agenta, ne pro studenty ani repo)
+mikra/skripta_1.md
+mikra/skripta_2.md
+
+# Ostatní samostatné repozitáře (spravované zvlášť)
+patolka-main/
+patfyza-main/

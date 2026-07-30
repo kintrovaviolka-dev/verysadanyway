@@ -6,7 +6,7 @@ export default function SupportButton() {
 
   return (
     <a
-      href="https://revolut.me/v_kintrova"
+      href="https://ko-fi.com/violkadev"
       target="_blank"
       rel="noopener noreferrer"
       className="group flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-xs font-semibold

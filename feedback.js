@@ -307,6 +307,113 @@
       font-size: 0.75rem;
       font-weight: 600;
     }
+
+    /* Floating Support Popup Toast */
+    .support-popup-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 320px;
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 1px 1px 0 rgba(255, 255, 255, 0.05) inset;
+      z-index: 99999;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transform: translateY(40px) scale(0.95);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .support-popup-toast.show {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .support-popup-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .support-popup-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .support-popup-close-btn {
+      background: transparent;
+      border: none;
+      color: #64748b;
+      cursor: pointer;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+      line-height: 1;
+    }
+    .support-popup-close-btn:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+    }
+    .support-popup-body {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      line-height: 1.45;
+      margin: 0;
+    }
+    .support-popup-footer {
+      display: flex;
+      gap: 8px;
+    }
+    .support-popup-btn-kofi {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 12px;
+      background: linear-gradient(135deg, #ff5e5b 0%, #d13d3a 100%);
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(255, 94, 91, 0.2);
+    }
+    .support-popup-btn-kofi:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(255, 94, 91, 0.3);
+    }
+    .support-popup-btn-later {
+      padding: 8px 12px;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      color: #94a3b8;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .support-popup-btn-later:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+    }
   `;
   const styleElement = document.createElement('style');
   styleElement.textContent = css;
@@ -662,5 +769,79 @@
         errorText.innerHTML = 'Odeslání selhalo. Zkuste to prosím znovu.';
       }
     });
+  }
+
+  // Support Popup logic
+  function initSupportPopup() {
+    // Pro klid v duši a eliminaci zbytečného otravování uživatelů
+    const dismissedUntil = localStorage.getItem('support_popup_dismissed_until');
+    if (dismissedUntil && Date.now() < parseInt(dismissedUntil)) {
+      return;
+    }
+    if (sessionStorage.getItem('support_popup_shown_session')) {
+      return;
+    }
+
+    // Zobrazení po 45 sekundách aktivního prohlížení
+    setTimeout(function() {
+      // Vytvoření elementu pop-upu
+      const popupHtml = `
+        <div id="support-popup-toast" class="support-popup-toast">
+          <div class="support-popup-header">
+            <h4 class="support-popup-title">Líbí se ti portál? ☕</h4>
+            <button id="support-popup-close" class="support-popup-close-btn" aria-label="Zavřít">&times;</button>
+          </div>
+          <p class="support-popup-body">
+            Ahoj! Pokud ti tenhle portál pomáhá při studiu a šetří čas, zvaž prosím drobnou podporu na Ko-fi. Každý příspěvek mi pomáhá s provozem a dalším vylepšováním. Děkuju! ❤️
+          </p>
+          <div class="support-popup-footer">
+            <a href="https://ko-fi.com/violkadev" target="_blank" id="support-popup-kofi-btn" class="support-popup-btn-kofi">
+              <span>Podpořit na Ko-fi</span>
+              <span>☕</span>
+            </a>
+            <button id="support-popup-later-btn" class="support-popup-btn-later">Později</button>
+          </div>
+        </div>
+      `;
+      document.body.insertAdjacentHTML('beforeend', popupHtml);
+      
+      const toast = document.getElementById('support-popup-toast');
+      const closeBtn = document.getElementById('support-popup-close');
+      const kofiBtn = document.getElementById('support-popup-kofi-btn');
+      const laterBtn = document.getElementById('support-popup-later-btn');
+
+      // Animace zobrazení
+      setTimeout(function() {
+        if (toast) toast.classList.add('show');
+      }, 100);
+
+      function dismissPopup(days) {
+        localStorage.setItem('support_popup_dismissed_until', Date.now() + days * 24 * 60 * 60 * 1000);
+        sessionStorage.setItem('support_popup_shown_session', 'true');
+        if (toast) {
+          toast.classList.remove('show');
+          setTimeout(function() {
+            toast.remove();
+          }, 400);
+        }
+      }
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function() { dismissPopup(30); }); // 30 dní klid
+      }
+      if (laterBtn) {
+        laterBtn.addEventListener('click', function() { dismissPopup(7); });   // 7 dní klid
+      }
+      if (kofiBtn) {
+        kofiBtn.addEventListener('click', function() { dismissPopup(90); });  // 90 dní klid
+      }
+    }, 45000);
+  }
+
+  // Spuštění inicializace pop-upu
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSupportPopup);
+  } else {
+    initSupportPopup();
   }
 })();

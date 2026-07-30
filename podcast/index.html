@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Podcastový Generátor | Lékařský Studijní Portál</title>
+  <meta name="description" content="Přeměňte své studijní dokumenty a texty na edukační audiopodcast s Učitelem a Studentem pomocí umělé inteligence.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Hlavička a navigace zpět -->
+    <header>
+      <div class="nav-bar">
+        <a href="../index.html" class="btn btn-back" id="back-to-hub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span>Zpět na rozcestník</span>
+        </a>
+      </div>
+      <div class="brand-badge">
+        <span>AI Studio • Edukační Nástroj</span>
+      </div>
+      <h1>Podcastový Generátor</h1>
+      <p class="subtitle">Přeměňte studijní texty na poutavý audio rozhovor mezi Učitelem a Studentem.</p>
+    </header>
+
+    <!-- Krokový indikátor stavu -->
+    <div class="steps-indicator">
+      <div class="step active" id="step-indicator-1">
+        <div class="step-number">1</div>
+        <div class="step-label">Podklady</div>
+      </div>
+      <div class="step-line" id="step-line-1"></div>
+      <div class="step" id="step-indicator-2">
+        <div class="step-number">2</div>
+        <div class="step-label">Scénář</div>
+      </div>
+      <div class="step-line" id="step-line-2"></div>
+      <div class="step" id="step-indicator-3">
+        <div class="step-number">3</div>
+        <div class="step-label">Podcast</div>
+      </div>
+    </div>
+
+    <!-- PANEL 1: NAHRÁNÍ PODKLADŮ -->
+    <section class="panel active" id="panel-upload">
+      <div class="glass-card">
+        <h2 class="panel-title">1. Nahrajte studijní materiály</h2>
+        <p class="panel-desc">Můžete nahrát dokument nebo rovnou vložit studijní text. AI z nich sestaví vyvážený dialog.</p>
+
+        <!-- Protokol varování (zobrazeno pouze při spuštění z disku) -->
+        <div class="info-banner error-banner" id="protocol-warning-banner" style="display: none; background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.25); color: #ffb4ab; margin-bottom: 25px;">
+          <span class="banner-icon">🚨</span>
+          <div class="banner-text">
+            <strong>Spuštěno přes soubor (file://):</strong> Aplikace byla otevřena přímo z disku. Pro fungování převodu textu a generování zvuku musíte mít spuštěný lokální server. Spusťte v terminálu <code>npm run dev</code> a otevřete <strong>http://localhost:3000/podcast/index.html</strong>.
+          </div>
+        </div>
+
+        <!-- Upozornění a instrukce pro hloupé uživatele -->
+        <div class="info-banner warning-banner">
+
+          <span class="banner-icon">⚠️</span>
+          <div class="banner-text">
+            <strong>Omezení pro zpracování:</strong> Podporovány jsou soubory formátu <strong>PDF, DOCX, TXT</strong>. Maximální velikost je <strong>5 MB</strong>. Pro zachování stability a kvality zpracování je limit u PDF/Word dokumentů nastaven na <strong>max. 5 stran</strong> (cca 15 000 znaků).
+          </div>
+        </div>
+
+        <!-- Přepínač způsobu vstupu -->
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="file-upload-tab">📁 Nahrát soubor</button>
+          <button class="tab-btn" data-tab="text-input-tab">✍️ Vložit text</button>
+        </div>
+
+        <div class="tab-contents">
+          <!-- Záložka nahrání souboru -->
+          <div class="tab-content active" id="file-upload-tab">
+            <div class="drag-drop-zone" id="drop-zone">
+              <input type="file" id="file-input" accept=".pdf,.docx,.txt" style="display: none;">
+              <span class="upload-icon">📥</span>
+              <h3>Přetáhněte soubor sem nebo klikněte pro výběr</h3>
+              <p>Podporované formáty: PDF, DOCX, TXT (Max 5 MB / 5 stran)</p>
+              <div class="selected-file-area" id="selected-file-info" style="display: none;">
+                <span class="file-name" id="file-display-name">document.pdf</span>
+                <button type="button" class="btn-remove-file" id="remove-file-btn" title="Odebrat soubor">❌</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Záložka vložení textu -->
+          <div class="tab-content" id="text-input-tab">
+            <textarea id="text-input" placeholder="Zkopírujte a vložte své studijní poznámky, definice nebo otázky sem... (Max. 15 000 znaků)" maxlength="15000"></textarea>
+            <div class="char-counter"><span id="char-count">0</span> / 15 000 znaků</div>
+          </div>
+        </div>
+
+        <!-- Bot protection Captcha -->
+        <div class="captcha-box">
+          <div class="captcha-title">🛡️ Ověření proti robotům (Captcha)</div>
+          <div class="captcha-body">
+            <div class="captcha-question">
+              Kolik je: <span class="captcha-nums" id="captcha-question-text">5 + 7</span> =
+            </div>
+            <input type="number" id="captcha-answer" placeholder="Zadejte výsledek" required>
+            <button type="button" class="btn-refresh" id="refresh-captcha-btn" title="Nový příklad">🔄</button>
+          </div>
+        </div>
+
+        <!-- Chybové hlášky -->
+        <div class="error-msg" id="upload-error" style="display: none;">Chyba při zpracování.</div>
+
+        <!-- Spouštěcí tlačítko -->
+        <div class="action-bar">
+          <button class="btn btn-primary" id="btn-generate-script" disabled>
+            <span>Vytvořit scénář rozhovoru</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PANEL 2: EDITACE SCÉNÁŘE -->
+    <section class="panel" id="panel-script">
+      <div class="glass-card">
+        <h2 class="panel-title">2. Náhled a úprava scénáře rozhovoru</h2>
+        <p class="panel-desc">Gemini vygenerovalo následující scénář rozhovoru. Můžete upravit repliky, změnit mluvčího, smazat nepotřebné řádky nebo přidat nové repliky před spuštěním syntézy hlasu.</p>
+
+        <!-- Seznam replik -->
+        <div class="script-editor" id="script-container">
+          <!-- Dynamicky se plní z Javascriptu -->
+        </div>
+
+        <!-- Tlačítko pro přidání repliky -->
+        <div class="editor-actions">
+          <button class="btn btn-secondary btn-sm" id="btn-add-replica">
+            <span>➕ Přidat novou repliku</span>
+          </button>
+        </div>
+
+        <div class="error-msg" id="script-error" style="display: none;">Chyba při syntéze.</div>
+
+        <!-- Spouštěcí tlačítko -->
+        <div class="action-bar">
+          <button class="btn btn-secondary" id="btn-back-to-upload">← Zpět k podkladům</button>
+          <button class="btn btn-primary btn-pulse" id="btn-generate-audio">
+            <span>Syntetizovat a generovat podcast</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+              <line x1="12" y1="19" x2="12" y2="23"></line>
+              <line x1="8" y1="23" x2="16" y2="23"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PANEL 3: GENERACE ZVUKU & STAŽENÍ -->
+    <section class="panel" id="panel-podcast">
+      <div class="glass-card">
+        <h2 class="panel-title">3. Váš hotový audiopodcast</h2>
+        <p class="panel-desc">Hlasy Učitele a Studenta byly úspěšně sloučeny do jednoho podcastu. Můžete si ho přehrát online nebo stáhnout do svého zařízení pro poslech offline.</p>
+
+        <!-- Zvukový přehrávač -->
+        <div class="audio-player-container">
+          <div class="audio-visualizer-wave">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+
+          <audio id="audio-player" controls>
+            Vaše zařízení nepodporuje přehrávání zvuku.
+          </audio>
+        </div>
+
+        <div class="download-box">
+          <a href="#" class="btn btn-primary" id="btn-download-mp3" download="studijni_podcast.mp3">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Stáhnout podcast (MP3)</span>
+          </a>
+        </div>
+
+        <!-- Spouštěcí tlačítko znovu -->
+        <div class="action-bar centered">
+          <button class="btn btn-secondary" id="btn-start-over">
+            <span>🔄 Vytvořit další podcast</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOADING OVERLAY -->
+    <div class="loading-overlay" id="loading-overlay" style="display: none;">
+      <div class="loading-content">
+        <div class="loader-spinner"></div>
+        <h3 id="loading-title">Zpracovávám dokument...</h3>
+        <p id="loading-subtitle">Příprava dat pro Gemini AI.</p>
+        
+        <div class="loading-steps">
+          <div class="loading-step" id="l-step-1">
+            <span class="status-icon">⏳</span>
+            <span>1. Extrakce textu</span>
+          </div>
+          <div class="loading-step" id="l-step-2">
+            <span class="status-icon">⏳</span>
+            <span>2. Tvorba scénáře (Gemini)</span>
+          </div>
+          <div class="loading-step" id="l-step-3">
+            <span class="status-icon">⏳</span>
+            <span>3. Hlasová syntéza (Fish AI 2.1)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <p>© 2026 Viola Kintrová • Lékařský Studijní Portál • Zabezpečená AI Integrace</p>
+      <a href="https://ko-fi.com/violkadev" target="_blank" rel="noopener noreferrer" class="support-btn">
+        <svg class="support-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <path d="M7 5c0.8 3.5 -0.4 10 0.8 14" stroke="currentColor" />
+          <path d="M12 2c1 4.5 -0.5 13 1 20" stroke="currentColor" />
+          <path d="M17 5c0.5 3 -0.5 9.5 0.8 14" stroke="currentColor" />
+        </svg>
+        <span>Pomohl ti můj portál? Buy me a Monster! (please) </span>
+      </a>
+    </div>
+  </footer>
+
+  <script src="../feedback.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
