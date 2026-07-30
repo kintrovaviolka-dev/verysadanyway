@@ -309,7 +309,8 @@ export const getCaseRhythm = (caseId: string): string => {
     case "1": return "stemi";
     case "8": return "avb3"; // Amitriptyline toxicity features prolonged QTc / wide QRS resembling AVB3 in our simulator
     case "12": return "stemi";
-    case "13": return "afib";
+    case "13":
+    case "16": return "afib";
     default: return "nsr"; // Case 2, 3, 5, 6, etc have sinus tachycardia
   }
 };

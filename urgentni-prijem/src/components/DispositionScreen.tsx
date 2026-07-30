@@ -52,31 +52,126 @@ export default function DispositionScreen({
   };
 
   const getSafetyItems = () => {
-    if (session.caseId === "1") {
+    const caseId = session.caseId;
+    
+    // Cardiology (STEMI, NSTEMI, Cardiogenic shock) - Cases 1, 12, 14
+    if (caseId === "1" || caseId === "12" || caseId === "14") {
       return [
-        "Vytištěna propouštěcí zpráva a epikríza",
-        "Předán originál 12svodového EKG",
-        "Pacient informován o nutnosti klidového režimu",
-        "Zavedena duální antiagregace do trvalé medikace",
-        "Zajištěn transport sanitou s lékařským doprovodem"
+        "Vytištěna zpráva a EKG křivka předána transportnímu týmu",
+        "Zajištěna kontinuální monitorace vitálních funkcí a defibrilátor",
+        "Duální antiagregace a antikoagulace podána a zaznamenána",
+        "Zajištěn doprovod lékaře (kardiolog/anesteziolog) při transportu",
+        "Cílové pracoviště (PCI sál / JIP) telefonicky informováno a připraveno"
       ];
-    } else if (session.caseId === "2") {
+    }
+    
+    // Pulmonary / Respiratory (PE, COPD) - Cases 2, 15
+    if (caseId === "2" || caseId === "15") {
       return [
-        "Kontrola krevního tlaku před transportem",
-        "Zkontrolováno riziko kontrastní nefropatie",
-        "Antikoagulační karta s pokyny předána pacientce",
+        "Kontrola krevního tlaku a saturace před transportem",
         "Zajištěna kontinuální kyslíková podpora",
-        "Zajištěno monitorované lůžko na JIP"
+        "Antikoagulační / bronchodilatační terapie řádně zdokumentována",
+        "Monitorované lůžko na JIP/ARO rezervováno a potvrzeno",
+        "Pacient poučen o nutnosti klidu na lůžku nebo správné inhalaci"
       ];
-    } else {
+    }
+    
+    // Polytrauma - Case 3
+    if (caseId === "3") {
       return [
         "Zafixována krční páteř (krční límec)",
         "Naložen a dotažen pánevní pás (Pelvic Binder)",
         "Erytrocytové nálevy a plazma podány ohřáté",
-        "Zajištěno trvalé monitorování dýchacích cest (ETK)",
-        "Doprovod anesteziologa během celého transportu"
+        "Zajištěno trvalé monitorování dýchacích cest (ETK/ventilace)",
+        "Doprovod anesteziologa během celého transportu na sál/CT"
       ];
     }
+    
+    // Pediatrics - Cases 4, 9, 10, 11, 17
+    if (caseId === "4" || caseId === "9" || caseId === "10" || caseId === "11" || caseId === "17") {
+      return [
+        "Dítě transportováno v klidu na klíně matky k zamezení pláče",
+        "Zajištěna monitorace dechu a saturace (pulsní oximetrie)",
+        "Kortikosteroidy (i.v./p.o. nebo Rectodelt čípek) podány a zapsány",
+        "Zajištěn inhalační adrenalin nebo Ventolin/Atrovent v pohotovosti",
+        "Pediatrická JIP/ARO informována a připravuje lůžko k převzetí"
+      ];
+    }
+    
+    // Sepsis / Infection - Case 5
+    if (caseId === "5") {
+      return [
+        "Širokospektrá antibiotika i.v. podána v první zlaté hodině",
+        "Agresivní volumoterapie krystaloidy dokončena a bilancována",
+        "Kontrola laktátu a ABR před transportem na jednotku",
+        "Zajištěna kontinuální monitorace oběhu a krevního tlaku",
+        "Rezervováno izolační JIP lůžko s bariérovým režimem"
+      ];
+    }
+    
+    // Anaphylaxis (Adult) - Case 6
+    if (caseId === "6") {
+      return [
+        "Adrenalin i.m. podán jako lék první volby a zapsán čas podání",
+        "Zajištěny minimálně dva funkční i.v. vstupy širokou kanylou",
+        "Podána i.v. antihistaminika (Dithiaden) a kortikoidy (Solu-Medrol)",
+        "Pacient monitorován na lůžku minimálně 4-6 hodin pro riziko bifázické reakce",
+        "Vybaven pohotovostním balíčkem s Epipenem a poučen o jeho aplikaci"
+      ];
+    }
+    
+    // Pancreatitis / Acute Abdomen - Case 7
+    if (caseId === "7") {
+      return [
+        "Zahájena intenzivní hydratace krystaloidy s kontrolou diurézy",
+        "Nastavena účinná analgetická terapie (metamizol / opiáty)",
+        "Pacient ponechán striktně nalačno (nulová dieta)",
+        "Zkontrolována laboratoř (amyláza, lipáza, ionty, urea)",
+        "Přijetí na monitorované lůžko chirurgické JIP schváleno"
+      ];
+    }
+    
+    // Toxicology / TCA overdose - Case 8
+    if (caseId === "8") {
+      return [
+        "Zajištěny dýchací cesty (intubace/ETK) pro ochranu před aspirací",
+        "Natrium Bikarbonát 8.4% i.v. podán k alkalizaci séra",
+        "Kontinuální monitorace EKG (riziko komorových arytmií / torsades)",
+        "Aplikováno aktivní uhlí a proveden výplach žaludku",
+        "Rezervováno lůžko na toxikologické JIP / ARO"
+      ];
+    }
+    
+    // Stroke / Neurological - Cases 13, 16
+    if (caseId === "13" || caseId === "16") {
+      return [
+        "Nativní CT mozku dokončeno a vyloučeno intrakraniální krvácení",
+        "Systémová trombolýza (Actilyse) zahájena v terapeutickém okně (je-li indikována)",
+        "Krevní tlak stabilizován pod limitních 180/105 mmHg",
+        "Pravidelné hodnocení neurologického stavu (NIHSS/GCS)",
+        "Transport na iktovou jednotku s trvalým monitorováním"
+      ];
+    }
+    
+    // Nephrology / AKI - Case 18
+    if (caseId === "18") {
+      return [
+        "Vysazeny nefrotoxické léky (ACE inhibitory - Ramipril, NSAID)",
+        "Zahájena šetrná rehydratační terapie krystaloidy",
+        "Zajištěno hodinové měření diurézy (permanentní močový katétr)",
+        "Kontrola hladiny draslíku a urey STATIM z biochemie",
+        "Zajištěno lůžko na standardním interním nebo nefrologickém oddělení"
+      ];
+    }
+
+    // Default safety items fallback
+    return [
+      "Vytištěna zpráva a dokumentace předána ošetřovatelskému týmu",
+      "Zajištěn bezpečný transport pacienta podle stupně závažnosti",
+      "Pacient i rodina srozumitelně informováni o dalším postupu",
+      "Zavedená medikace zkontrolována na lékové interakce",
+      "Rezervace a schválení přijímacího lůžka na příslušném oddělení"
+    ];
   };
 
   const handleClose = () => {

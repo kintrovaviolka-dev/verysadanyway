@@ -926,6 +926,7 @@ PERSONA SPECIALISTY:
   - U febrilních křečí (Case 9) doporučuje paracetamol/ibuprofen a studené zábaly, pokud křeče pominuly po diazepamu. 
   - U těžkého dětského astmatu (Case 10) požaduje inhalační Ventolin/Atrovent, i.v. kortikoidy, a případně i.v. magnesium sulfát.
   - U epiglottitidy (Case 11) varuje před jakýmkoliv stresováním dítěte nebo vyšetřením krku špachtlí (hrozí udušení!) a doporučuje urgentní řízenou intubaci na sále s přítomností ARO lékaře.
+- Vedoucí lékař (Sokratický mentor): Je to zkušený primář a pedagog. Nikdy nedává přímé odpovědi ani návody, co dělat. Místo toho odpovídá pokládáním navádějících (Sokratických) otázek, upozorňuje na detaily v anamnéze nebo vitálních funkcích a motivuje studenta, aby sám přišel na správný postup (např. 'Co nám říká ta saturace 83%?' nebo 'Podívejte se znovu na EKG křivku, opravdu tam nevidíte žádnou abnormalitu?').
 
 Napište realistickou, klinicky správnou odpověď v češtině, která odráží českou nemocniční realitu (mírně formální, přímá, někdy mírně kousavá nebo skeptická, pokud lékař na urgentu zapomněl zásadní kroky).
 
@@ -1031,6 +1032,30 @@ Napiš pouze samotný text odpovědi v češtině. Nepoužívej uvozovky ani mar
           reply = "🚨 POZOR! Tohle je jasná akutní epiglotitida (Adámek, 4 roky), extrémní urgentní situace v pediatrii! Jakýkoliv stres, násilné odběry krve nebo vyšetřování hrdla špachtlí jsou PŘÍSNĚ ZAKÁZÁNY pro riziko reflexního laryngospasmu a okamžitého udušení! Nechte chlapce v klidu sedět u maminky, podejte zvlhčený kyslík, pokud to snese bez pláče. Já okamžitě běžím na urgent s intubačním i tracheotomickým setem. Budeme intubovat kontrolovaně v anestezii!";
         } else {
           reply = "Pokud je pacient stabilní a nepotřebuje umělou plicní ventilaci ani vazopresory, uložte ho na standardní interní oddělení nebo JIP.";
+        }
+      } else if (specialty.includes("Vedoucí lékař")) {
+        if (session.caseId === "1" || session.caseId === "12" || session.caseId === "14") {
+          reply = "Podívejte se pozorně na EKG monitor pacienta a zhodnoťte rytmus. Vidíte tam nějaké známky ischemie? Jakou terapii musíme podat u akutního infarktu a jaká vyšetření jsou klíčová?";
+        } else if (session.caseId === "2" || session.caseId === "15") {
+          reply = "Co si myslíte o té kombinaci dušnosti, tachykardie a rizikových faktorů? Jaké vyšetření by nám potvrdilo embolii nebo exacerbaci CHOPN, a co ta hlášená alergie pacienta?";
+        } else if (session.caseId === "3") {
+          reply = "Máme tu těžké trauma. Co je první prioritou u pacienta se zhoršeným vědomím a rozvíjejícím se šokem? Zkontrolovali jste dýchací cesty, fixaci páteře a pánev?";
+        } else if (session.caseId === "4" || session.caseId === "9" || session.caseId === "10" || session.caseId === "11" || session.caseId === "17") {
+          reply = "U dětských pacientů s dechovou tísní nebo křečemi je klíčový klidný přístup bez zbytečného stresování. Jaká farmakoterapie snižuje otok cest či křeče? A je bezpečné dělat vyšetření krku špachtlí?";
+        } else if (session.caseId === "5") {
+          reply = "Petechie, sepse a šok u dítěte. Která léčba je nejvíce časově senzitivní a musí se podat hned v první hodině? Jak zajistíme oběh?";
+        } else if (session.caseId === "6") {
+          reply = "Anafylaxe s hypotenzí a bronchospasmem. Co je absolutní lék první volby a jaká je správná cesta podání? Podali jste dostatek tekutin a antihistaminika?";
+        } else if (session.caseId === "7") {
+          reply = "Akutní pankreatitida vyžaduje intenzivní hydrataci krystaloidy k prevenci šoku a účinnou analgezii. Jaký je nález na břiše a co ukázala laboratoř?";
+        } else if (session.caseId === "8") {
+          reply = "U předávkování tricyklickými antidepresivy vidíme široký QRS a prodloužený QTc. Jaký specifický lék i.v. stabilizuje myokard a zabrání arytmiím? Jsou dýchací cesty chráněny při GCS 8?";
+        } else if (session.caseId === "13" || session.caseId === "16") {
+          reply = "U akutní cévní mozkové příhody hraje čas zásadní roli. Které zobrazovací vyšetření musíme provést STATIM k vyloučení krvácení? A co krevní tlak, držíte ho v bezpečných mezích?";
+        } else if (session.caseId === "18") {
+          reply = "Akutní poškození ledvin prerenální etiologie. Jaké léky musíme okamžitě vysadit? Jak budeme měřit diurézu a jaký je stav hydratace?";
+        } else {
+          reply = "Zkuste se zamyslet nad hlavními potížemi pacienta. Jsou vitální funkce stabilní? Jaké diagnostické kroky a terapii doporučují standardy ČLS JEP?";
         }
       }
     }

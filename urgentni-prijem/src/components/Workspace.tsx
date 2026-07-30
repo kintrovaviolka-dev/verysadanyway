@@ -95,6 +95,7 @@ export default function Workspace({
 
   // Infusion input
   const [infusionText, setInfusionText] = useState<string>("");
+  const [clinicalCommand, setClinicalCommand] = useState<string>("");
 
   const chatEndRef = useRef<HTMLDivElement>(null);
 
@@ -513,24 +514,21 @@ export default function Workspace({
               <input
                 type="text"
                 placeholder="Napište klinický příkaz..."
-                id="freeTextActionInput"
+                value={clinicalCommand}
+                onChange={(e) => setClinicalCommand(e.target.value)}
                 onKeyDown={(e) => {
-                  if (e.key === "Enter") {
-                    const val = e.currentTarget.value;
-                    if (val.trim()) {
-                      onAction({ actionText: val });
-                      e.currentTarget.value = "";
-                    }
+                  if (e.key === "Enter" && clinicalCommand.trim()) {
+                    onAction({ actionText: clinicalCommand });
+                    setClinicalCommand("");
                   }
                 }}
                 className="flex-1 bg-[#1d2027] border border-[#424754] rounded-lg px-3 py-2 text-xs text-white placeholder-[#c2c6d6] focus:outline-none focus:border-[#4d8eff]"
               />
               <button
                 onClick={() => {
-                  const el = document.getElementById("freeTextActionInput") as HTMLInputElement;
-                  if (el && el.value.trim()) {
-                    onAction({ actionText: el.value });
-                    el.value = "";
+                  if (clinicalCommand.trim()) {
+                    onAction({ actionText: clinicalCommand });
+                    setClinicalCommand("");
                   }
                 }}
                 className="px-4 py-2 bg-[#4d8eff] text-white font-bold rounded-lg hover:bg-[#adc6ff] transition-colors active:scale-95 cursor-pointer text-xs"

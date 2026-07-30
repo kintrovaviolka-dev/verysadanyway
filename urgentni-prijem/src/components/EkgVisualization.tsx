@@ -36,7 +36,9 @@ export function generateEkgData(caseId: string, hr: number, offset: number = 0):
     let valIII = 0;
     
     const isTca = caseId === "8";
-    const isStemi = caseId === "1";
+    const isInferiorStemi = caseId === "1";
+    const isAnteriorStemi = caseId === "12";
+    const isStemi = isInferiorStemi || isAnteriorStemi;
     const isPe = caseId === "2";
     
     // QRS width and timings
@@ -88,7 +90,7 @@ export function generateEkgData(caseId: string, hr: number, offset: number = 0):
     }
     
     // Construct leads with case-specific modifications
-    if (isStemi) {
+    if (isInferiorStemi) {
       // STEMI: ST elevation in II, III (inferior), reciprocal depression in I
       let elevFactor = 0;
       if (phase >= 0.29 && phase < 0.55) {
@@ -99,6 +101,18 @@ export function generateEkgData(caseId: string, hr: number, offset: number = 0):
       valII = pVal + qVal + rVal + sVal + (tVal * 1.1) + (elevFactor * 0.75);
       valIII = pVal + (qVal * 1.3) + rVal + sVal + (tVal * 1.2) + (elevFactor * 1.1);
       valI = pVal + qVal + rVal + sVal + tVal - (elevFactor * 0.35);
+      
+    } else if (isAnteriorStemi) {
+      // Anterior STEMI: ST elevation in I, reciprocal depression in II, III
+      let elevFactor = 0;
+      if (phase >= 0.29 && phase < 0.55) {
+        const elevPhase = (phase - 0.29) / 0.26;
+        elevFactor = Math.sin(Math.PI * elevPhase);
+      }
+      
+      valI = pVal + qVal + rVal + sVal + (tVal * 1.1) + (elevFactor * 1.0);
+      valII = pVal + qVal + rVal + sVal + tVal - (elevFactor * 0.4);
+      valIII = pVal + qVal + rVal + sVal + tVal - (elevFactor * 0.5);
       
     } else if (isPe) {
       // PE (S1Q3T3): Deep S in Lead I, Deep Q + inverted T in Lead III
@@ -221,6 +235,17 @@ export default function EkgVisualization({ session }: EkgVisualizationProps) {
             "Sinusová tachykardie jako kompenzační mechanismus."
           ],
           actions: "Indikováno podání Anopyrinu (400mg p.o.), Heparinu (5000 IU i.v.) a okamžitá katetrizace (PCI).",
+          severity: "high"
+        };
+      case "12": // Anterior STEMI
+        return {
+          title: "Akutní extenzivní přední infarkt myokardu (Anterior STEMI)",
+          findings: [
+            "ST elevace ve svodu I (a precordiálních svodech V1-V5) > 2 mm.",
+            "Reciproční ST deprese ve svodech II a III.",
+            "Sinusová tachykardie s těžkou hypoperfúzí (kardiogenní šok)."
+          ],
+          actions: "Okamžitá inotropní/vazopresorická podpora (Noradrenalin, Dobutamin), ventilace, a urgentní převoz na katetrizační sál (PCI) k rekanalizaci.",
           severity: "high"
         };
       case "2": // PE
