@@ -639,7 +639,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
   },
   {
     "id": 54,
-    "question": "Které z následujích onemocnění nejčastěji způsobuje anémii z nedostatku železa?",
+    "question": "Které z následujících onemocnění nejčastěji způsobuje anémii z nedostatku železa?",
     "options": [
       "Jaterní cirhóza",
       "Peptický vřed",
@@ -825,7 +825,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
       "Membranoproliferativní glomerulonefritida",
       "Membranózní glomerulopatie",
       "Postinfekční glomerulonefritida",
-      "Godpasteurův syndrom"
+      "Goodpastureův syndrom"
     ],
     "correct": 2
   },
@@ -833,17 +833,17 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
     "id": 70,
     "question": "Diabetes mellitus se může v ledvinách projevit jako glomeruloskleróza Kimmelsteil-Wilsonova a",
     "options": [
-      "Staetóza a střádání glykogenu v buňkách proximálních tubulů",
+      "Steatóza a střádání glykogenu v buňkách proximálních tubulů",
       "„drátěné kličky“ a postupná skleróza glomerulů",
       "Exsudace polymorfonukleárů, zmnožení buněk, fokální hyalinizace",
-      "Goodpasteurův syndrom",
+      "Goodpastureův syndrom",
       "Vznikem hepatorenálního syndromu"
     ],
     "correct": 0
   },
   {
     "id": 71,
-    "question": "Paciant s leukémií prodělává léčbu chemoterapeutiky, počet maligních buněk v krvi výrazně klesl. Náhle vznikla ledvinná kolika, pacient posléze vymočil drobný kamének složený nejpíše z:",
+    "question": "Pacient s leukémií prodělává léčbu chemoterapeutiky, počet maligních buněk v krvi výrazně klesl. Náhle vznikla ledvinná kolika, pacient posléze vymočil drobný kamének složený nejpíše z:",
     "options": [
       "Kalcium oxalátu",
       "Fosfátu",
@@ -1251,7 +1251,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
   },
   {
     "id": 105,
-    "question": "U kterého z následujích onemocnění byla potvrzena virová etiologie?",
+    "question": "U kterého z následujících onemocnění byla potvrzena virová etiologie?",
     "options": [
       "Krabbeho choroba",
       "Hurlerové choroba",
@@ -1335,7 +1335,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
   },
   {
     "id": 112,
-    "question": "Který z následujích pojmů nesouvisí s Wernického encefalopatií?",
+    "question": "Který z následujících pojmů nesouvisí s Wernického encefalopatií?",
     "options": [
       "Alkoholizmus",
       "Chybění thiaminu",
@@ -3195,13 +3195,13 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
       "Centroacinárním nebo panacinárním emfyzémem, eozinofilními inkluzemi v hepatocytech",
       "Eozinofilními inkluzemi v hepatocytech",
       "Sníženou aktivitou trypsinu, kombinovanou hypovitaminózou",
-      "Malabsorpčním syndromem, špíženou aktivitou trypsinu"
+      "Malabsorpčním syndromem, sníženou aktivitou trypsinu"
     ],
     "correct": 1
   },
   {
     "id": 268,
-    "question": "Mikroskopický zvhled bronchopneumonie je",
+    "question": "Mikroskopický vzhled bronchopneumonie je",
     "options": [
       "Konsolidace celého plicního laloku",
       "Difúzní intersticiální infiltrace alveolárních přepážek",
@@ -3950,7 +3950,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
       "Ulcerace v tenkém střevě, hlavně v ileu",
       "Rozšíření a snížení střevních klků",
       "PAS-pozitivní makrofágy obsahující bakterie",
-      "Sekundární malabsorbční syndrom",
+      "Sekundární malabsorpční syndrom",
       "Zvětšení mezenteriálních uzlin"
     ],
     "correct": 0
@@ -4599,7 +4599,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
       "Průběh choroby je agresivnější u starších pacientů",
       "V séru bude patologický monoklonální IgG",
       "Kostní dřeň bude pravděpodobně infiltrována blastickými elementy",
-      "Histiocytární elementy budou mít v playme Bierbeckova granula"
+      "Histiocytární elementy budou mít v plazmě Bierbeckova granula"
     ],
     "correct": 4
   },
@@ -4609,7 +4609,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
     "options": [
       "Perniciózní anémie",
       "Malabsorpce v ileu",
-      "Syndrom slepá kličky",
+      "Syndrom slepé kličky",
       "Střevní paraziti",
       "Karcinom céka"
     ],
@@ -4669,7 +4669,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
     "options": [
       "Centrocytárních lymfomů",
       "Burkittova lymfomu",
-      "Downova syndromy",
+      "Downova syndromu",
       "Hairy cell leukémie",
       "Chronické myeloidní leukémie"
     ],
