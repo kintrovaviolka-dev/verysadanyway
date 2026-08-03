@@ -566,6 +566,15 @@
         }
       });
     }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        const overlay = document.getElementById('feedback-modal-overlay');
+        if (overlay && overlay.classList.contains('open')) {
+          closeModal();
+        }
+      }
+    });
   }
 
   // 3. Otevření modálu a vygenerování screenshotu
@@ -582,7 +591,10 @@
 
     // Reset formuláře
     overlay.classList.add('open');
-    if (commentInput) commentInput.value = '';
+    if (commentInput) {
+      commentInput.value = '';
+      setTimeout(() => commentInput.focus(), 50);
+    }
     if (errorText) {
       errorText.style.display = 'none';
       errorText.innerHTML = '';
@@ -651,7 +663,13 @@
     if (e && e.target !== e.currentTarget && e.currentTarget.id === 'feedback-modal-overlay') return;
     
     const overlay = document.getElementById('feedback-modal-overlay');
-    if (overlay) overlay.classList.remove('open');
+    if (overlay && overlay.classList.contains('open')) {
+      overlay.classList.remove('open');
+      const triggerBtn = document.getElementById('feedback-trigger-btn');
+      if (triggerBtn) {
+        triggerBtn.focus();
+      }
+    }
   }
 
   // 5. Odeslání formuláře na Apps Script backend
