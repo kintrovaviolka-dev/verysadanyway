@@ -85,7 +85,7 @@ const CASES = {
     mainComplaint: "Polytrauma po nehodě na motocyklu",
     complaintDetail: "Mladý motorkář po střetu s autem ve vysoké rychlosti. Přivezen v bezvědomí, zaveden krční límec. Viditelná deformita pánve, tržné rány na stehně s masivním zevním krvácením, asymetrie hrudníku, dýchání povrchní.",
     history: ["Dosud zdráv", "Aktivní sportovec"],
-    allergies: [],
+    allergies: ["Bez známých alergií"],
     triageClass: "1", // Resuscitace
     vitals: {
       tf: 138,
