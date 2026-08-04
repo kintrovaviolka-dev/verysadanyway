@@ -420,6 +420,7 @@
   document.head.appendChild(styleElement);
 
   let html2canvasLoaded = false;
+  let lastFocusedElement = null;
   let screenshotBase64 = null;
 
   // 1. Dynamické načtení html2canvas z CDN
@@ -566,11 +567,22 @@
         }
       });
     }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        const overlay = document.getElementById('feedback-modal-overlay');
+        if (overlay && overlay.classList.contains('open')) {
+          closeModal();
+        }
+      }
+    });
   }
 
   // 3. Otevření modálu a vygenerování screenshotu
   function openModal() {
+    lastFocusedElement = document.activeElement;
     const overlay = document.getElementById('feedback-modal-overlay');
+
     const commentInput = document.getElementById('feedback-comment-input');
     const statusText = document.getElementById('feedback-screenshot-status');
     const previewArea = document.getElementById('feedback-screenshot-preview');
@@ -605,6 +617,13 @@
       `;
     }
     if (previewArea) previewArea.style.display = 'none';
+
+    setTimeout(function () {
+      const commentInput = document.getElementById('feedback-comment-input');
+      if (commentInput) {
+        commentInput.focus();
+      }
+    }, 50);
 
     // Generování screenshotu s krátkou prodlevou
     setTimeout(function () {
@@ -651,7 +670,13 @@
     if (e && e.target !== e.currentTarget && e.currentTarget.id === 'feedback-modal-overlay') return;
     
     const overlay = document.getElementById('feedback-modal-overlay');
-    if (overlay) overlay.classList.remove('open');
+    if (overlay) {
+      overlay.classList.remove('open');
+      if (lastFocusedElement) {
+        lastFocusedElement.focus();
+        lastFocusedElement = null;
+      }
+    }
   }
 
   // 5. Odeslání formuláře na Apps Script backend
