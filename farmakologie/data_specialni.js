@@ -550,7 +550,7 @@ const RAW_QUESTIONS_PHARM_SPEC = [
   },
   {
     "id": "pharm-spec-40",
-    "category": "Kred & Metabolismus",
+    "category": "Krev & Metabolismus",
     "title": "Hypolipidemika, antiobezitika",
     "organSystem": "Hematologie & Koagulace",
     "keyTerms": [
@@ -592,7 +592,7 @@ const RAW_QUESTIONS_PHARM_SPEC = [
   },
   {
     "id": "pharm-spec-43",
-    "category": "Kev & Metabolismus",
+    "category": "Krev & Metabolismus",
     "title": "Antiagregancia, fibrinolytika, hemostatika",
     "organSystem": "Hematologie & Koagulace",
     "keyTerms": [
@@ -1010,7 +1010,7 @@ const RAW_QUESTIONS_PHARM_SPEC = [
     "id": "pharm-spec-72",
     "category": "Krev & Metabolismus",
     "title": "Vitamíny rozpustné v tucích a jejich terapeutické využití",
-    "organSystem": "Endokrinní & Hormonální system",
+    "organSystem": "Endokrinní & Hormonální systém",
     "keyTerms": [
       "Vitamín D",
       "Kalcitriol",
