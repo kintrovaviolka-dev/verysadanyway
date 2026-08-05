@@ -46,7 +46,7 @@ const CASES = {
     age: 52,
     sex: "Žena",
     mainComplaint: "Náhlý kolaps, dušnost a pleurální bolest na hrudi",
-    complaintDetail: "Byla přivezena RZP po náhlém kolapsu při vstaní z postele. Nyní stěžuje na výraznou dušnost, ostrý píchavý tlak na pravé straně hrudníku zhoršující se při nádechu, a suchý dráždivý kašel.",
+    complaintDetail: "Byla přivezena RZP po náhlém kolapsu při vstaní z postele. Nyní si stěžuje na výraznou dušnost, ostrý píchavý tlak na pravé straně hrudníku zhoršující se při nádechu, a suchý dráždivý kašel.",
     history: ["Hormonální antikoncepce (HAK)", "Varixy dolních končetin", "Sádrová fixace pravého bérce pro zlomeninu před 3 týdny"],
     allergies: ["JÓD"],
     triageClass: "2", // Kritický
@@ -429,7 +429,7 @@ const CASES = {
       temp: 36.2,
       rr: 32
     },
-    secretDiagnosis: "Kardiogenní šok při akutním infarktu myokardu s plicném edémem",
+    secretDiagnosis: "Kardiogenní šok při akutním infarktu myokardu s plicním edémem",
     secretDiagnosisCode: "R57.0",
     labsResult: {
       ko: "KO: Leukocytóza 15.1 x10^9/l, Hb 138 g/l, Trombocyty 220 x10^9/l.",

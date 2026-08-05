@@ -4,3 +4,6 @@
 ## 2026-08-01 - Avoid leaving throwaway scripts in repo
 **Learning:** After using a one-off automation script (like `fix_typos.py`) to perform complex string replacements, it was flagged during code review as an unnecessary artifact that clutters the repository.
 **Action:** Always delete temporary scripts used for text replacements or file modifications before completing the pre-commit review phase and creating a PR.
+## 2024-08-04 - Fixing typos in medical cases
+**Learning:** Found cases where case data is duplicated across `cases.js` at the root, and `urgentni-prijem/src/data/cases/2.json` in the subproject.
+**Action:** Always search globally for text changes, as they might be duplicated across different files.
