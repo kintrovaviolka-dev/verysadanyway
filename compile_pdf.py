@@ -633,7 +633,6 @@ def compile_pdf():
         CHROME_PATH,
         "--headless",
         "--disable-gpu",
-        "--no-sandbox",
         f"--print-to-pdf={OUTPUT_PDF}",
         "--no-pdf-header-footer",  # Strips default headers & footers (time, title, url, page numbers)
         TEMP_HTML
