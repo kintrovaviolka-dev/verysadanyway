@@ -880,7 +880,11 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const contentDiv = document.createElement("div");
     contentDiv.className = "message-content";
-    contentDiv.innerHTML = role === "assistant" ? parseMarkdown(text) : text;
+    if (role === "assistant") {
+      contentDiv.innerHTML = parseMarkdown(text);
+    } else {
+      contentDiv.textContent = text;
+    }
     
     messageDiv.appendChild(contentDiv);
     chatbotMessages.appendChild(messageDiv);
@@ -1167,7 +1171,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const errorDiv = document.createElement("div");
       errorDiv.className = "message system";
-      errorDiv.innerHTML = `<div class="message-content">Chyba: ${err.message}</div>`;
+      const errorContent = document.createElement("div");
+      errorContent.className = "message-content";
+      errorContent.textContent = `Chyba: ${err.message}`;
+      errorDiv.appendChild(errorContent);
       chatbotMessages.appendChild(errorDiv);
       scrollToBottom();
     } finally {
