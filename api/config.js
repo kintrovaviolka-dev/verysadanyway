@@ -66,6 +66,6 @@ module.exports = async (req, res) => {
     return res.status(403).json({ error: "Access forbidden from this origin." });
   }
 
-  const clientToken = process.env.CLIENT_TOKEN || 'super_secret_medical_study_token_2026';
+  const clientToken = process.env.CLIENT_TOKEN;
   return res.status(200).json({ clientToken });
 };

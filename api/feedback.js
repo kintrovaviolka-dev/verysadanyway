@@ -74,9 +74,9 @@ module.exports = async (req, res) => {
   }
 
   // 2. Validate Authorization token
-  const clientToken = process.env.CLIENT_TOKEN || 'super_secret_medical_study_token_2026';
+  const clientToken = process.env.CLIENT_TOKEN;
   const authHeader = req.headers.authorization;
-  if (!authHeader || authHeader !== `Bearer ${clientToken}`) {
+  if (!clientToken || !authHeader || authHeader !== `Bearer ${clientToken}`) {
     return res.status(401).json({ error: "Access unauthorized. Missing or invalid Authorization header." });
   }
 
