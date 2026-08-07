@@ -147,7 +147,10 @@ app.get('/api/config', (req, res) => {
   if (!checkReferer(req)) {
     return res.status(403).json({ error: "Access forbidden from this origin." });
   }
-  const clientToken = process.env.CLIENT_TOKEN || 'super_secret_medical_study_token_2026';
+  const clientToken = process.env.CLIENT_TOKEN;
+  if (!clientToken) {
+    return res.status(500).json({ error: "Server configuration error: CLIENT_TOKEN is not set." });
+  }
   res.json({ clientToken });
 });
 
@@ -157,7 +160,10 @@ app.post('/api/chat', async (req, res) => {
     return res.status(403).json({ error: "Access forbidden from this origin." });
   }
 
-  const clientToken = process.env.CLIENT_TOKEN || 'super_secret_medical_study_token_2026';
+  const clientToken = process.env.CLIENT_TOKEN;
+  if (!clientToken) {
+    return res.status(500).json({ error: "Server configuration error: CLIENT_TOKEN is not set." });
+  }
   const authHeader = req.headers.authorization;
   if (!authHeader || authHeader !== `Bearer ${clientToken}`) {
     return res.status(401).json({ error: "Access unauthorized. Missing or invalid Authorization header." });
