@@ -53,7 +53,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
     "id": 5,
     "question": "Vakovitá aneurysma mozkových arterií",
     "options": [
-      "Bývají běřně komplikována rupturou následovanou subdurálním krvácením",
+      "Bývají běžně komplikována rupturou následovanou subdurálním krvácením",
       "Bývají způsobena defektem intimy",
       "Jsou přítomna přibližně u 1% populace",
       "Nejčastěji jsou aterosklerotického původu",
