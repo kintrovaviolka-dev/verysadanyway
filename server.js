@@ -81,7 +81,8 @@ function checkReferer(req) {
       
       const allowed = ['localhost', '127.0.0.1', '::1'];
       const isLocal = allowed.some(domain => hostname === domain);
-      const isVercel = hostname === 'vercel.app' || hostname.endsWith('.vercel.app');
+      const allowedVercel = ['patfyz.vercel.app', 'patolka.vercel.app', 'verysadanyway.vercel.app'];
+      const isVercel = allowedVercel.includes(hostname);
       
       return isLocal || isVercel;
     } catch (e) {
@@ -121,7 +122,8 @@ app.use((req, res, next) => {
       
       const allowed = ['localhost', '127.0.0.1', '::1'];
       const isLocal = allowed.some(domain => hostname === domain);
-      const isVercel = hostname === 'vercel.app' || hostname.endsWith('.vercel.app');
+      const allowedVercel = ['patfyz.vercel.app', 'patolka.vercel.app', 'verysadanyway.vercel.app'];
+      const isVercel = allowedVercel.includes(hostname);
       
       if (isLocal || isVercel) {
         allowedOrigin = url.origin;
