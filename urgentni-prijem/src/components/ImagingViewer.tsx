@@ -443,12 +443,12 @@ const CASE_IMAGING: Record<string, CaseImagingData> = {
         label: "Morisonův prostor / Žlučník",
         desc: "Vyšetření žlučníku a hepatorenální oblasti",
         findings: [
-          { text: "Cholecystoliáza — četné drobné konkrementy ve žlučníku", isPathological: true },
+          { text: "Cholecystolitiáza — četné drobné konkrementy ve žlučníku", isPathological: true },
           { text: "Mírná dilatace žlučových cest (choledochus 7mm)", isPathological: true },
           { text: "Pankreas prosáklý, nehomogenní", isPathological: true }
         ],
         annotations: [
-          { x: 0.3, y: 0.4, label: "Cholecystoliáza s akustickým stínem", color: "#f87171", arrowDir: "right" },
+          { x: 0.3, y: 0.4, label: "Cholecystolitiáza s akustickým stínem", color: "#f87171", arrowDir: "right" },
           { x: 0.5, y: 0.52, label: "Prosáklá hlava pankreatu", color: "#f87171", arrowDir: "up" }
         ],
         teachingPoints: [
@@ -458,13 +458,13 @@ const CASE_IMAGING: Record<string, CaseImagingData> = {
         quiz: {
           question: "Jaká je nejčastější příčina akutní pankreatitidy v rozvinutých zemích?",
           options: [
-            "Chronický alkoholismus a cholecystoliáza (biliární)",
+            "Chronický alkoholismus a cholecystolitiáza (biliární)",
             "Hypertriglyceridémie",
             "Autoimunitní zánět",
             "Trauma břicha"
           ],
           correctIndex: 0,
-          explanation: "Cholecystoliáza (biliární pankreatitida) a zneužívání alkoholu představují dohromady více než 80% všech případů akutní pankreatitidy."
+          explanation: "Cholecystolitiáza (biliární pankreatitida) a zneužívání alkoholu představují dohromady více než 80% všech případů akutní pankreatitidy."
         }
       },
       splenorenal: {
