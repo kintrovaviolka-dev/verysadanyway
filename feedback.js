@@ -508,7 +508,7 @@
           </div>
           <div class="feedback-modal-body" id="feedback-modal-body-container">
             <form class="feedback-form" id="feedback-form-element">
-              <textarea id="feedback-comment-input" class="feedback-textarea" placeholder="Popište chybu nebo navrhněte zlepšení..." required></textarea>
+              <textarea id="feedback-comment-input" class="feedback-textarea" placeholder="Popište chybu nebo navrhněte zlepšení..." aria-label="Vaše zpráva nebo návrh" required></textarea>
               
               <div class="feedback-screenshot-panel">
                 <label class="feedback-checkbox-label">
@@ -733,7 +733,7 @@
           if (modalBody) {
             modalBody.innerHTML = `
               <form class="feedback-form" id="feedback-form-element">
-                <textarea id="feedback-comment-input" class="feedback-textarea" placeholder="Popište chybu nebo navrhněte zlepšení..." required></textarea>
+                <textarea id="feedback-comment-input" class="feedback-textarea" placeholder="Popište chybu nebo navrhněte zlepšení..." aria-label="Vaše zpráva nebo návrh" required></textarea>
                 
                 <div class="feedback-screenshot-panel">
                   <label class="feedback-checkbox-label">
