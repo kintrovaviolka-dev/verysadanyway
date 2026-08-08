@@ -1,6 +1,7 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 const { GoogleGenAI, Type } = require('@google/genai');
 const { CASES } = require('./cases');
 
@@ -18,7 +19,9 @@ if (typeof process.loadEnvFile === 'function') {
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(express.json());
+// Keep request bodies bounded. These endpoints are public and several of them
+// forward user input to a paid upstream API.
+app.use(express.json({ limit: '64kb' }));
 
 // Serve clinical-portal alias
 app.use('/clinical-portal', express.static(path.join(__dirname, 'clinical-learning-portal')));
@@ -48,9 +51,11 @@ function getGeminiClient() {
 
 // --- RATE LIMITING MIDDLEWARE FOR CHAT ---
 const rateLimitCache = new Map();
+const apiRequestCache = new Map();
 const LIMIT_WINDOW_MS = 60 * 1000; // 1 minute
 const MAX_REQUESTS = 10;
 const MIN_INTERVAL_MS = 2000; // 2 seconds between requests
+const API_MAX_REQUESTS = 60;
 
 // Clear old entries from cache every 10 minutes to prevent memory leaks
 setInterval(() => {
@@ -64,8 +69,29 @@ setInterval(() => {
 }, 10 * 60 * 1000);
 
 function getClientIp(req) {
-  return req.headers['x-forwarded-for'] || req.socket.remoteAddress || 'unknown';
+  // Vercel sets this header; only use its first value because a forwarded-for
+  // header may contain a proxy chain.
+  const forwarded = req.headers['x-vercel-forwarded-for'] || req.headers['x-forwarded-for'];
+  return typeof forwarded === 'string' ? forwarded.split(',')[0].trim() : (req.socket.remoteAddress || 'unknown');
 }
+
+app.use((req, res, next) => {
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+  res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+
+  if (!req.path.startsWith('/api/')) return next();
+  const ip = getClientIp(req);
+  const now = Date.now();
+  const requests = (apiRequestCache.get(ip) || []).filter(ts => now - ts < LIMIT_WINDOW_MS);
+  if (requests.length >= API_MAX_REQUESTS) {
+    res.setHeader('Retry-After', '60');
+    return res.status(429).json({ error: 'Příliš mnoho požadavků. Zkuste to prosím za chvíli.' });
+  }
+  requests.push(now);
+  apiRequestCache.set(ip, requests);
+  return next();
+});
 
 function checkReferer(req) {
   const referer = req.headers.referer || req.headers.referrer;
@@ -144,25 +170,10 @@ app.use((req, res, next) => {
   next();
 });
 
-// --- CONFIG ENDPOINT ---
-app.get('/api/config', (req, res) => {
-  if (!checkReferer(req)) {
-    return res.status(403).json({ error: "Access forbidden from this origin." });
-  }
-  const clientToken = process.env.CLIENT_TOKEN;
-  res.json({ clientToken });
-});
-
 // --- CHAT ENDPOINT ---
 app.post('/api/chat', async (req, res) => {
   if (!checkReferer(req)) {
     return res.status(403).json({ error: "Access forbidden from this origin." });
-  }
-
-  const clientToken = process.env.CLIENT_TOKEN;
-  const authHeader = req.headers.authorization;
-  if (!clientToken || !authHeader || authHeader !== `Bearer ${clientToken}`) {
-    return res.status(401).json({ error: "Access unauthorized. Missing or invalid Authorization header." });
   }
 
   const ip = getClientIp(req);
@@ -203,8 +214,12 @@ app.post('/api/chat', async (req, res) => {
 
   const { messages, subject } = req.body;
 
-  if (!messages || !Array.isArray(messages) || messages.length === 0) {
+  if (!messages || !Array.isArray(messages) || messages.length === 0 || messages.length > 30) {
     return res.status(400).json({ error: "Chybí konverzační historie." });
+  }
+
+  if (!messages.every(msg => msg && typeof msg.text === 'string' && msg.text.length <= 4000)) {
+    return res.status(400).json({ error: "Neplatný nebo příliš dlouhý obsah zprávy." });
   }
 
   try {
@@ -548,7 +563,7 @@ app.post("/api/case/init", (req, res) => {
     return res.status(400).json({ error: "Neplatná úroveň obtížnosti" });
   }
 
-  const sessionId = "session_" + Math.random().toString(36).substring(2, 9);
+  const sessionId = `session_${crypto.randomUUID()}`;
   
   const session = {
     sessionId,

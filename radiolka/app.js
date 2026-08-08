@@ -777,26 +777,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  let clientToken = "";
-  const loadClientToken = async () => {
-    try {
-      const res = await fetch("/api/config");
-      if (res.ok) {
-        const data = await res.json();
-        clientToken = data.clientToken;
-      }
-    } catch (e) {
-      console.error("Failed to load client token", e);
-    }
-  };
-  loadClientToken();
-
   const callProxyServerStream = async (messages, onChunk, onStart) => {
     const response = await fetch("/api/chat", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${clientToken}`
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({ messages, subject: "radiologie" })
     });

@@ -1,5 +1,6 @@
 import express from "express";
 import path from "path";
+import crypto from "crypto";
 import dotenv from "dotenv";
 import { GoogleGenAI, Type } from "@google/genai";
 import { createServer as createViteServer } from "vite";
@@ -158,7 +159,7 @@ async function startServer() {
       return res.status(400).json({ error: "Neplatný případ nebo úroveň obtížnosti" });
     }
 
-    const sessionId = "session_" + Math.random().toString(36).substring(2, 9);
+    const sessionId = `session_${crypto.randomUUID()}`;
     
     // Set up initial session
     const session: GameSession = {

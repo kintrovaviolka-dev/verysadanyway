@@ -881,28 +881,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // Load client token from /api/config for verification handshake
-  let clientToken = "";
-  const loadClientToken = async () => {
-    try {
-      const res = await fetch("/api/config");
-      if (res.ok) {
-        const data = await res.json();
-        clientToken = data.clientToken;
-      }
-    } catch (e) {
-      console.error("Failed to load client token", e);
-    }
-  };
-  loadClientToken();
-
   // Send request via backend proxy with streaming
   const callProxyServerStream = async (messages, subject, onChunk, onStart) => {
     const response = await fetch("/api/chat", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${clientToken}`
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({ messages, subject })
     });
