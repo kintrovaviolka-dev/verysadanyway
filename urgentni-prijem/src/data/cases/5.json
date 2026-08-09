@@ -6,7 +6,7 @@
   "age": 8,
   "sex": "Dívka",
   "mainComplaint": "Horečka, úporná bolest hlavy, zvracení, fialové skvrnky na kůži",
-  "complaintDetail": "Dítě je schvácené, spavé, těžko komunikuje. Trpí silnou bolestí hlavy, světloplachostí a opakovně zvrací. Matka si před hodinou všimla drobných červenofialových skvrnek na stehnech a břiše, které neblednou při zatlačení skleničkou.",
+  "complaintDetail": "Dítě je schvácené, spavé, těžko komunikuje. Trpí silnou bolestí hlavy, světloplachostí a opakovaně zvrací. Matka si před hodinou všimla drobných červenofialových skvrnek na stehnech a břiše, které neblednou při zatlačení skleničkou.",
   "history": [
     "Dosud zdravá, neočkovaná proti meningokoku typu B"
   ],
@@ -52,7 +52,7 @@
     "temp": 39.9,
     "rr": 32
   },
-  "physicalExam": "Fyzikální vyšetření: Dítě je schvácené, spavé, těžko komunikuje. Trpí silnou bolestí hlavy, světloplachostí a opakovně zvrací. Matka si před hodinou všimla drobných červenofialových skvrnek na stehnech a břiše, které neblednou při zatlačení skleničkou.",
+  "physicalExam": "Fyzikální vyšetření: Dítě je schvácené, spavé, těžko komunikuje. Trpí silnou bolestí hlavy, světloplachostí a opakovaně zvrací. Matka si před hodinou všimla drobných červenofialových skvrnek na stehnech a břiše, které neblednou při zatlačení skleničkou.",
   "labValues": {
     "ko": "KO: Leukocytóza 24.5 x10^9/l s posunem doleva, Hemoglobin 112 g/l, Trombocytopenie 85 x10^9/l (hrozící DIC).",
     "biochem": "Biochemie STATIM: CRP: 185 mg/l - VYSOKÉ, Laktát: 5.4 mmol/l (závažný laktátový šok), Kreatinin: 110 umol/l, Urea: 8.2 mmol/l, Glykémie: 3.2 mmol/l.",
