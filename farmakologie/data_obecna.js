@@ -698,7 +698,7 @@ const PHARM_DETAILS = {
         ],
         "correct": 1,
         "explanations": [
-          "Nesprávně. Kortikosteroidy nezpsobují primárně ztrátu chuti (ageusii).",
+          "Nesprávně. Kortikosteroidy nezpůsobují primárně ztrátu chuti (ageusii).",
           "Správně! Lokální imunosupresivní účinek kortikosteroidu ulpělého v hltanu usnadňuje přemnožení kvasinek (Candida albicans) a myopatii hlasivek (dysfonii).",
           "Nesprávně. IKS nepodporují vznik zubního kazu přímo.",
           "Nesprávně. Slinné žlázy nejsou inhalačními steroidy poškozovány."

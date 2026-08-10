@@ -1915,7 +1915,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
     "options": [
       "Periferní arterioskleróza s atrofií svalstva končetin",
       "Degenerace pyramidové dráhy s neurogenní atrofii svalů, hlavně na rukou",
-      "Kongenitální atonie svalů s vyjímkou svalů dýchacích",
+      "Kongenitální atonie svalů s výjimkou svalů dýchacích",
       "Chronická leukoencefalitida s atrofií extenzorů končetin",
       "Nevyléčitelný následek dětské obrny"
     ],
