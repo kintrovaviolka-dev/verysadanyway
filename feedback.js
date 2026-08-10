@@ -458,7 +458,7 @@
     
     const btnHtml = `
       <button id="feedback-trigger-btn" class="feedback-btn" type="button" title="Chyba / Návrh na zlepšení">
-        <svg class="feedback-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <svg class="feedback-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
         </svg>
         <span>Chyba / Návrh 💬</span>
@@ -478,7 +478,7 @@
       const floatingContainerHtml = `
         <div id="feedback-floating-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 99990;">
           <button id="feedback-trigger-btn" class="feedback-btn" type="button" style="box-shadow: 0 4px 16px rgba(0,0,0,0.5); background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(255,255,255,0.12); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);">
-            <svg class="feedback-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="feedback-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
             </svg>
             <span>Chyba / Návrh 💬</span>
@@ -811,7 +811,7 @@
     setTimeout(function() {
       // Vytvoření elementu pop-upu
       const popupHtml = `
-        <div id="support-popup-toast" class="support-popup-toast">
+        <div id="support-popup-toast" class="support-popup-toast" role="status" aria-live="polite">
           <div class="support-popup-header">
             <h4 class="support-popup-title">Líbí se ti portál? ☕</h4>
             <button id="support-popup-close" class="support-popup-close-btn" aria-label="Zavřít">&times;</button>
