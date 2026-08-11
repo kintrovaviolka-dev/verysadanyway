@@ -716,7 +716,7 @@ Lab. Diagnostika virů GITU
 
 -ELISA- průkaz antigenu ve stolici
 
--elektronová mikroskopie- zlatý standart
+-elektronová mikroskopie- zlatý standard
 
 -PCR
 
@@ -4105,7 +4105,7 @@ MYKOPLAZMATA
   + A nepůsobí na ně klasická ATB proti BS
 * Mají třívrtevnou membránu z fosfolipidů a proteinů (Cholesterol →důležitá složka pro růst)
 * Kvůli absenci BS mají různé tvary
-* Malou velikost → usnadněný průchod standartními bakteriologickými filtry
+* Malou velikost → usnadněný průchod standardními bakteriologickými filtry
 * Malý genom → omezenou biosyntézu → zvýšené nutriční nároky pro růst
 * Citlivá na teplotu a vysychání
 * Množí se binárním dělením
@@ -6825,7 +6825,7 @@ Transport – co nejrychleji, ve správné transportní půdě a za správné te
 2. **Cestodózy** – tasemnice
 3. **Trematodózy** – motolice
 
-**Hlístice** – nečlánkovaní červi odděleného pohlaví parazitující jak ve stadiu larev, tak i dospělců, vajíčka a larvy se dostávají na další hostitele skrz defekaci jako krev sající vektory, s vyjímkou svalovce stočeného, jehož larvy encystují ve svalech hostitele (maso musí být pozřeno). Některé hlístice mají životní cyklus bez mezihostitele, tzn.:
+**Hlístice** – nečlánkovaní červi odděleného pohlaví parazitující jak ve stadiu larev, tak i dospělců, vajíčka a larvy se dostávají na další hostitele skrz defekaci jako krev sající vektory, s výjimkou svalovce stočeného, jehož larvy encystují ve svalech hostitele (maso musí být pozřeno). Některé hlístice mají životní cyklus bez mezihostitele, tzn.:
 
 * 1. Člověk se nakazí pozřením vajíček (škrkavka dětská)
   2. Pozření encystovaných larev (Svalovec)
