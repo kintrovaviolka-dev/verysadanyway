@@ -461,7 +461,7 @@
         <svg class="feedback-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
         </svg>
-        <span>Chyba / Návrh 💬</span>
+        <span>Chyba / Návrh <span aria-hidden="true">💬</span></span>
       </button>
     `;
 
@@ -481,7 +481,7 @@
             <svg class="feedback-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
             </svg>
-            <span>Chyba / Návrh 💬</span>
+            <span>Chyba / Návrh <span aria-hidden="true">💬</span></span>
           </button>
         </div>
       `;
@@ -508,7 +508,7 @@
           </div>
           <div class="feedback-modal-body" id="feedback-modal-body-container">
             <form class="feedback-form" id="feedback-form-element">
-              <textarea id="feedback-comment-input" class="feedback-textarea" placeholder="Popište chybu nebo navrhněte zlepšení..." required></textarea>
+              <textarea id="feedback-comment-input" class="feedback-textarea" placeholder="Popište chybu nebo navrhněte zlepšení..." aria-label="Popis chyby nebo návrhu na zlepšení" required></textarea>
               
               <div class="feedback-screenshot-panel">
                 <label class="feedback-checkbox-label">
@@ -520,7 +520,7 @@
                   Zahrnout snímek aktuální obrazovky
                 </label>
                 
-                <div id="feedback-screenshot-status" class="feedback-screenshot-status">
+                <div id="feedback-screenshot-status" class="feedback-screenshot-status" aria-live="polite">
                   <span class="feedback-spinner"></span>
                   <span>Generuji snímek obrazovky, vyčkejte prosím...</span>
                 </div>
@@ -530,7 +530,7 @@
                 </div>
               </div>
               
-              <div id="feedback-error-message" class="feedback-error-text" style="display: none;"></div>
+              <div id="feedback-error-message" class="feedback-error-text" role="alert" style="display: none;"></div>
               
               <div class="feedback-modal-footer">
                 <button type="button" id="feedback-modal-cancel" class="feedback-btn-cancel">Zrušit</button>
@@ -718,8 +718,8 @@
       // Zobrazení děkovné zprávy
       if (modalBody) {
         modalBody.innerHTML = `
-          <div class="feedback-success-view">
-            <div class="feedback-success-icon">✓</div>
+          <div class="feedback-success-view" role="status">
+            <div class="feedback-success-icon" aria-hidden="true">✓</div>
             <h4>Děkujeme za zpětnou vazbu!</h4>
           </div>
         `;
@@ -733,7 +733,7 @@
           if (modalBody) {
             modalBody.innerHTML = `
               <form class="feedback-form" id="feedback-form-element">
-                <textarea id="feedback-comment-input" class="feedback-textarea" placeholder="Popište chybu nebo navrhněte zlepšení..." required></textarea>
+                <textarea id="feedback-comment-input" class="feedback-textarea" placeholder="Popište chybu nebo navrhněte zlepšení..." aria-label="Popis chyby nebo návrhu na zlepšení" required></textarea>
                 
                 <div class="feedback-screenshot-panel">
                   <label class="feedback-checkbox-label">
@@ -745,7 +745,7 @@
                     Zahrnout snímek aktuální obrazovky
                   </label>
                   
-                  <div id="feedback-screenshot-status" class="feedback-screenshot-status">
+                  <div id="feedback-screenshot-status" class="feedback-screenshot-status" aria-live="polite">
                     <span class="feedback-spinner"></span>
                     <span>Generuji snímek obrazovky, vyčkejte prosím...</span>
                   </div>
@@ -755,7 +755,7 @@
                   </div>
                 </div>
                 
-                <div id="feedback-error-message" class="feedback-error-text" style="display: none;"></div>
+                <div id="feedback-error-message" class="feedback-error-text" role="alert" style="display: none;"></div>
                 
                 <div class="feedback-modal-footer">
                   <button type="button" id="feedback-modal-cancel" class="feedback-btn-cancel">Zrušit</button>
