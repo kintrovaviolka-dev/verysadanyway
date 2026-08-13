@@ -1143,7 +1143,7 @@ je vždy první volbou
 CT:
 
 ●  obvykle druhou vyšetřovací metodou
-●  nativně nebo s KL- arteriální fáze (30 s), portální fáze (60 s), parenchymatöizní po 1-2
+●  nativně nebo s KL- arteriální fáze (30 s), portální fáze (60 s), parenchymatózní po 1-2
 
 minutách
 
