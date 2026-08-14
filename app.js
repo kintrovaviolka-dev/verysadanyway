@@ -588,6 +588,9 @@ document.addEventListener("DOMContentLoaded", () => {
       modal = document.createElement("div");
       modal.className = "level-up-modal";
       modal.id = "dopamine-level-up-modal";
+      modal.setAttribute("role", "dialog");
+      modal.setAttribute("aria-modal", "true");
+      modal.setAttribute("aria-labelledby", "level-up-title");
       document.body.appendChild(modal);
     }
     
@@ -606,7 +609,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const title = levelsTitles[Math.min(newLevel - 1, levelsTitles.length - 1)];
     
     modal.innerHTML = `
-      <div class="level-up-title">Úroveň Zvýšena!</div>
+      <div class="level-up-title" id="level-up-title">Úroveň Zvýšena!</div>
       <div class="level-up-badge">👑</div>
       <div style="font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 8px;">Level ${newLevel}</div>
       <div style="font-size: 0.85rem; color: #fbbf24; text-transform: uppercase; font-weight: 600; margin-bottom: 15px; letter-spacing: 1px;">"${title}"</div>
@@ -614,17 +617,37 @@ document.addEventListener("DOMContentLoaded", () => {
       <button class="btn level-up-close-btn" style="width: 100%;" id="level-up-close-btn">Pokračovat</button>
     `;
     
+    const previousActiveElement = document.activeElement;
     backdrop.classList.add("active");
     modal.classList.add("active");
     
+    setTimeout(() => {
+        const closeBtn = document.getElementById("level-up-close-btn");
+        if (closeBtn) closeBtn.focus();
+    }, 50);
+
     for (let i = 0; i < 3; i++) {
       setTimeout(() => triggerLevelUpConfetti(), i * 300);
     }
     
-    document.getElementById("level-up-close-btn").addEventListener("click", () => {
+    const closeLevelUpModal = () => {
       backdrop.classList.remove("active");
       modal.classList.remove("active");
-    });
+      document.removeEventListener("keydown", handleEscapeKey);
+      if (previousActiveElement) {
+        previousActiveElement.focus();
+      }
+    };
+
+    const handleEscapeKey = (e) => {
+      if (e.key === "Escape") {
+        closeLevelUpModal();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscapeKey);
+
+    document.getElementById("level-up-close-btn").addEventListener("click", closeLevelUpModal);
   };
 
   const triggerLevelUpConfetti = () => {
