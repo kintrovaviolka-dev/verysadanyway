@@ -46,7 +46,7 @@ const CASES = {
     age: 52,
     sex: "Žena",
     mainComplaint: "Náhlý kolaps, dušnost a pleurální bolest na hrudi",
-    complaintDetail: "Byla přivezena RZP po náhlém kolapsu při vstaní z postele. Nyní si stěžuje na výraznou dušnost, ostrý píchavý tlak na pravé straně hrudníku zhoršující se při nádechu, a suchý dráždivý kašel.",
+    complaintDetail: "Byla přivezena RZP po náhlém kolapsu při vstávání z postele. Nyní si stěžuje na výraznou dušnost, ostrý píchavý tlak na pravé straně hrudníku zhoršující se při nádechu, a suchý dráždivý kašel.",
     history: ["Hormonální antikoncepce (HAK)", "Varixy dolních končetin", "Sádrová fixace pravého bérce pro zlomeninu před 3 týdny"],
     allergies: ["JÓD"],
     triageClass: "2", // Kritický
@@ -157,7 +157,7 @@ const CASES = {
     age: 8,
     sex: "Dívka",
     mainComplaint: "Horečka, úporná bolest hlavy, zvracení, fialové skvrnky na kůži",
-    complaintDetail: "Dítě je schvácené, spavé, těžko komunikuje. Trpí silnou bolestí hlavy, světloplachostí a opakovně zvrací. Matka si před hodinou všimla drobných červenofialových skvrnek na stehnech a břiše, které neblednou při zatlačení skleničkou.",
+    complaintDetail: "Dítě je schvácené, spavé, těžko komunikuje. Trpí silnou bolestí hlavy, světloplachostí a opakovaně zvrací. Matka si před hodinou všimla drobných červenofialových skvrnek na stehnech a břiše, které neblednou při zatlačení skleničkou.",
     history: ["Dosud zdravá, neočkovaná proti meningokoku typu B"],
     allergies: ["Bez známých alergií"],
     triageClass: "1",
@@ -232,7 +232,7 @@ const CASES = {
     sex: "Žena",
     mainComplaint: "Náhlá krutá bolest v nadbřišku, zvracení, schvácenost",
     complaintDetail: "Pacientka uvádí náhlý vznik extrémní bolesti v epigastriu po včerejší oslavě narozenin (tučné jídlo, alkohol). Bolest vyzařuje pásovitě do zad, opakovaně zvrací žluč, nemůže najít úlevovou polohu. Břicho je difúzně citlivé, stažené, přítomna palpační bolestivost.",
-    history: ["Cholecystoliáza (žlučníkové kameny), hypertriglyceridémie"],
+    history: ["Cholecystolitiáza (žlučníkové kameny), hypertriglyceridémie"],
     allergies: ["JÓD"],
     triageClass: "3",
     vitals: {
@@ -256,7 +256,7 @@ const CASES = {
     imagingResult: {
       ekg: "EKG: Sinusová tachykardie 112/min, bez známek ischemie.",
       rtg: "RTG břicha ve stoje: Bez volného plynu pod bránicí (vylučuje perforaci gastroduodena), přítomen meteorismus a 'strážný kličkový' stín v epigastriu.",
-      echo: "Sonografie břicha: Prosáknutí a zvětšení hlavy pankreatu, kolekce volné tekutiny peripankreaticky, cholecystoliáza - mnohočetné drobné konkrementy ve žlučníku, mírná dilatace choledochu (7mm).",
+      echo: "Sonografie břicha: Prosáknutí a zvětšení hlavy pankreatu, kolekce volné tekutiny peripankreaticky, cholecystolitiáza - mnohočetné drobné konkrementy ve žlučníku, mírná dilatace choledochu (7mm).",
       ct: "CT Břicha (Upozornění: Alergie na JÓD!): S premedikací antihistaminiky: Akutní pankreatitida s peripankreatickými tekutinovými kolekcemi (Balthazar C-D), bez prokázané nekrózy parenchymu."
     }
   },

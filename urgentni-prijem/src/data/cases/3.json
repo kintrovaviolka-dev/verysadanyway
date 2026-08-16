@@ -11,7 +11,9 @@
     "Dosud zdráv",
     "Aktivní sportovec"
   ],
-  "allergies": [],
+  "allergies": [
+    "Bez známých alergií"
+  ],
   "triageClass": "1",
   "vitals": {
     "tf": 138,

@@ -15,7 +15,8 @@ function checkReferer(req) {
       
       const allowed = ['localhost', '127.0.0.1', '::1'];
       const isLocal = allowed.some(domain => hostname === domain);
-      const isVercel = hostname === 'vercel.app' || hostname.endsWith('.vercel.app');
+      const allowedVercel = ['patfyz.vercel.app', 'patolka.vercel.app', 'verysadanyway.vercel.app'];
+      const isVercel = allowedVercel.includes(hostname);
       
       return isLocal || isVercel;
     } catch (e) {
@@ -30,6 +31,10 @@ function checkReferer(req) {
 }
 
 module.exports = async (req, res) => {
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+  res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+
   // CORS Headers Configuration
   const origin = req.headers.origin;
   const referer = req.headers.referer || req.headers.referrer;
@@ -43,7 +48,8 @@ module.exports = async (req, res) => {
       
       const allowed = ['localhost', '127.0.0.1', '::1'];
       const isLocal = allowed.some(domain => hostname === domain);
-      const isVercel = hostname === 'vercel.app' || hostname.endsWith('.vercel.app');
+      const allowedVercel = ['patfyz.vercel.app', 'patolka.vercel.app', 'verysadanyway.vercel.app'];
+      const isVercel = allowedVercel.includes(hostname);
       
       if (isLocal || isVercel) {
         allowedOrigin = url.origin;
@@ -54,7 +60,7 @@ module.exports = async (req, res) => {
   if (allowedOrigin) {
     res.setHeader('Access-Control-Allow-Origin', allowedOrigin);
     res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   }
 
   // Handle preflight OPTIONS request
@@ -73,21 +79,14 @@ module.exports = async (req, res) => {
     return res.status(403).json({ error: "Access forbidden from this origin." });
   }
 
-  // 2. Validate Authorization token
-  const clientToken = process.env.CLIENT_TOKEN;
-  if (!clientToken) {
-    return res.status(500).json({ error: "Server configuration error: CLIENT_TOKEN is not set." });
-  }
-  const authHeader = req.headers.authorization;
-  if (!authHeader || authHeader !== `Bearer ${clientToken}`) {
-    return res.status(401).json({ error: "Access unauthorized. Missing or invalid Authorization header." });
-  }
 
   const { type, subject, name, message } = req.body;
 
-  // Simple validation
-  if (!message || message.trim() === "") {
-    return res.status(400).json({ error: "Zpráva nesmí být prázdná." });
+  if (typeof message !== 'string' || !message.trim() || message.length > 5000 ||
+      (name !== undefined && (typeof name !== 'string' || name.length > 120)) ||
+      (subject !== undefined && (typeof subject !== 'string' || subject.length > 40)) ||
+      (type !== undefined && (typeof type !== 'string' || type.length > 40))) {
+    return res.status(400).json({ error: "Neplatný obsah zpětné vazby." });
   }
 
   const payload = {

@@ -8,7 +8,7 @@
   "mainComplaint": "Náhlá krutá bolest v nadbřišku, zvracení, schvácenost",
   "complaintDetail": "Pacientka uvádí náhlý vznik extrémní bolesti v epigastriu po včerejší oslavě narozenin (tučné jídlo, alkohol). Bolest vyzařuje pásovitě do zad, opakovaně zvrací žluč, nemůže najít úlevovou polohu. Břicho je difúzně citlivé, stažené, přítomna palpační bolestivost.",
   "history": [
-    "Cholecystoliáza (žlučníkové kameny), hypertriglyceridémie"
+    "Cholecystolitiáza (žlučníkové kameny), hypertriglyceridémie"
   ],
   "allergies": [
     "JÓD"
@@ -35,13 +35,13 @@
   "imagingResult": {
     "ekg": "EKG: Sinusová tachykardie 112/min, bez známek ischemie.",
     "rtg": "RTG břicha ve stoje: Bez volného plynu pod bránicí (vylučuje perforaci gastroduodena), přítomen meteorismus a 'strážný kličkový' stín v epigastriu.",
-    "echo": "Sonografie břicha: Prosáknutí a zvětšení hlavy pankreatu, kolekce volné tekutiny peripankreaticky, cholecystoliáza - mnohočetné drobné konkrementy ve žlučníku, mírná dilatace choledochu (7mm).",
+    "echo": "Sonografie břicha: Prosáknutí a zvětšení hlavy pankreatu, kolekce volné tekutiny peripankreaticky, cholecystolitiáza - mnohočetné drobné konkrementy ve žlučníku, mírná dilatace choledochu (7mm).",
     "ct": "CT Břicha (Upozornění: Alergie na JÓD!): S premedikací antihistaminiky: Akutní pankreatitida s peripankreatickými tekutinovými kolekcemi (Balthazar C-D), bez prokázané nekrózy parenchymu."
   },
   "specialty": "Chirurgie",
   "difficulty": "medium",
   "patientHistory": [
-    "Cholecystoliáza (žlučníkové kameny), hypertriglyceridémie"
+    "Cholecystolitiáza (žlučníkové kameny), hypertriglyceridémie"
   ],
   "vitalSigns": {
     "tf": 112,

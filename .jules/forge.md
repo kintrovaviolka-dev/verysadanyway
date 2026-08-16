@@ -7,3 +7,6 @@
 ## 2024-08-04 - Fixing typos in medical cases
 **Learning:** Found cases where case data is duplicated across `cases.js` at the root, and `urgentni-prijem/src/data/cases/2.json` in the subproject.
 **Action:** Always search globally for text changes, as they might be duplicated across different files.
+## 2026-08-11 - Accidental lockfile creation during testing
+**Learning:** Running `pnpm lint` or `pnpm install` in subdirectories (like `urgentni-prijem`) might generate or update a `pnpm-lock.yaml` file, which is an unintended side-effect if the file wasn't originally tracked by git.
+**Action:** Always check `git status` for newly generated lockfiles after running package manager commands in subdirectories and clean them up (e.g. `git checkout` or `rm`) before committing.

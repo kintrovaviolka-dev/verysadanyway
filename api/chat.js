@@ -1,16 +1,21 @@
 // api/chat.js - Vercel Serverless Function Proxy for Gemini API
 
-// Wrapper for future stateless rate limiter injection (e.g. Upstash/Redis)
-async function checkExternalRateLimit(ip) {
-  // TODO: Implement Upstash Redis rate limiting check here.
-  // Example:
-  // const { success } = await redis.limit(ip);
-  // if (!success) throw new Error("Rate limit exceeded");
-  return { allowed: true };
+const requestsByIp = new Map();
+const RATE_WINDOW_MS = 60 * 1000;
+const MAX_REQUESTS = 10;
+
+function checkRateLimit(ip) {
+  const now = Date.now();
+  const requests = (requestsByIp.get(ip) || []).filter(timestamp => now - timestamp < RATE_WINDOW_MS);
+  if (requests.length >= MAX_REQUESTS) return false;
+  requests.push(now);
+  requestsByIp.set(ip, requests);
+  return true;
 }
 
 function getClientIp(req) {
-  return req.headers['x-forwarded-for'] || req.socket?.remoteAddress || 'unknown';
+  const forwarded = req.headers['x-vercel-forwarded-for'] || req.headers['x-forwarded-for'];
+  return typeof forwarded === 'string' ? forwarded.split(',')[0].trim() : (req.socket?.remoteAddress || 'unknown');
 }
 
 function checkReferer(req) {
@@ -27,7 +32,8 @@ function checkReferer(req) {
       
       const allowed = ['localhost', '127.0.0.1', '::1'];
       const isLocal = allowed.some(domain => hostname === domain);
-      const isVercel = hostname === 'vercel.app' || hostname.endsWith('.vercel.app');
+      const allowedVercel = ['patfyz.vercel.app', 'patolka.vercel.app', 'verysadanyway.vercel.app'];
+      const isVercel = allowedVercel.includes(hostname);
       
       return isLocal || isVercel;
     } catch (e) {
@@ -53,6 +59,10 @@ const systemInstructions = {
 };
 
 module.exports = async (req, res) => {
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+  res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+
   // CORS Headers Configuration
   const origin = req.headers.origin;
   const referer = req.headers.referer || req.headers.referrer;
@@ -66,7 +76,8 @@ module.exports = async (req, res) => {
       
       const allowed = ['localhost', '127.0.0.1', '::1'];
       const isLocal = allowed.some(domain => hostname === domain);
-      const isVercel = hostname === 'vercel.app' || hostname.endsWith('.vercel.app');
+      const allowedVercel = ['patfyz.vercel.app', 'patolka.vercel.app', 'verysadanyway.vercel.app'];
+      const isVercel = allowedVercel.includes(hostname);
       
       if (isLocal || isVercel) {
         allowedOrigin = url.origin;
@@ -77,7 +88,7 @@ module.exports = async (req, res) => {
   if (allowedOrigin) {
     res.setHeader('Access-Control-Allow-Origin', allowedOrigin);
     res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   }
 
   // Handle preflight OPTIONS request
@@ -96,28 +107,15 @@ module.exports = async (req, res) => {
     return res.status(403).json({ error: "Access forbidden from this origin." });
   }
 
-  // 2. Validate Authorization header
-  const clientToken = process.env.CLIENT_TOKEN;
-  if (!clientToken) {
-    return res.status(500).json({ error: "Server configuration error: CLIENT_TOKEN is not set." });
-  }
-  const authHeader = req.headers.authorization;
-  if (!authHeader || authHeader !== `Bearer ${clientToken}`) {
-    return res.status(401).json({ error: "Access unauthorized. Missing or invalid Authorization header." });
-  }
-
-  // 3. Call stateless rate-limiter placeholder
+  // A browser client cannot keep a shared secret. Limit this public endpoint
+  // instead of accepting a token that was previously returned by /api/config.
   const ip = getClientIp(req);
-  try {
-    const rateLimit = await checkExternalRateLimit(ip);
-    if (!rateLimit.allowed) {
-      return res.status(429).json({ error: "Příliš mnoho požadavků." });
-    }
-  } catch (error) {
-    return res.status(429).json({ error: error.message });
+  if (!checkRateLimit(ip)) {
+    res.setHeader('Retry-After', '60');
+    return res.status(429).json({ error: "Příliš mnoho požadavků." });
   }
 
-  // 4. Check API key configuration
+  // 3. Check API key configuration
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey || apiKey === 'YOUR_API_KEY_HERE' || apiKey === 'your_gemini_api_key_here') {
     return res.status(503).json({ 
@@ -127,8 +125,11 @@ module.exports = async (req, res) => {
 
   const { messages, subject } = req.body;
 
-  if (!messages || !Array.isArray(messages) || messages.length === 0) {
+  if (!messages || !Array.isArray(messages) || messages.length === 0 || messages.length > 30) {
     return res.status(400).json({ error: "Chybí konverzační historie." });
+  }
+  if (!messages.every(msg => msg && typeof msg.text === 'string' && msg.text.length <= 4000)) {
+    return res.status(400).json({ error: "Neplatný nebo příliš dlouhý obsah zprávy." });
   }
 
   try {

@@ -880,7 +880,11 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const contentDiv = document.createElement("div");
     contentDiv.className = "message-content";
-    contentDiv.innerHTML = role === "assistant" ? parseMarkdown(text) : text;
+    if (role === "assistant") {
+      contentDiv.innerHTML = parseMarkdown(text);
+    } else {
+      contentDiv.textContent = text;
+    }
     
     messageDiv.appendChild(contentDiv);
     chatbotMessages.appendChild(messageDiv);
@@ -892,28 +896,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // Load client token from /api/config for verification handshake
-  let clientToken = "";
-  const loadClientToken = async () => {
-    try {
-      const res = await fetch("/api/config");
-      if (res.ok) {
-        const data = await res.json();
-        clientToken = data.clientToken;
-      }
-    } catch (e) {
-      console.error("Failed to load client token", e);
-    }
-  };
-  loadClientToken();
-
   // Send request via backend proxy with streaming
   const callProxyServerStream = async (messages, subject, onChunk, onStart) => {
     const response = await fetch("/api/chat", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${clientToken}`
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({ messages, subject })
     });
@@ -1167,7 +1155,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const errorDiv = document.createElement("div");
       errorDiv.className = "message system";
-      errorDiv.innerHTML = `<div class="message-content">Chyba: ${err.message}</div>`;
+      const errorContent = document.createElement("div");
+      errorContent.className = "message-content";
+      errorContent.textContent = `Chyba: ${err.message}`;
+      errorDiv.appendChild(errorContent);
       chatbotMessages.appendChild(errorDiv);
       scrollToBottom();
     } finally {

@@ -1,33 +1,3 @@
-// api/config.js - Vercel Serverless Function to expose public CLIENT_TOKEN for authorization.
-
-function checkReferer(req) {
-  const referer = req.headers.referer || req.headers.referrer;
-  const origin = req.headers.origin;
-  
-  if (!referer && !origin) return false;
-  
-  const checkDomain = (source) => {
-    if (!source) return true;
-    try {
-      const url = new URL(source);
-      const hostname = url.hostname;
-      
-      const allowed = ['localhost', '127.0.0.1', '::1'];
-      const isLocal = allowed.some(domain => hostname === domain);
-      const isVercel = hostname === 'vercel.app' || hostname.endsWith('.vercel.app');
-      
-      return isLocal || isVercel;
-    } catch (e) {
-      return false;
-    }
-  };
-  
-  if (referer && !checkDomain(referer)) return false;
-  if (origin && !checkDomain(origin)) return false;
-  
-  return true;
-}
-
 module.exports = async (req, res) => {
   // CORS Headers Configuration
   const origin = req.headers.origin;
@@ -71,4 +41,9 @@ module.exports = async (req, res) => {
     return res.status(500).json({ error: "Server configuration error: CLIENT_TOKEN is not set." });
   }
   return res.status(200).json({ clientToken });
+=======
+  // Browser-delivered values cannot be authentication secrets. This endpoint
+  // previously disclosed CLIENT_TOKEN, making the authorization check bypassable.
+  return res.status(410).json({ error: 'This endpoint has been retired.' });
+>>>>>>> origin/main
 };

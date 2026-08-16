@@ -7,7 +7,8 @@ import {
   Shield,
   Stethoscope,
   ChevronRight,
-  Wind
+  Wind,
+  MessageCircle
 } from 'lucide-react';
 import EmergencyModule from './components/EmergencyModule';
 import AnesthesiaModule from './components/AnesthesiaModule';
@@ -16,10 +17,11 @@ import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { ANESTHESIA_MEDS } from './data/meds';
 import SupportButton from './components/SupportButton';
 import FeedbackButton from './components/FeedbackButton';
+import PatientSimulator from './components/PatientSimulator';
 
 function AppContent() {
   const { language, setLanguage, t } = useLanguage();
-  const [activeModule, setActiveModule] = useState<'home' | 'emergency' | 'pharmacology' | 'ventilation'>('home');
+  const [activeModule, setActiveModule] = useState<'home' | 'emergency' | 'pharmacology' | 'ventilation' | 'simulator'>('home');
   const [masteredCount, setMasteredCount] = useState(0);
   const [apiHealth, setApiHealth] = useState<{ configured: boolean; checking: boolean }>({
     configured: false,
@@ -119,6 +121,14 @@ function AppContent() {
               }`}
             >
               {t('ventilationHub')}
+            </button>
+            <button
+              onClick={() => setActiveModule('simulator')}
+              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all border ${
+                activeModule === 'simulator' ? 'bg-violet-500/20 text-violet-200 border-violet-400/30' : 'text-slate-400 hover:text-white border-transparent hover:bg-white/5'
+              }`}
+            >
+              AI Patient
             </button>
           </nav>
 
@@ -223,7 +233,7 @@ function AppContent() {
             </div>
 
             {/* Portal Module Entry Choices */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
               {/* Emergency medicine box */}
               <div className="group glass-card glass-card-hover rounded-2xl p-6 shadow-sm flex flex-col justify-between">
                 <div className="flex flex-col gap-4">
@@ -352,6 +362,31 @@ function AppContent() {
                   <ChevronRight className="w-4 h-4" />
                 </button>
               </div>
+
+              {/* Live AI patient chat simulator */}
+              <div className="group glass-card glass-card-hover rounded-2xl p-6 shadow-sm flex flex-col justify-between">
+                <div className="flex flex-col gap-4">
+                  <div className="w-12 h-12 bg-violet-500/10 text-violet-300 rounded-xl flex items-center justify-center border border-violet-400/20">
+                    <MessageCircle className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold tracking-tight text-white group-hover:text-violet-300 transition-colors">Live AI Patient</h3>
+                    <p className="text-xs text-slate-400 font-sans mt-1.5 leading-relaxed">
+                      {language === 'cs' ? 'Trénujte klinický rozhovor, diferenciální diagnostiku a první léčebné kroky u dynamického pacienta.' : 'Practice clinical interviewing, differential diagnosis, and first treatment steps with a dynamic patient.'}
+                    </p>
+                  </div>
+                  <div className="glass-pill p-4 rounded-xl text-xs text-slate-400 font-medium">
+                    {language === 'cs' ? 'Živé vitální funkce • AI odpovědi • bezpečný trénink' : 'Live vital signs • AI responses • safe practice'}
+                  </div>
+                </div>
+                <button
+                  onClick={() => setActiveModule('simulator')}
+                  className="mt-6 flex items-center justify-center gap-1.5 py-3 bg-violet-500/20 hover:bg-violet-500/30 text-violet-200 hover:text-white border border-violet-400/20 hover:border-violet-300/50 font-bold rounded-xl text-xs tracking-wider transition-all shadow-sm cursor-pointer"
+                >
+                  {language === 'cs' ? 'Otevřít simulátor' : 'Open simulator'}
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
             </div>
           </div>
         )}
@@ -372,6 +407,12 @@ function AppContent() {
         {activeModule === 'ventilation' && (
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
             <VentilationModule />
+          </motion.div>
+        )}
+
+        {activeModule === 'simulator' && (
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
+            <PatientSimulator />
           </motion.div>
         )}
       </main>
