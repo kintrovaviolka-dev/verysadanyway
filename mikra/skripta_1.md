@@ -676,7 +676,7 @@ paramyxoviry, herpesviry
 
 Hirstův test - aglutinace
 
--výsledek není na kuřecích zárodcích vidět – vyjímku tvoří poky = bělavá ložiska
+-výsledek není na kuřecích zárodcích vidět – výjimku tvoří poky = bělavá ložiska
 
 (chorioalantoidní membrána)
 
