@@ -151,7 +151,34 @@ function renderCards() {
         <span class="empty-state-icon">🔬</span>
         <h3>Žádné otázky nenalezeny</h3>
         <p>Zkus upravit filtr nebo vyhledávání.</p>
+        <button id="clear-search-btn" class="btn btn-secondary btn-sm" aria-label="Zrušit vyhledávání" style="margin-top: 1rem;">
+          Zrušit vyhledávání
+        </button>
       </div>`;
+
+    // Bind clear search button
+    const clearBtn = document.getElementById('clear-search-btn');
+    if (clearBtn) {
+      clearBtn.addEventListener('click', () => {
+        appState.search = '';
+        appState.groupFilter = 'all';
+        appState.statusFilter = 'all';
+
+        const searchInput = document.getElementById('search-input');
+        if (searchInput) {
+            searchInput.value = '';
+            searchInput.focus();
+        }
+
+        const groupFilter = document.getElementById('group-filter');
+        if (groupFilter) groupFilter.value = 'all';
+
+        const statusFilter = document.getElementById('status-filter');
+        if (statusFilter) statusFilter.value = 'all';
+
+        renderCards();
+      });
+    }
     return;
   }
 
