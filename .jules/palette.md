@@ -4,3 +4,6 @@
 ## 2024-11-20 - Custom Modal Accessibility
 **Learning:** Custom modals built without the native HTML `<dialog>` tag lack built-in accessibility features (like keyboard focus management and screen reader roles).
 **Action:** When implementing custom modals, always add `role="dialog"`, `aria-modal="true"`, and appropriate `aria-labelledby` attributes. Programmatically trap or shift focus to the modal when opened, close the modal on `Escape` key press, and restore focus to the previously active element upon closing.
+## 2025-02-12 - Chatbot Settings Modal Accessibility
+**Learning:** Overlays built as divs without native dialog semantics (like the chatbot settings overlay) are invisible to screen readers as dialogs.
+**Action:** When working on custom overlays, always ensure `role="dialog"`, `aria-modal="true"`, and a descriptive `aria-label` (or `aria-labelledby`) are present to provide proper context to assistive technologies.
