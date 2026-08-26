@@ -23,10 +23,52 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 
 // server.ts
 var import_express = __toESM(require("express"), 1);
-var import_path = __toESM(require("path"), 1);
+var import_path2 = __toESM(require("path"), 1);
+var import_crypto = __toESM(require("crypto"), 1);
 var import_dotenv = __toESM(require("dotenv"), 1);
 var import_genai = require("@google/genai");
 var import_vite = require("vite");
+
+// src/data/cases/index.ts
+var import_fs = __toESM(require("fs"), 1);
+var import_path = __toESM(require("path"), 1);
+var CASES_DIR = import_path.default.join(process.cwd(), "src/data/cases");
+function getAllCases() {
+  try {
+    if (!import_fs.default.existsSync(CASES_DIR)) {
+      return [];
+    }
+    const files = import_fs.default.readdirSync(CASES_DIR);
+    const cases = [];
+    for (const file of files) {
+      if (file.endsWith(".json")) {
+        const filePath = import_path.default.join(CASES_DIR, file);
+        const content = import_fs.default.readFileSync(filePath, "utf-8");
+        cases.push(JSON.parse(content));
+      }
+    }
+    return cases.sort((a, b) => {
+      const idA = parseInt(a.id, 10) || 999;
+      const idB = parseInt(b.id, 10) || 999;
+      return idA - idB;
+    });
+  } catch (error) {
+    console.error("Failed to read cases directory:", error);
+    return [];
+  }
+}
+function getCasesByFilter(specialty, level) {
+  let cases = getAllCases();
+  if (specialty && specialty !== "all") {
+    cases = cases.filter((c) => c.specialty.toLowerCase() === specialty.toLowerCase());
+  }
+  if (level) {
+    cases = cases.filter((c) => c.level === level);
+  }
+  return cases;
+}
+
+// server.ts
 import_dotenv.default.config();
 var PORT = 3e3;
 var ai = null;
@@ -48,492 +90,30 @@ function getGeminiClient() {
   }
   return ai;
 }
-var CASES = {
-  "1": {
-    id: "1",
-    level: 1,
-    title: "Akutn\xED infarkt myokardu spodn\xED st\u011Bny (STEMI)",
-    name: "Franti\u0161ek Nov\xE1k",
-    age: 45,
-    sex: "Mu\u017E",
-    mainComplaint: "Bolest na hrudi, du\u0161nost",
-    complaintDetail: "Pacient uv\xE1d\xED n\xE1hl\xFD za\u010D\xE1tek sv\xEDrav\xE9 bolesti s vyza\u0159ov\xE1n\xEDm do lev\xE9 pa\u017Ee a zadn\xED st\u011Bny krku. Trv\xE1 cca 20 minut, doprov\xE1zeno studen\xFDm potem.",
-    history: ["ICHS", "Hypertenze", "Nikotinismus (20 cigaret denn\u011B)"],
-    allergies: ["PENICILIN", "J\xD3D"],
-    triageClass: "2",
-    // Kritický (can be selected by user)
-    vitals: {
-      tf: 110,
-      tk_sys: 160,
-      tk_dia: 95,
-      spo2: 92,
-      gcs: 15,
-      temp: 37.2,
-      rr: 22
-    },
-    secretDiagnosis: "Akutn\xED infarkt myokardu spodn\xED st\u011Bny (STEMI)",
-    secretDiagnosisCode: "I21.1",
-    labsResult: {
-      ko: "KO: Leukocyt\xF3za 12.4 x10^9/l, Erytrocyty 4.8 x10^12/l, Hb 145 g/l, Trombocyty 250 x10^9/l.",
-      biochem: "Biochemie STATIM: Troponin I: 450 ng/l (norma <14) - SILN\u011A POZITIVN\xCD, CK-MB: 4.2 ug/l (norma <2.5), Urea: 6.2 mmol/l, Kreatinin: 88 umol/l, CRP: 5.2 mg/l, Drasl\xEDk: 3.9 mmol/l, Sod\xEDk: 139 mmol/l.",
-      coag: "Koagulace: INR 1.05, APTT 32 s, Fibrinogen 3.1 g/l.",
-      mochem: "Mo\u010D chemicky: Negativn\xED.",
-      abr: "Astrup (ABR): pH 7.39, pCO2 5.1 kPa, pO2 9.5 kPa, HCO3- 24.2 mmol/l, BE 0.1 mmol/l, Saturace 92%."
-    },
-    imagingResult: {
-      ekg: "12svodov\xE9 EKG: Sinusov\xE1 tachykardie 110/min, ST elevace 3 mm ve svodech II, III, aVF s recipro\u010Dn\xEDmi depresemi v I, aVL.",
-      rtg: "RTG Srdce+Pl\xEDce: Srde\u010Dn\xED st\xEDn nezv\u011Bt\u0161en, plicn\xED k\u0159\xEDdla bez m\u011Bstn\xE1n\xED \u010Di lo\u017Eiskov\xFDch zm\u011Bn.",
-      echo: "Echokardiografie: Hypokineze doln\xED st\u011Bny lev\xE9 komory, EF lev\xE9 komory 45-50%, bez chlopenn\xEDch vad.",
-      ct: "CT Pulmon\xE1ln\xED angiografie: Bez zn\xE1mek plicn\xED embolie."
-    }
-  },
-  "2": {
-    id: "2",
-    level: 2,
-    title: "Akutn\xED plicn\xED embolie se st\u0159edn\xEDm rizikem",
-    name: "Alena Dvo\u0159\xE1kov\xE1",
-    age: 52,
-    sex: "\u017Dena",
-    mainComplaint: "N\xE1hl\xFD kolaps, du\u0161nost a pleur\xE1ln\xED bolest na hrudi",
-    complaintDetail: "Byla p\u0159ivezena RZP po n\xE1hl\xE9m kolapsu p\u0159i vstan\xED z postele. Nyn\xED st\u011B\u017Euje na v\xFDraznou du\u0161nost, ostr\xFD p\xEDchav\xFD tlak na prav\xE9 stran\u011B hrudn\xEDku zhor\u0161uj\xEDc\xED se p\u0159i n\xE1dechu, a such\xFD dr\xE1\u017Ediv\xFD ka\u0161el.",
-    history: ["Hormon\xE1ln\xED antikoncepce (HAK)", "Varixy doln\xEDch kon\u010Detin", "S\xE1drov\xE1 fixace prav\xE9ho b\xE9rce pro zlomeninu p\u0159ed 3 t\xFDdny"],
-    allergies: ["J\xD3D"],
-    triageClass: "2",
-    // Kritický
-    vitals: {
-      tf: 124,
-      tk_sys: 105,
-      tk_dia: 65,
-      spo2: 88,
-      gcs: 14,
-      temp: 36.8,
-      rr: 26
-    },
-    secretDiagnosis: "Akutn\xED embolizace plicnice",
-    secretDiagnosisCode: "I26.9",
-    labsResult: {
-      ko: "KO: Leukocyty 9.8 x10^9/l, Hb 132 g/l, Trombocyty 290 x10^9/l.",
-      biochem: "Biochemie STATIM: Troponin I: 55 ng/l (lehce zv\xFD\u0161en\xFD), D-Dimery: 3450 ng/ml (norma <500) - EXTR\xC9MN\u011A POZITIVN\xCD, CRP: 15.1 mg/l, Kreatinin: 75 umol/l, Urea: 5.1 mmol/l.",
-      coag: "Koagulace: INR 1.01, APTT 30 s.",
-      mochem: "Mo\u010D chemicky: Negativn\xED.",
-      abr: "Astrup (ABR): pH 7.46 (respira\u010Dn\xED alkal\xF3za), pCO2 4.1 kPa (hypokapnie), pO2 7.8 kPa (hypoxemie), HCO3- 23.5 mmol/l, BE 0.8 mmol/l."
-    },
-    imagingResult: {
-      ekg: "12svodov\xE9 EKG: Sinusov\xE1 tachykardie 124/min, nespecifick\xE9 zm\u011Bny ST-T, p\u0159\xEDtomen S1Q3T3 vzorec (hlubok\xE9 S v I, kmit Q v III a negativn\xED T v III), inkompletn\xED blok\xE1da prav\xE9ho ram\xE9nka (iRBBB).",
-      rtg: "RTG Srdce+Pl\xEDce: M\xEDrn\xE9 projasn\u011Bn\xED vpravo (Westermarkovo znamen\xED), bez pleur\xE1ln\xEDho v\xFDpotku.",
-      echo: "Echokardiografie u l\u016F\u017Eka (Bedside): Dilatace prav\xE9 komory (RV/LV pom\u011Br 1.1), oplo\u0161t\u011Bn\xED mezikomorov\xE9ho septa, m\xEDrn\xE1 trikuspid\xE1ln\xED regurgitace s odhadem gradientu 40 mmHg. Zn\xE1mky p\u0159et\xED\u017Een\xED prav\xE9 komory.",
-      ct: "CT Pulmon\xE1ln\xED angiografie (Upozorn\u011Bn\xED: Alergie na J\xD3D!): Po premedikaci methylprednisolonem a dithiadenem: Prok\xE1z\xE1n masivn\xED embolus v prav\xE9 plicn\xED tepn\u011B zasahuj\xEDc\xED do lob\xE1rn\xEDch v\u011Btv\xED."
-    }
-  },
-  "3": {
-    id: "3",
-    level: 3,
-    title: "Masivn\xED polytrauma s hemoragick\xFDm \u0161okem",
-    name: "Jan Ku\u010Dera",
-    age: 32,
-    sex: "Mu\u017E",
-    mainComplaint: "Polytrauma po nehod\u011B na motocyklu",
-    complaintDetail: "Mlad\xFD motork\xE1\u0159 po st\u0159etu s autem ve vysok\xE9 rychlosti. P\u0159ivezen v bezv\u011Bdom\xED, zaveden kr\u010Dn\xED l\xEDmec. Viditeln\xE1 deformita p\xE1nve, tr\u017En\xE9 r\xE1ny na stehn\u011B s masivn\xEDm zevn\xEDm krv\xE1cen\xEDm, asymetrie hrudn\xEDku, d\xFDch\xE1n\xED povrchn\xED.",
-    history: ["Dosud zdr\xE1v", "Aktivn\xED sportovec"],
-    allergies: [],
-    triageClass: "1",
-    // Resuscitace
-    vitals: {
-      tf: 138,
-      tk_sys: 82,
-      tk_dia: 40,
-      spo2: 86,
-      gcs: 9,
-      temp: 35.5,
-      rr: 28
-    },
-    secretDiagnosis: "Polytrauma, hemoragick\xFD \u0161ok, nestabiln\xED zlomenina p\xE1nve, hemotorax vpravo",
-    secretDiagnosisCode: "T07",
-    labsResult: {
-      ko: "KO: Hemoglobin 85 g/l (zna\u010Dn\xFD pokles), Erytrocyty 2.9 x10^12/l, Hematokrit 0.25, Leukocyty 14.5 x10^9/l, Trombocyty 160 x10^9/l.",
-      biochem: "Biochemie STATIM: Urea: 7.5 mmol/l, Kreatinin: 120 umol/l, Lakt\xE1t: 4.8 mmol/l (t\u011B\u017Ek\xE1 tk\xE1\u0148ov\xE1 hypoxie), Troponin I: 18 ng/l (v norm\u011B). Krevn\xED skupina: B Rh negativn\xED.",
-      coag: "Koagulace: INR 1.45 (traumatick\xE1 koagulopatie), APTT 45 s, Fibrinogen 1.4 g/l (kritick\xFD deficit).",
-      mochem: "Mo\u010D chemicky: Hematurie.",
-      abr: "Astrup (ABR): pH 7.24 (metabolick\xE1 acid\xF3za), pCO2 4.9 kPa, pO2 7.1 kPa, HCO3- 16.8 mmol/l, BE -8.5 mmol/l, lakt\xE1t 4.8."
-    },
-    imagingResult: {
-      ekg: "12svodov\xE9 EKG: Sinusov\xE1 tachykardie 138/min, bez lo\u017Eiskov\xFDch zm\u011Bn.",
-      rtg: "RTG P\xE1nve a Hrudn\xEDku: Zlomenina p\xE1nve typu 'otev\u0159en\xE1 kniha' s diast\xE1zou symf\xFDzy 4 cm. RTG hrudn\xEDku vykazuje fluidotorax vpravo (hemotorax) s kolapsem pl\xEDce, zlomeniny 4.-7. \u017Eebra vpravo.",
-      echo: "FAST Ultrasonografie (Trauma USG): Voln\xE1 tekutina v hepatoren\xE1ln\xEDm prostoru (Morisonova kapsa) - pozitivn\xED, a masivn\xED anechogenn\xED z\xF3na v prav\xE9 pleur\xE1ln\xED dutin\u011B (hemotorax). Voln\xE1 tekutina v p\xE1nvi.",
-      ct: "CT Celot\u011Blov\xE9 (Pan-scan): CT hlavy bez krv\xE1cen\xED. Hrudn\xEDk: hemotorax vpravo, kontuze plicn\xED. B\u0159icho a p\xE1nev: hematom retroperitonea z p\xE1nevn\xEDho plexus venosus, aktivn\xED arteri\xE1ln\xED krv\xE1cen\xED z a. iliaca interna vpravo."
-    }
-  },
-  "4": {
-    id: "4",
-    level: 1,
-    title: "Akutn\xED subglotick\xE1 laryngitida (Croup)",
-    name: "Tobi\xE1\u0161ek Vesel\xFD",
-    age: 3,
-    sex: "Chlapec",
-    mainComplaint: "\u0160t\u011Bkav\xFD ka\u0161el, inspira\u010Dn\xED stridor a zt\xED\u017Een\xE9 d\xFDch\xE1n\xED",
-    complaintDetail: "Matka uv\xE1d\xED, \u017Ee d\xEDt\u011B \u0161lo sp\xE1t zdrav\xE9, jen s lehkou r\xFDmou. Kolem p\u016Flnoci se probudilo s drsn\xFDm, \u0161t\u011Bkav\xFDm ka\u0161lem a s\xEDp\xE1n\xEDm p\u0159i n\xE1dechu. Je neklidn\xE9, pl\xE1\u010De, co\u017E zhor\u0161uje du\u0161nost. M\xE1 zatahov\xE1n\xED pod\u017Eeb\u0159\xED a jugula.",
-    history: ["B\u011B\u017En\xE1 d\u011Btsk\xE1 onemocn\u011Bn\xED, o\u010Dkov\xE1n \u0159\xE1dn\u011B"],
-    allergies: ["Bez zn\xE1m\xFDch alergi\xED"],
-    triageClass: "2",
-    vitals: {
-      tf: 142,
-      tk_sys: 95,
-      tk_dia: 60,
-      spo2: 91,
-      gcs: 15,
-      temp: 37.8,
-      rr: 36
-    },
-    secretDiagnosis: "Akutn\xED subglotick\xE1 laryngitida (Croup)",
-    secretDiagnosisCode: "J05.0",
-    labsResult: {
-      ko: "KO: Leukocyty 10.5 x10^9/l (m\xEDrn\xE1 leukocyt\xF3za), Hb 125 g/l, Trombocyty 310 x10^9/l.",
-      biochem: "Biochemie: CRP: 8.5 mg/l (virov\xE1 etiologie odpov\xEDd\xE1 n\xEDzk\xE9mu CRP), Drasl\xEDk: 4.2 mmol/l, Sod\xEDk: 140 mmol/l, Glyk\xE9mie: 5.6 mmol/l.",
-      coag: "Koagulace: V norm\u011B (INR 1.0, APTT 30 s).",
-      mochem: "Mo\u010D: Negativn\xED.",
-      abr: "Astrup (ABR): pH 7.41, pCO2 5.0 kPa, pO2 8.4 kPa (lehk\xE1 hypox\xE9mie), HCO3- 24.0 mmol/l, BE 0.2 mmol/l."
-    },
-    imagingResult: {
-      ekg: "EKG: Sinusov\xE1 tachykardie 142/min, bez patologick\xFDch zm\u011Bn.",
-      rtg: "RTG krku / hrudn\xEDku: Zu\u017Eov\xE1n\xED subglotick\xE9ho prostoru (klasick\xE9 znamen\xED 'kosteln\xED v\u011B\u017Ee' / steeple sign), pl\xEDce bez infiltrac\xED.",
-      echo: "Echokardiografie: Nen\xED indikov\xE1na u akutn\xED laryngitidy, srdce struktur\xE1ln\u011B bez patologie.",
-      ct: "CT krku: Nen\xED indikov\xE1no, riziko zbyte\u010Dn\xE9 sedace u d\xEDt\u011Bte."
-    }
-  },
-  "5": {
-    id: "5",
-    level: 3,
-    title: "Meningokokov\xE1 sepse a meningitida",
-    name: "Eli\u0161ka Novotn\xE1",
-    age: 8,
-    sex: "D\xEDvka",
-    mainComplaint: "Hore\u010Dka, \xFAporn\xE1 bolest hlavy, zvracen\xED, fialov\xE9 skvrnky na k\u016F\u017Ei",
-    complaintDetail: "D\xEDt\u011B je schv\xE1cen\xE9, spav\xE9, t\u011B\u017Eko komunikuje. Trp\xED silnou bolest\xED hlavy, sv\u011Btloplachost\xED a opakovn\u011B zvrac\xED. Matka si p\u0159ed hodinou v\u0161imla drobn\xFDch \u010Dervenofialov\xFDch skvrnek na stehnech a b\u0159i\u0161e, kter\xE9 neblednou p\u0159i zatla\u010Den\xED skleni\u010Dkou.",
-    history: ["Dosud zdrav\xE1, neo\u010Dkovan\xE1 proti meningokoku typu B"],
-    allergies: ["Bez zn\xE1m\xFDch alergi\xED"],
-    triageClass: "1",
-    vitals: {
-      tf: 155,
-      tk_sys: 80,
-      tk_dia: 42,
-      spo2: 90,
-      gcs: 11,
-      temp: 39.9,
-      rr: 32
-    },
-    secretDiagnosis: "Meningokokov\xE1 sepse a meningitida",
-    secretDiagnosisCode: "A39.0",
-    labsResult: {
-      ko: "KO: Leukocyt\xF3za 24.5 x10^9/l s posunem doleva, Hemoglobin 112 g/l, Trombocytopenie 85 x10^9/l (hroz\xEDc\xED DIC).",
-      biochem: "Biochemie STATIM: CRP: 185 mg/l - VYSOK\xC9, Lakt\xE1t: 5.4 mmol/l (z\xE1va\u017En\xFD lakt\xE1tov\xFD \u0161ok), Kreatinin: 110 umol/l, Urea: 8.2 mmol/l, Glyk\xE9mie: 3.2 mmol/l.",
-      coag: "Koagulace: INR 1.65 (prodlou\u017Eeno), APTT 52 s, Fibrinogen 1.1 g/l (spot\u0159ebn\xED koagulopatie), D-dimery: 4200 ng/ml.",
-      mochem: "Mo\u010D: B\xEDlkovina +, krev +.",
-      abr: "Astrup (ABR): pH 7.21 (t\u011B\u017Ek\xE1 metabolick\xE1 acid\xF3za s lakt\xE1tem), pCO2 3.8 kPa, pO2 7.5 kPa, HCO3- 14.5 mmol/l, BE -11.5 mmol/l."
-    },
-    imagingResult: {
-      ekg: "EKG: Sinusov\xE1 tachykardie 155/min, bez lo\u017Eiskov\xE9 ischemie.",
-      rtg: "RTG Hrudn\xEDku: Bez lo\u017Eiskov\xFDch zm\u011Bn v plicn\xEDm parenchymu.",
-      echo: "Echokardiografie: Hyperdynamick\xE1 lev\xE1 komora, EF 70%, bez chlopenn\xEDch vegetac\xED.",
-      ct: "CT Mozku: Bez nitrolebn\xEDho krv\xE1cen\xED, m\xEDrn\xFD ed\xE9m mozku, zn\xE1mky meningitidy."
-    }
-  },
-  "6": {
-    id: "6",
-    level: 2,
-    title: "Anafylaktick\xFD \u0161ok po bodnut\xED vosou",
-    name: "Jakub Kr\xE1l",
-    age: 28,
-    sex: "Mu\u017E",
-    mainComplaint: "Du\u0161nost, otok obli\u010Deje, celot\u011Blov\xE1 kop\u0159ivka a kolaps",
-    complaintDetail: "Pacienta na zahrad\u011B bodla vosa do krku. B\u011Bhem 10 minut se u n\u011Bj rozvinul masivn\xED otok rt\u016F, jazyka a krku, s\xEDp\xE1n\xED, sv\u011Bdiv\xE1 vyr\xE1\u017Eka po cel\xE9m t\u011Ble a n\xE1sledn\u011B zkolaboval na zem. Man\u017Eelka zavolala RZP, na m\xEDst\u011B pod\xE1n Epipen, na urgent p\u0159ivezen st\xE1le du\u0161n\xFD s poklesem tlaku.",
-    history: ["Alergie na bodnut\xED blanok\u0159\xEDdl\xFDm hmyzem, astma bronchiale"],
-    allergies: ["VOS\xCD JED"],
-    triageClass: "1",
-    vitals: {
-      tf: 132,
-      tk_sys: 75,
-      tk_dia: 40,
-      spo2: 85,
-      gcs: 13,
-      temp: 36.5,
-      rr: 30
-    },
-    secretDiagnosis: "Anafylaktick\xFD \u0161ok po bodnut\xED hmyzem",
-    secretDiagnosisCode: "T78.2",
-    labsResult: {
-      ko: "KO: Leukocyty 11.2 x10^9/l, Hb 148 g/l, Trombocyty 220 x10^9/l.",
-      biochem: "Biochemie: CRP: 2.1 mg/l, Kreatinin: 82 umol/l, Troponin I: 12 ng/l, Drasl\xEDk: 4.1 mmol/l. IgE specifick\xE9 na vos\xED jed: Extr\xE9mn\u011B zv\xFD\u0161en\xE9.",
-      coag: "Koagulace: INR 1.02, APTT 31 s.",
-      mochem: "Mo\u010D: Negativn\xED.",
-      abr: "Astrup (ABR): pH 7.28 (sm\xED\u0161en\xE1 acid\xF3za), pCO2 6.1 kPa (hyperkapnie z dechov\xE9 obstrukce), pO2 6.8 kPa (t\u011B\u017Ek\xE1 hypox\xE9mie), HCO3- 19.8 mmol/l, BE -5.2 mmol/l."
-    },
-    imagingResult: {
-      ekg: "EKG: Sinusov\xE1 tachykardie 132/min, nespecifick\xE9 oplo\u0161t\u011Bn\xED vln T.",
-      rtg: "RTG Hrudn\xEDku: Hyperinflace plic (obraz astmatick\xE9ho z\xE1chvatu), bez lo\u017Eiskov\xFDch zm\u011Bn.",
-      echo: "Echokardiografie: Bez chlopenn\xEDch vad, kontraktilita dobr\xE1, doln\xED dut\xE1 \u017E\xEDla kolabuje (relativn\xED hypovolemie p\u0159i redistribuci tekutin).",
-      ct: "CT Krku: Masivn\xED ed\xE9m hrtanu a m\u011Bkk\xFDch tk\xE1n\xED krku, v\xFDrazn\xE9 z\xFA\u017Een\xED d\xFDchac\xEDch cest."
-    }
-  },
-  "7": {
-    id: "7",
-    level: 2,
-    title: "Akutn\xED pankreatitida s po\u010D\xEDnaj\xEDc\xED peritonitidou",
-    name: "Hana Sou\u010Dkov\xE1",
-    age: 39,
-    sex: "\u017Dena",
-    mainComplaint: "N\xE1hl\xE1 krut\xE1 bolest v nadb\u0159i\u0161ku, zvracen\xED, schv\xE1cenost",
-    complaintDetail: "Pacientka uv\xE1d\xED n\xE1hl\xFD vznik extr\xE9mn\xED bolesti v epigastriu po v\u010Derej\u0161\xED oslav\u011B narozenin (tu\u010Dn\xE9 j\xEDdlo, alkohol). Bolest vyza\u0159uje p\xE1sovit\u011B do zad, opakovan\u011B zvrac\xED \u017Elu\u010D, nem\u016F\u017Ee naj\xEDt \xFAlevovou polohu. B\u0159icho je dif\xFAzn\u011B citliv\xE9, sta\u017Een\xE9, p\u0159\xEDtomna palpa\u010Dn\xED bolestivost.",
-    history: ["Cholecystoli\xE1za (\u017Elu\u010Dn\xEDkov\xE9 kameny), hypertriglycerid\xE9mie"],
-    allergies: ["J\xD3D"],
-    triageClass: "3",
-    vitals: {
-      tf: 112,
-      tk_sys: 110,
-      tk_dia: 70,
-      spo2: 95,
-      gcs: 15,
-      temp: 38.4,
-      rr: 20
-    },
-    secretDiagnosis: "Akutn\xED bili\xE1rn\xED pankreatitida",
-    secretDiagnosisCode: "K85.9",
-    labsResult: {
-      ko: "KO: Leukocyt\xF3za 16.8 x10^9/l, Hb 155 g/l (hemokoncentrace), Trombocyty 280 x10^9/l.",
-      biochem: "Biochemie STATIM: Amyl\xE1za v s\xE9ru: 1450 U/l (norma <100) - EXTR\xC9MN\u011A ZV\xDD\u0160EN\xC1, Lip\xE1za v s\xE9ru: 2200 U/l (norma <60) - SILN\u011A POZITIVN\xCD, CRP: 110 mg/l, Bilirubin: 42 umol/l, ALT: 2.1 ukat/l, AST: 1.8 ukat/l, Triglyceridy: 8.5 mmol/l.",
-      coag: "Koagulace: INR 1.15, APTT 34 s.",
-      mochem: "Mo\u010D: Zv\xFD\u0161en\xE1 amyl\xE1za v mo\u010Di (6800 U/l).",
-      abr: "Astrup (ABR): pH 7.37, pCO2 4.8 kPa, pO2 10.2 kPa, HCO3- 22.1 mmol/l, BE -2.1 mmol/l."
-    },
-    imagingResult: {
-      ekg: "EKG: Sinusov\xE1 tachykardie 112/min, bez zn\xE1mek ischemie.",
-      rtg: "RTG b\u0159icha ve stoje: Bez voln\xE9ho plynu pod br\xE1nic\xED (vylu\u010Duje perforaci gastroduodena), p\u0159\xEDtomen meteorismus a 'str\xE1\u017En\xFD kli\u010Dkov\xFD' st\xEDn v epigastriu.",
-      echo: "Sonografie b\u0159icha: Pros\xE1knut\xED a zv\u011Bt\u0161en\xED hlavy pankreatu, kolekce voln\xE9 tekutiny peripankreaticky, cholecystoli\xE1za - mnoho\u010Detn\xE9 drobn\xE9 konkrementy ve \u017Elu\u010Dn\xEDku, m\xEDrn\xE1 dilatace choledochu (7mm).",
-      ct: "CT B\u0159icha (Upozorn\u011Bn\xED: Alergie na J\xD3D!): S premedikac\xED antihistaminiky: Akutn\xED pankreatitida s peripankreatick\xFDmi tekutinov\xFDmi kolekcemi (Balthazar C-D), bez prok\xE1zan\xE9 nekr\xF3zy parenchymu."
-    }
-  },
-  "8": {
-    id: "8",
-    level: 3,
-    title: "\xDAmysln\xE1 intoxikace tricyklick\xFDmi antidepresivy",
-    name: "Martin Dvo\u0159\xE1k",
-    age: 21,
-    sex: "Mu\u017E",
-    mainComplaint: "Porucha v\u011Bdom\xED, k\u0159e\u010De a arytmie",
-    complaintDetail: "Pacient nalezen matkou v pokoji le\u017E\xEDc\xED na zemi, vedle n\u011Bj pr\xE1zdn\xE9 blistry od Amitriptylinu (cca 30 tablet po 50mg). P\u0159i p\u0159\xEDjezdu RZP byl v bezv\u011Bdom\xED, prod\u011Blal jeden generalizovan\xFD tonicko-klonick\xFD z\xE1chvat k\u0159e\u010D\xED trvaj\xEDc\xED 2 minuty. Nyn\xED reaguje pouze na bolestiv\xFD podn\u011Bt hlubok\xFDm st\xE9n\xE1n\xEDm.",
-    history: ["Depresivn\xED porucha, psychiatrick\xE1 p\xE9\u010De, v minulosti jeden pokus o sebepo\u0161kozen\xED"],
-    allergies: ["Bez zn\xE1m\xFDch alergi\xED"],
-    triageClass: "2",
-    vitals: {
-      tf: 128,
-      tk_sys: 85,
-      tk_dia: 50,
-      spo2: 91,
-      gcs: 8,
-      temp: 37.6,
-      rr: 10
-    },
-    secretDiagnosis: "\xDAmysln\xE1 intoxikace tricyklick\xFDmi antidepresivy",
-    secretDiagnosisCode: "T43.0",
-    labsResult: {
-      ko: "KO: V norm\u011B (Leukocyty 8.2 x10^9/l, Hb 142 g/l, Tr 210 x10^9/l).",
-      biochem: "Biochemie: Kreatinin: 95 umol/l, Lakt\xE1t: 3.1 mmol/l, Drasl\xEDk: 3.6 mmol/l, Sod\xEDk: 138 mmol/l, Glyk\xE9mie: 5.4 mmol/l. Toxikologick\xFD screening z mo\u010Di: Pozitivn\xED na Tricyklick\xE1 antidepresiva (TCA).",
-      coag: "Koagulace: V norm\u011B (INR 1.05, APTT 32 s).",
-      mochem: "Mo\u010D: TCA pozitivn\xED.",
-      abr: "Astrup (ABR): pH 7.25 (respira\u010Dn\xED a metabolick\xE1 acid\xF3za), pCO2 6.5 kPa (retence CO2), pO2 8.1 kPa, HCO3- 20.2 mmol/l, BE -6.1 mmol/l."
-    },
-    imagingResult: {
-      ekg: "EKG: Sinusov\xE1 tachykardie 128/min, extr\xE9mn\xED roz\u0161\xED\u0159en\xED komplexu QRS (140 ms), prodlou\u017Een\xED intervalu QTc (510 ms), hlubok\xE9 S ve svodech I a aVL (TCA toxicita).",
-      rtg: "RTG Hrudn\xEDku: Bez patologick\xE9ho n\xE1lezu.",
-      echo: "Echokardiografie: Sn\xED\u017Een\xE1 systolick\xE1 funkce obou komor, EF lev\xE9 komory 40%, bez chlopenn\xEDch vad.",
-      ct: "CT Mozku: Bez struktur\xE1ln\xEDch patologi\xED, bez zn\xE1mek krv\xE1cen\xED \u010Di lo\u017Eiskov\xFDch zm\u011Bn."
-    }
-  },
-  "9": {
-    id: "9",
-    level: 1,
-    title: "Komplikovan\xE9 febriln\xED k\u0159e\u010De u batolete",
-    name: "Honz\xEDk Novotn\xFD",
-    age: 1.5,
-    sex: "Chlapec",
-    mainComplaint: "Generalizovan\xE9 k\u0159e\u010De cel\xE9ho t\u011Bla, hore\u010Dka a porucha v\u011Bdom\xED",
-    complaintDetail: "Matka uv\xE1d\xED, \u017Ee osmn\xE1ctim\u011Bs\xED\u010Dn\xED d\xEDt\u011B m\u011Blo od r\xE1na r\xFDmu a teplotu 38.5 \xB0C. P\u0159ed 10 minutami doma n\xE1hle ztuhlo, za\u010Dalo \u0161kubat v\u0161emi kon\u010Detinami, sto\u010Dilo o\u010Di v sloup a p\u0159estalo reagovat. Z\xE1chvat trval p\u0159es 5 minut. RZP podala rekt\xE1ln\xED Diazepam desitin tube 5mg. Nyn\xED na urgentu k\u0159e\u010De pominuly, ale chlapec je v hlubok\xE9m postikt\xE1ln\xEDm \xFAtlumu (GCS 10) a m\xE1 hore\u010Dku 39.4 \xB0C.",
-    history: ["B\u011B\u017En\xE1 d\u011Btsk\xE1 onemocn\u011Bn\xED, str\xFDc v d\u011Btstv\xED febriln\xED k\u0159e\u010De"],
-    allergies: ["Bez zn\xE1m\xFDch alergi\xED"],
-    triageClass: "2",
-    vitals: {
-      tf: 135,
-      tk_sys: 90,
-      tk_dia: 55,
-      spo2: 92,
-      gcs: 10,
-      temp: 39.4,
-      rr: 24
-    },
-    secretDiagnosis: "Komplikovan\xE9 febriln\xED k\u0159e\u010De",
-    secretDiagnosisCode: "R56.0",
-    labsResult: {
-      ko: "KO: Leukocyt\xF3za 14.8 x10^9/l (\u010Dast\xE1 u hore\u010Dky), Hemoglobin 122 g/l, Trombocyty 290 x10^9/l.",
-      biochem: "Biochemie: CRP: 48 mg/l (m\xEDrn\u011B zv\xFD\u0161en\xE9, sv\u011Bd\u010D\xED pro infekt), Drasl\xEDk: 4.0 mmol/l, Sod\xEDk: 136 mmol/l, Glyk\xE9mie: 4.8 mmol/l (vylu\u010Duje hypoglykemickou genezi k\u0159e\u010D\xED).",
-      coag: "Koagulace: V norm\u011B (INR 1.0, APTT 30 s).",
-      mochem: "Mo\u010D chemicky: Negativn\xED n\xE1lez (vylu\u010Duje uroinfekt jako zdroj hore\u010Dky).",
-      abr: "Astrup (ABR): pH 7.32 (lehk\xE1 metabolick\xE1 lakt\xE1tov\xE1 acid\xF3za po k\u0159e\u010D\xEDch), pCO2 5.3 kPa, pO2 8.6 kPa, HCO3- 20.1 mmol/l, BE -4.5 mmol/l, lakt\xE1t 3.1 mmol/l."
-    },
-    imagingResult: {
-      ekg: "EKG: Sinusov\xE1 tachykardie 135/min, bez patologick\xFDch zm\u011Bn.",
-      rtg: "RTG hrudn\xEDku: Plicn\xED parenchym bez infiltrac\xED \u010Di lo\u017Eiskov\xFDch zm\u011Bn.",
-      echo: "Echokardiografie: Nen\xED indikov\xE1na u febriln\xEDch k\u0159e\u010D\xED.",
-      ct: "CT Mozku: Kontraindikov\xE1no! U febriln\xEDch k\u0159e\u010D\xED bez lo\u017Eiskov\xE9ho n\xE1lezu \u010Di traumatu hlavy je CT mozku zbyte\u010Dnou radia\u010Dn\xED z\xE1t\u011B\u017E\xED. Neuroinfekce \u010Di struktur\xE1ln\xED zm\u011Bny se \u0159e\u0161\xED klinick\xFDm vy\u0161et\u0159en\xEDm, lumb\xE1ln\xED punkc\xED \u010Di MRI."
-    }
-  },
-  "10": {
-    id: "10",
-    level: 2,
-    title: "T\u011B\u017Ek\xFD akutn\xED astmatick\xFD stav (Status asthmaticus) u d\xEDt\u011Bte",
-    name: "Sofinka Mare\u0161ov\xE1",
-    age: 6,
-    sex: "D\xEDvka",
-    mainComplaint: "T\u011B\u017Ek\xE1 klidov\xE1 du\u0161nost, sly\u0161iteln\xE9 p\xEDsk\xE1n\xED, vy\u010Derp\xE1n\xED",
-    complaintDetail: "\u0160estilet\xE1 d\xEDvka s astmatem trp\xED z\xE1chvatem du\u0161nosti od odpoledne. Doma matka podala celkem 6 d\xE1vek Ventolinu inhala\u010Dn\u011B bez v\u011Bt\u0161\xEDho efektu. Nyn\xED je neklidn\xE1, mluv\xED pouze v jednotliv\xFDch slovech, m\xE1 v\xFDrazn\xE9 zatahov\xE1n\xED jugula, pod\u017Eeb\u0159\xED a al\xE1rn\xED kmit. Poslechov\u011B je d\xFDch\xE1n\xED velmi oslaben\xE9 s oboustrann\xFDmi p\xEDskoty (fenom\xE9n 'tich\xFDch plic' / silent chest, varovn\xE9 znamen\xED bl\xED\u017E\xEDc\xEDho se udu\u0161en\xED).",
-    history: ["Pr\u016Fdu\u0161kov\xE9 astma (st\u0159edn\u011B t\u011B\u017Ek\xE9, u\u017E\xEDv\xE1 Ventolin a Flixotide), alergie na prach a rozto\u010De"],
-    allergies: ["Bez zn\xE1m\xFDch l\xE9kov\xFDch alergi\xED"],
-    triageClass: "2",
-    vitals: {
-      tf: 148,
-      tk_sys: 105,
-      tk_dia: 65,
-      spo2: 89,
-      gcs: 15,
-      temp: 36.9,
-      rr: 42
-    },
-    secretDiagnosis: "Status asthmaticus",
-    secretDiagnosisCode: "J46",
-    labsResult: {
-      ko: "KO: Leukocyty 11.1 x10^9/l, m\xEDrn\xE1 eosinofilie (vztah k astmatu), Hb 130 g/l, Trombocyty 255 x10^9/l.",
-      biochem: "Biochemie: CRP: 12 mg/l, Drasl\xEDk: 3.5 mmol/l (hrani\u010Dn\xED drasl\xEDk - riziko poklesu po opakovan\xFDch inhalac\xEDch beta2-mimetik!), Sod\xEDk: 139 mmol/l, Glyk\xE9mie: 5.8 mmol/l.",
-      coag: "Koagulace: V norm\u011B (INR 1.0, APTT 29 s).",
-      mochem: "Mo\u010D chemicky: Negativn\xED.",
-      abr: "Astrup (ABR): pH 7.31 (po\u010D\xEDnaj\xEDc\xED respira\u010Dn\xED acid\xF3za v d\u016Fsledku dechov\xE9ho vy\u010Derp\xE1n\xED a retence CO2), pCO2 6.2 kPa (hyperkapnie - kritick\xE9 znamen\xED vy\u010Derp\xE1n\xED d\xFDchac\xEDho apar\xE1tu!), pO2 7.2 kPa (v\xFDrazn\xE1 hypox\xE9mie), HCO3- 23.8 mmol/l, BE -1.5 mmol/l."
-    },
-    imagingResult: {
-      ekg: "EKG: V\xFDrazn\xE1 sinusov\xE1 tachykardie 148/min, zn\xE1mky zat\xED\u017Een\xED prav\xE9ho srdce (P pulmonale).",
-      rtg: "RTG hrudn\xEDku: V\xFDrazn\xE1 hyperinflace obou plicn\xEDch k\u0159\xEDdel, oplo\u0161t\u011Bn\xED br\xE1nice (obraz astmatick\xE9ho z\xE1chvatu), zv\xFD\u0161en\xE1 bronchovaskul\xE1rn\xED kresba perihil\xF3zn\u011B. \u017D\xE1dn\xFD pneumotorax \u010Di lo\u017Eiskov\xFD z\xE1pal plic.",
-      echo: "Echokardiografie: Bez struktur\xE1ln\xED vady, hyperdynamick\xE1 kontraktilita, bez p\u0159et\xED\u017Een\xED prav\xE9 komory.",
-      ct: "CT hrudn\xEDku: Nen\xED indikov\xE1no u nekomplikovan\xE9ho astmatick\xE9ho z\xE1chvatu z d\u016Fvodu zbyte\u010Dn\xE9 z\xE1t\u011B\u017Ee."
-    }
-  },
-  "11": {
-    id: "11",
-    level: 3,
-    title: "Akutn\xED epiglotitida (Kritick\xFD d\u011Btsk\xFD stav)",
-    name: "Ad\xE1mek Ku\u010Dera",
-    age: 4,
-    sex: "Chlapec",
-    mainComplaint: "Extr\xE9mn\xED bolest v krku, neschopnost polykat (slint\xE1n\xED), inspira\u010Dn\xED stridor",
-    complaintDetail: "\u010Cty\u0159let\xFD chlapec s rychlou progres\xED hore\u010Dky a t\u011B\u017Ek\xE9 du\u0161nosti b\u011Bhem n\u011Bkolika hodin. Na urgentn\xEDm p\u0159\xEDjmu sed\xED v tzv. tripod\xE1ln\xED poloze (v p\u0159edklonu, s nata\u017Een\xFDm krkem a pootev\u0159en\xFDmi \xFAsty), masivn\u011B mu vyt\xE9kaj\xED sliny z \xFAst (neschopnost polykat pro extr\xE9mn\xED bolestivost) a mluv\xED tich\xFDm, 'knedl\xEDkov\xFDm' hlasem. P\u0159\xEDtomen tich\xFD inspira\u010Dn\xED stridor.",
-    history: ["D\xEDt\u011B nebylo o\u010Dkov\xE1no proti Haemophilus influenzae typu b (rodi\u010De odm\xEDtli Hexavakc\xEDnu)"],
-    allergies: ["Bez zn\xE1m\xFDch alergi\xED"],
-    triageClass: "1",
-    vitals: {
-      tf: 155,
-      tk_sys: 95,
-      tk_dia: 60,
-      spo2: 90,
-      gcs: 14,
-      temp: 39.7,
-      rr: 35
-    },
-    secretDiagnosis: "Akutn\xED epiglotitida",
-    secretDiagnosisCode: "J05.1",
-    labsResult: {
-      ko: "KO: V\xFDrazn\xE1 bakteri\xE1ln\xED leukocyt\xF3za 18.5 x10^9/l s v\xFDrazn\xFDm posunem doleva, Hb 120 g/l, Trombocyty 340 x10^9/l.",
-      biochem: "Biochemie STATIM: CRP: 145 mg/l (velmi vysok\xE1 bakteri\xE1ln\xED aktivita), prokalcitonin: 3.2 ug/l, Drasl\xEDk: 4.1 mmol/l, Sod\xEDk: 138 mmol/l.",
-      coag: "Koagulace: V norm\u011B (INR 1.05, APTT 31 s).",
-      mochem: "Mo\u010D: Negativn\xED.",
-      abr: "Astrup (ABR): pH 7.34, pCO2 5.2 kPa, pO2 7.8 kPa (hypox\xE9mie), HCO3- 22.0 mmol/l, BE -3.0 mmol/l."
-    },
-    imagingResult: {
-      ekg: "EKG: Sinusov\xE1 tachykardie 155/min, bez dal\u0161\xEDch zm\u011Bn.",
-      rtg: "RTG krku bo\u010Dn\xED: V\xFDrazn\xE9 pros\xE1knut\xED a zdu\u0159en\xED p\u0159\xEDklopky hrtanov\xE9 (epiglotis) - tzv. 'znamen\xED palce' (thumb sign), kritick\xE9 z\xFA\u017Een\xED vchodu do hrtanu. Upozorn\u011Bn\xED: Jak\xE1koliv manipulace s krkem \u010Di polohov\xE1n\xED d\xEDt\u011Bte na z\xE1da je p\u0159\xEDsn\u011B zak\xE1z\xE1no!",
-      echo: "Echokardiografie: Nen\xED indikov\xE1na.",
-      ct: "CT krku: Absolutn\u011B kontraindikov\xE1no! Jak\xFDkoliv zbyte\u010Dn\xFD stres, transport \u010Di manipulace s hrdlem hroz\xED reflexn\xED larynge\xE1ln\xED obstrukc\xED (laryngospasmem) a okam\u017Eit\xFDm udu\u0161en\xEDm."
-    }
-  },
-  "12": {
-    id: "12",
-    level: 3,
-    title: "Kardiogenn\xED \u0161ok p\u0159i extenzivn\xEDm infarktu myokardu (STEMI)",
-    name: "Josef Hor\xE1k",
-    age: 68,
-    sex: "Mu\u017E",
-    mainComplaint: "Extr\xE9mn\xED du\u0161nost, studen\xFD lepkav\xFD pot, zmatenost, slabost",
-    complaintDetail: "Pacient s nar\u016Fstaj\xEDc\xED p\xE1livou bolest\xED za hrudn\xED kost\xED od v\u010Derej\u0161\xEDho ve\u010Dera (nikam nevolal). RZP ho p\u0159iv\xE1\u017E\xED v t\u011B\u017Ek\xE9m kardiogenn\xEDm \u0161oku. Je bled\xFD, studen\u011B opocen\xFD, na kon\u010Detin\xE1ch m\xE1 mramorovanou k\u016F\u017Ei. Je m\xEDrn\u011B zmaten\xFD z hypoperf\xFAze mozku. Poslechov\u011B na plic\xEDch sly\u0161\xEDte oboustrann\u011B vlhk\xE9 chr\xE1pky do poloviny pol\xED sv\u011Bd\u010D\xEDc\xED pro z\xE1va\u017En\xFD plicn\xED ed\xE9m.",
-    history: ["Arteri\xE1ln\xED hypertenze, diabetes mellitus 2. typu na inzul\xEDnu, t\u011B\u017Ek\xE1 obezita, hypercholesterolemie"],
-    allergies: ["Bez zn\xE1m\xFDch alergi\xED"],
-    triageClass: "1",
-    vitals: {
-      tf: 122,
-      tk_sys: 78,
-      tk_dia: 45,
-      spo2: 83,
-      gcs: 13,
-      temp: 36.2,
-      rr: 32
-    },
-    secretDiagnosis: "Kardiogenn\xED \u0161ok p\u0159i akutn\xEDm infarktu myokardu s plicn\xEDm ed\xE9mem",
-    secretDiagnosisCode: "R57.0",
-    labsResult: {
-      ko: "KO: Leukocyt\xF3za 15.1 x10^9/l, Hb 138 g/l, Trombocyty 220 x10^9/l.",
-      biochem: "Biochemie STATIM: Troponin I: 5800 ng/l (extr\xE9mn\xED po\u0161kozen\xED myokardu) - EXTR\xC9MN\u011A POZITIVN\xCD, CK-MB: 48 ug/l, Kreatinin: 165 umol/l (po\u010D\xEDnaj\xEDc\xED ren\xE1ln\xED selh\xE1v\xE1n\xED p\u0159i \u0161oku), Drasl\xEDk: 4.8 mmol/l, Sod\xEDk: 137 mmol/l, Lakt\xE1t: 4.2 mmol/l (t\u011B\u017Ek\xFD tk\xE1\u0148ov\xFD \u0161ok).",
-      coag: "Koagulace: INR 1.10, APTT 34 s.",
-      mochem: "Mo\u010D: V norm\u011B.",
-      abr: "Astrup (ABR): pH 7.22 (sm\xED\u0161en\xE1 metabolicko-respira\u010Dn\xED acid\xF3za z plicn\xEDho ed\xE9mu a \u0161oku), pCO2 5.9 kPa, pO2 6.1 kPa (z\xE1va\u017En\xE1 hypoxie), HCO3- 17.5 mmol/l, BE -8.2 mmol/l, lakt\xE1t 4.2."
-    },
-    imagingResult: {
-      ekg: "12svodov\xE9 EKG: Sinusov\xE1 tachykardie 122/min, masivn\xED ST elevace 5 mm ve svodech V1, V2, V3, V4, V5 (extenzivn\xED p\u0159edn\xED STEMI), recipro\u010Dn\xED deprese ve II, III, aVF.",
-      rtg: "RTG Hrudn\xEDku: V\xFDrazn\xE9 m\u011Bstn\xE1n\xED v mal\xE9m ob\u011Bhu s mot\xFDlovit\xFDm zast\u0159en\xEDm kolem hil\u016F (alveol\xE1rn\xED plicn\xED ed\xE9m), srde\u010Dn\xED st\xEDn je v\xFDrazn\u011B zv\u011Bt\u0161en\xFD doleva.",
-      echo: "Bedside Echokardiografie: T\u011B\u017Ek\xE1 dif\xFAzn\xED porucha kinetiky lev\xE9 komory (hypokineze a\u017E akineze p\u0159edn\xED st\u011Bny a hrotu), ejek\u010Dn\xED frakce lev\xE9 komory kriticky sn\xED\u017Eena na 20-25%. Zn\xE1mky plicn\xED hypertenze, dilatace lev\xE9 s\xEDn\u011B. Bez mechanick\xFDch komplikac\xED (ruptura septa \u010Di papil\xE1rn\xEDho svalu nezji\u0161t\u011Bna).",
-      ct: "CT vy\u0161et\u0159en\xED: Kontraindikov\xE1no! Pacient je ob\u011Bhov\u011B extr\xE9mn\u011B nestabiln\xED pro transport na CT, hroz\xED okam\u017Eit\xE1 z\xE1stava ob\u011Bhu."
-    }
-  },
-  "13": {
-    id: "13",
-    level: 2,
-    title: "Hyperakutn\xED c\xE9vn\xED mozkov\xE1 p\u0159\xEDhoda v \u010Dasn\xE9m okn\u011B (iCMP)",
-    name: "Ludmila \u010Cern\xE1",
-    age: 72,
-    sex: "\u017Dena",
-    mainComplaint: "N\xE1hl\xE9 ochrnut\xED lev\xE9 poloviny t\u011Bla, nesrozumiteln\xE1 \u0159e\u010D",
-    complaintDetail: "Pacientka byla nalezena dcerou le\u017E\xEDc\xED na zemi p\u0159ed 45 minutami. Je p\u0159i v\u011Bdom\xED, ale vykazuje t\u011B\u017Ekou dysartrii (nesrozumiteln\xE1 \u0159e\u010D), poklesl\xFD lev\xFD \xFAstn\xED koutek, levou ruku nezvedne v\u016Fbec (plegie) a lev\xE1 doln\xED kon\u010Detina je t\u011B\u017Ece paretick\xE1. N\xE1hl\xFD vznik p\u0159\xEDznak\u016F p\u0159ed p\u0159ibli\u017En\u011B 1 hodinou. Orienta\u010Dn\xED NIHSS sk\xF3re odhadnuto na 16 (t\u011B\u017Ek\xFD neurologick\xFD deficit).",
-    history: ["Fibrilace s\xEDn\xED (neu\u017E\xEDv\xE1 antikoagulancia pro d\u0159\xEDv\u011Bj\u0161\xED \u0161patnou sn\xE1\u0161enlivost), arteri\xE1ln\xED hypertenze"],
-    allergies: ["Bez zn\xE1m\xFDch alergi\xED"],
-    triageClass: "2",
-    vitals: {
-      tf: 92,
-      tk_sys: 175,
-      tk_dia: 95,
-      spo2: 96,
-      gcs: 14,
-      temp: 36.6,
-      rr: 16
-    },
-    secretDiagnosis: "Hyperakutn\xED ischemick\xE1 c\xE9vn\xED mozkov\xE1 p\u0159\xEDhoda",
-    secretDiagnosisCode: "I63.3",
-    labsResult: {
-      ko: "KO: Leukocyty 7.5 x10^9/l, Hemoglobin 135 g/l, Trombocyty 210 x10^9/l.",
-      biochem: "Biochemie STATIM: CRP: 4.2 mg/l, Kreatinin: 90 umol/l, Drasl\xEDk: 4.1 mmol/l, Sod\xEDk: 141 mmol/l, Glyk\xE9mie: 6.8 mmol/l (kl\xED\u010Dov\xE9 pro vylou\u010Den\xED hypoglyk\xE9mie jako imitace mrtvice!).",
-      coag: "Koagulace STATIM: INR 1.05 (vylu\u010Duje \xFA\u010Dinnou warfarinizaci), APTT 31 s.",
-      mochem: "Mo\u010D chemicky: V norm\u011B.",
-      abr: "Astrup (ABR): pH 7.41, pCO2 5.0 kPa, pO2 12.1 kPa, HCO3- 24.2 mmol/l, BE 0.1 mmol/l."
-    },
-    imagingResult: {
-      ekg: "EKG: Fibrilace s\xEDn\xED s frekvenc\xED komor 92/min, bez akutn\xEDch ischemick\xFDch zm\u011Bn na ST-T.",
-      rtg: "RTG Hrudn\xEDku: Srde\u010Dn\xED st\xEDn p\u0159im\u011B\u0159en\xE9 velikosti, pl\xEDce bez lo\u017Eiskov\xFDch z\xE1n\u011Btliv\xFDch zm\u011Bn.",
-      echo: "Echokardiografie: Nen\xED urgentn\u011B indikov\xE1na u akutn\xED c\xE9vn\xED mozkov\xE9 p\u0159\xEDhody.",
-      ct: "CT Mozku: Nativn\xED CT mozku vylou\u010Dilo intrakrani\xE1ln\xED krv\xE1cen\xED i lo\u017Eiskovou expanzi (tumor). Je p\u0159\xEDtomno \u010Dasn\xE9 set\u0159en\xED struktury k\u016Fry a podko\u0159\xED v oblasti inzuly vpravo a hyperdenzn\xED arteria cerebri media vpravo (znamen\xED akutn\xEDho trombu). Pacientka spl\u0148uje krit\xE9ria pro syst\xE9movou trombol\xFDzu!"
-    }
+var CASES = {};
+function getFallbackCase(specialty, level) {
+  let list = getCasesByFilter(specialty, level);
+  if (list.length === 0 && specialty) {
+    list = getCasesByFilter(specialty);
   }
-};
+  if (list.length === 0 && level) {
+    list = getCasesByFilter(void 0, level);
+  }
+  if (list.length === 0) {
+    list = getAllCases();
+  }
+  const randomIndex = Math.floor(Math.random() * list.length);
+  return list[randomIndex];
+}
+function loadCasesIntoCache() {
+  const all = getAllCases();
+  for (const c of all) {
+    CASES[c.id] = c;
+  }
+  console.log(`Loaded ${all.length} cases into memory cache.
+`);
+}
+loadCasesIntoCache();
 var sessions = {};
 function recordVitalsHistory(session) {
   if (!session.vitalsHistory) {
@@ -562,12 +142,19 @@ async function startServer() {
   app.use(import_express.default.json());
   app.post("/api/case/init", (req, res) => {
     const { difficulty } = req.body;
-    const caseId = difficulty || "1";
+    let caseId = difficulty || "1";
+    if (caseId === "1" || caseId === "2" || caseId === "3") {
+      const candidates = getCasesByFilter(void 0, parseInt(caseId, 10));
+      if (candidates.length > 0) {
+        const randomIndex = Math.floor(Math.random() * candidates.length);
+        caseId = candidates[randomIndex].id;
+      }
+    }
     const caseDef = CASES[caseId];
     if (!caseDef) {
-      return res.status(400).json({ error: "Neplatn\xE1 \xFArove\u0148 obt\xED\u017Enosti" });
+      return res.status(400).json({ error: "Neplatn\xFD p\u0159\xEDpad nebo \xFArove\u0148 obt\xED\u017Enosti" });
     }
-    const sessionId = "session_" + Math.random().toString(36).substring(2, 9);
+    const sessionId = `session_${import_crypto.default.randomUUID()}`;
     const session = {
       sessionId,
       caseId,
@@ -618,10 +205,126 @@ async function startServer() {
       isCompleted: false,
       traumaTeamActivated: false,
       triageConfirmed: false,
-      selectedTriageClass: ""
+      selectedTriageClass: "",
+      rhythmInterpreted: false
     };
     sessions[sessionId] = session;
     res.json(session);
+  });
+  app.get("/api/cases", (req, res) => {
+    const { specialty, difficulty } = req.query;
+    let levelNum;
+    if (typeof difficulty === "string") {
+      levelNum = parseInt(difficulty, 10);
+    }
+    const cases = getCasesByFilter(
+      typeof specialty === "string" ? specialty : void 0,
+      levelNum
+    );
+    res.json(cases);
+  });
+  app.post("/api/case/generate", async (req, res) => {
+    const { specialty, difficulty } = req.body;
+    const level = parseInt(difficulty, 10) || 1;
+    const difficultyStr = level === 3 ? "hard" : level === 2 ? "medium" : "easy";
+    const selectedSpecialty = specialty || "Kardiologie";
+    try {
+      const gemini = getGeminiClient();
+      const prompt = `
+Jsi \u0161pi\u010Dkov\xFD klinick\xFD architekt a l\xE9ka\u0159sk\xFD trena\u017E\xE9r. Vygeneruj kompletn\xED, vysoce realistick\xFD klinick\xFD p\u0159\xEDpad pro urgentn\xED p\u0159\xEDjem ("Urgentn\xED p\u0159\xEDjem") v \u010De\u0161tin\u011B, kter\xFD odpov\xEDd\xE1 zadan\xFDm parametr\u016Fm:
+- Obor (Specialty): ${selectedSpecialty}
+- Obt\xED\u017Enost (Level): ${level} (1 = snadn\xE1, 2 = st\u0159edn\xED, 3 = kritick\xE1/\u0161okov\xE1)
+
+P\u0159\xEDpad mus\xED p\u0159esn\u011B odpov\xEDdat n\xE1sleduj\xEDc\xEDmu JSON sch\xE9matu:
+{
+  "id": "gen_${Math.random().toString(36).substring(2, 9)}",
+  "level": ${level},
+  "difficulty": "${difficultyStr}",
+  "specialty": "${selectedSpecialty}",
+  "title": "Stru\u010Dn\xFD n\xE1zev diagn\xF3zy (nap\u0159. Akutn\xED infarkt myokardu)",
+  "name": "Jm\xE9no a p\u0159\xEDjmen\xED pacienta (\u010Desk\xE9, nap\u0159. Jan Nov\xE1k)",
+  "age": v\u011Bk pacienta (\u010D\xEDslo),
+  "sex": "Mu\u017E" nebo "\u017Dena",
+  "mainComplaint": "Hlavn\xED pot\xED\u017E (nap\u0159. Bolest na hrudi)",
+  "complaintDetail": "Podrobn\xFD popis pot\xED\u017E\xED pacienta p\u0159i p\u0159\xEDjmu",
+  "history": ["Seznam osobn\xED anamn\xE9zy (nap\u0159. ICHS, hypertenze)"],
+  "allergies": ["Alergie (nap\u0159. PENICILIN, nebo Bez zn\xE1m\xFDch alergi\xED)"],
+  "triageClass": "Stupe\u0148 tri\xE1\u017Ee ESI (1 a\u017E 5, kde 1 = Resuscitace, 2 = Kritick\xFD, 3 = Nal\xE9hav\xFD, 4 = Standardn\xED, 5 = Nenal\xE9hav\xFD)",
+  "vitals": {
+    "tf": tepov\xE1 frekvence (\u010D\xEDslo),
+    "tk_sys": krevn\xED tlak systolick\xFD (\u010D\xEDslo),
+    "tk_dia": krevn\xED tlak diastolick\xFD (\u010D\xEDslo),
+    "spo2": saturace kysl\xEDkem v % (\u010D\xEDslo),
+    "gcs": Glasgow Coma Scale 3-15 (\u010D\xEDslo),
+    "temp": teplota v \xB0C (\u010D\xEDslo),
+    "rr": dechov\xE1 frekvence (\u010D\xEDslo)
+  },
+  "secretDiagnosis": "Definitivn\xED utajen\xE1 diagn\xF3za pacienta",
+  "secretDiagnosisCode": "MKN-10 k\xF3d diagn\xF3zy (nap\u0159. I21.1)",
+  "labsResult": {
+    "ko": "Zpr\xE1va z krevn\xEDho obrazu",
+    "biochem": "Zpr\xE1va z biochemie (v\u010Detn\u011B troponinu, CRP, atd.)",
+    "coag": "Zpr\xE1va z koagulace",
+    "mochem": "Zpr\xE1va z mo\u010Di chemicky",
+    "abr": "Zpr\xE1va z Astrupa (ABR)"
+  },
+  "imagingResult": {
+    "ekg": "Popis 12svodov\xE9ho EKG",
+    "rtg": "Popis RTG hrudn\xEDku",
+    "echo": "Popis echokardiografie",
+    "ct": "Popis CT vy\u0161et\u0159en\xED"
+  },
+  "patientHistory": ["Seznam osobn\xED anamn\xE9zy"],
+  "vitalSigns": {
+    "tf": tepov\xE1 frekvence,
+    "tk_sys": systolick\xFD tlak,
+    "tk_dia": diastolick\xFD tlak,
+    "spo2": saturace,
+    "gcs": gcs,
+    "temp": teplota,
+    "rr": dechov\xE1 frekvence
+  },
+  "physicalExam": "Popis fyzik\xE1ln\xEDho vy\u0161et\u0159en\xED pacienta",
+  "labValues": {
+    "ko": "Zpr\xE1va z krevn\xEDho obrazu",
+    "biochem": "Zpr\xE1va z biochemie"
+  },
+  "decisionNodes": [
+    {
+      "question": "Ot\xE1zka k prvn\xEDmu kroku l\xE9\u010Dby",
+      "options": ["Mo\u017Enost A", "Mo\u017Enost B", "Mo\u017Enost C"],
+      "feedback": "Zp\u011Btn\xE1 vazba ke spr\xE1vn\xE9 odpov\u011Bdi"
+    }
+  ],
+  "feedback": "Celkov\xE9 klinick\xE9 doporu\u010Den\xED pro \u0159e\u0161en\xED tohoto p\u0159\xEDpadu."
+}
+
+Ujisti se, \u017Ee v\xFDstup je platn\xFD a syntakticky bezchybn\xFD JSON objekt a neobsahuje \u017E\xE1dn\xFD text okolo. V\u0161echny l\xE9ka\u0159sk\xE9 popisy, hodnoty a zpr\xE1vy must be klinicky p\u0159esn\xE9, realistick\xE9 a napsan\xE9 v \u010De\u0161tin\u011B podle standard\u016F \u010CLS JEP.
+`;
+      const response = await gemini.models.generateContent({
+        model: "gemini-3.5-flash",
+        contents: prompt,
+        config: {
+          responseMimeType: "application/json"
+        }
+      });
+      const resText = response.text || "";
+      const generatedCase = JSON.parse(resText.trim());
+      if (!generatedCase.id || !generatedCase.title || !generatedCase.vitals || !generatedCase.secretDiagnosisCode) {
+        throw new Error("Invalid schema generated by Gemini");
+      }
+      CASES[generatedCase.id] = generatedCase;
+      res.json(generatedCase);
+    } catch (error) {
+      console.error("Gemini case generation failed, using fallback:", error);
+      const fallbackCase = getFallbackCase(selectedSpecialty, level);
+      const clonedCase = {
+        ...fallbackCase,
+        id: "gen_fallback_" + Math.random().toString(36).substring(2, 9)
+      };
+      CASES[clonedCase.id] = clonedCase;
+      res.json(clonedCase);
+    }
   });
   app.get("/api/case/session/:sessionId", (req, res) => {
     const { sessionId } = req.params;
@@ -674,7 +377,46 @@ Skute\u010Dn\xE1 diagn\xF3za (kterou l\xE9ka\u0159 odhaluje): ${caseDef.secretDi
     const caseDef = CASES[session.caseId];
     const timestamp = new Date(14 * 3600 * 1e3 + 22 * 60 * 1e3 + session.elapsedTime * 60 * 1e3).toTimeString().substring(0, 5);
     session.elapsedTime += Math.floor(Math.random() * 3) + 1;
+    const isCardiacAction = (id, text, det) => {
+      const cardiacKeywords = ["defibril", "v\xFDboj", "shock", "amiodar", "adrenalin", "epinefrin", "noradrenalin", "norepinefrin", "dobutamin", "kardioverze", "lidokain", "atropin"];
+      if (id === "add_medication" && det && det.name) {
+        const medName = det.name.toLowerCase();
+        if (cardiacKeywords.some((kw) => medName.includes(kw))) return true;
+      }
+      if (text) {
+        const textLow = text.toLowerCase();
+        if (cardiacKeywords.some((kw) => textLow.includes(kw))) return true;
+      }
+      return false;
+    };
+    if (isCardiacAction(actionId, actionText, details) && !session.rhythmInterpreted) {
+      session.actionLog.push({
+        time: timestamp,
+        text: "Pokus o kardiovaskul\xE1rn\xED z\xE1krok zablokov\xE1n: chyb\xED klinick\xE1 interpretace EKG rytmu.",
+        source: "system"
+      });
+      return res.json({
+        ...session,
+        actionLog: [
+          ...session.actionLog,
+          {
+            time: timestamp,
+            text: "\u274C Akce zam\u010Dena! Nejprve mus\xEDte nato\u010Dit 12svodov\xE9 EKG a klinicky interpretovat b\u011B\u017E\xEDc\xED rytmus kliknut\xEDm na monitor.",
+            source: "result"
+          }
+        ]
+      });
+    }
     if (actionId) {
+      if (actionId === "interpret_rhythm") {
+        session.rhythmInterpreted = true;
+        session.actionLog.push({
+          time: timestamp,
+          text: "\u{1F513} EKG rytmus pacienta byl \xFAsp\u011B\u0161n\u011B klinicky interpretov\xE1n. Kardiovaskul\xE1rn\xED intervence jsou odblokov\xE1ny.",
+          source: "system"
+        });
+        return sendSession(session);
+      }
       if (actionId === "confirm_triage") {
         const { triageClass } = details;
         session.triageConfirmed = true;
@@ -1085,6 +827,7 @@ PERSONA SPECIALISTY:
   - U febriln\xEDch k\u0159e\u010D\xED (Case 9) doporu\u010Duje paracetamol/ibuprofen a studen\xE9 z\xE1baly, pokud k\u0159e\u010De pominuly po diazepamu. 
   - U t\u011B\u017Ek\xE9ho d\u011Btsk\xE9ho astmatu (Case 10) po\u017Eaduje inhala\u010Dn\xED Ventolin/Atrovent, i.v. kortikoidy, a p\u0159\xEDpadn\u011B i.v. magnesium sulf\xE1t.
   - U epiglottitidy (Case 11) varuje p\u0159ed jak\xFDmkoliv stresov\xE1n\xEDm d\xEDt\u011Bte nebo vy\u0161et\u0159en\xEDm krku \u0161pachtl\xED (hroz\xED udu\u0161en\xED!) a doporu\u010Duje urgentn\xED \u0159\xEDzenou intubaci na s\xE1le s p\u0159\xEDtomnost\xED ARO l\xE9ka\u0159e.
+- Vedouc\xED l\xE9ka\u0159 (Sokratick\xFD mentor): Je to zku\u0161en\xFD prim\xE1\u0159 a pedagog. Nikdy ned\xE1v\xE1 p\u0159\xEDm\xE9 odpov\u011Bdi ani n\xE1vody, co d\u011Blat. M\xEDsto toho odpov\xEDd\xE1 pokl\xE1d\xE1n\xEDm nav\xE1d\u011Bj\xEDc\xEDch (Sokratick\xFDch) ot\xE1zek, upozor\u0148uje na detaily v anamn\xE9ze nebo vit\xE1ln\xEDch funkc\xEDch a motivuje studenta, aby s\xE1m p\u0159i\u0161el na spr\xE1vn\xFD postup (nap\u0159. 'Co n\xE1m \u0159\xEDk\xE1 ta saturace 83%?' nebo 'Pod\xEDvejte se znovu na EKG k\u0159ivku, opravdu tam nevid\xEDte \u017E\xE1dnou abnormalitu?').
 
 Napi\u0161te realistickou, klinicky spr\xE1vnou odpov\u011B\u010F v \u010De\u0161tin\u011B, kter\xE1 odr\xE1\u017E\xED \u010Deskou nemocni\u010Dn\xED realitu (m\xEDrn\u011B form\xE1ln\xED, p\u0159\xEDm\xE1, n\u011Bkdy m\xEDrn\u011B kousav\xE1 nebo skeptick\xE1, pokud l\xE9ka\u0159 na urgentu zapomn\u011Bl z\xE1sadn\xED kroky).
 
@@ -1183,6 +926,30 @@ Napi\u0161 pouze samotn\xFD text odpov\u011Bdi v \u010De\u0161tin\u011B. Nepou\u
           reply = "\u{1F6A8} POZOR! Tohle je jasn\xE1 akutn\xED epiglotitida (Ad\xE1mek, 4 roky), extr\xE9mn\xED urgentn\xED situace v pediatrii! Jak\xFDkoliv stres, n\xE1siln\xE9 odb\u011Bry krve nebo vy\u0161et\u0159ov\xE1n\xED hrdla \u0161pachtl\xED jsou P\u0158\xCDSN\u011A ZAK\xC1Z\xC1NY pro riziko reflexn\xEDho laryngospasmu a okam\u017Eit\xE9ho udu\u0161en\xED! Nechte chlapce v klidu sed\u011Bt u maminky, podejte zvlh\u010Den\xFD kysl\xEDk, pokud to snese bez pl\xE1\u010De. J\xE1 okam\u017Eit\u011B b\u011B\u017E\xEDm na urgent s intuba\u010Dn\xEDm i tracheotomick\xFDm setem. Budeme intubovat kontrolovan\u011B v anestezii!";
         } else {
           reply = "Pokud je pacient stabiln\xED a nepot\u0159ebuje um\u011Blou plicn\xED ventilaci ani vazopresory, ulo\u017Ete ho na standardn\xED intern\xED odd\u011Blen\xED nebo JIP.";
+        }
+      } else if (specialty.includes("Vedouc\xED l\xE9ka\u0159")) {
+        if (session.caseId === "1" || session.caseId === "12" || session.caseId === "14") {
+          reply = "Pod\xEDvejte se pozorn\u011B na EKG monitor pacienta a zhodno\u0165te rytmus. Vid\xEDte tam n\u011Bjak\xE9 zn\xE1mky ischemie? Jakou terapii mus\xEDme podat u akutn\xEDho infarktu a jak\xE1 vy\u0161et\u0159en\xED jsou kl\xED\u010Dov\xE1?";
+        } else if (session.caseId === "2" || session.caseId === "15") {
+          reply = "Co si mysl\xEDte o t\xE9 kombinaci du\u0161nosti, tachykardie a rizikov\xFDch faktor\u016F? Jak\xE9 vy\u0161et\u0159en\xED by n\xE1m potvrdilo embolii nebo exacerbaci CHOPN, a co ta hl\xE1\u0161en\xE1 alergie pacienta?";
+        } else if (session.caseId === "3") {
+          reply = "M\xE1me tu t\u011B\u017Ek\xE9 trauma. Co je prvn\xED prioritou u pacienta se zhor\u0161en\xFDm v\u011Bdom\xEDm a rozv\xEDjej\xEDc\xEDm se \u0161okem? Zkontrolovali jste d\xFDchac\xED cesty, fixaci p\xE1te\u0159e a p\xE1nev?";
+        } else if (session.caseId === "4" || session.caseId === "9" || session.caseId === "10" || session.caseId === "11" || session.caseId === "17") {
+          reply = "U d\u011Btsk\xFDch pacient\u016F s dechovou t\xEDsn\xED nebo k\u0159e\u010Demi je kl\xED\u010Dov\xFD klidn\xFD p\u0159\xEDstup bez zbyte\u010Dn\xE9ho stresov\xE1n\xED. Jak\xE1 farmakoterapie sni\u017Euje otok cest \u010Di k\u0159e\u010De? A je bezpe\u010Dn\xE9 d\u011Blat vy\u0161et\u0159en\xED krku \u0161pachtl\xED?";
+        } else if (session.caseId === "5") {
+          reply = "Petechie, sepse a \u0161ok u d\xEDt\u011Bte. Kter\xE1 l\xE9\u010Dba je nejv\xEDce \u010Dasov\u011B senzitivn\xED a mus\xED se podat hned v prvn\xED hodin\u011B? Jak zajist\xEDme ob\u011Bh?";
+        } else if (session.caseId === "6") {
+          reply = "Anafylaxe s hypotenz\xED a bronchospasmem. Co je absolutn\xED l\xE9k prvn\xED volby a jak\xE1 je spr\xE1vn\xE1 cesta pod\xE1n\xED? Podali jste dostatek tekutin a antihistaminika?";
+        } else if (session.caseId === "7") {
+          reply = "Akutn\xED pankreatitida vy\u017Eaduje intenzivn\xED hydrataci krystaloidy k prevenci \u0161oku a \xFA\u010Dinnou analgezii. Jak\xFD je n\xE1lez na b\u0159i\u0161e a co uk\xE1zala laborato\u0159?";
+        } else if (session.caseId === "8") {
+          reply = "U p\u0159ed\xE1vkov\xE1n\xED tricyklick\xFDmi antidepresivy vid\xEDme \u0161irok\xFD QRS a prodlou\u017Een\xFD QTc. Jak\xFD specifick\xFD l\xE9k i.v. stabilizuje myokard a zabr\xE1n\xED arytmi\xEDm? Jsou d\xFDchac\xED cesty chr\xE1n\u011Bny p\u0159i GCS 8?";
+        } else if (session.caseId === "13" || session.caseId === "16") {
+          reply = "U akutn\xED c\xE9vn\xED mozkov\xE9 p\u0159\xEDhody hraje \u010Das z\xE1sadn\xED roli. Kter\xE9 zobrazovac\xED vy\u0161et\u0159en\xED mus\xEDme prov\xE9st STATIM k vylou\u010Den\xED krv\xE1cen\xED? A co krevn\xED tlak, dr\u017E\xEDte ho v bezpe\u010Dn\xFDch mez\xEDch?";
+        } else if (session.caseId === "18") {
+          reply = "Akutn\xED po\u0161kozen\xED ledvin preren\xE1ln\xED etiologie. Jak\xE9 l\xE9ky mus\xEDme okam\u017Eit\u011B vysadit? Jak budeme m\u011B\u0159it diur\xE9zu a jak\xFD je stav hydratace?";
+        } else {
+          reply = "Zkuste se zamyslet nad hlavn\xEDmi pot\xED\u017Eemi pacienta. Jsou vit\xE1ln\xED funkce stabiln\xED? Jak\xE9 diagnostick\xE9 kroky a terapii doporu\u010Duj\xED standardy \u010CLS JEP?";
         }
       }
     }
@@ -1371,10 +1138,10 @@ Odpov\u011Bzte v\xFDhradn\u011B v \u010De\u0161tin\u011B, form\xE1tujte srozumit
     });
     app.use(vite.middlewares);
   } else {
-    const distPath = import_path.default.join(process.cwd(), "dist");
+    const distPath = import_path2.default.join(process.cwd(), "dist");
     app.use(import_express.default.static(distPath));
     app.get("*", (req, res) => {
-      res.sendFile(import_path.default.join(distPath, "index.html"));
+      res.sendFile(import_path2.default.join(distPath, "index.html"));
     });
   }
   app.listen(PORT, "0.0.0.0", () => {
