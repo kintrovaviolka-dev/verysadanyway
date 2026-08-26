@@ -481,7 +481,222 @@ const CASES = {
       echo: "Echokardiografie: Není urgentně indikována u akutní cévní mozkové příhody.",
       ct: "CT Mozku: Nativní CT mozku vyloučilo intrakraniální krvácení i ložiskovou expanzi (tumor). Je přítomno časné setření struktury kůry a podkoří v oblasti inzuly vpravo a hyperdenzní arteria cerebri media vpravo (znamení akutního trombu). Pacientka splňuje kritéria pro systémovou trombolýzu!"
     }
-  }
+  },
+  "14": {
+    id: "14",
+    level: 2,
+    title: "Akutní koronární syndrom bez elevací ST (NSTEMI)",
+    name: "Pavel Mareš",
+    age: 58,
+    sex: "Muž",
+    mainComplaint: "Tlaková bolest na hrudi, opocení",
+    complaintDetail: "Pacient si stěžuje na tupou, pálivou bolest za hrudní kostí vyzařující do levého ramene, která začala v klidu před 2 hodinami. Pociťuje mírnou dušnost a nauzeu. Na EKG nejsou zřejmé ST elevace, ale jsou přítomny deprese ST 1mm ve svodech V4-V6.",
+    history: [
+        "Hypertenze",
+        "Dyslipidémie",
+        "Rodinná anamnéza: Otec zemřel na infarkt v 50 letech"
+    ],
+    allergies: [
+        "Bez známých alergií"
+    ],
+    triageClass: "3",
+    vitals: {
+        tf: 88,
+        tk_sys: 145,
+        tk_dia: 90,
+        spo2: 95,
+        gcs: 15,
+        temp: 36.5,
+        rr: 18
+    },
+    secretDiagnosis: "Akutní infarkt myokardu bez elevací ST (NSTEMI)",
+    secretDiagnosisCode: "I21.4",
+    labsResult: {
+        ko: "KO: Leukocyty 9.2 x10^9/l, Hemoglobin 150 g/l, Trombocyty 220 x10^9/l.",
+        biochem: "Biochemie STATIM: Troponin I: 120 ng/l (norma <14) - POZITIVNÍ, CK-MB: 3.5 ug/l, Kreatinin: 95 umol/l, Urea: 6.8 mmol/l, CRP: 3.1 mg/l, Draslík: 4.0 mmol/l, Sodík: 140 mmol/l.",
+        coag: "Koagulace: INR 1.0, APTT 28 s.",
+        mochem: "Moč chemicky: Negativní.",
+        abr: "Astrup (ABR): pH 7.41, pCO2 4.9 kPa, pO2 11.2 kPa, HCO3- 24.0 mmol/l, BE 0.0 mmol/l."
+    },
+    imagingResult: {
+        ekg: "12svodové EKG: Sinusový rytmus 88/min, deprese ST segmentu 1 mm ve svodech V4-V6, bez ST elevací.",
+        rtg: "RTG Srdce+Plíce: Srdeční stín nezvětšen, plicní pole bez ložiskových změn či městnání.",
+        echo: "Echokardiografie: EF levé komory 50%, hypokineze anterolaterální stěny levé komory.",
+        ct: "CT Pulmonální angiografie: Bez známek plicní embolie."
+    }
+},
+  "15": {
+    id: "15",
+    level: 2,
+    title: "Exacerbace CHOPN (Chronická obstrukční plicní nemoc)",
+    name: "Jaroslav Beneš",
+    age: 67,
+    sex: "Muž",
+    mainComplaint: "Těžká dušnost, produktivní kašel, sípání",
+    complaintDetail: "Dlouholetý kuřák s anamnézou CHOPN III. stupně přichází pro progresi dušnosti za poslední 3 dny. Nyní je výrazně dušný i v klidu, nemůže domluvit větu. Kašle s produkcí žlutozeleného sputa. Na monitoru SpO2 84% při dýchání vzduchu, slyšitelné exspirační vrzoty a pískoty oboustranně.",
+    history: [
+        "CHOPN III. st. na dlouhodobé inhalační terapii",
+        "Těžký nikotinismus (50 balíčkoroků)",
+        "Arteriální hypertenze",
+        "Stav po infarktu myokardu před 5 lety"
+    ],
+    allergies: [
+        "Bez známých alergií"
+    ],
+    triageClass: "2",
+    vitals: {
+        tf: 105,
+        tk_sys: 150,
+        tk_dia: 85,
+        spo2: 84,
+        gcs: 15,
+        temp: 37.8,
+        rr: 28
+    },
+    secretDiagnosis: "Akutní exacerbace chronické obstrukční plicní nemoci",
+    secretDiagnosisCode: "J44.1",
+    labsResult: {
+        ko: "KO: Leukocytóza 13.8 x10^9/l, Erytrocyty 5.1 x10^12/l, Hb 158 g/l, Trombocyty 240 x10^9/l.",
+        biochem: "Biochemie STATIM: CRP: 48.5 mg/l (zvýšené), Urea: 7.2 mmol/l, Kreatinin: 92 umol/l, Draslík: 4.2 mmol/l, Sodík: 139 mmol/l, Troponin I: 12 ng/l (v normě).",
+        coag: "Koagulace: INR 1.02, APTT 30 s.",
+        mochem: "Moč chemicky: Negativní.",
+        abr: "Astrup (ABR): pH 7.32 (respirační acidóza), pCO2 7.1 kPa (hyperkapnie), pO2 6.8 kPa (hypoxemie), HCO3- 28.5 mmol/l, BE +2.5 mmol/l, Saturace 84%."
+    },
+    imagingResult: {
+        ekg: "12svodové EKG: P-pulmonale ve svodech II, III, aVF (přetížení pravé síně), sinusová tachykardie 105/min, osa doprava, bez akutních ischemických změn.",
+        rtg: "RTG Hrudníku: Hyperinflace plicních křídel, oploštění bránice (plicní emfyzém), zvýšená bronchovaskulární kresba oboustranně, bez ložiskového infiltrátu či pneumotoraxu.",
+        echo: "Echokardiografie: Cor pulmonale, dilatace pravé komory, mírná plicní hypertenze, odhadovaný sPAP 45 mmHg.",
+        ct: "CT Angiografie plicnice: Negativní pro plicní embolii, potvrzena těžká plicní difúzní emfyzematóza."
+    }
+},
+  "16": {
+    id: "16",
+    level: 2,
+    title: "Akutní ischemická cévní mozková příhoda v levém povodí ACM",
+    name: "Marie Svobodová",
+    age: 69,
+    sex: "Žena",
+    mainComplaint: "Porucha řeči, ochrnutí pravé poloviny těla",
+    complaintDetail: "Pacientka náhle přestala mluvit a ochrnula na pravou ruku a nohu před 90 minutami při sledování televize. Je přítomna těžká motorická afázie, pokleslý pravý koutek úst a pravostranná hemiparéza. NIHSS skóre odhadnuto na 14.",
+    history: [
+        "Arteriální hypertenze",
+        "Ischemická choroba srdeční",
+        "Diabetes mellitus II. typu na perorálních antidiabeticích"
+    ],
+    allergies: [
+        "Bez známých alergií"
+    ],
+    triageClass: "2",
+    vitals: {
+        tf: 82,
+        tk_sys: 180,
+        tk_dia: 100,
+        spo2: 97,
+        gcs: 14,
+        temp: 36.4,
+        rr: 16
+    },
+    secretDiagnosis: "Akutní ischemická cévní mozková příhoda",
+    secretDiagnosisCode: "I63.9",
+    labsResult: {
+        ko: "KO: Leukocyty 8.1 x10^9/l, Erytrocyty 4.2 x10^12/l, Hb 128 g/l, Trombocyty 195 x10^9/l.",
+        biochem: "Biochemie STATIM: CRP: 2.5 mg/l, Glykémie: 7.5 mmol/l (klíčové k vyloučení hypoglykémie jako imitátoru mrtvice!), Kreatinin: 85 umol/l, Urea: 5.9 mmol/l, Draslík: 4.1 mmol/l, Sodík: 142 mmol/l.",
+        coag: "Koagulace: INR 1.01 (vylučuje warfarinizaci), APTT 29 s.",
+        mochem: "Moč chemicky: Negativní.",
+        abr: "Astrup (ABR): pH 7.42, pCO2 4.8 kPa, pO2 12.0 kPa, HCO3- 24.5 mmol/l, BE 0.5 mmol/l."
+    },
+    imagingResult: {
+        ekg: "12svodové EKG: Sinusový rytmus 82/min, bez akutních změn.",
+        rtg: "RTG Hrudníku: Bez ložiskových zánětlivých změn.",
+        echo: "Echokardiografie: Není akutně indikována.",
+        ct: "CT Mozku: Nativní CT mozku bez známek intracerebrálního krvácení. CT angiografie prokazuje uzávěr levé arteria cerebri media v segmentu M1. Pacientka splňuje kritéria pro trombolýzu a mechanickou trombektomii."
+    }
+},
+  "17": {
+    id: "17",
+    level: 2,
+    title: "Pediatrická anafylaxe po bodnutí hmyzem",
+    name: "Ema Nováková",
+    age: 6,
+    sex: "Žena",
+    mainComplaint: "Celková slabost, ztížené dýchání, kopřivka",
+    complaintDetail: "Šestiletá dívka bodnutá vosou do paže před 20 minutami na zahradě. Během 10 minut se rozvinul generalizovaný erytém, svědivá kopřivka na trupu a končetinách, otok rtů a víček. Nyní si stěžuje na ztížené dýchání, je slyšitelný jemný inspirační stridor a exspirační vrzoty. Dívka je neklidná, bledá.",
+    history: [
+        "Atopický ekzém",
+        "Alergická rinitida"
+    ],
+    allergies: [
+        "Roztoči",
+        "Pelyněk"
+    ],
+    triageClass: "2",
+    vitals: {
+        tf: 140,
+        tk_sys: 80,
+        tk_dia: 45,
+        spo2: 90,
+        gcs: 15,
+        temp: 36.8,
+        rr: 32
+    },
+    secretDiagnosis: "Anafylaktická reakce po bodnutí hmyzem",
+    secretDiagnosisCode: "T78.2",
+    labsResult: {
+        ko: "KO: Leukocyty 10.5 x10^9/l, Erytrocyty 4.4 x10^12/l, Hb 130 g/l, Trombocyty 260 x10^9/l.",
+        biochem: "Biochemie STATIM: CRP: 1.2 mg/l, Kreatinin: 45 umol/l, Urea: 4.1 mmol/l, Draslík: 4.0 mmol/l, Sodík: 138 mmol/l, Tryptáza: odebrána (výsledek bude dostupný později).",
+        coag: "Koagulace: INR 1.0, APTT 30 s.",
+        mochem: "Moč chemicky: V normě.",
+        abr: "Astrup (ABR): pH 7.38, pCO2 4.6 kPa, pO2 8.5 kPa, HCO3- 23.8 mmol/l, BE -0.5 mmol/l."
+    },
+    imagingResult: {
+        ekg: "12svodové EKG: Sinusová tachykardie 140/min, bez akutních změn.",
+        rtg: "RTG Hrudníku: Srdeční stín nezvětšen, plíce bez ložiskových změn či edému.",
+        echo: "Echokardiografie: Není urgentně indikována.",
+        ct: "CT Angiografie: Kontraindikována z důvodu oběhové nestability."
+    }
+},
+  "18": {
+    id: "18",
+    level: 1,
+    title: "Akutní poškození ledvin (AKI) prerenální etiologie",
+    name: "Josef Kovář",
+    age: 74,
+    sex: "Muž",
+    mainComplaint: "Celková slabost, oligurie, dehydratace",
+    complaintDetail: "Starší pacient přichází pro výraznou celkovou slabost, motání hlavy při vstávání a snížené močení (za posledních 24 hodin vymočil cca 200 ml). Před 3 dny prodělal gastroenteritidu s četnými průjmy a zvracením, od té doby vykazoval minimální příjem tekutin. Na monitoru hraniční krevní tlak, suché sliznice, snížený turgor kůže.",
+    history: [
+        "Arteriální hypertenze (užívá Ramipril 5mg denně)",
+        "Benigní hyperplazie prostaty"
+    ],
+    allergies: [
+        "Bez známých alergií"
+    ],
+    triageClass: "3",
+    vitals: {
+        tf: 96,
+        tk_sys: 100,
+        tk_dia: 60,
+        spo2: 96,
+        gcs: 15,
+        temp: 36.6,
+        rr: 16
+    },
+    secretDiagnosis: "Akutní poškození ledvin prerenální (při dehydrataci)",
+    secretDiagnosisCode: "N17.0",
+    labsResult: {
+        ko: "KO: Leukocyty 9.0 x10^9/l, Erytrocyty 4.9 x10^12/l, Hb 155 g/l (mírná hemokoncentrace), Trombocyty 210 x10^9/l.",
+        biochem: "Biochemie STATIM: Urea: 24.5 mmol/l (silně zvýšená), Kreatinin: 310 umol/l (silně zvýšený, KDIGO 3 kritéria), CRP: 12.1 mg/l, Draslík: 5.2 mmol/l (mírná hyperkalémie), Sodík: 144 mmol/l, Kyselina močová: 550 umol/l.",
+        coag: "Koagulace: INR 1.0, APTT 30 s.",
+        mochem: "Moč chemicky: Specifická váha 1.030 (vysoká koncentrace značí prerenální etiologii), bílkovina +, erytrocyty negativní.",
+        abr: "Astrup (ABR): pH 7.35 (mírná metabolická acidóza), pCO2 4.7 kPa, pO2 10.5 kPa, HCO3- 20.2 mmol/l, BE -3.5 mmol/l."
+    },
+    imagingResult: {
+        ekg: "12svodové EKG: Sinusový rytmus 96/min, bez akutních ischemických změn, bez projevů hyperkalémie (hrotnaté T vlny nepřítomny).",
+        rtg: "RTG Hrudníku: Srdeční stín nezvětšen, plíce bez ložiskových či městnavých změn.",
+        echo: "Echokardiografie: Dobrá systolická funkce LK (EF 60%), dolní dutá žíla (IVC) je kolabovaná (odpovídá těžké hypovolémii).",
+        ct: "CT / Ultrazvuk ledvin: Ledviny normální velikosti, bez známek obstrukce (dilatace dutého systému vyloučena, což popírá postrenální AKI)."
+    }
+}
 };
 
 module.exports = { CASES };
