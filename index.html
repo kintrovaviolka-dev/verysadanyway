@@ -191,8 +191,8 @@
       </div>
 
       <!-- Settings Overlay -->
-      <div class="chatbot-settings-overlay" id="chatbot-settings-overlay">
-        <h5>Nastavení API klíče</h5>
+      <div class="chatbot-settings-overlay" id="chatbot-settings-overlay" role="dialog" aria-modal="true" aria-labelledby="chatbot-settings-title">
+        <h5 id="chatbot-settings-title">Nastavení API klíče</h5>
         <p>Pro přímé volání API z prohlížeče (bez serveru) můžete zadat svůj klíč. Ukládá se pouze lokálně u vás (localStorage).</p>
         <div class="settings-input-group">
           <input type="password" id="chatbot-api-key-input" placeholder="AIzaSy..." aria-label="API klíč pro Gemini" />
