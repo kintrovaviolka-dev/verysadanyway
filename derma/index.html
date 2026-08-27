@@ -23,7 +23,7 @@
         </div>
         <div class="brand-text">
           <h1>Dermatologie</h1>
-          <span>Chytrý portál pro studium (<span id="total-questions-count">12</span> zkouškových otázek)</span>
+          <span>Chytrý portál pro studium (<span id="total-questions-count">72</span> zkouškových otázek)</span>
         </div>
       </div>
       
@@ -31,6 +31,11 @@
         <!-- Zpět na rozcestník -->
         <button id="back-hub-btn" class="btn btn-secondary" title="Zpět na centrální rozcestník předmětů">
           ← Rozcestník
+        </button>
+
+        <button id="atlas-btn" class="btn btn-secondary" title="Otevřít interaktivní atlas a trenažér eflorescencí">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px;"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v8M8 12h8"/></svg>
+          Atlas Eflorescencí
         </button>
 
         <button id="matching-game-open-btn" class="btn btn-primary btn-game">
@@ -70,7 +75,7 @@
           <div class="progress-bar-container">
             <div class="progress-bar" id="stat-progress-bar" style="width: 0%"></div>
           </div>
-          <span class="stat-desc" id="stat-progress-ratio">Zvládnuté: 0 z 12 otázek</span>
+          <span class="stat-desc" id="stat-progress-ratio">Zvládnuté: 0 z 72 otázek</span>
         </div>
 
         <!-- Leitnerovy krabičky -->
@@ -320,6 +325,25 @@
           <button id="game-reset-btn" class="btn btn-secondary">
             Nová hra (jiné pojmy)
           </button>
+        </div>
+      </div>
+    </div>
+  <!-- Dialog pro Atlas & Trenažér Eflorescencí -->
+  <dialog id="atlas-dialog" class="game-dialog">
+    <div class="game-container" style="max-width: 950px;">
+      <header class="game-header">
+        <div class="game-header-text">
+          <h2><span aria-hidden="true">🔬</span> Vizuální Atlas & Trenažér Eflorescencí</h2>
+          <p>Klíčový přehled primárních a sekundárních kožních eflorescencí s charakteristikami a klinickými příklady.</p>
+        </div>
+        <button class="game-close-btn" id="atlas-close" aria-label="Zavřít atlas">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </header>
+
+      <div class="game-body" style="padding: 1.5rem;">
+        <div class="atlas-grid" id="atlas-grid">
+          <!-- Dynamicky načtené karty eflorescencí -->
         </div>
       </div>
     </div>

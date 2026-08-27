@@ -687,6 +687,55 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // --- ATLAS EFLORESCENCÍ LOGIKA ---
+  const EFLORESCENCE_DATA = [
+    { name: "Makula (Skvrna)", type: "Primární", desc: "Barevná změna kůže v úrovni povrchu (nehmatná).", examples: "Erythema, Purpura, Vitiligo, Lentigo" },
+    { name: "Papula (Pupen)", type: "Primární", desc: "Ohraničený vyvýšený uzlík do 1 cm v průměru.", examples: "Lichen planus, Molluscum contagiosum" },
+    { name: "Tuber (Hrbol)", type: "Primární", desc: "Vyvýšený infiltrát v koriu s tendencí k jizvení.", examples: "Lupus vulgaris, Lepra" },
+    { name: "Nodus (Uzel)", type: "Primární", desc: "Tuhý vyvýšený nebo vnořený útvar nad 1 cm v podkoží.", examples: "Erythema nodosum, Lipom" },
+    { name: "Urtika (Kopřivka)", type: "Primární", desc: "Pomíjivý edematózní svědivý pupen z transudace kapilár.", examples: "Urticaria allergic/irritative" },
+    { name: "Vezikula (Puchýřek)", type: "Primární", desc: "Dutina do 0.5 cm vyplněná čirým sérem.", examples: "Herpes simplex, Varicella, Eczema" },
+    { name: "Bula (Puchýř)", type: "Primární", desc: "Dutina nad 0.5 cm s tekutinou (intra/subepidermální).", examples: "Pemphigus vulgaris, Bulózní pemphigoid" },
+    { name: "Pustula (Neštovička)", type: "Primární", desc: "Dutina vyplněná hnisem a leukocyty.", examples: "Folliculitis, Psoriasis pustulosa, Acne" },
+    { name: "Squama (Šupina)", type: "Sekundární", desc: "Odlupující se rohovitá vrstva epidermis.", examples: "Psoriasis (stříbřité šupiny), Seborrhoea" },
+    { name: "Krusta (Strup)", type: "Sekundární", desc: "Zaschlý sekret (krev, hnis, sérum) na povrchu.", examples: "Impetigo contagiosa" },
+    { name: "Eroze (Oděrka)", type: "Sekundární", desc: "Povrchový defekt zasahující pouze pokožku (bez jizvy).", examples: "Prasklý puchýř u pemfigu" },
+    { name: "Ulkus (Vřed)", type: "Sekundární", desc: "Hluboký defekt kůže zasahující do dermis/subcutis (hojí se jizvou).", examples: "Ulcus cruris venosum" }
+  ];
+
+  const atlasBtn = document.getElementById("atlas-btn");
+  const atlasDialog = document.getElementById("atlas-dialog");
+  const atlasCloseBtn = document.getElementById("atlas-close");
+  const atlasGrid = document.getElementById("atlas-grid");
+
+  if (atlasBtn && atlasDialog) {
+    atlasBtn.addEventListener("click", () => {
+      if (atlasGrid) {
+        atlasGrid.innerHTML = EFLORESCENCE_DATA.map(item => `
+          <div class="atlas-card" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <h3 style="font-size: 1.1rem; color: var(--text-primary); font-weight: 700;">${item.name}</h3>
+              <span style="font-size: 0.75rem; padding: 2px 8px; border-radius: 6px; background: ${item.type === 'Primární' ? 'rgba(52,211,153,0.15)' : 'rgba(249,115,22,0.15)'}; color: ${item.type === 'Primární' ? '#34d399' : '#f97316'}; font-weight: 700;">${item.type}</span>
+            </div>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 10px;">${item.desc}</p>
+            <div style="font-size: 0.8rem; color: var(--text-muted); border-top: 1px solid var(--border-color); padding-top: 8px;">
+              <strong>Klinické příklady:</strong> ${item.examples}
+            </div>
+          </div>
+        `).join("");
+      }
+      if (typeof atlasDialog.showModal === "function") atlasDialog.showModal();
+      else atlasDialog.setAttribute("open", "true");
+    });
+  }
+
+  if (atlasCloseBtn && atlasDialog) {
+    atlasCloseBtn.addEventListener("click", () => {
+      if (typeof atlasDialog.close === "function") atlasDialog.close();
+      else atlasDialog.removeAttribute("open");
+    });
+  }
+
   // 17. PRVNÍ SPUŠTĚNÍ - INICIALIZACE STRÁNKY
   updateDashboard();
   renderQuestionsGrid();
