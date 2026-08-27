@@ -490,10 +490,10 @@
 
     // B. Vložení HTML struktury modálního okna
     const modalHtml = `
-      <div id="feedback-modal-overlay" class="feedback-modal-overlay">
+      <div id="feedback-modal-overlay" class="feedback-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="feedback-modal-title">
         <div class="feedback-modal-card">
           <div class="feedback-modal-header">
-            <h3>
+            <h3 id="feedback-modal-title">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-right:4px;">
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
               </svg>
