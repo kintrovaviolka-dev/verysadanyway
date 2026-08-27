@@ -33,6 +33,11 @@
           ← Rozcestník
         </button>
 
+        <button id="algo-btn" class="btn btn-secondary" title="Otevřít indikační algoritmy zobrazovacích metod">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px;"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          Indikační Algoritmy
+        </button>
+
         <button id="matching-game-open-btn" class="btn btn-primary btn-game">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
           Spustit přiřazovačku
@@ -396,6 +401,27 @@
       </form>
     </div>
   </div>
+
+  <!-- Dialog pro Indikační Algoritmy Radiologie -->
+  <dialog id="algo-dialog" class="game-dialog">
+    <div class="game-container" style="max-width: 900px;">
+      <header class="game-header">
+        <div class="game-header-text">
+          <h2><span aria-hidden="true">🩻</span> Indikační Algoritmy Zobrazovacích Metod</h2>
+          <p>Přehled metod volby (1. linie vs 2. linie vs Zlatý standard) u nejčastějších akutních a elektivních stavů.</p>
+        </div>
+        <button class="game-close-btn" id="algo-close" aria-label="Zavřít algoritmy">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </header>
+
+      <div class="game-body" style="padding: 1.5rem;">
+        <div id="algo-matrix-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 1.25rem;">
+          <!-- Dynamicky vygenerované matice indikací -->
+        </div>
+      </div>
+    </div>
+  </dialog>
 
   <!-- Skripty databází -->
   <script src="data.js"></script>

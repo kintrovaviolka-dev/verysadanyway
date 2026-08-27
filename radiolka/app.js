@@ -959,6 +959,57 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // --- LOGIKA TLAČÍTKA ZPĚT NA ROZCESTNÍK ---
+  const backHubBtn = document.getElementById("back-hub-btn");
+  if (backHubBtn) {
+    backHubBtn.addEventListener("click", () => {
+      if (window.location.protocol === 'file:') {
+        window.location.href = '../index.html';
+      } else {
+        window.location.href = 'https://verysadanyway.vercel.app/';
+      }
+    });
+  }
+
+  // --- INDIKAČNÍ ALGORITMY LOGIKA ---
+  const RADIOLOGY_ALGORITHMS = [
+    { title: "Náhlá cévní mozková příhoda (CMP)", line1: "Nativní CT mozku (vyloučení hemoragie)", line2: "CT angiografie (CTA) + CT perfuze", gold: "MRI mozku (DWI sekvence pro hyperakutní ischemii)" },
+    { title: "Plicní embolie (PE)", line1: "RTG hrudníku (vyloučení pneumothoraxu/edému)", line2: "CT angiografie plicnice (CTAG)", gold: "Perfuzní/Ventilační scintigrafie plic (u alergie na JKL / selhání ledvin)" },
+    { title: "Náhlá příhoda břišní (NPB) - Ileus", line1: "Nativní nefritický snímek břicha ve stoje", line2: "Ultrazvuk (UZ) břicha", gold: "CT břicha a malé pánve s kapačkou (i.v. kontrast)" },
+    { title: "Akutní pankreatitida", line1: "UZ břicha (posouzení žlučníku a žlučovodů)", line2: "CT břicha s i.v. kontrastem (po 72 hod pro rozsah nekrózy)", gold: "MRCP (posouzení choledocholitiázy)" },
+    { title: "Ledvinná kolika (Urolitiáza)", line1: "Nativní UZ ledvin a měchýře", line2: "Nativní low-dose CT (přímo vizualizuje konkrementy)", gold: "Low-dose CT bez kontrastu" },
+    { title: "Trauma krční páteře", line1: "CT krční páteře (1. linie u polytraumatu)", line2: "RTG krční páteře v 3 projekcích", gold: "MRI krční páteře (posouzení míchy a vazů)" }
+  ];
+
+  const algoBtn = document.getElementById("algo-btn");
+  const algoDialog = document.getElementById("algo-dialog");
+  const algoCloseBtn = document.getElementById("algo-close");
+  const algoGrid = document.getElementById("algo-matrix-grid");
+
+  if (algoBtn && algoDialog) {
+    algoBtn.addEventListener("click", () => {
+      if (algoGrid) {
+        algoGrid.innerHTML = RADIOLOGY_ALGORITHMS.map(item => `
+          <div class="algo-card" style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.25rem; box-shadow: 0 4px 15px var(--shadow);">
+            <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--primary); margin-bottom: 0.75rem;">${item.title}</h3>
+            <div style="font-size: 0.85rem; margin-bottom: 0.5rem;"><strong style="color: #34d399;">1. linie:</strong> ${item.line1}</div>
+            <div style="font-size: 0.85rem; margin-bottom: 0.5rem;"><strong style="color: #f59e0b;">2. linie:</strong> ${item.line2}</div>
+            <div style="font-size: 0.85rem; padding-top: 0.5rem; border-top: 1px solid var(--border); color: var(--text-secondary);"><strong style="color: #60a5fa;">Zlatý standard:</strong> ${item.gold}</div>
+          </div>
+        `).join("");
+      }
+      if (typeof algoDialog.showModal === "function") algoDialog.showModal();
+      else algoDialog.setAttribute("open", "true");
+    });
+  }
+
+  if (algoCloseBtn && algoDialog) {
+    algoCloseBtn.addEventListener("click", () => {
+      if (typeof algoDialog.close === "function") algoDialog.close();
+      else algoDialog.removeAttribute("open");
+    });
+  }
+
   // --- INICIALIZACE ---
   updateDashboardStats();
   renderCards();
