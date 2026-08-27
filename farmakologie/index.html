@@ -31,6 +31,12 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align: middle; margin-right: 4px;"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
           PK/TDM Trenažér
         </button>
+
+        <!-- Přiřazovačka -->
+        <button id="matching-game-open-btn" class="btn btn-primary btn-game" title="Spustit interaktivní přiřazovací hru léků a mechanismů">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px;"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+          Spustit přiřazovačku
+        </button>
         
         <!-- Export / Import Dat -->
         <button id="export-btn" class="btn btn-secondary" title="Stáhnout poznámky a pokrok jako JSON">
@@ -173,25 +179,49 @@
 
     <!-- Dashboard statistik -->
     <section class="dashboard">
-      <div class="stat-card">
-        <span class="stat-label">Celkem témat</span>
-        <span class="stat-value" id="stat-total">46</span>
-        <span class="stat-desc">Otázky z obecné farmakologie</span>
-      </div>
-      <div class="stat-card stat-mastered">
-        <span class="stat-label">Zvládnuté (Umím)</span>
-        <span class="stat-value" id="stat-mastered">0</span>
-        <span class="stat-desc" id="stat-mastered-pct">0 % z celkového počtu</span>
-      </div>
-      <div class="stat-card stat-learning">
-        <span class="stat-label">Rozpracované (Učím se)</span>
-        <span class="stat-value" id="stat-learning">0</span>
-        <span class="stat-desc" id="stat-learning-pct">0 % z celkového počtu</span>
-      </div>
-      <div class="stat-card stat-quiz">
-        <span class="stat-label">Úspěšnost kvízů</span>
-        <span class="stat-value" id="stat-quiz-score">0 %</span>
-        <span class="stat-desc" id="stat-quiz-count">Zodpovězeno 0 otázek</span>
+      <div class="dashboard-grid">
+        <div class="stat-card">
+          <span class="stat-label">Celkem témat v kapitole</span>
+          <span class="stat-value" id="stat-total">46</span>
+          <span class="stat-desc" id="stat-mastered-pct">Zvládnuté: 0 %</span>
+        </div>
+
+        <!-- Leitnerovy krabičky -->
+        <div class="stat-card stat-boxes-card">
+          <span class="stat-label">Leitnerův systém opakování</span>
+          <div class="boxes-container">
+            <div class="box-indicator box-1" title="Každý den">
+              <div class="box-badge">Box 1</div>
+              <div class="box-count" id="box-1-count">0</div>
+              <div class="box-sub">Denně</div>
+            </div>
+            <div class="box-indicator box-2" title="Každé 2 dny">
+              <div class="box-badge">Box 2</div>
+              <div class="box-count" id="box-2-count">0</div>
+              <div class="box-sub">Obden</div>
+            </div>
+            <div class="box-indicator box-3" title="Každých 5 dní">
+              <div class="box-badge">Box 3</div>
+              <div class="box-count" id="box-3-count">0</div>
+              <div class="box-sub">5 dní</div>
+            </div>
+            <div class="box-indicator box-4" title="Zvládnuto (každých 10 dní)">
+              <div class="box-badge">Box 4</div>
+              <div class="box-count" id="box-4-count">0</div>
+              <div class="box-sub">10 dní</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- K opakování dnes -->
+        <div class="stat-card stat-due" id="stat-due-card">
+          <span class="stat-label">K opakování na dnešek</span>
+          <span class="stat-value text-amber" id="stat-due-count">0</span>
+          <span class="stat-desc" id="stat-due-desc">Všechny karty jsou aktuální!</span>
+          <button id="study-due-btn" class="btn btn-secondary btn-due" style="display: none;">
+            Učit se dnešní karty
+          </button>
+        </div>
       </div>
     </section>
 
@@ -252,9 +282,12 @@
           <label class="filter-label" for="status-filter">Stav učení:</label>
           <select id="status-filter" class="select-custom">
             <option value="all">Všechny stavy</option>
-            <option value="not-started">Nezačato</option>
-            <option value="learning">Učím se</option>
-            <option value="mastered">Umím</option>
+            <option value="due">K opakování (Due)</option>
+            <option value="box-1">Box 1 (Nové / Těžké)</option>
+            <option value="box-2">Box 2 (Mírně pokročilé)</option>
+            <option value="box-3">Box 3 (Známé)</option>
+            <option value="box-4">Box 4 (Zvládnuté)</option>
+            <option value="not-started">Nezačato (Netestováno)</option>
           </select>
         </div>
       </div>
@@ -438,7 +471,31 @@
         </button>
       </form>
     </div>
-  </div>
+  <!-- Modal pro Farmako-Přiřazovačku -->
+  <dialog id="matching-modal" class="modal-dialog">
+    <div class="modal-dialog-content">
+      <div class="modal-header">
+        <h2>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align: middle; margin-right: 6px;"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+          Farmako-Přiřazovačka (Léčivo ↔ Mechanismus / Indikace)
+        </h2>
+        <button id="matching-modal-close" class="modal-close-btn" aria-label="Zavřít přiřazovačku">✕</button>
+      </div>
+      <div class="matching-game-body">
+        <p class="game-instruction">Klikni na název léčiva a následně přiřaď odpovídající mechanismus účinku nebo indikaci/antidotum.</p>
+        <div class="game-stats">
+          <span>Čas: <strong id="game-timer">00:00</strong></span>
+          <span>Počet dvojic: <strong id="game-score">0 / 6</strong></span>
+        </div>
+        <div id="matching-grid" class="matching-grid">
+          <!-- Dynamicky vygenerované kartičky -->
+        </div>
+        <div id="game-completion-msg" class="game-completion-msg" style="display: none;">
+          🎉 Skvělá práce! Všechny farmakologické dvojice byly správně přiřazeny!
+        </div>
+      </div>
+    </div>
+  </dialog>
 
   <!-- Načtení dat a skriptů -->
   <script src="data_core.js"></script>

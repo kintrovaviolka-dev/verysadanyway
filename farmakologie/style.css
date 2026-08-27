@@ -1883,3 +1883,191 @@ body.dark-mode .message.assistant .message-content code {
   }
 }
 
+/* Leitner Boxes & Dashboard Styles for Farmakologie */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  gap: 1.25rem;
+}
+
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stat-boxes-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.boxes-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.box-indicator {
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  padding: 0.6rem 0.4rem;
+  text-align: center;
+  transition: transform var(--transition-fast);
+}
+
+.box-indicator:hover {
+  transform: translateY(-2px);
+}
+
+.box-badge {
+  font-size: 0.65rem;
+  font-family: var(--font-title);
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-bottom: 0.25rem;
+  display: inline-block;
+}
+
+.box-count {
+  font-family: var(--font-title);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.box-sub {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+.box-1 .box-badge { background-color: rgba(239, 68, 68, 0.15); color: #ef4444; }
+.box-2 .box-badge { background-color: rgba(249, 115, 22, 0.15); color: #f97316; }
+.box-3 .box-badge { background-color: rgba(234, 179, 8, 0.15); color: #eab308; }
+.box-4 .box-badge { background-color: rgba(34, 197, 94, 0.15); color: #22c55e; }
+
+.text-amber { color: #f59e0b; }
+
+.btn-due {
+  width: 100%;
+  margin-top: 0.5rem;
+  background-color: var(--bg-tertiary);
+  border: 1px solid #f59e0b;
+  color: var(--text-primary);
+}
+
+.btn-due:hover {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+  transform: translateY(-2px);
+}
+
+/* Card Status Badges */
+.status-box-1 { color: #ef4444; }
+.status-box-2 { color: #f97316; }
+.status-box-3 { color: #eab308; }
+.status-box-4 { color: #22c55e; }
+.status-due { color: #f59e0b; font-weight: 700; }
+
+/* Matching Game Modal & Grid */
+.modal-dialog {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 0;
+  max-width: 800px;
+  width: 90vw;
+  margin: auto;
+  box-shadow: var(--shadow-xl);
+}
+
+.modal-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.modal-dialog-content {
+  padding: 1.5rem;
+}
+
+.game-instruction {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.game-stats {
+  display: flex;
+  justify-content: space-between;
+  background: var(--bg-tertiary);
+  padding: 0.75rem 1rem;
+  border-radius: var(--border-radius-md);
+  margin-bottom: 1.25rem;
+  font-size: 0.9rem;
+}
+
+.matching-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+}
+
+.matching-tile {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  padding: 0.85rem 1rem;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+  display: flex;
+  align-items: center;
+}
+
+.matching-tile:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.matching-tile.selected {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+  box-shadow: 0 0 10px var(--color-primary-light);
+}
+
+.matching-tile.matched {
+  border-color: #22c55e;
+  background: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.matching-tile.wrong {
+  border-color: #ef4444;
+  background: rgba(239, 68, 68, 0.15);
+  animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.game-completion-msg {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: rgba(34, 197, 94, 0.15);
+  border: 1px solid #22c55e;
+  border-radius: var(--border-radius-md);
+  color: #22c55e;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1rem;
+}
+

@@ -125,30 +125,99 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // --- ZPĚT NA ROZCESTNÍK ---
+  const backHubBtn = document.getElementById("back-hub-btn");
+  if (backHubBtn) {
+    backHubBtn.addEventListener("click", () => {
+      window.location.href = "../index.html";
+    });
+  }
+
+  // --- LEITNER SYSTEM HELPERS ---
+  const getLeitnerData = (id) => {
+    const val = state.userProgress[id];
+    if (!val) return { box: 1, nextReviewDate: 0, tested: false };
+    if (typeof val === "string") {
+      if (val === "mastered") return { box: 4, nextReviewDate: Date.now() + 10 * 86400000, tested: true };
+      if (val === "learning") return { box: 2, nextReviewDate: Date.now() + 2 * 86400000, tested: true };
+      return { box: 1, nextReviewDate: 0, tested: false };
+    }
+    return {
+      box: val.box || 1,
+      nextReviewDate: val.nextReviewDate || 0,
+      tested: val.tested !== undefined ? val.tested : true
+    };
+  };
+
+  const isDue = (id) => {
+    const data = getLeitnerData(id);
+    if (!data.tested) return false;
+    return Date.now() >= data.nextReviewDate;
+  };
+
+  const setLeitnerStatus = (id, isCorrect) => {
+    const data = getLeitnerData(id);
+    let newBox = data.box;
+    if (isCorrect) {
+      newBox = Math.min(4, newBox + 1);
+    } else {
+      newBox = 1;
+    }
+    const intervals = [0, 1, 2, 5, 10];
+    const days = intervals[newBox] || 1;
+    state.userProgress[id] = {
+      box: newBox,
+      nextReviewDate: Date.now() + days * 86400000,
+      tested: true
+    };
+    saveState();
+    updateDashboard();
+    renderCards();
+  };
+
   // --- AKTUALIZACE STATISTIK ---
   const updateDashboard = () => {
     const activeQuestions = state.questions.filter(q => q.chapter === state.activeChapter);
     const total = activeQuestions.length;
-    let masteredCount = 0;
-    let learningCount = 0;
+    let box1 = 0, box2 = 0, box3 = 0, box4 = 0;
+    let dueCount = 0;
 
     activeQuestions.forEach(q => {
-      const status = state.userProgress[q.id] || "not-started";
-      if (status === "mastered") masteredCount++;
-      if (status === "learning") learningCount++;
+      const data = getLeitnerData(q.id);
+      if (data.box === 1) box1++;
+      else if (data.box === 2) box2++;
+      else if (data.box === 3) box3++;
+      else if (data.box === 4) box4++;
+
+      if (isDue(q.id)) dueCount++;
     });
 
-    const masteredPct = Math.round((masteredCount / total) * 100) || 0;
-    const learningPct = Math.round((learningCount / total) * 100) || 0;
+    const masteredPct = Math.round((box4 / total) * 100) || 0;
 
-    // Zápis do UI
     if (statTotal) statTotal.textContent = total;
-    if (statMastered) statMastered.textContent = masteredCount;
-    if (statMasteredPct) statMasteredPct.textContent = `${masteredPct} % z celkového počtu`;
-    if (statLearning) statLearning.textContent = learningCount;
-    if (statLearningPct) statLearningPct.textContent = `${learningPct} % z celkového počtu`;
+    if (statMasteredPct) statMasteredPct.textContent = `Zvládnuté: ${masteredPct} % (${box4} z ${total})`;
 
-    // Kvízové skóre
+    const box1El = document.getElementById("box-1-count");
+    const box2El = document.getElementById("box-2-count");
+    const box3El = document.getElementById("box-3-count");
+    const box4El = document.getElementById("box-4-count");
+    const dueCountEl = document.getElementById("stat-due-count");
+    const dueDescEl = document.getElementById("stat-due-desc");
+    const dueBtn = document.getElementById("study-due-btn");
+
+    if (box1El) box1El.textContent = box1;
+    if (box2El) box2El.textContent = box2;
+    if (box3El) box3El.textContent = box3;
+    if (box4El) box4El.textContent = box4;
+
+    if (dueCountEl) dueCountEl.textContent = dueCount;
+    if (dueDescEl) {
+      dueDescEl.textContent = dueCount > 0 ? `${dueCount} karet vyžaduje dnešní zopakováni!` : "Všechny karty jsou aktuální!";
+    }
+    if (dueBtn) {
+      dueBtn.style.display = dueCount > 0 ? "block" : "none";
+    }
+
     if (statQuizScore && statQuizCount) {
       if (state.quizStats.totalCount > 0) {
         const scorePct = Math.round((state.quizStats.correctCount / state.quizStats.totalCount) * 100);
@@ -161,6 +230,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  const studyDueBtn = document.getElementById("study-due-btn");
+  if (studyDueBtn) {
+    studyDueBtn.addEventListener("click", () => {
+      statusFilter.value = "due";
+      renderCards();
+      cardsGrid.scrollIntoView({ behavior: "smooth" });
+    });
+  }
+
   // --- RENDER KARET ---
   const renderCards = () => {
     cardsGrid.innerHTML = "";
@@ -171,20 +249,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const statVal = statusFilter.value;
 
     const filtered = state.questions.filter(q => {
-      // 0. Filtr kapitoly (obecná vs speciální)
       if (q.chapter !== state.activeChapter) return false;
-
-      // 1. Filtr kategorie
       if (catVal !== "all" && q.category !== catVal) return false;
-
-      // 2. Filtr orgánového systému
       if (systemVal !== "all" && q.organSystem !== systemVal) return false;
 
-      // 3. Filtr stavu pokroku
-      const currentStatus = state.userProgress[q.id] || "not-started";
-      if (statVal !== "all" && currentStatus !== statVal) return false;
+      const leitner = getLeitnerData(q.id);
+      if (statVal === "due" && !isDue(q.id)) return false;
+      if (statVal === "box-1" && leitner.box !== 1) return false;
+      if (statVal === "box-2" && leitner.box !== 2) return false;
+      if (statVal === "box-3" && leitner.box !== 3) return false;
+      if (statVal === "box-4" && leitner.box !== 4) return false;
+      if (statVal === "not-started" && leitner.tested) return false;
 
-      // 4. Vyhledávací filtr
       if (searchVal) {
         const titleMatch = q.title.toLowerCase().includes(searchVal);
         const keywordMatch = q.keyTerms.some(k => k.toLowerCase().includes(searchVal));
@@ -221,15 +297,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const cardContainer = document.createElement("div");
       cardContainer.className = "card-container";
       
-      const currentStatus = state.userProgress[q.id] || "not-started";
-      let statusLabel = "Nezačato";
-      let statusClass = "";
-      if (currentStatus === "mastered") {
-        statusLabel = "Umím";
-        statusClass = "status-mastered";
-      } else if (currentStatus === "learning") {
-        statusLabel = "Učím se";
-        statusClass = "status-learning";
+      const leitner = getLeitnerData(q.id);
+      let statusLabel = `Box ${leitner.box}`;
+      let statusClass = `status-box-${leitner.box}`;
+      if (isDue(q.id)) {
+        statusLabel = "K opakování";
+        statusClass = "status-due";
       }
 
       const keywordsTags = q.keyTerms.map(k => `<span class="keyword-tag">${k}</span>`).join("");
@@ -1166,14 +1239,123 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     chatbotSuggestions.appendChild(chip);
   });
-  // --- LOGIKA TLAČÍTKA ZPĚT NA ROZCESTNÍK ---
-  const backHubBtn = document.getElementById("back-hub-btn");
-  if (backHubBtn) {
-    backHubBtn.addEventListener("click", () => {
-      if (window.location.protocol === 'file:') {
-        window.location.href = '../index.html';
+  // --- FARMAKO-PŘIŘAZOVAČKA LOGIKA ---
+  const matchingGameBtn = document.getElementById("matching-game-open-btn");
+  const matchingModal = document.getElementById("matching-modal");
+  const matchingModalClose = document.getElementById("matching-modal-close");
+  const matchingGrid = document.getElementById("matching-grid");
+  const gameTimerEl = document.getElementById("game-timer");
+  const gameScoreEl = document.getElementById("game-score");
+  const gameCompletionMsg = document.getElementById("game-completion-msg");
+
+  let gameTimerInterval = null;
+  let gameSeconds = 0;
+  let selectedTile = null;
+  let matchedPairsCount = 0;
+
+  const startMatchingGame = () => {
+    if (!matchingGrid) return;
+    matchingGrid.innerHTML = "";
+    if (gameCompletionMsg) gameCompletionMsg.style.display = "none";
+    
+    clearInterval(gameTimerInterval);
+    gameSeconds = 0;
+    matchedPairsCount = 0;
+    selectedTile = null;
+    if (gameTimerEl) gameTimerEl.textContent = "00:00";
+    if (gameScoreEl) gameScoreEl.textContent = "0 / 6";
+
+    // Vybrat 6 náhodných témat s titulkem a klíčovými pojmy
+    const available = state.questions.filter(q => q.keyTerms && q.keyTerms.length > 0);
+    const shuffled = [...available].sort(() => 0.5 - Math.random());
+    const selected = shuffled.slice(0, 6);
+
+    const leftTiles = [];
+    const rightTiles = [];
+
+    selected.forEach((q, idx) => {
+      leftTiles.push({ id: idx, text: q.title, type: "left" });
+      const clue = q.keyTerms.slice(0, 3).join(" • ");
+      rightTiles.push({ id: idx, text: clue, type: "right" });
+    });
+
+    const shuffledLeft = [...leftTiles].sort(() => 0.5 - Math.random());
+    const shuffledRight = [...rightTiles].sort(() => 0.5 - Math.random());
+
+    shuffledLeft.forEach(tile => {
+      const el = document.createElement("div");
+      el.className = "matching-tile tile-left";
+      el.dataset.pairId = tile.id;
+      el.textContent = tile.text;
+      matchingGrid.appendChild(el);
+    });
+
+    shuffledRight.forEach(tile => {
+      const el = document.createElement("div");
+      el.className = "matching-tile tile-right";
+      el.dataset.pairId = tile.id;
+      el.textContent = tile.text;
+      matchingGrid.appendChild(el);
+    });
+
+    gameTimerInterval = setInterval(() => {
+      gameSeconds++;
+      const m = String(Math.floor(gameSeconds / 60)).padStart(2, '0');
+      const s = String(gameSeconds % 60).padStart(2, '0');
+      if (gameTimerEl) gameTimerEl.textContent = `${m}:${s}`;
+    }, 1000);
+
+    if (matchingModal) {
+      if (typeof matchingModal.showModal === "function") matchingModal.showModal();
+      else matchingModal.setAttribute("open", "true");
+    }
+  };
+
+  if (matchingGameBtn) {
+    matchingGameBtn.addEventListener("click", startMatchingGame);
+  }
+
+  if (matchingModalClose && matchingModal) {
+    matchingModalClose.addEventListener("click", () => {
+      clearInterval(gameTimerInterval);
+      if (typeof matchingModal.close === "function") matchingModal.close();
+      else matchingModal.removeAttribute("open");
+    });
+  }
+
+  if (matchingGrid) {
+    matchingGrid.addEventListener("click", (e) => {
+      const tile = e.target.closest(".matching-tile");
+      if (!tile || tile.classList.contains("matched")) return;
+
+      if (!selectedTile) {
+        selectedTile = tile;
+        tile.classList.add("selected");
+      } else if (selectedTile === tile) {
+        tile.classList.remove("selected");
+        selectedTile = null;
       } else {
-        window.location.href = 'https://verysadanyway.vercel.app/';
+        if (selectedTile.dataset.pairId === tile.dataset.pairId && selectedTile !== tile) {
+          selectedTile.classList.remove("selected");
+          selectedTile.classList.add("matched");
+          tile.classList.add("matched");
+          selectedTile = null;
+          matchedPairsCount++;
+          if (gameScoreEl) gameScoreEl.textContent = `${matchedPairsCount} / 6`;
+          if (matchedPairsCount === 6) {
+            clearInterval(gameTimerInterval);
+            if (gameCompletionMsg) gameCompletionMsg.style.display = "block";
+          }
+        } else {
+          tile.classList.add("wrong");
+          selectedTile.classList.add("wrong");
+          const temp = selectedTile;
+          selectedTile = null;
+          setTimeout(() => {
+            tile.classList.remove("wrong", "selected");
+            temp.classList.remove("wrong", "selected");
+          }, 600);
+        }
       }
     });
   }
