@@ -1,6 +1,3 @@
-## 2024-11-20 - Actionable Empty States
-**Learning:** Dead-end empty states (like a plain "no results" message) disrupt user flow and require extra effort to recover from.
-**Action:** Always provide an actionable recovery path (e.g., a "Clear search" button) in empty states, and ensure that programmatic focus is returned to the relevant input to maintain keyboard navigation context.
-## 2024-11-20 - Custom Modal Accessibility
-**Learning:** Custom modals built without the native HTML `<dialog>` tag lack built-in accessibility features (like keyboard focus management and screen reader roles).
-**Action:** When implementing custom modals, always add `role="dialog"`, `aria-modal="true"`, and appropriate `aria-labelledby` attributes. Programmatically trap or shift focus to the modal when opened, close the modal on `Escape` key press, and restore focus to the previously active element upon closing.
+## 2023-10-27 - Dialog Accessibility Attributes for Custom Modals
+**Learning:** The application uses several custom HTML `<div>` elements as modals, popups, and overlays (e.g., feedback modal, chatbot panel, chatbot settings overlay, support toast) instead of native `<dialog>` elements. Screen readers have trouble interpreting these as distinct layers without explicit ARIA attributes.
+**Action:** Always ensure that custom modals injected via JS (like in `feedback.js`) or present in static HTML (`index.html`) include `role="dialog"`, `aria-modal="true"` (or `false` for non-blocking toasts), and `aria-labelledby="[id-of-heading]"` on the outer wrapper element. The corresponding heading element must have the matching `id`.

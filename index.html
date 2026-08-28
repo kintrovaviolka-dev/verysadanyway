@@ -166,7 +166,7 @@
     </button>
 
     <!-- Chat Panel -->
-    <div class="chatbot-panel" id="chatbot-panel">
+    <div class="chatbot-panel" id="chatbot-panel" role="dialog" aria-modal="false" aria-labelledby="chatbot-panel-title">
       <!-- Panel Header -->
       <div class="chatbot-header" id="chatbot-header">
         <div class="chatbot-title-area">
@@ -175,7 +175,7 @@
             <span class="avatar-status-dot online"></span>
           </div>
           <div class="chatbot-info">
-            <h4 class="chatbot-name">Gemini Asistent</h4>
+            <h4 class="chatbot-name" id="chatbot-panel-title">Gemini Asistent</h4>
             <span class="chatbot-status" id="chatbot-subject-context">Obecný medicínský rádce</span>
           </div>
         </div>
@@ -191,8 +191,8 @@
       </div>
 
       <!-- Settings Overlay -->
-      <div class="chatbot-settings-overlay" id="chatbot-settings-overlay">
-        <h5>Nastavení API klíče</h5>
+      <div class="chatbot-settings-overlay" id="chatbot-settings-overlay" role="dialog" aria-modal="true" aria-labelledby="chatbot-settings-title">
+        <h5 id="chatbot-settings-title">Nastavení API klíče</h5>
         <p>Pro přímé volání API z prohlížeče (bez serveru) můžete zadat svůj klíč. Ukládá se pouze lokálně u vás (localStorage).</p>
         <div class="settings-input-group">
           <input type="password" id="chatbot-api-key-input" placeholder="AIzaSy..." aria-label="API klíč pro Gemini" />
