@@ -90,20 +90,23 @@ document.addEventListener("DOMContentLoaded", () => {
   const selectGrade = (grade) => {
     state.selectedGrade = grade;
     
-    // Update active class on grade cards
+    // Update active class and accessibility state on grade cards
     document.querySelectorAll(".grade-card").forEach(card => {
-      const cardGrade = parseInt(card.getAttribute("data-grade"));
+      const rawGrade = card.getAttribute("data-grade");
+      const cardGrade = parseInt(rawGrade);
       if (cardGrade === grade) {
         card.classList.add("active");
+        card.setAttribute("aria-pressed", "true");
       } else {
         card.classList.remove("active");
+        card.setAttribute("aria-pressed", "false");
       }
     });
 
-    // Filter subject cards based on selected grade
+    // Filter subject cards based on selected grade or "all"
     document.querySelectorAll(".subject-card").forEach(card => {
-      const cardGrade = parseInt(card.getAttribute("data-grade"));
-      if (cardGrade === grade) {
+      const rawGrade = card.getAttribute("data-grade");
+      if (rawGrade === "all" || parseInt(rawGrade) === grade) {
         card.style.display = "block";
       } else {
         card.style.display = "none";
