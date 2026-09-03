@@ -7,3 +7,6 @@
 ## 2024-05-18 - ARIA toggle states for custom filtering buttons
 **Learning:** When using custom `div` elements with `role="button"` for filtering (like `.grade-card`), adding an `active` class is not enough for screen readers. They need `aria-pressed="true" / "false"` to convey the selected toggle state to assistive technologies. Additionally, filtering logic reliant on `parseInt` needs to account for special universal string values like `"all"` to prevent breaking features (e.g. universal study materials disappearing on click).
 **Action:** Always pair visual active classes with semantic ARIA toggle attributes (`aria-pressed`, `aria-expanded`, or `aria-selected` depending on the interaction pattern) and validate filtering inputs against string constants when processing data attributes.
+## 2024-11-20 - Icon-Only Button Accessibility
+**Learning:** When using icon-only buttons (like `⚙️` or `X`) that are made accessible via `aria-label`, the inner decorative visual element (SVG or emoji) can still cause confusing or redundant announcements for screen reader users if left exposed.
+**Action:** Always add `aria-hidden="true"` to purely decorative SVGs or emojis that are enclosed within an element that already provides an accessible name (e.g., via `aria-label`).
