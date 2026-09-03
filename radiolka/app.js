@@ -840,7 +840,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (contents.length > 0 && contents[0].role !== "user") contents.shift();
     if (contents.length === 0) throw new Error("Žádné platné zprávy.");
 
-    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:streamGenerateContent?alt=sse&key=${key}`, {
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:streamGenerateContent?alt=sse&key=${key}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

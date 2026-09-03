@@ -32,7 +32,7 @@ app.use(express.static(__dirname));
 // --- LAZY GEMINI CLIENT ---
 let aiClient = null;
 function getGeminiClient() {
-  const apiKey = process.env.GEMINI_API_KEY;
+  const apiKey = process.env.GEMINI_API_KEY || process.env.API_KEY || process.env.GEMINI_KEY;
   if (!apiKey || apiKey === 'YOUR_API_KEY_HERE' || apiKey === 'your_gemini_api_key_here') {
     throw new Error("GEMINI_API_KEY is not configured. Please add your key to the .env file.");
   }
@@ -107,8 +107,8 @@ function checkReferer(req) {
       
       const allowed = ['localhost', '127.0.0.1', '::1'];
       const isLocal = allowed.some(domain => hostname === domain);
-      const allowedVercel = ['patfyz.vercel.app', 'patolka.vercel.app', 'verysadanyway.vercel.app'];
-      const isVercel = allowedVercel.includes(hostname);
+      const allowedVercel = ['patfyz.vercel.app', 'patfyza.vercel.app', 'patolka.vercel.app', 'verysadanyway.vercel.app'];
+      const isVercel = allowedVercel.includes(hostname) || hostname.endsWith('.vercel.app');
       
       return isLocal || isVercel;
     } catch (e) {
@@ -148,8 +148,8 @@ app.use((req, res, next) => {
       
       const allowed = ['localhost', '127.0.0.1', '::1'];
       const isLocal = allowed.some(domain => hostname === domain);
-      const allowedVercel = ['patfyz.vercel.app', 'patolka.vercel.app', 'verysadanyway.vercel.app'];
-      const isVercel = allowedVercel.includes(hostname);
+      const allowedVercel = ['patfyz.vercel.app', 'patfyza.vercel.app', 'patolka.vercel.app', 'verysadanyway.vercel.app'];
+      const isVercel = allowedVercel.includes(hostname) || hostname.endsWith('.vercel.app');
       
       if (isLocal || isVercel) {
         allowedOrigin = url.origin;
@@ -160,7 +160,7 @@ app.use((req, res, next) => {
   if (allowedOrigin) {
     res.setHeader('Access-Control-Allow-Origin', allowedOrigin);
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
   }
 
   // Handle preflight OPTIONS request
@@ -246,7 +246,8 @@ app.post('/api/chat', async (req, res) => {
 
     const systemInstructionText = systemInstructions[subject] || systemInstructions.general;
 
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:streamGenerateContent?alt=sse&key=${apiKey}`;
+    const model = process.env.GEMINI_MODEL || 'gemini-2.0-flash';
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:streamGenerateContent?alt=sse&key=${apiKey}`;
     const response = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -383,7 +384,7 @@ app.post('/api/gemini/generate-scenario', async (req, res) => {
     ${isCzech ? 'CRITICAL CZECH TRANSLATION RULE: Do NOT use automatic-looking or awkward translated words ("parasite words"). If there is no standard, widely accepted natural Czech medical term, use the standard professional English medical term in double quotes (e.g., "RSI", "CICO", "reversal agent", "induction agent", "vessel-rich group", "arm-brain", "EpiPen", "airway", "shock", "delirium"). Keep all other descriptions in elegant, natural, professional Czech medical jargon.' : ''}`;
 
     const response = await client.models.generateContent({
-      model: 'gemini-3.5-flash',
+      model: 'gemini-2.0-flash',
       contents: prompt,
       config: {
         systemInstruction: `You are an expert Emergency Medicine clinical educator. Your job is to create a realistic, high-fidelity clinical decision simulation in JSON format.
@@ -450,7 +451,7 @@ app.post('/api/gemini/evaluate-action', async (req, res) => {
     ${isCzech ? 'CRITICAL CZECH TRANSLATION RULE: Do NOT use automatic-looking or awkward translated words ("parasite words"). If there is no standard, widely accepted natural Czech medical term, use the standard professional English medical term in double quotes (e.g., "RSI", "CICO", "reversal agent", "induction agent", "vessel-rich group", "arm-brain", "EpiPen", "airway", "shock", "delirium"). Keep all other descriptions in elegant, natural, professional Czech medical jargon.' : ''}`;
 
     const response = await client.models.generateContent({
-      model: 'gemini-3.5-flash',
+      model: 'gemini-2.0-flash',
       contents: prompt,
       config: {
         systemInstruction: `You are an expert Emergency Medicine clinical examiner. Evaluate the action taken by the student.
@@ -933,7 +934,7 @@ Odpověz VÝHRADNĚ v platném formátu JSON s následující strukturou (nepou�
 `;
 
       const response = await gemini.models.generateContent({
-        model: "gemini-3.5-flash",
+        model: "gemini-2.0-flash",
         contents: prompt,
         config: { responseMimeType: "application/json" }
       });
@@ -1110,7 +1111,7 @@ Napiš pouze samotný text odpovědi v češtině. Nepoužívej uvozovky ani mar
 `;
 
     const response = await gemini.models.generateContent({
-      model: "gemini-3.5-flash",
+      model: "gemini-2.0-flash",
       contents: prompt
     });
 
@@ -1279,7 +1280,7 @@ Odpovězte výhradně v češtině, formátujte srozumitelně v Markdownu s eleg
 `;
 
     const response = await gemini.models.generateContent({
-      model: "gemini-3.5-flash",
+      model: "gemini-2.0-flash",
       contents: prompt
     });
 

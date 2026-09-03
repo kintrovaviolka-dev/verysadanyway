@@ -61,7 +61,7 @@ app.post('/api/gemini/generate-scenario', async (req, res) => {
     ${isCzech ? 'CRITICAL CZECH TRANSLATION RULE: Do NOT use automatic-looking or awkward translated words ("parasite words"). If there is no standard, widely accepted natural Czech medical term, use the standard professional English medical term in double quotes (e.g., "RSI", "CICO", "reversal agent", "induction agent", "vessel-rich group", "arm-brain", "EpiPen", "airway", "shock", "delirium"). Keep all other descriptions in elegant, natural, professional Czech medical jargon.' : ''}`;
 
     const response = await client.models.generateContent({
-      model: 'gemini-3.5-flash',
+      model: 'gemini-2.0-flash',
       contents: prompt,
       config: {
         systemInstruction: `You are an expert Emergency Medicine clinical educator. Your job is to create a realistic, high-fidelity clinical decision simulation in JSON format.
@@ -144,7 +144,7 @@ app.post('/api/gemini/evaluate-action', async (req, res) => {
     ${isCzech ? 'CRITICAL CZECH TRANSLATION RULE: Do NOT use automatic-looking or awkward translated words ("parasite words"). If there is no standard, widely accepted natural Czech medical term, use the standard professional English medical term in double quotes (e.g., "RSI", "CICO", "reversal agent", "induction agent", "vessel-rich group", "arm-brain", "EpiPen", "airway", "shock", "delirium"). Keep all other descriptions in elegant, natural, professional Czech medical jargon.' : ''}`;
 
     const response = await client.models.generateContent({
-      model: 'gemini-3.5-flash',
+      model: 'gemini-2.0-flash',
       contents: prompt,
       config: {
         systemInstruction: `You are an expert Emergency Medicine clinical examiner. Evaluate the action taken by the student.

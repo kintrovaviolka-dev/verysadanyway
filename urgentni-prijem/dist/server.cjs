@@ -933,7 +933,7 @@ Odpov\u011Bz V\xDDHRADN\u011A v platn\xE9m form\xE1tu JSON s n\xE1sleduj\xEDc\xE
 }
 `;
         const response = await gemini.models.generateContent({
-          model: "gemini-3.5-flash",
+          model: "gemini-2.0-flash",
           contents: prompt,
           config: {
             responseMimeType: "application/json"
@@ -1094,7 +1094,7 @@ Zpr\xE1va od l\xE9ka\u0159e na urgentn\xEDm p\u0159\xEDjmu:
 Napi\u0161 pouze samotn\xFD text odpov\u011Bdi v \u010De\u0161tin\u011B. Nepou\u017E\xEDvej uvozovky ani markdown form\xE1tov\xE1n\xED.
 `;
       const response = await gemini.models.generateContent({
-        model: "gemini-3.5-flash",
+        model: "gemini-2.0-flash",
         contents: prompt
       });
       if (response.text) {
@@ -1254,7 +1254,7 @@ Uve\u010Fte tak\xE9 CELKOV\xC9 HODNOCEN\xCD vyj\xE1d\u0159en\xE9 v procentech (0
 Odpov\u011Bzte v\xFDhradn\u011B v \u010De\u0161tin\u011B, form\xE1tujte srozumiteln\u011B v Markdownu s elegantn\xED strukturou. Nepou\u017E\xEDvejte promo hant\xFDrku ani anglicismy, mluvte jako v\xE1\u017Een\xFD \u010Desk\xFD prim\xE1\u0159.
 `;
       const response = await gemini.models.generateContent({
-        model: "gemini-3.5-flash",
+        model: "gemini-2.0-flash",
         contents: prompt
       });
       session.debriefing = response.text || "Hodnocen\xED se nepoda\u0159ilo vygenerovat.";

@@ -32,8 +32,8 @@ function checkReferer(req) {
       
       const allowed = ['localhost', '127.0.0.1', '::1'];
       const isLocal = allowed.some(domain => hostname === domain);
-      const allowedVercel = ['patfyz.vercel.app', 'patolka.vercel.app', 'verysadanyway.vercel.app'];
-      const isVercel = allowedVercel.includes(hostname);
+      const allowedVercel = ['patfyz.vercel.app', 'patfyza.vercel.app', 'patolka.vercel.app', 'verysadanyway.vercel.app'];
+      const isVercel = allowedVercel.includes(hostname) || hostname.endsWith('.vercel.app');
       
       return isLocal || isVercel;
     } catch (e) {
@@ -76,8 +76,8 @@ module.exports = async (req, res) => {
       
       const allowed = ['localhost', '127.0.0.1', '::1'];
       const isLocal = allowed.some(domain => hostname === domain);
-      const allowedVercel = ['patfyz.vercel.app', 'patolka.vercel.app', 'verysadanyway.vercel.app'];
-      const isVercel = allowedVercel.includes(hostname);
+      const allowedVercel = ['patfyz.vercel.app', 'patfyza.vercel.app', 'patolka.vercel.app', 'verysadanyway.vercel.app'];
+      const isVercel = allowedVercel.includes(hostname) || hostname.endsWith('.vercel.app');
       
       if (isLocal || isVercel) {
         allowedOrigin = url.origin;
@@ -88,7 +88,7 @@ module.exports = async (req, res) => {
   if (allowedOrigin) {
     res.setHeader('Access-Control-Allow-Origin', allowedOrigin);
     res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
   }
 
   // Handle preflight OPTIONS request
@@ -116,7 +116,7 @@ module.exports = async (req, res) => {
   }
 
   // 3. Check API key configuration
-  const apiKey = process.env.GEMINI_API_KEY;
+  const apiKey = process.env.GEMINI_API_KEY || process.env.API_KEY || process.env.GEMINI_KEY;
   if (!apiKey || apiKey === 'YOUR_API_KEY_HERE' || apiKey === 'your_gemini_api_key_here') {
     return res.status(503).json({ 
       error: "Gemini API asistent není na Vercelu nakonfigurován. Vložte platný API klíč do Environment Variables pod názvem GEMINI_API_KEY." 
@@ -159,7 +159,8 @@ module.exports = async (req, res) => {
     const systemInstructionText = systemInstructions[subject] || systemInstructions.general;
 
     // Call Google Gemini API with streaming
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:streamGenerateContent?alt=sse&key=${apiKey}`;
+    const model = process.env.GEMINI_MODEL || 'gemini-2.0-flash';
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:streamGenerateContent?alt=sse&key=${apiKey}`;
     const response = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
