@@ -457,7 +457,7 @@
     const footerContent = document.querySelector('.footer-content') || document.querySelector('footer');
     
     const btnHtml = `
-      <button id="feedback-trigger-btn" class="feedback-btn" type="button" title="Chyba / Návrh na zlepšení">
+      <button id="feedback-trigger-btn" class="feedback-btn" type="button" aria-expanded="false" aria-controls="feedback-modal-overlay" title="Chyba / Návrh na zlepšení">
         <svg class="feedback-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
         </svg>
@@ -477,7 +477,7 @@
       // Pokud na stránce není patička, přidáme plovoucí tlačítko vpravo dole
       const floatingContainerHtml = `
         <div id="feedback-floating-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 99990;">
-          <button id="feedback-trigger-btn" class="feedback-btn" type="button" style="box-shadow: 0 4px 16px rgba(0,0,0,0.5); background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(255,255,255,0.12); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);">
+          <button id="feedback-trigger-btn" class="feedback-btn" type="button" aria-expanded="false" aria-controls="feedback-modal-overlay" style="box-shadow: 0 4px 16px rgba(0,0,0,0.5); background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(255,255,255,0.12); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);">
             <svg class="feedback-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
             </svg>
@@ -490,10 +490,10 @@
 
     // B. Vložení HTML struktury modálního okna
     const modalHtml = `
-      <div id="feedback-modal-overlay" class="feedback-modal-overlay">
+      <div id="feedback-modal-overlay" class="feedback-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="feedback-modal-title">
         <div class="feedback-modal-card">
           <div class="feedback-modal-header">
-            <h3>
+            <h3 id="feedback-modal-title">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-right:4px;">
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
               </svg>
@@ -594,6 +594,8 @@
 
     // Reset formuláře
     overlay.classList.add('open');
+    const triggerBtn = document.getElementById('feedback-trigger-btn');
+    if (triggerBtn) triggerBtn.setAttribute('aria-expanded', 'true');
     if (commentInput) commentInput.value = '';
     if (errorText) {
       errorText.style.display = 'none';
@@ -672,6 +674,8 @@
     const overlay = document.getElementById('feedback-modal-overlay');
     if (overlay) {
       overlay.classList.remove('open');
+      const triggerBtn = document.getElementById('feedback-trigger-btn');
+      if (triggerBtn) triggerBtn.setAttribute('aria-expanded', 'false');
       if (lastFocusedElement) {
         lastFocusedElement.focus();
         lastFocusedElement = null;
