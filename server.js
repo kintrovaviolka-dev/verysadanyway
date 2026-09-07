@@ -17,6 +17,7 @@ if (typeof process.loadEnvFile === 'function') {
 }
 
 const app = express();
+app.set('trust proxy', 1);
 const PORT = process.env.PORT || 3000;
 
 // Keep request bodies bounded. These endpoints are public and several of them
@@ -69,10 +70,13 @@ setInterval(() => {
 }, 10 * 60 * 1000);
 
 function getClientIp(req) {
-  // Vercel sets this header; only use its first value because a forwarded-for
-  // header may contain a proxy chain.
+  if (req.ip) return req.ip;
   const forwarded = req.headers['x-vercel-forwarded-for'] || req.headers['x-forwarded-for'];
-  return typeof forwarded === 'string' ? forwarded.split(',')[0].trim() : (req.socket.remoteAddress || 'unknown');
+  if (typeof forwarded === 'string') {
+    const ips = forwarded.split(',');
+    return ips[ips.length - 1].trim();
+  }
+  return req.socket?.remoteAddress || 'unknown';
 }
 
 app.use((req, res, next) => {
