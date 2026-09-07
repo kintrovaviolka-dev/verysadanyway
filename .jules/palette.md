@@ -7,3 +7,7 @@
 ## 2024-05-18 - ARIA toggle states for custom filtering buttons
 **Learning:** When using custom `div` elements with `role="button"` for filtering (like `.grade-card`), adding an `active` class is not enough for screen readers. They need `aria-pressed="true" / "false"` to convey the selected toggle state to assistive technologies. Additionally, filtering logic reliant on `parseInt` needs to account for special universal string values like `"all"` to prevent breaking features (e.g. universal study materials disappearing on click).
 **Action:** Always pair visual active classes with semantic ARIA toggle attributes (`aria-pressed`, `aria-expanded`, or `aria-selected` depending on the interaction pattern) and validate filtering inputs against string constants when processing data attributes.
+
+## $(date +%Y-%m-%d) - Feedback Modal Accessibility
+**Learning:** The custom feedback modal (`#feedback-modal-overlay`) injected by `feedback.js` was completely missing standard ARIA roles and its trigger buttons were missing state indicators, which is a common pattern for dynamically injected components in this app.
+**Action:** Always verify dynamically injected custom modals have `role="dialog"`, `aria-modal="true"`, and `aria-labelledby`, and ensure their trigger buttons maintain `aria-expanded` and `aria-controls` states.
