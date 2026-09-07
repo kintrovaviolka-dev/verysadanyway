@@ -85,7 +85,7 @@ interface GameSession {
     triageClass: string;
   };
   vitals: PatientVitals;
-  vitalsHistory?: Array<{ time: number; tf: number; tk_sys: number; tk_dia: number; spo2: number; rr: number }>;
+  vitalsHistory?: Record<number, { time: number; tf: number; tk_sys: number; tk_dia: number; spo2: number; rr: number }>;
   elapsedTime: number; // in minutes
   actionLog: Array<{ time: string; text: string; source: "user" | "system" | "result" }>;
   chatHistory: Record<string, Array<{ sender: string; text: string; time: string }>>; // specialty -> messages
@@ -113,9 +113,9 @@ const sessions: Record<string, GameSession> = {};
 
 function recordVitalsHistory(session: GameSession) {
   if (!session.vitalsHistory) {
-    session.vitalsHistory = [];
+    session.vitalsHistory = {};
   }
-  const existing = session.vitalsHistory.find(h => h.time === session.elapsedTime);
+  const existing = session.vitalsHistory[session.elapsedTime];
   if (existing) {
     existing.tf = session.vitals.tf;
     existing.tk_sys = session.vitals.tk_sys;
@@ -123,14 +123,14 @@ function recordVitalsHistory(session: GameSession) {
     existing.spo2 = session.vitals.spo2;
     existing.rr = session.vitals.rr;
   } else {
-    session.vitalsHistory.push({
+    session.vitalsHistory[session.elapsedTime] = {
       time: session.elapsedTime,
       tf: session.vitals.tf,
       tk_sys: session.vitals.tk_sys,
       tk_dia: session.vitals.tk_dia,
       spo2: session.vitals.spo2,
       rr: session.vitals.rr
-    });
+    };
   }
 }
 
@@ -177,8 +177,8 @@ async function startServer() {
         triageClass: caseDef.triageClass
       },
       vitals: { ...caseDef.vitals },
-      vitalsHistory: [
-        {
+      vitalsHistory: {
+        0: {
           time: 0,
           tf: caseDef.vitals.tf,
           tk_sys: caseDef.vitals.tk_sys,
@@ -186,7 +186,7 @@ async function startServer() {
           spo2: caseDef.vitals.spo2,
           rr: caseDef.vitals.rr
         }
-      ],
+      },
       elapsedTime: 0,
       actionLog: [
         { time: "14:22", text: "Pacient přijat na urgentní příjem RZP.", source: "system" }
