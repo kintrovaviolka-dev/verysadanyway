@@ -14,8 +14,13 @@ function checkRateLimit(ip) {
 }
 
 function getClientIp(req) {
+  if (req.ip) return req.ip;
   const forwarded = req.headers['x-vercel-forwarded-for'] || req.headers['x-forwarded-for'];
-  return typeof forwarded === 'string' ? forwarded.split(',')[0].trim() : (req.socket?.remoteAddress || 'unknown');
+  if (typeof forwarded === 'string') {
+    const ips = forwarded.split(',');
+    return ips[ips.length - 1].trim();
+  }
+  return req.socket?.remoteAddress || 'unknown';
 }
 
 function checkReferer(req) {
