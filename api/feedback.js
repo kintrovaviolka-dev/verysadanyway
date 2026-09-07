@@ -133,3 +133,5 @@ module.exports = async (req, res) => {
     return res.status(500).json({ error: "Chyba při komunikaci s databází Google Sheets." });
   }
 };
+
+module.exports.checkReferer = checkReferer;
