@@ -62,8 +62,8 @@ export default function Workspace({
   onAdvanceToDisposition,
   consultingLoading
 }: WorkspaceProps) {
-  const chartData = session.vitalsHistory && session.vitalsHistory.length > 0
-    ? session.vitalsHistory
+  const chartData = session.vitalsHistory && Object.keys(session.vitalsHistory).length > 0
+    ? Object.values(session.vitalsHistory)
     : [
         {
           time: 0,

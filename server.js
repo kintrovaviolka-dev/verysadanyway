@@ -507,9 +507,9 @@ const sessions = {};
 
 function recordVitalsHistory(session) {
   if (!session.vitalsHistory) {
-    session.vitalsHistory = [];
+    session.vitalsHistory = {};
   }
-  const existing = session.vitalsHistory.find(h => h.time === session.elapsedTime);
+  const existing = session.vitalsHistory[session.elapsedTime];
   if (existing) {
     existing.tf = session.vitals.tf;
     existing.tk_sys = session.vitals.tk_sys;
@@ -517,14 +517,14 @@ function recordVitalsHistory(session) {
     existing.spo2 = session.vitals.spo2;
     existing.rr = session.vitals.rr;
   } else {
-    session.vitalsHistory.push({
+    session.vitalsHistory[session.elapsedTime] = {
       time: session.elapsedTime,
       tf: session.vitals.tf,
       tk_sys: session.vitals.tk_sys,
       tk_dia: session.vitals.tk_dia,
       spo2: session.vitals.spo2,
       rr: session.vitals.rr
-    });
+    };
   }
 }
 
@@ -585,8 +585,8 @@ app.post("/api/case/init", (req, res) => {
       triageClass: caseDef.triageClass
     },
     vitals: { ...caseDef.vitals },
-    vitalsHistory: [
-      {
+    vitalsHistory: {
+      0: {
         time: 0,
         tf: caseDef.vitals.tf,
         tk_sys: caseDef.vitals.tk_sys,
@@ -594,7 +594,7 @@ app.post("/api/case/init", (req, res) => {
         spo2: caseDef.vitals.spo2,
         rr: caseDef.vitals.rr
       }
-    ],
+    },
     elapsedTime: 0,
     actionLog: [
       { time: "14:22", text: "Pacient přijat na urgentní příjem RZP.", source: "system" }

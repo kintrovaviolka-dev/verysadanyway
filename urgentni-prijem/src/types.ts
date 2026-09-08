@@ -46,7 +46,7 @@ export interface GameSession {
   level: number;
   patient: Patient;
   vitals: PatientVitals;
-  vitalsHistory?: VitalsHistoryEntry[];
+  vitalsHistory?: Record<string, VitalsHistoryEntry>;
   elapsedTime: number;
   actionLog: ActionLogItem[];
   chatHistory: Record<string, ChatMessage[]>;
