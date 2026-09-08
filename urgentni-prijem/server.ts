@@ -481,7 +481,16 @@ Skutečná diagnóza (kterou lékař odhaluje): ${caseDef.secretDiagnosis}
           session.vitals.rr = Math.max(18, session.vitals.rr - 3);
         } else if (session.caseId === "3" && session.vitals.spo2 < 95) {
           // In polytrauma, needs intubation or high flow to fully fix SpO2
-          session.vitals.spo2 = Math.min(92, session.vitals.spo2 + 4);
+          const isHighFlowOrIntubated = value.toLowerCase().includes("intub") ||
+                                        value.toLowerCase().includes("etk") ||
+                                        value.toLowerCase().includes("10l/min") ||
+                                        value.toLowerCase().includes("larynge");
+          if (isHighFlowOrIntubated) {
+            session.vitals.spo2 = Math.min(98, session.vitals.spo2 + 10);
+            session.vitals.rr = Math.max(14, session.vitals.rr - 6);
+          } else {
+            session.vitals.spo2 = Math.min(92, session.vitals.spo2 + 4);
+          }
         } else if (session.caseId === "9" && session.vitals.spo2 < 95) {
           session.vitals.spo2 = Math.min(99, session.vitals.spo2 + 3);
         } else if (session.caseId === "10" && session.vitals.spo2 < 95) {
