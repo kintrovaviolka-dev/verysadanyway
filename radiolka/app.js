@@ -231,12 +231,24 @@ document.addEventListener("DOMContentLoaded", () => {
       const isDue = prog.nextReview && prog.nextReview <= now && prog.box < 4;
       const isUnstudied = prog.lastReviewed === null;
 
+      // Detekce zobrazovacích metod
+      const fullText = (q.title + " " + q.section + " " + q.keywords.join(" ")).toUpperCase();
+      const modalities = [];
+      if (fullText.includes("CT") || fullText.includes("TOMOGRAF")) modalities.push('<span class="modality-chip mod-ct">CT</span>');
+      if (fullText.includes("MR") || fullText.includes("MAGNET")) modalities.push('<span class="modality-chip mod-mr">MR</span>');
+      if (fullText.includes("RTG") || fullText.includes("RENTGEN") || fullText.includes("SNÍMEK")) modalities.push('<span class="modality-chip mod-rtg">RTG</span>');
+      if (fullText.includes("UZ") || fullText.includes("ULZ") || fullText.includes("SONO") || fullText.includes("ECHOKAR")) modalities.push('<span class="modality-chip mod-uz">UZ</span>');
+      if (fullText.includes("INTERVEN") || fullText.includes("ANGIO") || fullText.includes("EMBOL")) modalities.push('<span class="modality-chip mod-intervence">INTERVENCE</span>');
+
+      const modalityHTML = modalities.length > 0 ? `<div class="modality-tags">${modalities.join('')}</div>` : '';
+
       card.innerHTML = `
         <div class="card-top">
           <span class="card-id">${escapeHTML(q.id)}</span>
           <div class="card-box-indicator b-${prog.box}" title="Box ${prog.box}"></div>
         </div>
         <h3 class="card-title">${escapeHTML(q.title)}</h3>
+        ${modalityHTML}
         <p class="card-keywords">${escapeHTML(q.keywords.slice(0, 4).join(" • "))}</p>
         <div class="card-footer">
           <span class="card-section">${escapeHTML(q.section)}</span>
