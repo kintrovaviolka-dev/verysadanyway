@@ -143,11 +143,15 @@
       <div class="nav-tabs-group">
         <button class="tab-btn active" id="nav-modules-btn">
           <span>📚</span>
-          <span>Kardiologická témata (12)</span>
+          <span>Témata (12)</span>
+        </button>
+        <button class="tab-btn" id="nav-ekg-btn">
+          <span>📈</span>
+          <span>EKG Masterclass</span>
         </button>
         <button class="tab-btn" id="nav-sr-btn">
           <span>🧠</span>
-          <span>Banka Spaced Repetition (115+)</span>
+          <span>Spaced Repetition (115+)</span>
         </button>
       </div>
 
@@ -163,6 +167,70 @@
         <!-- Generováno dynamicky v app.js -->
       </div>
     </main>
+
+    <!-- ================= POHLED: EKG MASTERCLASS ================= -->
+    <section id="ekg-view" class="ekg-view-container" aria-label="EKG Masterclass">
+      <div class="ekg-hero-banner">
+        <div style="max-width: 780px;">
+          <span class="grade-tag" style="background: rgba(16,185,129,0.15); color: #34d399; border-color: rgba(16,185,129,0.3); margin-bottom: 8px; display: inline-block;">Interaktivní modul</span>
+          <h2 style="font-family: var(--font-heading); font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-bottom: 8px;">
+            EKG Masterclass & Diagnostický atlas
+          </h2>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">
+            Komplexní průvodce čtením elektrokardiogramu: systematické EKG Desatero, anatomicko-fyziologický původ jednotlivých vln a kmitů, charakteristické křivky iontových dysbalancí, hypotermie a vrozené kanálopatie (Brugada, WPW, LQTS, ARVC).
+          </p>
+        </div>
+      </div>
+
+      <!-- Subnavigace EKG Masterclass -->
+      <div class="ekg-subnav-group">
+        <button class="ekg-subnav-btn active" id="ekg-sub-desatero">
+          <span>📜</span>
+          <span>1. EKG Desatero</span>
+        </button>
+        <button class="ekg-subnav-btn" id="ekg-sub-anatomy">
+          <span>🫀</span>
+          <span>2. Anatomický původ</span>
+        </button>
+        <button class="ekg-subnav-btn" id="ekg-sub-ions">
+          <span>🧪</span>
+          <span>3. Ionty & Teplota</span>
+        </button>
+        <button class="ekg-subnav-btn" id="ekg-sub-syndromes">
+          <span>⚡</span>
+          <span>4. Syndromy & Vady</span>
+        </button>
+        <button class="ekg-subnav-btn" id="ekg-sub-quiz">
+          <span>🎯</span>
+          <span>5. EKG Kvíz</span>
+        </button>
+      </div>
+
+      <!-- 1. EKG Desatero Pane -->
+      <div id="ekg-pane-desatero" class="ekg-subpane active">
+        <div class="desatero-grid" id="desatero-container"></div>
+      </div>
+
+      <!-- 2. Anatomie Pane -->
+      <div id="ekg-pane-anatomy" class="ekg-subpane">
+        <div id="anatomy-container"></div>
+      </div>
+
+      <!-- 3. Ionty & Teplota Pane -->
+      <div id="ekg-pane-ions" class="ekg-subpane">
+        <div id="ions-container"></div>
+      </div>
+
+      <!-- 4. Vrozené syndromy Pane -->
+      <div id="ekg-pane-syndromes" class="ekg-subpane">
+        <div id="syndromes-container"></div>
+      </div>
+
+      <!-- 5. EKG Kvíz Pane -->
+      <div id="ekg-pane-quiz" class="ekg-subpane">
+        <div id="ekg-quiz-container"></div>
+      </div>
+    </section>
 
     <!-- ================= POHLED 2: 3-FÁZOVÝ DETAIL TÉMATU ================= -->
     <section id="module-detail-view" class="module-view-container" aria-label="Detail tématu">

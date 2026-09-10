@@ -66,6 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const themeToggleBtn = document.getElementById("theme-toggle");
   const backHubBtn = document.getElementById("back-hub-btn");
   const navModulesBtn = document.getElementById("nav-modules-btn");
+  const navEkgBtn = document.getElementById("nav-ekg-btn");
   const navSrBtn = document.getElementById("nav-sr-btn");
   const searchInput = document.getElementById("search-input");
   
@@ -83,9 +84,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Views
   const modulesView = document.getElementById("modules-view");
+  const ekgView = document.getElementById("ekg-view");
   const moduleDetailView = document.getElementById("module-detail-view");
   const srView = document.getElementById("sr-view");
   const modulesGrid = document.getElementById("modules-grid");
+
+  // EKG Masterclass Subnav elements
+  const ekgSubDesatero = document.getElementById("ekg-sub-desatero");
+  const ekgSubAnatomy = document.getElementById("ekg-sub-anatomy");
+  const ekgSubIons = document.getElementById("ekg-sub-ions");
+  const ekgSubSyndromes = document.getElementById("ekg-sub-syndromes");
+  const ekgSubQuiz = document.getElementById("ekg-sub-quiz");
+
+  const ekgPaneDesatero = document.getElementById("ekg-pane-desatero");
+  const ekgPaneAnatomy = document.getElementById("ekg-pane-anatomy");
+  const ekgPaneIons = document.getElementById("ekg-pane-ions");
+  const ekgPaneSyndromes = document.getElementById("ekg-pane-syndromes");
+  const ekgPaneQuiz = document.getElementById("ekg-pane-quiz");
+
+  const desateroContainer = document.getElementById("desatero-container");
+  const anatomyContainer = document.getElementById("anatomy-container");
+  const ionsContainer = document.getElementById("ions-container");
+  const syndromesContainer = document.getElementById("syndromes-container");
+  const ekgQuizContainer = document.getElementById("ekg-quiz-container");
 
   // Detail View elements
   const detailBackBtn = document.getElementById("detail-back-btn");
@@ -646,17 +667,259 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // --- EKG MASTERCLASS RENDERING ---
+  const renderEkgDesatero = () => {
+    if (!desateroContainer) return;
+    desateroContainer.innerHTML = EKG_MASTERCLASS_DATA.desatero
+      .map(
+        (item) => `
+      <div class="desatero-card">
+        <div>
+          <div class="desatero-header">
+            <span class="desatero-icon">${item.icon}</span>
+            <h3 class="desatero-title">${item.title}</h3>
+          </div>
+          <div class="desatero-rule">${item.rule}</div>
+          <div class="desatero-details">${item.details}</div>
+        </div>
+        <div class="desatero-pearl">
+          💡 <strong>Tip pro praxi:</strong> ${item.clinicalPearl}
+        </div>
+      </div>
+    `
+      )
+      .join("");
+  };
+
+  const renderEkgAnatomy = () => {
+    if (!anatomyContainer) return;
+    anatomyContainer.innerHTML = EKG_MASTERCLASS_DATA.anatomy
+      .map(
+        (item) => `
+      <div class="anatomy-card">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px;">
+          <div>
+            <h3 style="font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">
+              ${item.name}
+            </h3>
+            <span style="font-size: 0.8rem; color: var(--text-secondary);">📍 Anatomie: ${item.location}</span>
+          </div>
+          <span class="anatomy-correlate-badge">${item.ecgCorrelate}</span>
+        </div>
+
+        <div style="margin-top: 14px; font-size: 0.86rem; color: var(--text-primary); line-height: 1.6;">
+          <p><strong>Elektrofyziologický mechanismus:</strong> ${item.mechanism}</p>
+        </div>
+
+        <div class="vector-callout">
+          🧭 <strong>Vektor šíření a zobrazení ve svodech:</strong><br>
+          ${item.vector}
+        </div>
+
+        <div style="font-size: 0.82rem; color: #f43f5e; background: rgba(244, 63, 94, 0.08); border-left: 2px solid #f43f5e; padding: 8px 12px; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;">
+          ⚠️ <strong>Klinické patologie:</strong> ${item.pathology}
+        </div>
+      </div>
+    `
+      )
+      .join("");
+  };
+
+  const renderEkgIons = () => {
+    if (!ionsContainer) return;
+    ionsContainer.innerHTML = EKG_MASTERCLASS_DATA.ionAndTemperature
+      .map(
+        (item) => `
+      <div class="ion-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
+          <h3 style="font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700; color: var(--text-primary);">
+            ${item.name}
+          </h3>
+          <span class="grade-tag" style="background: rgba(244,63,94,0.15); color: #fb7185; border-color: rgba(244,63,94,0.3);">
+            ${item.severity}
+          </span>
+        </div>
+
+        <div class="waveform-tag">
+          📉 Křivka: ${item.ecgWaveform}
+        </div>
+
+        <div class="ecg-grid-box">
+          <ul style="list-style: disc; margin-left: 20px; line-height: 1.6;">
+            ${item.changes.map((ch) => `<li>${ch}</li>`).join("")}
+          </ul>
+        </div>
+
+        <div style="font-size: 0.82rem; color: #34d399; background: rgba(16, 185, 129, 0.08); border-left: 2px solid #34d399; padding: 10px 14px; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;">
+          💊 <strong>Klinický postup:</strong> ${item.pearl}
+        </div>
+      </div>
+    `
+      )
+      .join("");
+  };
+
+  const renderEkgSyndromes = () => {
+    if (!syndromesContainer) return;
+    syndromesContainer.innerHTML = EKG_MASTERCLASS_DATA.syndromesAndCongenital
+      .map(
+        (item) => `
+      <div class="ion-card">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 1.5rem;">${item.icon}</span>
+            <div>
+              <h3 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: var(--text-primary);">
+                ${item.name}
+              </h3>
+              <span style="font-size: 0.8rem; color: var(--text-secondary);">${item.type}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ecg-grid-box" style="margin-bottom: 12px;">
+          <strong>🎯 Diagnostická EKG kritéria:</strong><br>
+          <span style="color: #f8fafc;">${item.ecgCriteria}</span>
+        </div>
+
+        <div style="font-size: 0.84rem; color: var(--text-secondary); margin-bottom: 10px; line-height: 1.5;">
+          <strong>Klinický obraz:</strong> ${item.clinicalPresentation}
+          ${item.triggers ? `<br><strong>Spouštěče (Triggery):</strong> ${item.triggers}` : ""}
+        </div>
+
+        ${item.dangerAlert ? `<div class="danger-callout">${item.dangerAlert}</div>` : ""}
+
+        <div style="font-size: 0.84rem; color: #a78bfa; background: rgba(139, 92, 246, 0.08); border-left: 3px solid #a78bfa; padding: 10px 14px; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;">
+          🛡️ <strong>Terapeutický management:</strong> ${item.management}
+        </div>
+      </div>
+    `
+      )
+      .join("");
+  };
+
+  const renderEkgQuiz = () => {
+    if (!ekgQuizContainer) return;
+    ekgQuizContainer.innerHTML = EKG_MASTERCLASS_DATA.masterclassQuiz
+      .map(
+        (q, qIdx) => `
+      <div class="decision-quiz-box" style="margin-bottom: 24px;">
+        <span class="quiz-badge">Otázka ${qIdx + 1} z ${EKG_MASTERCLASS_DATA.masterclassQuiz.length}</span>
+        <p class="quiz-prompt">${q.question}</p>
+        <div class="quiz-options-list" id="emq-opts-${qIdx}">
+          ${q.options
+            .map(
+              (opt, optIdx) => `
+            <button class="quiz-opt-btn" data-qidx="${qIdx}" data-optidx="${optIdx}">
+              ${opt.text}
+            </button>
+          `
+            )
+            .join("")}
+        </div>
+        <div class="quiz-feedback-box" id="emq-fb-${qIdx}"></div>
+      </div>
+    `
+      )
+      .join("");
+
+    // Bind events
+    EKG_MASTERCLASS_DATA.masterclassQuiz.forEach((q, qIdx) => {
+      const container = document.getElementById(`emq-opts-${qIdx}`);
+      const fbBox = document.getElementById(`emq-fb-${qIdx}`);
+      if (!container || !fbBox) return;
+
+      container.querySelectorAll(".quiz-opt-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const optIdx = parseInt(btn.getAttribute("data-optidx"));
+          const selected = q.options[optIdx];
+
+          container.querySelectorAll(".quiz-opt-btn").forEach((b, i) => {
+            b.disabled = true;
+            if (q.options[i].isCorrect) {
+              b.classList.add("correct");
+            } else if (i === optIdx) {
+              b.classList.add("incorrect");
+            }
+          });
+
+          fbBox.className = `quiz-feedback-box show ${selected.isCorrect ? "correct-fb" : "incorrect-fb"}`;
+          fbBox.innerHTML = `
+            <strong>${selected.isCorrect ? "✅ Správně!" : "❌ Nesprávně."}</strong><br>
+            ${q.explanation}
+          `;
+        });
+      });
+    });
+  };
+
+  // EKG Subpane Switcher
+  const switchEkgSubpane = (paneName) => {
+    [ekgSubDesatero, ekgSubAnatomy, ekgSubIons, ekgSubSyndromes, ekgSubQuiz].forEach((b) =>
+      b?.classList.remove("active")
+    );
+    [ekgPaneDesatero, ekgPaneAnatomy, ekgPaneIons, ekgPaneSyndromes, ekgPaneQuiz].forEach((p) =>
+      p?.classList.remove("active")
+    );
+
+    if (paneName === "desatero") {
+      ekgSubDesatero?.classList.add("active");
+      ekgPaneDesatero?.classList.add("active");
+      renderEkgDesatero();
+    } else if (paneName === "anatomy") {
+      ekgSubAnatomy?.classList.add("active");
+      ekgPaneAnatomy?.classList.add("active");
+      renderEkgAnatomy();
+    } else if (paneName === "ions") {
+      ekgSubIons?.classList.add("active");
+      ekgPaneIons?.classList.add("active");
+      renderEkgIons();
+    } else if (paneName === "syndromes") {
+      ekgSubSyndromes?.classList.add("active");
+      ekgPaneSyndromes?.classList.add("active");
+      renderEkgSyndromes();
+    } else if (paneName === "quiz") {
+      ekgSubQuiz?.classList.add("active");
+      ekgPaneQuiz?.classList.add("active");
+      renderEkgQuiz();
+    }
+  };
+
+  ekgSubDesatero?.addEventListener("click", () => switchEkgSubpane("desatero"));
+  ekgSubAnatomy?.addEventListener("click", () => switchEkgSubpane("anatomy"));
+  ekgSubIons?.addEventListener("click", () => switchEkgSubpane("ions"));
+  ekgSubSyndromes?.addEventListener("click", () => switchEkgSubpane("syndromes"));
+  ekgSubQuiz?.addEventListener("click", () => switchEkgSubpane("quiz"));
+
+  // --- KEYBOARD SHORTCUTS ---
+  document.addEventListener("keydown", (e) => {
+    if (state.activeView === "spaced-repetition") {
+      if (e.code === "Space") {
+        e.preventDefault();
+        flipSrCard();
+      } else if (e.key === "1" || e.code === "Digit1") {
+        rateSrCard(false);
+      } else if (e.key === "2" || e.code === "Digit2") {
+        rateSrCard(true);
+      }
+    }
+  });
+
   // --- VIEW SWITCHING ---
   const switchView = (viewName) => {
     state.activeView = viewName;
-    [modulesView, moduleDetailView, srView].forEach((v) => v.classList.remove("active"));
-    [navModulesBtn, navSrBtn].forEach((b) => b.classList.remove("active"));
+    [modulesView, ekgView, moduleDetailView, srView].forEach((v) => v?.classList.remove("active"));
+    [navModulesBtn, navEkgBtn, navSrBtn].forEach((b) => b?.classList.remove("active"));
 
     if (viewName === "modules") {
       modulesView.classList.add("active");
       navModulesBtn.classList.add("active");
       renderModulesList();
       updateDashboardStats();
+    } else if (viewName === "ekg") {
+      ekgView.classList.add("active");
+      navEkgBtn.classList.add("active");
+      switchEkgSubpane("desatero");
     } else if (viewName === "module-detail") {
       moduleDetailView.classList.add("active");
     } else if (viewName === "spaced-repetition") {
@@ -666,6 +929,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   navModulesBtn.addEventListener("click", () => switchView("modules"));
+  navEkgBtn?.addEventListener("click", () => switchView("ekg"));
   navSrBtn.addEventListener("click", () => startSpacedRepetition("all", false));
   startDueBtn.addEventListener("click", () => startSpacedRepetition("all", true));
   startAllSrBtn.addEventListener("click", () => startSpacedRepetition("all", false));
