@@ -141,18 +141,18 @@
     <!-- Navigační lišta a vyhledávání -->
     <nav class="view-bar" aria-label="Hlavní navigace portálu">
       <div class="nav-tabs-group">
-        <button class="tab-btn active" id="nav-modules-btn">
+        <a href="#temata" class="tab-btn active" id="nav-modules-btn" role="button">
           <span>📚</span>
           <span>Témata (12)</span>
-        </button>
-        <button class="tab-btn" id="nav-ekg-btn">
+        </a>
+        <a href="#ekg" class="tab-btn" id="nav-ekg-btn" role="button">
           <span>📈</span>
           <span>EKG Masterclass</span>
-        </button>
-        <button class="tab-btn" id="nav-sr-btn">
+        </a>
+        <a href="#leitner" class="tab-btn" id="nav-sr-btn" role="button">
           <span>🧠</span>
           <span>Spaced Repetition (115+)</span>
-        </button>
+        </a>
       </div>
 
       <div class="search-input-wrap">
@@ -162,7 +162,7 @@
     </nav>
 
     <!-- ================= POHLED 1: SEZNAM MODULŮ ================= -->
-    <main id="modules-view">
+    <main id="modules-view" class="modules-view-container active">
       <div class="modules-grid" id="modules-grid">
         <!-- Generováno dynamicky v app.js -->
       </div>
@@ -177,7 +177,7 @@
             EKG Masterclass & Diagnostický atlas
           </h2>
           <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">
-            Komplexní průvodce čtením elektrokardiogramu: systematické EKG Desatero, anatomicko-fyziologický původ jednotlivých vln a kmitů, charakteristické křivky iontových dysbalancí, hypotermie a vrozené kanálopatie (Brugada, WPW, LQTS, ARVC).
+            Komplexní vizuální průvodce elektrokardiografií: split-card rozpad s reálným EKG pruhem, zjednodušeným schématem anatomického šíření vzruchu, EKG Desaterem, iontovými dysbalancemi, syndromy a detailním přehledem typů kardiostimulace (od VVI přes CRT až po nenápadný His-bundle pacing).
           </p>
         </div>
       </div>
@@ -200,9 +200,13 @@
           <span>⚡</span>
           <span>4. Syndromy & Vady</span>
         </button>
+        <button class="ekg-subnav-btn" id="ekg-sub-pacemakers">
+          <span>🔋</span>
+          <span>5. Kardiostimulace na EKG</span>
+        </button>
         <button class="ekg-subnav-btn" id="ekg-sub-quiz">
           <span>🎯</span>
-          <span>5. EKG Kvíz</span>
+          <span>6. EKG Kvíz</span>
         </button>
       </div>
 
@@ -226,7 +230,12 @@
         <div id="syndromes-container"></div>
       </div>
 
-      <!-- 5. EKG Kvíz Pane -->
+      <!-- 5. Kardiostimulace Pane -->
+      <div id="ekg-pane-pacemakers" class="ekg-subpane">
+        <div id="pacemakers-container"></div>
+      </div>
+
+      <!-- 6. EKG Kvíz Pane -->
       <div id="ekg-pane-quiz" class="ekg-subpane">
         <div id="ekg-quiz-container"></div>
       </div>

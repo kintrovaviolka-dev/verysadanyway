@@ -2422,6 +2422,161 @@ const EKG_MASTERCLASS_DATA = {
     }
   ],
 
+  pacemakers: [
+    {
+      id: "vvi-apex",
+      name: "VVI - Jednodutinová stimulace pravé komory z hrotu (RV Apex Pacing)",
+      recognitionLevel: "Snadno poznatelné (Klasický nález)",
+      recognitionBadge: "easy",
+      code: "VVI (Ventricle paced, Ventricle sensed, Inhibited)",
+      icon: "⚡",
+      waveformTag: "Ostrý Spike -> Široký QRS (>140 ms) s obrazem LBBB -> Hluboké S ve V1 -> Osa doleva nahoru",
+      leadDetails: "Svod V1: hluboký rozeklaný QS/S komplex. Svody I, aVL: široký pozitivní kmit R. Osa: sklon doleva nahoru (-30° až -90°).",
+      leadMarkers: [
+        { label: "Pacing Spike", desc: "Vysoký vertikální zářez (artefakt) těsně před začátkem QRS" },
+        { label: "Široký QRS (>140 ms)", desc: "Morfologie blokády levého raménka (LBBB pattern)" },
+        { label: "Diskordantní T", desc: "ST deprese a negativní T vlna směřující opačně než hlavní kmit QRS" }
+      ],
+      leadOrigin: "Elektroda zašroubována v hrotu (apexu) pravé komory",
+      mechanism: "Vzruch nevzniká v převodním systému, ale v myokardu hrotu pravé komory. Odtud se šíří pomalým nespecializovaným svalovým vedením (myocyt od myocytu rychlostí jen 0,5 m/s) zdola nahoru a zprava doleva (do levé komory). Proto je komorový komplex výrazně široký a připomíná blokádu levého raménka.",
+      vectorLogic: "Vektor směřuje OD hrotu PK (odpředu a zdola) K bázi LK (dozadu, doleva a nahoru). Proto je ve svodu V1 hluboké negativní S a ve svodu I a aVL vysoké R.",
+      clinicalPearl: "Dlouhodobá vysokoprocentní stimulace z apexu PK vyvolává elektrickou a mechanickou dyssynchronii levé komory (tzv. pacing-induced cardiomyopathy). Dnes se proto preferuje stimulace septa nebo převodního systému (CSP)."
+    },
+    {
+      id: "aai",
+      name: "AAI - Síňová stimulace (Atrial Pacing)",
+      recognitionLevel: "Středně snadné (Při slabém spiku lze přehlédnout)",
+      recognitionBadge: "medium",
+      code: "AAI (Atrium paced, Atrium sensed, Inhibited)",
+      icon: "🫀",
+      waveformTag: "Síňový Spike -> Vlna P -> Normální štíhlý QRS komplex (<100 ms)",
+      leadDetails: "Svody II, III, aVF: vertikální spike předcházející vlnu P. Následuje normální fyziologický interval PR a zcela normální štíhlý komplex QRS.",
+      leadMarkers: [
+        { label: "Atriální Spike", desc: "Drobný ostrý kmit těsně před začátkem vlny P" },
+        { label: "Stimulovaná P vlna", desc: "Morfologie závisí na poloze elektrody v síni" },
+        { label: "Štíhlý QRS (<100 ms)", desc: "Intaktní fyziologický převod přes AV uzel a Tawarova raménka" }
+      ],
+      leadOrigin: "Elektroda v oušku pravé síně (RA appendage) nebo v mezisíňovém septu",
+      mechanism: "Používá se u izolované dysfunkce sinusového uzlu (Sick Sinus Syndrome) se zachovalým intaktním AV převodem. Stimulátor dodá impulz do síně, vznikne vlna P a vzruch dále pokračuje přirozenou cestou přes AV uzel, Hisův svazek a Tawarova raménka do komor.",
+      vectorLogic: "Síňový vektor se šíří z ouška PS přes síně; komorový vektor je zcela fyziologický, protože komory jsou aktivovány normálním His-Purkyňovým systémem.",
+      clinicalPearl: "Pokud u pacienta s AAI stimulátorem dojde k progresi do AV blokády, komory nebudou stimulovány! Proto se dnes u většiny pacientů rovnou volí dvoudutinový systém DDD."
+    },
+    {
+      id: "ddd-dual",
+      name: "DDD - Dvoudutinová sekvenční AV stimulace (Dual-Chamber Pacing)",
+      recognitionLevel: "Velmi snadné při AV stimulaci (2 spiky)",
+      recognitionBadge: "easy",
+      code: "DDD (Atrium & Ventricle paced, sensed, dual tracked)",
+      icon: "⚡",
+      waveformTag: "Síňový Spike -> P vlna -> AV zpoždění (150-200 ms) -> Komorový Spike -> Široký QRS",
+      leadDetails: "Při plné oboustranné stimulaci (Ap-Vp) vidíme dvojici spiků: první před vlnou P, druhý po nastaveném intervalu AV zpoždění před širokým QRS.",
+      leadMarkers: [
+        { label: "1. Síňový Spike (Ap)", desc: "Spustí síňovou kontrakci pro zachování 'atrial kick' (+20 % plnění komor)" },
+        { label: "Programované AV zpoždění", desc: "Elektronicky napodobené zpoždění v AV uzlu" },
+        { label: "2. Komorový Spike (Vp)", desc: "Spustí komorový komplex s morfologií LBBB" }
+      ],
+      leadOrigin: "Dvě elektrody: jedna v pravé síni, druhá v pravé komoře",
+      mechanism: "Umožňuje 4 různé pracovní stavy dle vlastní srdeční aktivity: 1. As-Vs (jen hlídá, žádný spike), 2. As-Vp (snímá vlastní P a stimuluje komoru po AV bloku), 3. Ap-Vs (stimuluje síň při sinusové bradykardii a komora se stáhne sama), 4. Ap-Vp (stimuluje síň i komoru).",
+      vectorLogic: "Při Ap-Vp kombinuje umělou depolarizaci síně a následnou umělou depolarizaci komory z hrotu PK.",
+      clinicalPearl: "DDD zachovává fyziologickou sekvenci síně-komory a zabraňuje vzniku 'pacemakerového syndromu' (který vzniká u VVI při asynchronní kontrakci síní proti uzavřeným chlopním)."
+    },
+    {
+      id: "biv-crt",
+      name: "BiV / CRT - Biventrikulární stimulace / Srdeční resynchronizace (CRT-P / CRT-D)",
+      recognitionLevel: "Střední až pokročilé (Hledejte pozitivní R ve V1 a užší QRS)",
+      recognitionBadge: "medium",
+      code: "BiV / CRT (Biventricular Pacing)",
+      icon: "🔄",
+      waveformTag: "Pacing Spikes -> Dominantní kmit R ve svodu V1 -> Užší QRS než u čisté RV stimulace",
+      leadDetails: "Svod V1: pozitivní kmit R nebo tvar RSR' (na rozdíl od hlubokého QS u VVI!). Osa: sklon doprava. Šířka QRS: zkrácení QRS oproti výchozímu LBBB.",
+      leadMarkers: [
+        { label: "Biventrikulární Spike", desc: "Současný (nebo s mikrosekundovým odstupem LV-RV) stimulační artefakt" },
+        { label: "Pozitivní R ve V1", desc: "Důkaz aktivace levé komory z posterolaterální stěny směrem k pravostranným svodům" },
+        { label: "Resynchronizovaný QRS", desc: "Užší komplex díky současné aktivaci obou komor ze dvou stran" }
+      ],
+      leadOrigin: "Tři elektrody: 1. Pravá síň, 2. Pravá komora, 3. Levá komora zavedená přes sinus coronarius na posterolaterální epikard LK",
+      mechanism: "U pacientů se srdečním selháním a LBBB dochází k opožděné kontrakci boční stěny LK. CRT stimuluje pravou komoru (endokardiálně) a levomodukovanou laterální stěnu LK (epikardiálně přes koronární sinus) současně. Obě stěny se stáhnou naráz, což obnoví synchronní mechanickou pumpu srdce.",
+      vectorLogic: "Protože elektroda LK stimuluje laterální stěnu zleva doprava a odpředu, výsledný vektor směřuje k pravostrannému svodu V1 → to vytváří dominantní pozitivní kmit R ve V1 (klíčový diagnostický znak stimulace levé komory!).",
+      clinicalPearl: "Pozitivní kmit R ve svodu V1 na EKG se stimulátorem je nejdůležitějším vodítkem, že je aktivní levokomorová (biventrikulární) stimulace!"
+    },
+    {
+      id: "csp-his-lbbp",
+      name: "CSP - Fyziologická stimulace převodního systému (His-Bundle & LBBAP)",
+      recognitionLevel: "VELMI OBTÍŽNÉ / CHYTÁK! (Štíhlý QRS, spike je nenápadný)",
+      recognitionBadge: "hard",
+      code: "CSP (Conduction System Pacing: HBP / LBBAP)",
+      icon: "🎯",
+      waveformTag: "Nenápadný mikro-spike -> ŠTÍHLÝ FYZIOLOGICKÝ QRS (<100-115 ms) -> Normální osa a T vlna",
+      leadDetails: "Při stimulaci Hisova svazku (HBP) je tvar QRS zcela k nerozeznání od normálního nativního štíhlého EKG. Při LBBAP (stimulace oblasti levého raménka) může být diskrétní obraz rSr' ve V1, ale s normálním časem k vrcholu R ve V6 (<75 ms).",
+      leadMarkers: [
+        { label: "Diskrétní mikro-spike", desc: "Moderní bipolární nízkoenergetický spike, na standardním EKG často sotva postřehnutelný" },
+        { label: "Štíhlý fyziologický QRS", desc: "Trvání <100–120 ms, zachovaná normální osa i repolarizace" },
+        { label: "Fyziologická synchronie", desc: "Žádný obraz LBBB ani opoždění volné stěny" }
+      ],
+      leadOrigin: "Elektroda zašroubována přímo do Hisova svazku nebo hluboko transseptálně z pravé komory až k subendokardu levého raménka (LBBA)",
+      mechanism: "Nejmodernější metoda kardiostimulace 21. století. Místo nefyziologické stimulace myokardu se elektroda napojí přímo na intaktní specializovaný převodní systém. Elektrický vzruch běží superrychlými Purkyňovými vlákny (2–4 m/s) a aktivuje obě komory v dokonalé fyziologické harmonii.",
+      vectorLogic: "Vektor se šíří přirozenou anatomickou cestou Tawarových ramének z mezikomorového septa k volným stěnám obou komor. Výsledkem je normální fyziologický vektor depolarizace.",
+      clinicalPearl: "⚠️ POZOR NA CHYTÁK U STÁTNIC / ZKOUŠKY! Když vidíte štíhlý normální QRS, pozorně se podívejte před jeho začátek na izoelektrickou čáru. Pokud je tam drobný ostrý vertikální spike, jde o fyziologickou stimulaci Hisova svazku (CSP), nikoliv o běžné sinusové EKG!"
+    },
+    {
+      id: "pm-failure-capture",
+      name: "Porucha: Ztráta záchytu (Failure to Capture)",
+      recognitionLevel: "Snadno poznatelná závažná porucha",
+      recognitionBadge: "danger",
+      code: "Malfunction: Loss of Capture",
+      icon: "🚨",
+      waveformTag: "Ostrý Pacing Spike na izoelektrické linii -> ŽÁDNÁ P vlna ani QRS komplex -> Asystolická pauza",
+      leadDetails: "Na EKG vidíme v pravidelném intervalu stimulační artefakt (spike), ale myokard na něj elektricky vůbec neodpoví (linie zůstává plochá).",
+      leadMarkers: [
+        { label: "Osiřelý Pacing Spike", desc: "Stimulátor impuls vyslal, ale tkáň se nedepolarizovala" },
+        { label: "Chybějící odpověď myokardu", desc: "Nenásleduje P vlna (u síňové) ani QRS (u komorové stimulace)" },
+        { label: "Hrozící bradykardie / asystolie", desc: "Pacient může kolabovat (Adam-Stokesův záchvat)" }
+      ],
+      leadOrigin: "Dislokace elektrody, fibróza v místě kontaktu (exit block), vzestup prahu stimulace, infarkt myokardu v místě hrotu, těžká hyperkalémie",
+      mechanism: "Stimulátor funguje a vyšle naprogramovaný elektrický impuls. Impuls však nedosáhne prahového napětí potřebného k vyvolání akčního potenciálu okolních kardiomyocytů, nebo je elektroda mechanicky uvolněná mimo stěnu srdce.",
+      vectorLogic: "Žádný depolarizační vektor nevzniká.",
+      clinicalPearl: "Při akutním záchytu zkontrolujte hladinu draslíku (hyperkalémie dramaticky zvyšuje stimulační práh!) a polohu elektrody na RTG hrudníku."
+    },
+    {
+      id: "pm-undersensing",
+      name: "Porucha: Nedostatečné snímání / 'Slepý stimulátor' (Undersensing)",
+      recognitionLevel: "Vysoké arytmogenní riziko (R-na-T fenomén)",
+      recognitionBadge: "danger",
+      code: "Malfunction: Undersensing (Failure to Sense)",
+      icon: "⚠️",
+      waveformTag: "Asynchronní Spikes padající do vlastních QRS a T vln -> Riziko fibrilace komor!",
+      leadDetails: "Stimulátor ignoruje vlastní spontánní srdeční stahy pacienta a střílí spiky s pevnou frekvencí bez ohledu na probíhající depolarizaci.",
+      leadMarkers: [
+        { label: "Asynchronní Spike", desc: "Spike dopadá těsně za vlastní kmit R nebo přímo na vrchol vlny T" },
+        { label: "R-na-T fenomén", desc: "Elektrický impuls do vulnerabilní fáze repolarizace komor" },
+        { label: "Spouštěč komorové tachykardie", desc: "Může okamžitě indukovat polymorfní KT nebo komorovou fibrilaci" }
+      ],
+      leadOrigin: "Chybně nastavená citlivost (příliš vysoký práh mV), pokles voltáže nativního signálu, poškození izolačního pláště elektrody",
+      mechanism: "Za normálních okolností stimulátor 'poslouchá' vlastní elektrickou aktivitu srdce a pokud pacient vytvoří vlastní stah, stimulaci inhibuje. Při undersensingu je přístroj 'hluchý/slepý' a pokračuje v asynchronní stimulaci.",
+      vectorLogic: "Nahodilý souboj mezi vlastním šířením vzruchu a umělým ektopickým vektorem stimulátoru.",
+      clinicalPearl: "Undersensing je extrémně nebezpečný právě kvůli riziku zásahu do vlny T (tzv. R-na-T fenomén), který je klasickým spouštěčem maligní fibrilace komor!"
+    },
+    {
+      id: "pm-oversensing",
+      name: "Porucha: Přestřelování / 'Příliš vyděšený stimulátor' (Oversensing)",
+      recognitionLevel: "Středně snadné (Pauzy na EKG bez spikeu)",
+      recognitionBadge: "warning",
+      code: "Malfunction: Oversensing",
+      icon: "🛑",
+      waveformTag: "Chybění očekávaného spiku -> Neadekvátní asystolická pauza -> Synkopa u pacemaker-dependentního pacienta",
+      leadDetails: "Při poklesu tepové frekvence pod nastavený limit stimulátor NESPUSTÍ stimulaci, protože mylně 'vidí' elektrický signál tam, kde žádný stah neproběhl.",
+      leadMarkers: [
+        { label: "Chybějící Spike v pauze", desc: "Frekvence klesne pod dolní limit, ale stimulátor nestimuluje" },
+        { label: "Falešný signál", desc: "Způsoben myopotenciály z velkého prsního svalu, T-vlnou nebo elektromagnetickým rušením" },
+        { label: "Inhibice stimulace", desc: "Přístroj se mylně domnívá, že srdce se právě stáhlo samo" }
+      ],
+      leadOrigin: "Přecitlivěle nastavená detekce (příliš nízký práh mV), zlomený vodič elektrody generující falešný šum, svalové myopotenciály při cvičení paží",
+      mechanism: "Stimulátor detekuje cizí elektrické signály (např. kontrakci m. pectoralis major při zvedání břemene nebo vysokou vlnu T) a vyhodnotí je jako vlastní komorový kmit R. V reakci na to správně (ale na základě falešného vstupu) inhibuje stimulaci, což vede k asystolii.",
+      vectorLogic: "Absence jakéhokoliv vektoru, izoelektrická čára.",
+      clinicalPearl: "Typický test u lůžka: nechte pacienta zatnout prsní svaly (přitlačit dlaně k sobě) nebo hýbat paží. Pokud se na monitoru objeví asystolická pauza a vynechání stimulace, jde o myopotenciálový oversensing!"
+    }
+  ],
+
   masterclassQuiz: [
     {
       id: "emq-1",
@@ -2466,6 +2621,28 @@ const EKG_MASTERCLASS_DATA = {
         { text: "D) Blokují beta receptory v plicích a způsobí bronchospasmus.", isCorrect: false }
       ],
       explanation: "U fibrilace síní s WPW (tzv. FBI tachykardie - Fast, Broad, Irregular) chrání AV uzel komory tím, že část vzruchů nepropustí. Pokud AV uzel zablokujeme adenosinem nebo verapamilem, všechny vzruchy s frekvencí 300–400/min projdou bez odporu Kentovým svazkem přímo na komory a vyvolají komorovou fibrilaci! Lékem volby je elektrická kardioverze nebo Ibutilid."
+    },
+    {
+      id: "emq-5",
+      question: "Prohlížíte EKG pacienta s implantovaným kardiostimulátorem. Komplex QRS je štíhlý (<110 ms) a tvarově k nerozeznání od normálního sinusového rytmu, ale před každým QRS je drobný ostrý vertikální mikro-spike. O jaký typ stimulace se jedná?",
+      options: [
+        { text: "A) Fyziologická stimulace převodního systému (His-Bundle Pacing / CSP)", isCorrect: true },
+        { text: "B) Klasická VVI stimulace z hrotu pravé komory", isCorrect: false },
+        { text: "C) Izolovaná stimulace levé komory přes sinus coronarius", isCorrect: false },
+        { text: "D) Ztráta záchytu (Failure to capture)", isCorrect: false }
+      ],
+      explanation: "Jedná se o fyziologickou stimulaci převodního systému (His-Bundle Pacing nebo LBBAP). Díky přímému napojení elektrody na Hisův svazek se vzruch šíří fyziologickou rychlostí přes Purkyňova vlákna a vytváří štíhlý, fyziologický QRS komplex, na rozdíl od širokého LBBB obrazu při stimulaci z hrotu PK!"
+    },
+    {
+      id: "emq-6",
+      question: "Který EKG znak je klíčovým důkazem správné funkce a stimulace levé komory u biventrikulárního stimulátoru (CRT)?",
+      options: [
+        { text: "A) Dominantní pozitivní kmit R ve svodu V1 (nebo RSR' tvar)", isCorrect: true },
+        { text: "B) Hluboký kmit QS ve svodech I a aVL", isCorrect: false },
+        { text: "C) Úplné vymizení vln P ve všech svodech", isCorrect: false },
+        { text: "D) Zkrácení QT intervalu pod 300 ms", isCorrect: false }
+      ],
+      explanation: "Při biventrikulární stimulaci (CRT) elektroda v sinus coronarius stimuluje posterolaterální stěnu levé komory zleva doprava směrem k pravostrannému svodu V1. To vytváří dominantní pozitivní kmit R ve svodu V1, což je klíčový EKG marker aktivní stimulace levé komory!"
     }
   ]
 };
@@ -2478,3 +2655,4 @@ if (typeof window !== "undefined") {
 if (typeof module !== "undefined" && module.exports) {
   module.exports = { CARDIOLOGY_DATA, EKG_MASTERCLASS_DATA };
 }
+

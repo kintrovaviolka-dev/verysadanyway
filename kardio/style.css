@@ -461,7 +461,16 @@ body.light-theme .box-slot {
   pointer-events: none;
 }
 
-/* --- MODULES GRID (VIEW 1: TÉMATA) --- */
+/* --- MODULES VIEW CONTAINER (VIEW 1: TÉMATA) --- */
+.modules-view-container {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.modules-view-container.active {
+  display: block;
+}
+
 .modules-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -1294,160 +1303,319 @@ body.light-theme .box-slot {
   display: block;
 }
 
-/* Desatero Grid */
-.desatero-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-  gap: 20px;
-}
-
-.desatero-card {
+/* ==========================================================================
+   EKG SPLIT-CARD LAYOUT (Strip na jedné straně, Anatomie & Logika na druhé)
+   ========================================================================== */
+.ekg-split-card {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
-  padding: 22px;
+  padding: 24px;
+  margin-bottom: 24px;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 24px;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+
+.ekg-split-card:hover {
+  border-color: rgba(16, 185, 129, 0.35);
+  box-shadow: var(--shadow-md), 0 0 20px rgba(16, 185, 129, 0.08);
+}
+
+@media (max-width: 1024px) {
+  .ekg-split-card {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 18px;
+  }
+}
+
+/* Left Column: EKG Strip Display */
+.ekg-strip-col {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.2s, border-color 0.2s;
+  gap: 14px;
 }
 
-.desatero-card:hover {
-  transform: translateY(-2px);
-  border-color: rgba(16, 185, 129, 0.4);
-}
-
-.desatero-header {
+.ekg-strip-header {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 12px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
-.desatero-icon {
-  font-size: 1.4rem;
-}
-
-.desatero-title {
+.ekg-strip-title {
   font-family: var(--font-heading);
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.desatero-rule {
-  font-size: 0.86rem;
-  font-weight: 600;
+.ekg-lead-badge {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  background: rgba(16, 185, 129, 0.15);
   color: #34d399;
-  background: rgba(16, 185, 129, 0.1);
-  border: 1px solid rgba(16, 185, 129, 0.25);
-  padding: 8px 12px;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.ekg-paper-meta {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* Realistic Medical ECG Paper Graphic Container */
+.ecg-paper-container {
   border-radius: var(--radius-md);
-  margin-bottom: 12px;
+  border: 1px solid rgba(244, 63, 94, 0.3);
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.5);
+  background-color: #0f172a;
+}
+
+/* Pink ECG paper mode */
+.ecg-paper-pink {
+  background-color: #1e131d;
+  background-image:
+    linear-gradient(rgba(244, 63, 94, 0.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244, 63, 94, 0.22) 1px, transparent 1px),
+    linear-gradient(rgba(244, 63, 94, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244, 63, 94, 0.08) 1px, transparent 1px);
+  background-size: 25px 25px, 25px 25px, 5px 5px, 5px 5px;
+}
+
+/* Dark Oscilloscope Monitor mode */
+.ecg-paper-dark {
+  background-color: #030d1a;
+  background-image:
+    linear-gradient(rgba(6, 182, 212, 0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(6, 182, 212, 0.2) 1px, transparent 1px),
+    linear-gradient(rgba(6, 182, 212, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(6, 182, 212, 0.06) 1px, transparent 1px);
+  background-size: 25px 25px, 25px 25px, 5px 5px, 5px 5px;
+  border-color: rgba(6, 182, 212, 0.35);
+}
+
+.ecg-svg-canvas {
+  width: 100%;
+  height: 180px;
+  display: block;
+}
+
+/* Strip Annotated Markers */
+.ekg-markers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.ekg-marker-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.78rem;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+}
+
+.ekg-marker-tag {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: #38bdf8;
+  white-space: nowrap;
+}
+
+.ekg-marker-desc {
+  color: var(--text-secondary);
   line-height: 1.4;
 }
 
-.desatero-details {
+/* Right Column: Anatomy & Logic Breakdown */
+.ekg-logic-col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ekg-anatomy-diagram-card {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+@media (max-width: 640px) {
+  .ekg-anatomy-diagram-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.anatomy-svg-thumb {
+  width: 110px;
+  height: 110px;
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  background: #091024;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.anatomy-svg-thumb svg {
+  width: 100%;
+  height: 100%;
+}
+
+.anatomy-text-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.anatomy-origin-title {
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #38bdf8;
+}
+
+.anatomy-origin-loc {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+
+.anatomy-vector-pill {
+  display: inline-block;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #fbbf24;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  margin-top: 4px;
+}
+
+/* Logic Blocks inside Split Card */
+.ekg-logic-box {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.logic-box-label {
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--cardio-emerald);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.logic-box-text {
   font-size: 0.82rem;
   color: var(--text-secondary);
-  line-height: 1.55;
-  margin-bottom: 14px;
+  line-height: 1.5;
 }
 
-.desatero-pearl {
-  font-size: 0.78rem;
-  color: #a78bfa;
-  padding: 8px 12px;
-  background: rgba(139, 92, 246, 0.08);
-  border-radius: var(--radius-sm);
-  border-left: 2px solid #a78bfa;
-  margin-top: auto;
-}
-
-/* ECG Paper Grid Graphic Effect */
-.ecg-grid-box {
-  background-color: #0b1329;
-  background-image: 
-    linear-gradient(rgba(6, 182, 212, 0.15) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(6, 182, 212, 0.15) 1px, transparent 1px),
-    linear-gradient(rgba(6, 182, 212, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(6, 182, 212, 0.05) 1px, transparent 1px);
-  background-size: 25px 25px, 25px 25px, 5px 5px, 5px 5px;
-  border: 1px solid rgba(6, 182, 212, 0.3);
+.ekg-pearl-box {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(15, 23, 42, 0.6));
+  border: 1px solid rgba(139, 92, 246, 0.3);
   border-radius: var(--radius-md);
-  padding: 16px;
-  font-family: var(--font-mono);
-  color: #38bdf8;
-  font-size: 0.82rem;
-  margin-bottom: 14px;
-}
-
-/* Anatomy Cards */
-.anatomy-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  padding: 24px;
-  margin-bottom: 20px;
-  box-shadow: var(--shadow-sm);
-}
-
-.anatomy-correlate-badge {
-  display: inline-block;
-  font-family: var(--font-mono);
+  padding: 12px 14px;
   font-size: 0.8rem;
-  font-weight: 700;
-  padding: 4px 10px;
-  border-radius: var(--radius-full);
-  background: rgba(6, 182, 212, 0.15);
-  color: #38bdf8;
-  border: 1px solid rgba(6, 182, 212, 0.3);
-  margin-bottom: 10px;
+  color: #ddd6fe;
+  line-height: 1.5;
+  border-left: 3px solid #a78bfa;
 }
 
-.vector-callout {
-  background: rgba(245, 158, 11, 0.08);
-  border-left: 3px solid #fbbf24;
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  padding: 10px 14px;
-  font-size: 0.82rem;
-  color: #fef3c7;
-  margin: 12px 0;
-}
-
-/* Ionts Cards */
-.ion-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  padding: 24px;
-  margin-bottom: 20px;
-  box-shadow: var(--shadow-sm);
-}
-
-.waveform-tag {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  font-weight: 600;
-  background: rgba(0, 0, 0, 0.3);
-  border: 1px solid var(--border-subtle);
-  padding: 8px 12px;
-  border-radius: var(--radius-md);
-  color: #f8fafc;
-  margin: 10px 0 14px 0;
-}
-
-/* Danger alert */
-.danger-callout {
+.ekg-danger-box {
   background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(15, 23, 42, 0.8));
   border: 1px solid rgba(239, 68, 68, 0.4);
   border-radius: var(--radius-md);
-  padding: 14px 18px;
-  font-size: 0.84rem;
+  padding: 12px 14px;
+  font-size: 0.8rem;
   color: #fee2e2;
-  margin: 12px 0;
   line-height: 1.5;
+  border-left: 3px solid #ef4444;
+}
+
+/* Pacemaker Difficulty / Recognition Badges */
+.badge-recognition-easy {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.badge-recognition-medium {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.badge-recognition-hard {
+  background: rgba(236, 72, 153, 0.15);
+  color: #f472b6;
+  border: 1px solid rgba(236, 72, 153, 0.3);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.badge-recognition-danger {
+  background: rgba(239, 68, 68, 0.18);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.badge-recognition-warning {
+  background: rgba(245, 158, 11, 0.18);
+  color: #fde047;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
 }
 
 /* Animations */
@@ -1465,3 +1633,4 @@ footer {
   font-size: 0.8rem;
   color: var(--text-muted);
 }
+
