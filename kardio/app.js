@@ -252,6 +252,7 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
       cardEl.addEventListener("click", () => {
         window.location.hash = `#modul-${mod.id}`;
+        openModuleDetail(mod.id);
       });
       modulesGrid.appendChild(cardEl);
     });
@@ -300,38 +301,63 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // 2. Active Recall
+    const scenariosHtml = (mod.recall.scenarios || [])
+      .map(
+        (sc, idx) => `
+      <div class="scenario-card" id="sc-card-${idx}">
+        <div class="scenario-header">
+          <span class="scenario-badge">Scénář ${idx + 1}</span>
+          <h4 class="scenario-title">${sc.title}</h4>
+        </div>
+        
+        <p class="scenario-question">${sc.question}</p>
+
+        <button class="reveal-btn" data-target="sc-ans-${idx}">
+          <span>👁️ Zobrazit klinické řešení a zdůvodnění</span>
+          <span>▼</span>
+        </button>
+
+        <div class="hidden-answer-box" id="sc-ans-${idx}">
+          <div class="answer-text-block">
+            <strong>Rozhodnutí & Postup:</strong><br>
+            ${sc.answer}
+          </div>
+          <div class="pearl-box">
+            📌 <strong>High-Yield Perla:</strong> ${sc.pearl}
+          </div>
+        </div>
+      </div>
+    `
+      )
+      .join("");
+
+    const quizHtml = mod.recall.quiz
+      ? `
+      <div class="decision-quiz-box" style="margin-top: 30px;">
+        <span class="quiz-badge">🎯 ${mod.recall.quiz.title}</span>
+        <p class="quiz-prompt">${mod.recall.quiz.prompt}</p>
+        <div class="quiz-options-list" id="mod-quiz-opts">
+          ${mod.recall.quiz.options
+            .map(
+              (opt, optIdx) => `
+            <button class="quiz-opt-btn" data-optidx="${optIdx}">
+              ${opt.text}
+            </button>
+          `
+            )
+            .join("")}
+        </div>
+        <div class="quiz-feedback-box" id="mod-quiz-fb"></div>
+      </div>
+    `
+      : "";
+
     recallPane.innerHTML = `
       <div class="scenarios-list">
-        ${mod.recall.scenarios
-          .map(
-            (sc, idx) => `
-          <div class="scenario-card" id="sc-card-${idx}">
-            <div class="scenario-header">
-              <span class="scenario-badge">Scénář ${idx + 1}</span>
-              <h4 class="scenario-title">${sc.title}</h4>
-            </div>
-            
-            <p class="scenario-question">${sc.question}</p>
-
-            <button class="reveal-btn" data-target="sc-ans-${idx}">
-              <span>👁️ Zobrazit klinické řešení a zdůvodnění</span>
-              <span>▼</span>
-            </button>
-
-            <div class="hidden-answer-box" id="sc-ans-${idx}">
-              <div class="answer-text-block">
-                <strong>Rozhodnutí & Postup:</strong><br>
-                ${sc.answer}
-              </div>
-              <div class="pearl-box">
-                📌 <strong>High-Yield Perla:</strong> ${sc.pearl}
-              </div>
-            </div>
-          </div>
-        `
-          )
-          .join("")}
+        ${scenariosHtml}
       </div>
+
+      ${quizHtml}
 
       <div class="step-footer-actions">
         <button class="btn btn-secondary" id="btn-back-to-theory">
@@ -353,7 +379,7 @@ document.addEventListener("DOMContentLoaded", () => {
       window.scrollTo({ top: 300, behavior: "smooth" });
     });
 
-    // Event listeners for reveal answer buttons
+    // Reveal buttons
     recallPane.querySelectorAll(".reveal-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
         const targetId = btn.getAttribute("data-target");
@@ -368,7 +394,39 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
+    // Module decision quiz logic
+    if (mod.recall.quiz) {
+      const qOptsContainer = document.getElementById("mod-quiz-opts");
+      const qFbBox = document.getElementById("mod-quiz-fb");
+      if (qOptsContainer && qFbBox) {
+        qOptsContainer.querySelectorAll(".quiz-opt-btn").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const optIdx = parseInt(btn.getAttribute("data-optidx"));
+            const selected = mod.recall.quiz.options[optIdx];
+
+            qOptsContainer.querySelectorAll(".quiz-opt-btn").forEach((b, i) => {
+              b.disabled = true;
+              if (mod.recall.quiz.options[i].isCorrect) {
+                b.classList.add("correct");
+              } else if (i === optIdx) {
+                b.classList.add("incorrect");
+              }
+            });
+
+            qFbBox.className = `quiz-feedback-box show ${selected.isCorrect ? "correct-fb" : "incorrect-fb"}`;
+            qFbBox.innerHTML = `
+              <strong>${selected.isCorrect ? "✅ Správně!" : "❌ Nesprávně."}</strong><br>
+              ${mod.recall.quiz.explanation}
+            `;
+          });
+        });
+      }
+    }
+
     // 3. Summary & Class III (Breakdown)
+    const mustKnowItems = mod.breakdown?.mustKnow || [];
+    const classThreeItems = mod.breakdown?.classThree || [];
+
     summaryPane.innerHTML = `
       <div class="breakdown-grid">
         <!-- Must Know High-Yield Pearls -->
@@ -378,12 +436,11 @@ document.addEventListener("DOMContentLoaded", () => {
             <h3>High-Yield Zkouškové Perly (Must-Know)</h3>
           </div>
           <div class="pearls-list">
-            ${mod.summary.mustKnow
+            ${mustKnowItems
               .map(
                 (item) => `
               <div class="pearl-item">
-                <span class="pearl-item-title">${item.title}</span>
-                <span class="pearl-item-desc">${item.desc}</span>
+                <span class="pearl-item-desc">${typeof item === "string" ? item : `${item.title}: ${item.desc}`}</span>
               </div>
             `
               )
@@ -398,36 +455,18 @@ document.addEventListener("DOMContentLoaded", () => {
             <h3>ESC Třída III: Škodlivé a zakázané postupy</h3>
           </div>
           <div class="contra-list">
-            ${mod.summary.classIII
+            ${classThreeItems
               .map(
                 (c) => `
               <div class="contra-item">
                 <span class="contra-tag">❌ ZÁKAZ / TŘÍDA III</span>
-                <h4 class="contra-action">${c.action}</h4>
-                <p class="contra-reason"><strong>Proč:</strong> ${c.reason}</p>
-                <span class="contra-alt">💡 <strong>Správný postup:</strong> ${c.alternative}</span>
+                <p class="contra-reason" style="margin-top: 6px;">${typeof c === "string" ? c : c.action}</p>
+                ${c.reason ? `<p class="contra-reason" style="font-size: 0.78rem; opacity: 0.85;"><strong>Důvod:</strong> ${c.reason}</p>` : ""}
               </div>
             `
               )
               .join("")}
           </div>
-        </div>
-      </div>
-
-      <!-- Quick Reference Numbers / Criteria -->
-      <div class="numbers-strip">
-        <h4 class="numbers-strip-title">📊 Klíčová čísla, časové limity a cut-off hodnoty modulu:</h4>
-        <div class="numbers-chips-list">
-          ${mod.summary.keyNumbers
-            .map(
-              (n) => `
-            <div class="num-chip">
-              <span class="num-chip-val">${n.val}</span>
-              <span class="num-chip-label">${n.label}</span>
-            </div>
-          `
-            )
-            .join("")}
         </div>
       </div>
 
@@ -443,6 +482,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("btn-back-to-modules")?.addEventListener("click", () => {
       window.location.hash = "#temata";
+      switchView("modules", false);
     });
 
     document.getElementById("btn-start-topic-sr")?.addEventListener("click", () => {
@@ -459,27 +499,28 @@ document.addEventListener("DOMContentLoaded", () => {
     state.activeTopicStep = step;
 
     [detailStepTheoryBtn, detailStepRecallBtn, detailStepSummaryBtn].forEach((b) =>
-      b.classList.remove("active")
+      b?.classList.remove("active")
     );
-    [theoryPane, recallPane, summaryPane].forEach((p) => p.classList.remove("active"));
+    [theoryPane, recallPane, summaryPane].forEach((p) => p?.classList.remove("active"));
 
     if (step === "theory") {
-      detailStepTheoryBtn.classList.add("active");
-      theoryPane.classList.add("active");
+      detailStepTheoryBtn?.classList.add("active");
+      theoryPane?.classList.add("active");
     } else if (step === "recall") {
-      detailStepRecallBtn.classList.add("active");
-      recallPane.classList.add("active");
+      detailStepRecallBtn?.classList.add("active");
+      recallPane?.classList.add("active");
     } else if (step === "summary") {
-      detailStepSummaryBtn.classList.add("active");
-      summaryPane.classList.add("active");
+      detailStepSummaryBtn?.classList.add("active");
+      summaryPane?.classList.add("active");
     }
   };
 
-  detailStepTheoryBtn.addEventListener("click", () => switchTopicStep("theory"));
-  detailStepRecallBtn.addEventListener("click", () => switchTopicStep("recall"));
-  detailStepSummaryBtn.addEventListener("click", () => switchTopicStep("summary"));
-  detailBackBtn.addEventListener("click", () => {
+  detailStepTheoryBtn?.addEventListener("click", () => switchTopicStep("theory"));
+  detailStepRecallBtn?.addEventListener("click", () => switchTopicStep("recall"));
+  detailStepSummaryBtn?.addEventListener("click", () => switchTopicStep("summary"));
+  detailBackBtn?.addEventListener("click", () => {
     window.location.hash = "#temata";
+    switchView("modules", false);
   });
 
   // --- SPACED REPETITION ENGINE ---
