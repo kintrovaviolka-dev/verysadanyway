@@ -214,6 +214,14 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    const escapeHTML = (str) => String(str).replace(/[&<>'"]/g, tag => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      "'": '&#39;',
+      '"': '&quot;'
+    }[tag] || tag));
+
     filtered.forEach(q => {
       const prog = userProgress[q.id];
       const card = document.createElement("div");
@@ -225,13 +233,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
       card.innerHTML = `
         <div class="card-top">
-          <span class="card-id">${q.id}</span>
+          <span class="card-id">${escapeHTML(q.id)}</span>
           <div class="card-box-indicator b-${prog.box}" title="Box ${prog.box}"></div>
         </div>
-        <h3 class="card-title">${q.title}</h3>
-        <p class="card-keywords">${q.keywords.slice(0, 4).join(" • ")}</p>
+        <h3 class="card-title">${escapeHTML(q.title)}</h3>
+        <p class="card-keywords">${escapeHTML(q.keywords.slice(0, 4).join(" • "))}</p>
         <div class="card-footer">
-          <span class="card-section">${q.section}</span>
+          <span class="card-section">${escapeHTML(q.section)}</span>
           <div style="display: flex; gap: 0.5rem; align-items: center;">
             ${isDue ? `<span class="due-badge">K opakování</span>` : ""}
             ${isUnstudied && !isDue ? `<span class="due-badge" style="background-color: var(--primary-light); color: var(--primary); border-color: rgba(168, 85, 247, 0.2)">Nová</span>` : ""}
@@ -960,15 +968,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // --- LOGIKA TLAČÍTKA ZPĚT NA ROZCESTNÍK ---
-  const backHubBtn = document.getElementById("back-hub-btn");
-  if (backHubBtn) {
-    backHubBtn.addEventListener("click", () => {
-      if (window.location.protocol === 'file:') {
-        window.location.href = '../index.html';
-      } else {
-        window.location.href = 'https://verysadanyway.vercel.app/';
-      }
-    });
+  {
+    const backHubBtn = document.getElementById("back-hub-btn");
+    if (backHubBtn) {
+      backHubBtn.addEventListener("click", () => {
+        if (window.location.protocol === 'file:') {
+          window.location.href = '../index.html';
+        } else {
+          window.location.href = 'https://verysadanyway.vercel.app/';
+        }
+      });
+    }
   }
 
   // --- INDIKAČNÍ ALGORITMY LOGIKA ---
