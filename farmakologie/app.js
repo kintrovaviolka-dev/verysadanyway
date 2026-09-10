@@ -272,14 +272,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     if (filtered.length === 0) {
-      cardsGrid.innerHTML = `
+      cardsGrid.innerHTML = DOMPurify.sanitize(`
         <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-secondary);">
           <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 12px; color: var(--text-muted);"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
           <h3>Nebyly nalezeny žádné otázky</h3>
           <p style="margin-top: 8px;">Zkuste upravit vyhledávaný výraz nebo filtry.</p>
           <button id="reset-filters-btn" class="btn btn-primary" style="margin-top: 16px;">Obnovit filtry</button>
         </div>
-      `;
+      `);
       const resetBtn = document.getElementById("reset-filters-btn");
       if (resetBtn) {
         resetBtn.addEventListener("click", () => {
@@ -325,7 +325,7 @@ document.addEventListener("DOMContentLoaded", () => {
       else if (q.category.includes("Metabolismus")) catClass = "cat-metab";
       else if (q.category === "Onkologie & Toxikologie") catClass = "cat-onk";
 
-      cardContainer.innerHTML = `
+      cardContainer.innerHTML = DOMPurify.sanitize(`
         <div class="card-inner" data-id="${q.id}">
           <!-- Přední strana -->
           <div class="card-front">
@@ -363,7 +363,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
           </div>
         </div>
-      `;
+      `);
 
       const cardInner = cardContainer.querySelector(".card-inner");
       
@@ -411,10 +411,10 @@ document.addEventListener("DOMContentLoaded", () => {
     switchTab("panel-study");
 
     // Načtení výkladu
-    studyContent.innerHTML = q.detailContent || "";
+    studyContent.innerHTML = DOMPurify.sanitize(q.detailContent || "");
 
     // Načtení poznámek
-    editorContent.innerHTML = state.userNotes[q.id] || "";
+    editorContent.innerHTML = DOMPurify.sanitize(state.userNotes[q.id] || "");
 
     // Nastavení stavu učení
     const currentStatus = state.userProgress[q.id] || "not-started";
