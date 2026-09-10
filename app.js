@@ -19,6 +19,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const dopamineStats = getStoredStats();
 
+  const escapeHTML = (str) => {
+    if (!str) return "";
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  };
+
   // --- INICIALIZACE STAVU ---
   const state = {
     selectedGrade: 3, // Pouze 3. ročník je aktivní
@@ -295,16 +305,27 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     if (filtered.length === 0) {
-      questionsListContainer.innerHTML = `
-        <div style="text-align: center; padding: 30px 20px;">
-          <div style="color: var(--text-secondary); margin-bottom: 16px;">Nebyly nalezeny žádné otázky.</div>
-          <button id="clear-search-btn" class="btn btn-secondary btn-sm" aria-label="Zrušit vyhledávání">
-            Zrušit vyhledávání
-          </button>
-        </div>
-      `;
+      questionsListContainer.textContent = "";
 
-      const clearBtn = document.getElementById("clear-search-btn");
+      const emptyDiv = document.createElement("div");
+      emptyDiv.style.textAlign = "center";
+      emptyDiv.style.padding = "30px 20px";
+
+      const messageDiv = document.createElement("div");
+      messageDiv.style.color = "var(--text-secondary)";
+      messageDiv.style.marginBottom = "16px";
+      messageDiv.textContent = "Nebyly nalezeny žádné otázky.";
+
+      const clearBtn = document.createElement("button");
+      clearBtn.id = "clear-search-btn";
+      clearBtn.className = "btn btn-secondary btn-sm";
+      clearBtn.setAttribute("aria-label", "Zrušit vyhledávání");
+      clearBtn.textContent = "Zrušit vyhledávání";
+
+      emptyDiv.appendChild(messageDiv);
+      emptyDiv.appendChild(clearBtn);
+      questionsListContainer.appendChild(emptyDiv);
+
       if (clearBtn) {
         clearBtn.addEventListener("click", () => {
           questionSearch.value = "";
@@ -322,7 +343,7 @@ document.addEventListener("DOMContentLoaded", () => {
       item.className = "question-item";
       item.innerHTML = `
         <span class="question-num">${idx + 1}.</span>
-        <span class="question-text">${q.title}</span>
+        <span class="question-text">${escapeHTML(q.title)}</span>
       `;
       questionsListContainer.appendChild(item);
     });
@@ -421,13 +442,13 @@ document.addEventListener("DOMContentLoaded", () => {
       return `
         <button class="quiz-option" data-idx="${idx}">
           <span class="quiz-option-letter">${letter}</span>
-          <span class="quiz-option-text">${opt}</span>
+          <span class="quiz-option-text">${escapeHTML(opt)}</span>
         </button>
       `;
     }).join("");
 
     questionCard.innerHTML = `
-      <div class="quiz-question">${item.question}</div>
+      <div class="quiz-question">${escapeHTML(item.question)}</div>
       <div class="quiz-options">
         ${optionsHTML}
       </div>
@@ -498,7 +519,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
         explanationContainer.className = `quiz-explanation ${isCorrect ? 'correct' : 'incorrect'}`;
         explanationContainer.innerHTML = `
-          <strong>${isCorrect ? 'Správně!' : 'Nesprávně.'}</strong> ${expText}
+          <strong>${isCorrect ? 'Správně!' : 'Nesprávně.'}</strong> ${escapeHTML(expText)}
         `;
         explanationContainer.style.display = "block";
         

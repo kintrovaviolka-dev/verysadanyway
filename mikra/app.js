@@ -24,6 +24,18 @@ document.addEventListener('DOMContentLoaded', () => {
   bindEvents();
 });
 
+
+// ========== UTILS ==========
+function escapeHTML(str) {
+  if (typeof str !== 'string' && typeof str !== 'number') return str;
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 // ========== LOCALSTORAGE ==========
 function loadProgress() {
   try {
@@ -214,23 +226,23 @@ function createCard(q, boxA, boxB) {
   const statusBadgeA = getStatusBadge(q.id, 'a');
   const statusBadgeB = getStatusBadge(q.id, 'b');
 
-  const keywordsA = (q.cast_a.keywords || []).slice(0, 3).map(k => `<span class="keyword-chip">${k}</span>`).join('');
-  const keywordsB = (q.cast_b.keywords || []).slice(0, 2).map(k => `<span class="keyword-chip">${k}</span>`).join('');
+  const keywordsA = (q.cast_a.keywords || []).slice(0, 3).map(k => `<span class="keyword-chip">${escapeHTML(k)}</span>`).join('');
+  const keywordsB = (q.cast_b.keywords || []).slice(0, 2).map(k => `<span class="keyword-chip">${escapeHTML(k)}</span>`).join('');
 
   card.innerHTML = `
     <div class="card-header">
       <div class="card-part card-part-a">
-        <span class="card-part-label">Část A · ${q.skupina_a}</span>
-        <span class="card-part-title">${q.cast_a.title}</span>
+        <span class="card-part-label">Část A · ${escapeHTML(q.skupina_a)}</span>
+        <span class="card-part-title">${escapeHTML(q.cast_a.title)}</span>
       </div>
       <div class="card-part card-part-b">
-        <span class="card-part-label">Část B · ${q.skupina_b}</span>
-        <span class="card-part-title">${q.cast_b.title}</span>
+        <span class="card-part-label">Část B · ${escapeHTML(q.skupina_b)}</span>
+        <span class="card-part-title">${escapeHTML(q.cast_b.title)}</span>
       </div>
     </div>
     <div class="card-keywords">${keywordsA}${keywordsB}</div>
     <div class="card-footer">
-      <span class="card-num-badge">OTÁZKA ${q.cislo}</span>
+      <span class="card-num-badge">OTÁZKA ${escapeHTML(q.cislo)}</span>
       <div class="card-status-badges">
         ${statusBadgeA}
         ${statusBadgeB}

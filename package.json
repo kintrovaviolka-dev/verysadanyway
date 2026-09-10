@@ -4,6 +4,7 @@
   "description": "Lékařský studijní portál s integrovaným asistentem Gemini",
   "main": "server.js",
   "scripts": {
+    "test": "node --test api/*.test.js",
     "start": "node server.js",
     "dev": "node --env-file=.env server.js",
     "build": "cd clinical-learning-portal && npm install --legacy-peer-deps && npm run build && cp -r dist/* . && cd ../urgentni-prijem && npm install --legacy-peer-deps && npm run build && cp -r dist/* ."

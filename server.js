@@ -17,6 +17,7 @@ if (typeof process.loadEnvFile === 'function') {
 }
 
 const app = express();
+app.set('trust proxy', 1);
 const PORT = process.env.PORT || 3000;
 
 // Keep request bodies bounded. These endpoints are public and several of them
@@ -104,10 +105,13 @@ if (cleanupInterval.unref) {
 }
 
 function getClientIp(req) {
-  // Vercel sets this header; only use its first value because a forwarded-for
-  // header may contain a proxy chain.
+  if (req.ip) return req.ip;
   const forwarded = req.headers['x-vercel-forwarded-for'] || req.headers['x-forwarded-for'];
-  return typeof forwarded === 'string' ? forwarded.split(',')[0].trim() : (req.socket.remoteAddress || 'unknown');
+  if (typeof forwarded === 'string') {
+    const ips = forwarded.split(',');
+    return ips[ips.length - 1].trim();
+  }
+  return req.socket?.remoteAddress || 'unknown';
 }
 
 app.use((req, res, next) => {
@@ -143,7 +147,7 @@ function checkReferer(req) {
       const allowed = ['localhost', '127.0.0.1', '::1'];
       const isLocal = allowed.some(domain => hostname === domain);
       const allowedVercel = ['patfyz.vercel.app', 'patfyza.vercel.app', 'patolka.vercel.app', 'verysadanyway.vercel.app'];
-      const isVercel = allowedVercel.includes(hostname) || hostname.endsWith('.vercel.app');
+      const isVercel = allowedVercel.includes(hostname);
       
       return isLocal || isVercel;
     } catch (e) {
@@ -184,7 +188,7 @@ app.use((req, res, next) => {
       const allowed = ['localhost', '127.0.0.1', '::1'];
       const isLocal = allowed.some(domain => hostname === domain);
       const allowedVercel = ['patfyz.vercel.app', 'patfyza.vercel.app', 'patolka.vercel.app', 'verysadanyway.vercel.app'];
-      const isVercel = allowedVercel.includes(hostname) || hostname.endsWith('.vercel.app');
+      const isVercel = allowedVercel.includes(hostname);
       
       if (isLocal || isVercel) {
         allowedOrigin = url.origin;
@@ -552,9 +556,9 @@ const sessions = {};
 
 function recordVitalsHistory(session) {
   if (!session.vitalsHistory) {
-    session.vitalsHistory = [];
+    session.vitalsHistory = {};
   }
-  const existing = session.vitalsHistory.find(h => h.time === session.elapsedTime);
+  const existing = session.vitalsHistory[session.elapsedTime];
   if (existing) {
     existing.tf = session.vitals.tf;
     existing.tk_sys = session.vitals.tk_sys;
@@ -562,14 +566,14 @@ function recordVitalsHistory(session) {
     existing.spo2 = session.vitals.spo2;
     existing.rr = session.vitals.rr;
   } else {
-    session.vitalsHistory.push({
+    session.vitalsHistory[session.elapsedTime] = {
       time: session.elapsedTime,
       tf: session.vitals.tf,
       tk_sys: session.vitals.tk_sys,
       tk_dia: session.vitals.tk_dia,
       spo2: session.vitals.spo2,
       rr: session.vitals.rr
-    });
+    };
   }
 }
 
@@ -630,8 +634,8 @@ app.post("/api/case/init", (req, res) => {
       triageClass: caseDef.triageClass
     },
     vitals: { ...caseDef.vitals },
-    vitalsHistory: [
-      {
+    vitalsHistory: {
+      0: {
         time: 0,
         tf: caseDef.vitals.tf,
         tk_sys: caseDef.vitals.tk_sys,
@@ -639,7 +643,7 @@ app.post("/api/case/init", (req, res) => {
         spo2: caseDef.vitals.spo2,
         rr: caseDef.vitals.rr
       }
-    ],
+    },
     elapsedTime: 0,
     actionLog: [
       { time: "14:22", text: "Pacient přijat na urgentní příjem RZP.", source: "system" }

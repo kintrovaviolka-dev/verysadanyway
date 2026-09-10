@@ -1041,7 +1041,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
       "Defektní nebo chybějící amyláza",
       "Dědičná dispozice",
       "Malignita plazmatických buněk",
-      "Revmatiodní artritida"
+      "Revmatoidní artritida"
     ],
     "correct": 1
   },
@@ -4477,7 +4477,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
     "options": [
       "Chronickou renální insuficiencí",
       "Znehybněním kostí",
-      "Malabsorpčnímy stavy",
+      "Malabsorpčními stavy",
       "Křivicí",
       "Deficitem vit.D"
     ],
@@ -4500,8 +4500,8 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
     "question": "Muž (25), bolest v dolní části zad a 6 měsíců trvající problémy s chůzí, je citlivý v dolní části zad, má zarudlé spojivky, na tvrdém patře nebolestivý vřed a několik šupinatých lézí na ploskách nohou. Dg.?",
     "options": [
       "Ankylózní spondylitida",
-      "Revmatiodní artritida",
-      "Systémový lupus etytematodes",
+      "Revmatoidní artritida",
+      "Systémový lupus erytematodes",
       "Kawasakiho choroba",
       "Reiterova choroba"
     ],
@@ -4511,9 +4511,9 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
     "id": 377,
     "question": "Vyberte správné tvrzení týkající se osteomyelitidy",
     "options": [
-      "Sekvestr je nektorická kortikalis a involukrum je periostální reaktivní kost",
-      "Sekvestr je nektorická kortikalis a involukrum je infekční nidus kostní dřeně",
-      "Sekvestr je  periostální reaktivní kost a involukrum je nektorická kortikalis",
+      "Sekvestr je nekrotická kortikalis a involukrum je periostální reaktivní kost",
+      "Sekvestr je nekrotická kortikalis a involukrum je infekční nidus kostní dřeně",
+      "Sekvestr je  periostální reaktivní kost a involukrum je nekrotická kortikalis",
       "Sekvestr je sekvestrovaný infekční nidus kostní dřeně a involukrum je nekrotická kortikalis",
       "Sekvestr je sekvestrovaný infekční nidus kostní dřeně a involukrum je periostální reaktivní kost"
     ],
@@ -4647,7 +4647,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
       "Myelofbrózou",
       "Akutní leukémií",
       "Výraznou splenomegalií",
-      "Některými léky (metothrexan)"
+      "Některými léky (methotrexát)"
     ],
     "correct": 0
   },
@@ -4739,7 +4739,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
     "id": 396,
     "question": "Při DIC je časté krvácení, protože…",
     "options": [
-      "Dochází k urychlené spotřebe a vyčerpání koagulačních faktorů",
+      "Dochází k urychlené spotřebě a vyčerpání koagulačních faktorů",
       "Dochází k tvorbě protilátek proti trombocytům",
       "Bývá přítomna hyperémie sleziny a trombocytóza",
       "Produkce fibrinogenu je zvýšená",
@@ -4801,8 +4801,8 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
     "options": [
       "S věkem kalcifikuje",
       "Nejčastější typ adenomu produkuje prolaktin",
-      "Pinealoblastomy jsou vysove maligní",
-      "Může být místemvzniku primárního seminomu",
+      "Pinealoblastomy jsou vysoce maligní",
+      "Může být místem vzniku primárního seminomu",
       "Produkuje melatonin"
     ],
     "correct": 1

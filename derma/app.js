@@ -236,7 +236,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const isDue = isCardDue(q.id);
       const isUnstudied = qProgress.lastReviewed === null;
 
-      card.innerHTML = `
+      card.innerHTML = DOMPurify.sanitize(`
         <div class="card-top">
           <span class="card-id">${q.id}</span>
           <div class="card-box-indicator b-${qProgress.box}" title="Krabička ${qProgress.box}"></div>
@@ -247,7 +247,7 @@ document.addEventListener("DOMContentLoaded", () => {
           ${isDue ? `<span class="due-badge">K opakování</span>` : ""}
           ${isUnstudied && !isDue ? `<span class="due-badge" style="background-color: var(--primary-light); color: var(--primary); border-color: rgba(255,122,89,0.2)">Nová</span>` : ""}
         </div>
-      `;
+      `);
 
       cardsGrid.appendChild(card);
     });
@@ -265,12 +265,12 @@ document.addEventListener("DOMContentLoaded", () => {
     dialogTitle.textContent = activeQuestion.title;
     dialogSection.textContent = activeQuestion.section;
     
-    studyDefinition.innerHTML = activeQuestion.content.definition;
-    studyEtiology.innerHTML = activeQuestion.content.etiology;
-    studyPathogenesis.innerHTML = activeQuestion.content.pathogenesis;
-    studyMacroscopy.innerHTML = activeQuestion.content.macroscopy;
-    studyMicroscopy.innerHTML = activeQuestion.content.microscopy;
-    studyClinical.innerHTML = activeQuestion.content.clinical;
+    studyDefinition.innerHTML = DOMPurify.sanitize(activeQuestion.content.definition);
+    studyEtiology.innerHTML = DOMPurify.sanitize(activeQuestion.content.etiology);
+    studyPathogenesis.innerHTML = DOMPurify.sanitize(activeQuestion.content.pathogenesis);
+    studyMacroscopy.innerHTML = DOMPurify.sanitize(activeQuestion.content.macroscopy);
+    studyMicroscopy.innerHTML = DOMPurify.sanitize(activeQuestion.content.microscopy);
+    studyClinical.innerHTML = DOMPurify.sanitize(activeQuestion.content.clinical);
 
     // Vykreslení kvízu
     renderQuiz();
@@ -361,7 +361,7 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
       });
 
-      quizCard.innerHTML = `
+      quizCard.innerHTML = DOMPurify.sanitize(`
         <div class="quiz-question">${qIndex + 1}. ${q.question}</div>
         <div class="quiz-options">
           ${optionsHTML}
@@ -369,7 +369,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="quiz-explanation" id="explanation-${qIndex}" style="display: none;">
           <strong>Vysvětlení:</strong> ${q.explanation}
         </div>
-      `;
+      `);
 
       quizWrapper.appendChild(quizCard);
     });
@@ -711,7 +711,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (atlasBtn && atlasDialog) {
     atlasBtn.addEventListener("click", () => {
       if (atlasGrid) {
-        atlasGrid.innerHTML = EFLORESCENCE_DATA.map(item => `
+        atlasGrid.innerHTML = DOMPurify.sanitize(EFLORESCENCE_DATA.map(item => `
           <div class="atlas-card" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
               <h3 style="font-size: 1.1rem; color: var(--text-primary); font-weight: 700;">${item.name}</h3>
@@ -722,7 +722,7 @@ document.addEventListener("DOMContentLoaded", () => {
               <strong>Klinické příklady:</strong> ${item.examples}
             </div>
           </div>
-        `).join("");
+        `).join(""));
       }
       if (typeof atlasDialog.showModal === "function") atlasDialog.showModal();
       else atlasDialog.setAttribute("open", "true");
