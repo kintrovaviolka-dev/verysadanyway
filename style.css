@@ -264,6 +264,10 @@ header p {
   position: relative;
 }
 
+.subject-card.podcast, #subject-podcast {
+  display: none !important;
+}
+
 .subject-card.patfyz:hover {
   border-color: var(--patfyz-color);
   box-shadow: 0 15px 30px -15px var(--patfyz-glow);

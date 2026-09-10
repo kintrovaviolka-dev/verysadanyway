@@ -103,8 +103,12 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // Filter subject cards based on selected grade or "all"
+    // Filter subject cards based on selected grade or "all" (excluding untested podcast tile)
     document.querySelectorAll(".subject-card").forEach(card => {
+      if (card.classList.contains("podcast") || card.id === "subject-podcast") {
+        card.style.display = "none";
+        return;
+      }
       const rawGrade = card.getAttribute("data-grade");
       if (rawGrade === "all" || parseInt(rawGrade) === grade) {
         card.style.display = "block";
