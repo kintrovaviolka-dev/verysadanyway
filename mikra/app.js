@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderCards();
   updateDashboard();
   bindEvents();
+  initChatbot();
 });
 
 
@@ -589,3 +590,453 @@ style.textContent = `
   }
 `;
 document.head.appendChild(style);
+
+
+// ========== GEMINI CHATBOT LOGIC ==========
+function initChatbot() {
+  const chatbotContainer = document.getElementById("gemini-chatbot-container");
+  if (!chatbotContainer) return;
+
+  const chatbotFab = document.getElementById("chatbot-fab");
+  const chatbotPanel = document.getElementById("chatbot-panel");
+  const chatbotMessages = document.getElementById("chatbot-messages");
+  const chatbotInput = document.getElementById("chatbot-input");
+  const chatbotInputForm = document.getElementById("chatbot-input-form");
+  const chatbotTypingIndicator = document.getElementById("chatbot-typing-indicator");
+  const chatbotSettingsBtn = document.getElementById("chatbot-settings-btn");
+  const chatbotSettingsOverlay = document.getElementById("chatbot-settings-overlay");
+  const chatbotApiKeyInput = document.getElementById("chatbot-api-key-input");
+  const chatbotSaveKeyBtn = document.getElementById("chatbot-save-key-btn");
+  const chatbotClearKeyBtn = document.getElementById("chatbot-clear-key-btn");
+  const chatbotSettingsCloseBtn = document.getElementById("chatbot-settings-close-btn");
+  const chatbotSuggestions = document.getElementById("chatbot-suggestions");
+  const chatbotBadge = document.getElementById("chatbot-badge");
+  const statusDot = chatbotContainer.querySelector(".avatar-status-dot");
+
+  let chatHistory = [
+    { role: "assistant", text: "Ahoj! Jsem tvůj medicínský asistent pro Mikrobiologii. Pomohu ti s bakteriologií, virologií, mykologií, parazitologií a diagnostickými metodami. S čím dnes začneme?" }
+  ];
+
+  const systemInstructionText = "Jste odborník na mikrobiologii. Pomáháte studentům lékařství s bakteriologií, virologií, mykologií, parazitologií a diagnostickými metodami. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost.";
+
+  const getSavedKey = () => localStorage.getItem("gemini_chat_local_key") || "";
+  if (chatbotApiKeyInput) {
+    chatbotApiKeyInput.value = getSavedKey();
+  }
+
+  let lastMessageTime = 0;
+  const CLIENT_MIN_INTERVAL = 3000;
+
+  // Toggle Chat Panel
+  if (chatbotFab && chatbotPanel) {
+    chatbotFab.addEventListener("click", () => {
+      const isOpen = chatbotPanel.classList.toggle("open");
+      chatbotFab.classList.toggle("open");
+      if (isOpen) {
+        if (chatbotBadge) chatbotBadge.style.display = "none";
+        if (chatbotInput) chatbotInput.focus();
+        scrollToBottom();
+      }
+    });
+  }
+
+  const closeBtn = document.getElementById("chatbot-close-btn");
+  if (closeBtn && chatbotPanel && chatbotFab) {
+    closeBtn.addEventListener("click", () => {
+      chatbotPanel.classList.remove("open");
+      chatbotFab.classList.remove("open");
+    });
+  }
+
+  // Settings Panel
+  if (chatbotSettingsBtn && chatbotSettingsOverlay) {
+    chatbotSettingsBtn.addEventListener("click", () => {
+      chatbotSettingsOverlay.classList.add("open");
+    });
+  }
+
+  if (chatbotSettingsCloseBtn && chatbotSettingsOverlay) {
+    chatbotSettingsCloseBtn.addEventListener("click", () => {
+      chatbotSettingsOverlay.classList.remove("open");
+    });
+  }
+
+  if (chatbotSaveKeyBtn && chatbotApiKeyInput && chatbotSettingsOverlay) {
+    chatbotSaveKeyBtn.addEventListener("click", () => {
+      const key = chatbotApiKeyInput.value.trim();
+      if (key) {
+        localStorage.setItem("gemini_chat_local_key", key);
+        alert("API klíč byl uložen do vašeho prohlížeče.");
+        chatbotSettingsOverlay.classList.remove("open");
+      } else {
+        alert("Prosím zadejte platný klíč.");
+      }
+    });
+  }
+
+  if (chatbotClearKeyBtn && chatbotApiKeyInput) {
+    chatbotClearKeyBtn.addEventListener("click", () => {
+      localStorage.removeItem("gemini_chat_local_key");
+      chatbotApiKeyInput.value = "";
+      alert("API klíč byl vymazán. Nyní se dotazy posílají přes proxy server.");
+    });
+  }
+
+  // Simple Markdown Parser
+  const parseMarkdown = (text) => {
+    let html = text
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+
+    html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    html = html.replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>');
+    html = html.replace(/`(.*?)`/g, '<code>$1</code>');
+    
+    const lines = html.split('\n');
+    let inList = false;
+    const processedLines = lines.map(line => {
+      const trimmed = line.trim();
+      if (trimmed.startsWith('- ') || trimmed.startsWith('* ')) {
+        const content = trimmed.substring(2);
+        if (!inList) {
+          inList = true;
+          return '<ul><li>' + content + '</li>';
+        }
+        return '<li>' + content + '</li>';
+      } else {
+        if (inList) {
+          inList = false;
+          return '</ul><p>' + line + '</p>';
+        }
+        return trimmed ? '<p>' + line + '</p>' : '';
+      }
+    });
+    
+    html = processedLines.join('');
+    if (inList) {
+      html += '</ul>';
+    }
+    return html;
+  };
+
+  const scrollToBottom = () => {
+    if (chatbotMessages) chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+  };
+
+  const addMessage = (role, text) => {
+    chatHistory.push({ role, text });
+    if (chatHistory.length > 15) {
+      chatHistory.shift();
+    }
+
+    const messageDiv = document.createElement("div");
+    messageDiv.className = `message ${role}`;
+    
+    const contentDiv = document.createElement("div");
+    contentDiv.className = "message-content";
+    contentDiv.innerHTML = role === "assistant" ? parseMarkdown(text) : escapeHTML(text);
+    
+    messageDiv.appendChild(contentDiv);
+    if (chatbotMessages) {
+      chatbotMessages.appendChild(messageDiv);
+      scrollToBottom();
+    }
+
+    if (chatbotPanel && !chatbotPanel.classList.contains("open") && role === "assistant") {
+      if (chatbotBadge) chatbotBadge.style.display = "block";
+    }
+  };
+
+  let clientToken = "";
+  const loadClientToken = async () => {
+    try {
+      const res = await fetch("/api/config");
+      if (res.ok) {
+        const data = await res.json();
+        clientToken = data.clientToken;
+      }
+    } catch (e) {
+      console.error("Failed to load client token", e);
+    }
+  };
+  loadClientToken();
+
+  const callProxyServerStream = async (messages, subject, onChunk, onStart) => {
+    const response = await fetch("/api/chat", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${clientToken}`
+      },
+      body: JSON.stringify({ messages, subject })
+    });
+
+    if (!response.ok) {
+      const errData = await response.json().catch(() => ({}));
+      throw new Error(errData.error || `Server vrátil chybu ${response.status}.`);
+    }
+
+    onStart();
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = "";
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+
+      buffer += decoder.decode(value, { stream: true });
+      const lines = buffer.split("\n");
+      buffer = lines.pop();
+
+      for (const line of lines) {
+        const trimmed = line.trim();
+        if (!trimmed.startsWith("data: ")) continue;
+        const jsonStr = trimmed.substring(6);
+        try {
+          const parsed = JSON.parse(jsonStr);
+          if (parsed.text) {
+            onChunk(parsed.text);
+          }
+        } catch (e) {}
+      }
+    }
+
+    if (buffer.length > 0) {
+      const trimmed = buffer.trim();
+      if (trimmed.startsWith("data: ")) {
+        try {
+          const parsed = JSON.parse(trimmed.substring(6));
+          if (parsed.text) {
+            onChunk(parsed.text);
+          }
+        } catch (e) {}
+      }
+    }
+  };
+
+  const callGeminiDirectlyStream = async (key, messages, subject, onChunk, onStart) => {
+    const contents = [];
+    for (const msg of messages) {
+      const role = msg.role === "assistant" || msg.role === "model" ? "model" : "user";
+      if (contents.length > 0 && contents[contents.length - 1].role === role) {
+        contents[contents.length - 1].parts.push({ text: msg.text });
+      } else {
+        contents.push({
+          role,
+          parts: [{ text: msg.text }]
+        });
+      }
+    }
+    if (contents.length > 0 && contents[0].role !== "user") {
+      contents.shift();
+    }
+    if (contents.length === 0) {
+      throw new Error("Žádné platné zprávy k odeslání.");
+    }
+
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:streamGenerateContent?alt=sse&key=${key}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        contents,
+        systemInstruction: {
+          parts: [{ text: systemInstructionText }]
+        },
+        generationConfig: {
+          temperature: 0.7,
+          maxOutputTokens: 1500
+        },
+        safetySettings: [
+          { category: "HARM_CATEGORY_HARASSMENT", threshold: "BLOCK_NONE" },
+          { category: "HARM_CATEGORY_HATE_SPEECH", threshold: "BLOCK_NONE" },
+          { category: "HARM_CATEGORY_SEXUALLY_EXPLICIT", threshold: "BLOCK_NONE" },
+          { category: "HARM_CATEGORY_DANGEROUS_CONTENT", threshold: "BLOCK_NONE" }
+        ]
+      })
+    });
+
+    if (!response.ok) {
+      const errData = await response.json().catch(() => ({}));
+      throw new Error(errData.error?.message || `Gemini API vrátilo chybu ${response.status}.`);
+    }
+
+    onStart();
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = "";
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+
+      buffer += decoder.decode(value, { stream: true });
+      const lines = buffer.split("\n");
+      buffer = lines.pop();
+
+      for (const line of lines) {
+        const trimmed = line.trim();
+        if (!trimmed.startsWith("data: ")) continue;
+        const jsonStr = trimmed.substring(6);
+        try {
+          const parsed = JSON.parse(jsonStr);
+          const text = parsed.candidates?.[0]?.content?.parts?.[0]?.text;
+          if (text) {
+            onChunk(text);
+          }
+        } catch (e) {}
+      }
+    }
+
+    if (buffer.length > 0) {
+      const trimmed = buffer.trim();
+      if (trimmed.startsWith("data: ")) {
+        try {
+          const parsed = JSON.parse(trimmed.substring(6));
+          const text = parsed.candidates?.[0]?.content?.parts?.[0]?.text;
+          if (text) {
+            onChunk(text);
+          }
+        } catch (e) {}
+      }
+    }
+  };
+
+  const createAssistantMessageBubble = () => {
+    const messageDiv = document.createElement("div");
+    messageDiv.className = "message assistant";
+    
+    const contentDiv = document.createElement("div");
+    contentDiv.className = "message-content";
+    contentDiv.innerHTML = "";
+    
+    messageDiv.appendChild(contentDiv);
+    if (chatbotMessages) {
+      chatbotMessages.appendChild(messageDiv);
+      scrollToBottom();
+    }
+    return contentDiv;
+  };
+
+  if (chatbotInputForm) {
+    chatbotInputForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      
+      const now = Date.now();
+      if (now - lastMessageTime < CLIENT_MIN_INTERVAL) {
+        const errorDiv = document.createElement("div");
+        errorDiv.className = "message system";
+        errorDiv.innerHTML = '<div class="message-content">Příliš rychlé dotazy. Zkuste to za chvíli.</div>';
+        if (chatbotMessages) {
+          chatbotMessages.appendChild(errorDiv);
+          scrollToBottom();
+        }
+        return;
+      }
+
+      if (!chatbotInput) return;
+      const query = chatbotInput.value.trim();
+      if (!query) return;
+
+      addMessage("user", query);
+      chatbotInput.value = "";
+      chatbotInput.disabled = true;
+      const submitBtn = chatbotInputForm.querySelector("button");
+      if (submitBtn) submitBtn.disabled = true;
+      
+      if (chatbotTypingIndicator) chatbotTypingIndicator.classList.add("active");
+      if (statusDot) statusDot.className = "avatar-status-dot typing";
+      scrollToBottom();
+
+      lastMessageTime = Date.now();
+
+      let contentDiv = null;
+      try {
+        const savedKey = getSavedKey();
+        let responseText = "";
+        
+        const onStart = () => {
+          if (chatbotTypingIndicator) chatbotTypingIndicator.classList.remove("active");
+          if (statusDot) statusDot.className = "avatar-status-dot online";
+          contentDiv = createAssistantMessageBubble();
+        };
+        
+        const onChunk = (text) => {
+          responseText += text;
+          if (contentDiv) {
+            contentDiv.innerHTML = parseMarkdown(responseText);
+            scrollToBottom();
+          }
+        };
+
+        if (savedKey) {
+          await callGeminiDirectlyStream(savedKey, chatHistory, "mikra", onChunk, onStart);
+        } else {
+          await callProxyServerStream(chatHistory, "mikra", onChunk, onStart);
+        }
+
+        chatHistory.push({ role: "assistant", text: responseText });
+        if (chatHistory.length > 15) {
+          chatHistory.shift();
+        }
+
+        if (chatbotPanel && !chatbotPanel.classList.contains("open")) {
+          if (chatbotBadge) chatbotBadge.style.display = "block";
+        }
+      } catch (err) {
+        console.error(err);
+        if (chatbotTypingIndicator) chatbotTypingIndicator.classList.remove("active");
+        if (statusDot) statusDot.className = "avatar-status-dot online";
+        
+        if (chatHistory.length > 0 && chatHistory[chatHistory.length - 1].role === "user") {
+          chatHistory.pop();
+        }
+
+        const errorDiv = document.createElement("div");
+        errorDiv.className = "message system";
+        errorDiv.innerHTML = `<div class="message-content">Chyba: ${escapeHTML(err.message)}</div>`;
+        if (chatbotMessages) {
+          chatbotMessages.appendChild(errorDiv);
+          scrollToBottom();
+        }
+      } finally {
+        if (chatbotInput) {
+          chatbotInput.disabled = false;
+          if (submitBtn) submitBtn.disabled = false;
+          chatbotInput.focus();
+        }
+      }
+    });
+  }
+
+  // Suggestion chips
+  const suggestions = [
+    { label: "Gramovo barvení", query: "Jaký je princip Gramova barvení a jaký je rozdíl v buněčné stěně G+ a G- bakterií?" },
+    { label: "Bakteriální spory", query: "Které medicínsky významné bakterie tvoří spory a jaké jsou metody jejich sterilizace?" },
+    { label: "PCR v diagnostice", query: "Jak funguje metoda PCR a jaké jsou její výhody při diagnostice virových infekcí?" }
+  ];
+
+  if (chatbotSuggestions) {
+    chatbotSuggestions.innerHTML = "";
+    suggestions.forEach(s => {
+      const chip = document.createElement("button");
+      chip.type = "button";
+      chip.className = "suggestion-chip";
+      chip.textContent = s.label;
+      chip.addEventListener("click", () => {
+        if (chatbotInput) {
+          chatbotInput.value = s.query;
+          if (chatbotInputForm) {
+            chatbotInputForm.dispatchEvent(new Event("submit"));
+          }
+        }
+      });
+      chatbotSuggestions.appendChild(chip);
+    });
+  }
+}
