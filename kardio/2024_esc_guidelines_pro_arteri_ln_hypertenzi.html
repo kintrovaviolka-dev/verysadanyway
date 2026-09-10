@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2024 ESC Guidelines: Arteriální hypertenze | Interaktivní modul</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#f0fdfa',
+              100: '#ccfbf1',
+              500: '#14b8a6',
+              600: '#0d9488',
+              700: '#0f766e',
+              800: '#115e59',
+              900: '#134e4a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* 3D Flip Card Effect */
+    .perspective-1000 { perspective: 1000px; }
+    .transform-style-3d { transform-style: preserve-3d; }
+    .backface-hidden { 
+      backface-visibility: hidden; 
+      -webkit-backface-visibility: hidden; 
+    }
+    .rotate-y-180 { transform: rotateY(180deg); }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; animation: fadeIn 0.4s ease-in-out; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
+
+  <!-- Hlavička -->
+  <header class="bg-gradient-to-r from-slate-900 via-brand-900 to-slate-900 text-white border-b border-brand-800 sticky top-0 z-50 shadow-md">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-brand-600/30 border border-brand-500/50 flex items-center justify-center text-teal-400 font-bold text-xl shadow-inner">
+          <svg class="w-6 h-6 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+        </div>
+        <div>
+          <span class="text-xs font-semibold tracking-wider uppercase text-teal-400">2024 ESC Guidelines</span>
+          <h1 class="text-lg sm:text-xl font-bold tracking-tight">Arteriální hypertenze (HTN)</h1>
+        </div>
+      </div>
+
+      <!-- Navigace -->
+      <nav class="flex bg-slate-800/80 p-1.5 rounded-xl border border-slate-700/80 text-sm">
+        <button onclick="switchTab('theory')" id="nav-theory" class="tab-btn px-4 py-2 rounded-lg font-medium transition-all flex items-center gap-2 bg-brand-600 text-white shadow">
+          <span class="w-5 h-5 rounded-full bg-white/20 text-xs flex items-center justify-center">1</span>
+          <span>Nová paradigmata</span>
+        </button>
+        <button onclick="switchTab('recall')" id="nav-recall" class="tab-btn px-4 py-2 rounded-lg font-medium text-slate-300 hover:text-white transition-all flex items-center gap-2">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-xs flex items-center justify-center">2</span>
+          <span>Active Recall</span>
+        </button>
+        <button onclick="switchTab('summary')" id="nav-summary" class="tab-btn px-4 py-2 rounded-lg font-medium text-slate-300 hover:text-white transition-all flex items-center gap-2">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-xs flex items-center justify-center">3</span>
+          <span>Klinický tahák</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8">
+
+    <!-- ================= KROK 1: TEORIE ================= -->
+    <div id="tab-theory" class="tab-content active space-y-8">
+      
+      <!-- Banner revoluce -->
+      <div class="bg-gradient-to-r from-teal-50 via-white to-teal-50 border-l-4 border-brand-600 p-6 rounded-r-2xl shadow-sm">
+        <div class="flex items-start gap-4">
+          <div class="p-3 bg-brand-100 text-brand-700 rounded-xl">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+          </div>
+          <div>
+            <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-200 text-brand-800 mb-1">Hlavní změna: Konec starých tabulek</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-slate-900">Jeden cíl (téměř) pro všechny: 120–129 / 70–79 mmHg</h2>
+            <p class="text-slate-600 mt-2 text-sm sm:text-base leading-relaxed">
+              Guidelines 2024 radikálně zjednodušují cílové hodnoty krevního tlaku. Místo složitých cílů odstupňovaných podle věku a typu komorbidity je nyní zaveden jeden primární cíl: <strong>120-129 mmHg systolického TK a 70-79 mmHg diastolického TK</strong> pro většinu dospělých léčených farmakologicky (pokud je léčba dobře tolerována).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Karta 1: Nová klasifikace TK -->
+      <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm">
+        <h3 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+          <span class="w-2 h-6 bg-brand-500 rounded-full"></span>
+          Nová klasifikace krevního tlaku (Office BP)
+        </h3>
+        <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+          Krevní tlak se již nedělí na normální a vysoký normální. Zavádí se zcela nová kategorie <strong>"Zvýšený krevní tlak" (Elevated BP)</strong>. Riziko kardiovaskulárních (KV) příhod roste lineárně již od hodnot 90 mmHg systolického TK.
+        </p>
+        
+        <div class="grid md:grid-cols-3 gap-4">
+          <div class="bg-slate-50 border border-slate-200 p-5 rounded-xl text-center">
+            <h4 class="font-bold text-slate-800 mb-2">Non-elevated BP<br>(Nezvýšený TK)</h4>
+            <div class="text-xl font-mono font-bold text-slate-500 my-3">&lt; 120 / &lt; 70</div>
+            <p class="text-xs text-slate-500">Pouze režimová opatření. Medikace zde není indikována, chybí data o benefitu.</p>
+          </div>
+          
+          <div class="bg-amber-50 border border-amber-200 p-5 rounded-xl text-center relative overflow-hidden">
+            <div class="absolute top-0 right-0 bg-amber-200 text-amber-800 text-[10px] font-bold px-2 py-1 rounded-bl-lg">NOVINKA</div>
+            <h4 class="font-bold text-amber-800 mb-2">Elevated BP<br>(Zvýšený TK)</h4>
+            <div class="text-xl font-mono font-bold text-amber-600 my-3">120–139 / 70–89</div>
+            <p class="text-xs text-slate-600">Rozhodnutí o léčbě závisí na KV riziku. Pokud je <strong>riziko &ge; 10 %</strong> (SCORE2) nebo má pacient např. DM, ICHS či renální selhání &rarr; po 3 měsících úpravy životního stylu <strong>nasadit léky</strong>.</p>
+          </div>
+
+          <div class="bg-rose-50 border border-rose-200 p-5 rounded-xl text-center">
+            <h4 class="font-bold text-rose-800 mb-2">Hypertension<br>(Hypertenze)</h4>
+            <div class="text-xl font-mono font-bold text-rose-600 my-3">&ge; 140 / &ge; 90</div>
+            <p class="text-xs text-slate-600">Vždy zahájit farmakologickou léčbu (spolu s úpravou životního stylu) bez ohledu na výsledek SCORE2.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Karta 2: Farmakoterapie -->
+      <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm">
+        <h3 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+          <span class="w-2 h-6 bg-blue-500 rounded-full"></span>
+          Algoritmus farmakoterapie
+        </h3>
+
+        <div class="space-y-4">
+          <p class="text-sm text-slate-600 mb-2">
+            Pro většinu pacientů s hypertenzí (&ge; 140/90) je doporučeno <strong>začít rovnou dvojkombinací</strong> ve formě jedné tablety (tzv. Single-Pill Combination - SPC), ideálně v nízkých dávkách. Monoterapie je vyhrazena jen pro pacienty s "Elevated BP" a vysokým rizikem, velmi křehké seniory nebo při ortostatické hypotenzi.
+          </p>
+          
+          <div class="border-l-2 border-blue-200 pl-4 space-y-4">
+            <div>
+              <h4 class="text-sm font-bold text-blue-900 uppercase">KROK 1: Dvojkombinace (Low-dose)</h4>
+              <p class="text-xs text-slate-600 mt-1">
+                <strong>ACEi (nebo ARB) + BKK (nebo thiazidové diuretikum)</strong>.<br>
+                Kontrola za 1-3 měsíce. Nikdy nekombinovat ACEi a ARB! Beta-blokátory přidáváme v kterémkoliv kroku pouze při specifické indikaci (srdeční selhání, ICHS, fibrilace síní).
+              </p>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-blue-900 uppercase">KROK 2: Trojkombinace (Low-dose &rarr; Max-dose)</h4>
+              <p class="text-xs text-slate-600 mt-1">
+                <strong>ACEi (nebo ARB) + BKK + thiazid/diuretikum</strong>.<br>
+                Nejprve nízké dávky, při nedosažení cíle 120-129/70-79 mmHg titrace do maximálních tolerovaných dávek.
+              </p>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold text-blue-900 uppercase">KROK 3: Rezistentní hypertenze</h4>
+              <p class="text-xs text-slate-600 mt-1">
+                Definice: TK &ge; 140/90 mmHg navzdory 3 lékům (včetně diuretika) v maximálních tolerovaných dávkách, s potvrzenou adherencí.<br>
+                <strong>Řešení:</strong> Přidat <strong>Spironolakton</strong> (pokud eGFR &gt;30 a K+ &le;4.5). Alternativy: eplerenon, betablokátor, centrálně působící látky, nebo odeslání do specializovaného centra (zvážení renální denervace).
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Karta 3: Speciální skupiny (Křehkost a výjimky z cílů) -->
+      <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm">
+        <h3 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+          <span class="w-2 h-6 bg-purple-500 rounded-full"></span>
+          Výjimky z cíle 120-129 mmHg a specifické skupiny
+        </h3>
+        
+        <p class="text-sm text-slate-600 mb-4">
+          Ačkoliv je cíl 120-129 mmHg aplikovatelný i na pacienty ve věku nad 65 let (pokud jsou fit), existují situace, kdy platí princip <strong>ALARA</strong> (As Low As Reasonably Achievable) a cílemohou být benevolentnější (např. &lt; 140/90 mmHg).
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-4 mt-4">
+          <div class="p-5 bg-purple-50 rounded-xl border border-purple-100">
+            <h4 class="font-bold text-purple-900 mb-2">Kdy zvážit volnější cíl (&lt; 140/90)</h4>
+            <ul class="list-disc ml-5 mt-1 text-xs text-slate-700 space-y-1">
+              <li>Věk &ge; 85 let</li>
+              <li>Střední až těžká "frailty" (křehkost) v jakémkoliv věku</li>
+              <li>Symptomatická <strong>ortostatická hypotenze</strong> před zahájením léčby</li>
+              <li>Limitovaná předpokládaná doba dožití (&lt; 3 roky)</li>
+            </ul>
+          </div>
+
+          <div class="p-5 bg-indigo-50 rounded-xl border border-indigo-100">
+            <h4 class="font-bold text-indigo-900 mb-2">Chronické onemocnění ledvin (CKD)</h4>
+            <p class="text-xs text-slate-700 leading-relaxed">
+              Pacienti se středně těžkým až těžkým CKD (eGFR &lt; 60 nebo albuminurie) patří automaticky do vysokého rizika &rarr; léčit i při "Elevated BP" (120-139).<br><br>
+              <strong>Novinka:</strong> U hypertoniků s CKD a eGFR &gt; 20 ml/min jsou nyní výslovně doporučeny <strong>SGLT2 inhibitory</strong> pro zlepšení prognózy (i když jejich efekt na samotný TK je mírný).
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="text-center pt-4">
+        <button onclick="switchTab('recall')" class="px-8 py-4 bg-slate-900 text-white font-bold rounded-xl shadow-lg hover:bg-slate-800 transition-all flex items-center gap-3 mx-auto text-base">
+          <span>Otestovat znalosti: Přejít na Active Recall</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- ================= KROK 2: ACTIVE RECALL ================= -->
+    <div id="tab-recall" class="tab-content space-y-10">
+      
+      <div class="bg-brand-50 border border-brand-200 p-6 rounded-2xl flex items-start gap-4">
+        <div class="p-3 bg-brand-100 text-brand-700 rounded-xl">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+        </div>
+        <div>
+          <h2 class="text-lg font-bold text-brand-950">Active Recall: Klinické scénáře</h2>
+          <p class="text-sm text-brand-800 mt-1 leading-relaxed">
+            Pokuste se odpověď zformulovat dříve, než kartičku otočíte. Zkuste si představit pacienta ve své ambulanci.
+          </p>
+        </div>
+      </div>
+
+      <!-- Flashcards -->
+      <div class="grid sm:grid-cols-2 gap-4">
+        
+        <div class="perspective-1000 h-64 cursor-pointer select-none" onclick="toggleCard(this)">
+          <div class="relative w-full h-full duration-500 transform-style-3d shadow-sm hover:shadow-md rounded-2xl border border-slate-200">
+            <div class="absolute inset-0 w-full h-full bg-white rounded-2xl p-6 flex flex-col justify-between backface-hidden">
+              <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">Otázka 1: Zvýšený TK (Elevated BP)</span>
+              <p class="font-semibold text-slate-800 text-base">55letý muž, nekuřák, bez známých nemocí. V ambulanci mu naměříte TK 135/85 mmHg (potvrzeno domácím měřením). Podle SCORE2 je jeho 10leté KV riziko 12 %. Zahájíte u něj farmakologickou léčbu krevního tlaku?</p>
+              <div class="text-xs text-slate-400 font-medium flex items-center justify-between"><span>Otočit</span><span>🔄</span></div>
+            </div>
+            <div class="absolute inset-0 w-full h-full bg-slate-900 text-white rounded-2xl p-6 flex flex-col justify-between backface-hidden rotate-y-180">
+              <span class="text-xs font-bold text-teal-400 uppercase tracking-wider">Odpověď</span>
+              <div class="text-sm text-slate-200 space-y-2">
+                <p><strong>ANO.</strong></p>
+                <p>Pacient spadá do nové kategorie "Elevated BP" (120-139 / 70-89). Protože je jeho KV riziko &ge; 10 %, guidelines doporučují doporučit úpravu životního stylu na max. 3 měsíce a pokud TK zůstává &ge; 130/80 mmHg, nasadit farmakoterapii (zde se začíná monoterapií).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="perspective-1000 h-64 cursor-pointer select-none" onclick="toggleCard(this)">
+          <div class="relative w-full h-full duration-500 transform-style-3d shadow-sm hover:shadow-md rounded-2xl border border-slate-200">
+            <div class="absolute inset-0 w-full h-full bg-white rounded-2xl p-6 flex flex-col justify-between backface-hidden">
+              <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">Otázka 2: Cílové hodnoty a senior</span>
+              <p class="font-semibold text-slate-800 text-base">Vaší 75leté pacientce se po nasazení dvojkombinace (Perindopril + Amlodipin) snížil TK ze 155/95 na 135/85 mmHg. Pacientka je vitální, sportuje (škála frailty 2 - "Well"), netrpí závratěmi. Jste v cíli, nebo budete titrovat léky výše?</p>
+              <div class="text-xs text-slate-400 font-medium flex items-center justify-between"><span>Otočit</span><span>🔄</span></div>
+            </div>
+            <div class="absolute inset-0 w-full h-full bg-slate-900 text-white rounded-2xl p-6 flex flex-col justify-between backface-hidden rotate-y-180">
+              <span class="text-xs font-bold text-teal-400 uppercase tracking-wider">Odpověď</span>
+              <div class="text-sm text-slate-200 space-y-2">
+                <p><strong>Titrujeme výše (nejsme v cíli).</strong></p>
+                <p>Podle nových guidelines je cílem u vitálních seniorů (do 85 let bez křehkosti) stejný cíl jako u mladších: <strong>120-129 / 70-79 mmHg</strong>. Jelikož pacientka léčbu toleruje a nemá ortostatickou hypotenzi, měli bychom usilovat o těsnější kontrolu.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="perspective-1000 h-64 cursor-pointer select-none" onclick="toggleCard(this)">
+          <div class="relative w-full h-full duration-500 transform-style-3d shadow-sm hover:shadow-md rounded-2xl border border-slate-200">
+            <div class="absolute inset-0 w-full h-full bg-white rounded-2xl p-6 flex flex-col justify-between backface-hidden">
+              <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">Otázka 3: Primární hyperaldosteronismus</span>
+              <p class="font-semibold text-slate-800 text-base">Plánujete provést screening na primární hyperaldosteronismus pomocí poměru aldosteron/renin (ARR). Pacient aktuálně užívá Telmisartan (ARB) a Hydrochlorothiazid (HCTZ). Jak tyto léky ovlivní výsledek ARR testu?</p>
+              <div class="text-xs text-slate-400 font-medium flex items-center justify-between"><span>Otočit</span><span>🔄</span></div>
+            </div>
+            <div class="absolute inset-0 w-full h-full bg-slate-900 text-white rounded-2xl p-6 flex flex-col justify-between backface-hidden rotate-y-180">
+              <span class="text-xs font-bold text-teal-400 uppercase tracking-wider">Odpověď</span>
+              <div class="text-sm text-slate-200 space-y-2">
+                <p><strong>Mohou způsobit falešně negativní výsledek.</strong></p>
+                <p>Jak ARB (sartany), tak diuretika (HCTZ) zvyšují hladinu reninu. Zvýšený jmenovatel v poměru Aldosteron/Renin (ARR) tak uměle snižuje celý poměr. Test může vyjít v normě, i když má pacient hyperaldosteronismus. Pokud je to bezpečné, měly by se tyto léky před "čistým" testem vysadit.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="perspective-1000 h-64 cursor-pointer select-none" onclick="toggleCard(this)">
+          <div class="relative w-full h-full duration-500 transform-style-3d shadow-sm hover:shadow-md rounded-2xl border border-slate-200">
+            <div class="absolute inset-0 w-full h-full bg-white rounded-2xl p-6 flex flex-col justify-between backface-hidden">
+              <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">Otázka 4: Rezistentní hypertenze a Spironolakton</span>
+              <p class="font-semibold text-slate-800 text-base">Pacient s rezistentní hypertenzí (TK 150/95 na plných dávkách ACEi + BKK + Diuretikum). Chcete přidat Spironolakton. Jaké jsou dvě nutné laboratorní podmínky (hladiny), abyste mohli tento lék bezpečně nasadit?</p>
+              <div class="text-xs text-slate-400 font-medium flex items-center justify-between"><span>Otočit</span><span>🔄</span></div>
+            </div>
+            <div class="absolute inset-0 w-full h-full bg-slate-900 text-white rounded-2xl p-6 flex flex-col justify-between backface-hidden rotate-y-180">
+              <span class="text-xs font-bold text-teal-400 uppercase tracking-wider">Odpověď</span>
+              <div class="text-sm text-slate-200 space-y-2">
+                <p><strong>eGFR &ge; 30 ml/min a Kalium &le; 4.5 mmol/l.</strong></p>
+                <p>Přidání MRA (spironolakton) je u rezistentní hypertenze lékem volby (Class IIa), ale významně zvyšuje riziko hyperkalemie, zvláště v kombinaci s ACEi/ARB. Při eGFR &lt; 30 je spironolakton kontraindikován a při kaliu nad 4.5 hrozí po nasazení nebezpečná hyperkalemie.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Kazuistický kvíz -->
+      <div class="space-y-6 pt-6 border-t border-slate-200">
+        <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+          <span class="w-2 h-6 bg-brand-600 rounded-full"></span>
+          Klinické rozhodování: Ortostatická hypotenze a zahájení léčby
+        </h3>
+
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4" id="q1-container">
+          <div class="flex items-center gap-2">
+            <span class="px-2 py-0.5 rounded text-xs font-bold bg-slate-100 text-slate-600 font-mono">ORDINACE PL</span>
+          </div>
+          <p class="text-slate-800 text-sm leading-relaxed">
+            Vyšetřujete 68letého muže pro nově zjištěný krevní tlak. V sedě mu opakovaně naměříte 150/90 mmHg. Podle doporučení zkusíte změřit i tlak ve stoje (po 5 min ležení nebo sezení změříte TK v 1. a 3. minutě po postavení). Zjistíte, že TK klesne na 125/75 mmHg (tedy o 25/15 mmHg), přičemž pacient si mírně stěžuje na motání hlavy. Pacient dosud žádné léky na TK nebere.
+            <br><br>
+            <strong>Jaký bude váš postup ohledně nasazení farmakoterapie u tohoto pacienta?</strong>
+          </p>
+          
+          <div class="grid gap-2 text-sm pt-2">
+            <button onclick="checkAnswer(1, 'A')" class="q1-opt text-left p-3 rounded-xl border border-slate-200 hover:border-slate-400 hover:bg-slate-50 transition">
+              <strong>A)</strong> Standardně nasadím dvojkombinaci (ACEi + BKK) s cílem dosáhnout tlaku 120-129 mmHg v sedě, pacient si na závratě zvykne.
+            </button>
+            <button onclick="checkAnswer(1, 'B')" class="q1-opt text-left p-3 rounded-xl border border-slate-200 hover:border-slate-400 hover:bg-slate-50 transition">
+              <strong>B)</strong> Diagnostikuji symptomatickou ortostatickou hypotenzi. Ačkoliv má pacient &ge; 140/90 v sedě, cílové hodnoty budu volit mnohem volnější (např. &lt; 140 mmHg nebo princip ALARA), začnu pomalu a zaměřím se i na nefarmakologická opatření pro ortostázu.
+            </button>
+            <button onclick="checkAnswer(1, 'C')" class="q1-opt text-left p-3 rounded-xl border border-slate-200 hover:border-slate-400 hover:bg-slate-50 transition">
+              <strong>C)</strong> Vzhledem k ortostatické hypotenzi jsou u něj antihypertenziva absolutně kontraindikována, musím ho nechat bez léčby i kdyby měl v sedě 180/100.
+            </button>
+          </div>
+          <div id="q1-feedback" class="hidden p-4 rounded-xl text-sm leading-relaxed transition-all mt-4"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ================= KROK 3: SHRNUTÍ ================= -->
+    <div id="tab-summary" class="tab-content space-y-8">
+      
+      <div class="bg-slate-900 text-white p-6 sm:p-8 rounded-2xl shadow-xl">
+        <h2 class="text-2xl font-bold tracking-tight text-white">Guidelines 2024: Co NEDĚLAT (Třída III)</h2>
+        <p class="text-slate-300 text-sm mt-2 mb-6">Tyto postupy jsou kontraindikovány nebo prokazatelně škodí / nemají benefit.</p>
+
+        <div class="space-y-3 text-sm">
+          <div class="bg-red-900/40 border border-red-500/30 p-4 rounded-xl flex gap-3">
+            <span class="text-red-400 font-bold">❌</span>
+            <p><strong>Rutinní zahajování beta-blokátorem.</strong> Pokud pacient nemá specifickou indikaci (srdeční selhání s redukovanou EF, ICHS, fibrilace síní), beta-blokátory nejsou lékem první volby (jsou horší v prevenci cévní mozkové příhody a mají více nežádoucích účinků).</p>
+          </div>
+          <div class="bg-red-900/40 border border-red-500/30 p-4 rounded-xl flex gap-3">
+            <span class="text-red-400 font-bold">❌</span>
+            <p><strong>Kombinace dvou blokátorů RAAS.</strong> Nikdy nekombinujte ACE inhibitor s ARB (sartanem). Zvyšuje to riziko renálního selhání a hyperkalemie bez adekvátního KV benefitu.</p>
+          </div>
+          <div class="bg-red-900/40 border border-red-500/30 p-4 rounded-xl flex gap-3">
+            <span class="text-red-400 font-bold">❌</span>
+            <p><strong>Prudké snížení TK u akutního intracerebrálního krvácení.</strong> Pokud má pacient se suspektním krvácením do mozku TK např. 230/110, nesmíte během první hodiny srazit systolu o více než 70 mmHg (hrozí poškození ledvin a ischemie mozku v okolí hematomu).</p>
+          </div>
+          <div class="bg-red-900/40 border border-red-500/30 p-4 rounded-xl flex gap-3">
+            <span class="text-red-400 font-bold">❌</span>
+            <p><strong>Rutinní provádění renální denervace jako léčby první linie.</strong> Stále jde o experimentálnější postup, který lze zvážit (Class IIb) až u pacientů s rezistentní hypertenzí na trojkombinaci léků (vč. diuretika), kteří s procedurou po edukaci souhlasí.</p>
+          </div>
+          <div class="bg-red-900/40 border border-red-500/30 p-4 rounded-xl flex gap-3">
+            <span class="text-red-400 font-bold">❌</span>
+            <p><strong>Použití RAS blokátorů v těhotenství.</strong> ACE inhibitory a sartany jsou v těhotenství kontraindikovány (fetotoxicita). Lékem volby je labetalol, nifedipin nebo methyldopa.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabulka Rizikových modifikátorů -->
+      <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+        <div class="p-5 bg-slate-50 border-b border-slate-200">
+          <h3 class="font-bold text-slate-900">Rizikové modifikátory (Risk modifiers) pro přeřazení do vyššího rizika</h3>
+          <p class="text-xs text-slate-500 mt-1">U pacientů se zvýšeným TK (120-139) a hraničním rizikem (SCORE2 5–10 %) tyto faktory naklání misky vah k zahájení léčby.</p>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-sm">
+            <thead class="bg-slate-100 text-slate-600 font-medium">
+              <tr>
+                <th class="p-4">Specifické pro ženy</th>
+                <th class="p-4">Společné modifikátory</th>
+                <th class="p-4">Dodatečné vyšetřovací metody (při nejistotě)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200 text-slate-700">
+              <tr>
+                <td class="p-4 align-top">
+                  <ul class="list-disc ml-4 space-y-1">
+                    <li>Gestační diabetes</li>
+                    <li>Gestační hypertenze</li>
+                    <li>Preeklampsie</li>
+                    <li>Předčasný porod</li>
+                    <li>Opakované potraty / mrtvý plod</li>
+                  </ul>
+                </td>
+                <td class="p-4 align-top">
+                  <ul class="list-disc ml-4 space-y-1">
+                    <li>RA předčasné ICHS v rodině</li>
+                    <li>Sociálně-ekonomická deprivace</li>
+                    <li>Autoimunitní zánětlivá onemocnění (např. RA, lupus, psoriáza)</li>
+                    <li>Těžká psychická onemocnění</li>
+                    <li>Vysoce riziková etnika (např. Jižní Asie)</li>
+                  </ul>
+                </td>
+                <td class="p-4 align-top">
+                  <ul class="list-disc ml-4 space-y-1 text-xs">
+                    <li>CAC skóre (>100 Agatston u.)</li>
+                    <li>Karotické / femorální pláty (UZ)</li>
+                    <li>Rychlost pulsní vlny (PWV >10 m/s)</li>
+                    <li>Zvýšený vysoce senzitivní troponin (hs-cTn)</li>
+                    <li>Zvýšené BNP / NT-proBNP</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 py-6 mt-12 text-center text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-4">
+      <p>Vypracováno na základě <strong>2024 ESC Guidelines for the management of elevated blood pressure and hypertension</strong>.</p>
+    </div>
+  </footer>
+
+  <script>
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => {
+        el.classList.remove('active');
+      });
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-brand-600', 'text-white', 'shadow');
+        btn.classList.add('text-slate-300');
+      });
+
+      document.getElementById('tab-' + tabId).classList.add('active');
+      const activeBtn = document.getElementById('nav-' + tabId);
+      activeBtn.classList.remove('text-slate-300');
+      activeBtn.classList.add('bg-brand-600', 'text-white', 'shadow');
+      
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleCard(card) {
+      const inner = card.firstElementChild;
+      inner.classList.toggle('rotate-y-180');
+    }
+
+    function checkAnswer(q, ans) {
+      const feedback = document.getElementById('q' + q + '-feedback');
+      
+      feedback.classList.remove('hidden', 'bg-teal-50', 'text-teal-900', 'border-teal-200', 'bg-rose-50', 'text-rose-900', 'border-rose-200');
+
+      if (ans === 'B') {
+        feedback.classList.add('bg-teal-50', 'text-teal-900', 'border', 'border-teal-200');
+        feedback.innerHTML = '<strong>✅ Přesně tak!</strong> U pacientů s prokázanou symptomatickou ortostatickou hypotenzí (pokles > 20/10) se obecný cíl 120-129 mmHg neuplatňuje. Volíme benevolentnější cíle (princip ALARA - As Low As Reasonably Achievable), většinou < 140/90, aby léčba byla vůbec tolerována a nedocházelo k pádům. Důležitá jsou i režimová opatření (hydratace, pomalé vstávání).';
+      } else {
+        feedback.classList.add('bg-rose-50', 'text-rose-900', 'border', 'border-rose-200');
+        feedback.innerHTML = '<strong>❌ Nesprávně.</strong> A) Agresivní snaha o 120 mmHg u člověka se symptomatickou ortostatickou hypotenzí by pravděpodobně vedla ke kolapsům a pádům. C) Není pravda, že nesmí dostat žádné léky - supinní hypertenze se u těchto pacientů léčit má, jen se volí šetrnější přístup, jiná cílová hodnota a léky, které ortostázu zhoršují co nejméně (např. vyhnout se alfa-blokátorům a velkým dávkám diuretik).';
+      }
+    }
+  </script>
+</body>
+</html>

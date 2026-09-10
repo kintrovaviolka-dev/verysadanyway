@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kardiologie | Lékařský Studijní Portál 4. ročníku</title>
+  <meta name="description"
+    content="Interaktivní studijní portál kardiologie pro studenty 4. ročníku všeobecného lékařství. Třífázová metodika Learn-Recall-Breakdown, nejnovější ESC Guidelines (2023–2026) a Spaced Repetition banka s 115+ kartičkami.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Ambient background lighting -->
+  <div class="ambient-glow-1" aria-hidden="true"></div>
+  <div class="ambient-glow-2" aria-hidden="true"></div>
+
+  <div class="app-container">
+    
+    <!-- Hlavička aplikace -->
+    <header>
+      <div class="brand">
+        <div class="brand-icon-box" aria-hidden="true">
+          <span>🫀</span>
+        </div>
+        <div class="brand-title-area">
+          <h1>
+            Kardiologie
+            <span class="grade-tag">4. ročník</span>
+          </h1>
+          <p>ESC Guidelines (2023–2026) • 3-fázový rozpad témat • 115+ Leitner karet</p>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <button id="back-hub-btn" class="btn btn-secondary" title="Zpět na centrální rozcestník předmětů">
+          ← Rozcestník
+        </button>
+
+        <button id="start-all-sr-btn" class="btn btn-primary" title="Spustit globální trénink všech 115+ kartiček">
+          <span>🔥</span>
+          <span>Spaced Repetition (115+)</span>
+        </button>
+
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Přepnout tmavý/světlý režim" title="Přepnout motiv">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Dashboard statistik a Leitner systému -->
+    <section class="dashboard-section" aria-label="Statistiky učení">
+      <div class="dashboard-grid">
+        
+        <!-- Celkový pokrok -->
+        <div class="dash-card">
+          <div>
+            <span class="dash-label">
+              <span>📊</span>
+              <span>Celkové zvládnutí oboru</span>
+            </span>
+            <div class="dash-main-val">
+              <span id="total-mastered-count">0</span> / <span id="total-cards-count">115</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill-bar" id="overall-progress-bar"></div>
+            </div>
+          </div>
+          <span class="dash-subtext">Karty v Boxu 4 (zvládnuté s odstupem 10 dní)</span>
+        </div>
+
+        <!-- Leitnerovy krabičky -->
+        <div class="dash-card">
+          <span class="dash-label">
+            <span>🗃️</span>
+            <span>Leitnerův systém (Box 1–4)</span>
+          </span>
+          <div class="boxes-matrix">
+            <div class="box-slot box-1" title="Karty k opakování denně">
+              <span class="box-badge">Box 1</span>
+              <div class="box-count" id="box-1-count">0</div>
+              <span class="box-freq">Denně</span>
+            </div>
+            <div class="box-slot box-2" title="Karty k opakování obden">
+              <span class="box-badge">Box 2</span>
+              <div class="box-count" id="box-2-count">0</div>
+              <span class="box-freq">2 dny</span>
+            </div>
+            <div class="box-slot box-3" title="Karty k opakování každých 5 dní">
+              <span class="box-badge">Box 3</span>
+              <div class="box-count" id="box-3-count">0</div>
+              <span class="box-freq">5 dní</span>
+            </div>
+            <div class="box-slot box-4" title="Zvládnuté karty (každých 10 dní)">
+              <span class="box-badge">Box 4</span>
+              <div class="box-count" id="box-4-count">0</div>
+              <span class="box-freq">10 dní</span>
+            </div>
+          </div>
+          <span class="dash-subtext" style="margin-top: 8px;">Intervalový algoritmus upevňování znalostí v dlouhodobé paměti</span>
+        </div>
+
+        <!-- Dnešní úkoly -->
+        <div class="dash-card">
+          <div>
+            <span class="dash-label">
+              <span>⏰</span>
+              <span>K opakování na dnešek</span>
+            </span>
+            <div class="dash-main-val" style="color: var(--cardio-amber);">
+              <span id="due-today-count">0</span>
+            </div>
+          </div>
+          <button class="btn btn-secondary due-action-btn" id="start-due-btn" style="display: none;">
+            ⚡ Zopakovat dnešní karty
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Navigační lišta a vyhledávání -->
+    <nav class="view-bar" aria-label="Hlavní navigace portálu">
+      <div class="nav-tabs-group">
+        <button class="tab-btn active" id="nav-modules-btn">
+          <span>📚</span>
+          <span>Kardiologická témata (12)</span>
+        </button>
+        <button class="tab-btn" id="nav-sr-btn">
+          <span>🧠</span>
+          <span>Banka Spaced Repetition (115+)</span>
+        </button>
+      </div>
+
+      <div class="search-input-wrap">
+        <span class="search-icon" aria-hidden="true">🔍</span>
+        <input type="text" id="search-input" placeholder="Hledat téma, lék, syndrom..." aria-label="Vyhledat téma nebo syndrom">
+      </div>
+    </nav>
+
+    <!-- ================= POHLED 1: SEZNAM MODULŮ ================= -->
+    <main id="modules-view">
+      <div class="modules-grid" id="modules-grid">
+        <!-- Generováno dynamicky v app.js -->
+      </div>
+    </main>
+
+    <!-- ================= POHLED 2: 3-FÁZOVÝ DETAIL TÉMATU ================= -->
+    <section id="module-detail-view" class="module-view-container" aria-label="Detail tématu">
+      
+      <div class="module-breadcrumb-bar">
+        <div class="breadcrumb-left">
+          <button class="btn btn-secondary" id="detail-back-btn">
+            ← Zpět na přehled
+          </button>
+          <h2 id="detail-module-title" style="font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700;"></h2>
+        </div>
+      </div>
+
+      <!-- Tříkroková navigace tématu -->
+      <div class="topic-nav-tabs">
+        <button class="topic-step-btn active" id="step-theory-btn">
+          <span class="step-num-pill">1</span>
+          <span>Teorie & Algoritmy</span>
+        </button>
+        <button class="topic-step-btn" id="step-recall-btn">
+          <span class="step-num-pill">2</span>
+          <span>Active Recall & Scénáře</span>
+        </button>
+        <button class="topic-step-btn" id="step-summary-btn">
+          <span class="step-num-pill">3</span>
+          <span>Klinický tahák & Třída III</span>
+        </button>
+      </div>
+
+      <!-- Krok 1: Teorie -->
+      <div id="theory-pane" class="step-pane active"></div>
+
+      <!-- Krok 2: Active Recall -->
+      <div id="recall-pane" class="step-pane"></div>
+
+      <!-- Krok 3: Tahák -->
+      <div id="summary-pane" class="step-pane"></div>
+
+    </section>
+
+    <!-- ================= POHLED 3: SPACED REPETITION TRÉNINK ================= -->
+    <section id="sr-view" class="sr-view-container" aria-label="Spaced Repetition relace">
+      
+      <div class="sr-session-header">
+        <button class="btn btn-secondary" id="sr-back-btn">
+          ← Zpět
+        </button>
+
+        <div class="sr-progress-area">
+          <select id="sr-filter-category" class="sr-filter-select" aria-label="Filtrovat téma kartiček">
+            <!-- Možnosti naplněny dynamicky -->
+          </select>
+          <div class="sr-counter-text">
+            <span id="sr-counter-current">1</span> / <span id="sr-counter-total">115</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interaktivní 3D karta -->
+      <div class="sr-card-wrapper" id="sr-card-wrapper" title="Klikněte pro otočení kartičky (nebo stiskněte Mezerník)">
+        <div class="sr-main-card" id="sr-main-card">
+          
+          <!-- Přední strana (Otázka) -->
+          <div class="sr-card-face sr-card-front">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="sr-card-category" id="sr-card-category">Kategorie</span>
+              <span id="sr-box-indicator" style="font-size: 0.72rem; font-weight: 700; color: var(--text-muted);">Box 1</span>
+            </div>
+
+            <div class="sr-question-text" id="sr-question-text">Otázka</div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.76rem; color: var(--text-muted);">
+              <span>Klikněte pro zobrazení odpovědi</span>
+              <span>🔄</span>
+            </div>
+          </div>
+
+          <!-- Zadní strana (Odpověď) -->
+          <div class="sr-card-face sr-card-back">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 0.72rem; font-weight: 700; color: var(--cardio-cyan); text-transform: uppercase;">Správné řešení</span>
+              <span>💡</span>
+            </div>
+
+            <div class="sr-answer-text" id="sr-answer-text">Odpověď</div>
+
+            <div class="sr-high-yield-pill" id="sr-high-yield-pill"></div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.76rem; color: var(--text-muted); margin-top: 10px;">
+              <span>Ohodnoťte své vybavení níže</span>
+              <span>🔄</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Ovládací tlačítka hodnocení -->
+      <div class="sr-controls-row">
+        <button class="sr-rate-btn btn-again" id="sr-rate-again-btn" title="Klávesa 1">
+          <span>❌ Znovu / Nevím</span>
+          <span style="font-size: 0.7rem; opacity: 0.8;">Vrátit do Boxu 1</span>
+        </button>
+
+        <button class="sr-rate-btn btn-good" id="sr-rate-good-btn" title="Klávesa 2">
+          <span>✅ Zvládnuto / Vím</span>
+          <span style="font-size: 0.7rem; opacity: 0.8;">Posunout do vyššího boxu</span>
+        </button>
+      </div>
+
+      <p class="btn-flip-hint">
+        Klávesové zkratky: <span class="key-hint">Mezerník</span> pro otočení, <span class="key-hint">1</span> Znovu, <span class="key-hint">2</span> Zvládnuto
+      </p>
+
+    </section>
+
+    <!-- Patička -->
+    <footer>
+      <p>© 2026 Viola Kintrová • Kardiologický výukový portál pro 4. ročník Všeobecného lékařství.</p>
+    </footer>
+
+  </div>
+
+  <!-- Skripty -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

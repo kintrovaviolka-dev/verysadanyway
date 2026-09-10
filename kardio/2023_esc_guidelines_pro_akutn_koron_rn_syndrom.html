@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2023 ESC Guidelines: Akutní koronární syndrom | Interaktivní modul</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#fef2f2',
+              100: '#fee2e2',
+              500: '#ef4444',
+              600: '#dc2626',
+              700: '#b91c1c',
+              800: '#991b1b',
+              900: '#7f1d1d',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* 3D Flip Card Effect */
+    .perspective-1000 { perspective: 1000px; }
+    .transform-style-3d { transform-style: preserve-3d; }
+    .backface-hidden { 
+      backface-visibility: hidden; 
+      -webkit-backface-visibility: hidden; 
+    }
+    .rotate-y-180 { transform: rotateY(180deg); }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; animation: fadeIn 0.4s ease-in-out; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
+
+  <!-- Hlavička -->
+  <header class="bg-gradient-to-r from-slate-900 via-brand-900 to-slate-900 text-white border-b border-brand-800 sticky top-0 z-50 shadow-md">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-brand-600/30 border border-brand-500/50 flex items-center justify-center text-red-400 font-bold text-xl shadow-inner">
+          <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+        </div>
+        <div>
+          <span class="text-xs font-semibold tracking-wider uppercase text-red-400">2023 ESC Guidelines</span>
+          <h1 class="text-lg sm:text-xl font-bold tracking-tight">Akutní koronární syndrom (AKS)</h1>
+        </div>
+      </div>
+
+      <!-- Navigace -->
+      <nav class="flex bg-slate-800/80 p-1.5 rounded-xl border border-slate-700/80 text-sm">
+        <button onclick="switchTab('theory')" id="nav-theory" class="tab-btn px-4 py-2 rounded-lg font-medium transition-all flex items-center gap-2 bg-brand-600 text-white shadow">
+          <span class="w-5 h-5 rounded-full bg-white/20 text-xs flex items-center justify-center">1</span>
+          <span>Teorie & Změny</span>
+        </button>
+        <button onclick="switchTab('recall')" id="nav-recall" class="tab-btn px-4 py-2 rounded-lg font-medium text-slate-300 hover:text-white transition-all flex items-center gap-2">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-xs flex items-center justify-center">2</span>
+          <span>Active Recall</span>
+        </button>
+        <button onclick="switchTab('summary')" id="nav-summary" class="tab-btn px-4 py-2 rounded-lg font-medium text-slate-300 hover:text-white transition-all flex items-center gap-2">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-xs flex items-center justify-center">3</span>
+          <span>Klinický tahák</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8">
+
+    <!-- ================= KROK 1: TEORIE ================= -->
+    <div id="tab-theory" class="tab-content active space-y-8">
+      
+      <!-- Banner revoluce -->
+      <div class="bg-gradient-to-r from-red-50 via-white to-red-50 border-l-4 border-brand-600 p-6 rounded-r-2xl shadow-sm">
+        <div class="flex items-start gap-4">
+          <div class="p-3 bg-brand-100 text-brand-700 rounded-xl">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+          </div>
+          <div>
+            <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-200 text-brand-800 mb-1">Hlavní změna paradigmatu</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-slate-900">AKS jako jedno spektrum onemocnění</h2>
+            <p class="text-slate-600 mt-2 text-sm sm:text-base leading-relaxed">
+              Poprvé ESC spojila doporučení pro STEMI a NSTEMI do jednoho dokumentu. Zdůrazňuje se tím, že akutní koronární syndrom je kontinuum od nestabilní anginy pectoris přes NSTEMI až po STEMI, sdílející stejnou patofyziologii (ruptura nebo eroze plátu).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Karta 1: Diagnostika a algoritmy -->
+      <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm">
+        <h3 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+          <span class="w-2 h-6 bg-brand-500 rounded-full"></span>
+          Rychlá diagnostika: hs-cTn (0 h / 1 h nebo 0 h / 2 h)
+        </h3>
+        <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+          Základem diagnostiky u NSTE-ACS je použití <strong>vysoce senzitivního srdečního troponinu (hs-cTn)</strong>. Zastaralý 0 h / 3 h algoritmus je nyní až na druhém místě, pokud ty rychlejší nejsou k dispozici.
+        </p>
+        
+        <div class="grid md:grid-cols-3 gap-4">
+          <div class="bg-emerald-50 border border-emerald-200 p-5 rounded-xl text-center">
+            <div class="w-10 h-10 mx-auto bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-3 text-lg">📉</div>
+            <h4 class="font-bold text-emerald-800 mb-2">RULE-OUT (Vyloučení)</h4>
+            <p class="text-xs text-slate-600">Velmi nízký hs-cTn při přijetí (0h) <strong>NEBO</strong> nízký hs-cTn při přijetí a žádný nárůst za 1h (nebo 2h). Nízké riziko, zvažte propuštění a ambulantní došetření.</p>
+          </div>
+          
+          <div class="bg-amber-50 border border-amber-200 p-5 rounded-xl text-center">
+            <div class="w-10 h-10 mx-auto bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mb-3 text-lg">👀</div>
+            <h4 class="font-bold text-amber-800 mb-2">OBSERVE (Pozorování)</h4>
+            <p class="text-xs text-slate-600">Pacienti nesplňující kritéria pro rule-out ani rule-in. Zde je nutný <strong>třetí odběr za 3 hodiny</strong> a provedení echokardiografie.</p>
+          </div>
+
+          <div class="bg-rose-50 border border-rose-200 p-5 rounded-xl text-center">
+            <div class="w-10 h-10 mx-auto bg-rose-100 text-rose-600 rounded-full flex items-center justify-center mb-3 text-lg">📈</div>
+            <h4 class="font-bold text-rose-800 mb-2">RULE-IN (Potvrzení)</h4>
+            <p class="text-xs text-slate-600">Vysoký hs-cTn při přijetí <strong>NEBO</strong> významný absolutní nárůst mezi 0h a 1h (nebo 2h). Indikace k přijetí a invazivní koronarografii.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Karta 2: Načasování SKG -->
+      <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm">
+        <h3 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+          <span class="w-2 h-6 bg-blue-500 rounded-full"></span>
+          Načasování invazivní strategie (Koronarografie)
+        </h3>
+
+        <div class="space-y-4">
+          <div class="flex gap-4 p-4 rounded-xl bg-slate-50 border border-slate-200 items-start">
+            <div class="px-3 py-1 bg-red-100 text-red-800 font-bold text-sm rounded whitespace-nowrap">Okamžitá<br><span class="text-[10px] font-normal">(Emergency)</span></div>
+            <div>
+              <p class="text-sm text-slate-800">
+                <strong>Všichni pacienti se STEMI</strong> (cíl: drát přes lézi do 60-90 min od diagnózy, max do 120 min) a <strong>NSTE-ACS pacienti s velmi vysokým rizikem</strong>:
+                <ul class="list-disc ml-5 mt-1 text-xs text-slate-600">
+                  <li>Kardiogenní šok nebo hemodynamická nestabilita.</li>
+                  <li>Rekurentní bolest na hrudi vzdorující medikaci.</li>
+                  <li>Život ohrožující arytmie / srdeční zástava.</li>
+                  <li>Akutní srdeční selhání v důsledku ischemie.</li>
+                  <li>Dynamické změny ST-T úseku (zvláště intermitentní ST elevace).</li>
+                </ul>
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 p-4 rounded-xl bg-slate-50 border border-slate-200 items-start">
+            <div class="px-3 py-1 bg-amber-100 text-amber-800 font-bold text-sm rounded whitespace-nowrap">Včasná<br><span class="text-[10px] font-normal">(&lt; 24 h)</span></div>
+            <div>
+              <p class="text-sm text-slate-800">
+                <strong>NSTE-ACS pacienti s vysokým rizikem</strong>. Toto doporučení bylo "oslabeno" z Třídy I na Třídu IIa (mělo by být zváženo do 24h), nicméně stále platí, že by měli podstoupit katetrizaci během dané hospitalizace:
+                <ul class="list-disc ml-5 mt-1 text-xs text-slate-600">
+                  <li>Potvrzená diagnóza NSTEMI (dle hs-cTn algoritmu).</li>
+                  <li>GRACE skóre > 140.</li>
+                  <li>Dynamické změny ST-T úseku.</li>
+                </ul>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Karta 3: Antiagregační terapie -->
+      <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm">
+        <h3 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+          <span class="w-2 h-6 bg-purple-500 rounded-full"></span>
+          Změny v antiagregační terapii (DAPT a Pre-treatment)
+        </h3>
+        
+        <div class="grid md:grid-cols-2 gap-4 mt-4">
+          <div class="p-5 bg-purple-50 rounded-xl border border-purple-100">
+            <h4 class="font-bold text-purple-900 mb-2">Pre-treatment (Podání léků před SKG)</h4>
+            <p class="text-xs text-slate-700 leading-relaxed">
+              Rutinní podání P2Y12 inhibitoru (ticagrelor/prasugrel/clopidogrel) u NSTE-ACS <strong>PŘED</strong> znalostí koronární anatomie (před katetrizací) se <strong>nedoporučuje</strong> (Třída III), pokud se plánuje včasná invaze (&lt; 24h). Zvyšuje to riziko krvácení bez ischemického benefitu.<br><br>
+              Léky (P2Y12) se podávají až na sále (tzv. "on-table") poté, co se potvrdí, že pacient půjde na PCI (a nikoliv na CABG nebo konzervativní postup).
+            </p>
+          </div>
+
+          <div class="p-5 bg-indigo-50 rounded-xl border border-indigo-100">
+            <h4 class="font-bold text-indigo-900 mb-2">Zkrácení DAPT / De-eskalace</h4>
+            <p class="text-xs text-slate-700 leading-relaxed">
+              Standardní délka DAPT je <strong>12 měsíců</strong>. <br><br>
+              <strong>Novinka:</strong> U pacientů, kteří jsou 3–6 měsíců po PCI bez ischemické příhody a nemají vysoké ischemické riziko, je doporučeno zvážit přechod na <strong>monoterapii P2Y12 inhibitorem</strong> (vysazení aspirinu).<br>
+              De-eskalace (např. přechod z ticagreloru na clopidogrel) se <strong>nesmí</strong> provádět během prvních 30 dnů od AKS.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="text-center pt-4">
+        <button onclick="switchTab('recall')" class="px-8 py-4 bg-slate-900 text-white font-bold rounded-xl shadow-lg hover:bg-slate-800 transition-all flex items-center gap-3 mx-auto text-base">
+          <span>Otestovat znalosti: Přejít na Active Recall</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- ================= KROK 2: ACTIVE RECALL ================= -->
+    <div id="tab-recall" class="tab-content space-y-10">
+      
+      <div class="bg-brand-50 border border-brand-200 p-6 rounded-2xl flex items-start gap-4">
+        <div class="p-3 bg-brand-100 text-brand-700 rounded-xl">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+        </div>
+        <div>
+          <h2 class="text-lg font-bold text-brand-950">Active Recall: Klinické scénáře</h2>
+          <p class="text-sm text-brand-800 mt-1 leading-relaxed">
+            Pokuste se odpověď zformulovat dříve, než kartičku otočíte. Aktivní vybavování pomáhá ukotvit nové algoritmy v paměti.
+          </p>
+        </div>
+      </div>
+
+      <!-- Flashcards -->
+      <div class="grid sm:grid-cols-2 gap-4">
+        
+        <div class="perspective-1000 h-64 cursor-pointer select-none" onclick="toggleCard(this)">
+          <div class="relative w-full h-full duration-500 transform-style-3d shadow-sm hover:shadow-md rounded-2xl border border-slate-200">
+            <div class="absolute inset-0 w-full h-full bg-white rounded-2xl p-6 flex flex-col justify-between backface-hidden">
+              <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">Otázka 1: Pre-treatment</span>
+              <p class="font-semibold text-slate-800 text-base">70letý pacient přivážen RZP s bolestí na hrudi. EKG bez ST elevací (NSTE-ACS). Jste lékař na příjmu a plánujete koronarografii na zítra ráno. Máte pacientovi na urgentním příjmu podat nasycovací dávku Ticagreloru/Prasugrelu?</p>
+              <div class="text-xs text-slate-400 font-medium flex items-center justify-between"><span>Otočit</span><span>🔄</span></div>
+            </div>
+            <div class="absolute inset-0 w-full h-full bg-slate-900 text-white rounded-2xl p-6 flex flex-col justify-between backface-hidden rotate-y-180">
+              <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Odpověď</span>
+              <div class="text-sm text-slate-200 space-y-2">
+                <p><strong>NEMÁTE.</strong></p>
+                <p>U NSTE-ACS, kde plánujete včasnou invazivní strategii (do 24 hodin) a zatím <strong>neznáte koronární anatomii</strong>, se rutinní pre-treatment P2Y12 inhibitorem nedoporučuje (Třída III). P2Y12 se podává až na sále (on-table) po zobrazení tepen a rozhodnutí k provedení PCI.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="perspective-1000 h-64 cursor-pointer select-none" onclick="toggleCard(this)">
+          <div class="relative w-full h-full duration-500 transform-style-3d shadow-sm hover:shadow-md rounded-2xl border border-slate-200">
+            <div class="absolute inset-0 w-full h-full bg-white rounded-2xl p-6 flex flex-col justify-between backface-hidden">
+              <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">Otázka 2: MINOCA</span>
+              <p class="font-semibold text-slate-800 text-base">55letá žena přijata s bolestí na hrudi, troponin je pozitivní. Na koronarografii zjišťujete zcela hladké věnčité tepny (stenózy &lt; 50 %). Stanovujete pracovní diagnózu MINOCA. Jaké další vyšetření je nezbytně doporučeno (Třída I)?</p>
+              <div class="text-xs text-slate-400 font-medium flex items-center justify-between"><span>Otočit</span><span>🔄</span></div>
+            </div>
+            <div class="absolute inset-0 w-full h-full bg-slate-900 text-white rounded-2xl p-6 flex flex-col justify-between backface-hidden rotate-y-180">
+              <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Odpověď</span>
+              <div class="text-sm text-slate-200 space-y-2">
+                <p><strong>Zobrazení pomocí magnetické rezonance srdce (CMR).</strong></p>
+                <p>U pacientů s pracovní diagnózou MINOCA (Myocardial Infarction with Non-Obstructive Coronary Arteries) je po SKG k objasnění finální diagnózy (např. myokarditida, Takotsubo, drobný infarkt) indikována CMR.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="perspective-1000 h-64 cursor-pointer select-none" onclick="toggleCard(this)">
+          <div class="relative w-full h-full duration-500 transform-style-3d shadow-sm hover:shadow-md rounded-2xl border border-slate-200">
+            <div class="absolute inset-0 w-full h-full bg-white rounded-2xl p-6 flex flex-col justify-between backface-hidden">
+              <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">Otázka 3: De-eskalace DAPT</span>
+              <p class="font-semibold text-slate-800 text-base">Pacient s NSTEMI byl léčen DAPT (Aspirin + Prasugrel). Třetí den hospitalizace si stěžuje na drobné modřiny a krvácení z dásní. Navrhujete pro redukci rizika krvácení okamžitou de-eskalaci na Clopidogrel?</p>
+              <div class="text-xs text-slate-400 font-medium flex items-center justify-between"><span>Otočit</span><span>🔄</span></div>
+            </div>
+            <div class="absolute inset-0 w-full h-full bg-slate-900 text-white rounded-2xl p-6 flex flex-col justify-between backface-hidden rotate-y-180">
+              <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Odpověď</span>
+              <div class="text-sm text-slate-200 space-y-2">
+                <p><strong>NENAVRHUJETE (ne rutinně kvůli drobným obtížím).</strong></p>
+                <p>Guidelines uvádějí, že de-eskalace protidestičkové léčby <strong>během prvních 30 dnů po AKS se nedoporučuje</strong> (Třída III). Riziko ischemických příhod a trombózy stentu je v tomto období příliš vysoké.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="perspective-1000 h-64 cursor-pointer select-none" onclick="toggleCard(this)">
+          <div class="relative w-full h-full duration-500 transform-style-3d shadow-sm hover:shadow-md rounded-2xl border border-slate-200">
+            <div class="absolute inset-0 w-full h-full bg-white rounded-2xl p-6 flex flex-col justify-between backface-hidden">
+              <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">Otázka 4: Výběr P2Y12</span>
+              <p class="font-semibold text-slate-800 text-base">U pacienta s AKS podstupujícího perkutánní koronární intervenci (PCI), který je "P2Y12 naivní" (dosud P2Y12 nebral), máte k dispozici Ticagrelor i Prasugrel. Kterému dáte podle guidelines přednost?</p>
+              <div class="text-xs text-slate-400 font-medium flex items-center justify-between"><span>Otočit</span><span>🔄</span></div>
+            </div>
+            <div class="absolute inset-0 w-full h-full bg-slate-900 text-white rounded-2xl p-6 flex flex-col justify-between backface-hidden rotate-y-180">
+              <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Odpověď</span>
+              <div class="text-sm text-slate-200 space-y-2">
+                <p><strong>Přednost má Prasugrel.</strong></p>
+                <p>Na základě studie ISAR-REACT 5 je Prasugrel doporučen přednostně před Ticagrelorem u pacientů s AKS přistupujících k PCI (Třída IIa). (U Prasugrelu platí kontraindikace stav po iCMP/TIA).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Kazuistický kvíz -->
+      <div class="space-y-6 pt-6 border-t border-slate-200">
+        <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+          <span class="w-2 h-6 bg-brand-600 rounded-full"></span>
+          Klinické rozhodování: Fibrilace síní + AKS
+        </h3>
+
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4" id="q1-container">
+          <div class="flex items-center gap-2">
+            <span class="px-2 py-0.5 rounded text-xs font-bold bg-slate-100 text-slate-600 font-mono">PŘÍJEM NEMOCNICE</span>
+          </div>
+          <p class="text-slate-800 text-sm leading-relaxed">
+            Muž, 68 let, chronicky se léčí s paroxyzmální fibrilací síní a užívá NOAC (Apixaban). Nyní je přijat pro NSTEMI a podstupuje úspěšnou PCI s implantací jednoho stentu (DES). Riziko krvácení nemá nijak dramaticky zvýšené (HBR skóre nízké), ischemické riziko je standardní. <strong>Jaká je "defaultní" (výchozí doporučená) strategie antitrombotické terapie pro tohoto pacienta při propuštění a na další rok?</strong>
+          </p>
+          
+          <div class="grid gap-2 text-sm pt-2">
+            <button onclick="checkAnswer(1, 'A')" class="q1-opt text-left p-3 rounded-xl border border-slate-200 hover:border-slate-400 hover:bg-slate-50 transition">
+              <strong>A)</strong> Vysadit NOAC a nasadit klasický DAPT (Aspirin + Prasugrel/Ticagrelor) na 12 měsíců.
+            </button>
+            <button onclick="checkAnswer(1, 'B')" class="q1-opt text-left p-3 rounded-xl border border-slate-200 hover:border-slate-400 hover:bg-slate-50 transition">
+              <strong>B)</strong> Trojitá terapie (TAT: NOAC + Aspirin + Clopidogrel) po dobu až 1 týdne od AKS, a následně Duální terapie (DAT: NOAC + Clopidogrel) do 12 měsíců.
+            </button>
+            <button onclick="checkAnswer(1, 'C')" class="q1-opt text-left p-3 rounded-xl border border-slate-200 hover:border-slate-400 hover:bg-slate-50 transition">
+              <strong>C)</strong> Trojitá terapie (TAT: NOAC + Aspirin + Ticagrelor) plných 6 měsíců, pak samotný NOAC.
+            </button>
+          </div>
+          <div id="q1-feedback" class="hidden p-4 rounded-xl text-sm leading-relaxed transition-all mt-4"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ================= KROK 3: SHRNUTÍ ================= -->
+    <div id="tab-summary" class="tab-content space-y-8">
+      
+      <div class="bg-slate-900 text-white p-6 sm:p-8 rounded-2xl shadow-xl">
+        <h2 class="text-2xl font-bold tracking-tight text-white">Guidelines 2023: Co NEDĚLAT (Třída III)</h2>
+        <p class="text-slate-300 text-sm mt-2 mb-6">Tyto postupy jsou kontraindikovány nebo prokazatelně nevedou k benefitu.</p>
+
+        <div class="space-y-3 text-sm">
+          <div class="bg-red-900/40 border border-red-500/30 p-4 rounded-xl flex gap-3">
+            <span class="text-red-400 font-bold">❌</span>
+            <p><strong>Rutinní podávání kyslíku</strong> u pacientů s AKS bez hypoxémie (SpO2 > 90%).</p>
+          </div>
+          <div class="bg-red-900/40 border border-red-500/30 p-4 rounded-xl flex gap-3">
+            <span class="text-red-400 font-bold">❌</span>
+            <p><strong>Rutinní pre-treatment P2Y12 inhibitorem</strong> u NSTE-ACS před znalostí koronární anatomie, pokud se plánuje včasná invaze do 24h.</p>
+          </div>
+          <div class="bg-red-900/40 border border-red-500/30 p-4 rounded-xl flex gap-3">
+            <span class="text-red-400 font-bold">❌</span>
+            <p><strong>De-eskalace protidestičkové léčby</strong> (např. Prasugrel/Ticagrelor -> Clopidogrel) v prvních 30 dnech po AKS.</p>
+          </div>
+          <div class="bg-red-900/40 border border-red-500/30 p-4 rounded-xl flex gap-3">
+            <span class="text-red-400 font-bold">❌</span>
+            <p><strong>Použití Ticagreloru nebo Prasugrelu jako součásti trojité terapie (TAT)</strong> s antikoagulanciem (OAC). Ke kombinaci s OAC se volí Clopidogrel.</p>
+          </div>
+          <div class="bg-red-900/40 border border-red-500/30 p-4 rounded-xl flex gap-3">
+            <span class="text-red-400 font-bold">❌</span>
+            <p><strong>Rutinní tromboaspirace</strong> během PCI u STEMI.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabulka P2Y12 inhibitorů -->
+      <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+        <div class="p-5 bg-slate-50 border-b border-slate-200">
+          <h3 class="font-bold text-slate-900">Dávkování P2Y12 inhibitorů u AKS</h3>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-sm">
+            <thead class="bg-slate-100 text-slate-600 font-medium">
+              <tr>
+                <th class="p-4">Lék</th>
+                <th class="p-4">Nasycovací dávka (LD)</th>
+                <th class="p-4">Udržovací dávka (MD)</th>
+                <th class="p-4">Poznámka</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200 text-slate-700">
+              <tr>
+                <td class="p-4 font-semibold text-brand-700">Prasugrel</td>
+                <td class="p-4">60 mg</td>
+                <td class="p-4">10 mg 1x denně<br><span class="text-xs text-slate-500">(5 mg pokud věk ≥75 let nebo váha &lt;60 kg)</span></td>
+                <td class="p-4 text-xs">Přednostní volba u PCI. Kontraindikace: předchozí iCMP/TIA.</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-semibold text-brand-700">Ticagrelor</td>
+                <td class="p-4">180 mg</td>
+                <td class="p-4">90 mg 2x denně</td>
+                <td class="p-4 text-xs">Možno použít bez ohledu na strategii (invazivní / konzervativní).</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-semibold text-slate-600">Clopidogrel</td>
+                <td class="p-4">300 - 600 mg</td>
+                <td class="p-4">75 mg 1x denně</td>
+                <td class="p-4 text-xs">Až jako druhá volba (při nedostupnosti/intoleranci silnějších, vysokém riziku krvácení nebo kombinaci s OAC).</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer class="bg-white border-t border-slate-200 py-6 mt-12 text-center text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-4">
+      <p>Vypracováno na základě <strong>2023 ESC Guidelines for the management of acute coronary syndromes</strong>.</p>
+    </div>
+  </footer>
+
+  <script>
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => {
+        el.classList.remove('active');
+      });
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-brand-600', 'text-white', 'shadow');
+        btn.classList.add('text-slate-300');
+      });
+
+      document.getElementById('tab-' + tabId).classList.add('active');
+      const activeBtn = document.getElementById('nav-' + tabId);
+      activeBtn.classList.remove('text-slate-300');
+      activeBtn.classList.add('bg-brand-600', 'text-white', 'shadow');
+      
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleCard(card) {
+      const inner = card.firstElementChild;
+      inner.classList.toggle('rotate-y-180');
+    }
+
+    function checkAnswer(q, ans) {
+      const feedback = document.getElementById('q' + q + '-feedback');
+      
+      feedback.classList.remove('hidden', 'bg-emerald-50', 'text-emerald-900', 'border-emerald-200', 'bg-rose-50', 'text-rose-900', 'border-rose-200');
+
+      if (ans === 'B') {
+        feedback.classList.add('bg-emerald-50', 'text-emerald-900', 'border', 'border-emerald-200');
+        feedback.innerHTML = '<strong>✅ Přesně tak!</strong> Defaultní (výchozí) doporučená strategie u pacienta s indikací k chronické antikoagulaci (OAC) je krátká doba tzv. trojité terapie (TAT) max do 1 týdne (respektive na dobu pobytu v nemocnici), a poté přechod na duální antitrombotickou terapii (DAT = NOAC + jeden protidestičkový lék, zpravidla Clopidogrel) po dobu až 12 měsíců.';
+      } else {
+        feedback.classList.add('bg-rose-50', 'text-rose-900', 'border', 'border-rose-200');
+        feedback.innerHTML = '<strong>❌ Nesprávně.</strong> Pokud pacient potřebuje antikoagulaci (OAC pro fibrilaci síní), klasický plný DAPT (dva protidestičkové léky + NOAC) představuje příliš velké riziko krvácení. Ticagrelor/Prasugrel se do trojkombinace nesmí dávat vůbec. Defaultní postup je 1 týden trojkombinace (NOAC + Aspirin + Clopidogrel) a poté zbytek roku do 12 měsíců jen NOAC + Clopidogrel (tzv. DAT).';
+      }
+    }
+  </script>
+</body>
+</html>

@@ -165,6 +165,8 @@ document.addEventListener("DOMContentLoaded", () => {
       destination = "./farmakologie/index.html";
     } else if (subject === "dermatologie") {
       destination = "./derma/index.html";
+    } else if (subject === "kardiologie" || subject === "kardio") {
+      destination = "./kardio/index.html";
     } else if (subject === "radiologie") {
       destination = "./radiolka/index.html";
     } else if (subject === "imunologie") {

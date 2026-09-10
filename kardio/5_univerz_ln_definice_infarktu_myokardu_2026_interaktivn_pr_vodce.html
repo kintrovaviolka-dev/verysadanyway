@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5. Univerzální definice infarktu myokardu (2026) | Interaktivní výukový modul</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            cardio: {
+              50: '#fff1f2',
+              100: '#ffe4e6',
+              200: '#fecdd3',
+              500: '#f43f5e',
+              600: '#e11d48',
+              700: '#be123c',
+              800: '#9f1239',
+              900: '#881337',
+            },
+            clinical: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              600: '#16a34a',
+              700: '#15803d',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* 3D Flip Card Effect */
+    .perspective-1000 {
+      perspective: 1000px;
+    }
+    .transform-style-3d {
+      transform-style: preserve-3d;
+    }
+    .backface-hidden {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .rotate-y-180 {
+      transform: rotateY(180deg);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
+
+  <!-- Hlavní hlavička -->
+  <header class="bg-gradient-to-r from-slate-900 via-rose-950 to-slate-900 text-white border-b border-rose-900/40 sticky top-0 z-50 backdrop-blur shadow-md">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-cardio-600/30 border border-cardio-500/50 flex items-center justify-center text-rose-400 font-bold text-xl shadow-inner">
+          <svg class="w-6 h-6 text-rose-400" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+        </div>
+        <div>
+          <span class="text-xs font-semibold tracking-wider uppercase text-rose-400">ESC / ACC / AHA / WHF Guidelines</span>
+          <h1 class="text-lg sm:text-xl font-bold tracking-tight">5. Univerzální definice infarktu myokardu (2026)</h1>
+        </div>
+      </div>
+
+      <!-- Krokovač / Navigace -->
+      <nav class="flex bg-slate-800/80 p-1.5 rounded-xl border border-slate-700/80 text-sm">
+        <button onclick="switchTab('tab-theory')" id="nav-theory" class="tab-btn px-4 py-2 rounded-lg font-medium transition-all flex items-center gap-2 bg-cardio-600 text-white shadow">
+          <span class="w-5 h-5 rounded-full bg-white/20 text-xs flex items-center justify-center">1</span>
+          <span>Učební text</span>
+        </button>
+        <button onclick="switchTab('tab-recall')" id="nav-recall" class="tab-btn px-4 py-2 rounded-lg font-medium text-slate-300 hover:text-white transition-all flex items-center gap-2">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-xs flex items-center justify-center">2</span>
+          <span>Active Recall & Kvíz</span>
+        </button>
+        <button onclick="switchTab('tab-summary')" id="nav-summary" class="tab-btn px-4 py-2 rounded-lg font-medium text-slate-300 hover:text-white transition-all flex items-center gap-2">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-xs flex items-center justify-center">3</span>
+          <span>Klinické shrnutí</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hlavní obsah -->
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-8">
+
+    <!-- ============================================================= -->
+    <!-- KROK 1: UČEBNÍ TEXT                                           -->
+    <!-- ============================================================= -->
+    <div id="tab-theory" class="space-y-8 animate-fadeIn">
+      
+      <!-- Banner změny paradigmatu -->
+      <div class="bg-gradient-to-r from-rose-50 via-white to-amber-50 border-l-4 border-cardio-600 p-6 rounded-r-2xl shadow-sm">
+        <div class="flex items-start gap-4">
+          <div class="p-3 bg-rose-100 text-cardio-700 rounded-xl">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div>
+            <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-rose-200 text-rose-800 mb-1">Zásadní posun v kardiologii</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-slate-900">Konec starého číslování (Typ 1–5): Nástup 3 klinických typů</h2>
+            <p class="text-slate-600 mt-2 text-sm sm:text-base leading-relaxed">
+              Pátá definice (2026) definitivně opouští nepřehledné alfanumerické třídění z roku 2018. Místo nich zavádí 
+              <strong>3 patofyziologicky a klinicky intuitivní kategorie</strong>, sjednocuje kritéria pro chirurgické i katetrizační výkony a integruje nové kódování dle <strong>MKN-11 (ICD-11)</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigační rychlé skoky -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-xs font-semibold">
+        <a href="#section-injury" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-cardio-500 hover:text-cardio-600 transition shadow-sm">
+          🩸 Poškození vs. Infarkt
+        </a>
+        <a href="#section-primary" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-cardio-500 hover:text-cardio-600 transition shadow-sm">
+          🫀 Primární IM
+        </a>
+        <a href="#section-secondary" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-cardio-500 hover:text-cardio-600 transition shadow-sm">
+          ⚖️ Sekundární IM
+        </a>
+        <a href="#section-procedure" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-cardio-500 hover:text-cardio-600 transition shadow-sm">
+          🩺 Infarkt po výkonu
+        </a>
+      </div>
+
+      <!-- Kapitola 1: Poškození vs. Infarkt -->
+      <section id="section-injury" class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+        <div class="border-b border-slate-100 pb-4">
+          <span class="text-xs font-mono font-bold text-rose-600 uppercase tracking-wider">Kapitola 1</span>
+          <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mt-1">Myokardiální poškození (Injury) vs. Infarkt myokardu (IM)</h3>
+          <p class="text-slate-500 text-sm mt-1">Základní diagnostický pilíř: Ne každá troponinémie je infarkt!</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <!-- Akutní vs chronické poškození -->
+          <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
+            <h4 class="font-bold text-slate-800 flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+              Akutní myokardiální poškození (Acute Injury)
+            </h4>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Definováno jako <strong>vzestup a/nebo pokles</strong> hladiny kardiálního troponinu (cTn I nebo T) s alespoň 
+              <strong>jednou hodnotou nad sex-specifickým 99. percentilem URL</strong> (horní referenční limit).
+            </p>
+            <div class="bg-amber-50 p-3 rounded-lg border border-amber-200 text-xs text-amber-900">
+              <strong>Klíčový požadavek 2026:</strong> Striktní uplatnění <em>sex-specifických mezí</em>. U žen je normální hladina zhruba poloviční oproti mužům; jednotný cut-off vedl v minulosti k závažnému poddiagnostikování žen.
+            </div>
+          </div>
+
+          <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
+            <h4 class="font-bold text-slate-800 flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-blue-500"></span>
+              Chronické myokardiální poškození (Chronic Injury)
+            </h4>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Trvale stabilní elevace troponinu nad 99. percentil (při sériovém měření je kolísání <strong>&lt; 20 %</strong>).
+            </p>
+            <p class="text-xs text-slate-500">
+              Typické u chronického srdečního selhání, chronického onemocnění ledvin (CKD) kvůli snížené renální clearance a hypertrofii levé komory.
+            </p>
+          </div>
+        </div>
+
+        <!-- Co mění poškození na infarkt -->
+        <div class="p-5 bg-rose-50 rounded-xl border border-rose-200">
+          <h4 class="font-bold text-rose-900 mb-2 flex items-center gap-2">
+            <svg class="w-5 h-5 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Kdy se poškození (Injury) stává infarktem myokardu?
+          </h4>
+          <p class="text-sm text-rose-800 leading-relaxed">
+            Infarkt myokardu je definován jako <strong>nekróza kardiomyocytů způsobená ISCHÉMIÍ</strong>. Pro diagnózu IM je tedy nutné:
+          </p>
+          <div class="mt-3 flex flex-wrap gap-2 text-xs font-semibold">
+            <span class="bg-white px-3 py-1.5 rounded-lg border border-rose-300 text-rose-900">Akutní vzestup/pokles cTn nad 99. percentil</span>
+            <span class="text-rose-500 font-bold self-center">+</span>
+            <span class="bg-white px-3 py-1.5 rounded-lg border border-rose-300 text-rose-900">Symptomy ischémie (tlak na hrudi atd.)</span>
+            <span class="text-rose-500 font-bold self-center">NEBO</span>
+            <span class="bg-white px-3 py-1.5 rounded-lg border border-rose-300 text-rose-900">Nové ischemické změny na EKG (ST-T, Q kmit)</span>
+            <span class="text-rose-500 font-bold self-center">NEBO</span>
+            <span class="bg-white px-3 py-1.5 rounded-lg border border-rose-300 text-rose-900">Nová porucha kinetiky / ztráta viability / koronární nález</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Kapitola 2: Tři klinické typy IM -->
+      <section class="space-y-6">
+        <div class="border-b border-slate-200 pb-2">
+          <span class="text-xs font-mono font-bold text-rose-600 uppercase tracking-wider">Kapitola 2</span>
+          <h3 class="text-xl sm:text-2xl font-bold text-slate-900">Klasifikace tří klinických typů IM (2026)</h3>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-6">
+          
+          <!-- 1. Primární IM -->
+          <div id="section-primary" class="bg-white rounded-2xl border-2 border-rose-200 p-6 flex flex-col justify-between shadow-sm hover:border-cardio-500 transition">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-md text-xs font-bold bg-rose-100 text-rose-800">Typ I</span>
+                <span class="text-xs font-mono font-semibold text-slate-400">ICD-11: BA41.01-08 / .11-18</span>
+              </div>
+              <h4 class="text-lg font-bold text-slate-900">Primární infarkt myokardu</h4>
+              <p class="text-xs text-slate-500 font-medium">Spontánní vznik akutní koronární patologií</p>
+              
+              <div class="text-sm text-slate-600 space-y-2 border-t border-slate-100 pt-3">
+                <p><strong>Mechanismus:</strong> Primární porucha koronárního řečiště bez zjevného sekundárního spouštěče.</p>
+                <div class="bg-rose-50 p-3 rounded-lg text-xs space-y-1.5 text-slate-700">
+                  <span class="font-bold text-rose-900 block">Zahrnuje (dříve rozdělené!):</span>
+                  <div>• Aterotrombózu (ruptura / eroze plátu)</div>
+                  <div>• Spontánní disekci koronární arterie (<strong>SCAD</strong>)</div>
+                  <div>• Koronární embolizaci</div>
+                  <div>• Epikardiální / mikrovaskulární vazospasmus</div>
+                  <div>• Trombózu stentu / selhání bypassu <strong>&gt; 30 dnů</strong> od výkonu</div>
+                </div>
+                <p class="text-xs text-slate-500">
+                  <em>Diagnostická strategie:</em> Prioritizuje <strong>senzitivitu</strong> – cílem je nepropásnout akutní koronární patologii a indikovat koronarografii.
+                </p>
+              </div>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 text-xs text-slate-500 font-semibold text-right">
+              Spontánní prezentace
+            </div>
+          </div>
+
+          <!-- 2. Sekundární IM -->
+          <div id="section-secondary" class="bg-white rounded-2xl border-2 border-sky-200 p-6 flex flex-col justify-between shadow-sm hover:border-sky-500 transition">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-md text-xs font-bold bg-sky-100 text-sky-800">Typ II</span>
+                <span class="text-xs font-mono font-semibold text-slate-400">ICD-11: BA41.0A / .1A</span>
+              </div>
+              <h4 class="text-lg font-bold text-slate-900">Sekundární infarkt myokardu</h4>
+              <p class="text-xs text-slate-500 font-medium">Nepoměr nabídky a poptávky O₂ (Supply-Demand Mismatch)</p>
+              
+              <div class="text-sm text-slate-600 space-y-2 border-t border-slate-100 pt-3">
+                <p><strong>Mechanismus:</strong> Vyvolán jiným akutním stavem (např. sepse, tachyarytmie, těžká anémie, hypotenze/šok, hypoxie).</p>
+                <div class="bg-sky-50 p-3 rounded-lg text-xs space-y-1.5 text-slate-700">
+                  <span class="font-bold text-sky-900 block">Nová striktní kritéria pro potvrzení:</span>
+                  <div>1. Přítomnost <strong>obstrukční ICHS</strong> (stenóza $\ge 70\%$ nebo $\ge 50\%$ s funkčním deficitem) <em>bez</em> akutní trombotické léze.</div>
+                  <div class="text-center font-bold text-sky-800">A / NEBO</div>
+                  <div>2. Průkaz <strong>nové poruchy kinetiky (RWMA)</strong> nebo ztráty viability na zobrazovací metodě (ECHO, CMR).</div>
+                </div>
+                <p class="text-xs text-slate-500">
+                  <em>Diagnostická strategie:</em> Prioritizuje <strong>specificitu</strong> – zamezuje chybnému označování pacientů v sepsi s pouhou troponinémií za "infarkt".
+                </p>
+              </div>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 text-xs text-slate-500 font-semibold text-right">
+              Sekundární k jiné nemoci
+            </div>
+          </div>
+
+          <!-- 3. Infarkt vázaný na výkon -->
+          <div id="section-procedure" class="bg-white rounded-2xl border-2 border-purple-200 p-6 flex flex-col justify-between shadow-sm hover:border-purple-500 transition">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800">Typ III</span>
+                <span class="text-xs font-mono font-semibold text-slate-400">ICD-11: BA41._B (PCI) / _C (Chirurgie)</span>
+              </div>
+              <h4 class="text-lg font-bold text-slate-900">Infarkt vázaný na výkon</h4>
+              <p class="text-xs text-slate-500 font-medium">Komplikace do 30 dnů po srdeční proceduře</p>
+              
+              <div class="text-sm text-slate-600 space-y-2 border-t border-slate-100 pt-3">
+                <p><strong>Výkony:</strong> Jakýkoli perkutánní nebo chirurgický zákrok (PCI, CABG, TAVI, ablace).</p>
+                <div class="bg-purple-50 p-3 rounded-lg text-xs space-y-1.5 text-slate-700">
+                  <span class="font-bold text-purple-900 block">Sjednocená kritéria (konec 5x/10x URL!):</span>
+                  <div>• Akutní myokardiální poškození + ischemie do 30 dnů.</div>
+                  <div>• <strong>Potvrzení:</strong> Angiografický průkaz komplikace (uzávěr boční větve, disekce, selhání štěpu) <em>NEBO</em> nová porucha kinetiky/viability na ECHO/CMR.</div>
+                  <div class="border-t border-purple-200 pt-1 text-purple-950 font-medium">
+                    ⚠️ Nastane-li komplikace přímo na sále nebo při výkonu pro akutní IM: jsou vyžadovány <strong>OBĚ podmínky současně</strong>!
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 text-xs text-slate-500 font-semibold text-right">
+              Komplikace do 30 dnů
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Kapitola 3: Speciální koncepty a diagnostické perly -->
+      <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+        <div class="border-b border-slate-100 pb-4">
+          <span class="text-xs font-mono font-bold text-rose-600 uppercase tracking-wider">Kapitola 3</span>
+          <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mt-1">Speciální situace & Terminologické změny</h3>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          
+          <!-- MINOCA -->
+          <div class="p-5 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
+            <div class="flex items-center gap-2">
+              <span class="p-1.5 bg-rose-100 text-rose-700 rounded-md font-bold text-xs">REDEFINICE</span>
+              <h4 class="font-bold text-slate-900">MINOCA</h4>
+            </div>
+            <p class="text-xs font-mono text-slate-500">Myocardial INJURY (nikoli Infarction) with Non-Obstructive Coronary Arteries</p>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Změna písmene "I" z <em>Infarction</em> na <strong>Injury</strong>. Zdůrazňuje, že MINOCA je <strong>pracovní syndrom</strong>, nikoli definitivní diagnóza!
+            </p>
+            <p class="text-xs text-slate-500 bg-white p-2.5 rounded-lg border border-slate-200">
+              Více než 75 % pacientů s MINOCA má nakonec jinou příčinu: myokarditidu, syndrom Takotsubo nebo plicní embolii. Magnetická rezonance (CMR) do 2 týdnů je zásadní.
+            </p>
+          </div>
+
+          <!-- OMI EKG -->
+          <div class="p-5 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
+            <div class="flex items-center gap-2">
+              <span class="p-1.5 bg-amber-100 text-amber-700 rounded-md font-bold text-xs">EKG</span>
+              <h4 class="font-bold text-slate-900">Ekvivalenty STEMI (OMI)</h4>
+            </div>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Až 25 % pacientů vedených jako NSTEMI má akutní totální okluzi věnčité tepny (Occlusion MI – OMI). Definice 2026 klade důraz na včasné rozpoznání:
+            </p>
+            <ul class="text-xs text-slate-600 space-y-1 bg-white p-2.5 rounded-lg border border-slate-200">
+              <li>• <strong>de Winterovy vlny:</strong> deprese ST + vysoké symetrické T (okluze RIA/LAD)</li>
+              <li>• <strong>Wellensův syndrom:</strong> bifázické/negativní T ve $V_2-V_3$</li>
+              <li>• <strong>Aslangerův vzor & South African Flag sign</strong></li>
+              <li>• <strong>Modifikovaná Sgarbossa kritéria</strong> u LBBB a stimulace ($ST/S \le -0.25$)</li>
+            </ul>
+          </div>
+
+          <!-- Náhlá smrt -->
+          <div class="p-5 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
+            <div class="flex items-center gap-2">
+              <span class="p-1.5 bg-slate-200 text-slate-700 rounded-md font-bold text-xs">EXITUS</span>
+              <h4 class="font-bold text-slate-900">Náhlá smrt (bývalý Typ 3)</h4>
+            </div>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Pojem <em>"Infarkt myokardu typ 3"</em> byl <strong>zcela zrušen</strong> z důvodu minimálního praktického přínosu.
+            </p>
+            <p class="text-xs text-slate-500 bg-white p-2.5 rounded-lg border border-slate-200">
+              Pokud pacient zemře dříve, než byly odebrány biomarkery, klasifikuje se dle klinických a pitevních nálezů do primárního, sekundárního, nebo v případě nejistoty jako <strong>Nespecifikovaný infarkt myokardu (ICD-11: BA41.Z)</strong>.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Tlačítko na další krok -->
+      <div class="text-center pt-4">
+        <button onclick="switchTab('tab-recall')" class="px-8 py-4 bg-gradient-to-r from-cardio-600 to-rose-700 text-white font-bold rounded-xl shadow-lg hover:shadow-rose-500/25 hover:scale-[1.02] transition-all flex items-center gap-3 mx-auto text-base">
+          <span>Otestovat znalosti: Přejít na Active Recall</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- ============================================================= -->
+    <!-- KROK 2: ACTIVE RECALL & KVÍZ                                  -->
+    <!-- ============================================================= -->
+    <div id="tab-recall" class="space-y-10 hidden animate-fadeIn">
+      
+      <!-- Úvodní instrukce -->
+      <div class="bg-indigo-50 border border-indigo-200 p-6 rounded-2xl flex items-start gap-4">
+        <div class="p-3 bg-indigo-100 text-indigo-700 rounded-xl">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+        </div>
+        <div>
+          <h2 class="text-lg font-bold text-indigo-950">Active Recall: Testování paměti před čtením výsledků</h2>
+          <p class="text-sm text-indigo-800 mt-1 leading-relaxed">
+            Pokuste se formulovat odpověď ve své mysli ještě před otočením kartičky nebo odhalením výsledku. 
+            Tento proces aktivního vybavování zanechává nejhlubší paměťovou stopu.
+          </p>
+        </div>
+      </div>
+
+      <!-- Část A: Interaktivní Flashcards -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between">
+          <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="w-2 h-6 bg-cardio-600 rounded-full"></span>
+            Klíčové Flashcards (Klikněte pro otočení)
+          </h3>
+          <span class="text-xs text-slate-500 font-medium">Celkem 4 kartičky</span>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          
+          <!-- Karta 1 -->
+          <div class="perspective-1000 h-64 cursor-pointer select-none" onclick="toggleCard(this)">
+            <div class="relative w-full h-full duration-500 transform-style-3d shadow-sm hover:shadow-md rounded-2xl border border-slate-200">
+              <!-- Přední strana -->
+              <div class="absolute inset-0 w-full h-full bg-white rounded-2xl p-6 flex flex-col justify-between backface-hidden">
+                <span class="text-xs font-bold text-rose-600 uppercase tracking-wider">Otázka #1 • Klasifikace</span>
+                <p class="font-semibold text-slate-800 text-base">Jak se nově v 5. definici (2026) dělí infarkty myokardu a co se stalo s dřívějším Typem 1 až 5?</p>
+                <div class="text-xs text-slate-400 font-medium flex items-center justify-between">
+                  <span>Kliknutím otočte</span>
+                  <span>🔄</span>
+                </div>
+              </div>
+              <!-- Zadní strana -->
+              <div class="absolute inset-0 w-full h-full bg-slate-900 text-white rounded-2xl p-6 flex flex-col justify-between backface-hidden rotate-y-180">
+                <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Odpověď</span>
+                <div class="text-xs sm:text-sm text-slate-200 space-y-2">
+                  <p>Staré číslování 1–5 bylo <strong>zrušeno</strong>.</p>
+                  <p>Nově existují pouze <strong>3 klinické typy</strong>:</p>
+                  <ol class="list-decimal list-inside text-xs space-y-1 text-slate-300">
+                    <li><strong>Primární IM</strong> (akutní koronární patologie – atherotrombóza, SCAD, spazmus, embolie)</li>
+                    <li><strong>Sekundární IM</strong> (supply-demand mismatch u jiné nemoci)</li>
+                    <li><strong>Infarkt vázaný na výkon</strong> (komplikace do 30 dnů po PCI/CABG)</li>
+                  </ol>
+                </div>
+                <span class="text-[10px] text-slate-400">Klikněte pro návrat</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Karta 2 -->
+          <div class="perspective-1000 h-64 cursor-pointer select-none" onclick="toggleCard(this)">
+            <div class="relative w-full h-full duration-500 transform-style-3d shadow-sm hover:shadow-md rounded-2xl border border-slate-200">
+              <!-- Přední strana -->
+              <div class="absolute inset-0 w-full h-full bg-white rounded-2xl p-6 flex flex-col justify-between backface-hidden">
+                <span class="text-xs font-bold text-rose-600 uppercase tracking-wider">Otázka #2 • Biomarkery</span>
+                <p class="font-semibold text-slate-800 text-base">Proč 5. definice nekompromisně vyžaduje sex-specifické 99. percentily pro kardiální troponiny?</p>
+                <div class="text-xs text-slate-400 font-medium flex items-center justify-between">
+                  <span>Kliknutím otočte</span>
+                  <span>🔄</span>
+                </div>
+              </div>
+              <!-- Zadní strana -->
+              <div class="absolute inset-0 w-full h-full bg-slate-900 text-white rounded-2xl p-6 flex flex-col justify-between backface-hidden rotate-y-180">
+                <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Odpověď</span>
+                <div class="text-xs sm:text-sm text-slate-200 space-y-2">
+                  <p>Zdravé ženy mají fyziologicky zhruba <strong>poloviční referenční limit (URL)</strong> troponinu než muži.</p>
+                  <p>Použití jednotného cut-offu vedlo k závažnému <strong>poddiagnostikování žen</strong>, prodlení v péči a horší prognóze. Sex-specifické hodnoty tuto systematickou chybu odstraňují.</p>
+                </div>
+                <span class="text-[10px] text-slate-400">Klikněte pro návrat</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Karta 3 -->
+          <div class="perspective-1000 h-64 cursor-pointer select-none" onclick="toggleCard(this)">
+            <div class="relative w-full h-full duration-500 transform-style-3d shadow-sm hover:shadow-md rounded-2xl border border-slate-200">
+              <!-- Přední strana -->
+              <div class="absolute inset-0 w-full h-full bg-white rounded-2xl p-6 flex flex-col justify-between backface-hidden">
+                <span class="text-xs font-bold text-rose-600 uppercase tracking-wider">Otázka #3 • Sekundární IM</span>
+                <p class="font-semibold text-slate-800 text-base">Pacient s těžkou sepsí a tachykardií má troponin 10× nad normu. Stačí to pro diagnózu sekundárního IM?</p>
+                <div class="text-xs text-slate-400 font-medium flex items-center justify-between">
+                  <span>Kliknutím otočte</span>
+                  <span>🔄</span>
+                </div>
+              </div>
+              <!-- Zadní strana -->
+              <div class="absolute inset-0 w-full h-full bg-slate-900 text-white rounded-2xl p-6 flex flex-col justify-between backface-hidden rotate-y-180">
+                <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Odpověď</span>
+                <div class="text-xs sm:text-sm text-slate-200 space-y-2">
+                  <p class="font-bold text-rose-300">NE, nestačí!</p>
+                  <p>Podle 5. definice je to zatím pouze <em>akutní myokardiální poškození</em>. K potvrzení sekundárního IM je nutné prokázat:</p>
+                  <p>• buď <strong>obstrukční ICHS</strong> ($\ge 70\%$ nebo $\ge 50\%$ s funkčním deficitem) bez akutní trombotické léze,</p>
+                  <p>• a/nebo <strong>novou poruchu kinetiky / ztrátu viability</strong> na ECHO/CMR.</p>
+                </div>
+                <span class="text-[10px] text-slate-400">Klikněte pro návrat</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Karta 4 -->
+          <div class="perspective-1000 h-64 cursor-pointer select-none" onclick="toggleCard(this)">
+            <div class="relative w-full h-full duration-500 transform-style-3d shadow-sm hover:shadow-md rounded-2xl border border-slate-200">
+              <!-- Přední strana -->
+              <div class="absolute inset-0 w-full h-full bg-white rounded-2xl p-6 flex flex-col justify-between backface-hidden">
+                <span class="text-xs font-bold text-rose-600 uppercase tracking-wider">Otázka #4 • Terminologie MINOCA</span>
+                <p class="font-semibold text-slate-800 text-base">Co přesně znamená zkratka MINOCA v 5. univerzální definici a proč došlo ke změně?</p>
+                <div class="text-xs text-slate-400 font-medium flex items-center justify-between">
+                  <span>Kliknutím otočte</span>
+                  <span>🔄</span>
+                </div>
+              </div>
+              <!-- Zadní strana -->
+              <div class="absolute inset-0 w-full h-full bg-slate-900 text-white rounded-2xl p-6 flex flex-col justify-between backface-hidden rotate-y-180">
+                <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Odpověď</span>
+                <div class="text-xs sm:text-sm text-slate-200 space-y-2">
+                  <p><strong>Myocardial INJURY with Non-Obstructive Coronary Arteries.</strong></p>
+                  <p>Slovo <em>Infarction</em> bylo nahrazeno slovem <em>Injury</em>, protože většina těchto pacientů má nekardiální nebo neischemické postižení (myokarditida, Takotsubo). Jde o <strong>pracovní syndrom</strong> vyžadující došetření (CMR).</p>
+                </div>
+                <span class="text-[10px] text-slate-400">Klikněte pro návrat</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Část B: Interaktivní klinický kvíz s okamžitou zpětnou vazbou -->
+      <div class="space-y-6 pt-6 border-t border-slate-200">
+        <div class="flex items-center justify-between">
+          <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="w-2 h-6 bg-cardio-600 rounded-full"></span>
+            Klinický kazuistický trenažér
+          </h3>
+          <div id="quiz-score-badge" class="px-3 py-1 bg-slate-100 rounded-full text-xs font-bold text-slate-700">
+            Skóre: <span id="quiz-score">0</span> / 2 vyřešeno
+          </div>
+        </div>
+
+        <!-- Kazuistika 1 -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4" id="q1-container">
+          <div class="flex items-center gap-2">
+            <span class="px-2 py-0.5 rounded text-xs font-bold bg-slate-100 text-slate-600 font-mono">KAZUISTIKA 1</span>
+            <span class="text-xs text-slate-500">• Urgentní příjem</span>
+          </div>
+          <p class="text-slate-800 text-sm leading-relaxed">
+            38letá dosud zdravá žena přichází pro náhlou krutou retrosternální bolest vyzařující do levé paže. Na EKG je elevace ST v leads $V_2-V_4$. Koronarografie prokazuje <strong>spontánní disekci ramus interventricularis anterior (SCAD)</strong> bez aterosklerózy. Troponin prudce stoupá. 
+            Jak tuto příhodu klasifikuje 5. definice IM?
+          </p>
+          
+          <div class="grid sm:grid-cols-2 gap-2 text-sm pt-2">
+            <button onclick="checkAnswer(1, 'A')" class="q1-opt text-left p-3 rounded-xl border border-slate-200 hover:border-slate-400 hover:bg-slate-50 transition">
+              <strong>A)</strong> Sekundární infarkt myokardu (spasmus/disekce mimo aterom)
+            </button>
+            <button onclick="checkAnswer(1, 'B')" class="q1-opt text-left p-3 rounded-xl border border-slate-200 hover:border-slate-400 hover:bg-slate-50 transition">
+              <strong>B)</strong> Primární infarkt myokardu (STEMI způsobený SCAD)
+            </button>
+            <button onclick="checkAnswer(1, 'C')" class="q1-opt text-left p-3 rounded-xl border border-slate-200 hover:border-slate-400 hover:bg-slate-50 transition">
+              <strong>C)</strong> MINOCA bez možnosti definitivní klasifikace infarktu
+            </button>
+            <button onclick="checkAnswer(1, 'D')" class="q1-opt text-left p-3 rounded-xl border border-slate-200 hover:border-slate-400 hover:bg-slate-50 transition">
+              <strong>D)</strong> Akutní neischemické myokardiální poškození
+            </button>
+          </div>
+
+          <div id="q1-feedback" class="hidden p-4 rounded-xl text-sm leading-relaxed transition-all"></div>
+        </div>
+
+        <!-- Kazuistika 2 -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4" id="q2-container">
+          <div class="flex items-center gap-2">
+            <span class="px-2 py-0.5 rounded text-xs font-bold bg-slate-100 text-slate-600 font-mono">KAZUISTIKA 2</span>
+            <span class="text-xs text-slate-500">• Kardiocentrum</span>
+          </div>
+          <p class="text-slate-800 text-sm leading-relaxed">
+            68letý muž podstoupil plánovanou perkutánní koronární intervenci (PCI) na RIA. Bezprostředně po výkonu má pacient klidovou bolest na hrudi a elevace ST. Kontrolní angiografie odhaluje <strong>akutní okluzi diagonální větve (side branch occlusion)</strong>. Na echokardiografii je patrná nová akineze anterolaterálního segmentu.
+            Jaká jsou kritéria pro potvrzení infarktu vázaného na výkon v tomto případě?
+          </p>
+          
+          <div class="grid sm:grid-cols-2 gap-2 text-sm pt-2">
+            <button onclick="checkAnswer(2, 'A')" class="q2-opt text-left p-3 rounded-xl border border-slate-200 hover:border-slate-400 hover:bg-slate-50 transition">
+              <strong>A)</strong> Stačí izolovaná hodnota hs-cTn &gt; 5× nad 99. percentil
+            </button>
+            <button onclick="checkAnswer(2, 'B')" class="q2-opt text-left p-3 rounded-xl border border-slate-200 hover:border-slate-400 hover:bg-slate-50 transition">
+              <strong>B)</strong> Pouze nová patologická Q na EKG bez ohledu na zobrazovací metody
+            </button>
+            <button onclick="checkAnswer(2, 'C')" class="q2-opt text-left p-3 rounded-xl border border-slate-200 hover:border-slate-400 hover:bg-slate-50 transition">
+              <strong>C)</strong> Vznikla-li komplikace přímo během výkonu, jsou vyžadovány OBĚ podmínky: angiografický průkaz komplikace A ZÁROVEŇ nová porucha kinetiky na ECHO/CMR
+            </button>
+            <button onclick="checkAnswer(2, 'D')" class="q2-opt text-left p-3 rounded-xl border border-slate-200 hover:border-slate-400 hover:bg-slate-50 transition">
+              <strong>D)</strong> Požadavek na troponin &gt; 35× nad horní limit jako u kardiochirurgie
+            </button>
+          </div>
+
+          <div id="q2-feedback" class="hidden p-4 rounded-xl text-sm leading-relaxed transition-all"></div>
+        </div>
+
+      </div>
+
+      <!-- Tlačítko na krok 3 -->
+      <div class="text-center pt-4">
+        <button onclick="switchTab('tab-summary')" class="px-8 py-4 bg-slate-900 text-white font-bold rounded-xl shadow-lg hover:bg-slate-800 transition-all flex items-center gap-3 mx-auto text-base">
+          <span>Přejít na Závěrečné shrnutí & Cheat-Sheet</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- ============================================================= -->
+    <!-- KROK 3: ZÁVĚREČNÉ SHRNUTÍ & KLINICKÝ CHEAT-SHEET              -->
+    <!-- ============================================================= -->
+    <div id="tab-summary" class="space-y-8 hidden animate-fadeIn">
+      
+      <!-- Shrnutí do kapsy -->
+      <div class="bg-gradient-to-br from-slate-900 via-rose-950 to-slate-900 text-white p-6 sm:p-8 rounded-2xl shadow-xl space-y-6">
+        <div>
+          <span class="text-xs font-mono font-bold text-rose-400 uppercase tracking-widest">Klinický Cheat-Sheet</span>
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-white mt-1">5. Univerzální definice IM: Zásadní tahák pro praxi</h2>
+          <p class="text-slate-300 text-sm mt-2">Vše, co potřebujete vědět k lůžku nemocného nebo k atestaci v přehledných bodech.</p>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-4 text-xs sm:text-sm">
+          <div class="bg-white/10 backdrop-blur p-4 rounded-xl border border-white/10 space-y-2">
+            <span class="text-rose-400 font-bold block text-sm">1. TŘI TYPY MÍSTO PĚTI</span>
+            <p class="text-slate-300 leading-relaxed">
+              Zrušeno numerické členění 1–5. Nově: <strong>Primární</strong> (akutní koronární léze vč. SCAD a vazospasmu), <strong>Sekundární</strong> (supply-demand imbalance) a <strong>Po výkonu</strong> (do 30 dnů).
+            </p>
+          </div>
+          <div class="bg-white/10 backdrop-blur p-4 rounded-xl border border-white/10 space-y-2">
+            <span class="text-rose-400 font-bold block text-sm">2. SEX-SPECIFICKÝ TROPONIN</span>
+            <p class="text-slate-300 leading-relaxed">
+              Ženy mají 99. percentil cca <strong>50 % hodnoty mužů</strong>. Používání jednotného limitu je non lege artis, protože diskriminuje ženskou populaci.
+            </p>
+          </div>
+          <div class="bg-white/10 backdrop-blur p-4 rounded-xl border border-white/10 space-y-2">
+            <span class="text-rose-400 font-bold block text-sm">3. MINOCA REDEFINOVÁNA</span>
+            <p class="text-slate-300 leading-relaxed">
+              Zkratka znamená Myocardial <strong>Injury</strong>. Není to diagnóza infarktu, ale pracovní syndrom. Do 2 týdnů indikujte CMR k vyloučení myokarditidy a Takotsubo.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Srovnávací tabulka 4. vs 5. definice -->
+      <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+        <div class="p-5 bg-slate-50 border-b border-slate-200">
+          <h3 class="font-bold text-slate-900 text-base flex items-center gap-2">
+            <svg class="w-5 h-5 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+            Srovnání: 4. definice (2018) vs. 5. definice (2026)
+          </h3>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs sm:text-sm">
+            <thead class="bg-slate-100/75 text-slate-700 border-b border-slate-200 font-semibold">
+              <tr>
+                <th class="p-4">Kritérium / Koncept</th>
+                <th class="p-4 text-slate-500">4. definice (2018)</th>
+                <th class="p-4 text-cardio-700 bg-rose-50/50">5. definice (2026) – NOVĚ</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200 text-slate-600">
+              <tr>
+                <td class="p-4 font-semibold text-slate-900">Klasifikace typů IM</td>
+                <td class="p-4">Číselné typy 1, 2, 3, 4a, 4b, 4c, 5</td>
+                <td class="p-4 bg-rose-50/30 font-medium text-slate-900">
+                  <span class="inline-block px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-xs font-bold mr-1">Zjednodušeno</span>
+                  3 klinické typy: Primární, Sekundární, Infarkt vázaný na výkon.
+                </td>
+              </tr>
+              <tr>
+                <td class="p-4 font-semibold text-slate-900">SCAD, spasmus, embolie</td>
+                <td class="p-4">Řazeno pod Typ 2 (spolu se sepsí a anémií)</td>
+                <td class="p-4 bg-rose-50/30 font-medium text-slate-900">
+                  Přesunuto do <strong>Primárního IM</strong> (všechny akutní koronární léze).
+                </td>
+              </tr>
+              <tr>
+                <td class="p-4 font-semibold text-slate-900">Sekundární IM (dříve Typ 2)</td>
+                <td class="p-4">Vágie definováno, často diagnostikováno jen z mírné troponinémie při jiné nemoci</td>
+                <td class="p-4 bg-rose-50/30 font-medium text-slate-900">
+                  Přísná objektivní kritéria: nutná <strong>obstrukční ICHS</strong> ($\ge 70\%$) bez trombu a/nebo <strong>nová porucha kinetiky</strong> (ECHO/CMR).
+                </td>
+              </tr>
+              <tr>
+                <td class="p-4 font-semibold text-slate-900">Infarkt po CABG / PCI</td>
+                <td class="p-4">Arbitrární násobky troponinu (5× pro PCI, 10× pro CABG)</td>
+                <td class="p-4 bg-rose-50/30 font-medium text-slate-900">
+                  <strong>Sjednocená kritéria</strong> pro PCI i CABG: Průkaz koronární komplikace do 30 dnů a/nebo nová porucha kinetiky.
+                </td>
+              </tr>
+              <tr>
+                <td class="p-4 font-semibold text-slate-900">Pozdní selhání stentu / bypassu (&gt;30 dnů)</td>
+                <td class="p-4">Řazeno jako komplikace výkonu (Typ 4b/4c)</td>
+                <td class="p-4 bg-rose-50/30 font-medium text-slate-900">
+                  Reklasifikováno jako de-novo <strong>Primární infarkt myokardu</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="p-4 font-semibold text-slate-900">Typ 3 (Náhlá smrt)</td>
+                <td class="p-4">Samostatná kategorie Typ 3</td>
+                <td class="p-4 bg-rose-50/30 font-medium text-slate-900">
+                  <strong>Zcela zrušeno.</strong> Klasifikuje se dle pitvy/kliniky, případně nespecifikovaný IM (BA41.Z).
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Algoritmus u lůžka: Rozhodovací strom -->
+      <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+        <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+          <svg class="w-6 h-6 text-cardio-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+          Rozhodovací strom u pacienta se zvýšeným troponinem
+        </h3>
+
+        <div class="space-y-4 text-xs sm:text-sm">
+          
+          <!-- Krok 1 -->
+          <div class="p-4 rounded-xl bg-slate-50 border-l-4 border-slate-400 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <span class="font-bold text-slate-900 block">KROK 1: Je přítomna dynamika troponinu?</span>
+              <span class="text-slate-500 text-xs">Vzestup nebo pokles nad 99. sex-specifický percentil?</span>
+            </div>
+            <div class="flex gap-2">
+              <span class="px-3 py-1.5 bg-slate-200 text-slate-700 font-semibold rounded-lg text-xs">NE (&lt; 20% změna) ➔ Chronické poškození</span>
+              <span class="px-3 py-1.5 bg-rose-100 text-rose-800 font-semibold rounded-lg text-xs">ANO ➔ Akutní poškození (Krok 2)</span>
+            </div>
+          </div>
+
+          <!-- Krok 2 -->
+          <div class="p-4 rounded-xl bg-slate-50 border-l-4 border-amber-500 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <span class="font-bold text-slate-900 block">KROK 2: Jsou přítomny známky ischémie myokardu?</span>
+              <span class="text-slate-500 text-xs">Bolest na hrudi, ischemické EKG (ST-T, Q kmit), nová porucha kinetiky na ECHO?</span>
+            </div>
+            <div class="flex gap-2">
+              <span class="px-3 py-1.5 bg-amber-100 text-amber-800 font-semibold rounded-lg text-xs">NE ➔ Akutní neischemické poškození (myokarditida, plicní embolie, sepse)</span>
+              <span class="px-3 py-1.5 bg-cardio-100 text-cardio-800 font-semibold rounded-lg text-xs">ANO ➔ Infarkt myokardu (Krok 3)</span>
+            </div>
+          </div>
+
+          <!-- Krok 3 -->
+          <div class="p-4 rounded-xl bg-slate-50 border-l-4 border-rose-600 space-y-3">
+            <div>
+              <span class="font-bold text-slate-900 block">KROK 3: Určení klinického typu infarktu myokardu</span>
+              <span class="text-slate-500 text-xs">V jakém klinickém kontextu ischémie vznikla?</span>
+            </div>
+            <div class="grid sm:grid-cols-3 gap-3 pt-2">
+              <div class="bg-rose-50 p-3 rounded-lg border border-rose-200">
+                <strong class="text-rose-900 block text-xs">Spontánní prezentace:</strong>
+                <p class="text-xs text-rose-700 mt-1">Primární IM (akutní koronární patologie: trombus, SCAD, spazmus, embolie).</p>
+              </div>
+              <div class="bg-sky-50 p-3 rounded-lg border border-sky-200">
+                <strong class="text-sky-900 block text-xs">Sekundárně k jiné nemoci:</strong>
+                <p class="text-xs text-sky-700 mt-1">Sekundární IM (potvrzeno při ICHS $\ge 70\%$ nebo nové RWMA na ECHO/CMR).</p>
+              </div>
+              <div class="bg-purple-50 p-3 rounded-lg border border-purple-200">
+                <strong class="text-purple-900 block text-xs">Do 30 dnů po výkonu:</strong>
+                <p class="text-xs text-purple-700 mt-1">Infarkt vázaný na výkon (procedurální komplikace a/nebo nová ztráta viability).</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Kódy MKN-11 (ICD-11) -->
+      <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-4">
+        <h4 class="font-bold text-slate-900 flex items-center gap-2 text-sm">
+          <svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"/></svg>
+          Harmonizace s MKN-11 (ICD-11)
+        </h4>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-mono">
+          <div class="bg-white p-3 rounded-lg border border-slate-200">
+            <span class="text-slate-400 block text-[10px]">STEMI kmenový kód</span>
+            <strong class="text-slate-800 text-sm">BA41.0</strong>
+          </div>
+          <div class="bg-white p-3 rounded-lg border border-slate-200">
+            <span class="text-slate-400 block text-[10px]">NSTEMI kmenový kód</span>
+            <strong class="text-slate-800 text-sm">BA41.1</strong>
+          </div>
+          <div class="bg-white p-3 rounded-lg border border-slate-200">
+            <span class="text-slate-400 block text-[10px]">Sekundární IM přípona</span>
+            <strong class="text-sky-700 text-sm">BA41._A</strong>
+          </div>
+          <div class="bg-white p-3 rounded-lg border border-slate-200">
+            <span class="text-slate-400 block text-[10px]">Procedurální PCI / Chirurgie</span>
+            <strong class="text-purple-700 text-sm">BA41._B / _C</strong>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Zápatí -->
+  <footer class="bg-white border-t border-slate-200 py-6 mt-12 text-center text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-4 space-y-1">
+      <p>Výukový materiál vytvořený na základě dokumentu <strong>Fifth Universal Definition of Myocardial Infarction (2026)</strong>.</p>
+      <p class="text-slate-400">Joint ESC/ACC/AHA/WHF Task Force Guideline Consensus.</p>
+    </div>
+  </footer>
+
+  <!-- Interaktivní skript -->
+  <script>
+    // Přepínání tabů / kroků
+    function switchTab(tabId) {
+      // Skryj všechny záložky
+      document.getElementById('tab-theory').classList.add('hidden');
+      document.getElementById('tab-recall').classList.add('hidden');
+      document.getElementById('tab-summary').classList.add('hidden');
+
+      // Odznač všechny tlačítka
+      const navBtns = document.querySelectorAll('.tab-btn');
+      navBtns.forEach(btn => {
+        btn.classList.remove('bg-cardio-600', 'text-white', 'shadow');
+        btn.classList.add('text-slate-300');
+      });
+
+      // Aktivuj zvolenou záložku
+      document.getElementById(tabId).classList.remove('hidden');
+
+      // Zvýrazni správné tlačítko
+      let activeBtnId = 'nav-theory';
+      if (tabId === 'tab-recall') activeBtnId = 'nav-recall';
+      if (tabId === 'tab-summary') activeBtnId = 'nav-summary';
+
+      const activeBtn = document.getElementById(activeBtnId);
+      activeBtn.classList.remove('text-slate-300');
+      activeBtn.classList.add('bg-cardio-600', 'text-white', 'shadow');
+
+      // Scroll nahoru
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Otáčení kartiček (Flashcards)
+    function toggleCard(cardWrapper) {
+      const innerCard = cardWrapper.firstElementChild;
+      innerCard.classList.toggle('rotate-y-180');
+    }
+
+    // Vyhodnocení kvízu
+    let solvedQuestions = { 1: false, 2: false };
+
+    function checkAnswer(qNum, selectedOption) {
+      const feedbackEl = document.getElementById(`q${qNum}-feedback`);
+      const buttons = document.querySelectorAll(`.q${qNum}-opt`);
+      
+      feedbackEl.classList.remove('hidden', 'bg-emerald-50', 'border-emerald-200', 'text-emerald-900', 'bg-rose-50', 'border-rose-200', 'text-rose-900');
+
+      if (qNum === 1) {
+        if (selectedOption === 'B') {
+          feedbackEl.className = 'p-4 rounded-xl text-sm leading-relaxed border bg-emerald-50 border-emerald-200 text-emerald-900';
+          feedbackEl.innerHTML = `
+            <strong>✅ Správně!</strong> V 5. definici (2026) je <strong>spontánní koronární disekce (SCAD)</strong> plnohodnotnou akutní koronární patologií řazenou pod <strong>Primární infarkt myokardu</strong> (dříve byla chybně slučována do typu 2). Případ se kóduje jako STEMI způsobený SCAD (kód BA41.02).
+          `;
+          solvedQuestions[1] = true;
+        } else {
+          feedbackEl.className = 'p-4 rounded-xl text-sm leading-relaxed border bg-rose-50 border-rose-200 text-rose-900';
+          feedbackEl.innerHTML = `
+            <strong>❌ Nesprávně.</strong> Pamatujte na klíčovou novinku 2026: <strong>SCAD, koronární embolie a spazmus již NEPATŘÍ do sekundárního IM (Typ 2)</strong>! Jsou to primární akutní koronární patologie, a proto patří do <strong>Primárního infarktu myokardu</strong>.
+          `;
+        }
+      } else if (qNum === 2) {
+        if (selectedOption === 'C') {
+          feedbackEl.className = 'p-4 rounded-xl text-sm leading-relaxed border bg-emerald-50 border-emerald-200 text-emerald-900';
+          feedbackEl.innerHTML = `
+            <strong>✅ Správně!</strong> Nastane-li komplikace přímo během výkonu nebo při intervenci pro probíhající akutní infarkt, 5. definice vyžaduje <strong>současné splnění obou kritérií</strong> (angiografický průkaz okluze/komplikace A ZÁROVEŇ novou poruchu kinetiky na ECHO/CMR), aby se vyloučilo pouhé benigní či přechodné periprocedurální poškození.
+          `;
+          solvedQuestions[2] = true;
+        } else {
+          feedbackEl.className = 'p-4 rounded-xl text-sm leading-relaxed border bg-rose-50 border-rose-200 text-rose-900';
+          feedbackEl.innerHTML = `
+            <strong>❌ Nesprávně.</strong> Staré definice spoléhající na arbitrární násobky (např. 5× nebo 10× URL) 5. definice opustila. U komplikací vzniklých přímo během výkonu je nutné doložit <strong>jak angiografický defekt, tak novou poruchu kinetiky na zobrazovací metodě</strong>.
+          `;
+        }
+      }
+
+      // Aktualizace skóre
+      const totalSolved = Object.values(solvedQuestions).filter(Boolean).length;
+      document.getElementById('quiz-score').innerText = totalSolved;
+      if (totalSolved === 2) {
+        const badge = document.getElementById('quiz-score-badge');
+        badge.className = 'px-3 py-1 bg-emerald-100 rounded-full text-xs font-bold text-emerald-800 border border-emerald-300';
+        badge.innerText = '🎉 Všechny kazuistiky úspěšně zvládnuty!';
+      }
+    }
+  </script>
+</body>
+</html>
