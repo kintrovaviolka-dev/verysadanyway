@@ -83,7 +83,37 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- KLÍČOVÉ FILTRY PRO KAPITOLU ---
+  // --- KLÍČOVÉ FILTRY PRO KAPITOLU & CHIPSY ---
+  const categoryChipsContainer = document.getElementById("category-chips");
+
+  const renderCategoryChips = () => {
+    if (!categoryChipsContainer) return;
+    const activeQuestions = state.questions.filter(q => q.chapter === state.activeChapter);
+    const cats = [...new Set(activeQuestions.map(q => q.category))].sort();
+    
+    const allCount = activeQuestions.length;
+    const isAllActive = categoryFilter.value === "all";
+    const allChipHTML = `<button class="category-chip ${isAllActive ? 'active' : ''}" data-cat="all">Vše (${allCount})</button>`;
+    
+    const chipsHTML = cats.map(cat => {
+      const count = activeQuestions.filter(q => q.category === cat).length;
+      const isActive = categoryFilter.value === cat ? "active" : "";
+      return `<button class="category-chip ${isActive}" data-cat="${cat}">${cat} (${count})</button>`;
+    }).join("");
+
+    categoryChipsContainer.innerHTML = allChipHTML + chipsHTML;
+
+    categoryChipsContainer.querySelectorAll(".category-chip").forEach(chip => {
+      chip.addEventListener("click", () => {
+        const cat = chip.getAttribute("data-cat");
+        categoryFilter.value = cat;
+        categoryChipsContainer.querySelectorAll(".category-chip").forEach(c => c.classList.remove("active"));
+        chip.classList.add("active");
+        renderCards();
+      });
+    });
+  };
+
   const rebuildFilters = () => {
     if (!categoryFilter || !systemFilter) return;
     const activeQuestions = state.questions.filter(q => q.chapter === state.activeChapter);
@@ -95,6 +125,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const systems = [...new Set(activeQuestions.map(q => q.organSystem))].sort();
     systemFilter.innerHTML = `<option value="all">Všechny systémy</option>` +
       systems.map(sys => `<option value="${sys}">${sys}</option>`).join("");
+
+    renderCategoryChips();
   };
 
   // --- KLIKNUTÍ NA KAPITOLU ---
@@ -239,16 +271,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- RENDER KARET ---
-  const renderCards = () => {
-    cardsGrid.innerHTML = "";
-    
+  // --- POMOCNÁ FUNKCE PRO AKTUÁLNĚ FILTROVANÉ OTÁZKY ---
+  const getFilteredQuestions = () => {
     const searchVal = searchInput.value.toLowerCase().trim();
     const catVal = categoryFilter.value;
     const systemVal = systemFilter.value;
     const statVal = statusFilter.value;
 
-    const filtered = state.questions.filter(q => {
+    return state.questions.filter(q => {
       if (q.chapter !== state.activeChapter) return false;
       if (catVal !== "all" && q.category !== catVal) return false;
       if (systemVal !== "all" && q.organSystem !== systemVal) return false;
@@ -270,6 +300,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
       return true;
     });
+  };
+
+  // --- RENDER KARET (SJEDNOCENÝ ELEGANTNÍ DESIGN) ---
+  const renderCards = () => {
+    cardsGrid.innerHTML = "";
+    const filtered = getFilteredQuestions();
 
     if (filtered.length === 0) {
       cardsGrid.innerHTML = DOMPurify.sanitize(`
@@ -287,6 +323,7 @@ document.addEventListener("DOMContentLoaded", () => {
           categoryFilter.value = "all";
           systemFilter.value = "all";
           statusFilter.value = "all";
+          renderCategoryChips();
           renderCards();
         });
       }
@@ -294,9 +331,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     filtered.forEach((q) => {
-      const cardContainer = document.createElement("div");
-      cardContainer.className = "card-container";
-      
+      const card = document.createElement("article");
+      card.className = "question-card";
+      card.setAttribute("role", "button");
+      card.setAttribute("tabindex", "0");
+      card.setAttribute("aria-label", `Otázka: ${q.title}`);
+      card.dataset.id = q.id;
+
       const leitner = getLeitnerData(q.id);
       let statusLabel = `Box ${leitner.box}`;
       let statusClass = `status-box-${leitner.box}`;
@@ -305,7 +346,7 @@ document.addEventListener("DOMContentLoaded", () => {
         statusClass = "status-due";
       }
 
-      const keywordsTags = q.keyTerms.map(k => `<span class="keyword-tag">${k}</span>`).join("");
+      const keywordsTags = q.keyTerms.slice(0, 4).map(k => `<span class="keyword-tag">${k}</span>`).join("");
       
       let catClass = "";
       if (q.category === "Lékové formy") catClass = "cat-forms";
@@ -325,67 +366,38 @@ document.addEventListener("DOMContentLoaded", () => {
       else if (q.category.includes("Metabolismus")) catClass = "cat-metab";
       else if (q.category === "Onkologie & Toxikologie") catClass = "cat-onk";
 
-      cardContainer.innerHTML = DOMPurify.sanitize(`
-        <div class="card-inner" data-id="${q.id}">
-          <!-- Přední strana -->
-          <div class="card-front">
-            <div class="card-badges">
-              <span class="card-category ${catClass}">${q.category}</span>
-              <span class="card-system-badge">${q.organSystem}</span>
-              ${q.notOnExam ? '<span class="card-exam-badge not-on-exam">Není na zkoušce</span>' : ''}
-            </div>
-            <h3 class="card-title">${q.title}</h3>
-            
-            <div class="card-footer">
-              <div class="card-status-badge">
-                <span class="status-dot ${statusClass}"></span>
-                <span>${statusLabel}</span>
-              </div>
-              <div class="card-actions">
-                <button class="btn btn-secondary btn-flip-trigger" title="Zobrazit klíčové pojmy">Otočit</button>
-                <button class="btn btn-primary btn-study-trigger">Studovat</button>
-              </div>
-            </div>
+      card.innerHTML = DOMPurify.sanitize(`
+        <div class="card-header">
+          <div class="card-badges">
+            <span class="card-category ${catClass}">${q.category}</span>
+            <span class="card-system-badge">${q.organSystem}</span>
+            ${q.notOnExam ? '<span class="card-exam-badge not-on-exam">Není na zkoušce</span>' : ''}
           </div>
-          
-          <!-- Zadní strana -->
-          <div class="card-back">
-            <div>
-              <div class="card-back-title">Klíčové pojmy a zařazení</div>
-              <div class="keywords-list">
-                ${keywordsTags}
-              </div>
-            </div>
-            
-            <div class="card-footer">
-              <button class="btn btn-secondary btn-flip-back" title="Zpět na název">Zpět</button>
-              <button class="btn btn-primary btn-study-trigger">Studovat</button>
-            </div>
+        </div>
+        <h3 class="card-title">${q.title}</h3>
+        
+        <div class="card-keywords-preview">
+          ${keywordsTags}
+        </div>
+        
+        <div class="card-footer">
+          <div class="card-status-badge">
+            <span class="status-dot ${statusClass}"></span>
+            <span class="status-text">${statusLabel}</span>
           </div>
+          <span class="card-action-hint">Studovat & Kvíz →</span>
         </div>
       `);
 
-      const cardInner = cardContainer.querySelector(".card-inner");
-      
-      cardInner.addEventListener("click", (e) => {
-        if (e.target.classList.contains("btn-study-trigger")) {
-          e.stopPropagation();
+      card.addEventListener("click", () => openModal(q.id));
+      card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
           openModal(q.id);
-          return;
-        }
-
-        if (e.target.classList.contains("btn-flip-trigger") || e.target.classList.contains("btn-flip-back")) {
-          e.stopPropagation();
-          cardInner.classList.toggle("flipped");
-          return;
-        }
-
-        if (!e.target.closest(".card-footer")) {
-          cardInner.classList.toggle("flipped");
         }
       });
 
-      cardsGrid.appendChild(cardContainer);
+      cardsGrid.appendChild(card);
     });
   };
 
@@ -416,14 +428,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Načtení poznámek
     editorContent.innerHTML = DOMPurify.sanitize(state.userNotes[q.id] || "");
 
-    // Nastavení stavu učení
-    const currentStatus = state.userProgress[q.id] || "not-started";
-    document.querySelectorAll(".status-btn").forEach(btn => {
-      btn.classList.remove("active");
-      if (btn.getAttribute("data-status") === currentStatus) {
-        btn.classList.add("active");
-      }
-    });
+    // Nastavení Spaced Repetition tlačítek v modálu
+    updateModalLeitnerButtons(q.id);
 
     // Kvíz
     renderQuiz(q);
@@ -431,12 +437,71 @@ document.addEventListener("DOMContentLoaded", () => {
     // Načtení TDM interaktivní záložky
     renderTdmTab(q);
 
-    detailModal.showModal();
+    if (typeof detailModal.showModal === "function") {
+      if (!detailModal.open) detailModal.showModal();
+    } else {
+      detailModal.setAttribute("open", "true");
+    }
     document.body.style.overflow = "hidden";
   };
 
+  const updateModalLeitnerButtons = (id) => {
+    const data = getLeitnerData(id);
+    document.querySelectorAll(".modal-leitner-controls .leitner-btn").forEach(btn => {
+      btn.classList.remove("active");
+      const grade = btn.getAttribute("data-grade");
+      if (grade === "wrong" && data.box === 1 && data.tested) btn.classList.add("active");
+      if (grade === "good" && (data.box === 2 || data.box === 3)) btn.classList.add("active");
+      if (grade === "perfect" && data.box === 4) btn.classList.add("active");
+    });
+  };
+
+  // --- KLÁVESOVÁ A TLAČÍTKOVÁ NAVIGACE MEZI OTÁZKAMI V MODÁLU ---
+  const navigateModal = (direction) => {
+    if (!state.activeQuestion) return;
+    const currentList = getFilteredQuestions();
+    if (currentList.length === 0) return;
+    
+    const currentIdx = currentList.findIndex(q => q.id === state.activeQuestion.id);
+    let targetIdx = 0;
+    if (currentIdx !== -1) {
+      targetIdx = (currentIdx + direction + currentList.length) % currentList.length;
+    }
+    openModal(currentList[targetIdx].id);
+  };
+
+  const modalPrevBtn = document.getElementById("modal-prev-btn");
+  const modalNextBtn = document.getElementById("modal-next-btn");
+  if (modalPrevBtn) modalPrevBtn.addEventListener("click", () => navigateModal(-1));
+  if (modalNextBtn) modalNextBtn.addEventListener("click", () => navigateModal(1));
+
+  // Spaced Repetition hodnocení v modálu
+  document.querySelectorAll(".modal-leitner-controls .leitner-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if (!state.activeQuestion) return;
+      const grade = btn.getAttribute("data-grade");
+      const isCorrect = grade === "good" || grade === "perfect";
+      
+      if (grade === "perfect") {
+        state.userProgress[state.activeQuestion.id] = {
+          box: 4,
+          nextReviewDate: Date.now() + 10 * 86400000,
+          tested: true
+        };
+        saveState();
+        updateDashboard();
+        renderCards();
+      } else {
+        setLeitnerStatus(state.activeQuestion.id, isCorrect);
+      }
+      
+      updateModalLeitnerButtons(state.activeQuestion.id);
+    });
+  });
+
   const closeModal = () => {
-    detailModal.close();
+    if (typeof detailModal.close === "function") detailModal.close();
+    else detailModal.removeAttribute("open");
     state.activeQuestion = null;
     document.body.style.overflow = "";
     renderCards();
@@ -620,6 +685,9 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    let answeredCount = 0;
+    let sessionCorrect = 0;
+
     quizQuestions.forEach((item, questionIndex) => {
       const quizCard = document.createElement("div");
       quizCard.className = "quiz-card";
@@ -650,6 +718,7 @@ document.addEventListener("DOMContentLoaded", () => {
           if (questionAnswered) return;
 
           questionAnswered = true;
+          answeredCount++;
           const optIdx = parseInt(btn.getAttribute("data-opt-idx"));
           const isCorrect = optIdx === item.correct;
 
@@ -658,6 +727,7 @@ document.addEventListener("DOMContentLoaded", () => {
           if (isCorrect) {
             btn.classList.add("correct");
             triggerConfetti(btn);
+            sessionCorrect++;
             state.quizStats.correctCount++;
             state.quizStats.totalCount++;
           } else {
@@ -678,6 +748,47 @@ document.addEventListener("DOMContentLoaded", () => {
               <strong>${isCorrect ? 'Správně!' : 'Nesprávně.'}</strong> ${parseMedicalMarkdown(explanationText)}
             </div>
           `;
+
+          // Zkontrolovat, zda byly zodpovězeny všechny otázky kvízu
+          if (answeredCount === quizQuestions.length) {
+            const summaryCard = document.createElement("div");
+            summaryCard.className = "quiz-score-summary";
+            const pct = Math.round((sessionCorrect / quizQuestions.length) * 100);
+            let titleMsg = "Skvělá práce!";
+            let descMsg = "Všechny otázky k tomuto tématu máš v malíku.";
+            let badgeClass = "perfect";
+
+            if (sessionCorrect === quizQuestions.length) {
+              badgeClass = "perfect";
+              titleMsg = "🎉 Perfektní výsledek!";
+              descMsg = "Všechny kontrolní otázky zodpovězeny správně.";
+            } else if (sessionCorrect >= 2) {
+              badgeClass = "good";
+              titleMsg = "👍 Velmi dobrý výsledek";
+              descMsg = "Většinu otázek zvládáš spolehlivě.";
+            } else {
+              badgeClass = "retry";
+              titleMsg = "⚠️ Doporučujeme zopakovat";
+              descMsg = "Projdi si ještě jednou výklad a klíčové parametry.";
+            }
+
+            summaryCard.innerHTML = `
+              <div class="quiz-score-header">
+                <span class="quiz-score-badge ${badgeClass}">${sessionCorrect} / ${quizQuestions.length} správně (${pct} %)</span>
+                <h4 class="quiz-score-title">${titleMsg}</h4>
+                <p class="quiz-score-desc">${descMsg}</p>
+              </div>
+              <div class="quiz-score-actions">
+                <button class="btn btn-secondary btn-retry-quiz">🔄 Zkusit kvíz znovu</button>
+                <button class="btn btn-primary btn-next-modal">Další otázka →</button>
+              </div>
+            `;
+
+            summaryCard.querySelector(".btn-retry-quiz").addEventListener("click", () => renderQuiz(q));
+            summaryCard.querySelector(".btn-next-modal").addEventListener("click", () => navigateModal(1));
+            quizContainer.appendChild(summaryCard);
+            summaryCard.scrollIntoView({ behavior: "smooth" });
+          }
         });
       });
 
@@ -687,9 +798,85 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- FILTROVÁNÍ A HLEDÁNÍ ---
   searchInput.addEventListener("input", renderCards);
-  categoryFilter.addEventListener("change", renderCards);
+  categoryFilter.addEventListener("change", () => {
+    if (categoryChipsContainer) {
+      categoryChipsContainer.querySelectorAll(".category-chip").forEach(chip => {
+        chip.classList.toggle("active", chip.getAttribute("data-cat") === categoryFilter.value);
+      });
+    }
+    renderCards();
+  });
   systemFilter.addEventListener("change", renderCards);
   statusFilter.addEventListener("change", renderCards);
+
+  // --- KLÁVESOVÉ ZKRATKY BANNER & GLOBÁLNÍ EVENT LISTENER ---
+  const kbdBtn = document.getElementById("kbd-shortcuts-btn");
+  const kbdBanner = document.getElementById("kbd-shortcuts-banner");
+  const closeKbdBtn = document.getElementById("close-kbd-banner");
+
+  if (kbdBtn && kbdBanner) {
+    kbdBtn.addEventListener("click", () => {
+      const isHidden = kbdBanner.style.display === "none";
+      kbdBanner.style.display = isHidden ? "block" : "none";
+      kbdBtn.setAttribute("aria-expanded", isHidden ? "true" : "false");
+    });
+  }
+
+  if (closeKbdBtn && kbdBanner) {
+    closeKbdBtn.addEventListener("click", () => {
+      kbdBanner.style.display = "none";
+      if (kbdBtn) kbdBtn.setAttribute("aria-expanded", "false");
+    });
+  }
+
+  document.addEventListener("keydown", (e) => {
+    // Ignorovat, pokud uživatel píše do textového pole
+    if (["INPUT", "TEXTAREA"].includes(document.activeElement.tagName) || document.activeElement.isContentEditable) {
+      if (e.key === "Escape") {
+        document.activeElement.blur();
+      }
+      return;
+    }
+
+    const isDetailOpen = detailModal && detailModal.open;
+    const isMatchingOpen = matchingModal && matchingModal.open;
+
+    if (e.key === "Escape") {
+      if (isDetailOpen) closeModal();
+      else if (isMatchingOpen) {
+        clearInterval(gameTimerInterval);
+        if (typeof matchingModal.close === "function") matchingModal.close();
+        else matchingModal.removeAttribute("open");
+      } else if (kbdBanner && kbdBanner.style.display !== "none") {
+        kbdBanner.style.display = "none";
+        if (kbdBtn) kbdBtn.setAttribute("aria-expanded", "false");
+      }
+      return;
+    }
+
+    if (isDetailOpen) {
+      if (e.key === "ArrowLeft" || e.key.toLowerCase() === "p") {
+        e.preventDefault();
+        navigateModal(-1);
+      } else if (e.key === "ArrowRight" || e.key.toLowerCase() === "n") {
+        e.preventDefault();
+        navigateModal(1);
+      } else if (e.key === "1") {
+        switchTab("panel-study");
+      } else if (e.key === "2") {
+        switchTab("panel-tdm");
+      } else if (e.key === "3") {
+        switchTab("panel-notes");
+      } else if (e.key === "4") {
+        switchTab("panel-quiz");
+      }
+    } else {
+      if (e.key === "/") {
+        e.preventDefault();
+        if (searchInput) searchInput.focus();
+      }
+    }
+  });
 
   // --- PŘEPÍNAČ TÉMATU ---
   themeToggle.addEventListener("click", () => {

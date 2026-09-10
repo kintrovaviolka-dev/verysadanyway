@@ -28,6 +28,10 @@
       </div>
       
       <div class="controls">
+        <!-- Klávesové zkratky info -->
+        <button id="kbd-shortcuts-btn" class="btn btn-secondary" title="Klávesové zkratky pro efektivní studium" aria-expanded="false" aria-controls="kbd-shortcuts-banner" aria-label="Zobrazit klávesové zkratky">
+          ⌨️ Zkratky
+        </button>
         <!-- Zpět na rozcestník -->
         <button id="back-hub-btn" class="btn btn-secondary" title="Zpět na centrální rozcestník předmětů">
           ← Rozcestník
@@ -84,6 +88,18 @@
         </button>
       </div>
     </header>
+
+    <!-- Banner klávesových zkratek -->
+    <div id="kbd-shortcuts-banner" class="kbd-shortcuts-banner" style="display: none;" role="region" aria-label="Přehled klávesových zkratek">
+      <div class="kbd-banner-content">
+        <span class="kbd-banner-title">⚡ Klávesové zkratky:</span>
+        <span class="kbd-chip"><kbd>←</kbd> / <kbd>→</kbd> nebo <kbd>P</kbd> / <kbd>N</kbd> Přepínání otázek</span>
+        <span class="kbd-chip"><kbd>1</kbd>–<kbd>4</kbd> Přepínání záložek detailu</span>
+        <span class="kbd-chip"><kbd>Esc</kbd> Zavřít okno</span>
+        <span class="kbd-chip"><kbd>/</kbd> Hledat otázku</span>
+        <button id="close-kbd-banner" class="kbd-close-btn" aria-label="Zavřít nápovědu zkratek">✕</button>
+      </div>
+    </div>
 
     <!-- Interaktivní PK/TDM Trenažér Panel -->
     <section id="pk-sim-panel" class="pk-sim-panel">
@@ -243,6 +259,13 @@
       </button>
     </div>
 
+    <!-- Rychlé filtry / Sub-kategorie Chips -->
+    <div class="category-chips-wrapper" id="category-chips-wrapper">
+      <div class="category-chips" id="category-chips" role="toolbar" aria-label="Rychlé filtrování podle kategorií">
+        <!-- Generováno dynamicky přes JS -->
+      </div>
+    </div>
+
     <!-- Filtry a Vyhledávání -->
     <section class="filter-bar">
       <div class="search-wrapper">
@@ -300,7 +323,7 @@
     </section>
 
     <!-- Grid kartiček -->
-    <main class="cards-grid" id="cards-grid">
+    <main class="cards-grid" id="cards-grid" aria-live="polite" aria-atomic="false" aria-label="Seznam farmakologických otázek">
       <!-- Kartičky se vygenerují dynamicky pomocí JavaScriptu -->
     </main>
     
@@ -320,27 +343,47 @@
   </div>
 
   <!-- Detailní panel (Slide-over / Dialog) -->
-  <dialog id="detail-modal" class="slide-over">
+  <dialog id="detail-modal" class="slide-over" aria-labelledby="modal-title">
     <div class="modal-content">
       <div class="modal-header">
         <div class="modal-title-area">
           <span class="modal-category" id="modal-category">LÉKOVÉ FORMY</span>
           <h2 class="modal-title" id="modal-title">Název otázky</h2>
         </div>
-        <button class="modal-close-btn" id="modal-close" aria-label="Zavřít panel">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-        </button>
+        <div class="modal-header-actions">
+          <button id="modal-prev-btn" class="modal-nav-btn" title="Předchozí otázka (P / ←)" aria-label="Předchozí otázka">
+            ←
+          </button>
+          <button id="modal-next-btn" class="modal-nav-btn" title="Další otázka (N / →)" aria-label="Další otázka">
+            →
+          </button>
+          <button class="modal-close-btn" id="modal-close" aria-label="Zavřít panel">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
       </div>
       
       <div class="modal-body">
         <div class="detail-grid">
-          <!-- Nastavení stavu učení přímo v detailu -->
-          <div class="status-selector">
-            <span class="status-selector-label">Můj pokrok u této otázky:</span>
-            <div class="status-btn-group">
-              <button class="status-btn" data-status="not-started">Nezačato</button>
-              <button class="status-btn" data-status="learning">Učím se</button>
-              <button class="status-btn" data-status="mastered">Umím</button>
+          <!-- Nastavení Spaced Repetition hodnocení v detailu -->
+          <div class="spaced-repetition-controls modal-leitner-controls">
+            <h4>Ohodnoť znalost otázky po prostudování:</h4>
+            <div class="leitner-btn-group">
+              <button class="leitner-btn l-btn-wrong" data-grade="wrong" aria-label="Ztěžka — vrátit do Box 1">
+                <span class="btn-icon" aria-hidden="true">❌</span>
+                <span class="btn-text">Ztěžka</span>
+                <span class="btn-sub">Box 1 (dnes)</span>
+              </button>
+              <button class="leitner-btn l-btn-good" data-grade="good" aria-label="Slibné — posunout o box">
+                <span class="btn-icon" aria-hidden="true">⚠️</span>
+                <span class="btn-text">Slibné</span>
+                <span class="btn-sub">Posunout o box</span>
+              </button>
+              <button class="leitner-btn l-btn-perfect" data-grade="perfect" aria-label="Skvěle — přesunout do Box 4 (Zvládnuté)">
+                <span class="btn-icon" aria-hidden="true">✅</span>
+                <span class="btn-text">Skvěle</span>
+                <span class="btn-sub">Box 4 (Zvládnuté)</span>
+              </button>
             </div>
           </div>
           
