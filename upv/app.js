@@ -333,8 +333,8 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="accordion-item">
         <div class="accordion-header">
           <div class="accordion-title-block">
-            <span class="accordion-icon">${t.icon}</span>
-            <h3>${t.title}</h3>
+            <span class="accordion-icon">${escapeHTML(t.icon)}</span>
+            <h3>${escapeHTML(t.title)}</h3>
           </div>
           <span class="accordion-arrow">▼</span>
         </div>
@@ -379,9 +379,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
+
+  // Pomocná funkce pro sanitizaci HTML vstupu (ochrana proti XSS)
+  function escapeHTML(str) {
+    if (!str) return "";
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
   // Pomocná funkce pro převod markdownu/LaTeXu
   function formatMarkdown(text) {
-    return text
+    if (!text) return "";
+    return escapeHTML(text)
       .replace(/\n/g, '<br>')
       .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
       .replace(/\*(.*?)\*/g, '<em>$1</em>');
@@ -397,15 +410,15 @@ document.addEventListener("DOMContentLoaded", () => {
     container.innerHTML = data.tlaky.topics.map(t => `
       <div class="pressure-card" id="pressure-card-${t.id}">
         <div class="pressure-card-header">
-          <h3>${t.title}</h3>
-          <span class="pressure-badge">${t.abbreviation}</span>
+          <h3>${escapeHTML(t.title)}</h3>
+          <span class="pressure-badge">${escapeHTML(t.abbreviation)}</span>
         </div>
         <div class="pressure-card-body">
           <p>${formatMarkdown(t.content)}</p>
         </div>
         <div class="pressure-card-footer">
           <span class="limit-label">Bezpečný limit:</span>
-          <span class="limit-val">${t.safetyLimit}</span>
+          <span class="limit-val">${escapeHTML(t.safetyLimit)}</span>
         </div>
       </div>
     `).join('');
@@ -499,11 +512,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
       tableBody.innerHTML = filteredData.map((r, idx) => `
         <tr>
-          <td class="mode-name-col">${r.name}</td>
-          <td>${r.type}</td>
-          <td>${r.mechanics.trigger}</td>
-          <td>${r.mechanics.limit}</td>
-          <td>${r.mechanics.cycle}</td>
+          <td class="mode-name-col">${escapeHTML(r.name)}</td>
+          <td>${escapeHTML(r.type)}</td>
+          <td>${escapeHTML(r.mechanics.trigger)}</td>
+          <td>${escapeHTML(r.mechanics.limit)}</td>
+          <td>${escapeHTML(r.mechanics.cycle)}</td>
           <td>
             <button class="btn btn-secondary btn-sm btn-mode-detail" data-idx="${idx}">Detail</button>
           </td>
@@ -522,7 +535,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Otevřít detail režimu
     window.openModeDetail = (mode) => {
-      document.getElementById("modal-mode-name").textContent = mode.name;
+      document.getElementById("modal-mode-name").textContent = mode.name; // textContent is safe
       document.getElementById("modal-mode-fullname").textContent = mode.fullName;
       document.getElementById("modal-trigger").innerHTML = formatMarkdown(mode.mechanics.trigger);
       document.getElementById("modal-limit").innerHTML = formatMarkdown(mode.mechanics.limit);
@@ -1458,7 +1471,7 @@ document.addEventListener("DOMContentLoaded", () => {
     checklistContainer.innerHTML = data.ards.checklist.map((c, idx) => `
       <div class="checklist-card">
         <div class="checklist-card-header">
-          <span class="chk-badge">Krok ${idx + 1}</span>
+          <span class="chk-badge">Krok ${escapeHTML(String(idx + 1))}</span>
           <h4>${formatMarkdown(c.title)}</h4>
         </div>
         <p><strong>Cíl:</strong> ${formatMarkdown(c.target)}</p>
