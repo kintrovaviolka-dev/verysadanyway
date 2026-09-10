@@ -4008,52 +4008,52 @@ const PHARM_SPEC_DETAILS = {
     ]
   },
   "pharm-spec-33": {
-    "definition": "Léky chronického srdečního selhání (CHSS) jsou farmaka zaměřená na snížení kardiovaskulární mortality, frekvence hospitalizací a zlepšení symptomů u pacientů se sníženou ejekční frakcí levé komory (HFrEF) i zachovalou ejekční frakcí (HFpEF).",
+    "definition": "Léky chronického srdečního selhání (CHSS) jsou farmaka zaměřená na snížení kardiovaskulární mortality, hospitalizací pro dekompenzované srdeční selhání (DHF) a zlepšení symptomů u pacientů se sníženou ejekční frakcí levé komory (HFrEF ≤ 50 %) i se zachovalou ejekční frakcí (HFpEF ≥ 50 %; kategorie HFmrEF byla v ESC Guidelines 2026 zrušena).",
     "kinetics": [
       "Sacubitril/Valsartan (ARNI) je fixní kombinace v poměru 1:1. Sacubitril je proléčivo, které se esterázami mění na aktivní sacubitrilát (inhibitor neprilysinu). Valsartan blokuje $AT_1$ receptory. Vylučuje se játry a ledvinami.",
       "SGLT2 inhibitory (dapagliflozin, empagliflozin) se dobře vstřebávají p.o. a mají dlouhý poločas (cca 12 hodin), což umožňuje dávkování jednou denně; eliminují se močí."
     ],
     "dynamics": [
-      "Moderní terapie HFrEF stojí na **'Fantastické čtyřce' (Fantastic Four)** - čtyřech pilířích s Class I doporučením, které se nasazují simultánně:",
+      "Základní farmakoterapie (Foundational Medical Therapy - FMT) HFrEF (LVEF ≤ 50 %) stojí na **4 pilířích** s Class I doporučením, které se nasazují včasně a simultánně:",
       "  1. **ARNI** (angiotensin receptor-neprilysin inhibitor - sacubitril/valsartan): sacubitril inhibuje neprilysin (enzym odbourávající natriuretické peptidy ANP/BNP), což posiluje vasodilataci a diurézu; valsartan blokuje $AT_1$ k zamezení škodlivého vlivu angiotenzinu II. Nahrazuje ACEi/ARB (studie PARADIGM-HF).",
       "  2. **Beta-blokátory** (kardioselektivní s důkazy: bisoprolol, metoprolol sukcinát, nebivolol, nebo neselektivní carvedilol): snižují sympatickou hyperaktivitu, chrání před arytmiemi a podporují reverzní remodelaci komory.",
-      "  3. **MRA** (mineralokortikoidní receptoroví antagonisté - spironolakton, eplerenon): blokují aldosteron, brání fibrotizaci myokardu a retenci sodíku.",
-      "  4. **SGLT2 inhibitory** (glifloziny - dapagliflozin, empagliflozin): inhibují sodíkovo-glukózový kotransportér v ledvinách. U srdečního selhání snižují preload (osmotic/natriuretic diuresis) a afterload, zlepšují energetiku myokardu a brání remodelaci (studie DAPA-HF, EMPEROR-Reduced). Účinkují nezávisle na přítomnosti diabetu!",
-      "Přídatná terapie (druhá linie): **Ivabradine** (inhibitor $I_f$ kanálu v SA uzlu, zpomaluje frekvenci u sinusového rytmu > 70 bpm); **Vericiguat** (stimulátor rozpustné guanylate cyklázy, zvyšuje cGMP); **Kličková diuretika** (furosemid - symptomatická léčba městnání, nesnižuje mortalitu)."
+      "  3. **MRA** (mineralokortikoidní receptoroví antagonisté - spironolakton, eplerenon): blokují aldosteron, brání fibrotizaci myokardu a retenci sodíku. Dle ESC 2026 indikováno pro VŠECHNY pacienty s CHSS bez ohledu na EF!",
+      "  4. **SGLT2 inhibitory** (glifloziny - dapagliflozin, empagliflozin): inhibují sodíkovo-glukózový kotransportér v ledvinách. U srdečního selhání snižují preload a afterload, zlepšují energetiku myokardu a brání remodelaci (studie DAPA-HF, EMPEROR). Dle ESC 2026 indikována pro VŠECHNY pacienty s CHSS bez ohledu na EF!",
+      "Přídatná terapie (druhá linie): **GLP-1 RA** (semaglutid u HFpEF + obezity/T2DM pro snížení symptomů a KV mortality); **Tafamidis** (stabilizátor transthyretinu u ATTR kardiální amyloidózy); **Vericiguat** (stimulátor rozpustné guanylate cyklázy); **Ivabradine** (inhibitor $I_f$ kanálu v SA uzlu při sinusovém rytmu > 70 bpm); **Kličková diuretika** (furosemid - symptomatická léčba městnání)."
     ],
     "clinical": [
       "Při převodu z ACE-inhibitoru na ARNI (sacubitril/valsartan) je nutné dodržet **wash-out periodu 36 hodin** (přísný zákaz užití ACEi) k zamezení vzniku život ohrožujícího angioedému.",
-      "SGLT2 inhibitory jsou nyní první volbou i u HFpEF (zachovalá EF) na základě studií EMPEROR-Preserved a DELIVER.",
+      "SGLT2 inhibitory a MRA jsou nově v ESC Guidelines 2026 foundational terapií pro všechna spektra ejekční frakce (HFrEF i HFpEF).",
       "U starších pacientů s eGFR < 30 je nutné snížit nebo vynechat MRA kvůli riziku těžké hyperkalémie."
     ],
     "pearl": "Wash-out perioda 36 hodin při přechodu z ACE-inhibitoru (např. perindoprilu) na ARNI (sacubitril/valsartan) je kritickým bezpečnostním pravidlem. Oba léky totiž zvyšují hladinu bradykininu (neprilysin i ACE bradykinin odbourávají). Společná přítomnost obou léčiv vede k masivní akumulaci bradykininu a rozvoji fatálního angioedému (otoku jazyka, hrtanu a udušení)!",
     "tableData": [
       {
-        "name": "Pilíře moderní trojkombinace HFrEF",
-        "value": "ARNI + Beta-blokátor + MRA + SGLT2i"
+        "name": "Pilíře foundational terapie HFrEF (EF <= 50 %)",
+        "value": "ARNI/ACEi + Beta-blokátor + MRA + SGLT2i"
       },
       {
         "name": "Doba bez ACEi před podáním ARNI",
         "value": "přísně 36 hodin (wash-out)"
       },
       {
-        "name": "SGLT2 inhibitory (přínos u CHSS)",
-        "value": "snížení mortality, nezávisle na diabetu"
+        "name": "FMT terapie pro všechny pacienty (i HFpEF)",
+        "value": "SGLT2i + MRA (nezávisle na LVEF)"
       }
     ],
     "quiz": [
       {
-        "question": "Které čtyři skupiny léčiv tvoří tzv. 'Fantastickou čtyřku' (Fantastic Four) a jsou dnes doporučeny jako terapie 1. linie (Class I) u každého pacienta s chronickým srdečním selháním se sníženou ejekční frakcí (HFrEF)?",
+        "question": "Které čtyři skupiny léčiv tvoří základní farmakoterapii (Foundational Medical Therapy - FMT) a jsou dnes dle ESC Guidelines 2026 doporučeny jako 1. linie u každého pacienta s HFrEF (LVEF ≤ 50 %)?",
         "options": [
           "Digoxin + Furosemid + Spironolakton + Warfarin",
-          "ARNI (sacubitril/valsartan) + beta-blokátor (např. bisoprolol) + MRA (např. spironolakton) + SGLT2 inhibitor (např. dapagliflozin)",
+          "ARNI/ACEi + beta-blokátor (např. bisoprolol) + MRA (např. spironolakton) + SGLT2 inhibitor (např. dapagliflozin)",
           "ACE-inhibitor + Kličkové diuretikum + Verapamil + Aspirin",
           "Ivabradine + Nitráty + Amilorid + Atorvastatin"
         ],
-        "correct": 1,
-        "explanations": [
+        correct: 1,
+        explanations: [
           "Nesprávně. Digoxin a furosemid jsou pouze symptomatické léky, nesnižují mortalitu.",
-          "Správně! Tato kombinace prokazatelně prodlužuje život, snižuje hospitalizace a zpomaluje remodelaci myokardu. Měla by být nasazena a vytitrována co nejdříve po diagnóze.",
+          "Správně! Tato 4 pilířová kombinace prokazatelně prodlužuje život, snižuje hospitalizace a zpomaluje remodelaci myokardu. Měla by být nasazena a vytitrována co nejdříve po diagnóze.",
           "Nesprávně. Verapamil (non-dihydropyridinový CCB) tlumí kontraktilitu a je u HFrEF přísně kontraindikován.",
           "Nesprávně. Jde o léky druhé linie nebo léky pro jiné indikace (např. lipidy)."
         ]
@@ -4066,8 +4066,8 @@ const PHARM_SPEC_DETAILS = {
           "Hrozí rozvoj těžké hyperglykémie",
           "ARNI by se nevstřebal z tenkého střeva"
         ],
-        "correct": 1,
-        "explanations": [
+        correct: 1,
+        explanations: [
           "Nesprávně. Interakce neprobíhá precipitací v ledvinách, ale biochemicky na úrovni bradykininu.",
           "Správně! Otok sliznic (angioedém) je vyvolán bradykininem indukovanou vasodilatací a permeabilitou. Wash-out perioda 36h je nutná pro obnovení aktivity ACE před podáním inhibitoru neprilysinu. U přechodu z ARB (sartanů) na ARNI wash-out perioda nutná není (sartany neovlivňují ACE).",
           "Nesprávně. Glykémie není touto interakcí ovlivněna.",
@@ -4075,27 +4075,27 @@ const PHARM_SPEC_DETAILS = {
         ]
       },
       {
-        "question": "Jaký je přínos SGLT2 inhibitorů (gliflozinů, např. empagliflozinu) u pacientů s chronickým srdečním selháním?",
+        "question": "Jaké je indikace SGLT2 inhibitorů (gliflozinů, např. empagliflozinu) u pacientů s chronickým srdečním selháním dle nejnovějších ESC Guidelines 2026?",
         "options": [
           "Účinkují pouze u pacientů, kteří mají současně diabetes mellitus 2. typu",
-          "Výrazně snižují kardiovaskulární úmrtí a hospitalizace pro srdeční selhání u VŠECH pacientů s HFrEF i HFpEF, a to zcela bez ohledu na to, zda pacient má či nemá diabetes",
+          "Jsou doporučeny jako foundational medical therapy u VŠECH pacientů se srdečním selháním (HFrEF i HFpEF) bez ohledu na LVEF a bez ohledu na přítomnost diabetu",
           "Zvyšují krevní tlak a tepovou frekvenci",
           "Působí jako silná antiarytmika třídy I"
         ],
-        "correct": 1,
-        "explanations": [
+        correct: 1,
+        explanations: [
           "Nesprávně. Glifloziny u srdečního selhání fungují skvěle i u nediabetiků.",
-          "Správně! Glifloziny sice vznikly jako antidiabetika, ale studie prokázaly jejich kardioprotektivní a nefroprotektivní účinky. Zlepšují účinnost plnění komor, snižují preload natriurézou a snižují krevní tlak (afterload).",
+          "Správně! Glifloziny v ESC 2026 guidelines tvoří foundational terapii nezávislou na LVEF. Zlepšují metabolickou energetiku kardiomyocytů a snižují hospitalizace i KV mortalitu.",
           "Nesprávně. Glifloziny krevní tlak mírně snižují (diuretický efekt), tepovou frekvenci neovlivňují.",
           "Nesprávně. Nemají vliv na sodíkové kanály jako antiarytmika I. třídy."
         ]
       }
     ],
     "modern_updates": [
-      "Moderní strategie terapie HFrEF vyžaduje zahájení všech čtyř pilířů ('Fantastická čtyřka': ARNI, beta-blokátor, MRA a SGLT2i) v co nejkratším čase, ideálně během 4 týdnů, namísto historicky postupného přidávání léčiv v řádu měsíců.",
-      "SGLT2 inhibitory (dapagliflozin, empagliflozin) jsou nyní indikovanou léčbou napříč celým spektrem ejekční frakce (HFrEF, HFmrEF i HFpEF), přičemž jejich přínos spočívá v metabolickém přeprogramování myokardu na efektivnější využití ketolátek a inhibici Na+/H+ výměníku bez nutnosti titrace dávky.",
-      "U pacientů se symptomatickým srdečním selháním, kteří vykazují deficit železa (i bez přítomnosti anémie), je nově doporučeno intravenózní podání ferri-karboxymaltózy, která zlepšuje symptomy a kvalitu života díky doplnění zásob železa nezbytných pro energetický metabolismus kardiomyocytů.",
-      "U obstrukční hypertrofické kardiomyopatie (HCM) došlo k posunu od čistě symptomatické léčby k cílené farmakoterapii pomocí mavacamtenu, který jako selektivní inhibitor srdečního myosinu snižuje tvorbu aktin-myosinových můstků a přímo řeší hyperkontraktilitu a dynamickou obstrukci výtokového traktu levé komory."
+      "Dle ESC Guidelines 2026 byla kategorie HFmrEF zrušena a HFrEF byla rozšířena na LVEF ≤ 50 %, zatímco HFpEF zahrnuje LVEF ≥ 50 %. SGLT2 inhibitory a MRA tvoří Foundational Medical Therapy (FMT) pro všechna fenotypová spektra selhání.",
+      "V léčbě HFpEF spojeného s obezitou a T2DM se nově uplatňují agonisty receptorů GLP-1 (např. semaglutid) pro prokazatelné zlepšení symptomů, zátěžové kapacity a redukci KV příhod.",
+      "U kardiální amyloidózy (ATTR-CA) je indikována specifická léčba stabilizátorem transthyretinu (Tafamidis), který blokuje rozpad tetrameru TTR a zabraňuje ukládání amyloidních vláken v myokardu.",
+      "Terminologicky byl termín 'akutní srdeční selhání' nahrazen pojmem dekompenzované srdeční selhání (DHF), přičemž prioritou péče je včasné zahájení SGLT2i ještě za hospitalizace po stabilizaci pacienta."
     ]
   },
   "pharm-spec-34": {
@@ -4212,7 +4212,7 @@ const PHARM_SPEC_DETAILS = {
       "Nové směry: **Renální denervace** (katetrizační ablace sympatických nervů ledvin) u rezistentních forem; **Aprocitentan** (duální antagonista endothelinových receptorů)."
     ],
     "clinical": [
-      "Cílový TK pro většinu dospělých je **< 130/80 mmHg**, u starších pacientů (> 65-70 let) se toleruje rozmezí 130-139/80 mmHg.",
+      "Cílový systolický TK (SBP) u léčených dospělých pacientů je dle aktualizovaných guidelines ESC 2024/2026 **120–129 mmHg** pro většinu nekřehkých nemocných ve věku do 79 let (při dobré toleranci).",
       "U diabetiků a pacientů s proteinurií jsou léky první volby vždy ACEi/ARBs pro prokázanou nefroprotekci (dilatace eferentní arterioly).",
       "Kontraindikace: ACEi/ARBs jsou absolutně kontraindikovány v těhotenství (fetotoxicita)."
     ],

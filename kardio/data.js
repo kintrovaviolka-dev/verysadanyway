@@ -2166,10 +2166,315 @@ const CARDIOLOGY_DATA = {
   ]
 };
 
+// ==========================================
+// EKG MASTERCLASS - DATOVÝ MODUL
+// ==========================================
+const EKG_MASTERCLASS_DATA = {
+  desatero: [
+    {
+      step: 1,
+      title: "1. Rytmus a původ vzruchu",
+      icon: "⚡",
+      rule: "Před každým QRS je přítomna pozitivní vlna P ve svodech I, II a aVF, a negativní v aVR.",
+      details: "Sinusový rytmus vs. fibrilace síní (chybí vlny P, nepravidelný interval RR), flutter síní (zuby pily), junkční rytmus (retrográdní nebo chybějící P, frekvence 40–60/min), idioventrikulární rytmus (široké QRS bez vazby na P, frekvence 20–40/min).",
+      clinicalPearl: "Pokud je vlna P ve svodu II negativní, vzruch nevzniká v SA uzlu, ale níže v síni nebo v AV junkci (tzv. ektopický síňový rytmus)."
+    },
+    {
+      step: 2,
+      title: "2. Srdeční frekvence (TF)",
+      icon: "⏱️",
+      rule: "Při posunu 25 mm/s: TF = 300 / počet velkých čtverců mezi dvěma kmity R.",
+      details: "Mnemotechnická řada na velké čtverce: 1 čtverec = 300/min, 2 = 150/min, 3 = 100/min, 4 = 75/min, 5 = 60/min, 6 = 50/min. Při nepravidelném rytmu: spočítejte počet QRS na pruhu 10 sekund (50 velkých čtverců) a vynásobte šesti.",
+      clinicalPearl: "Při posunu 50 mm/s se dělí číslem 600 namísto 300!"
+    },
+    {
+      step: 3,
+      title: "3. Elektrická osa srdeční",
+      icon: "🧭",
+      rule: "Hodnoťte polaritu (součet R a S) v končetinových svodech I a aVF.",
+      details: "• Normální osa (-30° až +90°): I pozitivní, aVF pozitivní.<br>• Sklon doleva (-30° až -90°): I pozitivní, aVF negativní (ověřte svod II – pokud je II negativní, jde o patologický levý sklon / LAH).<br>• Sklon doprava (+90° až +180°): I negativní, aVF pozitivní (hypertrofie PK, LPH, plicní embolie).<br>• Extrémní osa / 'No man's land' (-90° až 180°): I negativní, aVF negativní (typické pro komorovou tachykardii).",
+      clinicalPearl: "Pravidlo palců: Pozitivní I a pozitivní aVF = oba palce nahoru = normální osa."
+    },
+    {
+      step: 4,
+      title: "4. Vlna P (Síňová depolarizace)",
+      icon: "🌊",
+      rule: "Normální šířka < 120 ms (3 malé čtverečky), výška < 2,5 mm ve svodu II.",
+      details: "• P-pulmonale (hypertrofie pravé síně): vysoká hrotnatá vlna P ≥ 2,5 mm ve svodech II, III, aVF (CHOPN, plicní hypertenze).<br>• P-mitrale (hypertrofie levé síně): široká dvouvrcholová (bifidní) vlna P ≥ 120 ms ve svodu II s odstupem vrcholů ≥ 40 ms a bifázické P s hlubokou negativní fází ve V1 (mitrální vady, arteriální hypertenze).",
+      clinicalPearl: "Pravá síň se depolarizuje jako první (první polovina P), levá síň jako druhá (druhá polovina P)."
+    },
+    {
+      step: 5,
+      title: "5. Interval PQ / PR (Převod síň-komora)",
+      icon: "⏳",
+      rule: "Normální trvání: 120–200 ms (3 až 5 malých čtverečků).",
+      details: "• Zkrácení (< 120 ms): Preexcitace (WPW syndrom - přítomnost delta vlny), LGL syndrom, junkční rytmus.<br>• Prodloužení (> 200 ms): AV blokáda I. stupně.<br>• Deprese úseku PQ: Typická pro akutní perikarditidu nebo síňový infarkt.",
+      clinicalPearl: "Fyziologické zpoždění vzruchu vzniká v AV uzlu, což dává síním čas dopumpovat krev do komor před jejich systolou."
+    },
+    {
+      step: 6,
+      title: "6. Komplex QRS (Ventrikulární depolarizace)",
+      icon: "📈",
+      rule: "Normální šířka < 120 ms (ideálně < 100 ms).",
+      details: "• Široký QRS (≥ 120 ms): Blokáda levého raménka (LBBB), blokáda pravého raménka (RBBB), komorová tachykardie, komorová extrasystola, preexcitace.<br>• Patologický kmit Q: šířka ≥ 40 ms (1 malý čtvereček) nebo hloubka > 25 % výšky kmitu R v témže svodu -> značí prodělaný transmurální infarkt (nekrózu).<br>• Voltážová kritéria pro hypertrofii LK: Sokolow-Lyon (S ve V1 + R ve V5/V6 > 35 mm).",
+      clinicalPearl: "Drobné septální q ve svodech I, aVL, V5–V6 je normální fyziologický nález (depolarizace septa zleva doprava)."
+    },
+    {
+      step: 7,
+      title: "7. Úsek ST (Časná repolarizace komor)",
+      icon: "🎯",
+      rule: "Za normálních okolností je izoelektrický na úrovni TP/PR segmentu.",
+      details: "• ST elevace: Konvexní (klenuté) lokalizované se zrcadlovými depresemi = STEMI; Konkávní difuzní bez zrcadlových depresí = Perikarditida; Klenuté ve V1–V2 = Brugada; Elevace bodu J s 'notchingem' = Časná repolarizace.<br>• ST deprese: Horizontální či descendentní = subendokardiální ischémie (NSTEMI, stabilní AP); Miskovité = vliv digitalisu (Digoxinu); Asymetrické s negativním T ve svodech s vysokým R = přetížení LK (strain pattern).",
+      clinicalPearl: "Bod J (J-point) je přechod mezi koncem komplexu QRS a začátkem úseku ST – zde měříme elevace a deprese!"
+    },
+    {
+      step: 8,
+      title: "8. Vlna T (Rychlá repolarizace komor)",
+      icon: "📉",
+      rule: "Za normálních okolností je asymetrická a má stejný směr jako hlavní výchylka QRS (konkordantní).",
+      details: "• Vysoké štíhlé symetrické T ('stanovité'): Hyperkalémie nebo hyperakutní fáze STEMI.<br>• Hluboké symetrické negativní T: Ischémie myokardu (Wellensův syndrom), intrakraniální krvácení (cerebrální T vlny), plicní embolie (ve V1–V4).<br>• Oploštělé T / trifázické vlny: Hypokalémie.",
+      clinicalPearl: "Negativní vlna T je fyziologická pouze ve svodu aVR (kde je vše negativní) a často ve svodu V1 (u mladých žen i ve V2)."
+    },
+    {
+      step: 9,
+      title: "9. Interval QT / QTc (Elektrická systola komor)",
+      icon: "🔬",
+      rule: "Měří se od začátku QRS do konce vlny T. Korigovaný QTc (Bazett): QTc = QT / √RR.",
+      details: "• Normální QTc: muži < 450 ms, ženy < 460 ms.<br>• Prodloužený QTc (> 500 ms = extrémní riziko): Syndrom dlouhého QT (LQTS), léky (amiodaron, sotalol, makrolidy, psychofarmaka), hypokalémie, hypokalcémie, hypomagnezémie -> Hrozí fatální polymorfní KT (Torsades de Pointes).<br>• Zkrácený QTc (< 340 ms): Hyperkalcémie, intoxikace digitalisem, vrozený SQTS.",
+      clinicalPearl: "Rychlý odhad: Pokud je interval QT delší než polovina předchozího intervalu RR (při normální TF), je QTc téměř jistě prodloužený."
+    },
+    {
+      step: 10,
+      title: "10. Vlna U a doplňkové svody",
+      icon: "👁️",
+      rule: "Drobná pozitivní vlna následující po vlně T, nejlépe viditelná ve svodech V2–V4.",
+      details: "• Prominentní vlna U (> 1–2 mm): Typická pro těžkou hypokalémii, bradykardii a léčbu antiarytmiky.<br>• Negativní vlna U: Patologická, značí těžkou ischémii myokardu nebo přetížení LK.<br>• Doplňkové svody: V7–V9 (zadní stěna u podezření na dorzální infarkt při ST depresích ve V1–V3), V3R–V6R (infarkt pravé komory u spodního STEMI).",
+      clinicalPearl: "U spodního infarktu myokardu (svody II, III, aVF) VŽDY natočte pravostranné svody V3R–V6R k vyloučení infarktu pravé komory!"
+    }
+  ],
+
+  anatomy: [
+    {
+      id: "sa-node",
+      name: "Sinoatriální (SA) uzel & Síňový myokard",
+      location: "Horní část pravé síně při ústí horní duté žíly",
+      ecgCorrelate: "Vlna P",
+      mechanism: "Spontánní depolarizace pacemakerových buněk (If 'funny' kanály). Vzruch se šíří nejprve pravou síní dolů a dopředu, a přes Bachmannův svazek do levé síně dozadu a doleva.",
+      vector: "Výsledný vektor směřuje dolů, doleva a dopředu (+60°), proto je P pozitivní ve svodech I, II, aVF a negativní v aVR.",
+      pathology: "Sick Sinus Syndrome (SA blokády, zástavy), síňové tachykardie, hypertrofie pravé síně (P-pulmonale) a levé síně (P-mitrale)."
+    },
+    {
+      id: "av-node",
+      name: "Atrioventrikulární (AV) uzel & Hisův svazek",
+      location: "Dolní část mezisíňového septa v Kochově trojúhelníku",
+      ecgCorrelate: "PQ / PR úsek (izoelektrická linie mezi koncem P a začátkem QRS)",
+      mechanism: "Pomalé vedení vzruchu (zprostředkované pomalými Ca2+ kanály). Fyziologické zpoždění o ~0,08–0,12 s umožňuje dokončení síňového plnění komor.",
+      vector: "Elektricky tichý na povrchovém EKG (malá masa tkáně) -> projevuje se jako izoelektrická pauza.",
+      pathology: "AV blokáda I. stupně (prodloužený PR), AV blokáda II. stupně (Mobitz I / Wenckebach v AV uzlu vs. Mobitz II v Hisově svazku), AV blokáda III. stupně, AVNRT (duální AV nodální dráha)."
+    },
+    {
+      id: "septum",
+      name: "Mezikomorové septum (Tawarova raménka)",
+      location: "Proximální část mezikomorového septa",
+      ecgCorrelate: "Iniciální fáze QRS (kmit q v laterálních svodech / r ve V1)",
+      mechanism: "Levé raménko (LBB) se dělí dříve a depolarizuje mezikomorové septum zleva doprava!",
+      vector: "Iniciální septální vektor směřuje ZLEVA DOPRAVA, dopředu a nahoru. Proto vidíme drobné fyziologické q ve svodech I, aVL, V5–V6 a malý kmit r ve V1.",
+      pathology: "Při LBBB zaniká fyziologické septální q (septum se depolarizuje abnormálně zprava doleva), při infarktu septa vzniká patologické Q ve V1–V2."
+    },
+    {
+      id: "ventricles",
+      name: "Volné stěny levé a pravé komory (Purkyňova vlákna)",
+      location: "Subendokard -> intramurální myokard -> subepikard komor",
+      ecgCorrelate: "Hlavní tělo komplexu QRS (kmit R a S)",
+      mechanism: "Rychlý rozvod vzruchu Purkyňovými vlákny z endokardu k epikardu. Masa levé komory je 3× větší než pravé, proto její elektrické pole zcela dominuje.",
+      vector: "Hlavní komorový vektor směřuje DOLEVA, DOLŮ a DOZADU. Proto je dominantní vysoký kmit R ve svodech V5–V6 a I, II, a hluboký kmit S ve svodech V1–V2.",
+      pathology: "Hypertrofie levé komory (obří R ve V5–V6, hluboké S ve V1), LBBB (široký M-tvar QRS), RBBB (rsR' ouška ve V1 z opožděné depolarizace PK)."
+    },
+    {
+      id: "repolarization",
+      name: "Ventrikulární repolarizace",
+      location: "Subepikard -> subendokard (OPAČNÝ směr než depolarizace!)",
+      ecgCorrelate: "Úsek ST a vlna T",
+      mechanism: "Epikardiální kardiomyocyty mají kratší akční potenciál než subendokardiální (kvůli vyššímu tlaku na subendokard během systoly). Proto repolarizace začíná na EPIKARDU a postupuje k ENDOKARDU.",
+      vector: "Protože repolarizace probíhá opačným směrem s opačným elektrickým nábojem (vektor směřuje k epikardu), je výsledná vlna T POZITIVNÍ a má stejný směr jako QRS komplex (konkordance)!",
+      pathology: "Ischémie (inverze T, ST elevace/deprese), prodloužení akčního potenciálu (LQTS), iontové poruchy (stanovité T u hyperkalémie)."
+    }
+  ],
+
+  ionAndTemperature: [
+    {
+      id: "hyperkalemia",
+      name: "Hyperkalémie (K⁺ > 5,5 mmol/l)",
+      severity: "Kritická pohotovost",
+      color: "rose",
+      ecgWaveform: "Stanovité T -> Ztráta P -> Široký QRS -> Sinusoida -> Asystolie",
+      changes: [
+        "<strong>Mírná (5,5–6,5 mmol/l):</strong> Vysoké, úzké, symetrické a hrotnaté vlny T s úzkou bází ('stanové T' - tented T waves), nejlépe ve svodech II, III, V2–V4.",
+        "<strong>Střední (6,5–7,5 mmol/l):</strong> Prodloužení intervalu PR, oploštění a postupné vymizení vln P, rozšíření komplexu QRS, ST elevace imitující STEMI.",
+        "<strong>Těžká (> 7,5–8,0 mmol/l):</strong> Masivní rozšíření QRS splynuté s vlnou T do sinusoidální křivky (sine wave), komorová fibrilace nebo asystolie."
+      ],
+      pearl: "Okamžitá aplikace Calcium gluconicum 10% i.v. stabilizuje membránu kardiomyocytů během 1–3 minut a normalizuje EKG křivku, aniž by snížila sérový draslík!"
+    },
+    {
+      id: "hypokalemia",
+      name: "Hypokalémie (K⁺ < 3,5 mmol/l)",
+      severity: "Vysoké arytmogenní riziko",
+      color: "cyan",
+      ecgWaveform: "Oploštění T -> Deprese ST -> Prominentní vlna U -> Fúze T-U (zdánlivé dlouhé QT)",
+      changes: [
+        "Oploštění až inverze vln T.",
+        "Mírná deprese úseku ST (0,5–1,0 mm).",
+        "Vznik prominentní <strong>vlny U</strong> (výška > 1 mm, často vyšší než samotné oploštělé T ve V2–V3).",
+        "Zdánlivé prodloužení QT intervalu (ve skutečnosti jde o interval QU způsobený splynutím T a U vlny).",
+        "Vysoké riziko supraventrikulárních i komorových arytmií, zvláště při současné léčbě digitalisem!"
+      ],
+      pearl: "Hypokalémie + Digoxin = extrémní toxicita a riziko fatálních arytmií (komorová bigeminie, obousměrná komorová tachykardie)."
+    },
+    {
+      id: "hypercalcemia",
+      name: "Hyperkalcémie (Ca²⁺ > 2,6 mmol/l)",
+      severity: "Zkrácení refrakterní periody",
+      color: "amber",
+      ecgWaveform: "Extrémní zkrácení intervalu ST a QT intervalu",
+      changes: [
+        "Výrazné <strong>zkrácení intervalu QT / QTc</strong> (< 360 ms).",
+        "Úsek ST je prakticky nepřítomný – vlna T začíná bezprostředně na konci komplexu QRS.",
+        "Při těžké hyperkalcémii (> 3,5 mmol/l) se může objevit rozšíření QRS, bradykardie, AV blokády a elevation bodu J imitující infarkt."
+      ],
+      pearl: "Při nálezu nápadně krátkého QT na EKG vždy odeberte iontogram a kalcium k vyloučení primárního hyperparatyreoidismu nebo malignity!"
+    },
+    {
+      id: "hypocalcemia",
+      name: "Hypokalcémie (Ca²⁺ < 2,1 mmol/l)",
+      severity: "Prodloužení plató fáze akčního potenciálu",
+      color: "purple",
+      ecgWaveform: "Prodloužení ST úseku s normální tloušťkou vlny T -> Prodloužený QT interval",
+      changes: [
+        "Výrazné <strong>prodloužení intervalu QT / QTc</strong>.",
+        "Důležité: Prodloužení QT je způsobeno <strong>izolovaným prodloužením izoelektrického ST segmentu</strong>, zatímco samotná vlna T má normální tvar a šířku (na rozdíl od hypokalémie, kde se mění tvar T a vzniká vlna U).",
+        "Riziko vzniku maligních komorových arytmií (Torsades de Pointes)."
+      ],
+      pearl: "Hypokalcémie prodlužuje fázi 2 (plató) akčního potenciálu kardiomyocytů (pomalý vtok Ca2+)."
+    },
+    {
+      id: "hypothermia",
+      name: "Hypotermie (Teplota jádra < 32–35 °C)",
+      severity: "Enviromentální kardiální deprese",
+      color: "blue",
+      ecgWaveform: "Osbornova vlna (J-vlna) + Sinusová bradykardie + Třesové artefakty + Prodloužení všech intervalů",
+      changes: [
+        "<strong>Osbornova vlna (J-vlna):</strong> Patognomická pozitivní výchylka / hrb na přechodu konce QRS a začátku ST úseku, nejvýraznější v prekordiálních svodech V3–V6 a končetinových II, III, aVF. Její výška koreluje s hloubkou hypotermie.",
+        "Progresivní sinusová bradykardie (při hluboké hypotermii přechod do fibrilace síní s pomalou komorovou odpovědí).",
+        "Prodloužení všech intervalů: PR, QRS i QT intervalu.",
+        "Artefakty ze svalového třesu na izoelektrické linii imitující fibrilaci síní."
+      ],
+      pearl: "Při těžké hypotermii (< 28 °C) je myokard extrémně citlivý na mechanické podráždění (např. zavedení CŽK) s rizikem vyvolání refrakterní fibrilace komor!"
+    }
+  ],
+
+  syndromesAndCongenital: [
+    {
+      id: "brugada",
+      name: "Brugada syndrom",
+      type: "Dědičná kanálopatie (SCN5A - Na⁺ kanál)",
+      icon: "⚡",
+      ecgCriteria: "Typ 1 (diagnostický): Klenutá (coved-type) ST elevace ≥ 2 mm plynule přecházející do negativní vlny T ve svodech V1–V2 (případně umístěných do 2. a 3. mezižebří). Typ 2 (saddleback): Sedlovitá ST elevace ≥ 0,5 mm s pozitivní nebo bifázickou vlnou T.",
+      clinicalPresentation: "Mladí pacienti (častěji muži asijského původu) s náhlou synkopou v klidu nebo ve spánku, rodinná anamnéza náhlé srdeční smrti. Arytmie: polymorfní komorová tachykardie a fibrilace komor.",
+      triggers: "Horečka (horečka demaskuje EKG obraz!), alkohol, přejedení, léky blokující sodíkový kanál (ajmalin, flekainid, tricyklická antidepresiva).",
+      management: "Při zástavě či synkopě indikace k implantaci ICD (implantabilní kardioverter-defibrilátor). Akutní léčba arytmické bouře: i.v. Isoprenalin nebo chinidin. Okamžitá antipyretická léčba při horečce!"
+    },
+    {
+      id: "wpw",
+      name: "WPW syndrom (Wolff-Parkinson-White)",
+      type: "Vrozená přídatná atrioventrikulární dráha (Kentův svazek)",
+      icon: "⚡",
+      ecgCriteria: "Klasická triáda: 1. Zkrácený interval PR (< 120 ms), 2. Delta vlna (pomalý náběh vzestupné části kmitu R způsobený předčasnou depolarizací komory přes Kentův svazek), 3. Rozšířený QRS komplex (> 110–120 ms) se sekundárními ST-T změnami.",
+      clinicalPresentation: "Záchvaty palpitací u mladých lidí (ortodromní nebo antidromní AVRT).",
+      dangerAlert: "🚨 <strong>Fibrilace síní u WPW (FBI - Fast, Broad, Irregular):</strong> Extrémně nebezpečná arytmie! Převod přes přídatnou dráhu může dosáhnout frekvence > 250–300/min a přejít do fibrilace komor. <strong>ZÁKAZ AV blokátorů (Adenosin, Verapamil, Digoxin, Betablokátory)</strong>! Lékem volby je urgentní elektrická kardioverze nebo i.v. Ibutilid / Prokainamid.",
+      management: "Kurativní léčba první volby: Radiofrekvenční katetrizační ablace přídatné dráhy (úspěšnost > 95 %)."
+    },
+    {
+      id: "lqts",
+      name: "Syndrom dlouhého QT (LQTS)",
+      type: "Genetické kanálopatie (LQT1–LQT3) & Získané polékové formy",
+      icon: "🧬",
+      ecgCriteria: "Prodloužení korigovaného QTc intervalu > 460–480 ms (hodnoty > 500 ms = vysoké riziko Torsades de Pointes). LQT1: široká symetrická vlna T (spouštěčem je námaha a plavání). LQT2: oploštělá, vroubkovaná/dvouvrcholová vlna T (spouštěčem je sluchový podnět - budík, telefon, leknutí). LQT3: dlouhý izoelektrický ST segment a pozdní úzká vlna T (spouštěčem je spánek a klid).",
+      clinicalPresentation: "Synkopy při emočním vypětí, námaze nebo zvukovém šoku, náhlá smrt v mladém věku.",
+      management: "Neselektivní betablokátory (Nadolol, Propranolol), zákaz rizikových léků (databáze CredibleMeds), suplementace magnézia a kalia, při vysokém riziku ICD."
+    },
+    {
+      id: "arvc",
+      name: "Arytmogenní kardiomyopatie pravé komory (ARVC / ARVD)",
+      type: "Genetické onemocnění desmozomů (Plakoglobin, Desmoplakin)",
+      icon: "💔",
+      ecgCriteria: "1. <strong>Vlna Epsilon (Epsilon wave):</strong> Drobné vroubkování / zářez na konci komplexu QRS na přechodu do ST segmentu ve svodech V1–V3 (vyskytuje se až u 30 % pacientů). 2. Inverze vln T v pravostranných svodech V1–V3 u osob starších 14 let. 3. Prodloužený terminální aktivační interval (S-upstroke) > 55 ms ve V1–V3.",
+      clinicalPresentation: "Mladí sportovci s palpitacemi, komorovými tachykardiemi s morfologií LBBB (původ v PK) a náhlou srdeční smrtí při sportovní zátěži.",
+      management: "Zákaz vrcholového a soutěžního sportu, betablokátory, katetrizační ablace komorových tachykardií, implantace ICD."
+    },
+    {
+      id: "early-repoc",
+      name: "Syndrom časné repolarizace (Early Repolarization Pattern)",
+      type: "Elektrofyziologická varianta (benigní vs. maligní)",
+      icon: "✨",
+      ecgCriteria: "Elevace bodu J ≥ 1 mm ve 2 sousedních svodech s typickým zářezem (notching) nebo zaoblením (slurring) na sestupném raménku kmitu R, následovaná konkávní elevací ST úseku a vysokou pozitivní vlnou T.",
+      clinicalPresentation: "Nejčastěji benigní nález u mladých trénovaných sportovců ve svodech V2–V5 (vyvolaný vysokým tonem vagu).",
+      management: "U asymptomatických mladých sportovců se jedná o normální variantu nevyžadující žádnou léčbu ani omezení sportu."
+    }
+  ],
+
+  masterclassQuiz: [
+    {
+      id: "emq-1",
+      question: "Který EKG fenomén vzniká opožděnou depolarizací mezikomorového septa zleva doprava a proč chybí při blokádě levého raménka (LBBB)?",
+      options: [
+        { text: "A) Fyziologický kmit q v laterálních svodech (I, aVL, V5-V6) – při LBBB se septum depolarizuje abnormálně zprava doleva z pravého raménka.", isCorrect: true },
+        { text: "B) Vlna Epsilon – při LBBB je překryta depolarizací volné stěny.", isCorrect: false },
+        { text: "C) Kmit S ve svodu V1 – při LBBB se mění na vysoký kmit R.", isCorrect: false },
+        { text: "D) Vlna U – při LBBB mizí kvůli zkrácení repolarizace.", isCorrect: false }
+      ],
+      explanation: "Za normálních okolností se mezikomorové septum depolarizuje jako první zleva doprava přes vlákna levého raménka, což vytváří drobný negativní kmit q ve svodech I, aVL, V5-V6. Při LBBB je levé raménko nefunkční, septum se depolarizuje abnormálně zprava doleva, a proto normální septální q vymizí!"
+    },
+    {
+      id: "emq-2",
+      question: "24letý muž přivezen po synkopě při horečnaté viróze. EKG ve svodech V1–V2 ukazuje klenutou elevaci bodu J o 3 mm s negativní vlnou T. O jaký syndrom se jedná a jaký je okamžitý krok?",
+      options: [
+        { text: "A) Brugada syndrom typ 1 – okamžité podání antipyretik k sražení horečky a hospitalizace na telemetrii", isCorrect: true },
+        { text: "B) Akutní STEMI přední stěny – okamžitá koronarografie", isCorrect: false },
+        { text: "C) Akutní perikarditida – vysoké dávky ibuprofenu a kolchicinu", isCorrect: false },
+        { text: "D) WPW syndrom – podání adenosinu", isCorrect: false }
+      ],
+      explanation: "Jedná se o Brugada syndrom Typ 1 (klenutá ST elevace ve V1-V2). Horečka je klíčovým spouštěčem arytmií a demaskuje Brugada EKG obraz zhoršením inaktivace Na+ kanálu. Okamžitá antipyretická terapie je zásadní pro snížení rizika komorové fibrilace!"
+    },
+    {
+      id: "emq-3",
+      question: "U pacienta s těžkou hypotermií (teplota těla 29 °C) nacházíte na EKG bradykardii a prominentní vlnu na přechodu QRS a ST úseku. Jak se tato vlna nazývá?",
+      options: [
+        { text: "A) Osbornova vlna (J-vlna)", isCorrect: true },
+        { text: "B) Vlna Epsilon", isCorrect: false },
+        { text: "C) Delta vlna", isCorrect: false },
+        { text: "D) Vlna U", isCorrect: false }
+      ],
+      explanation: "Osbornova vlna (J-wave) je patognomickým znakem hypotermie. Vzniká na přechodu QRS a ST segmentu v důsledku výrazného napěťového gradientu mezi epikardem a endokardem při nízké tělesné teplotě."
+    },
+    {
+      id: "emq-4",
+      question: "Proč je u pacienta s fibrilací síní a preexcitací (WPW syndrom - nepravidelná širokokomplexová tachykardie s TF 260/min) přísně zakázáno podat Adenosin nebo Verapamil?",
+      options: [
+        { text: "A) Blokáda AV uzlu přesměruje veškeré síňové vzruchy do přídatné Kentovy dráhy, což může vést k okamžitému přechodu do fibrilace komor a srdeční zástavě.", isCorrect: true },
+        { text: "B) Tyto léky způsobují masivní hyperkalémii.", isCorrect: false },
+        { text: "C) Vyvolávají rupturu mezikomorového septa.", isCorrect: false },
+        { text: "D) Blokují beta receptory v plicích a způsobí bronchospasmus.", isCorrect: false }
+      ],
+      explanation: "U fibrilace síní s WPW (tzv. FBI tachykardie - Fast, Broad, Irregular) chrání AV uzel komory tím, že část vzruchů nepropustí. Pokud AV uzel zablokujeme adenosinem nebo verapamilem, všechny vzruchy s frekvencí 300–400/min projdou bez odporu Kentovým svazkem přímo na komory a vyvolají komorovou fibrilaci! Lékem volby je elektrická kardioverze nebo Ibutilid."
+    }
+  ]
+};
+
 // Export pro globální i modulární použití
 if (typeof window !== "undefined") {
   window.CARDIOLOGY_DATA = CARDIOLOGY_DATA;
+  window.EKG_MASTERCLASS_DATA = EKG_MASTERCLASS_DATA;
 }
 if (typeof module !== "undefined" && module.exports) {
-  module.exports = { CARDIOLOGY_DATA };
+  module.exports = { CARDIOLOGY_DATA, EKG_MASTERCLASS_DATA };
 }
