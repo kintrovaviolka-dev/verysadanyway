@@ -301,16 +301,27 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     if (filtered.length === 0) {
-      questionsListContainer.innerHTML = `
-        <div style="text-align: center; padding: 30px 20px;">
-          <div style="color: var(--text-secondary); margin-bottom: 16px;">Nebyly nalezeny žádné otázky.</div>
-          <button id="clear-search-btn" class="btn btn-secondary btn-sm" aria-label="Zrušit vyhledávání">
-            Zrušit vyhledávání
-          </button>
-        </div>
-      `;
+      questionsListContainer.textContent = "";
 
-      const clearBtn = document.getElementById("clear-search-btn");
+      const emptyDiv = document.createElement("div");
+      emptyDiv.style.textAlign = "center";
+      emptyDiv.style.padding = "30px 20px";
+
+      const messageDiv = document.createElement("div");
+      messageDiv.style.color = "var(--text-secondary)";
+      messageDiv.style.marginBottom = "16px";
+      messageDiv.textContent = "Nebyly nalezeny žádné otázky.";
+
+      const clearBtn = document.createElement("button");
+      clearBtn.id = "clear-search-btn";
+      clearBtn.className = "btn btn-secondary btn-sm";
+      clearBtn.setAttribute("aria-label", "Zrušit vyhledávání");
+      clearBtn.textContent = "Zrušit vyhledávání";
+
+      emptyDiv.appendChild(messageDiv);
+      emptyDiv.appendChild(clearBtn);
+      questionsListContainer.appendChild(emptyDiv);
+
       if (clearBtn) {
         clearBtn.addEventListener("click", () => {
           questionSearch.value = "";
