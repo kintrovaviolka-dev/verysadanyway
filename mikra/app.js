@@ -552,14 +552,83 @@ function bindEvents() {
     });
   }
 
-  // Theme toggle
-  const themeBtn = document.getElementById('theme-toggle');
-  if (themeBtn) themeBtn.addEventListener('click', toggleTheme);
+  // Keyboard shortcuts banner toggle
+  const kbdBtn = document.getElementById('kbd-shortcuts-btn');
+  const kbdBanner = document.getElementById('kbd-shortcuts-banner');
+  const closeKbdBtn = document.getElementById('close-kbd-banner');
+  if (kbdBtn && kbdBanner) {
+    kbdBtn.addEventListener('click', () => {
+      const isHidden = kbdBanner.style.display === 'none';
+      kbdBanner.style.display = isHidden ? 'block' : 'none';
+    });
+  }
+  if (closeKbdBtn && kbdBanner) {
+    closeKbdBtn.addEventListener('click', () => {
+      kbdBanner.style.display = 'none';
+    });
+  }
 
-  // Keyboard: Escape closes dialog
+  // Dialog Prev/Next Navigation
+  const prevBtn = document.getElementById('dialog-prev-btn');
+  const nextBtn = document.getElementById('dialog-next-btn');
+  if (prevBtn) prevBtn.addEventListener('click', () => navigateQuestion(-1));
+  if (nextBtn) nextBtn.addEventListener('click', () => navigateQuestion(1));
+
+  // Global Keyboard Navigation
   document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeDialog();
+    const dialog = document.getElementById('detail-dialog');
+    const isDialogOpen = dialog && dialog.open;
+
+    if (e.key === 'Escape') {
+      if (isDialogOpen) closeDialog();
+      return;
+    }
+
+    // Ignore keyboard shortcuts when typing in inputs/textareas
+    if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) return;
+
+    if (isDialogOpen) {
+      const activePart = appState.currentPart || 'A';
+
+      if (e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        const currentTabType = appState.currentTab[activePart] || 'study';
+        const newTabType = currentTabType === 'study' ? 'quiz' : 'study';
+        switchTab(activePart, newTabType);
+      } else if (e.key === '1') {
+        e.preventDefault();
+        applyGrade(appState.currentQuestion.id, activePart, 'wrong');
+      } else if (e.key === '2' || e.key === '3') {
+        e.preventDefault();
+        applyGrade(appState.currentQuestion.id, activePart, 'good');
+      } else if (e.key === '4') {
+        e.preventDefault();
+        applyGrade(appState.currentQuestion.id, activePart, 'perfect');
+      } else if (e.key === 'a' || e.key === 'A') {
+        e.preventDefault();
+        switchPart('A');
+      } else if (e.key === 'b' || e.key === 'B') {
+        e.preventDefault();
+        switchPart('B');
+      } else if (e.key === 'ArrowRight' || e.key === 'n' || e.key === 'N') {
+        e.preventDefault();
+        navigateQuestion(1);
+      } else if (e.key === 'ArrowLeft' || e.key === 'p' || e.key === 'P') {
+        e.preventDefault();
+        navigateQuestion(-1);
+      }
+    }
   });
+}
+
+function navigateQuestion(offset) {
+  if (!appState.currentQuestion) return;
+  const currentIndex = MIKRA_QUESTIONS.findIndex(q => q.id === appState.currentQuestion.id);
+  if (currentIndex === -1) return;
+  let newIndex = currentIndex + offset;
+  if (newIndex < 0) newIndex = MIKRA_QUESTIONS.length - 1;
+  if (newIndex >= MIKRA_QUESTIONS.length) newIndex = 0;
+  openDialog(MIKRA_QUESTIONS[newIndex]);
 }
 
 function closeDialog() {

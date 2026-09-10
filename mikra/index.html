@@ -31,6 +31,10 @@
       </div>
 
       <div class="header-controls">
+        <!-- Klávesové zkratky info -->
+        <button id="kbd-shortcuts-btn" class="btn btn-secondary" title="Klávesové zkratky pro rychlé studium">
+          ⌨️ Zkratky
+        </button>
         <!-- Zpět na rozcestník -->
         <button id="back-hub-btn" class="btn btn-secondary" title="Zpět na centrální rozcestník předmětů">
           ← Rozcestník
@@ -132,7 +136,9 @@
             <option value="Bakteriologie">Bakteriologie (část A)</option>
             <option value="Virologie">Virologie (část B)</option>
             <option value="Mykologie">Mykologie (část B)</option>
+            <option value="Parazitologie">Parazitologie (část B)</option>
             <option value="Diagnostika">Diagnostika (část B)</option>
+            <option value="Farmakoterapie">Farmakoterapie (část A)</option>
           </select>
         </div>
 
@@ -150,6 +156,24 @@
         </div>
       </div>
     </section>
+
+    <!-- Nápověda klávesových zkratek -->
+    <div id="kbd-shortcuts-banner" class="kbd-shortcuts-banner" style="display: none;">
+      <div class="kbd-banner-header">
+        <h4>⌨️ Klávesové zkratky pro bleskové studium</h4>
+        <button id="close-kbd-banner" class="kbd-close-btn">&times;</button>
+      </div>
+      <div class="kbd-grid">
+        <div class="kbd-item"><kbd>Space</kbd> / <kbd>Enter</kbd> <span>Přepnout Výklad / Kvíz</span></div>
+        <div class="kbd-item"><kbd>A</kbd> / <kbd>B</kbd> <span>Přepnout Část A / Část B</span></div>
+        <div class="kbd-item"><kbd>1</kbd> <span>Ztěžka (Box 1)</span></div>
+        <div class="kbd-item"><kbd>2</kbd> / <kbd>3</kbd> <span>Slibné (Box 2/3)</span></div>
+        <div class="kbd-item"><kbd>4</kbd> <span>Zvládnuté (Box 4)</span></div>
+        <div class="kbd-item"><kbd>→</kbd> / <kbd>N</kbd> <span>Další dvojotázka</span></div>
+        <div class="kbd-item"><kbd>←</kbd> / <kbd>P</kbd> <span>Předchozí dvojotázka</span></div>
+        <div class="kbd-item"><kbd>Esc</kbd> <span>Zavřít okno</span></div>
+      </div>
+    </div>
 
     <!-- Seznam karet -->
     <main class="cards-grid" id="cards-grid">
@@ -179,9 +203,17 @@
           <span class="dialog-question-num" id="dialog-question-num">OTÁZKA 1</span>
           <h2 class="dialog-title" id="dialog-title">Název otázky</h2>
         </div>
-        <button class="dialog-close-btn" id="dialog-close" aria-label="Zavřít panel">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-        </button>
+        <div class="dialog-header-actions">
+          <button id="dialog-prev-btn" class="dialog-nav-btn" title="Předchozí otázka (P / ←)">
+            ←
+          </button>
+          <button id="dialog-next-btn" class="dialog-nav-btn" title="Další otázka (N / →)">
+            →
+          </button>
+          <button class="dialog-close-btn" id="dialog-close" aria-label="Zavřít panel">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
       </header>
 
       <!-- Záložky části A / B -->

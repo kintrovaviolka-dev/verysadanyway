@@ -1096,3 +1096,113 @@ header {
 @media (max-width: 580px) {
   .boxes-container { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ===========================
+   KEYBOARD SHORTCUTS BANNER & NAV
+=========================== */
+.kbd-shortcuts-banner {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 20px var(--shadow-teal);
+  animation: fadeIn 0.3s ease-out;
+}
+
+.kbd-banner-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.kbd-banner-header h4 {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.kbd-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0 0.4rem;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+.kbd-close-btn:hover { color: var(--text-primary); background: var(--border-subtle); }
+
+.kbd-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.6rem 1rem;
+}
+
+.kbd-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+kbd {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  box-shadow: 0 2px 0 var(--shadow);
+  color: var(--text-primary);
+  font-family: monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.15rem 0.45rem;
+  white-space: nowrap;
+}
+
+/* Modal header actions & nav buttons */
+.dialog-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dialog-nav-btn {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: var(--transition);
+}
+.dialog-nav-btn:hover {
+  background: var(--primary-light);
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-1px);
+}
+
+/* Distinct Part A (Teal) and Part B (Indigo) Glows */
+.part-tab-btn[data-part="A"].active {
+  box-shadow: 0 4px 14px var(--primary-glow);
+}
+.part-tab-btn[data-part="B"].active {
+  box-shadow: 0 4px 14px var(--primary-b-glow);
+  background: var(--primary-b-light);
+  border-color: var(--primary-b);
+  color: var(--primary-b);
+}
+
