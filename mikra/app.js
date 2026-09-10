@@ -560,11 +560,13 @@ function bindEvents() {
     kbdBtn.addEventListener('click', () => {
       const isHidden = kbdBanner.style.display === 'none';
       kbdBanner.style.display = isHidden ? 'block' : 'none';
+      kbdBtn.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
     });
   }
   if (closeKbdBtn && kbdBanner) {
     closeKbdBtn.addEventListener('click', () => {
       kbdBanner.style.display = 'none';
+      if (kbdBtn) kbdBtn.setAttribute('aria-expanded', 'false');
     });
   }
 
@@ -701,6 +703,7 @@ function initChatbot() {
     chatbotFab.addEventListener("click", () => {
       const isOpen = chatbotPanel.classList.toggle("open");
       chatbotFab.classList.toggle("open");
+      chatbotFab.setAttribute("aria-expanded", isOpen ? "true" : "false");
       if (isOpen) {
         if (chatbotBadge) chatbotBadge.style.display = "none";
         if (chatbotInput) chatbotInput.focus();
@@ -714,6 +717,7 @@ function initChatbot() {
     closeBtn.addEventListener("click", () => {
       chatbotPanel.classList.remove("open");
       chatbotFab.classList.remove("open");
+      chatbotFab.setAttribute("aria-expanded", "false");
     });
   }
 

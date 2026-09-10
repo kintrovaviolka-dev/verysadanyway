@@ -1178,8 +1178,10 @@ kbd {
   border: 1px solid var(--border-subtle);
   color: var(--text-secondary);
   border-radius: var(--radius-sm);
-  width: 34px;
-  height: 34px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1206,3 +1208,38 @@ kbd {
   color: var(--primary-b);
 }
 
+/* ===========================
+   A11Y: FOCUS-VISIBLE RINGS
+=========================== */
+.tab-btn:focus-visible,
+.part-tab-btn:focus-visible,
+.leitner-btn:focus-visible,
+.quiz-opt-btn:focus-visible,
+.dialog-nav-btn:focus-visible,
+.dialog-close-btn:focus-visible,
+.reveal-btn:focus-visible,
+.kbd-shortcuts-btn:focus-visible,
+.kbd-close-btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px var(--primary-glow, rgba(20, 184, 166, 0.25));
+}
+
+/* ===========================
+   PERFORMANCE: REDUCED MOTION
+=========================== */
+@media (prefers-reduced-motion: reduce) {
+  .leitner-btn,
+  .leitner-btn:hover,
+  .question-card,
+  .question-card:hover,
+  .question-card:active,
+  .dialog-nav-btn,
+  .dialog-nav-btn:hover,
+  .box-indicator,
+  .box-indicator:hover {
+    transform: none !important;
+    transition-duration: 0.01ms !important;
+    animation: none !important;
+  }
+}

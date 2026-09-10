@@ -13,6 +13,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="dark-theme">
+  <!-- Skip-to-content for keyboard users -->
+  <a class="skip-link" href="#cards-grid">Přeskočit na karty</a>
   <div class="app-container">
 
     <!-- Hlavička aplikace -->
@@ -32,7 +34,7 @@
 
       <div class="header-controls">
         <!-- Klávesové zkratky info -->
-        <button id="kbd-shortcuts-btn" class="btn btn-secondary" title="Klávesové zkratky pro rychlé studium">
+        <button id="kbd-shortcuts-btn" class="btn btn-secondary" title="Klávesové zkratky pro rychlé studium" aria-expanded="false" aria-controls="kbd-shortcuts-banner" aria-label="Zobrazit klávesové zkratky">
           ⌨️ Zkratky
         </button>
         <!-- Zpět na rozcestník -->
@@ -176,7 +178,7 @@
     </div>
 
     <!-- Seznam karet -->
-    <main class="cards-grid" id="cards-grid">
+    <main class="cards-grid" id="cards-grid" aria-live="polite" aria-atomic="false" aria-label="Seznam studijních karet">
       <!-- Generuje se dynamicky přes JS -->
     </main>
 
@@ -204,10 +206,10 @@
           <h2 class="dialog-title" id="dialog-title">Název otázky</h2>
         </div>
         <div class="dialog-header-actions">
-          <button id="dialog-prev-btn" class="dialog-nav-btn" title="Předchozí otázka (P / ←)">
+          <button id="dialog-prev-btn" class="dialog-nav-btn" title="Předchozí otázka (P / ←)" aria-label="Předchozí otázka">
             ←
           </button>
-          <button id="dialog-next-btn" class="dialog-nav-btn" title="Další otázka (N / →)">
+          <button id="dialog-next-btn" class="dialog-nav-btn" title="Další otázka (N / →)" aria-label="Další otázka">
             →
           </button>
           <button class="dialog-close-btn" id="dialog-close" aria-label="Zavřít panel">
@@ -250,18 +252,18 @@
             <div class="spaced-repetition-controls">
               <h4>Ohodnoť znalost části <span class="badge-a-inline">A</span> po přečtení:</h4>
               <div class="leitner-btn-group">
-                <button class="leitner-btn l-btn-wrong" data-grade="wrong" data-target="a">
-                  <span class="btn-icon">❌</span>
+                <button class="leitner-btn l-btn-wrong" data-grade="wrong" data-target="a" aria-label="Ztěžka — část A, vrátit do Box 1">
+                  <span class="btn-icon" aria-hidden="true">❌</span>
                   <span class="btn-text">Ztěžka</span>
                   <span class="btn-sub">Bude brzy</span>
                 </button>
-                <button class="leitner-btn l-btn-good" data-grade="good" data-target="a">
-                  <span class="btn-icon">⚠️</span>
+                <button class="leitner-btn l-btn-good" data-grade="good" data-target="a" aria-label="Slibné — část A, posunout o box">
+                  <span class="btn-icon" aria-hidden="true">⚠️</span>
                   <span class="btn-text">Slibné</span>
                   <span class="btn-sub">Posunout o box</span>
                 </button>
-                <button class="leitner-btn l-btn-perfect" data-grade="perfect" data-target="a">
-                  <span class="btn-icon">✅</span>
+                <button class="leitner-btn l-btn-perfect" data-grade="perfect" data-target="a" aria-label="Skvěle — část A, přesunout do Box 4 (Zvládnuté)">
+                  <span class="btn-icon" aria-hidden="true">✅</span>
                   <span class="btn-text">Skvěle</span>
                   <span class="btn-sub">Zvládnuté (Box 4)</span>
                 </button>
@@ -294,18 +296,18 @@
             <div class="spaced-repetition-controls">
               <h4>Ohodnoť znalost části <span class="badge-b-inline">B</span> po přečtení:</h4>
               <div class="leitner-btn-group">
-                <button class="leitner-btn l-btn-wrong" data-grade="wrong" data-target="b">
-                  <span class="btn-icon">❌</span>
+                <button class="leitner-btn l-btn-wrong" data-grade="wrong" data-target="b" aria-label="Ztěžka — část B, vrátit do Box 1">
+                  <span class="btn-icon" aria-hidden="true">❌</span>
                   <span class="btn-text">Ztěžka</span>
                   <span class="btn-sub">Bude brzy</span>
                 </button>
-                <button class="leitner-btn l-btn-good" data-grade="good" data-target="b">
-                  <span class="btn-icon">⚠️</span>
+                <button class="leitner-btn l-btn-good" data-grade="good" data-target="b" aria-label="Slibné — část B, posunout o box">
+                  <span class="btn-icon" aria-hidden="true">⚠️</span>
                   <span class="btn-text">Slibné</span>
                   <span class="btn-sub">Posunout o box</span>
                 </button>
-                <button class="leitner-btn l-btn-perfect" data-grade="perfect" data-target="b">
-                  <span class="btn-icon">✅</span>
+                <button class="leitner-btn l-btn-perfect" data-grade="perfect" data-target="b" aria-label="Skvěle — část B, přesunout do Box 4 (Zvládnuté)">
+                  <span class="btn-icon" aria-hidden="true">✅</span>
                   <span class="btn-text">Skvěle</span>
                   <span class="btn-sub">Zvládnuté (Box 4)</span>
                 </button>
@@ -325,8 +327,8 @@
   <!-- Floating Gemini Chatbot Widget -->
   <div class="gemini-chatbot-container context-mikra" id="gemini-chatbot-container">
     <!-- Chat Button (FAB) -->
-    <button class="chatbot-fab" id="chatbot-fab" aria-label="Otevřít lékařského asistenta">
-      <span class="fab-icon">💬</span>
+    <button class="chatbot-fab" id="chatbot-fab" aria-label="Otevřít lékařského asistenta" aria-expanded="false" aria-controls="chatbot-panel">
+      <span class="fab-icon" aria-hidden="true">💬</span>
       <span class="fab-badge pulse-badge" id="chatbot-badge"></span>
     </button>
 
@@ -336,8 +338,8 @@
       <div class="chatbot-header" id="chatbot-header">
         <div class="chatbot-title-area">
           <div class="chatbot-avatar-container">
-            <span class="chatbot-avatar">🤖</span>
-            <span class="avatar-status-dot online"></span>
+            <span class="chatbot-avatar" aria-hidden="true">🤖</span>
+            <span class="avatar-status-dot online" aria-hidden="true"></span>
           </div>
           <div class="chatbot-info">
             <h4 class="chatbot-name">Gemini Asistent</h4>
@@ -392,7 +394,7 @@
 
       <!-- Input Area -->
       <form class="chatbot-input-area" id="chatbot-input-form">
-        <input type="text" id="chatbot-input" placeholder="Zeptej se na cokoliv..." autocomplete="off" required />
+        <input type="text" id="chatbot-input" placeholder="Zeptej se na cokoliv..." autocomplete="off" required aria-label="Zadej dotaz pro Gemini asistenta" />
         <button type="submit" id="chatbot-send-btn" aria-label="Odeslat zprávu">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <line x1="22" y1="2" x2="11" y2="13"></line>
