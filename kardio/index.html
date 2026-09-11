@@ -173,14 +173,28 @@
     <!-- ================= POHLED: EKG MASTERCLASS ================= -->
     <section id="ekg-view" class="ekg-view-container" aria-label="EKG Masterclass">
       <div class="ekg-hero-banner">
-        <div style="max-width: 780px;">
-          <span class="grade-tag" style="background: rgba(16,185,129,0.15); color: #34d399; border-color: rgba(16,185,129,0.3); margin-bottom: 8px; display: inline-block;">Interaktivní modul</span>
-          <h2 style="font-family: var(--font-heading); font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-bottom: 8px;">
-            EKG Masterclass & Diagnostický atlas
-          </h2>
-          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">
-            Komplexní vizuální průvodce elektrokardiografií: split-card rozpad s reálným EKG pruhem, zjednodušeným schématem anatomického šíření vzruchu, EKG Desaterem, iontovými dysbalancemi, syndromy a detailním přehledem typů kardiostimulace (od VVI přes CRT až po nenápadný His-bundle pacing).
-          </p>
+        <div class="ekg-hero-header-row">
+          <div style="max-width: 720px;">
+            <span class="grade-tag" id="ekg-tag-label" style="background: rgba(16,185,129,0.15); color: #34d399; border-color: rgba(16,185,129,0.3); margin-bottom: 8px; display: inline-block;">Interaktivní modul</span>
+            <h2 id="ekg-hero-title" style="font-family: var(--font-heading); font-size: 1.6rem; font-weight: 800; color: var(--text-primary); margin-bottom: 8px;">
+              EKG Masterclass & Diagnostický atlas
+            </h2>
+            <p id="ekg-hero-desc" style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">
+              Komplexní vizuální průvodce elektrokardiografií: split-card rozpad s reálným EKG pruhem, zjednodušeným schématem anatomického šíření vzruchu, EKG Desaterem, iontovými dysbalancemi, syndromy a detailním přehledem typů kardiostimulace (od VVI přes CRT až po nenápadný His-bundle pacing).
+            </p>
+          </div>
+
+          <!-- Language Switcher (CZ / ES) -->
+          <div class="ekg-lang-switcher" aria-label="Volba jazyka / Selección de idioma">
+            <button class="ekg-lang-btn active" id="ekg-lang-cs" data-lang="cs" title="Přepnout do češtiny">
+              <span>🇨🇿</span>
+              <span>Čeština</span>
+            </button>
+            <button class="ekg-lang-btn" id="ekg-lang-es" data-lang="es" title="Cambiar a Español">
+              <span>🇪🇸</span>
+              <span>Español</span>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -188,27 +202,27 @@
       <div class="ekg-subnav-group">
         <button class="ekg-subnav-btn active" id="ekg-sub-desatero">
           <span>📜</span>
-          <span>1. EKG Desatero</span>
+          <span id="ekg-tab-label-desatero">1. EKG Desatero</span>
         </button>
         <button class="ekg-subnav-btn" id="ekg-sub-anatomy">
           <span>🫀</span>
-          <span>2. Anatomický původ</span>
+          <span id="ekg-tab-label-anatomy">2. Anatomický původ</span>
         </button>
         <button class="ekg-subnav-btn" id="ekg-sub-ions">
           <span>🧪</span>
-          <span>3. Ionty & Teplota</span>
+          <span id="ekg-tab-label-ions">3. Ionty & Teplota</span>
         </button>
         <button class="ekg-subnav-btn" id="ekg-sub-syndromes">
           <span>⚡</span>
-          <span>4. Syndromy & Vady</span>
+          <span id="ekg-tab-label-syndromes">4. Syndromy & Vady</span>
         </button>
         <button class="ekg-subnav-btn" id="ekg-sub-pacemakers">
           <span>🔋</span>
-          <span>5. Kardiostimulace na EKG</span>
+          <span id="ekg-tab-label-pacemakers">5. Kardiostimulace na EKG</span>
         </button>
         <button class="ekg-subnav-btn" id="ekg-sub-quiz">
           <span>🎯</span>
-          <span>6. EKG Kvíz</span>
+          <span id="ekg-tab-label-quiz">6. EKG Kvíz</span>
         </button>
       </div>
 

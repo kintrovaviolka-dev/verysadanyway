@@ -2647,12 +2647,495 @@ const EKG_MASTERCLASS_DATA = {
   ]
 };
 
+// ==========================================
+// EKG MASTERCLASS - VERSIÓN EN ESPAÑOL (ES)
+// ==========================================
+const EKG_MASTERCLASS_DATA_ES = {
+  desatero: [
+    {
+      step: 1,
+      title: "1. Ritmo y origen del impulso",
+      icon: "⚡",
+      rule: "Cada complejo QRS debe estar precedido por una onda P positiva en las derivaciones I, II y aVF, y negativa en aVR.",
+      details: "Ritmo sinusal vs. fibrilación auricular (ausencia de ondas P, intervalos R-R completamente irregulares), flutter auricular (ondas F en 'dientes de sierra', frec. auricular ~300 lpm), ritmo de la unión AV (onda P retrógrada o ausente, frecuencia 40–60 lpm), ritmo idioventricular (QRS ancho sin relación con ondas P, frecuencia 20–40 lpm).",
+      clinicalPearl: "Si la onda P es negativa en la derivación II, el impulso no se origina en el nodo SA, sino en la parte baja de la aurícula o en la unión AV (ritmo auricular ectópico)."
+    },
+    {
+      step: 2,
+      title: "2. Frecuencia cardíaca (FC)",
+      icon: "⏱️",
+      rule: "A velocidad estándar de 25 mm/s: FC = 300 / número de cuadros grandes entre dos ondas R consecutivas.",
+      details: "Secuencia mnemotécnica por cuadros grandes: 1 cuadro = 300 lpm, 2 = 150 lpm, 3 = 100 lpm, 4 = 75 lpm, 5 = 60 lpm, 6 = 50 lpm. En ritmos irregulares (ej. fibrilación auricular): cuente el número de complejos QRS en una tira de 10 segundos (50 cuadros grandes) y multiplique por 6.",
+      clinicalPearl: "¡A una velocidad de papel de 50 mm/s se debe dividir entre 600 en lugar de 300!"
+    },
+    {
+      step: 3,
+      title: "3. Eje eléctrico cardíaco",
+      icon: "🧭",
+      rule: "Evalúe la polaridad neta del complejo QRS en las derivaciones frontales I y aVF.",
+      details: "• Eje normal (-30° a +90°): I positivo, aVF positivo.<br>• Desviación a la izquierda (-30° a -90°): I positivo, aVF negativo (compruebe la derivación II: si II es negativo, confirma hemibloqueo anterior izquierdo / HBAI).<br>• Desviación a la derecha (+90° a +180°): I negativo, aVF positivo (hipertrofia de VD, hemibloqueo posterior izquierdo, tromboembolismo pulmonar).<br>• Eje indeterminado / 'Tierra de nadie' (-90° a 180°): I negativo, aVF negativo (muy característico de taquicardia ventricular).",
+      clinicalPearl: "Regla de los pulgares: I positivo y aVF positivo = ambos pulgares hacia arriba = eje eléctrico normal."
+    },
+    {
+      step: 4,
+      title: "4. Onda P (Despolarización auricular)",
+      icon: "🌊",
+      rule: "Duración normal < 120 ms (3 cuadros pequeños), amplitud < 2.5 mm en derivación II.",
+      details: "• P-pulmonale (crecimiento de aurícula derecha): onda P alta y picuda ≥ 2.5 mm en II, III, aVF (EPOC, cor pulmonale, hipertensión pulmonar).<br>• P-mitrale (crecimiento de aurícula izquierda): onda P ancha y bimodal (mellada) ≥ 120 ms en II con separación entre vértices ≥ 40 ms, y componente negativo profundo en V1 (estenosis/insuficiencia mitral, cardiopatía hipertensiva).",
+      clinicalPearl: "La aurícula derecha se despolariza primero (primera mitad de la onda P) y la aurícula izquierda después (segunda mitad)."
+    },
+    {
+      step: 5,
+      title: "5. Intervalo PR / PQ (Conducción aurículo-ventricular)",
+      icon: "⏳",
+      rule: "Duración normal: 120–200 ms (de 3 a 5 cuadros pequeños).",
+      details: "• Acortamiento (< 120 ms): Síndromes de preexcitación (Wolff-Parkinson-White con onda delta), síndrome de Lown-Ganong-Levine, ritmo de la unión.<br>• Prolongación (> 200 ms): Bloqueo AV de primer grado.<br>• Descenso del segmento PR: Hallazgo precoz muy típico de pericarditis aguda o infarto auricular.",
+      clinicalPearl: "El retraso fisiológico del impulso ocurre en el nodo AV, permitiendo que las aurículas vacíen su contenido en los ventrículos antes de la sístole ventricular."
+    },
+    {
+      step: 6,
+      title: "6. Complejo QRS (Despolarización ventricular)",
+      icon: "📈",
+      rule: "Duración normal < 120 ms (idealmente < 100 ms).",
+      details: "• QRS ancho (≥ 120 ms): Bloqueo de rama izquierda (BRI / LBBB), bloqueo de rama derecha (BRD / RBBB), taquicardia ventricular, extrasístoles ventriculares, preexcitación.<br>• Onda Q patológica: duración ≥ 40 ms (1 cuadro pequeño) o profundidad > 25 % del voltaje de la onda R en la misma derivación -> indica necrosis miocárdica transmural establecida.<br>• Criterios de hipertrofia ventricular izquierda: Sokolow-Lyon (S en V1 + R en V5/V6 > 35 mm).",
+      clinicalPearl: "Una pequeña onda q septal fisiológica en I, aVL, V5–V6 es normal y refleja la despolarización inicial del septo de izquierda a derecha."
+    },
+    {
+      step: 7,
+      title: "7. Segmento ST (Repolarización ventricular precoz)",
+      icon: "🎯",
+      rule: "En condiciones normales es isoeléctrico al nivel de la línea base TP/PR.",
+      details: "• Elevación del ST: Convexa con cambios recíprocos = SCACEST (STEMI); Cóncava difusa sin imágenes especulares = Pericarditis aguda; Convexa en V1–V2 = Brugada; Elevación del punto J con melladura = Repolarización precoz.<br>• Descenso del ST: Horizontal o descendente = Isquemia subendocárdica (SCASEST / angina estable); En cubeta = Efecto digitálico (Digoxina); Asimétrico con T negativa = Patrón de sobrecarga sistólica del ventrículo izquierdo.",
+      clinicalPearl: "El punto J (unión del final del complejo QRS con el inicio del segmento ST) es la referencia estándar para medir elevaciones y depresiones."
+    },
+    {
+      step: 8,
+      title: "8. Onda T (Repolarización ventricular rápida)",
+      icon: "📉",
+      rule: "Normalmente es asimétrica y tiene la misma polaridad (concordante) que el vector principal del complejo QRS.",
+      details: "• Ondas T altas, picudas y simétricas ('en tienda de campaña'): Hiperpotasemia o fase hiperaguda de infarto de miocardio.<br>• Ondas T invertidas profundas y simétricas: Isquemia miocárdica crítica (Síndrome de Wellens en territorio de descendente anterior), hemorragia intracraneal (ondas T cerebrales), TEP (en V1–V4).<br>• Ondas T aplanadas o bifásicas con onda U: Hipopotasemia.",
+      clinicalPearl: "La onda T invertida solo es fisiológica en aVR (donde todo es negativo) y frecuentemente en V1 (en mujeres jóvenes sanas también en V2)."
+    },
+    {
+      step: 9,
+      title: "9. Intervalo QT / QTc (Sístole eléctrica ventricular)",
+      icon: "🔬",
+      rule: "Se mide desde el inicio del QRS hasta el final de la onda T. QTc corregido (fórmula de Bazett): QTc = QT / √RR.",
+      details: "• QTc normal: hombres < 450 ms, mujeres < 460 ms.<br>• QTc prolongado (> 500 ms = riesgo crítico): Síndrome de QT largo congénito (LQTS), fármacos (amiodarona, sotalol, macrólidos, psicofármacos), hipopotasemia, hipocalcemia -> Riesgo inminente de Torsades de Pointes.<br>• QTc acortado (< 340 ms): Hipercalcemia, intoxicación digitálica, síndrome de QT corto congénito.",
+      clinicalPearl: "Regla visual rápida: si el intervalo QT dura más de la mitad del intervalo R-R precedente (a frecuencia normal), el QTc está casi con certeza prolongado."
+    },
+    {
+      step: 10,
+      title: "10. Onda U y derivaciones especiales",
+      icon: "👁️",
+      rule: "Pequeña deflexión positiva que sigue a la onda T, más visible en derivaciones precordiales V2–V4.",
+      details: "• Onda U prominente (> 1–2 mm): Típica de hipopotasemia severa, bradicardia extrema y fármacos antiarrítmicos.<br>• Onda U negativa: Siempre patológica; indica isquemia miocárdica severa o sobrecarga grave del ventrículo izquierdo.<br>• Derivaciones complementarias: V7–V9 (pared posterior / dorsal ante sospecha de infarto dorsal con descenso del ST en V1–V3), V3R–V6R (infarto de ventrículo derecho ante SCACEST inferior).",
+      clinicalPearl: "¡En todo infarto de cara inferior (II, III, aVF), registre SIEMPRE las derivaciones derechas V3R–V6R para descartar infarto del ventrículo derecho!"
+    }
+  ],
+
+  anatomy: [
+    {
+      id: "sa-node",
+      name: "Nodo Sinoauricular (SA) y Miocardio Auricular",
+      location: "Parte superior de la aurícula derecha, cerca de la desembocadura de la vena cava superior",
+      ecgCorrelate: "Onda P",
+      mechanism: "Despolarización espontánea de las células marcapasos (corrientes de canales If 'funny'). El impulso se propaga primero por la aurícula derecha hacia abajo y adelante, y a través del haz de Bachmann hacia la aurícula izquierda hacia atrás y a la izquierda.",
+      vector: "El vector resultante se dirige hacia abajo, a la izquierda y adelante (+60°); por ello la onda P es positiva en I, II, aVF y negativa en aVR.",
+      pathology: "Enfermedad del seno enfermo (pausas y bloqueos sinoauriculares), taquicardias auriculares, P-pulmonale (aurícula derecha) y P-mitrale (aurícula izquierda)."
+    },
+    {
+      id: "av-node",
+      name: "Nodo Auriculoventricular (AV) y Haz de His",
+      location: "Parte inferior del septo interauricular en el triángulo de Koch",
+      ecgCorrelate: "Segmento PR / PQ (línea isoeléctrica entre el final de P y el inicio de QRS)",
+      mechanism: "Conducción lenta mediada por canales lentos de Ca2+. El retraso fisiológico (~0.08–0.12 s) permite que las aurículas finalicen la eyección de sangre a los ventrículos antes de la contracción ventricular.",
+      vector: "Eléctricamente silente en el ECG de superficie debido a la pequeña masa de tejido -> se manifiesta como una pausa isoeléctrica.",
+      pathology: "Bloqueo AV de 1.er grado (PR prolongado), bloqueo AV de 2.º grado (Mobitz I / Wenckebach nodal vs. Mobitz II infranodal en Haz de His), bloqueo AV de 3.er grado / completo, TRNAV (reentrada nodal AV por doble vía nodal)."
+    },
+    {
+      id: "septum",
+      name: "Septo Interventricular (Ramas del Haz de His)",
+      location: "Porción proximal del septo interventricular muscular y membranoso",
+      ecgCorrelate: "Fase inicial del QRS (onda q septal en derivaciones laterales / onda r en V1)",
+      mechanism: "La rama izquierda del haz de His (LBB) se ramifica primero y despolariza el septo interventricular de IZQUIERDA A DERECHA.",
+      vector: "El vector septal inicial se dirige DE IZQUIERDA A DERECHA, hacia adelante y arriba. Esto genera una pequeña onda q fisiológica en I, aVL, V5–V6 y una pequeña onda r en V1.",
+      pathology: "En el bloqueo de rama izquierda (BRI), la onda q septal desaparece (el septo se despolariza anómalamente de derecha a izquierda); en el infarto septal aparece onda Q patológica en V1–V2."
+    },
+    {
+      id: "ventricles",
+      name: "Paredes Libres Ventriculares y Fibras de Purkinje",
+      location: "Subendocardio -> miocardio transmural -> subepicardio ventricular",
+      ecgCorrelate: "Cuerpo principal del complejo QRS (ondas R y S)",
+      mechanism: "Conducción rápida por las fibras de Purkinje desde el endocardio hacia el epicardio. La masa del ventrículo izquierdo es 3 veces mayor que la del derecho, dominando el campo eléctrico total.",
+      vector: "El vector ventricular principal se dirige hacia la IZQUIERDA, ABAJO y ATRÁS. Produce ondas R altas y dominantes en V5–V6, I, II, y ondas S profundas en V1–V2.",
+      pathology: "Hipertrofia ventricular izquierda (ondas R gigantes en V5–V6, S profundas en V1), bloqueo de rama izquierda (complejo QRS ancho en M), bloqueo de rama derecha (patrón rsR' en 'orejas de conejo' en V1)."
+    },
+    {
+      id: "repolarization",
+      name: "Repolarización Ventricular",
+      location: "Subepicardio -> subendocardio (¡Dirección OPUESTA a la despolarización!)",
+      ecgCorrelate: "Segmento ST y Onda T",
+      mechanism: "Los cardiomiocitos epicárdicos tienen un potencial de acción más corto que los subendocárdicos debido a la menor presión mecánica sistólica. Por ello, la repolarización comienza en el EPICARDIO y avanza hacia el ENDOCARDIO.",
+      vector: "Al propagarse en dirección opuesta con carga eléctrica contraria, el vector neto apunta hacia el epicardio, resultando en una onda T POSITIVA con la misma orientación del QRS (concordancia fisiológica).",
+      pathology: "Isquemia miocárdica (inversión de T, elevación/depresión del ST), prolongación del potencial de acción (LQTS), hiperpotasemia (ondas T picudas en tienda de campaña)."
+    }
+  ],
+
+  ionAndTemperature: [
+    {
+      id: "hyperkalemia",
+      name: "Hiperpotasemia / Hiperkalemia (K⁺ > 5.5 mmol/l)",
+      severity: "Emergencia médica crítica",
+      color: "rose",
+      ecgWaveform: "Ondas T picudas -> Pérdida de P -> QRS ancho -> Patrón sinusoidal -> Paro cardíaco",
+      changes: [
+        "<strong>Leve (5.5–6.5 mmol/l):</strong> Ondas T altas, estrechas, simétricas y picudas con base estrecha ('en tienda de campaña'), más evidentes en II, III, V2–V4.",
+        "<strong>Moderada (6.5–7.5 mmol/l):</strong> Prolongación del PR, aplanamiento y desaparición progresiva de ondas P, ensanchamiento del QRS, elevaciones del ST que simulan SCACEST.",
+        "<strong>Grave (> 7.5–8.0 mmol/l):</strong> Fusión del QRS ensanchado con la onda T formando una onda sinusoidal continua (sine wave), fibrilación ventricular o asistolia inminente."
+      ],
+      pearl: "La administración intravenosa inmediata de Gluconato de Calcio al 10% estabiliza la membrana miocárdica en 1–3 minutos y normaliza el ECG sin alterar la concentración sérica de potasio."
+    },
+    {
+      id: "hypokalemia",
+      name: "Hipopotasemia / Hipokalemia (K⁺ < 3.5 mmol/l)",
+      severity: "Alto riesgo arritmogénico",
+      color: "cyan",
+      ecgWaveform: "Aplanamiento de T -> Descenso de ST -> Onda U prominente -> Fusión T-U (falso QT largo)",
+      changes: [
+        "Aplanamiento e inversión progresiva de las ondas T.",
+        "Descenso leve del segmento ST (0.5–1.0 mm).",
+        "Aparición de una <strong>onda U prominente</strong> (> 1 mm, frecuentemente mayor que la propia onda T en V2–V3).",
+        "Aparente prolongación del intervalo QT (en realidad es un intervalo QU por fusión de las ondas T y U).",
+        "Alto riesgo de arritmias ventriculares y auriculares malignas, especialmente en pacientes tratados con digoxina."
+      ],
+      pearl: "Hipopotasemia + Digoxina = toxicidad digitálica grave con alto riesgo de arritmias letales (bigeminismo ventricular, taquicardia ventricular bidireccional)."
+    },
+    {
+      id: "hypercalcemia",
+      name: "Hipercalcemia (Ca²⁺ > 2.6 mmol/l)",
+      severity: "Acortamiento del periodo refractario",
+      color: "amber",
+      ecgWaveform: "Acortamiento extremo del segmento ST y del intervalo QT",
+      changes: [
+        "Marcado <strong>acortamiento del intervalo QT / QTc</strong> (< 360 ms).",
+        "El segmento ST es prácticamente inexistente: la onda T nace inmediatamente al finalizar el complejo QRS.",
+        "En hipercalcemias graves (> 3.5 mmol/l): ensanchamiento del QRS, bradicardia sinusal, bloqueos AV y elevación del punto J."
+      ],
+      pearl: "Ante el hallazgo de un intervalo QT anormalmente corto en el ECG, solicite siempre calcemia para descartar hiperparatiroidismo primario o neoplasia oculta."
+    },
+    {
+      id: "hypocalcemia",
+      name: "Hipocalcemia (Ca²⁺ < 2.1 mmol/l)",
+      severity: "Prolongación de la fase de meseta del potencial de acción",
+      color: "purple",
+      ecgWaveform: "Prolongación aislada del segmento ST con morfología normal de onda T -> QT largo",
+      changes: [
+        "Marcada <strong>prolongación del intervalo QT / QTc</strong>.",
+        "Signo clave: la prolongación del QT se debe a un <strong>alargamiento aislado del segmento ST isoeléctrico</strong>, mientras que la onda T mantiene forma y anchura normales (a diferencia de la hipopotasemia).",
+        "Riesgo de arritmias ventriculares polimórficas (Torsades de Pointes)."
+      ],
+      pearl: "La hipocalcemia prolonga específicamente la fase 2 (meseta) del potencial de acción miocárdico por enlentecimiento de la corriente de entrada de Ca2+."
+    },
+    {
+      id: "hypothermia",
+      name: "Hipotermia sistémica (Temperatura central < 32–35 °C)",
+      severity: "Depresión miocárdica por frío",
+      color: "blue",
+      ecgWaveform: "Onda de Osborn (onda J) + Bradicardia sinusal + Artefactos por temblor muscular + Prolongación de intervalos",
+      changes: [
+        "<strong>Onda de Osborn (onda J):</strong> Deflexión positiva patognomónica en la unión del final del QRS con el inicio del segmento ST, más prominente en derivaciones precordiales V3–V6 e inferiores II, III, aVF. Su altura es proporcional al grado de hipotermia.",
+        "Bradicardia sinusal progresiva (en hipotermia profunda evoluciona a fibrilación auricular con respuesta ventricular lenta).",
+        "Prolongación de todos los intervalos electrocardiográficos: PR, QRS y QT.",
+        "Artefactos en la línea de base por temblor muscular que pueden simular fibrilación auricular."
+      ],
+      pearl: "En hipotermia severa (< 28 °C), el miocardio es extremadamente irritable; cualquier estímulo mecánico (ej. inserción de vía venosa central) puede desencadenar fibrilación ventricular refractaria."
+    }
+  ],
+
+  syndromesAndCongenital: [
+    {
+      id: "brugada",
+      name: "Síndrome de Brugada",
+      type: "Canalopatía hereditaria (gen SCN5A - canal de Na⁺ cardíaco)",
+      icon: "⚡",
+      ecgCriteria: "Tipo 1 (diagnóstico): Elevación convexa del segmento ST (en aleta de tiburón / coved-type) ≥ 2 mm seguida de onda T negativa en V1–V2 (o en espacios intercostales superiores 2.º y 3.º). Tipo 2 (saddleback): Elevación del ST en silla de montar ≥ 0.5 mm con onda T positiva o bifásica.",
+      clinicalPresentation: "Pacientes jóvenes (predominio en varones) con síncopes en reposo o durante el sueño, antecedentes familiares de muerte súbita cardíaca. Arritmias: taquicardia ventricular polimórfica y fibrilación ventricular.",
+      triggers: "Fiebre (¡la fiebre desenmascara el patrón de Brugada al empeorar la inactivación del canal de Na+!), alcohol, comidas copiosas, fármacos bloqueadores del canal de sodio (ajmalina, flecainida, antidepresivos tricíclicos).",
+      management: "En pacientes con parada cardíaca recuperada o síncope cardiogénico: indicación de Desfibrilador Automático Implantable (DAI / ICD). En tormenta arrítmica aguda: infusión i.v. de Isoprenalina o quinidina. ¡Tratamiento antipirético enérgico e inmediato ante fiebre!"
+    },
+    {
+      id: "wpw",
+      name: "Síndrome de Wolff-Parkinson-White (WPW)",
+      type: "Vía accesoria auriculoventricular congénita (Haz de Kent)",
+      icon: "⚡",
+      ecgCriteria: "Tríada clásica: 1. Intervalo PR corto (< 120 ms), 2. Onda Delta (empastamiento inicial de la rama ascendente del QRS por preexcitación ventricular a través del haz de Kent), 3. Complejo QRS ensanchado (> 110–120 ms) con alteraciones secundarias de la repolarización ST-T.",
+      clinicalPresentation: "Episodios paroxísticos de palpitaciones taquicárdicas en personas jóvenes (taquicardia por reentrada AV ortodrómica o antidrómica).",
+      dangerAlert: "🚨 <strong>Fibrilación Auricular en WPW (FBI: Fast, Broad, Irregular):</strong> ¡Emergencia médica extrema! La conducción por la vía accesoria puede superar 250–300 lpm y degenerar en fibrilación ventricular. <strong>¡PROHIBIDOS los fármacos frenadores del nodo AV (Adenosina, Verapamilo, Digoxina, Betabloqueantes)!</strong> El tratamiento de elección es la cardioversión eléctrica urgente o Ibutilida / Procainamida i.v.",
+      management: "Tratamiento curativo de primera línea: Ablación por catéter con radiofrecuencia de la vía accesoria (tasa de éxito > 95 %)."
+    },
+    {
+      id: "lqts",
+      name: "Síndrome de QT Largo (LQTS)",
+      type: "Canalopatías genéticas (LQT1–LQT3) y formas adquiridas farmacológicas",
+      icon: "🧬",
+      ecgCriteria: "Prolongación del intervalo QTc corregido > 460–480 ms (valores > 500 ms confieren alto riesgo de Torsades de Pointes). LQT1: ondas T anchas y de base amplia (desencadenado por ejercicio físico y natación). LQT2: ondas T de baja amplitud y melladas/bifásicas (desencadenado por estímulos auditivos bruscos: despertador, teléfono, sobresaltos). LQT3: segmento ST largo e isoeléctrico con onda T tardía y puntiaguda (desencadenado durante el sueño y reposo).",
+      clinicalPresentation: "Síncopes inducidos por estrés emocional, ejercicio o sobresaltos sonoros, historia familiar de muerte súbita precoz.",
+      management: "Betabloqueantes no selectivos (Nadolol, Propranolol), evitar estrictamente fármacos prolongadores del QT (consultar CredibleMeds), suplementación de magnesio y potasio, implante de DAI en pacientes de alto riesgo."
+    },
+    {
+      id: "arvc",
+      name: "Miocardiopatía Arritmogénica del Ventrículo Derecho (DAVD / CAVD)",
+      type: "Enfermedad genética de los desmosomas cardíacos (Placoglobina, Desmoplaquina)",
+      icon: "💔",
+      ecgCriteria: "1. <strong>Onda Épsilon (Epsilon wave):</strong> Pequeña muesca o deflexión de bajo voltaje al final del complejo QRS en la transición hacia el segmento ST en derivaciones V1–V3 (presente en ~30 % de casos). 2. Inversión de ondas T en derivaciones derechas V1–V3 en mayores de 14 años. 3. Prolongación del tiempo de activación terminal del QRS (> 55 ms en V1–V3).",
+      clinicalPresentation: "Deportistas jóvenes con palpitaciones, taquicardias ventriculares con morfología de bloqueo de rama izquierda (origen en VD) y muerte súbita durante el esfuerzo atlético.",
+      management: "Restricción absoluta de deportes competitivos y de alta intensidad, betabloqueantes, ablación de taquicardia ventricular por catéter, implante de DAI."
+    },
+    {
+      id: "early-repoc",
+      name: "Patrón de Repolarización Precoz (Early Repolarization)",
+      type: "Variante electrofisiológica común (benigna vs. maligna)",
+      icon: "✨",
+      ecgCriteria: "Elevación del punto J ≥ 1 mm en al menos 2 derivaciones contiguas con melladura (notching) o empastamiento (slurring) característico en la rama descendente de la onda R, seguida de elevación cóncava del segmento ST y ondas T altas y positivas.",
+      clinicalPresentation: "Hallazgo muy frecuente y benigno en jóvenes deportistas y personas atléticas en derivaciones V2–V5 (asociado a alto tono vagal).",
+      management: "En deportistas jóvenes asintomáticos constituye una variante fisiológica normal que no requiere tratamiento ni restricción deportiva."
+    }
+  ],
+
+  pacemakers: [
+    {
+      id: "vvi-apex",
+      name: "VVI - Estimulación Unicameral del Ápex del Ventrículo Derecho",
+      recognitionLevel: "Fácilmente reconocible (Hallazgo clásico)",
+      recognitionBadge: "easy",
+      code: "VVI (Ventricle paced, Ventricle sensed, Inhibited)",
+      icon: "⚡",
+      waveformTag: "Espícula nítida -> QRS ancho (>140 ms) con patrón de BRI -> Onda S profunda en V1 -> Eje a la izquierda",
+      leadDetails: "Derivación V1: complejo QS/S negativo y profundo. Derivaciones I, aVL: onda R ancha y positiva. Eje: desviación marcada a la izquierda (-30° a -90°).",
+      leadMarkers: [
+        { label: "Espícula de estimulación", desc: "Deflexión vertical aguda de gran voltaje inmediatamente antes del inicio del QRS" },
+        { label: "QRS ancho (>140 ms)", desc: "Morfología típica de bloqueo de rama izquierda (patrón BRI / LBBB)" },
+        { label: "Onda T discordante", desc: "Descenso del ST y onda T negativa en sentido opuesto a la deflexión principal del QRS" }
+      ],
+      leadOrigin: "Electrodo anclado en el ápex (punta) del ventrículo derecho",
+      mechanism: "El estímulo nace en el miocardio del ápex ventricular derecho y se propaga de célula a célula por conducción muscular lenta (0.5 m/s) de abajo hacia arriba y de derecha a izquierda (hacia el ventrículo izquierdo), generando un QRS ancho similar al bloqueo de rama izquierda.",
+      vectorLogic: "El vector de despolarización se aleja del ápex del VD (anterior e inferior) hacia la base del VI (posterior, superior e izquierdo), produciendo ondas S profundas en V1 y R altas en I y aVL.",
+      clinicalPearl: "La estimulación crónica y predominante desde el ápex del VD genera disincronía mecánica del ventrículo izquierdo (miocardiopatía inducida por marcapasos). Actualmente se prefiere la estimulación fisiológica del sistema de conducción (CSP)."
+    },
+    {
+      id: "aai",
+      name: "AAI - Estimulación Auricular",
+      recognitionLevel: "Dificultad intermedia (Espícula auricular sutil)",
+      recognitionBadge: "medium",
+      code: "AAI (Atrium paced, Atrium sensed, Inhibited)",
+      icon: "🫀",
+      waveformTag: "Espícula auricular -> Onda P -> Complejo QRS estrecho y fisiológico (<100 ms)",
+      leadDetails: "Derivaciones II, III, aVF: espícula vertical precediendo a la onda P. Intervalo PR normal y complejo QRS estrecho normal.",
+      leadMarkers: [
+        { label: "Espícula auricular", desc: "Pequeño artefacto agudo inmediatamente antes de la onda P" },
+        { label: "Onda P estimulada", desc: "Morfología dependiente de la posición del electrodo en la aurícula" },
+        { label: "QRS estrecho (<100 ms)", desc: "Conducción fisiológica íntegra a través del nodo AV y ramas del Haz de His" }
+      ],
+      leadOrigin: "Electrodo situado en la orejuela de la aurícula derecha o en el septo interauricular",
+      mechanism: "Indicado en la disfunción aislada del nodo sinusal con conducción auriculoventricular preservada. El marcapasos despolariza la aurícula y el impulso continúa de forma natural por el nodo AV y el sistema His-Purkinje hacia los ventrículos.",
+      vectorLogic: "Vector auricular artificial desde la orejuela derecha; vector ventricular completamente normal por activación fisiológica.",
+      clinicalPearl: "Si un paciente con marcapasos AAI desarrolla bloqueo AV con los años, los ventrículos quedarán desprotegidos; por ello, en la actualidad se implanta con mayor frecuencia un sistema bicameral DDD."
+    },
+    {
+      id: "ddd-dual",
+      name: "DDD - Estimulación Bicameral Secuencial AV",
+      recognitionLevel: "Muy fácil en estimulación completa (2 espículas)",
+      recognitionBadge: "easy",
+      code: "DDD (Atrium & Ventricle paced, sensed, dual tracked)",
+      icon: "⚡",
+      waveformTag: "Espícula auricular -> Onda P -> Retraso AV programado -> Espícula ventricular -> QRS ancho",
+      leadDetails: "En estimulación bicameral completa (Ap-Vp) se observan dos espículas: la primera antes de la onda P y la segunda tras el intervalo AV programado antes del QRS.",
+      leadMarkers: [
+        { label: "1.ª Espícula Auricular (Ap)", desc: "Genera la contracción auricular conservando la 'patada auricular' (+20 % del gasto cardíaco)" },
+        { label: "Retraso AV programado", desc: "Simulación electrónica del retardo fisiológico en el nodo AV" },
+        { label: "2.ª Espícula Ventricular (Vp)", desc: "Desencadena la despolarización ventricular con patrón de BRI" }
+      ],
+      leadOrigin: "Dos electrodos: uno en la aurícula derecha y otro en el ventrículo derecho",
+      mechanism: "Permite 4 modalidades de funcionamiento según la actividad intrínseca: 1. As-Vs (solo monitoriza), 2. As-Vp (sensa P propia y estimula ventrículo tras bloqueo AV), 3. Ap-Vs (estimula aurícula en bradicardia sinusal y conduce normal al ventrículo), 4. Ap-Vp (estimula aurícula y ventrículo).",
+      vectorLogic: "En Ap-Vp combina la despolarización auricular artificial con la activación ventricular desde el ápex del VD.",
+      clinicalPearl: "El modo DDD previene el 'síndrome de marcapasos' (que ocurre en VVI por contracción auricular contra válvulas AV cerradas con regurgitación y mareos)."
+    },
+    {
+      id: "biv-crt",
+      name: "BiV / TRC - Terapia de Resincronización Cardíaca (TRC-P / TRC-D)",
+      recognitionLevel: "Dificultad intermedia a avanzada (Onda R dominante en V1 y QRS resincronizado)",
+      recognitionBadge: "medium",
+      code: "BiV / CRT (Biventricular Pacing)",
+      icon: "🔄",
+      waveformTag: "Espículas BiV -> Onda R dominante en derivación V1 -> QRS más estrecho que en estimulación de VD",
+      leadDetails: "Derivación V1: onda R positiva prominente o patrón RSR' (a diferencia del QS profundo de VVI). Eje: desviación a la derecha. Anchura QRS: reducción de duración respecto al BRI basal.",
+      leadMarkers: [
+        { label: "Espícula biventricular", desc: "Artefacto de estimulación simultánea (o con retraso LV-RV en milisegundos)" },
+        { label: "Onda R positiva en V1", desc: "Signo patognomónico de activación del ventrículo izquierdo desde la pared posterolateral hacia V1" },
+        { label: "QRS resincronizado", desc: "Complejo más estrecho por despolarización simultánea de ambas paredes ventriculares" }
+      ],
+      leadOrigin: "Tres electrodos: 1. Aurícula derecha, 2. Ventrículo derecho, 3. Ventrículo izquierdo introducido por el seno coronario a la pared posterolateral",
+      mechanism: "En pacientes con insuficiencia cardíaca y BRI existe retraso en la contracción de la pared lateral del VI. La TRC estimula simultáneamente el endocardio del VD y el epicardio del VI a través del seno coronario, restaurando la sincronía contráctil mecánica.",
+      vectorLogic: "El electrodo de VI despolariza la pared lateral de izquierda a derecha y hacia adelante, proyectando el vector hacia la derivación anterior V1 -> produce una onda R positiva en V1.",
+      clinicalPearl: "¡La presencia de una onda R dominante y positiva en V1 en un ECG con marcapasos es la clave diagnóstica de estimulación biventricular efectiva!"
+    },
+    {
+      id: "csp-his-lbbp",
+      name: "CSP - Estimulación Fisiológica del Sistema de Conducción (Haz de His y LBBAP)",
+      recognitionLevel: "¡MUY DIFÍCIL / TRAMPA FRECUENTE! (QRS estrecho, microespícula casi invisible)",
+      recognitionBadge: "hard",
+      code: "CSP (Conduction System Pacing: HBP / LBBAP)",
+      icon: "🎯",
+      waveformTag: "Microespícula sutil -> QRS ESTRECHO Y FISIOLÓGICO (<100-115 ms) -> Eje y onda T normales",
+      leadDetails: "En la estimulación del Haz de His (HBP), la morfología del QRS es idéntica a un ECG normal con conducción nativa. En la estimulación del área de rama izquierda (LBBAP), puede existir un discreto patrón rSr' en V1 con tiempo al pico de R en V6 normal (<75 ms).",
+      leadMarkers: [
+        { label: "Microespícula discreta", desc: "Artefacto bipolar de baja energía, muy pequeño y apenas perceptible en el ECG estándar" },
+        { label: "QRS estrecho y normal", desc: "Duración < 100–120 ms, preservando el eje eléctrico y la repolarización normal" },
+        { label: "Sincronía fisiológica", desc: "Ausencia total de patrón de BRI o retraso mecánico ventricular" }
+      ],
+      leadOrigin: "Electrodo fijado directamente en el Haz de His o atornillado profundamente a través del septo hacia el subendocardio de la rama izquierda (LBBAP)",
+      mechanism: "Técnica vanguardista de estimulación cardíaca. En lugar de estimular el músculo cardíaco no especializado, se conecta directamente al sistema His-Purkinje. El impulso viaja a 2–4 m/s activando ambos ventrículos con sincronía fisiológica perfecta.",
+      vectorLogic: "El vector sigue la vía anatómica nativa de las ramas de Tawara desde el septo a las paredes libres ventriculares.",
+      clinicalPearl: "⚠️ ¡ATENCIÓN EN EL EXAMEN! Si observa un complejo QRS estrecho y normal, examine con atención la línea isoeléctrica previa: una pequeña espícula vertical revela estimulación fisiológica del Haz de His (CSP) y no un ritmo sinusal espontáneo."
+    },
+    {
+      id: "pm-failure-capture",
+      name: "Fallo de Marcapasos: Pérdida de Captura (Failure to Capture)",
+      recognitionLevel: "Fallo grave fácilmente identificable",
+      recognitionBadge: "danger",
+      code: "Malfunction: Loss of Capture",
+      icon: "🚨",
+      waveformTag: "Espícula de marcapasos en la línea isoeléctrica -> NINGUNA onda P ni complejo QRS posterior -> Pausa asistólica",
+      leadDetails: "Aparece la espícula de estimulación en el momento programado, pero el miocardio no responde eléctricamente (la línea base permanece plana).",
+      leadMarkers: [
+        { label: "Espícula huérfana", desc: "El generador emite el impulso eléctrico pero el miocardio no se despolariza" },
+        { label: "Ausencia de respuesta miocárdica", desc: "Sin onda P (en estimulación auricular) ni QRS (en ventricular)" },
+        { label: "Riesgo de bradicardia extrema / parada", desc: "Puede provocar síncope por crisis de Stokes-Adams" }
+      ],
+      leadOrigin: "Desplazamiento del electrodo, fibrosis en el punto de contacto (bloqueo de salida), aumento del umbral de estimulación, infarto en el sitio del electrodo, hiperpotasemia severa",
+      mechanism: "El dispositivo funciona y emite el pulso programado, pero la energía no alcanza el umbral de voltaje necesario para despolarizar los miocardiocitos circundantes, o el electrodo se ha desplazado mecánicamente.",
+      vectorLogic: "No se genera ningún vector de despolarización.",
+      clinicalPearl: "Ante una pérdida aguda de captura, compruebe siempre los niveles séricos de potasio (¡la hiperpotasemia eleva drásticamente el umbral de estimulación!) y solicite una radiografía de tórax para verificar la posición del cable."
+    },
+    {
+      id: "pm-undersensing",
+      name: "Fallo de Marcapasos: Infrasensado / 'Marcapasos Ciego' (Undersensing)",
+      recognitionLevel: "Alto riesgo arritmogénico (Fenómeno de R sobre T)",
+      recognitionBadge: "danger",
+      code: "Malfunction: Undersensing (Failure to Sense)",
+      icon: "⚠️",
+      waveformTag: "Espículas asíncronas cayendo sobre complejos QRS u ondas T propias -> ¡Riesgo de fibrilación ventricular!",
+      leadDetails: "El marcapasos ignora los latidos espontáneos del paciente y emite espículas a frecuencia fija independientemente de la actividad cardíaca propia.",
+      leadMarkers: [
+        { label: "Espícula asíncrona", desc: "La espícula cae justo tras una onda R propia o sobre la cima de la onda T" },
+        { label: "Fenómeno de R sobre T", desc: "Estímulo eléctrico en el periodo vulnerable de la repolarización ventricular" },
+        { label: "Desencadenante de arritmias letales", desc: "Puede inducir taquicardia ventricular polimórfica o fibrilación ventricular inmediata" }
+      ],
+      leadOrigin: "Sensibilidad mal calibrada (umbral en mV demasiado alto), pérdida de amplitud del electrograma intrínseco, daño en el aislante del cable",
+      mechanism: "En condiciones normales, el marcapasos 'escucha' la actividad eléctrica intrínseca y se inhibe si el paciente genera su propio latido. En el infrasensado, el dispositivo no detecta la señal y sigue disparando asíncronamente.",
+      vectorLogic: "Conflicto aleatorio entre el frente de onda nativo y el estímulo ectópico del marcapasos.",
+      clinicalPearl: "El infrasensado es sumamente peligroso por el riesgo de inducir fibrilación ventricular al disparar sobre la onda T (fenómeno de R sobre T)."
+    },
+    {
+      id: "pm-oversensing",
+      name: "Fallo de Marcapasos: Sobresensado / 'Marcapasos Hipersensible' (Oversensing)",
+      recognitionLevel: "Dificultad intermedia (Pausas en el ECG sin espículas esperadas)",
+      recognitionBadge: "warning",
+      code: "Malfunction: Oversensing",
+      icon: "🛑",
+      waveformTag: "Ausencia de espículas esperadas -> Pausa asistólica inadecuada -> Síncope en pacientes dependientes de marcapasos",
+      leadDetails: "Cuando la frecuencia cardíaca cae por debajo del límite mínimo, el marcapasos NO estimula porque interpreta erróneamente señales parásitas como si fueran latidos cardíacos propios.",
+      leadMarkers: [
+        { label: "Falta de espícula en la pausa", desc: "La frecuencia desciende por debajo del límite pero el marcapasos no actúa" },
+        { label: "Señal parásita errónea", desc: "Causada por potenciales musculares del pectoral (miopotenciales), ondas T gigantes o interferencias electromagnéticas" },
+        { label: "Inhibición inapropiada", desc: "El generador cree equivocadamente que el corazón acaba de contraerse por sí mismo" }
+      ],
+      leadOrigin: "Sensibilidad excesiva (umbral en mV demasiado bajo), fractura del conductor del cable que genera ruido eléctrico, contracción del músculo pectoral mayor",
+      mechanism: "El marcapasos detecta señales eléctricas externas o fisiológicas no deseadas (ej. contracción del músculo pectoral al hacer fuerza con los brazos) y las clasifica erróneamente como ondas R ventriculares, inhibiendo la estimulación y causando pausas asistólicas.",
+      vectorLogic: "Ausencia de vector por inhibición; línea isoeléctrica.",
+      clinicalPearl: "Prueba diagnóstica a la cabecera del paciente: pídale que junte las palmas de las manos y haga fuerza pectoral isométrica. Si aparecen pausas en el monitor con inhibición del marcapasos, confirma sobresensado por miopotenciales."
+    }
+  ],
+
+  masterclassQuiz: [
+    {
+      id: "emq-1",
+      question: "¿Qué fenómeno electrocardiográfico se origina por la despolarización fisiológica del septo interventricular de izquierda a derecha y por qué desaparece en el bloqueo de rama izquierda (BRI / LBBB)?",
+      options: [
+        { text: "A) La pequeña onda q fisiológica en derivaciones laterales (I, aVL, V5-V6): en el BRI el septo se despolariza anómalamente de derecha a izquierda.", isCorrect: true },
+        { text: "B) La onda Épsilon: en el BRI queda oculta por la despolarización de la pared libre.", isCorrect: false },
+        { text: "C) La onda S en la derivación V1: en el BRI se transforma en una onda R alta.", isCorrect: false },
+        { text: "D) La onda U: en el BRI desaparece debido al acortamiento de la repolarización.", isCorrect: false }
+      ],
+      explanation: "En condiciones normales, el septo interventricular se despolariza primero de izquierda a derecha a través de los fascículos de la rama izquierda, generando una pequeña onda q en I, aVL, V5-V6. En el bloqueo de rama izquierda, esta conducción se interrumpe y el septo se despolariza en sentido opuesto (de derecha a izquierda), haciendo desaparecer la onda q septal fisiológica."
+    },
+    {
+      id: "emq-2",
+      question: "Varón de 24 años trasladado a urgencias tras un síncope durante un cuadro febril. El ECG en V1–V2 muestra una elevación convexa del punto J de 3 mm con onda T negativa. ¿Cuál es el diagnóstico y la medida inmediata prioritaria?",
+      options: [
+        { text: "A) Síndrome de Brugada tipo 1: administración inmediata de antipiréticos para controlar la fiebre e ingreso en telemetría", isCorrect: true },
+        { text: "B) SCACEST agudo de cara anterior: coronariografía urgente inmediata", isCorrect: false },
+        { text: "C) Pericarditis aguda: dosis altas de ibuprofeno y colchicina", isCorrect: false },
+        { text: "D) Síndrome de Wolff-Parkinson-White: bolo de adenosina", isCorrect: false }
+      ],
+      explanation: "Se trata de un Síndrome de Brugada Tipo 1 (elevación convexa del ST en aleta de tiburón en V1-V2). La fiebre es el desencadenante crítico más frecuente de arritmias ventriculares al acentuar la disfunción de los canales de sodio cardíacos. El tratamiento antipirético enérgico e inmediato es vital para prevenir la fibrilación ventricular."
+    },
+    {
+      id: "emq-3",
+      question: "En un paciente con hipotermia accidental grave (temperatura central de 29 °C), ¿cómo se denomina la deflexión patognomónica visible en la unión del complejo QRS con el segmento ST?",
+      options: [
+        { text: "A) Onda de Osborn (onda J)", isCorrect: true },
+        { text: "B) Onda Épsilon", isCorrect: false },
+        { text: "C) Onda Delta", isCorrect: false },
+        { text: "D) Onda U prominente", isCorrect: false }
+      ],
+      explanation: "La onda de Osborn (onda J) es el hallazgo clásico y patognomónico de la hipotermia sistémica. Se produce en la unión del final del QRS con el segmento ST debido a un gradiente de voltaje transmural acentuado entre el epicardio y el endocardio por el frío."
+    },
+    {
+      id: "emq-4",
+      question: "¿Por qué está estrictamente contraindicado administrar adenosina o verapamilo a un paciente con fibrilación auricular preexcitada (WPW) con taquicardia irregular de QRS ancho a 260 lpm?",
+      options: [
+        { text: "A) El bloqueo del nodo AV desvía todos los impulsos auriculares masivos hacia la vía accesoria de conducción rápida, provocando fibrilación ventricular y parada cardíaca.", isCorrect: true },
+        { text: "B) Estos fármacos desencadenan hiperpotasemia fulminante.", isCorrect: false },
+        { text: "C) Provocan rotura del septo interventricular.", isCorrect: false },
+        { text: "D) Bloquean los receptores beta pulmonares causando broncoespasmo grave.", isCorrect: false }
+      ],
+      explanation: "En la fibrilación auricular con WPW (taquicardia FBI: Fast, Broad, Irregular), el nodo AV protege a los ventrículos frenando parte de los impulsos. Si se bloquea el nodo AV con adenosina o verapamilo, las 300–400 ondas auriculares por minuto pasan sin resistencia por el haz de Kent al ventrículo, desencadenando fibrilación ventricular inmediata. El tratamiento es la cardioversión eléctrica o Ibutilida."
+    },
+    {
+      id: "emq-5",
+      question: "Revisa el ECG de un paciente con marcapasos: el complejo QRS es estrecho (< 110 ms) y con morfología idéntica a un ritmo sinusal normal, pero precedido por una microespícula vertical muy discreta. ¿De qué tipo de estimulación se trata?",
+      options: [
+        { text: "A) Estimulación fisiológica del sistema de conducción (Haz de His / CSP)", isCorrect: true },
+        { text: "B) Estimulación clásica unicameral VVI desde el ápex del ventrículo derecho", isCorrect: false },
+        { text: "C) Estimulación ventricular izquierda aislada por seno coronario", isCorrect: false },
+        { text: "D) Pérdida de captura del generador", isCorrect: false }
+      ],
+      explanation: "Se trata de estimulación fisiológica del sistema de conducción (His-Bundle Pacing o LBBAP). Al conectarse directamente al Haz de His, el impulso viaja a gran velocidad por las fibras de Purkinje y genera un complejo QRS estrecho fisiológico, a diferencia del QRS ancho con patrón de BRI que produce la estimulación apical del VD."
+    },
+    {
+      id: "emq-6",
+      question: "¿Cuál es el signo electrocardiográfico clave que confirma la captura y estimulación efectiva del ventrículo izquierdo en un paciente con marcapasos biventricular (TRC)?",
+      options: [
+        { text: "A) Onda R positiva y dominante en la derivación V1 (o morfología RSR')", isCorrect: true },
+        { text: "B) Onda QS profunda y ancha en derivaciones I y aVL", isCorrect: false },
+        { text: "C) Desaparición completa de las ondas P en todas las derivaciones", isCorrect: false },
+        { text: "D) Acortamiento del intervalo QT por debajo de 300 ms", isCorrect: false }
+      ],
+      explanation: "En la terapia de resincronización (TRC), el electrodo del seno coronario estimula la pared posterolateral del ventrículo izquierdo de izquierda a derecha en dirección a V1. Esto genera una onda R positiva prominente en la derivación V1, siendo el marcador electrocardiográfico por excelencia de estimulación ventricular izquierda activa."
+    }
+  ]
+};
+
 // Export pro globální i modulární použití
 if (typeof window !== "undefined") {
   window.CARDIOLOGY_DATA = CARDIOLOGY_DATA;
   window.EKG_MASTERCLASS_DATA = EKG_MASTERCLASS_DATA;
+  window.EKG_MASTERCLASS_DATA_ES = EKG_MASTERCLASS_DATA_ES;
 }
 if (typeof module !== "undefined" && module.exports) {
-  module.exports = { CARDIOLOGY_DATA, EKG_MASTERCLASS_DATA };
+  module.exports = { CARDIOLOGY_DATA, EKG_MASTERCLASS_DATA, EKG_MASTERCLASS_DATA_ES };
 }
+
 

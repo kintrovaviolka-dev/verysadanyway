@@ -46,12 +46,15 @@ document.addEventListener("DOMContentLoaded", () => {
     4: 10  // Box 4: Zvládnuto (10 dní)
   };
 
+  const EKG_LANG_KEY = "kardio_ekg_lang_v1";
+
   // --- APPLICATION STATE ---
   const state = {
     activeView: "modules", // "modules" | "ekg" | "module-detail" | "spaced-repetition"
     selectedModuleId: null,
     activeTopicStep: "theory", // "theory" | "recall" | "summary"
     activeEkgSubpane: "desatero", // "desatero" | "anatomy" | "ions" | "syndromes" | "pacemakers" | "quiz"
+    ekgLang: localStorage.getItem(EKG_LANG_KEY) || "cs", // "cs" | "es"
     searchQuery: "",
     srSession: {
       cards: [],
@@ -69,6 +72,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const navEkgBtn = document.getElementById("nav-ekg-btn");
   const navSrBtn = document.getElementById("nav-sr-btn");
   const searchInput = document.getElementById("search-input");
+  
+  // EKG Language Switcher
+  const ekgLangCsBtn = document.getElementById("ekg-lang-cs");
+  const ekgLangEsBtn = document.getElementById("ekg-lang-es");
   
   // Dashboard elements
   const totalMasteredCount = document.getElementById("total-mastered-count");
@@ -687,8 +694,16 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- SVG GENERATORS FOR ECG WAVEFORMS & HEART CONDUCTION ANATOMY ---
   // =========================================================================
 
+  const getEkgData = () => {
+    if (state.ekgLang === "es" && typeof EKG_MASTERCLASS_DATA_ES !== "undefined") {
+      return EKG_MASTERCLASS_DATA_ES;
+    }
+    return EKG_MASTERCLASS_DATA;
+  };
+
   const generateEkgSvg = (type, opts = {}) => {
     const isPink = opts.paper === "pink";
+    const isEs = (opts.lang || state.ekgLang) === "es";
     const gridColor = isPink ? "rgba(244,63,94,0.18)" : "rgba(6,182,212,0.18)";
     const mainGridColor = isPink ? "rgba(244,63,94,0.35)" : "rgba(6,182,212,0.35)";
     const waveColor = opts.waveColor || (isPink ? "#f43f5e" : "#38bdf8");
@@ -713,7 +728,7 @@ document.addEventListener("DOMContentLoaded", () => {
         pathD = "M 20 90 L 80 90 Q 95 72 110 90 L 130 90 L 136 96 L 148 25 L 160 115 L 166 90 L 195 90 Q 230 60 265 90 L 370 90 L 376 96 L 388 25 L 400 115 L 406 90 L 435 90 Q 470 60 505 90 L 580 90";
         overlays = `
           <line x1="148" y1="20" x2="388" y2="20" stroke="${highlightColor}" stroke-width="2" stroke-dasharray="4" />
-          <text x="220" y="15" fill="${highlightColor}" font-size="11" font-weight="bold">Interval R-R = 4 velká pole (75/min)</text>
+          <text x="220" y="15" fill="${highlightColor}" font-size="11" font-weight="bold">${isEs ? "Intervalo R-R = 4 cuadros grandes (75 lpm)" : "Interval R-R = 4 velká pole (75/min)"}</text>
           <line x1="148" y1="20" x2="148" y2="35" stroke="${highlightColor}" stroke-width="2" />
           <line x1="388" y1="20" x2="388" y2="35" stroke="${highlightColor}" stroke-width="2" />
         `;
@@ -722,19 +737,19 @@ document.addEventListener("DOMContentLoaded", () => {
       case "desatero-3": // Axis Svod I + aVF
         pathD = "M 20 90 L 60 90 Q 75 75 90 90 L 110 90 L 115 98 L 125 25 L 135 110 L 140 90 L 170 90 Q 200 65 230 90 L 290 90";
         overlays = `
-          <text x="30" y="30" fill="#34d399" font-size="12" font-weight="bold">Svod I: R &gt; S (+)</text>
-          <text x="330" y="30" fill="#34d399" font-size="12" font-weight="bold">Svod aVF: R &gt; S (+)</text>
+          <text x="30" y="30" fill="#34d399" font-size="12" font-weight="bold">${isEs ? "Derivación I: R > S (+)" : "Svod I: R > S (+)"}</text>
+          <text x="330" y="30" fill="#34d399" font-size="12" font-weight="bold">${isEs ? "Derivación aVF: R > S (+)" : "Svod aVF: R > S (+)"}</text>
           <path d="M 320 90 L 360 90 Q 375 75 390 90 L 410 90 L 415 98 L 425 35 L 435 105 L 440 90 L 470 90 Q 500 65 530 90 L 580 90" stroke="${waveColor}" stroke-width="2.5" fill="none"/>
-          <text x="180" y="160" fill="${highlightColor}" font-size="12" font-weight="bold">Normální osa (-30° až +90°)</text>
+          <text x="180" y="160" fill="${highlightColor}" font-size="12" font-weight="bold">${isEs ? "Eje normal (-30° a +90°)" : "Normální osa (-30° až +90°)"}</text>
         `;
         break;
 
       case "desatero-4": // P pulmonale vs P mitrale
         pathD = "M 20 90 L 60 90 Q 75 40 90 90 L 115 90 L 122 96 L 133 30 L 144 110 L 150 90 L 180 90 Q 210 65 240 90 L 280 90";
         overlays = `
-          <text x="30" y="25" fill="#fb7185" font-size="11" font-weight="bold">P-pulmonale (≥ 2.5 mm, hrotnaté)</text>
+          <text x="30" y="25" fill="#fb7185" font-size="11" font-weight="bold">${isEs ? "P-pulmonale (≥ 2.5 mm, picuda)" : "P-pulmonale (≥ 2.5 mm, hrotnaté)"}</text>
           <path d="M 310 90 L 350 90 Q 362 65 372 75 Q 382 65 394 90 L 420 90 L 427 96 L 438 30 L 449 110 L 455 90 L 485 90 Q 515 65 545 90 L 580 90" stroke="${waveColor}" stroke-width="2.5" fill="none"/>
-          <text x="330" y="25" fill="#a78bfa" font-size="11" font-weight="bold">P-mitrale (≥ 120 ms, dvouvrcholové)</text>
+          <text x="330" y="25" fill="#a78bfa" font-size="11" font-weight="bold">${isEs ? "P-mitrale (≥ 120 ms, mellada)" : "P-mitrale (≥ 120 ms, dvouvrcholové)"}</text>
         `;
         break;
 
@@ -742,15 +757,15 @@ document.addEventListener("DOMContentLoaded", () => {
         pathD = "M 20 90 L 70 90 Q 85 70 100 90 L 170 90 L 176 96 L 188 25 L 200 115 L 206 90 L 235 90 Q 270 60 305 90 L 360 90 Q 375 70 390 90 L 460 90 L 466 96 L 478 25 L 490 115 L 496 90 L 525 90 Q 560 60 580 90";
         overlays = `
           <line x1="70" y1="110" x2="176" y2="110" stroke="${highlightColor}" stroke-width="2" stroke-dasharray="3" />
-          <text x="75" y="130" fill="${highlightColor}" font-size="11" font-weight="bold">PQ &gt; 200 ms (AV blok I. st.)</text>
+          <text x="75" y="130" fill="${highlightColor}" font-size="11" font-weight="bold">${isEs ? "PR > 200 ms (Bloqueo AV I°)" : "PQ > 200 ms (AV blok I. st.)"}</text>
         `;
         break;
 
       case "desatero-6": // Broad QRS (LBBB / RBBB)
         pathD = "M 20 90 L 70 90 Q 85 75 100 90 L 120 90 L 128 35 Q 138 50 148 25 L 160 125 L 168 90 L 195 90 Q 225 120 255 90 L 320 90 L 328 35 Q 338 50 348 25 L 360 125 L 368 90 L 395 90 Q 425 120 455 90 L 580 90";
         overlays = `
-          <text x="120" y="18" fill="#fb7185" font-size="11" font-weight="bold">Rozeklaný 'M' kmit (LBBB &gt; 120 ms)</text>
-          <text x="210" y="145" fill="#38bdf8" font-size="11" font-weight="bold">Sekundární ST-T diskordance</text>
+          <text x="120" y="18" fill="#fb7185" font-size="11" font-weight="bold">${isEs ? "Muesca en 'M' (BRIHH > 120 ms)" : "Rozeklaný 'M' kmit (LBBB > 120 ms)"}</text>
+          <text x="210" y="145" fill="#38bdf8" font-size="11" font-weight="bold">${isEs ? "Discordancia ST-T secundaria" : "Sekundární ST-T diskordance"}</text>
         `;
         break;
 
@@ -758,16 +773,16 @@ document.addEventListener("DOMContentLoaded", () => {
         pathD = "M 20 90 L 70 90 Q 85 72 100 90 L 120 90 L 126 96 L 138 25 L 148 100 Q 170 35 220 50 Q 250 65 270 90 L 330 90 L 336 96 L 348 25 L 358 100 Q 380 35 430 50 Q 460 65 480 90 L 580 90";
         overlays = `
           <line x1="120" y1="90" x2="220" y2="90" stroke="#94a3b8" stroke-dasharray="2" />
-          <text x="165" y="30" fill="#ef4444" font-size="12" font-weight="bold">Konvexní Pardeeho ST elevace</text>
+          <text x="165" y="30" fill="#ef4444" font-size="12" font-weight="bold">${isEs ? "Elevación convexa del ST de Pardee" : "Konvexní Pardeeho ST elevace"}</text>
           <circle cx="150" cy="55" r="4" fill="#ef4444" />
-          <text x="156" y="65" fill="#fca5a5" font-size="10">J-point +4 mm</text>
+          <text x="156" y="65" fill="#fca5a5" font-size="10">${isEs ? "Punto J +4 mm" : "J-point +4 mm"}</text>
         `;
         break;
 
       case "desatero-8": // Wellens & Inverted T waves
         pathD = "M 20 90 L 70 90 Q 85 72 100 90 L 120 90 L 126 96 L 138 30 L 148 110 L 154 90 L 180 90 Q 210 145 240 90 L 320 90 L 326 96 L 338 30 L 348 110 L 354 90 L 380 90 Q 410 145 440 90 L 580 90";
         overlays = `
-          <text x="180" y="160" fill="#a78bfa" font-size="11" font-weight="bold">Hluboké symetrické negativní T (Ischémie LAD / Wellens)</text>
+          <text x="180" y="160" fill="#a78bfa" font-size="11" font-weight="bold">${isEs ? "Ondas T negativas simétricas (Wellens / Isquemia DA)" : "Hluboké symetrické negativní T (Ischémie LAD / Wellens)"}</text>
         `;
         break;
 
@@ -776,8 +791,8 @@ document.addEventListener("DOMContentLoaded", () => {
         pathD = "M 20 90 L 70 90 Q 85 72 100 90 L 120 90 L 126 96 L 138 25 L 148 110 L 154 90 L 240 90 Q 285 45 320 90 L 380 90 Q 395 72 410 90 L 430 90 L 436 96 L 448 25 L 458 110 L 464 90 L 550 90";
         overlays = `
           <line x1="126" y1="125" x2="320" y2="125" stroke="${highlightColor}" stroke-width="2" stroke-dasharray="3" />
-          <text x="150" y="145" fill="${highlightColor}" font-size="11" font-weight="bold">Prodloužený QT / QTc &gt; 500 ms</text>
-          <text x="260" y="35" fill="#f43f5e" font-size="11">Riziko Torsades de Pointes</text>
+          <text x="150" y="145" fill="${highlightColor}" font-size="11" font-weight="bold">${isEs ? "QT prolongado / QTc > 500 ms" : "Prodloužený QT / QTc > 500 ms"}</text>
+          <text x="260" y="35" fill="#f43f5e" font-size="11">${isEs ? "Riesgo de Torsades de Pointes" : "Riziko Torsades de Pointes"}</text>
         `;
         break;
 
@@ -785,16 +800,16 @@ document.addEventListener("DOMContentLoaded", () => {
       case "hypokalemia":
         pathD = "M 20 90 L 60 90 Q 75 75 90 90 L 110 90 L 116 96 L 128 30 L 138 110 L 144 92 L 170 96 Q 195 85 215 90 Q 235 60 255 90 L 310 90 L 316 96 L 328 30 L 338 110 L 344 92 L 370 96 Q 395 85 415 90 Q 435 60 455 90 L 580 90";
         overlays = `
-          <text x="180" y="115" fill="#38bdf8" font-size="10">Ploché T</text>
-          <text x="235" y="48" fill="${highlightColor}" font-size="11" font-weight="bold">Prominentní Vlna U &gt; T</text>
+          <text x="180" y="115" fill="#38bdf8" font-size="10">${isEs ? "T aplanada" : "Ploché T"}</text>
+          <text x="235" y="48" fill="${highlightColor}" font-size="11" font-weight="bold">${isEs ? "Onda U prominente > T" : "Prominentní Vlna U > T"}</text>
         `;
         break;
 
       case "hyperkalemia": // Hyperkalemia (Tented T)
         pathD = "M 20 90 L 80 90 L 88 105 L 105 30 L 122 125 L 132 90 L 155 90 L 175 10 L 195 90 L 280 90 L 288 105 L 305 30 L 322 125 L 332 90 L 355 90 L 375 10 L 395 90 L 580 90";
         overlays = `
-          <text x="145" y="15" fill="#ef4444" font-size="11" font-weight="bold">Stanovitá vlna T (Tented T)</text>
-          <text x="80" y="145" fill="#fca5a5" font-size="10">Rozšířený QRS bez vlny P</text>
+          <text x="145" y="15" fill="#ef4444" font-size="11" font-weight="bold">${isEs ? "Ondas T picudas (Tented T)" : "Stanovitá vlna T (Tented T)"}</text>
+          <text x="80" y="145" fill="#fca5a5" font-size="10">${isEs ? "QRS ensanchado sin onda P" : "Rozšířený QRS bez vlny P"}</text>
         `;
         break;
 
@@ -802,7 +817,7 @@ document.addEventListener("DOMContentLoaded", () => {
         pathD = "M 20 90 L 70 90 Q 85 72 100 90 L 120 90 L 126 96 L 138 25 L 148 110 L 154 90 Q 170 45 190 90 L 310 90 L 316 96 L 328 25 L 338 110 L 344 90 Q 360 45 380 90 L 580 90";
         overlays = `
           <line x1="126" y1="125" x2="190" y2="125" stroke="${highlightColor}" stroke-width="2" />
-          <text x="110" y="145" fill="${highlightColor}" font-size="11" font-weight="bold">Extrémně krátké ST &amp; QT (&lt; 340 ms)</text>
+          <text x="110" y="145" fill="${highlightColor}" font-size="11" font-weight="bold">${isEs ? "Segmento ST y QT extremadamente cortos (< 340 ms)" : "Extrémně krátké ST & QT (< 340 ms)"}</text>
         `;
         break;
 
@@ -810,7 +825,7 @@ document.addEventListener("DOMContentLoaded", () => {
         pathD = "M 20 90 L 70 90 Q 85 72 100 90 L 120 90 L 126 96 L 138 25 L 148 110 L 154 90 L 250 90 Q 275 55 300 90 L 400 90 L 406 96 L 418 25 L 428 110 L 434 90 L 530 90";
         overlays = `
           <line x1="154" y1="90" x2="250" y2="90" stroke="${highlightColor}" stroke-width="3" />
-          <text x="160" y="80" fill="${highlightColor}" font-size="11" font-weight="bold">Dlouhý izoelektrický ST segment</text>
+          <text x="160" y="80" fill="${highlightColor}" font-size="11" font-weight="bold">${isEs ? "Segmento ST isoeléctrico prolongado" : "Dlouhý izoelektrický ST segment"}</text>
         `;
         break;
 
@@ -818,16 +833,16 @@ document.addEventListener("DOMContentLoaded", () => {
         pathD = "M 20 90 L 100 90 Q 115 75 130 90 L 155 90 L 162 96 L 174 25 L 184 105 Q 198 45 210 88 L 225 90 Q 260 60 295 90 L 430 90 Q 445 75 460 90 L 485 90 L 492 96 L 504 25 L 514 105 Q 528 45 540 88 L 580 90";
         overlays = `
           <circle cx="198" cy="55" r="6" fill="none" stroke="#38bdf8" stroke-width="2" />
-          <text x="175" y="38" fill="#38bdf8" font-size="11" font-weight="bold">Osbornova J-vlna</text>
-          <text x="290" y="145" fill="#94a3b8" font-size="10">Těžká sinusová bradykardie (38/min)</text>
+          <text x="175" y="38" fill="#38bdf8" font-size="11" font-weight="bold">${isEs ? "Onda J de Osborn" : "Osbornova J-vlna"}</text>
+          <text x="290" y="145" fill="#94a3b8" font-size="10">${isEs ? "Bradicardia sinusal severa (38 lpm)" : "Těžká sinusová bradykardie (38/min)"}</text>
         `;
         break;
 
       case "brugada": // Brugada Type 1
         pathD = "M 20 90 L 70 90 Q 85 75 100 90 L 120 90 L 126 96 L 138 35 L 148 85 Q 165 25 190 35 Q 215 50 230 120 Q 245 135 260 90 L 330 90 L 336 96 L 348 35 L 358 85 Q 375 25 400 35 Q 425 50 440 120 Q 455 135 470 90 L 580 90";
         overlays = `
-          <text x="145" y="20" fill="#ef4444" font-size="11" font-weight="bold">Klenutá ST elevace (Coved-type ≥ 2 mm)</text>
-          <text x="215" y="150" fill="#a78bfa" font-size="10">Invertované T ve V1-V2</text>
+          <text x="145" y="20" fill="#ef4444" font-size="11" font-weight="bold">${isEs ? "Elevación en cúpula del ST (Tipo 1 ≥ 2 mm)" : "Klenutá ST elevace (Coved-type ≥ 2 mm)"}</text>
+          <text x="215" y="150" fill="#a78bfa" font-size="10">${isEs ? "T invertida en V1-V2" : "Invertované T ve V1-V2"}</text>
         `;
         break;
 
@@ -835,9 +850,9 @@ document.addEventListener("DOMContentLoaded", () => {
         pathD = "M 20 90 L 70 90 Q 82 72 94 90 L 108 90 L 126 55 L 136 20 L 148 115 L 156 90 Q 185 115 215 90 L 290 90 Q 302 72 314 90 L 328 90 L 346 55 L 356 20 L 368 115 L 376 90 Q 405 115 435 90 L 580 90";
         overlays = `
           <line x1="94" y1="90" x2="108" y2="90" stroke="${highlightColor}" stroke-width="2" />
-          <text x="65" y="115" fill="${highlightColor}" font-size="10">Krátké PR &lt; 120 ms</text>
+          <text x="65" y="115" fill="${highlightColor}" font-size="10">${isEs ? "PR corto < 120 ms" : "Krátké PR < 120 ms"}</text>
           <path d="M 108 90 L 126 55" stroke="#ef4444" stroke-width="4" />
-          <text x="128" y="45" fill="#ef4444" font-size="11" font-weight="bold">Delta vlna (pomalý náběh R)</text>
+          <text x="128" y="45" fill="#ef4444" font-size="11" font-weight="bold">${isEs ? "Onda delta (empastamiento inicial)" : "Delta vlna (pomalý náběh R)"}</text>
         `;
         break;
 
@@ -845,15 +860,15 @@ document.addEventListener("DOMContentLoaded", () => {
         pathD = "M 20 90 L 70 90 Q 85 75 100 90 L 120 90 L 126 96 L 136 30 L 148 120 Q 155 100 162 108 L 168 90 Q 195 130 225 90 L 310 90 L 316 96 L 326 30 L 338 120 Q 345 100 352 108 L 358 90 Q 385 130 415 90 L 580 90";
         overlays = `
           <circle cx="158" cy="104" r="7" fill="none" stroke="#fbbf24" stroke-width="2" />
-          <text x="140" y="145" fill="#fbbf24" font-size="11" font-weight="bold">Vlna Epsilon (zářez na konci QRS)</text>
-          <text x="195" y="150" fill="#a78bfa" font-size="10">Negativní T ve V1-V3</text>
+          <text x="140" y="145" fill="#fbbf24" font-size="11" font-weight="bold">${isEs ? "Onda Épsilon (muesca pos-QRS)" : "Vlna Epsilon (zářez na konci QRS)"}</text>
+          <text x="195" y="150" fill="#a78bfa" font-size="10">${isEs ? "T negativas en V1-V3" : "Negativní T ve V1-V3"}</text>
         `;
         break;
 
       case "early-repoc": // Early Repolarization
         pathD = "M 20 90 L 70 90 Q 85 75 100 90 L 120 90 L 126 96 L 138 25 L 148 100 Q 154 75 160 82 Q 180 70 210 75 Q 235 50 260 90 L 340 90 L 346 96 L 358 25 L 368 100 Q 374 75 380 82 Q 400 70 430 75 Q 455 50 480 90 L 580 90";
         overlays = `
-          <text x="150" y="60" fill="#34d399" font-size="11" font-weight="bold">J-point Notching &amp; konkávní ST elevace</text>
+          <text x="150" y="60" fill="#34d399" font-size="11" font-weight="bold">${isEs ? "Muesca en punto J y ST cóncavo" : "J-point Notching & konkávní ST elevace"}</text>
         `;
         break;
 
@@ -862,8 +877,8 @@ document.addEventListener("DOMContentLoaded", () => {
         pathD = "M 20 90 L 90 90 L 90 20 L 90 90 L 98 80 L 115 145 L 125 155 L 140 30 Q 170 50 200 90 L 290 90 L 290 20 L 290 90 L 298 80 L 315 145 L 325 155 L 340 30 Q 370 50 400 90 L 580 90";
         overlays = `
           <line x1="90" y1="15" x2="90" y2="90" stroke="${spikeColor}" stroke-width="3" />
-          <text x="50" y="15" fill="${spikeColor}" font-size="11" font-weight="bold">Ventrikulární Spike</text>
-          <text x="105" y="170" fill="#fb7185" font-size="11" font-weight="bold">Široký QRS s LBBB obrazem (hluboké S ve V1)</text>
+          <text x="50" y="15" fill="${spikeColor}" font-size="11" font-weight="bold">${isEs ? "Espícula ventricular" : "Ventrikulární Spike"}</text>
+          <text x="105" y="170" fill="#fb7185" font-size="11" font-weight="bold">${isEs ? "QRS ancho con patrón BRIHH (S profunda V1)" : "Široký QRS s LBBB obrazem (hluboké S ve V1)"}</text>
           <line x1="290" y1="15" x2="290" y2="90" stroke="${spikeColor}" stroke-width="3" />
         `;
         break;
@@ -872,8 +887,8 @@ document.addEventListener("DOMContentLoaded", () => {
         pathD = "M 20 90 L 60 90 L 60 40 L 60 90 Q 75 68 90 90 L 130 90 L 136 96 L 148 25 L 160 115 L 166 90 L 195 90 Q 230 55 265 90 L 320 90 L 320 40 L 320 90 Q 335 68 350 90 L 390 90 L 396 96 L 408 25 L 420 115 L 426 90 L 455 90 Q 490 55 525 90 L 580 90";
         overlays = `
           <line x1="60" y1="35" x2="60" y2="90" stroke="${spikeColor}" stroke-width="3" />
-          <text x="25" y="30" fill="${spikeColor}" font-size="11" font-weight="bold">Síňový Spike</text>
-          <text x="140" y="18" fill="#34d399" font-size="11" font-weight="bold">Štíhlý fyziologický QRS (&lt;100 ms)</text>
+          <text x="25" y="30" fill="${spikeColor}" font-size="11" font-weight="bold">${isEs ? "Espícula auricular" : "Síňový Spike"}</text>
+          <text x="140" y="18" fill="#34d399" font-size="11" font-weight="bold">${isEs ? "QRS estrecho fisiológico (<100 ms)" : "Štíhlý fyziologický QRS (<100 ms)"}</text>
         `;
         break;
 
@@ -881,11 +896,11 @@ document.addEventListener("DOMContentLoaded", () => {
         pathD = "M 20 90 L 60 90 L 60 45 L 60 90 Q 75 70 90 90 L 140 90 L 140 18 L 140 90 L 148 80 L 165 145 L 175 155 L 190 35 Q 220 55 250 90 L 310 90 L 310 45 L 310 90 Q 325 70 340 90 L 390 90 L 390 18 L 390 90 L 398 80 L 415 145 L 425 155 L 440 35 Q 470 55 500 90 L 580 90";
         overlays = `
           <line x1="60" y1="40" x2="60" y2="90" stroke="${spikeColor}" stroke-width="2.5" />
-          <text x="20" y="35" fill="${spikeColor}" font-size="10" font-weight="bold">1. A-Spike</text>
+          <text x="20" y="35" fill="${spikeColor}" font-size="10" font-weight="bold">${isEs ? "1. Espícula A" : "1. A-Spike"}</text>
           <line x1="140" y1="15" x2="140" y2="90" stroke="${spikeColor}" stroke-width="2.5" />
-          <text x="130" y="12" fill="${spikeColor}" font-size="10" font-weight="bold">2. V-Spike</text>
+          <text x="130" y="12" fill="${spikeColor}" font-size="10" font-weight="bold">${isEs ? "2. Espícula V" : "2. V-Spike"}</text>
           <line x1="60" y1="110" x2="140" y2="110" stroke="${highlightColor}" stroke-dasharray="2" />
-          <text x="75" y="125" fill="${highlightColor}" font-size="10">AV zpoždění</text>
+          <text x="75" y="125" fill="${highlightColor}" font-size="10">${isEs ? "Retraso AV" : "AV zpoždění"}</text>
         `;
         break;
 
@@ -893,9 +908,9 @@ document.addEventListener("DOMContentLoaded", () => {
         pathD = "M 20 90 L 80 90 L 80 25 L 82 25 L 82 90 L 90 96 L 105 20 L 120 98 L 130 90 Q 155 55 185 90 L 280 90 L 280 25 L 282 25 L 282 90 L 290 96 L 305 20 L 320 98 L 330 90 Q 355 55 385 90 L 580 90";
         overlays = `
           <line x1="80" y1="20" x2="80" y2="90" stroke="${spikeColor}" stroke-width="2.5" />
-          <text x="40" y="18" fill="${spikeColor}" font-size="10" font-weight="bold">BiV Spikes</text>
-          <text x="95" y="15" fill="#34d399" font-size="11" font-weight="bold">Dominantní kmit R ve V1 (Aktivace LK)</text>
-          <text x="140" y="145" fill="#38bdf8" font-size="10">Zúžený synchronizovaný QRS (&lt;130 ms)</text>
+          <text x="40" y="18" fill="${spikeColor}" font-size="10" font-weight="bold">${isEs ? "Espículas BiV" : "BiV Spikes"}</text>
+          <text x="95" y="15" fill="#34d399" font-size="11" font-weight="bold">${isEs ? "Onda R dominante en V1 (Activación VI)" : "Dominantní kmit R ve V1 (Aktivace LK)"}</text>
+          <text x="140" y="145" fill="#38bdf8" font-size="10">${isEs ? "QRS estrecho sincronizado (<130 ms)" : "Zúžený synchronizovaný QRS (<130 ms)"}</text>
         `;
         break;
 
@@ -904,8 +919,8 @@ document.addEventListener("DOMContentLoaded", () => {
         overlays = `
           <line x1="125" y1="68" x2="125" y2="90" stroke="${spikeColor}" stroke-width="2" />
           <circle cx="125" cy="80" r="5" fill="none" stroke="${highlightColor}" stroke-width="1.5" />
-          <text x="80" y="60" fill="${highlightColor}" font-size="11" font-weight="bold">Nenápadný Mikro-Spike</text>
-          <text x="135" y="18" fill="#34d399" font-size="11" font-weight="bold">ŠTÍHLÝ FYZIOLOGICKÝ QRS (&lt;100 ms!)</text>
+          <text x="80" y="60" fill="${highlightColor}" font-size="11" font-weight="bold">${isEs ? "Micro-espícula discreta" : "Nenápadný Mikro-Spike"}</text>
+          <text x="135" y="18" fill="#34d399" font-size="11" font-weight="bold">${isEs ? "QRS FISIOLÓGICO ESTRECHO (<100 ms!)" : "ŠTÍHLÝ FYZIOLOGICKÝ QRS (<100 ms!)"}</text>
         `;
         break;
 
@@ -915,8 +930,8 @@ document.addEventListener("DOMContentLoaded", () => {
           <line x1="100" y1="20" x2="100" y2="90" stroke="${spikeColor}" stroke-width="3" />
           <line x1="250" y1="20" x2="250" y2="90" stroke="${spikeColor}" stroke-width="3" />
           <line x1="400" y1="20" x2="400" y2="90" stroke="${spikeColor}" stroke-width="3" />
-          <text x="120" y="55" fill="#ef4444" font-size="12" font-weight="bold">Ztráta záchytu (Spike bez odpovědi myokardu)</text>
-          <text x="260" y="125" fill="#fca5a5" font-size="11">Asystolická pauza (Hrozí synkopa)</text>
+          <text x="120" y="55" fill="#ef4444" font-size="12" font-weight="bold">${isEs ? "Fallo de captura (Espícula sin respuesta)" : "Ztráta záchytu (Spike bez odpovědi myokardu)"}</text>
+          <text x="260" y="125" fill="#fca5a5" font-size="11">${isEs ? "Pausa asistólica (Riesgo de síncope)" : "Asystolická pauza (Hrozí synkopa)"}</text>
         `;
         break;
 
@@ -925,17 +940,17 @@ document.addEventListener("DOMContentLoaded", () => {
         overlays = `
           <line x1="225" y1="15" x2="225" y2="90" stroke="${spikeColor}" stroke-width="3" />
           <line x1="360" y1="15" x2="360" y2="90" stroke="${spikeColor}" stroke-width="3" />
-          <text x="180" y="15" fill="#ef4444" font-size="11" font-weight="bold">Asynchronní Spike do T-vlny (R-na-T fenomén!)</text>
-          <text x="280" y="145" fill="#fca5a5" font-size="11">Slepý stimulátor neregistruje vlastní stahy</text>
+          <text x="180" y="15" fill="#ef4444" font-size="11" font-weight="bold">${isEs ? "Espícula asíncrona sobre T (¡R sobre T!)" : "Asynchronní Spike do T-vlny (R-na-T fenomén!)"}</text>
+          <text x="280" y="145" fill="#fca5a5" font-size="11">${isEs ? "Infracaptación: no censa latidos propios" : "Slepý stimulátor neregistruje vlastní stahy"}</text>
         `;
         break;
 
       case "pm-oversensing": // Oversensing
         pathD = "M 20 90 L 60 90 L 68 96 L 78 30 L 88 110 L 94 90 Q 120 60 145 90 L 160 93 L 165 87 L 170 92 L 175 88 L 180 91 L 440 90 L 448 96 L 458 30 L 468 110 L 474 90 Q 500 60 525 90 L 580 90";
         overlays = `
-          <text x="150" y="70" fill="#fbbf24" font-size="10">Myopotenciály / Šum</text>
+          <text x="150" y="70" fill="#fbbf24" font-size="10">${isEs ? "Miopotenciales / Ruido" : "Myopotenciály / Šum"}</text>
           <line x1="180" y1="120" x2="440" y2="120" stroke="#ef4444" stroke-width="2" stroke-dasharray="4" />
-          <text x="210" y="140" fill="#ef4444" font-size="11" font-weight="bold">Chybění stimulace -&gt; Asystolická pauza</text>
+          <text x="210" y="140" fill="#ef4444" font-size="11" font-weight="bold">${isEs ? "Inhibición inapropiada -> Pausa asistólica" : "Chybění stimulace -> Asystolická pauza"}</text>
         `;
         break;
 
@@ -969,7 +984,8 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
   };
 
-  const generateAnatomySvg = (type) => {
+  const generateAnatomySvg = (type, opts = {}) => {
+    const isEs = (opts.lang || state.ekgLang) === "es";
     let highlightElements = "";
     let leadElements = "";
     let vectorArrow = "";
@@ -981,7 +997,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <path d="M 42 36 Q 55 45 70 50" stroke="#fbbf24" stroke-width="2.5" fill="none" marker-end="url(#arrow-head)" />
           <path d="M 42 36 Q 48 55 52 70" stroke="#fbbf24" stroke-width="2.5" fill="none" />
         `;
-        vectorArrow = `<text x="10" y="112" fill="#fbbf24" font-size="9" font-weight="bold">SA Vektor: Dolů &amp; Vlevo</text>`;
+        vectorArrow = `<text x="10" y="112" fill="#fbbf24" font-size="9" font-weight="bold">${isEs ? "Vector SA: Abajo e izquierda" : "SA Vektor: Dolů & Vlevo"}</text>`;
         break;
 
       case "av-node":
@@ -989,14 +1005,14 @@ document.addEventListener("DOMContentLoaded", () => {
           <circle cx="56" cy="58" r="6" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
           <rect x="54" y="64" width="4" height="12" fill="#38bdf8" />
         `;
-        vectorArrow = `<text x="8" y="112" fill="#38bdf8" font-size="9" font-weight="bold">AV Uzel: Pauza 0.08-0.12s</text>`;
+        vectorArrow = `<text x="8" y="112" fill="#38bdf8" font-size="9" font-weight="bold">${isEs ? "Nodo AV: Pausa 0.08-0.12s" : "AV Uzel: Pauza 0.08-0.12s"}</text>`;
         break;
 
       case "septum":
         highlightElements = `
           <line x1="62" y1="68" x2="48" y2="76" stroke="#f43f5e" stroke-width="3" marker-end="url(#arrow-head)" />
         `;
-        vectorArrow = `<text x="5" y="112" fill="#f43f5e" font-size="9" font-weight="bold">Septum: Zleva Doprava</text>`;
+        vectorArrow = `<text x="5" y="112" fill="#f43f5e" font-size="9" font-weight="bold">${isEs ? "Septo: Izquierda a derecha" : "Septum: Zleva Doprava"}</text>`;
         break;
 
       case "ventricles":
@@ -1004,14 +1020,14 @@ document.addEventListener("DOMContentLoaded", () => {
           <path d="M 58 76 Q 75 90 80 80" stroke="#34d399" stroke-width="3.5" fill="none" marker-end="url(#arrow-head)" />
           <path d="M 54 76 Q 35 88 28 78" stroke="#34d399" stroke-width="2" fill="none" />
         `;
-        vectorArrow = `<text x="8" y="112" fill="#34d399" font-size="9" font-weight="bold">Komory: Dominance LK</text>`;
+        vectorArrow = `<text x="8" y="112" fill="#34d399" font-size="9" font-weight="bold">${isEs ? "Ventrículos: Dominancia VI" : "Komory: Dominance LK"}</text>`;
         break;
 
       case "repolarization":
         highlightElements = `
           <path d="M 82 80 Q 72 82 64 78" stroke="#a78bfa" stroke-width="2.5" fill="none" marker-end="url(#arrow-head)" />
         `;
-        vectorArrow = `<text x="6" y="112" fill="#a78bfa" font-size="9" font-weight="bold">Epikard -&gt; Endokard</text>`;
+        vectorArrow = `<text x="6" y="112" fill="#a78bfa" font-size="9" font-weight="bold">${isEs ? "Epicardio -> Endocardio" : "Epikard -> Endokard"}</text>`;
         break;
 
       case "wpw":
@@ -1019,14 +1035,14 @@ document.addEventListener("DOMContentLoaded", () => {
           <path d="M 76 45 Q 86 60 84 75" stroke="#ef4444" stroke-width="3.5" stroke-dasharray="2" fill="none" />
           <circle cx="85" cy="60" r="4" fill="#ef4444" />
         `;
-        vectorArrow = `<text x="8" y="112" fill="#ef4444" font-size="9" font-weight="bold">Kentův svazek (Bypass)</text>`;
+        vectorArrow = `<text x="8" y="112" fill="#ef4444" font-size="9" font-weight="bold">${isEs ? "Haz de Kent (Vía accesoria)" : "Kentův svazek (Bypass)"}</text>`;
         break;
 
       case "brugada":
         highlightElements = `
           <rect x="28" y="52" width="14" height="20" rx="3" fill="rgba(239,68,68,0.4)" stroke="#ef4444" />
         `;
-        vectorArrow = `<text x="12" y="112" fill="#ef4444" font-size="9" font-weight="bold">RVOT Epikard (Na+ deficit)</text>`;
+        vectorArrow = `<text x="12" y="112" fill="#ef4444" font-size="9" font-weight="bold">${isEs ? "Epicardio TSVD (Déficit Na+)" : "RVOT Epikard (Na+ deficit)"}</text>`;
         break;
 
       // --- PACEMAKER LEADS ---
@@ -1036,7 +1052,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <circle cx="34" cy="94" r="4" fill="#ef4444" />
           <path d="M 34 94 Q 55 85 75 70" stroke="#fbbf24" stroke-width="2.5" fill="none" marker-end="url(#arrow-head)" />
         `;
-        vectorArrow = `<text x="10" y="112" fill="#fbbf24" font-size="9" font-weight="bold">Elektroda: Hrot PK (RVA)</text>`;
+        vectorArrow = `<text x="10" y="112" fill="#fbbf24" font-size="9" font-weight="bold">${isEs ? "Electrodo: Ápex VD (RVA)" : "Elektroda: Hrot PK (RVA)"}</text>`;
         break;
 
       case "aai":
@@ -1045,7 +1061,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <circle cx="42" cy="38" r="4" fill="#38bdf8" />
           <path d="M 42 38 Q 58 55 58 65" stroke="#34d399" stroke-width="2" fill="none" />
         `;
-        vectorArrow = `<text x="8" y="112" fill="#38bdf8" font-size="9" font-weight="bold">Elektroda: Ouško PS (RAA)</text>`;
+        vectorArrow = `<text x="8" y="112" fill="#38bdf8" font-size="9" font-weight="bold">${isEs ? "Electrodo: Orejuela AD (RAA)" : "Elektroda: Ouško PS (RAA)"}</text>`;
         break;
 
       case "ddd-dual":
@@ -1055,7 +1071,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <path d="M 38 10 Q 32 45 34 94" stroke="#94a3b8" stroke-width="1.8" fill="none" />
           <circle cx="34" cy="94" r="3.5" fill="#ef4444" />
         `;
-        vectorArrow = `<text x="14" y="112" fill="#fbbf24" font-size="9" font-weight="bold">Dual Leads: RA + RVA</text>`;
+        vectorArrow = `<text x="14" y="112" fill="#fbbf24" font-size="9" font-weight="bold">${isEs ? "Electrodos duales: AD + Ápex VD" : "Dual Leads: RA + RVA"}</text>`;
         break;
 
       case "biv-crt":
@@ -1066,7 +1082,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <circle cx="84" cy="75" r="3.5" fill="#34d399" />
           <path d="M 84 75 Q 60 78 54 80" stroke="#34d399" stroke-width="2" fill="none" />
         `;
-        vectorArrow = `<text x="5" y="112" fill="#34d399" font-size="9" font-weight="bold">CRT: RV + CS LV elektroda</text>`;
+        vectorArrow = `<text x="5" y="112" fill="#34d399" font-size="9" font-weight="bold">${isEs ? "TRC: VD + Seno coronario (VI)" : "CRT: RV + CS LV elektroda"}</text>`;
         break;
 
       case "csp-his-lbbp":
@@ -1075,12 +1091,12 @@ document.addEventListener("DOMContentLoaded", () => {
           <circle cx="56" cy="64" r="4" fill="#fbbf24" stroke="#ffffff" stroke-width="1" />
           <path d="M 56 64 L 56 85" stroke="#fbbf24" stroke-width="2.5" fill="none" />
         `;
-        vectorArrow = `<text x="6" y="112" fill="#fbbf24" font-size="9" font-weight="bold">CSP: Přímo do Hisova svazku</text>`;
+        vectorArrow = `<text x="6" y="112" fill="#fbbf24" font-size="9" font-weight="bold">${isEs ? "ECP: Haz de His / rama izq." : "CSP: Přímo do Hisova svazku"}</text>`;
         break;
 
       default:
         highlightElements = `<circle cx="56" cy="58" r="5" fill="#38bdf8" />`;
-        vectorArrow = `<text x="15" y="112" fill="#38bdf8" font-size="9">Převodní systém</text>`;
+        vectorArrow = `<text x="15" y="112" fill="#38bdf8" font-size="9">${isEs ? "Sistema de conducción" : "Převodní systém"}</text>`;
     }
 
     return `
@@ -1111,10 +1127,64 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
   };
 
+  // --- EKG UI LOCALIZATION UPDATER ---
+  const updateEkgUiLanguage = () => {
+    const isEs = state.ekgLang === "es";
+
+    const ekgTag = document.getElementById("ekg-tag-label");
+    const ekgHeroTitle = document.getElementById("ekg-hero-title");
+    const ekgHeroDesc = document.getElementById("ekg-hero-desc");
+
+    if (ekgTag) ekgTag.textContent = isEs ? "Módulo interactivo" : "Interaktivní modul";
+    if (ekgHeroTitle) ekgHeroTitle.textContent = isEs ? "EKG Masterclass y Atlas Diagnóstico" : "EKG Masterclass & Diagnostický atlas";
+    if (ekgHeroDesc) {
+      ekgHeroDesc.textContent = isEs
+        ? "Guía visual exhaustiva de electrocardiografía: visualización split-card con trazado de EKG, esquema simplificado de propagación anatómica del impulso, Decálogo de EKG, trastornos iónicos, síndromes y desglose detallado de tipos de marcapasos (desde VVI y TRC hasta el marcapasos fisiológico del haz de His)."
+        : "Komplexní vizuální průvodce elektrokardiografií: split-card rozpad s reálným EKG pruhem, zjednodušeným schématem anatomického šíření vzruchu, EKG Desaterem, iontovými dysbalancemi, syndromy a detailním přehledem typů kardiostimulace (od VVI přes CRT až po nenápadný His-bundle pacing).";
+    }
+
+    const tabDesatero = document.getElementById("ekg-tab-label-desatero");
+    const tabAnatomy = document.getElementById("ekg-tab-label-anatomy");
+    const tabIons = document.getElementById("ekg-tab-label-ions");
+    const tabSyndromes = document.getElementById("ekg-tab-label-syndromes");
+    const tabPacemakers = document.getElementById("ekg-tab-label-pacemakers");
+    const tabQuiz = document.getElementById("ekg-tab-label-quiz");
+
+    if (tabDesatero) tabDesatero.textContent = isEs ? "1. Decálogo de EKG" : "1. EKG Desatero";
+    if (tabAnatomy) tabAnatomy.textContent = isEs ? "2. Origen Anatómico" : "2. Anatomický původ";
+    if (tabIons) tabIons.textContent = isEs ? "3. Iones y Temperatura" : "3. Ionty & Teplota";
+    if (tabSyndromes) tabSyndromes.textContent = isEs ? "4. Síndromes y Cardiopatías" : "4. Syndromy & Vady";
+    if (tabPacemakers) tabPacemakers.textContent = isEs ? "5. Marcapasos en EKG" : "5. Kardiostimulace na EKG";
+    if (tabQuiz) tabQuiz.textContent = isEs ? "6. Test de EKG" : "6. EKG Kvíz";
+
+    if (isEs) {
+      ekgLangEsBtn?.classList.add("active");
+      ekgLangCsBtn?.classList.remove("active");
+    } else {
+      ekgLangCsBtn?.classList.add("active");
+      ekgLangEsBtn?.classList.remove("active");
+    }
+  };
+
+  const setEkgLanguage = (lang) => {
+    state.ekgLang = lang;
+    try {
+      localStorage.setItem(EKG_LANG_KEY, lang);
+    } catch (e) {}
+    updateEkgUiLanguage();
+    switchEkgSubpane(state.activeEkgSubpane || "desatero");
+  };
+
+  ekgLangCsBtn?.addEventListener("click", () => setEkgLanguage("cs"));
+  ekgLangEsBtn?.addEventListener("click", () => setEkgLanguage("es"));
+
   // --- EKG MASTERCLASS RENDERING ---
   const renderEkgDesatero = () => {
     if (!desateroContainer) return;
-    desateroContainer.innerHTML = EKG_MASTERCLASS_DATA.desatero
+    const ekgData = getEkgData();
+    const isEs = state.ekgLang === "es";
+
+    desateroContainer.innerHTML = ekgData.desatero
       .map(
         (item) => `
       <div class="ekg-split-card">
@@ -1125,7 +1195,7 @@ document.addEventListener("DOMContentLoaded", () => {
               <span>${item.icon}</span>
               <span>${item.title}</span>
             </div>
-            <span class="ekg-lead-badge">Svod II / standardní 12svod</span>
+            <span class="ekg-lead-badge">${isEs ? "Derivación II / 12 derivaciones estándar" : "Svod II / standardní 12svod"}</span>
           </div>
 
           <div class="ecg-paper-container ecg-paper-pink">
@@ -1133,24 +1203,24 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
 
           <div class="ekg-paper-meta">
-            Posun: 25 mm/s • Kalibrace: 10 mm/mV • 1 malý čtvereček = 40 ms (0.04 s) / 0.1 mV
+            ${isEs ? "Velocidad: 25 mm/s • Calibración: 10 mm/mV • 1 cuadro pequeño = 40 ms (0.04 s) / 0.1 mV" : "Posun: 25 mm/s • Kalibrace: 10 mm/mV • 1 malý čtvereček = 40 ms (0.04 s) / 0.1 mV"}
           </div>
         </div>
 
         <!-- Right Column: Rule, Logic & Anatomy Breakdown -->
         <div class="ekg-logic-col">
           <div class="ekg-logic-box">
-            <span class="logic-box-label">🎯 Zlaté pravidlo pro hodnocení</span>
+            <span class="logic-box-label">${isEs ? "🎯 Regla de oro para la evaluación" : "🎯 Zlaté pravidlo pro hodnocení"}</span>
             <p class="logic-box-text"><strong>${item.rule}</strong></p>
           </div>
 
           <div class="ekg-logic-box">
-            <span class="logic-box-label" style="color: #38bdf8;">🧠 Logické a fyziologické souvislosti</span>
+            <span class="logic-box-label" style="color: #38bdf8;">${isEs ? "🧠 Fundamento fisiológico y lógico" : "🧠 Logické a fyziologické souvislosti"}</span>
             <p class="logic-box-text">${item.details}</p>
           </div>
 
           <div class="ekg-pearl-box">
-            💡 <strong>Klinická perla:</strong> ${item.clinicalPearl}
+            💡 <strong>${isEs ? "Perla clínica:" : "Klinická perla:"}</strong> ${item.clinicalPearl}
           </div>
         </div>
       </div>
@@ -1161,7 +1231,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const renderEkgAnatomy = () => {
     if (!anatomyContainer) return;
-    anatomyContainer.innerHTML = EKG_MASTERCLASS_DATA.anatomy
+    const ekgData = getEkgData();
+    const isEs = state.ekgLang === "es";
+
+    anatomyContainer.innerHTML = ekgData.anatomy
       .map(
         (item) => `
       <div class="ekg-split-card">
@@ -1181,7 +1254,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           <div class="ekg-markers-list">
             <div class="ekg-marker-item">
-              <span class="ekg-marker-tag">Lokalizace:</span>
+              <span class="ekg-marker-tag">${isEs ? "Localización:" : "Lokalizace:"}</span>
               <span class="ekg-marker-desc">${item.location}</span>
             </div>
           </div>
@@ -1194,19 +1267,19 @@ document.addEventListener("DOMContentLoaded", () => {
               ${generateAnatomySvg(item.id)}
             </div>
             <div class="anatomy-text-wrap">
-              <span class="anatomy-origin-title">Anatomický původ vzruchu</span>
+              <span class="anatomy-origin-title">${isEs ? "Origen anatómico del impulso" : "Anatomický původ vzruchu"}</span>
               <span class="anatomy-origin-loc">${item.location}</span>
-              <span class="anatomy-vector-pill">🧭 Vektor: ${item.vector}</span>
+              <span class="anatomy-vector-pill">🧭 ${isEs ? "Vector:" : "Vektor:"} ${item.vector}</span>
             </div>
           </div>
 
           <div class="ekg-logic-box">
-            <span class="logic-box-label">⚡ Elektrofyziologický mechanismus</span>
+            <span class="logic-box-label">${isEs ? "⚡ Mecanismo electrofisiológico" : "⚡ Elektrofyziologický mechanismus"}</span>
             <p class="logic-box-text">${item.mechanism}</p>
           </div>
 
           <div class="ekg-danger-box">
-            ⚠️ <strong>Patologie při poruše:</strong> ${item.pathology}
+            ⚠️ <strong>${isEs ? "Patología por disfunción:" : "Patologie při poruše:"}</strong> ${item.pathology}
           </div>
         </div>
       </div>
@@ -1217,7 +1290,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const renderEkgIons = () => {
     if (!ionsContainer) return;
-    ionsContainer.innerHTML = EKG_MASTERCLASS_DATA.ionAndTemperature
+    const ekgData = getEkgData();
+    const isEs = state.ekgLang === "es";
+
+    ionsContainer.innerHTML = ekgData.ionAndTemperature
       .map(
         (item) => `
       <div class="ekg-split-card">
@@ -1239,7 +1315,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           <div class="ekg-markers-list">
             <div class="ekg-marker-item">
-              <span class="ekg-marker-tag">Typická křivka:</span>
+              <span class="ekg-marker-tag">${isEs ? "Patrón típico:" : "Typická křivka:"}</span>
               <span class="ekg-marker-desc">${item.ecgWaveform}</span>
             </div>
           </div>
@@ -1248,14 +1324,14 @@ document.addEventListener("DOMContentLoaded", () => {
         <!-- Right: Pathophysiology & Pearls -->
         <div class="ekg-logic-col">
           <div class="ekg-logic-box">
-            <span class="logic-box-label">🔍 Charakteristické EKG změny</span>
+            <span class="logic-box-label">${isEs ? "🔍 Cambios característicos en el EKG" : "🔍 Charakteristické EKG změny"}</span>
             <ul style="list-style: disc; margin-left: 18px; line-height: 1.55; font-size: 0.82rem; color: var(--text-secondary);">
               ${item.changes.map((ch) => `<li style="margin-bottom: 6px;">${ch}</li>`).join("")}
             </ul>
           </div>
 
           <div class="ekg-pearl-box">
-            💊 <strong>Klinický management &amp; Antidotum:</strong> ${item.pearl}
+            💊 <strong>${isEs ? "Manejo clínico y antídoto:" : "Klinický management &amp; Antidotum:"}</strong> ${item.pearl}
           </div>
         </div>
       </div>
@@ -1266,7 +1342,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const renderEkgSyndromes = () => {
     if (!syndromesContainer) return;
-    syndromesContainer.innerHTML = EKG_MASTERCLASS_DATA.syndromesAndCongenital
+    const ekgData = getEkgData();
+    const isEs = state.ekgLang === "es";
+
+    syndromesContainer.innerHTML = ekgData.syndromesAndCongenital
       .map(
         (item) => `
       <div class="ekg-split-card">
@@ -1286,7 +1365,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           <div class="ekg-markers-list">
             <div class="ekg-marker-item">
-              <span class="ekg-marker-tag">EKG kritéria:</span>
+              <span class="ekg-marker-tag">${isEs ? "Criterios de EKG:" : "EKG kritéria:"}</span>
               <span class="ekg-marker-desc">${item.ecgCriteria}</span>
             </div>
           </div>
@@ -1301,19 +1380,19 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="anatomy-text-wrap">
               <span class="anatomy-origin-title">${item.name}</span>
               <span class="anatomy-origin-loc">${item.type}</span>
-              ${item.triggers ? `<span class="anatomy-vector-pill">🔥 Spouštěče: ${item.triggers}</span>` : ""}
+              ${item.triggers ? `<span class="anatomy-vector-pill">🔥 ${isEs ? "Desencadenantes:" : "Spouštěče:"} ${item.triggers}</span>` : ""}
             </div>
           </div>
 
           <div class="ekg-logic-box">
-            <span class="logic-box-label">🧑‍⚕️ Klinický obraz a pacienti</span>
+            <span class="logic-box-label">${isEs ? "🧑‍⚕️ Presentación clínica y pacientes" : "🧑‍⚕️ Klinický obraz a pacienti"}</span>
             <p class="logic-box-text">${item.clinicalPresentation}</p>
           </div>
 
           ${item.dangerAlert ? `<div class="ekg-danger-box">${item.dangerAlert}</div>` : ""}
 
           <div class="ekg-pearl-box">
-            🛡️ <strong>Léčba a prevence náhlé smrti:</strong> ${item.management}
+            🛡️ <strong>${isEs ? "Manejo y prevención de muerte súbita:" : "Léčba a prevence náhlé smrti:"}</strong> ${item.management}
           </div>
         </div>
       </div>
@@ -1325,17 +1404,22 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- RENDER PACEMAKERS (TYPY KARDIOSTIMULACE) ---
   const renderEkgPacemakers = () => {
     if (!pacemakersContainer) return;
+    const ekgData = getEkgData();
+    const isEs = state.ekgLang === "es";
+
     pacemakersContainer.innerHTML = `
       <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: var(--radius-lg); padding: 18px 22px; margin-bottom: 24px;">
         <h3 style="font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; color: var(--cardio-emerald); margin-bottom: 6px;">
-          🔋 Atlas kardiostimulace: Od klasických širokých křivek po nenápadný His-bundle pacing
+          ${isEs ? "🔋 Atlas de estimulación cardíaca: Desde complejos anchos clásicos hasta el marcapasos fisiológico del haz de His" : "🔋 Atlas kardiostimulace: Od klasických širokých křivek po nenápadný His-bundle pacing"}
         </h3>
         <p style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.55;">
-          Rozpoznání stimulace na EKG závisí na poloze elektrody: zatímco klasická stimulace z hrotu pravé komory (VVI) vytváří snadno čitelný široký QRS s LBBB obrazem a velkým spikem, moderní <strong>fyziologická stimulace Hisova svazku (CSP)</strong> vytváří <strong>štíhlý fyziologický QRS</strong> s drobným mikro-spikem, který je velmi snadné přehlédnout!
+          ${isEs
+            ? "El reconocimiento del marcapasos en el EKG depende de la posición del electrodo: mientras que la estimulación clásica del ápex del ventrículo derecho (VVI) genera un QRS ancho con morfología de BRIHH y una espícula prominente, la moderna <strong>estimulación fisiológica del sistema de conducción (CSP)</strong> genera un <strong>QRS estrecho fisiológico</strong> con una micro-espícula fácil de pasar por alto."
+            : "Rozpoznání stimulace na EKG závisí na poloze elektrody: zatímco klasická stimulace z hrotu pravé komory (VVI) vytváří snadno čitelný široký QRS s LBBB obrazem a velkým spikem, moderní <strong>fyziologická stimulace Hisova svazku (CSP)</strong> vytváří <strong>štíhlý fyziologický QRS</strong> s drobným mikro-spikem, který je velmi snadné přehlédnout!"}
         </p>
       </div>
 
-      ${EKG_MASTERCLASS_DATA.pacemakers
+      ${ekgData.pacemakers
         .map(
           (pm) => `
         <div class="ekg-split-card">
@@ -1376,19 +1460,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 ${generateAnatomySvg(pm.id)}
               </div>
               <div class="anatomy-text-wrap">
-                <span class="anatomy-origin-title">Poloha stimulační elektrody</span>
+                <span class="anatomy-origin-title">${isEs ? "Posición del electrodo de estimulación" : "Poloha stimulační elektrody"}</span>
                 <span class="anatomy-origin-loc">${pm.leadOrigin}</span>
-                <span class="anatomy-vector-pill">🧭 Vektor: ${pm.vectorLogic}</span>
+                <span class="anatomy-vector-pill">🧭 ${isEs ? "Vector:" : "Vektor:"} ${pm.vectorLogic}</span>
               </div>
             </div>
 
             <div class="ekg-logic-box">
-              <span class="logic-box-label">⚡ Proč křivka vypadá právě takto</span>
+              <span class="logic-box-label">${isEs ? "⚡ Por qué el trazado se ve así" : "⚡ Proč křivka vypadá právě takto"}</span>
               <p class="logic-box-text">${pm.mechanism}</p>
             </div>
 
             <div class="ekg-pearl-box">
-              💡 <strong>Klinický tip a chyták ke zkoušce:</strong> ${pm.clinicalPearl}
+              💡 <strong>${isEs ? "Consejo clínico y trampa de examen:" : "Klinický tip a chyták ke zkoušce:"}</strong> ${pm.clinicalPearl}
             </div>
           </div>
         </div>
@@ -1400,11 +1484,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const renderEkgQuiz = () => {
     if (!ekgQuizContainer) return;
-    ekgQuizContainer.innerHTML = EKG_MASTERCLASS_DATA.masterclassQuiz
+    const ekgData = getEkgData();
+    const isEs = state.ekgLang === "es";
+
+    ekgQuizContainer.innerHTML = ekgData.masterclassQuiz
       .map(
         (q, qIdx) => `
       <div class="decision-quiz-box" style="margin-bottom: 24px;">
-        <span class="quiz-badge">Otázka ${qIdx + 1} z ${EKG_MASTERCLASS_DATA.masterclassQuiz.length}</span>
+        <span class="quiz-badge">${isEs ? `Pregunta ${qIdx + 1} de ${ekgData.masterclassQuiz.length}` : `Otázka ${qIdx + 1} z ${ekgData.masterclassQuiz.length}`}</span>
         <p class="quiz-prompt">${q.question}</p>
         <div class="quiz-options-list" id="emq-opts-${qIdx}">
           ${q.options
@@ -1424,7 +1511,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .join("");
 
     // Bind events
-    EKG_MASTERCLASS_DATA.masterclassQuiz.forEach((q, qIdx) => {
+    ekgData.masterclassQuiz.forEach((q, qIdx) => {
       const container = document.getElementById(`emq-opts-${qIdx}`);
       const fbBox = document.getElementById(`emq-fb-${qIdx}`);
       if (!container || !fbBox) return;
@@ -1445,7 +1532,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           fbBox.className = `quiz-feedback-box show ${selected.isCorrect ? "correct-fb" : "incorrect-fb"}`;
           fbBox.innerHTML = `
-            <strong>${selected.isCorrect ? "✅ Správně!" : "❌ Nesprávně."}</strong><br>
+            <strong>${selected.isCorrect ? (isEs ? "✅ ¡Correcto!" : "✅ Správně!") : (isEs ? "❌ Incorrecto." : "❌ Nesprávně.")}</strong><br>
             ${q.explanation}
           `;
         });
@@ -1598,6 +1685,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- INIT ---
   initTheme();
+  updateEkgUiLanguage();
   updateDashboardStats();
   handleHashRouting();
 });
