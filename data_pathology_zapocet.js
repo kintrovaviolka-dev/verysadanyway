@@ -4643,8 +4643,8 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
     "id": 388,
     "question": "Trombocytopenie nebývá vyvolány",
     "options": [
-      "Grawitzovýn karcinomem ledvin",
-      "Myelofbrózou",
+      "Grawitzovým karcinomem ledvin",
+      "Myelofibrózou",
       "Akutní leukémií",
       "Výraznou splenomegalií",
       "Některými léky (methotrexát)"
@@ -4653,7 +4653,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
   },
   {
     "id": 389,
-    "question": "U polycyteamia vera nebývá",
+    "question": "U polycytaemia vera nebývá",
     "options": [
       "Vysoký počet krevních destiček",
       "Vysoký hematokrit",
@@ -4713,7 +4713,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
   },
   {
     "id": 394,
-    "question": "Muž (72). Anizocytóza a poikilocytóza. Zvýšený průměrný objem erytrocytů, hzpersegmentovaná jádra neutrofilů. Pravděpodobná dg.:",
+    "question": "Muž (72). Anizocytóza a poikilocytóza. Zvýšený průměrný objem erytrocytů, hypersegmentovaná jádra neutrofilů. Pravděpodobná dg.:",
     "options": [
       "Hypoplazie kostní dřeně",
       "Perniciózní anémie",
@@ -4725,7 +4725,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
   },
   {
     "id": 395,
-    "question": "Pacient (49), delirium tremens. Je anemický, zvýšená objem erytrocytů, větší obsah hemoglobinu v erytrocytech. Pravděpodobnou příčinou anémie je chybění",
+    "question": "Pacient (49), delirium tremens. Je anemický, zvýšený objem erytrocytů, větší obsah hemoglobinu v erytrocytech. Pravděpodobnou příčinou anémie je chybění",
     "options": [
       "Vitamínu C",
       "Kyseliny listové",
