@@ -62,7 +62,7 @@ export const CLINICAL_QUIZZES: QuizItem[] = [
       "Pacienta s popáleninami II. stupně na 10% tělesného povrchu, který chodí a stěžuje si na silnou bolest"
     ],
     correctIndex: 0,
-    explanation: "Pacient s tenzním pneumotoraxem vykazuje známky bezprostředního ohrožení života (tachyfnoe > 30/min, hemodynamická nestabilita, alterace vědomí), což odpovídá červené prioritě (Třída I). Bezdešný pacient po uvolnění DC je černá (Třída IV), zlomenina s dobrou perfúzí je žlutá (Třída II) a chodící pacient zelená (Třída III).",
+    explanation: "Pacient s tenzním pneumotoraxem vykazuje známky bezprostředního ohrožení života (tachypnoe > 30/min, hemodynamická nestabilita, alterace vědomí), což odpovídá červené prioritě (Třída I). Bezdešný pacient po uvolnění DC je černá (Třída IV), zlomenina s dobrou perfúzí je žlutá (Třída II) a chodící pacient zelená (Třída III).",
     severity: "high"
   },
   {
