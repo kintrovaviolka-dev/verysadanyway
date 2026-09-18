@@ -17,3 +17,11 @@ psych/*.pptx
 psych/*.zip
 psych/raw/
 
+# Neurologie - referenční zdrojové materiály (pouze portál do gitu)
+neuro/*.pdf
+neuro/*.docx
+neuro/*.pptx
+neuro/*.zip
+neuro/raw/
+
+

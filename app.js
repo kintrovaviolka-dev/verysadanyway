@@ -171,6 +171,8 @@ document.addEventListener("DOMContentLoaded", () => {
       destination = "./radiolka/index.html";
     } else if (subject === "psychiatrie" || subject === "psych") {
       destination = "./psych/index.html";
+    } else if (subject === "neurologie" || subject === "neuro") {
+      destination = "./neuro/index.html";
     } else if (subject === "imunologie") {
       destination = "./imunologie-test/index.html";
     } else if (subject === "mikrobiologie") {

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neurologie | Portál 4. ročníku LF OU</title>
+  <meta name="description" content="Komplexní interaktivní výukový portál obecné neurologie pro studenty 4. ročníku všeobecného lékařství LF OU. Centrální motorika, hlavové nervy, reflexologie, syndromologie, Leitner Spaced Repetition a testové otázky.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Přeskočit na obsah pro čtečky a klávesnici -->
+  <a class="skip-link" href="#main-content">Přeskočit na obsah</a>
+  
+  <!-- Ambientní elektrické neuronové pozadí -->
+  <div class="ambient-glow-1" aria-hidden="true"></div>
+  <div class="ambient-glow-2" aria-hidden="true"></div>
+
+  <div class="app-container">
+    
+    <!-- Hlavička aplikace -->
+    <header>
+      <div class="brand">
+        <div class="brand-icon-box" aria-hidden="true">
+          <span>⚡</span>
+        </div>
+        <div class="brand-title-area">
+          <h1>
+            <span>Neurologie</span>
+            <span class="grade-tag">4. ročník • LF OU</span>
+          </h1>
+          <p class="brand-subtitle">Obecná neurologie • Motorický & Senzitivní systém • Hlavové nervy • Syndromologie • Spaced Repetition</p>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <a href="../index.html" class="btn btn-secondary" id="back-hub-btn" title="Zpět na centrální rozcestník předmětů">
+          <span>← Rozcestník</span>
+        </a>
+
+        <button id="start-sr-all-btn" class="btn btn-primary" title="Spustit globální trénink všech flashcards">
+          <span>⚡</span>
+          <span>Spaced Repetition</span>
+        </button>
+
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Přepnout tmavý/světlý režim" title="Přepnout motiv">
+          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Statistický dashboard -->
+    <section class="dashboard-section" aria-label="Statistiky učení">
+      <div class="dashboard-grid">
+        
+        <!-- Celkový pokrok -->
+        <div class="dash-card">
+          <span class="dash-label">
+            <span>📊</span>
+            <span>Prozkoumaná témata</span>
+          </span>
+          <div class="dash-main-val">
+            <span id="stat-explored-count">0</span> / <span id="stat-total-modules">25</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill-bar" id="stat-explored-bar"></div>
+          </div>
+          <span class="dash-subtext" id="stat-explored-pct">0 % zkouškových okruhů otevřeno</span>
+        </div>
+
+        <!-- Leitnerovy krabičky -->
+        <div class="dash-card">
+          <span class="dash-label">
+            <span>📦</span>
+            <span>Leitnerův systém (Kartičky)</span>
+          </span>
+          <div class="boxes-mini-grid">
+            <div class="box-mini b1" title="Opakovat denně">
+              <div class="box-mini-badge">B1</div>
+              <div class="box-mini-count" id="box-1-count">0</div>
+              <div class="box-mini-sub">Denně</div>
+            </div>
+            <div class="box-mini b2" title="Opakovat obden">
+              <div class="box-mini-badge">B2</div>
+              <div class="box-mini-count" id="box-2-count">0</div>
+              <div class="box-mini-sub">2 dny</div>
+            </div>
+            <div class="box-mini b3" title="Opakovat za 5 dní">
+              <div class="box-mini-badge">B3</div>
+              <div class="box-mini-count" id="box-3-count">0</div>
+              <div class="box-mini-sub">5 dní</div>
+            </div>
+            <div class="box-mini b4" title="Zvládnuto (za 10 dní)">
+              <div class="box-mini-badge">B4</div>
+              <div class="box-mini-count" id="box-4-count">0</div>
+              <div class="box-mini-sub">10 dní</div>
+            </div>
+          </div>
+          <span class="dash-subtext">Celkem <span id="stat-total-cards">75</span> flashcards v databázi</span>
+        </div>
+
+        <!-- K opakování dnes -->
+        <div class="dash-card">
+          <span class="dash-label">
+            <span>⏰</span>
+            <span>K opakování na dnešek</span>
+          </span>
+          <div class="dash-main-val">
+            <span id="stat-due-count">0</span>
+            <span style="font-size: 1rem; color: var(--text-muted); font-weight: 500;">karet</span>
+          </div>
+          <p class="dash-subtext" id="stat-due-desc" style="margin-bottom: 10px;">Všechny karty jsou zopakované!</p>
+          <button id="study-due-btn" class="btn btn-due" style="display: none; width: 100%;">
+            Opakovat dnešní karty (<span id="due-btn-count">0</span>)
+          </button>
+        </div>
+
+        <!-- Kvízová úspěšnost -->
+        <div class="dash-card">
+          <span class="dash-label">
+            <span>🎯</span>
+            <span>Kvízová úspěšnost</span>
+          </span>
+          <div class="dash-main-val">
+            <span id="stat-quiz-pct">0</span> %
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill-bar" id="stat-quiz-bar" style="background: linear-gradient(135deg, #10b981, #34d399);"></div>
+          </div>
+          <span class="dash-subtext"><span id="stat-quiz-correct">0</span> správně z <span id="stat-quiz-total">0</span> otázek</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Navigační taby módů -->
+    <section class="mode-tabs-container" aria-label="Režimy studia">
+      <div class="mode-tabs" role="tablist">
+        <button class="tab-btn active" role="tab" aria-selected="true" data-tab="theory" id="tab-theory">
+          <span>📖</span>
+          <span id="tab-theory-label">25 Okruhů & Teorie</span>
+        </button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-tab="recall" id="tab-recall">
+          <span>🎯</span>
+          <span>Active Recall (Kazuistiky)</span>
+        </button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-tab="flashcards" id="tab-flashcards">
+          <span>⚡</span>
+          <span>Spaced Repetition (75 Kartiček)</span>
+        </button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-tab="quiz" id="tab-quiz">
+          <span>📝</span>
+          <span>Cvičný test (50 Otázek)</span>
+        </button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-tab="cheatsheet" id="tab-cheatsheet">
+          <span>📑</span>
+          <span>Rychlý tahák</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Ovládací lišta: Sekce, Vyhledávání & Kategorie -->
+    <section class="controls-bar" id="controls-bar">
+      <!-- Přepínač sekce -->
+      <div class="section-switch-wrapper" id="section-switch-wrapper" role="radiogroup" aria-label="Výběr státnicového okruhu">
+        <button class="section-pill active" data-section="all" aria-checked="true" role="radio">
+          <span>📚</span>
+          <span>Všechny okruhy (25)</span>
+        </button>
+        <button class="section-pill" data-section="obecna" aria-checked="false" role="radio">
+          <span>⚡</span>
+          <span>Obecná neurologie (25)</span>
+        </button>
+      </div>
+
+      <div class="search-filter-row">
+        <div class="search-box">
+          <span class="search-icon" aria-hidden="true">🔍</span>
+          <input type="text" id="search-input" class="search-input" placeholder="Hledat v otázkách, syndromoch, reflexech (např. Babinski, Wallenberg, EEG, likvor)..." aria-label="Vyhledávání v neurologii">
+        </div>
+        <div class="category-pills" id="category-pills" role="group" aria-label="Filtrování témat">
+          <!-- Dynamicky generované pills -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Hlavní obsah podle aktivního tabu -->
+    <main id="main-content">
+      
+      <!-- TAB 1: Teorie & Moduly -->
+      <section id="view-theory" class="tab-view active">
+        <div class="modules-grid" id="modules-grid">
+          <!-- Dynamicky renderované karty modulů -->
+        </div>
+      </section>
+
+      <!-- TAB 2: Active Recall -->
+      <section id="view-recall" class="tab-view" style="display: none;">
+        <div style="max-width: 900px; margin: 0 auto;" id="recall-list-container">
+          <!-- Dynamicky renderované active recall kazuistiky -->
+        </div>
+      </section>
+
+      <!-- TAB 3: Flashcards / Spaced Repetition -->
+      <section id="view-flashcards" class="tab-view" style="display: none;">
+        <div class="flashcard-drill-container" id="flashcard-drill-container">
+          <div class="flashcard" id="active-flashcard" tabindex="0" role="button" aria-label="Otočit kartičku">
+            <div class="flashcard-badge" id="fc-category-badge">Kategorie</div>
+            <div class="flashcard-text" id="fc-text-content">Klikněte pro otočení</div>
+            <div class="flashcard-hint" id="fc-hint-content">Nápověda...</div>
+          </div>
+          <div class="flashcard-actions" id="fc-actions">
+            <button class="grade-btn again" data-grade="again" title="Zcela nevím – zopakovat dnes">Znovu (1)</button>
+            <button class="grade-btn hard" data-grade="hard" title="S obtížemi – zopakovat zítra">Těžké (2)</button>
+            <button class="grade-btn good" data-grade="good" title="Dobře – posunout o box">Dobré (3)</button>
+            <button class="grade-btn easy" data-grade="easy" title="Naprosto snadné – zvládnuto">Snadné (4)</button>
+          </div>
+          <div style="text-align: center; margin-top: 14px; font-size: 0.85rem; color: var(--text-muted);">
+            Karta <span id="fc-current-idx">1</span> z <span id="fc-total-count">75</span> • Klávesy: Mezerník = otočit, 1–4 = hodnocení
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 4: Kvíz & Testy -->
+      <section id="view-quiz" class="tab-view" style="display: none;">
+        <div class="quiz-container" id="quiz-container">
+          <!-- Dynamicky renderovaný kvíz -->
+        </div>
+      </section>
+
+      <!-- TAB 5: Rychlý tahák (Cheat Sheet) -->
+      <section id="view-cheatsheet" class="tab-view" style="display: none;">
+        <div class="cheatsheet-grid" id="cheatsheet-grid">
+          <!-- Dynamicky renderovaný přehled klíčových bodů -->
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Modální okno pro detail modulu -->
+    <div class="modal-overlay" id="module-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-module-title">
+      <div class="modal-dialog">
+        <div class="modal-header">
+          <div class="modal-title-area">
+            <span class="grade-tag" id="modal-module-badge">Obecná neurologie</span>
+            <h2 id="modal-module-title">Název otázky</h2>
+          </div>
+          <button class="modal-close-btn" id="modal-close-btn" aria-label="Zavřít detail otázky">✕</button>
+        </div>
+        <div class="modal-body" id="modal-module-body">
+          <!-- Vložená teorie, sekce a rozbor -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Patička -->
+    <footer>
+      <p>© 2026 Lékařský studijní portál LF OU • Neurologie (4. ročník) • Vytvořeno pro efektivní přípravu ke zkoušce.</p>
+    </footer>
+
+  </div>
+
+  <!-- Skripty -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

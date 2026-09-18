@@ -62,6 +62,10 @@
   --psych-glow: rgba(167, 139, 250, 0.28);
   --psych-gradient: linear-gradient(135deg, #7c3aed, #c084fc);
 
+  --neuro-color: #06b6d4;
+  --neuro-glow: rgba(6, 182, 212, 0.28);
+  --neuro-gradient: linear-gradient(135deg, #0891b2, #06b6d4, #38bdf8);
+
   --accent-blue: #00f0ff;
   --accent-gold: #fbbf24;
   --accent-red: #ffb4ab;
@@ -332,6 +336,12 @@ header p {
 .subject-card.psychiatrie:hover {
   border-color: var(--psych-color);
   box-shadow: 0 15px 30px -15px var(--psych-glow);
+  transform: translateY(-6px);
+}
+
+.subject-card.neurologie:hover {
+  border-color: var(--neuro-color);
+  box-shadow: 0 15px 30px -15px var(--neuro-glow);
   transform: translateY(-6px);
 }
 
