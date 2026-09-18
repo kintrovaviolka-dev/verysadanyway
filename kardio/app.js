@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const STORAGE_KEY = "kardio_leitner_v1";
   const THEME_KEY = "kardio_theme_v1";
   const STATS_KEY = "kardio_stats_v1";
+  const PORTAL_LANG_KEY = "kardio_portal_lang_v1";
+  const EKG_LANG_KEY = "kardio_ekg_lang_v1";
 
   const getStoredLeitner = () => {
     try {
@@ -46,7 +48,153 @@ document.addEventListener("DOMContentLoaded", () => {
     4: 10  // Box 4: Zvládnuto (10 dní)
   };
 
-  const EKG_LANG_KEY = "kardio_ekg_lang_v1";
+  // --- I18N TRANSLATIONS DICTIONARY ---
+  const I18N = {
+    cs: {
+      title: "Kardiologie | Lékařský Studijní Portál 4. ročníku",
+      metaDesc: "Interaktivní studijní portál kardiologie pro studenty 4. ročníku všeobecného lékařství. Třífázová metodika Learn-Recall-Breakdown, nejnovější ESC Guidelines (2023–2026) a Spaced Repetition banka s 115+ kartičkami.",
+      skipLink: "Přeskočit na obsah",
+      brandTitle: "Kardiologie",
+      brandTag: "4. ročník",
+      brandSubtitle: "ESC Guidelines (2023–2026) • 3-fázový rozpad témat • 115+ Leitner karet",
+      backHub: "← Rozcestník",
+      srGlobalBtn: "Spaced Repetition (115+)",
+      themeToggle: "Přepnout motiv",
+      dashOverallLabel: "Celkové zvládnutí oboru",
+      dashOverallSub: "Karty v Boxu 4 (zvládnuté s odstupem 10 dní)",
+      dashLeitnerLabel: "Leitnerův systém (Box 1–4)",
+      dashBox1Title: "Karty k opakování denně",
+      dashBox2Title: "Karty k opakování obden",
+      dashBox3Title: "Karty k opakování každých 5 dní",
+      dashBox4Title: "Zvládnuté karty (každých 10 dní)",
+      dashFreq1: "Denně",
+      dashFreq2: "2 dny",
+      dashFreq3: "5 dní",
+      dashFreq4: "10 dní",
+      dashLeitnerSub: "Intervalový algoritmus upevňování znalostí v dlouhodobé paměti",
+      dashDueLabel: "K opakování na dnešek",
+      dashDueBtn: "⚡ Zopakovat dnešní karty",
+      navModules: "Témata (12)",
+      navEkg: "EKG Masterclass",
+      navSr: "Spaced Repetition (115+)",
+      searchPlaceholder: "Hledat téma, lék, syndrom...",
+      searchNoMatch: 'Žádný kardiologický modul neodpovídá hledání "{query}".',
+      searchClear: "Vymazat filtr",
+      moduleFlow1: "1. Teorie",
+      moduleFlow2: "2. Recall",
+      moduleFlow3: "3. Tahák",
+      moduleAction: "Spustit →",
+      detailBack: "← Zpět na přehled",
+      stepTheory: "Teorie & Algoritmy",
+      stepRecall: "Active Recall & Scénáře",
+      stepSummary: "Klinický tahák & Třída III",
+      theoryDone: "Krok 1/3: Teorie nastudována",
+      nextRecall: "Přejít na Krok 2: Active Recall & Scénáře →",
+      backTheory: "← Zpět na Teorie",
+      nextSummary: "Přejít na Krok 3: Klinický tahák & Třída III →",
+      scDecision: "Rozhodnutí & Postup:",
+      scPearl: "High-Yield Perla:",
+      scReveal: "👁️ Zobrazit klinické řešení a zdůvodnění",
+      scHide: "🙈 Skrýt řešení",
+      scBadge: "Scénář",
+      quizCorrect: "✅ Správně!",
+      quizIncorrect: "❌ Nesprávně.",
+      mustKnowHeading: "High-Yield Zkouškové Perly (Must-Know)",
+      classThreeHeading: "ESC Třída III: Škodlivé a zakázané postupy",
+      classThreeTag: "❌ ZÁKAZ / TŘÍDA III",
+      classThreeReason: "Důvod:",
+      backToModules: "← Zpět na seznam témat",
+      startTopicSr: "🔥 Procvičit kartičky tohoto tématu ve Spaced Repetition",
+      srAllTopics: "Všechna témata (115+ karet)",
+      srBack: "← Zpět",
+      srHintFront: "Klikněte pro zobrazení odpovědi",
+      srHeadingBack: "Správné řešení",
+      srHintBack: "Ohodnoťte své vybavení níže",
+      srBtnAgainLabel: "❌ Znovu / Nevím",
+      srBtnAgainSub: "Vrátit do Boxu 1",
+      srBtnGoodLabel: "✅ Zvládnuto / Vím",
+      srBtnGoodSub: "Posunout do vyššího boxu",
+      srKeyHints: 'Klávesové zkratky: <span class="key-hint">Mezerník</span> pro otočení, <span class="key-hint">1</span> Znovu, <span class="key-hint">2</span> Zvládnuto',
+      srDoneTitle: "🎉 Skvělá práce! Všechny karty z tohoto bloku jsou zopakované.",
+      srDoneCategory: "HOTOVO",
+      srHighYieldLabel: "High-Yield:",
+      srEmptyAlert: "Pro zvolený filtr nemáte momentálně žádné karty k opakování!",
+      footerText: "© 2026 Viola Kintrová • Kardiologický výukový portál pro 4. ročník Všeobecného lékařství."
+    },
+    es: {
+      title: "Cardiología | Portal de Estudio Médico de 4.º Curso",
+      metaDesc: "Portal interactivo de estudio de cardiología para estudiantes de 4.º curso de medicina. Metodología Learn-Recall-Breakdown en 3 fases, últimas guías ESC (2023–2026) y banco de repaso espaciado con 115+ tarjetas.",
+      skipLink: "Saltar al contenido",
+      brandTitle: "Cardiología",
+      brandTag: "4.º curso",
+      brandSubtitle: "Guías ESC (2023–2026) • Metodología en 3 fases • Banco Leitner de 115+ tarjetas",
+      backHub: "← Índice central",
+      srGlobalBtn: "Repaso Espaciado (115+)",
+      themeToggle: "Cambiar tema",
+      dashOverallLabel: "Dominio total de la materia",
+      dashOverallSub: "Tarjetas en Caja 4 (dominadas tras 10 días)",
+      dashLeitnerLabel: "Sistema Leitner (Cajas 1–4)",
+      dashBox1Title: "Tarjetas para repasar a diario",
+      dashBox2Title: "Tarjetas para repasar cada 2 días",
+      dashBox3Title: "Tarjetas para repasar cada 5 días",
+      dashBox4Title: "Tarjetas dominadas (cada 10 días)",
+      dashFreq1: "Diario",
+      dashFreq2: "2 días",
+      dashFreq3: "5 días",
+      dashFreq4: "10 días",
+      dashLeitnerSub: "Algoritmo de repaso espaciado para consolidación en memoria a largo plazo",
+      dashDueLabel: "Pendientes para hoy",
+      dashDueBtn: "⚡ Repasar tarjetas de hoy",
+      navModules: "Temas (12)",
+      navEkg: "EKG Masterclass",
+      navSr: "Repaso Espaciado (115+)",
+      searchPlaceholder: "Buscar tema, fármaco, síndrome...",
+      searchNoMatch: 'Ningún módulo de cardiología coincide con la búsqueda "{query}".',
+      searchClear: "Limpiar filtro",
+      moduleFlow1: "1. Teoría",
+      moduleFlow2: "2. Recall",
+      moduleFlow3: "3. Perlas",
+      moduleAction: "Iniciar →",
+      detailBack: "← Volver al índice",
+      stepTheory: "Teoría y Algoritmos",
+      stepRecall: "Active Recall y Casos",
+      stepSummary: "Perlas Clínicas y Clase III",
+      theoryDone: "Paso 1/3: Teoría completada",
+      nextRecall: "Ir al Paso 2: Active Recall y Casos Clínicos →",
+      backTheory: "← Volver a Teoría",
+      nextSummary: "Ir al Paso 3: Perlas Clínicas y Clase III →",
+      scDecision: "Decisión y Conducta Clínica:",
+      scPearl: "Perla de Alto Rendimiento:",
+      scReveal: "👁️ Ver resolución clínica y justificación",
+      scHide: "🙈 Ocultar solución",
+      scBadge: "Caso Clínico",
+      quizCorrect: "✅ ¡Correcto!",
+      quizIncorrect: "❌ Incorrecto.",
+      mustKnowHeading: "Perlas Clave de Examen de Alto Rendimiento (Must-Know)",
+      classThreeHeading: "Guías ESC Clase III: Intervenciones Perjudiciales y Prohibidas",
+      classThreeTag: "❌ PROHIBIDO / CLASE III",
+      classThreeReason: "Justificación:",
+      backToModules: "← Volver a la lista de temas",
+      startTopicSr: "🔥 Practicar tarjetas de este tema en Repaso Espaciado",
+      srAllTopics: "Todos los temas (115+ tarjetas)",
+      srBack: "← Volver",
+      srHintFront: "Haga clic para ver la respuesta",
+      srHeadingBack: "Solución correcta",
+      srHintBack: "Evalúe su recuerdo a continuación",
+      srBtnAgainLabel: "❌ Otra vez / No sé",
+      srBtnAgainSub: "Volver a Caja 1",
+      srBtnGoodLabel: "✅ Dominado / Lo sé",
+      srBtnGoodSub: "Avanzar a caja superior",
+      srKeyHints: 'Atajos de teclado: <span class="key-hint">Espacio</span> para voltear, <span class="key-hint">1</span> Otra vez, <span class="key-hint">2</span> Dominado',
+      srDoneTitle: "🎉 ¡Excelente trabajo! Ha repasado todas las tarjetas de este bloque.",
+      srDoneCategory: "COMPLETADO",
+      srHighYieldLabel: "Alto Rendimiento:",
+      srEmptyAlert: "¡No tiene tarjetas pendientes de repaso para el filtro seleccionado!",
+      footerText: "© 2026 Viola Kintrová • Portal de estudio de cardiología para 4.º curso de Medicina."
+    }
+  };
+
+  const initialLang = localStorage.getItem(PORTAL_LANG_KEY) || localStorage.getItem(EKG_LANG_KEY) || "cs";
 
   // --- APPLICATION STATE ---
   const state = {
@@ -54,7 +202,8 @@ document.addEventListener("DOMContentLoaded", () => {
     selectedModuleId: null,
     activeTopicStep: "theory", // "theory" | "recall" | "summary"
     activeEkgSubpane: "desatero", // "desatero" | "anatomy" | "ions" | "syndromes" | "pacemakers" | "quiz"
-    ekgLang: localStorage.getItem(EKG_LANG_KEY) || "cs", // "cs" | "es"
+    lang: initialLang, // "cs" | "es"
+    ekgLang: initialLang, // "cs" | "es"
     searchQuery: "",
     srSession: {
       cards: [],
@@ -65,6 +214,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  // --- DATA ACCESS & FORMATTING HELPERS ---
+  const formatMarkdown = (str) => {
+    if (!str) return "";
+    let formatted = String(str);
+    // Bold: **text** -> <strong>text</strong>
+    formatted = formatted.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+    // Italic: *text* -> <em>text</em>
+    formatted = formatted.replace(/(?<!\*)\*(?!\*)(.*?)(?<!\*)\*(?!\*)/g, "<em>$1</em>");
+    return formatted;
+  };
+
+  const getCardiologyData = () => {
+    if (state.lang === "es" && typeof CARDIOLOGY_DATA_ES !== "undefined") {
+      return CARDIOLOGY_DATA_ES;
+    }
+    return CARDIOLOGY_DATA;
+  };
+
   // --- DOM ELEMENTS ---
   const themeToggleBtn = document.getElementById("theme-toggle");
   const backHubBtn = document.getElementById("back-hub-btn");
@@ -73,7 +240,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const navSrBtn = document.getElementById("nav-sr-btn");
   const searchInput = document.getElementById("search-input");
   
-  // EKG Language Switcher
+  // Global & EKG Language Switchers
+  const portalLangCsBtn = document.getElementById("portal-lang-cs");
+  const portalLangEsBtn = document.getElementById("portal-lang-es");
   const ekgLangCsBtn = document.getElementById("ekg-lang-cs");
   const ekgLangEsBtn = document.getElementById("ekg-lang-es");
   
@@ -151,20 +320,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  themeToggleBtn.addEventListener("click", () => {
+  themeToggleBtn?.addEventListener("click", () => {
     document.body.classList.toggle("light-theme");
     const isLight = document.body.classList.contains("light-theme");
     localStorage.setItem(THEME_KEY, isLight ? "light" : "dark");
   });
 
   // --- BACK TO MAIN HUB ---
-  backHubBtn.addEventListener("click", () => {
+  backHubBtn?.addEventListener("click", () => {
     window.location.href = "../index.html";
   });
 
   // --- LEITNER BOX & STATS RECALCULATION ---
   const updateDashboardStats = () => {
-    const allCards = CARDIOLOGY_DATA.flashcards;
+    const allCards = getCardiologyData().flashcards;
     const now = Date.now();
     let b1 = 0, b2 = 0, b3 = 0, b4 = 0, due = 0;
 
@@ -206,12 +375,189 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  // --- GLOBAL UI LOCALIZATION UPDATER ---
+  const updateGlobalLanguage = () => {
+    const lang = state.lang;
+    const i18n = I18N[lang] || I18N.cs;
+    const isEs = lang === "es";
+
+    document.documentElement.lang = lang;
+    document.title = i18n.title;
+
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute("content", i18n.metaDesc);
+
+    const skipLink = document.getElementById("skip-link-text");
+    if (skipLink) skipLink.textContent = i18n.skipLink;
+
+    const brandTitle = document.getElementById("portal-brand-title");
+    if (brandTitle) brandTitle.textContent = i18n.brandTitle;
+
+    const brandTag = document.getElementById("portal-brand-tag");
+    if (brandTag) brandTag.textContent = i18n.brandTag;
+
+    const brandSubtitle = document.getElementById("portal-brand-subtitle");
+    if (brandSubtitle) brandSubtitle.textContent = i18n.brandSubtitle;
+
+    const backHubText = document.getElementById("back-hub-text");
+    if (backHubText) backHubText.textContent = i18n.backHub;
+    if (backHubBtn) backHubBtn.title = isEs ? "Volver al índice general" : "Zpět na centrální rozcestník předmětů";
+
+    const startAllSrText = document.getElementById("start-all-sr-text");
+    if (startAllSrText) startAllSrText.textContent = i18n.srGlobalBtn;
+    if (startAllSrBtn) startAllSrBtn.title = isEs ? "Iniciar repaso de las 115+ tarjetas" : "Spustit globální trénink všech 115+ kartiček";
+
+    if (themeToggleBtn) {
+      themeToggleBtn.title = i18n.themeToggle;
+      themeToggleBtn.setAttribute("aria-label", i18n.themeToggle);
+    }
+
+    // Dashboard
+    const dashLabelOverall = document.getElementById("dash-label-overall");
+    if (dashLabelOverall) dashLabelOverall.textContent = i18n.dashOverallLabel;
+
+    const dashSubtextOverall = document.getElementById("dash-subtext-overall");
+    if (dashSubtextOverall) dashSubtextOverall.textContent = i18n.dashOverallSub;
+
+    const dashLabelLeitner = document.getElementById("dash-label-leitner");
+    if (dashLabelLeitner) dashLabelLeitner.textContent = i18n.dashLeitnerLabel;
+
+    const boxSlot1 = document.getElementById("box-slot-1");
+    if (boxSlot1) boxSlot1.title = i18n.dashBox1Title;
+    const boxSlot2 = document.getElementById("box-slot-2");
+    if (boxSlot2) boxSlot2.title = i18n.dashBox2Title;
+    const boxSlot3 = document.getElementById("box-slot-3");
+    if (boxSlot3) boxSlot3.title = i18n.dashBox3Title;
+    const boxSlot4 = document.getElementById("box-slot-4");
+    if (boxSlot4) boxSlot4.title = i18n.dashBox4Title;
+
+    const dashFreqBox1 = document.getElementById("dash-freq-box1");
+    if (dashFreqBox1) dashFreqBox1.textContent = i18n.dashFreq1;
+    const dashFreqBox2 = document.getElementById("dash-freq-box2");
+    if (dashFreqBox2) dashFreqBox2.textContent = i18n.dashFreq2;
+    const dashFreqBox3 = document.getElementById("dash-freq-box3");
+    if (dashFreqBox3) dashFreqBox3.textContent = i18n.dashFreq3;
+    const dashFreqBox4 = document.getElementById("dash-freq-box4");
+    if (dashFreqBox4) dashFreqBox4.textContent = i18n.dashFreq4;
+
+    const dashSubtextLeitner = document.getElementById("dash-subtext-leitner");
+    if (dashSubtextLeitner) dashSubtextLeitner.textContent = i18n.dashLeitnerSub;
+
+    const dashLabelDue = document.getElementById("dash-label-due");
+    if (dashLabelDue) dashLabelDue.textContent = i18n.dashDueLabel;
+
+    const startDueText = document.getElementById("start-due-text");
+    if (startDueText) startDueText.textContent = i18n.dashDueBtn;
+
+    // Navigation
+    const navModulesText = document.getElementById("nav-modules-text");
+    if (navModulesText) navModulesText.textContent = i18n.navModules;
+
+    const navEkgText = document.getElementById("nav-ekg-text");
+    if (navEkgText) navEkgText.textContent = i18n.navEkg;
+
+    const navSrText = document.getElementById("nav-sr-text");
+    if (navSrText) navSrText.textContent = i18n.navSr;
+
+    if (searchInput) {
+      searchInput.placeholder = i18n.searchPlaceholder;
+      searchInput.setAttribute("aria-label", i18n.searchPlaceholder);
+    }
+
+    // Detail View breadcrumb & step tabs
+    const detailBackText = document.getElementById("detail-back-text");
+    if (detailBackText) detailBackText.textContent = i18n.detailBack;
+
+    const stepTheoryText = document.getElementById("step-theory-text");
+    if (stepTheoryText) stepTheoryText.textContent = i18n.stepTheory;
+
+    const stepRecallText = document.getElementById("step-recall-text");
+    if (stepRecallText) stepRecallText.textContent = i18n.stepRecall;
+
+    const stepSummaryText = document.getElementById("step-summary-text");
+    if (stepSummaryText) stepSummaryText.textContent = i18n.stepSummary;
+
+    // Spaced Repetition View
+    const srBackText = document.getElementById("sr-back-text");
+    if (srBackText) srBackText.textContent = i18n.srBack;
+
+    const srHintFront = document.getElementById("sr-hint-front");
+    if (srHintFront) srHintFront.textContent = i18n.srHintFront;
+
+    const srHeadingBack = document.getElementById("sr-heading-back");
+    if (srHeadingBack) srHeadingBack.textContent = i18n.srHeadingBack;
+
+    const srHintBack = document.getElementById("sr-hint-back");
+    if (srHintBack) srHintBack.textContent = i18n.srHintBack;
+
+    const srBtnAgainLabel = document.getElementById("sr-btn-again-label");
+    if (srBtnAgainLabel) srBtnAgainLabel.textContent = i18n.srBtnAgainLabel;
+
+    const srBtnAgainSub = document.getElementById("sr-btn-again-sub");
+    if (srBtnAgainSub) srBtnAgainSub.textContent = i18n.srBtnAgainSub;
+
+    const srBtnGoodLabel = document.getElementById("sr-btn-good-label");
+    if (srBtnGoodLabel) srBtnGoodLabel.textContent = i18n.srBtnGoodLabel;
+
+    const srBtnGoodSub = document.getElementById("sr-btn-good-sub");
+    if (srBtnGoodSub) srBtnGoodSub.textContent = i18n.srBtnGoodSub;
+
+    const srKeyHints = document.getElementById("sr-key-hints");
+    if (srKeyHints) srKeyHints.innerHTML = i18n.srKeyHints;
+
+    // Footer
+    const footerText = document.getElementById("footer-text");
+    if (footerText) footerText.textContent = i18n.footerText;
+
+    // Sync button active classes
+    if (isEs) {
+      portalLangEsBtn?.classList.add("active");
+      portalLangCsBtn?.classList.remove("active");
+      ekgLangEsBtn?.classList.add("active");
+      ekgLangCsBtn?.classList.remove("active");
+    } else {
+      portalLangCsBtn?.classList.add("active");
+      portalLangEsBtn?.classList.remove("active");
+      ekgLangCsBtn?.classList.add("active");
+      ekgLangEsBtn?.classList.remove("active");
+    }
+  };
+
+  const setLanguage = (lang) => {
+    state.lang = lang;
+    state.ekgLang = lang;
+    try {
+      localStorage.setItem(PORTAL_LANG_KEY, lang);
+      localStorage.setItem(EKG_LANG_KEY, lang);
+    } catch (e) {}
+
+    updateGlobalLanguage();
+    updateEkgUiLanguage();
+
+    if (state.activeView === "modules") {
+      renderModulesList();
+    } else if (state.activeView === "module-detail" && state.selectedModuleId) {
+      openModuleDetail(state.selectedModuleId, true);
+    } else if (state.activeView === "spaced-repetition") {
+      updateSrCategoryFilter();
+      renderCurrentSrCard();
+    } else if (state.activeView === "ekg") {
+      switchEkgSubpane(state.activeEkgSubpane || "desatero");
+    }
+    updateDashboardStats();
+  };
+
+  portalLangCsBtn?.addEventListener("click", () => setLanguage("cs"));
+  portalLangEsBtn?.addEventListener("click", () => setLanguage("es"));
+
   // --- RENDER MODULES LIST ---
   const renderModulesList = () => {
     modulesGrid.innerHTML = "";
     const query = state.searchQuery.toLowerCase().trim();
+    const currentData = getCardiologyData();
+    const i18n = I18N[state.lang] || I18N.cs;
 
-    const filtered = CARDIOLOGY_DATA.modules.filter((mod) => {
+    const filtered = currentData.modules.filter((mod) => {
       if (!query) return true;
       return (
         mod.title.toLowerCase().includes(query) ||
@@ -223,8 +569,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (filtered.length === 0) {
       modulesGrid.innerHTML = `
         <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-muted);">
-          <p style="font-size: 1.1rem; margin-bottom: 8px;">Žádný kardiologický modul neodpovídá hledání "${escapeHTML(query)}".</p>
-          <button class="btn btn-secondary btn-sm" id="clear-search-btn">Vymazat filtr</button>
+          <p style="font-size: 1.1rem; margin-bottom: 8px;">${i18n.searchNoMatch.replace("{query}", escapeHTML(query))}</p>
+          <button class="btn btn-secondary btn-sm" id="clear-search-btn">${i18n.searchClear}</button>
         </div>
       `;
       const clearBtn = document.getElementById("clear-search-btn");
@@ -243,18 +589,18 @@ document.addEventListener("DOMContentLoaded", () => {
         <div>
           <div class="module-header">
             <div class="module-icon-wrap">${mod.icon}</div>
-            <span class="module-badge badge-${mod.badgeColor}">${mod.badge}</span>
+            <span class="module-badge badge-${mod.badgeColor}">${formatMarkdown(mod.badge)}</span>
           </div>
-          <h3 class="module-title">${mod.number}. ${mod.title}</h3>
-          <p class="module-desc">${mod.shortDesc}</p>
+          <h3 class="module-title">${mod.number}. ${formatMarkdown(mod.title)}</h3>
+          <p class="module-desc">${formatMarkdown(mod.shortDesc)}</p>
         </div>
         <div class="module-footer">
           <div class="flow-pills">
-            <span class="flow-pill">1. Teorie</span>
-            <span class="flow-pill">2. Recall</span>
-            <span class="flow-pill">3. Tahák</span>
+            <span class="flow-pill">${i18n.moduleFlow1}</span>
+            <span class="flow-pill">${i18n.moduleFlow2}</span>
+            <span class="flow-pill">${i18n.moduleFlow3}</span>
           </div>
-          <span class="module-action-text">Spustit →</span>
+          <span class="module-action-text">${i18n.moduleAction}</span>
         </div>
       `;
       cardEl.addEventListener("click", () => {
@@ -266,19 +612,21 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // --- OPEN MODULE DETAIL (3-STEP MASTERY VIEW) ---
-  const openModuleDetail = (moduleId) => {
-    const mod = CARDIOLOGY_DATA.modules.find((m) => m.id === moduleId);
+  const openModuleDetail = (moduleId, keepCurrentStep = false) => {
+    const currentData = getCardiologyData();
+    const mod = currentData.modules.find((m) => m.id === moduleId);
     if (!mod) return;
 
+    const i18n = I18N[state.lang] || I18N.cs;
     state.selectedModuleId = moduleId;
     detailModuleTitle.textContent = `${mod.number}. ${mod.title}`;
 
     // 1. Teorie (Learn)
     theoryPane.innerHTML = `
       <div class="theory-banner-box">
-        <span class="theory-tag">${mod.theory.banner.tag}</span>
-        <h3 class="theory-title">${mod.theory.banner.title}</h3>
-        <p class="theory-desc">${mod.theory.banner.text}</p>
+        <span class="theory-tag">${formatMarkdown(mod.theory.banner.tag)}</span>
+        <h3 class="theory-title">${formatMarkdown(mod.theory.banner.title)}</h3>
+        <p class="theory-desc">${formatMarkdown(mod.theory.banner.text)}</p>
       </div>
 
       <div class="theory-sections-list">
@@ -286,8 +634,8 @@ document.addEventListener("DOMContentLoaded", () => {
           .map(
             (sec) => `
           <div class="theory-section-card">
-            <h4 class="theory-sec-title sec-${sec.color}">${sec.title}</h4>
-            <div class="theory-sec-body">${sec.content}</div>
+            <h4 class="theory-sec-title sec-${sec.color}">${formatMarkdown(sec.title)}</h4>
+            <div class="theory-sec-body">${formatMarkdown(sec.content)}</div>
           </div>
         `
           )
@@ -295,9 +643,9 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
 
       <div class="step-footer-actions">
-        <span>Krok 1/3: Teorie nastudována</span>
+        <span>${i18n.theoryDone}</span>
         <button class="btn btn-primary" id="btn-next-to-recall">
-          Přejít na Krok 2: Active Recall & Scénáře →
+          ${i18n.nextRecall}
         </button>
       </div>
     `;
@@ -313,24 +661,24 @@ document.addEventListener("DOMContentLoaded", () => {
         (sc, idx) => `
       <div class="scenario-card" id="sc-card-${idx}">
         <div class="scenario-header">
-          <span class="scenario-badge">Scénář ${idx + 1}</span>
-          <h4 class="scenario-title">${sc.title}</h4>
+          <span class="scenario-badge">${i18n.scBadge} ${idx + 1}</span>
+          <h4 class="scenario-title">${formatMarkdown(sc.title)}</h4>
         </div>
         
-        <p class="scenario-question">${sc.question}</p>
+        <p class="scenario-question">${formatMarkdown(sc.question)}</p>
 
         <button class="reveal-btn" data-target="sc-ans-${idx}">
-          <span>👁️ Zobrazit klinické řešení a zdůvodnění</span>
+          <span>${i18n.scReveal}</span>
           <span>▼</span>
         </button>
 
         <div class="hidden-answer-box" id="sc-ans-${idx}">
           <div class="answer-text-block">
-            <strong>Rozhodnutí & Postup:</strong><br>
-            ${sc.answer}
+            <strong>${i18n.scDecision}</strong><br>
+            ${formatMarkdown(sc.answer)}
           </div>
           <div class="pearl-box">
-            📌 <strong>High-Yield Perla:</strong> ${sc.pearl}
+            📌 <strong>${i18n.scPearl}</strong> ${formatMarkdown(sc.pearl)}
           </div>
         </div>
       </div>
@@ -341,14 +689,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const quizHtml = mod.recall.quiz
       ? `
       <div class="decision-quiz-box" style="margin-top: 30px;">
-        <span class="quiz-badge">🎯 ${mod.recall.quiz.title}</span>
-        <p class="quiz-prompt">${mod.recall.quiz.prompt}</p>
+        <span class="quiz-badge">🎯 ${formatMarkdown(mod.recall.quiz.title)}</span>
+        <p class="quiz-prompt">${formatMarkdown(mod.recall.quiz.prompt)}</p>
         <div class="quiz-options-list" id="mod-quiz-opts">
           ${mod.recall.quiz.options
             .map(
               (opt, optIdx) => `
             <button class="quiz-opt-btn" data-optidx="${optIdx}">
-              ${opt.text}
+              ${formatMarkdown(opt.text)}
             </button>
           `
             )
@@ -368,10 +716,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       <div class="step-footer-actions">
         <button class="btn btn-secondary" id="btn-back-to-theory">
-          ← Zpět na Teorie
+          ${i18n.backTheory}
         </button>
         <button class="btn btn-primary" id="btn-next-to-summary">
-          Přejít na Krok 3: Klinický tahák & Třída III →
+          ${i18n.nextSummary}
         </button>
       </div>
     `;
@@ -396,8 +744,8 @@ document.addEventListener("DOMContentLoaded", () => {
         ansBox.classList.toggle("revealed");
         btn.classList.toggle("active");
         btn.innerHTML = ansBox.classList.contains("revealed")
-          ? `<span>🙈 Skrýt řešení</span><span>▲</span>`
-          : `<span>👁️ Zobrazit klinické řešení a zdůvodnění</span><span>▼</span>`;
+          ? `<span>${i18n.scHide}</span><span>▲</span>`
+          : `<span>${i18n.scReveal}</span><span>▼</span>`;
       });
     });
 
@@ -422,8 +770,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             qFbBox.className = `quiz-feedback-box show ${selected.isCorrect ? "correct-fb" : "incorrect-fb"}`;
             qFbBox.innerHTML = `
-              <strong>${selected.isCorrect ? "✅ Správně!" : "❌ Nesprávně."}</strong><br>
-              ${mod.recall.quiz.explanation}
+              <strong>${selected.isCorrect ? i18n.quizCorrect : i18n.quizIncorrect}</strong><br>
+              ${formatMarkdown(mod.recall.quiz.explanation)}
             `;
           });
         });
@@ -440,14 +788,18 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="breakdown-column">
           <div class="column-header pearls-head">
             <span>⭐</span>
-            <h3>High-Yield Zkouškové Perly (Must-Know)</h3>
+            <h3>${i18n.mustKnowHeading}</h3>
           </div>
           <div class="pearls-list">
             ${mustKnowItems
               .map(
                 (item) => `
               <div class="pearl-item">
-                <span class="pearl-item-desc">${typeof item === "string" ? item : `${item.title}: ${item.desc}`}</span>
+                <span class="pearl-item-desc">${
+                  typeof item === "string"
+                    ? formatMarkdown(item)
+                    : `<strong>${formatMarkdown(item.title)}:</strong> ${formatMarkdown(item.desc)}`
+                }</span>
               </div>
             `
               )
@@ -459,16 +811,18 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="breakdown-column">
           <div class="column-header danger-head">
             <span>🚫</span>
-            <h3>ESC Třída III: Škodlivé a zakázané postupy</h3>
+            <h3>${i18n.classThreeHeading}</h3>
           </div>
           <div class="contra-list">
             ${classThreeItems
               .map(
                 (c) => `
               <div class="contra-item">
-                <span class="contra-tag">❌ ZÁKAZ / TŘÍDA III</span>
-                <p class="contra-reason" style="margin-top: 6px;">${typeof c === "string" ? c : c.action}</p>
-                ${c.reason ? `<p class="contra-reason" style="font-size: 0.78rem; opacity: 0.85;"><strong>Důvod:</strong> ${c.reason}</p>` : ""}
+                <span class="contra-tag">${i18n.classThreeTag}</span>
+                <p class="contra-reason" style="margin-top: 6px;">${
+                  typeof c === "string" ? formatMarkdown(c) : formatMarkdown(c.action)
+                }</p>
+                ${c.reason ? `<p class="contra-reason" style="font-size: 0.78rem; opacity: 0.85;"><strong>${i18n.classThreeReason}</strong> ${formatMarkdown(c.reason)}</p>` : ""}
               </div>
             `
               )
@@ -479,10 +833,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       <div style="text-align: center; margin-top: 30px; display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
         <button class="btn btn-secondary" id="btn-back-to-modules">
-          ← Zpět na seznam témat
+          ${i18n.backToModules}
         </button>
         <button class="btn btn-primary" id="btn-start-topic-sr">
-          🔥 Procvičit kartičky tohoto tématu ve Spaced Repetition
+          ${i18n.startTopicSr}
         </button>
       </div>
     `;
@@ -496,9 +850,13 @@ document.addEventListener("DOMContentLoaded", () => {
       startSpacedRepetition(mod.id, false);
     });
 
-    switchTopicStep("theory");
-    switchView("module-detail", false);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (!keepCurrentStep) {
+      switchTopicStep("theory");
+      switchView("module-detail", false);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      switchTopicStep(state.activeTopicStep || "theory");
+    }
   };
 
   // --- TOPIC STEP SWITCHER ---
@@ -531,8 +889,24 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // --- SPACED REPETITION ENGINE ---
+  const updateSrCategoryFilter = () => {
+    const currentData = getCardiologyData();
+    const i18n = I18N[state.lang] || I18N.cs;
+    const selected = state.srSession.filterCategory || "all";
+    srFilterCategory.innerHTML = `<option value="all">${i18n.srAllTopics}</option>`;
+    currentData.modules.forEach((mod) => {
+      const opt = document.createElement("option");
+      opt.value = mod.id;
+      opt.textContent = `${mod.number}. ${mod.title}`;
+      if (mod.id === selected) opt.selected = true;
+      srFilterCategory.appendChild(opt);
+    });
+  };
+
   const startSpacedRepetition = (moduleId = "all", dueOnly = false) => {
-    let pool = CARDIOLOGY_DATA.flashcards;
+    const currentData = getCardiologyData();
+    const i18n = I18N[state.lang] || I18N.cs;
+    let pool = currentData.flashcards;
 
     if (moduleId && moduleId !== "all") {
       pool = pool.filter((c) => c.moduleId === moduleId);
@@ -547,7 +921,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (pool.length === 0) {
-      alert("Pro zvolený filtr nemáte momentálně žádné karty k opakování!");
+      alert(i18n.srEmptyAlert);
       return;
     }
 
@@ -561,14 +935,7 @@ document.addEventListener("DOMContentLoaded", () => {
       filterDueOnly: dueOnly
     };
 
-    srFilterCategory.innerHTML = `<option value="all">Všechna témata (115+ karet)</option>`;
-    CARDIOLOGY_DATA.modules.forEach((mod) => {
-      const opt = document.createElement("option");
-      opt.value = mod.id;
-      opt.textContent = `${mod.number}. ${mod.title}`;
-      if (mod.id === moduleId) opt.selected = true;
-      srFilterCategory.appendChild(opt);
-    });
+    updateSrCategoryFilter();
 
     renderCurrentSrCard();
     switchView("spaced-repetition", false);
@@ -577,12 +944,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const renderCurrentSrCard = () => {
     const session = state.srSession;
+    const i18n = I18N[state.lang] || I18N.cs;
     if (session.cards.length === 0 || session.currentIndex >= session.cards.length) {
-      srQuestionText.textContent = "🎉 Skvělá práce! Všechny karty z tohoto bloku jsou zopakované.";
+      srQuestionText.textContent = i18n.srDoneTitle;
       srAnswerText.textContent = "";
       srHighYieldPill.textContent = "";
       srHighYieldPill.style.display = "none";
-      srCardCategory.textContent = "HOTOVO";
+      srCardCategory.textContent = i18n.srDoneCategory;
       srBoxIndicator.textContent = "";
       srMainCard.classList.remove("flipped");
       session.isFlipped = false;
@@ -591,19 +959,21 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const currentCard = session.cards[session.currentIndex];
+    const rawCard = session.cards[session.currentIndex];
+    const currentData = getCardiologyData();
+    const currentCard = currentData.flashcards.find((c) => c.id === rawCard.id) || rawCard;
     const cardState = leitnerState[currentCard.id] || { box: 1 };
 
     srCounterCurrent.textContent = session.currentIndex + 1;
     srCounterTotal.textContent = session.cards.length;
 
     srCardCategory.textContent = currentCard.category;
-    srQuestionText.textContent = currentCard.question;
-    srAnswerText.textContent = currentCard.answer;
+    srQuestionText.innerHTML = formatMarkdown(currentCard.question);
+    srAnswerText.innerHTML = formatMarkdown(currentCard.answer);
     
     if (currentCard.highYield) {
       srHighYieldPill.style.display = "block";
-      srHighYieldPill.innerHTML = `📌 <strong>High-Yield:</strong> ${currentCard.highYield}`;
+      srHighYieldPill.innerHTML = `📌 <strong>${i18n.srHighYieldLabel}</strong> ${formatMarkdown(currentCard.highYield)}`;
     } else {
       srHighYieldPill.style.display = "none";
     }
@@ -1167,16 +1537,11 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const setEkgLanguage = (lang) => {
-    state.ekgLang = lang;
-    try {
-      localStorage.setItem(EKG_LANG_KEY, lang);
-    } catch (e) {}
-    updateEkgUiLanguage();
-    switchEkgSubpane(state.activeEkgSubpane || "desatero");
+    setLanguage(lang);
   };
 
-  ekgLangCsBtn?.addEventListener("click", () => setEkgLanguage("cs"));
-  ekgLangEsBtn?.addEventListener("click", () => setEkgLanguage("es"));
+  ekgLangCsBtn?.addEventListener("click", () => setLanguage("cs"));
+  ekgLangEsBtn?.addEventListener("click", () => setLanguage("es"));
 
   // --- EKG MASTERCLASS RENDERING ---
   const renderEkgDesatero = () => {
@@ -1685,6 +2050,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- INIT ---
   initTheme();
+  updateGlobalLanguage();
   updateEkgUiLanguage();
   updateDashboardStats();
   handleHashRouting();

@@ -240,6 +240,50 @@ header {
 body.light-theme .sun-icon { display: block; }
 body.light-theme .moon-icon { display: none; }
 
+/* Global Typography for Emphasis */
+strong, b {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* --- PORTAL GLOBAL LANGUAGE SWITCHER --- */
+.portal-lang-switcher {
+  display: inline-flex;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  padding: 3px;
+  border-radius: var(--radius-md);
+  gap: 3px;
+  box-shadow: var(--shadow-sm);
+}
+
+.portal-lang-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 6px 11px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.portal-lang-btn:hover {
+  color: var(--text-primary);
+  background: var(--bg-card-hover);
+}
+
+.portal-lang-btn.active {
+  background: linear-gradient(135deg, var(--cardio-ruby), #be123c);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(225, 29, 72, 0.4);
+}
+
 /* --- DASHBOARD / BANNER --- */
 .dashboard-grid {
   display: grid;

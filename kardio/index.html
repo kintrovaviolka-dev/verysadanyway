@@ -18,7 +18,7 @@
 
 <body>
   <!-- Skip-to-content for keyboard users -->
-  <a class="skip-link" href="#temata">Přeskočit na obsah</a>
+  <a class="skip-link" href="#temata" id="skip-link-text">Přeskočit na obsah</a>
   <!-- Ambient background lighting -->
   <div class="ambient-glow-1" aria-hidden="true"></div>
   <div class="ambient-glow-2" aria-hidden="true"></div>
@@ -32,22 +32,34 @@
           <span>🫀</span>
         </div>
         <div class="brand-title-area">
-          <h1>
-            Kardiologie
-            <span class="grade-tag">4. ročník</span>
+          <h1 id="portal-brand-heading">
+            <span id="portal-brand-title">Kardiologie</span>
+            <span class="grade-tag" id="portal-brand-tag">4. ročník</span>
           </h1>
-          <p>ESC Guidelines (2023–2026) • 3-fázový rozpad témat • 115+ Leitner karet</p>
+          <p id="portal-brand-subtitle">ESC Guidelines (2023–2026) • 3-fázový rozpad témat • 115+ Leitner karet</p>
         </div>
       </div>
 
       <div class="header-controls">
+        <!-- Global Language Switcher (CZ / ES) -->
+        <div class="portal-lang-switcher" aria-label="Volba jazyka / Selección de idioma">
+          <button class="portal-lang-btn active" id="portal-lang-cs" data-lang="cs" title="Čeština">
+            <span>🇨🇿</span>
+            <span>CZ</span>
+          </button>
+          <button class="portal-lang-btn" id="portal-lang-es" data-lang="es" title="Español">
+            <span>🇪🇸</span>
+            <span>ES</span>
+          </button>
+        </div>
+
         <button id="back-hub-btn" class="btn btn-secondary" title="Zpět na centrální rozcestník předmětů">
-          ← Rozcestník
+          <span id="back-hub-text">← Rozcestník</span>
         </button>
 
         <button id="start-all-sr-btn" class="btn btn-primary" title="Spustit globální trénink všech 115+ kartiček">
           <span>🔥</span>
-          <span>Spaced Repetition (115+)</span>
+          <span id="start-all-sr-text">Spaced Repetition (115+)</span>
         </button>
 
         <button id="theme-toggle" class="theme-toggle-btn" aria-label="Přepnout tmavý/světlý režim" title="Přepnout motiv">
@@ -78,7 +90,7 @@
           <div>
             <span class="dash-label">
               <span>📊</span>
-              <span>Celkové zvládnutí oboru</span>
+              <span id="dash-label-overall">Celkové zvládnutí oboru</span>
             </span>
             <div class="dash-main-val">
               <span id="total-mastered-count">0</span> / <span id="total-cards-count">115</span>
@@ -87,38 +99,38 @@
               <div class="progress-fill-bar" id="overall-progress-bar"></div>
             </div>
           </div>
-          <span class="dash-subtext">Karty v Boxu 4 (zvládnuté s odstupem 10 dní)</span>
+          <span class="dash-subtext" id="dash-subtext-overall">Karty v Boxu 4 (zvládnuté s odstupem 10 dní)</span>
         </div>
 
         <!-- Leitnerovy krabičky -->
         <div class="dash-card">
           <span class="dash-label">
             <span>🗃️</span>
-            <span>Leitnerův systém (Box 1–4)</span>
+            <span id="dash-label-leitner">Leitnerův systém (Box 1–4)</span>
           </span>
           <div class="boxes-matrix">
-            <div class="box-slot box-1" title="Karty k opakování denně">
-              <span class="box-badge">Box 1</span>
+            <div class="box-slot box-1" title="Karty k opakování denně" id="box-slot-1">
+              <span class="box-badge" id="box-badge-1">Box 1</span>
               <div class="box-count" id="box-1-count">0</div>
-              <span class="box-freq">Denně</span>
+              <span class="box-freq" id="dash-freq-box1">Denně</span>
             </div>
-            <div class="box-slot box-2" title="Karty k opakování obden">
-              <span class="box-badge">Box 2</span>
+            <div class="box-slot box-2" title="Karty k opakování obden" id="box-slot-2">
+              <span class="box-badge" id="box-badge-2">Box 2</span>
               <div class="box-count" id="box-2-count">0</div>
-              <span class="box-freq">2 dny</span>
+              <span class="box-freq" id="dash-freq-box2">2 dny</span>
             </div>
-            <div class="box-slot box-3" title="Karty k opakování každých 5 dní">
-              <span class="box-badge">Box 3</span>
+            <div class="box-slot box-3" title="Karty k opakování každých 5 dní" id="box-slot-3">
+              <span class="box-badge" id="box-badge-3">Box 3</span>
               <div class="box-count" id="box-3-count">0</div>
-              <span class="box-freq">5 dní</span>
+              <span class="box-freq" id="dash-freq-box3">5 dní</span>
             </div>
-            <div class="box-slot box-4" title="Zvládnuté karty (každých 10 dní)">
-              <span class="box-badge">Box 4</span>
+            <div class="box-slot box-4" title="Zvládnuté karty (každých 10 dní)" id="box-slot-4">
+              <span class="box-badge" id="box-badge-4">Box 4</span>
               <div class="box-count" id="box-4-count">0</div>
-              <span class="box-freq">10 dní</span>
+              <span class="box-freq" id="dash-freq-box4">10 dní</span>
             </div>
           </div>
-          <span class="dash-subtext" style="margin-top: 8px;">Intervalový algoritmus upevňování znalostí v dlouhodobé paměti</span>
+          <span class="dash-subtext" id="dash-subtext-leitner" style="margin-top: 8px;">Intervalový algoritmus upevňování znalostí v dlouhodobé paměti</span>
         </div>
 
         <!-- Dnešní úkoly -->
@@ -126,14 +138,14 @@
           <div>
             <span class="dash-label">
               <span>⏰</span>
-              <span>K opakování na dnešek</span>
+              <span id="dash-label-due">K opakování na dnešek</span>
             </span>
             <div class="dash-main-val" style="color: var(--cardio-amber);">
               <span id="due-today-count">0</span>
             </div>
           </div>
           <button class="btn btn-secondary due-action-btn" id="start-due-btn" style="display: none;">
-            ⚡ Zopakovat dnešní karty
+            <span id="start-due-text">⚡ Zopakovat dnešní karty</span>
           </button>
         </div>
 
@@ -145,15 +157,15 @@
       <div class="nav-tabs-group">
         <a href="#temata" class="tab-btn active" id="nav-modules-btn" role="button">
           <span>📚</span>
-          <span>Témata (12)</span>
+          <span id="nav-modules-text">Témata (12)</span>
         </a>
         <a href="#ekg" class="tab-btn" id="nav-ekg-btn" role="button">
           <span>📈</span>
-          <span>EKG Masterclass</span>
+          <span id="nav-ekg-text">EKG Masterclass</span>
         </a>
         <a href="#leitner" class="tab-btn" id="nav-sr-btn" role="button">
           <span>🧠</span>
-          <span>Spaced Repetition (115+)</span>
+          <span id="nav-sr-text">Spaced Repetition (115+)</span>
         </a>
       </div>
 
@@ -263,7 +275,7 @@
       <div class="module-breadcrumb-bar">
         <div class="breadcrumb-left">
           <button class="btn btn-secondary" id="detail-back-btn">
-            ← Zpět na přehled
+            <span id="detail-back-text">← Zpět na přehled</span>
           </button>
           <h2 id="detail-module-title" style="font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700;"></h2>
         </div>
@@ -273,15 +285,15 @@
       <div class="topic-nav-tabs">
         <button class="topic-step-btn active" id="step-theory-btn">
           <span class="step-num-pill">1</span>
-          <span>Teorie & Algoritmy</span>
+          <span id="step-theory-text">Teorie & Algoritmy</span>
         </button>
         <button class="topic-step-btn" id="step-recall-btn">
           <span class="step-num-pill">2</span>
-          <span>Active Recall & Scénáře</span>
+          <span id="step-recall-text">Active Recall & Scénáře</span>
         </button>
         <button class="topic-step-btn" id="step-summary-btn">
           <span class="step-num-pill">3</span>
-          <span>Klinický tahák & Třída III</span>
+          <span id="step-summary-text">Klinický tahák & Třída III</span>
         </button>
       </div>
 
@@ -301,7 +313,7 @@
       
       <div class="sr-session-header">
         <button class="btn btn-secondary" id="sr-back-btn">
-          ← Zpět
+          <span id="sr-back-text">← Zpět</span>
         </button>
 
         <div class="sr-progress-area">
@@ -328,7 +340,7 @@
             <div class="sr-question-text" id="sr-question-text">Otázka</div>
 
             <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.76rem; color: var(--text-muted);">
-              <span>Klikněte pro zobrazení odpovědi</span>
+              <span id="sr-hint-front">Klikněte pro zobrazení odpovědi</span>
               <span>🔄</span>
             </div>
           </div>
@@ -336,7 +348,7 @@
           <!-- Zadní strana (Odpověď) -->
           <div class="sr-card-face sr-card-back">
             <div style="display: flex; justify-content: space-between; align-items: center;">
-              <span style="font-size: 0.72rem; font-weight: 700; color: var(--cardio-cyan); text-transform: uppercase;">Správné řešení</span>
+              <span id="sr-heading-back" style="font-size: 0.72rem; font-weight: 700; color: var(--cardio-cyan); text-transform: uppercase;">Správné řešení</span>
               <span>💡</span>
             </div>
 
@@ -345,7 +357,7 @@
             <div class="sr-high-yield-pill" id="sr-high-yield-pill"></div>
 
             <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.76rem; color: var(--text-muted); margin-top: 10px;">
-              <span>Ohodnoťte své vybavení níže</span>
+              <span id="sr-hint-back">Ohodnoťte své vybavení níže</span>
               <span>🔄</span>
             </div>
           </div>
@@ -356,17 +368,17 @@
       <!-- Ovládací tlačítka hodnocení -->
       <div class="sr-controls-row">
         <button class="sr-rate-btn btn-again" id="sr-rate-again-btn" title="Klávesa 1">
-          <span>❌ Znovu / Nevím</span>
-          <span style="font-size: 0.7rem; opacity: 0.8;">Vrátit do Boxu 1</span>
+          <span id="sr-btn-again-label">❌ Znovu / Nevím</span>
+          <span id="sr-btn-again-sub" style="font-size: 0.7rem; opacity: 0.8;">Vrátit do Boxu 1</span>
         </button>
 
         <button class="sr-rate-btn btn-good" id="sr-rate-good-btn" title="Klávesa 2">
-          <span>✅ Zvládnuto / Vím</span>
-          <span style="font-size: 0.7rem; opacity: 0.8;">Posunout do vyššího boxu</span>
+          <span id="sr-btn-good-label">✅ Zvládnuto / Vím</span>
+          <span id="sr-btn-good-sub" style="font-size: 0.7rem; opacity: 0.8;">Posunout do vyššího boxu</span>
         </button>
       </div>
 
-      <p class="btn-flip-hint">
+      <p class="btn-flip-hint" id="sr-key-hints">
         Klávesové zkratky: <span class="key-hint">Mezerník</span> pro otočení, <span class="key-hint">1</span> Znovu, <span class="key-hint">2</span> Zvládnuto
       </p>
 
@@ -374,13 +386,14 @@
 
     <!-- Patička -->
     <footer>
-      <p>© 2026 Viola Kintrová • Kardiologický výukový portál pro 4. ročník Všeobecného lékařství.</p>
+      <p id="footer-text">© 2026 Viola Kintrová • Kardiologický výukový portál pro 4. ročník Všeobecného lékařství.</p>
     </footer>
 
   </div>
 
   <!-- Skripty -->
   <script src="data.js"></script>
+  <script src="data_es.js"></script>
   <script src="app.js"></script>
 </body>
 
