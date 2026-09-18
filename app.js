@@ -169,6 +169,8 @@ document.addEventListener("DOMContentLoaded", () => {
       destination = "./kardio/index.html";
     } else if (subject === "radiologie") {
       destination = "./radiolka/index.html";
+    } else if (subject === "psychiatrie" || subject === "psych") {
+      destination = "./psych/index.html";
     } else if (subject === "imunologie") {
       destination = "./imunologie-test/index.html";
     } else if (subject === "mikrobiologie") {

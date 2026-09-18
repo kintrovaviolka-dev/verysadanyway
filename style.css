@@ -58,6 +58,10 @@
   --mikra-glow: rgba(20, 184, 166, 0.28);
   --mikra-gradient: linear-gradient(135deg, #0d9488, #14b8a6);
 
+  --psych-color: #a78bfa;
+  --psych-glow: rgba(167, 139, 250, 0.28);
+  --psych-gradient: linear-gradient(135deg, #7c3aed, #c084fc);
+
   --accent-blue: #00f0ff;
   --accent-gold: #fbbf24;
   --accent-red: #ffb4ab;
@@ -322,6 +326,12 @@ header p {
 .subject-card.radiologie:hover {
   border-color: var(--radio-color);
   box-shadow: 0 15px 30px -15px var(--radio-glow);
+  transform: translateY(-6px);
+}
+
+.subject-card.psychiatrie:hover {
+  border-color: var(--psych-color);
+  box-shadow: 0 15px 30px -15px var(--psych-glow);
   transform: translateY(-6px);
 }
 

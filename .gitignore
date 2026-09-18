@@ -9,3 +9,11 @@ mikra/skripta_2.md
 # Ostatní samostatné repozitáře (spravované zvlášť)
 patolka-main/
 patfyza-main/
+
+# Psychiatrie - referenční zdrojové materiály (pouze portál do gitu)
+psych/*.pdf
+psych/*.docx
+psych/*.pptx
+psych/*.zip
+psych/raw/
+
