@@ -68,18 +68,33 @@ document.addEventListener("DOMContentLoaded", () => {
   PSYCHIATRY_DATA.modules.forEach(mod => {
     if (mod.cards) {
       mod.cards.forEach(c => {
-        allCards.push({ ...c, moduleId: mod.id, moduleNumber: mod.number, moduleTitle: mod.title });
+        allCards.push({
+          ...c,
+          moduleId: mod.id,
+          moduleNumber: mod.number,
+          modulePrefix: mod.badgePrefix || `O${mod.number}`,
+          moduleSection: mod.section || 'obecna',
+          moduleTitle: mod.title
+        });
       });
     }
     if (mod.quiz) {
       mod.quiz.forEach(q => {
-        allQuizQuestions.push({ ...q, moduleId: mod.id, moduleNumber: mod.number, moduleTitle: mod.title });
+        allQuizQuestions.push({
+          ...q,
+          moduleId: mod.id,
+          moduleNumber: mod.number,
+          modulePrefix: mod.badgePrefix || `O${mod.number}`,
+          moduleSection: mod.section || 'obecna',
+          moduleTitle: mod.title
+        });
       });
     }
   });
 
   const state = {
     activeTab: "theory",
+    activeSection: "all", // 'all' | 'obecna' | 'specialni'
     activeCategory: "all",
     searchQuery: "",
     exploredModules: new Set(getStoredExplored()),
@@ -116,10 +131,12 @@ document.addEventListener("DOMContentLoaded", () => {
     quiz: getEl("view-quiz"),
     cheatsheet: getEl("view-cheatsheet")
   };
+  const tabTheoryLabel = getEl("tab-theory-label");
 
   // Filtry & Hledání
   const searchInput = getEl("search-input");
   const categoryPillsContainer = getEl("category-pills");
+  const sectionPills = document.querySelectorAll(".section-pill");
 
   // Kontejnery pro renderování
   const modulesGrid = getEl("modules-grid");
@@ -205,6 +222,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (tabName === "flashcards") {
       initFlashcardDrill(false);
+    } else {
+      renderCurrentView();
     }
   };
 
@@ -212,6 +231,24 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.addEventListener("click", () => {
       const tab = btn.getAttribute("data-tab");
       switchTab(tab);
+    });
+  });
+
+  // --- SEKCE PŘEPÍNAČ (VŠE vs OBECNÁ vs SPECIÁLNÍ) ---
+  sectionPills.forEach(pill => {
+    pill.addEventListener("click", () => {
+      const sec = pill.getAttribute("data-section");
+      state.activeSection = sec;
+      sectionPills.forEach(p => {
+        p.classList.remove("active");
+        p.setAttribute("aria-checked", "false");
+      });
+      pill.classList.add("active");
+      pill.setAttribute("aria-checked", "true");
+      
+      // Update tab label count
+      updateTabCounts();
+      renderCurrentView();
     });
   });
 
@@ -241,25 +278,35 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- FILTROVÁNÍ MODULŮ ---
   const getFilteredModules = () => {
     return PSYCHIATRY_DATA.modules.filter(mod => {
+      const matchSection = state.activeSection === "all" || mod.section === state.activeSection;
       const matchCategory = state.activeCategory === "all" || mod.category === state.activeCategory;
       const matchSearch = !state.searchQuery || 
         mod.title.toLowerCase().includes(state.searchQuery) ||
         mod.shortDesc.toLowerCase().includes(state.searchQuery) ||
+        (mod.badgePrefix && mod.badgePrefix.toLowerCase().includes(state.searchQuery)) ||
         `otázka ${mod.number}`.includes(state.searchQuery);
-      return matchCategory && matchSearch;
+      return matchSection && matchCategory && matchSearch;
     });
+  };
+
+  const updateTabCounts = () => {
+    if (tabTheoryLabel) {
+      const count = getFilteredModules().length;
+      tabTheoryLabel.textContent = `${count} Okruhů & Teorie`;
+    }
   };
 
   // --- TAB 1: TEORIE & KARTY MODULŮ ---
   const renderTheoryGrid = () => {
     const filtered = getFilteredModules();
+    updateTabCounts();
     modulesGrid.innerHTML = "";
 
     if (filtered.length === 0) {
       modulesGrid.innerHTML = `
         <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-muted);">
           <h3>Nebyly nalezeny žádné otázky</h3>
-          <p>Zkuste upravit vyhledávání nebo zvolit jinou kategorii.</p>
+          <p>Zkuste upravit vyhledávání, zvolit jinou sekci nebo kategorii.</p>
         </div>
       `;
       return;
@@ -267,17 +314,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     filtered.forEach(mod => {
       const isExplored = state.exploredModules.has(mod.id);
+      const isSpecial = mod.section === "specialni";
       const card = document.createElement("div");
       card.className = "module-card";
       card.setAttribute("tabindex", "0");
       card.setAttribute("role", "button");
-      card.setAttribute("aria-label", `Otevřít otázku ${mod.number}: ${mod.title}`);
+      card.setAttribute("aria-label", `Otevřít otázku ${mod.badgePrefix || mod.number}: ${mod.title}`);
 
       card.innerHTML = `
         <div>
           <div class="module-card-header">
-            <span class="module-number-badge">Otázka ${mod.number}</span>
-            <span class="module-badge">${mod.badge || "Obecná psychiatrie"}</span>
+            <span class="module-number-badge ${isSpecial ? 'style-special' : ''}">
+              ${mod.badgePrefix || ('Otázka ' + mod.number)}
+            </span>
+            <span class="module-badge">${mod.badge || mod.sectionLabel || "Psychiatrie"}</span>
           </div>
           <h3 class="module-card-title">${mod.title}</h3>
           <p class="module-card-desc">${mod.shortDesc}</p>
@@ -317,10 +367,10 @@ document.addEventListener("DOMContentLoaded", () => {
         hasScenarios = true;
         
         const header = document.createElement("h3");
-        header.style.margin = "24px 0 12px 0";
+        header.style.margin = "28px 0 12px 0";
         header.style.color = "var(--text-secondary)";
         header.style.fontFamily = "var(--font-heading)";
-        header.innerHTML = `Otázka ${mod.number}: ${mod.title}`;
+        header.innerHTML = `<span style="color: var(--primary-light); font-weight: 800;">${mod.badgePrefix || ('Otázka ' + mod.number)}:</span> ${mod.title}`;
         recallListContainer.appendChild(header);
 
         mod.recall.scenarios.forEach(sc => {
@@ -359,22 +409,21 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- TAB 3: FLASHCARD / LEITNER SYSTEM ---
   const initFlashcardDrill = (dueOnly = false) => {
     const now = Date.now();
+    const filteredMods = getFilteredModules();
+    const validModIds = new Set(filteredMods.map(m => m.id));
+
     if (dueOnly) {
       state.flashcardList = allCards.filter(c => {
         const sr = state.srCards[c.id];
         return sr && sr.nextReview <= now;
       });
       if (state.flashcardList.length === 0) {
-        state.flashcardList = [...allCards];
+        state.flashcardList = allCards.filter(c => validModIds.has(c.moduleId));
       }
     } else {
-      if (state.activeCategory === "all") {
+      state.flashcardList = allCards.filter(c => validModIds.has(c.moduleId));
+      if (state.flashcardList.length === 0) {
         state.flashcardList = [...allCards];
-      } else {
-        state.flashcardList = allCards.filter(c => {
-          const mod = PSYCHIATRY_DATA.modules.find(m => m.id === c.moduleId);
-          return mod && mod.category === state.activeCategory;
-        });
       }
     }
 
@@ -396,13 +445,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const card = state.flashcardList[state.currentCardIndex];
     const sr = state.srCards[card.id] || { box: 1 };
 
-    fcCategoryBadge.textContent = `Otázka ${card.moduleNumber} • Box ${sr.box}`;
+    fcCategoryBadge.textContent = `${card.modulePrefix || ('Otázka ' + card.moduleNumber)} • Box ${sr.box}`;
     fcCurrentIdx.textContent = String(state.currentCardIndex + 1);
     fcTotalCount.textContent = String(state.flashcardList.length);
 
     if (state.isCardFlipped) {
       fcTextContent.innerHTML = card.back;
-      fcHintContent.textContent = "Odpověď (ohodnoťte, jak dobře jste odpověď znali)";
+      fcHintContent.textContent = "Odpověď (ohodnoťte, jak přesně jste odpověď znali)";
       activeFlashcard.style.borderColor = "var(--primary-light)";
     } else {
       fcTextContent.innerHTML = card.front;
@@ -522,7 +571,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       card.innerHTML = `
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-          <span class="module-number-badge">Otázka ${q.moduleNumber}</span>
+          <span class="module-number-badge ${q.moduleSection === 'specialni' ? 'style-special' : ''}">
+            ${q.modulePrefix || ('Otázka ' + q.moduleNumber)}
+          </span>
           <span style="font-size: 0.8rem; color: var(--text-muted);">Testová otázka ${idx + 1} / ${filteredQuestions.length}</span>
         </div>
         <div class="quiz-question-text">${q.question}</div>
@@ -535,7 +586,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       card.querySelectorAll(".quiz-option-btn").forEach(btn => {
         btn.addEventListener("click", () => {
-          const qId = btn.getAttribute("data-q-id");
           const selectedIdx = parseInt(btn.getAttribute("data-opt-idx"));
           handleQuizSelect(q, selectedIdx, card);
         });
@@ -577,6 +627,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const filtered = getFilteredModules();
     cheatsheetGrid.innerHTML = "";
 
+    if (filtered.length === 0) {
+      cheatsheetGrid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-muted);">Žádná témata neodpovídají zadanému filtru.</div>`;
+      return;
+    }
+
     filtered.forEach(mod => {
       const card = document.createElement("div");
       card.className = "cheat-card";
@@ -593,7 +648,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       card.innerHTML = `
-        <h4>Otázka ${mod.number}: ${mod.title}</h4>
+        <h4>${mod.badgePrefix || ('Otázka ' + mod.number)}: ${mod.title}</h4>
         <ul class="cheat-list">
           ${keyBullets.map(b => `<li>${b}</li>`).join("")}
         </ul>
@@ -621,7 +676,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateDashboardStats();
     renderTheoryGrid();
 
-    modalModuleBadge.textContent = `Otázka ${mod.number} • ${mod.badge || "Obecná psychiatrie"}`;
+    modalModuleBadge.textContent = `${mod.badgePrefix || ('Otázka ' + mod.number)} • ${mod.sectionLabel || (mod.section === 'specialni' ? 'Speciální psychiatrie' : 'Obecná psychiatrie')}`;
     modalModuleTitle.textContent = mod.title;
 
     let bodyHTML = "";

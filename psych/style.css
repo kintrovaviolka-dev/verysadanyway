@@ -460,14 +460,60 @@ body.light-theme .progress-track {
   box-shadow: 0 4px 18px var(--primary-glow);
 }
 
-/* --- VYHLEDÁVÁNÍ A KATEGORIE --- */
+/* --- VYHLEDÁVÁNÍ, SEKCE A KATEGORIE --- */
 .controls-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+/* Přepínač sekce (Obecná vs Speciální vs Vše) */
+.section-switch-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 6px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  width: fit-content;
+}
+
+.section-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-muted);
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.section-pill:hover {
+  color: var(--text-main);
+  background: var(--bg-card-hover);
+}
+
+.section-pill.active {
+  background: var(--primary-gradient);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 4px 14px var(--primary-glow);
+}
+
+.search-filter-row {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 28px;
 }
 
 .search-box {
@@ -608,8 +654,20 @@ body.light-theme .cat-pill.active {
   border: 1px solid var(--border-color);
 }
 
+.module-number-badge.style-special {
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.14);
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
 body.light-theme .module-number-badge {
   color: var(--primary-dark);
+}
+
+body.light-theme .module-number-badge.style-special {
+  color: #0369a1;
+  background: #e0f2fe;
+  border-color: #bae6fd;
 }
 
 .module-badge {

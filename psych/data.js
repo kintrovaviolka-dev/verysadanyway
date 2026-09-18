@@ -1,38 +1,63 @@
-// data.js - Kompletní databáze Obecné psychiatrie pro 4. ročník LF OU
+// data.js - Kompletní databáze Psychiatrie (Obecná & Speciální) pro 4. ročník LF OU
 const PSYCHIATRY_DATA = {
-  "title": "Obecná psychiatrie",
+  "title": "Psychiatrie",
   "grade": "4. ročník LF OU",
-  "description": "Komplexní interaktivní výukový portál obecné psychiatrie pro studenty 4. ročníku všeobecného lékařství. Psychopatologie, psychofarmakoterapie, biologická léčba a vyšetřovací metody.",
+  "description": "Komplexní interaktivní výukový portál obecné a speciální psychiatrie pro studenty 4. ročníku všeobecného lékařství. 32 otázek dle státnicových okruhů LF OU: psychopatologie, psychofarmaka, biologická léčba, demence, afektivní a psychotické poruchy, závislosti, dětská psychiatrie a urgentní stavy.",
+  "sections": [
+    {
+      "id": "all",
+      "label": "Všechny okruhy",
+      "count": 32,
+      "icon": "📚"
+    },
+    {
+      "id": "obecna",
+      "label": "Obecná psychiatrie",
+      "count": 16,
+      "icon": "🧠"
+    },
+    {
+      "id": "specialni",
+      "label": "Speciální psychiatrie",
+      "count": 16,
+      "icon": "🏥"
+    }
+  ],
   "categories": [
     {
       "id": "all",
-      "label": "Všechny okruhy (16)",
+      "label": "Všechna témata (32)",
       "icon": "📚"
     },
     {
       "id": "psychopatologie",
-      "label": "Psychopatologie",
+      "label": "Psychopatologie & Vyšetření",
       "icon": "🧠"
     },
     {
       "id": "farmakologie",
-      "label": "Psychofarmaka",
+      "label": "Psychofarmaka & Biologie",
       "icon": "💊"
     },
     {
-      "id": "biologicka_terapie",
-      "label": "Biologická léčba",
+      "id": "organicke_zavislosti",
+      "label": "Organické poruchy & Závislosti",
+      "icon": "🍷"
+    },
+    {
+      "id": "afektivni_psychoticke",
+      "label": "Afektivní & Psychózy",
       "icon": "⚡"
     },
     {
-      "id": "vysetreni",
-      "label": "Diagnostika & Vyšetření",
-      "icon": "🩺"
+      "id": "neuroticke_osobnost",
+      "label": "Neurotické & Osobnost",
+      "icon": "🛡️"
     },
     {
-      "id": "psychoterapie_uvod",
-      "label": "Úvod & Psychoterapie",
-      "icon": "🤝"
+      "id": "vyvoj_deti_urgent",
+      "label": "Dětské, Vývojové & Akutní stavy",
+      "icon": "🚨"
     }
   ],
   "modules": [
@@ -41,7 +66,7 @@ const PSYCHIATRY_DATA = {
       "number": 1,
       "title": "Definice, postavení a historie psychiatrie, organizace psychiatrické péče",
       "shortDesc": "Biopsychosociální model, stigmatizace, reformní milníky (Pinel, Kraepelin, Freud, Delay & Deniker 1952) a systém péče v ČR (CDZ, lůžka, právní rámec nedobrovolné hospitalizace).",
-      "category": "psychoterapie_uvod",
+      "category": "psychopatologie",
       "badge": "Historie & Organizace",
       "badgeColor": "violet",
       "theory": {
@@ -127,7 +152,10 @@ const PSYCHIATRY_DATA = {
           "correctIndex": 1,
           "explanation": "Zavedení chlorpromazinu (Delay & Deniker 1952) zásadně změnilo prognózu psychotických pacientů, snížilo agitovanost a agresivitu a otevřelo cestu k ambulantní a komunitní péči."
         }
-      ]
+      ],
+      "section": "obecna",
+      "sectionLabel": "Obecná psychiatrie",
+      "badgePrefix": "O01"
     },
     {
       "id": "q02-vedomi-vnimani-poruchy",
@@ -220,7 +248,10 @@ const PSYCHIATRY_DATA = {
           "correctIndex": 1,
           "explanation": "Obnubilace je kvalitativní porucha vědomí s náhlým začátkem i koncem, zachovanou automatickou motorikou a totální amnézií."
         }
-      ]
+      ],
+      "section": "obecna",
+      "sectionLabel": "Obecná psychiatrie",
+      "badgePrefix": "O02"
     },
     {
       "id": "q03-emotivita-poruchy",
@@ -313,7 +344,10 @@ const PSYCHIATRY_DATA = {
           "correctIndex": 2,
           "explanation": "Emoční ambivalence je koexistence protichůdných emocí, která vede k paralýze rozhodování a je jedním ze základních Bleulerových symptomů schizofrenie."
         }
-      ]
+      ],
+      "section": "obecna",
+      "sectionLabel": "Obecná psychiatrie",
+      "badgePrefix": "O03"
     },
     {
       "id": "q04-mysleni-poruchy",
@@ -406,7 +440,10 @@ const PSYCHIATRY_DATA = {
           "correctIndex": 1,
           "explanation": "Tachypsychismus s myšlenkovým tryskem (fuga idearum) a logoreou je kardinálním rysem manického syndromu."
         }
-      ]
+      ],
+      "section": "obecna",
+      "sectionLabel": "Obecná psychiatrie",
+      "badgePrefix": "O04"
     },
     {
       "id": "q05-jednani-vule-pudy-poruchy",
@@ -499,7 +536,10 @@ const PSYCHIATRY_DATA = {
           "correctIndex": 1,
           "explanation": "Sitofobie je porucha pudu výživy charakterizovaná odmítáním jídla z psychotických motivů (bludy pronásledování, otravy)."
         }
-      ]
+      ],
+      "section": "obecna",
+      "sectionLabel": "Obecná psychiatrie",
+      "badgePrefix": "O05"
     },
     {
       "id": "q06-intelekt-osobnost-poruchy",
@@ -592,7 +632,10 @@ const PSYCHIATRY_DATA = {
           "correctIndex": 1,
           "explanation": "Středně těžká mentální retardace odpovídá IQ 35–49 (mentální věk 6–9 let; jedinci jsou vychovatelní a schopni jednoduché práce pod dohledem)."
         }
-      ]
+      ],
+      "section": "obecna",
+      "sectionLabel": "Obecná psychiatrie",
+      "badgePrefix": "O06"
     },
     {
       "id": "q07-psychofarmakoterapie-obecne",
@@ -685,7 +728,10 @@ const PSYCHIATRY_DATA = {
           "correctIndex": 0,
           "explanation": "Karbamazepin je silný enzymový induktor CYP450 a urychluje clearance mnoha současně podávaných léčiv."
         }
-      ]
+      ],
+      "section": "obecna",
+      "sectionLabel": "Obecná psychiatrie",
+      "badgePrefix": "O07"
     },
     {
       "id": "q08-antidepresiva",
@@ -773,7 +819,10 @@ const PSYCHIATRY_DATA = {
           "correctIndex": 1,
           "explanation": "Agomelatin synchronizuje cirkadiánní rytmy a při jeho užívání je nutný monitoring ALT/AST v týdnech 3, 6, 12 a 24."
         }
-      ]
+      ],
+      "section": "obecna",
+      "sectionLabel": "Obecná psychiatrie",
+      "badgePrefix": "O08"
     },
     {
       "id": "q09-antipsychotika",
@@ -866,7 +915,10 @@ const PSYCHIATRY_DATA = {
           "correctIndex": 0,
           "explanation": "Biperiden (Akineton) blokuje centrální muskarinové receptory a obnovuje rovnováhu mezi dopaminem a acetylcholinem v bazálních gangliích."
         }
-      ]
+      ],
+      "section": "obecna",
+      "sectionLabel": "Obecná psychiatrie",
+      "badgePrefix": "O09"
     },
     {
       "id": "q10-stabilizatory-anxiolytika-hypnotika",
@@ -959,7 +1011,10 @@ const PSYCHIATRY_DATA = {
           "correctIndex": 1,
           "explanation": "NSAID inhibují renální syntézu prostaglandinů, snižují glomerulární filtraci a clearance lithia, což vede k nebezpečnému vzestupu jeho hladiny v krvi."
         }
-      ]
+      ],
+      "section": "obecna",
+      "sectionLabel": "Obecná psychiatrie",
+      "badgePrefix": "O10"
     },
     {
       "id": "q11-neuroprotektiva-kognitiva",
@@ -1052,7 +1107,10 @@ const PSYCHIATRY_DATA = {
           "correctIndex": 1,
           "explanation": "Rivastigmin ve formě transdermální náplasti zajišťuje kontinuální absorpci a významně snižuje incidenci nauzey a zvracení."
         }
-      ]
+      ],
+      "section": "obecna",
+      "sectionLabel": "Obecná psychiatrie",
+      "badgePrefix": "O11"
     },
     {
       "id": "q12-psychofarmaka-deti-stimulancia",
@@ -1145,7 +1203,10 @@ const PSYCHIATRY_DATA = {
           "correctIndex": 1,
           "explanation": "Tzv. black-box warning upozorňuje na riziko aktivace suicidálních myšlenek v úvodu léčby SSRI u dětí a mladých dospělých do 25 let."
         }
-      ]
+      ],
+      "section": "obecna",
+      "sectionLabel": "Obecná psychiatrie",
+      "badgePrefix": "O12"
     },
     {
       "id": "q13-nefarmakologicka-biologicka-lecba",
@@ -1238,14 +1299,17 @@ const PSYCHIATRY_DATA = {
           "correctIndex": 1,
           "explanation": "Po ECT dochází k přechodnému reverzibilnímu výpadku paměti (amnézii na události kolem léčby), který spontánně odeznívá během týdnů."
         }
-      ]
+      ],
+      "section": "obecna",
+      "sectionLabel": "Obecná psychiatrie",
+      "badgePrefix": "O13"
     },
     {
       "id": "q14-pomocne-vysetrovaci-metody",
       "number": 14,
       "title": "Pomocné vyšetřovací metody v psychiatrii (vč. psychologických)",
       "shortDesc": "Laboratorní screening (TSH, KO, jaterní enzymy, toxikologie moči, TDM, sérologie lues/HIV). Zobrazovací metody (CT, MR mozku, SPECT/PET) a EEG. Psychologické metody: WAIS, MMSE, MoCA, Test hodin, MMPI-2, Big Five, Rorschach (ROR), TAT a posuzovací škály (MADRS, PANSS, YMRS).",
-      "category": "vysetreni",
+      "category": "psychopatologie",
       "badge": "Diagnostika & Metody",
       "badgeColor": "cyan",
       "theory": {
@@ -1331,14 +1395,17 @@ const PSYCHIATRY_DATA = {
           "correctIndex": 0,
           "explanation": "Test kreslení hodin rychle a spolehlivě odhaluje poruchy plánování, prostorové orientace a abstraktního myšlení typické pro demence."
         }
-      ]
+      ],
+      "section": "obecna",
+      "sectionLabel": "Obecná psychiatrie",
+      "badgePrefix": "O14"
     },
     {
       "id": "q15-zaklady-psychiatrickeho-vysetreni",
       "number": 15,
       "title": "Základy psychiatrického vyšetření",
       "shortDesc": "Struktura psychiatrické anamnézy (autoanamnéza, klíčová heteroanamnéza od rodiny a ZZS). Status praesens psychicus (vědomí, orientace, vnímání, myšlení, emoce, jednání, pudy, intelekt, paměť, náhled). Zhodnocení suicidálního a agresivního rizika.",
-      "category": "vysetreni",
+      "category": "psychopatologie",
       "badge": "Diagnostika & Metody",
       "badgeColor": "cyan",
       "theory": {
@@ -1424,14 +1491,17 @@ const PSYCHIATRY_DATA = {
           "correctIndex": 1,
           "explanation": "Přímý, strukturovaný dotaz na suicidální úvahy je základním standardem psychiatrického vyšetření a umožňuje posoudit akutní riziko."
         }
-      ]
+      ],
+      "section": "obecna",
+      "sectionLabel": "Obecná psychiatrie",
+      "badgePrefix": "O15"
     },
     {
       "id": "q16-psychoterapie",
       "number": 16,
       "title": "Psychoterapie",
       "shortDesc": "Definice, cíle a formy (individuální, párová, rodinná, skupinová). Hlavní psychoterapeutické směry: Psychoanalýza / psychodynamická (Freud, nevědomí, přenos/protipřenos), Kognitivně-behaviorální terapie KBT (Beck, schémata, expozice), Humanistická (Rogers PCA, logoterapie), Systemická rodinná terapie. Nespecifické účinné faktory.",
-      "category": "psychoterapie_uvod",
+      "category": "psychopatologie",
       "badge": "Psychoterapie",
       "badgeColor": "violet",
       "theory": {
@@ -1511,6 +1581,1535 @@ const PSYCHIATRY_DATA = {
           ],
           "correctIndex": 1,
           "explanation": "Viktor E. Frankl založil logoterapii a existenciální analýzu na základě své zkušenosti z koncentračních táborů."
+        }
+      ],
+      "section": "obecna",
+      "sectionLabel": "Obecná psychiatrie",
+      "badgePrefix": "O16"
+    },
+    {
+      "id": "s01-demence",
+      "number": 1,
+      "section": "specialni",
+      "sectionLabel": "Speciální psychiatrie",
+      "badgePrefix": "S01",
+      "title": "Demence (dělení, epidemiologie, etiopatogeneze, klinický obraz, léčba)",
+      "shortDesc": "Alzheimerova nemoc (amyloid beta, tau protein, iAChE + memantin), vaskulární demence, demence s Lewyho tělísky (fluktuace, zrakové halucinace, hypersenzitivita na AP), FTD a reverzibilní demence.",
+      "category": "psychopatologie",
+      "badge": "Organické poruchy",
+      "badgeColor": "cyan",
+      "theory": {
+        "banner": {
+          "tag": "Organické duševní poruchy (F00–F09)",
+          "title": "Demence – chronický progresivní syndrom úbytku kognice",
+          "text": "Demence je získaný globální úbytek kognitivních funkcí (paměti, intelektu, orientace, exekutivy) na podkladě chronického onemocnění mozku při JASNÉM vědomí, který vede k narušení běžných denních aktivit (ADL)."
+        },
+        "sections": [
+          {
+            "title": "1. Epidemiologie a etiopatogenetické dělení demencí",
+            "color": "cyan",
+            "content": "\n                        <p class=\"mb-2 text-xs\">Prevalence stoupá s věkem (nad 65 let cca 5 %, nad 80 let až 20–30 %).</p>\n                        <div class=\"grid md:grid-cols-2 gap-3 text-xs\">\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <h4 class=\"font-bold text-violet-300 mb-1\">Primární neurodegenerativní demence</h4>\n                                <ul class=\"list-disc ml-4 space-y-1 text-slate-300\">\n                                    <li><strong>Alzheimerova nemoc (60–70 %):</strong> Depozita extracelulárního beta-amyloidu (senilní plaky) a intracelulárního hyperfosforylovaného tau-proteinu (neurofibrilární klubka). Zánik cholinergních neuronů (ncl. basalis Meynerti), atrofie hipokampu a temporoparietálního kortexu.</li>\n                                    <li><strong>Demence s Lewyho tělísky (DLB, 15 %):</strong> Agregace alfa-synukleinu (Lewyho tělíska v kortexu).</li>\n                                    <li><strong>Frontotemporální lobární degenerace (FTD / Pickova nemoc, 5–10 %):</strong> Atrofie frontálních a temporálních laloků.</li>\n                                    <li><strong>Demence u Huntingtonovy a Parkinsonovy nemoci</strong></li>\n                                </ul>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <h4 class=\"font-bold text-cyan-300 mb-1\">Sekundární a vaskulární demence</h4>\n                                <ul class=\"list-disc ml-4 space-y-1 text-slate-300\">\n                                    <li><strong>Vaskulární demence (VaD, 15–20 %):</strong> Multiinfarktová demence, subkortikální vaskulární encefalopatie (Binswangerova nemoc). Typický <em>stupňovitý rozvoj</em> a ložiskový neurologický nález.</li>\n                                    <li><strong>Reverzibilní demence:</strong> Normotenzní hydrocefalus (NPH – Hakimova triáda: demence + porucha chůze + inkontinence moči), hypotyreóza, deficit vitaminu B12 / kyseliny listové, neuroinfekce (neurosyfilis, HIV).</li>\n                                </ul>\n                            </div>\n                        </div>\n                    "
+          },
+          {
+            "title": "2. Klinický obraz jednotlivých typů demencí",
+            "color": "indigo",
+            "content": "\n                        <div class=\"space-y-2 text-xs\">\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <span class=\"font-bold text-violet-300\">Alzheimerova demence:</span> Plíživý začátek, časná porucha epizodické a krátkodobé paměti (zapomíná nedávné události), afázie (hledání slov), apraxie, agnózie, časoprostorová dezorientace. BPSD příznaky (poruchy chování a psychologické symptomy): bludy okradení/nevěry, neklid, toulání.\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <span class=\"font-bold text-amber-300\">Demence s Lewyho tělísky (DLB) – Triáda klíčových znaků:</span>\n                                <ul class=\"list-disc ml-4 mt-1 text-slate-300 space-y-0.5\">\n                                    <li>1. Výrazná <strong>fluktuace kognitivního výkonu</strong> a bdělosti během dne (ze dne na den).</li>\n                                    <li>2. Časné, živé, detailní <strong>zrakové halucinace</strong> (postavy, zvířata).</li>\n                                    <li>3. Spontánní <strong>parkinsonský syndrom</strong> (rigidita, hypokineze).</li>\n                                    <li>⚠️ <strong>Extrémní hypersenzitivita na klasická neuroleptika</strong> (i malá dávka haloperidolu může vést k těžkému ireverzibilnímu parkinsonismu, MNS či úmrtí!).</li>\n                                </ul>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <span class=\"font-bold text-teal-300\">Frontotemporální demence (FTD / Pickova nemoc):</span>\n                                <p class=\"text-slate-300 mt-1\">Časný začátek (kolem 50–60 let). Paměť je v úvodu relativně zachována! Dominují <strong>změny osobnosti, sociální desinhibice</strong>, ztráta taktu, moria (nevhodné žertování), apatie, hyperoralita a progresivní afázie.</p>\n                            </div>\n                        </div>\n                    "
+          },
+          {
+            "title": "3. Diagnostika a Komplexní léčba demencí",
+            "color": "emerald",
+            "content": "\n                        <div class=\"grid md:grid-cols-2 gap-3 text-xs\">\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <div class=\"font-bold text-emerald-400 mb-1\">Diagnostický algoritmus</div>\n                                <ul class=\"list-disc ml-4 text-slate-300 space-y-1\">\n                                    <li><strong>Kognitivní screening:</strong> MMSE (norma ≥ 27 b., demence &lt; 24 b.), MoCA, Test kreslení hodin.</li>\n                                    <li><strong>Neuroimaging (MR / CT mozku):</strong> Atrofie hipokampů (MTA skóre u AD), vaskulární léze (Fazekas skóre), vyloučení hydrocefalu.</li>\n                                    <li><strong>Laboratorní screening:</strong> KO, TSH, B12, folát, jaterní/ledvinné testy, sérologie lues.</li>\n                                </ul>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <div class=\"font-bold text-emerald-400 mb-1\">Farmakoterapie (Kognitiva)</div>\n                                <ul class=\"list-disc ml-4 text-slate-300 space-y-1\">\n                                    <li><strong>iAChE (Donepezil, Rivastigmin náplast, Galantamin):</strong> Lehká až středně těžká AD (MMSE 20–13).</li>\n                                    <li><strong>Memantin (NMDA antagonista):</strong> Středně těžká až těžká AD (MMSE 19–3).</li>\n                                    <li><strong>BPSD příznaky (neklid, bludy):</strong> Nízké dávky atypických AP (Tiaprid, Quetiapin, Risperidon). Vyhnout se FGA a anticholinergikům!</li>\n                                </ul>\n                            </div>\n                        </div>\n                    "
+          }
+        ]
+      },
+      "recall": {
+        "scenarios": [
+          {
+            "id": "s01-r1",
+            "title": "Kazuistika S1: Zrakové halucinace a pád u seniora s demencí",
+            "question": "72letý muž je vyšetřován pro nově vzniklé barevné zrakové halucinace cizích dětí v obývacím pokoji, na které reaguje klidně. Rodina uvádí, že jeho pozornost během dne kolísá a začal se pohybovat pomalu a šouravě. Praktický lékař mu nasadil nízkou dávku haloperidolu, po které pacient ztuhl, upadl a nemůže se hýbat. O jakou demenci se jedná a jaká byla chyba v léčbě?",
+            "answer": "Jedná se o Demenci s Lewyho tělísky (DLB – triáda: fluktuace kognice, zrakové halucinace, parkinsonismus). Zásadní chybou bylo podání klasického neuroleptika (Haloperidolu), na které mají pacienti s DLB extrémní hypersenzitivitu. V případě nutnosti zklidnění halucinací je lékem volby iAChE (Donepezil/Rivastigmin) nebo velmi nízká dávka Quetiapinu.",
+            "pearl": "Kontraindikace: Klasická FGA antipsychotika (Haloperidol) jsou u DLB přísně kontraindikována pro riziko těžkého maligního neuroleptického syndromu a fatální rigidity."
+          }
+        ]
+      },
+      "cards": [
+        {
+          "id": "sc01-1",
+          "front": "Jaká je klasická klinická triáda symptomů u Demence s Lewyho tělísky (DLB)?",
+          "back": "1. Fluktuující kognitivní deficit, 2. Živé detailní zrakové halucinace, 3. Spontánní parkinsonismus (+ extrémní přecitlivělost na neuroleptika).",
+          "hint": "DLB triáda",
+          "category": "psychopatologie"
+        },
+        {
+          "id": "sc01-2",
+          "front": "Co tvoří Hakim-Adamsovu triádu u normotenzního hydrocefalu (NPH)?",
+          "back": "1. Demence, 2. Porucha chůze (ataxie / magnetická chůze), 3. Inkontinence moči. (Léčba: ventrikuloperitoneální shunt).",
+          "hint": "NPH triáda",
+          "category": "psychopatologie"
+        },
+        {
+          "id": "sc01-3",
+          "front": "Které 2 patologické proteiny se akumulují v mozku u Alzheimerovy nemoci?",
+          "back": "1. Extracelulární beta-amyloid (senilní plaky), 2. Intracelulární hyperfosforylovaný tau protein (neurofibrilární klubka / tangles).",
+          "hint": "Neuropatologie AD",
+          "category": "psychopatologie"
+        }
+      ],
+      "quiz": [
+        {
+          "id": "s01-test1",
+          "question": "Který z následujících klinických obrazů je typický pro časná stádia frontotemporální demence (Pickovy nemoci)?",
+          "options": [
+            "Těžký výpadek epizodické paměti při zachovaném sociálním chování",
+            "Časné změny osobnosti, ztráta společenského taktu, desinhibice chování a hyperoralita",
+            "Časné epileptické záchvaty typu grand mal",
+            "Klidový tremor s mikrografií"
+          ],
+          "correctIndex": 1,
+          "explanation": "Frontotemporální demence se typicky projevuje časnou afektivní a sociální desinhibicí a změnou osobnosti před rozvojem závažného paměťového deficitu."
+        },
+        {
+          "id": "s01-test2",
+          "question": "Který lék je indikován k léčbě středně těžké až těžké Alzheimerovy nemoci jako nekompetitivní antagonista NMDA receptorů?",
+          "options": [
+            "Donepezil",
+            "Memantin",
+            "Rivastigmin",
+            "Piracetam"
+          ],
+          "correctIndex": 1,
+          "explanation": "Memantin je NMDA receptorový antagonista schválený specificky pro středně těžkou až těžkou Alzheimerovu demenci."
+        }
+      ]
+    },
+    {
+      "id": "s02-delirium",
+      "number": 2,
+      "section": "specialni",
+      "sectionLabel": "Speciální psychiatrie",
+      "badgePrefix": "S02",
+      "title": "Delirium",
+      "shortDesc": "Akutní organický mozkový syndrom. Etiologie (somatické příčiny, infekce, hypoxie, léková toxicita). Klinický obraz: fluktuace, dezorientace, mikrozoopsie, inverze spánku, amnézie. Léčba (tiaprid, haloperidol, quetiapin, zákaz BZD mimo alkohol).",
+      "category": "psychopatologie",
+      "badge": "Organické poruchy",
+      "badgeColor": "cyan",
+      "theory": {
+        "banner": {
+          "tag": "Akutní organický stav",
+          "title": "Delirium – reverzibilní akutní selhání mozkových funkcí",
+          "text": "Delirium je akutně vzniklá, fluktuující kvalitativní porucha vědomí (obluzené vědomí) a pozornosti způsobená přímým organickým poškozením mozku nebo systémovým somatickým onemocněním."
+        },
+        "sections": [
+          {
+            "title": "1. Etiopatogeneze a rizikové faktory deliria",
+            "color": "cyan",
+            "content": "\n                        <p class=\"mb-2 text-xs\">Základním neurochemickým mechanismem je <strong>deficit centrální cholinergní transmise</strong> v kombinaci s <strong>relativním excesem dopaminu</strong>, noradrenalinu a glutamátu.</p>\n                        <div class=\"grid md:grid-cols-2 gap-3 text-xs\">\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <h4 class=\"font-bold text-amber-400 mb-1\">Predispoziční faktory (terén)</h4>\n                                <ul class=\"list-disc ml-4 space-y-0.5 text-slate-300\">\n                                    <li>Věk > 65–70 let</li>\n                                    <li>Preexistující kognitivní deficit (demence v anamnéze až 5x zvyšuje riziko!)</li>\n                                    <li>Senzorická deprivace (porucha zraku, sluchu)</li>\n                                    <li>Polymorbidita a polypragmázie</li>\n                                </ul>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <h4 class=\"font-bold text-rose-400 mb-1\">Precipitační faktory (spouštěče)</h4>\n                                <ul class=\"list-disc ml-4 space-y-0.5 text-slate-300\">\n                                    <li><strong>Infekce:</strong> Urosepse, pneumonie, COVID-19</li>\n                                    <li><strong>Hypoxie a kardiovaskulární selhání:</strong> IM, CMP, anémie</li>\n                                    <li><strong>Elektrolytový rozvrat a dehydratace:</strong> Hyponatrémie, hypokalémie</li>\n                                    <li><strong>Léková toxicita:</strong> Anticholinergika, opioidy, sedativa</li>\n                                    <li><strong>Operační traumata a anestezie</strong></li>\n                                </ul>\n                            </div>\n                        </div>\n                    "
+          },
+          {
+            "title": "2. Klinický obraz a formy deliria",
+            "color": "indigo",
+            "content": "\n                        <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700 text-xs space-y-2\">\n                            <div class=\"grid md:grid-cols-3 gap-2\">\n                                <div class=\"bg-slate-800 p-2 rounded\">\n                                    <strong class=\"text-rose-400\">Hyperaktivní (furibundní):</strong><br>Psychomotorický neklid, agrese, útěky z lůžka, halucinace, vegetativní bouře. Snadno rozpoznatelné.\n                                </div>\n                                <div class=\"bg-slate-800 p-2 rounded\">\n                                    <strong class=\"text-amber-400\">Hypoaktivní (blandní):</strong><br>Zpomalení, spavost, netečnost, tiché mumlání. Často uniká diagnóze (zaměněno za depresi či demenci), má však horší prognózu!\n                                </div>\n                                <div class=\"bg-slate-800 p-2 rounded\">\n                                    <strong class=\"text-cyan-400\">Smíšené delirium:</strong><br>Střídání fází apatie přes den a masivní noční agitovanosti (nejčastější forma).\n                                </div>\n                            </div>\n                            <ul class=\"list-disc ml-4 text-slate-300 space-y-1 mt-2\">\n                                <li><strong>Fluktuace v průběhu dne:</strong> Zhoršení večer a v noci ('sundowning fenomén').</li>\n                                <li><strong>Dezorientace:</strong> Především časem a místem (vlastní osobou bývá zachována).</li>\n                                <li><strong>Poruchy vnímání:</strong> Zrakové iluze a mikroskopické zrakové halucinace (<strong>mikrozoopsie</strong> – hmyz, myši, nitky).</li>\n                                <li><strong>Inverze spánkového rytmu a amnézie na proběhlý stav.</strong></li>\n                            </ul>\n                        </div>\n                    "
+          },
+          {
+            "title": "3. Terapie a ošetřovatelský management deliria",
+            "color": "emerald",
+            "content": "\n                        <div class=\"space-y-2 text-xs\">\n                            <div class=\"p-3 rounded-lg bg-emerald-950/30 border border-emerald-500/30\">\n                                <strong class=\"text-emerald-400\">1. Kauzální léčba a režimová opatření (Základ úspěchu):</strong>\n                                <ul class=\"list-disc ml-4 mt-1 text-slate-300 space-y-0.5\">\n                                    <li>Léčba somatické příčiny (antibiotika u infekce, oxygenoterapie, rehydratace, úprava iontů).</li>\n                                    <li>Reorientace pacienta: přítomnost rodiny, hodiny, kalendář, brýle a naslouchadlo, noční tlumené světlo.</li>\n                                    <li>Vysazení delirogenní medikace (anticholinergika, TCA, спазmolytika).</li>\n                                </ul>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <strong class=\"text-violet-300\">2. Symptomatická farmakoterapie:</strong>\n                                <ul class=\"list-disc ml-4 mt-1 text-slate-300 space-y-1\">\n                                    <li><strong>Tiaprid (Tiapridal):</strong> Lék 1. volby u geriatrického a pooperačního deliria (100–300 mg p.o./i.v./i.m.). Bezpečný kardiovaskulárně, netlumí dýchání.</li>\n                                    <li><strong>Haloperidol:</strong> U těžké agitovanosti (0,5–2 mg i.v./i.m.), nutná kontrola QTc na EKG!</li>\n                                    <li><strong>Atypická antipsychotika:</strong> Quetiapin (25–50 mg na noc), Risperidon.</li>\n                                    <li>⚠️ <strong>Zákaz benzodiazepinů (BZD):</strong> U somatického/geriatrického deliria BZD prohlubují zmatenost a vyvolávají paradoxní agitaci! <em>Výjimka:</em> Alkoholové delirium tremens, kde jsou BZD lékem volby.</li>\n                                </ul>\n                            </div>\n                        </div>\n                    "
+          }
+        ]
+      },
+      "recall": {
+        "scenarios": [
+          {
+            "id": "s02-r1",
+            "title": "Kazuistika S2: Noční zmatenost po operaci a volba sedace",
+            "question": "80letá pacientka 1. pooperační den po cholecystektomii začíná být v noci silně agitovaná, vytahuje si kanylu a křičí, že po stropě lezou hadi. Službu konající mladý lékař chce naordinovat Diazepam 10 mg i.v. Je tento postup správný?",
+            "answer": "NENÍ SPRÁVNÝ. Podání diazepamu (či jiného BZD) u geriatrického pooperačního deliria je hrubou chybou, která může vést k paradoxní dezinhibici, progresi zmatenosti a útlumu dechu. Správným postupem je: 1. Aplikace Tiapridu (100 mg i.v./i.m.) nebo nízké dávky Haloperidolu/Quetiapinu, 2. Kontrola saturace O2, glykémie, vnitřního prostředí a vyloučení retence moči (častý spouštěč!), 3. Zajištění klidného personálu a osvětlení.",
+            "pearl": "Jediná indikace pro BZD u deliria: Delirium tremens vyvolané abstinencí od alkoholu nebo benzodiazepinů."
+          }
+        ]
+      },
+      "cards": [
+        {
+          "id": "sc02-1",
+          "front": "Jaký je hlavní rozdíl ve farmakoterapii deliria tremens (alkoholového) vs. geriatrického somatického deliria?",
+          "back": "U alkoholového deliria tremens jsou lékem 1. volby Benzodiazepiny (Diazepam / Klomethiazol), zatímco u geriatrického deliria jsou BZD kontraindikovány a lékem volby je Tiaprid nebo Haloperidol / Quetiapin.",
+          "hint": "Volba BZD",
+          "category": "psychopatologie"
+        },
+        {
+          "id": "sc02-2",
+          "front": "Proč je hypoaktivní delirium klinicky nebezpečnější než hyperaktivní?",
+          "back": "Protože často uniká pozornosti personálu (pacient je tichý, spavý, leží) a bývá mylně považováno za depresi či demenci, což oddaluje kauzální léčbu somatické příčiny.",
+          "hint": "Hypoaktivní forma",
+          "category": "psychopatologie"
+        },
+        {
+          "id": "sc02-3",
+          "front": "Jaké zrakové halucinace jsou typické pro delirium?",
+          "back": "Mikrozoopsie (drobní brouci, hmyz, myši, nitky) a zrakové iluze z nejasných stínů v prostoru.",
+          "hint": "Mikrozoopsie",
+          "category": "psychopatologie"
+        }
+      ],
+      "quiz": [
+        {
+          "id": "s02-test1",
+          "question": "Které z následujících tvrzení o deliriu je PRAVDIVÉ?",
+          "options": [
+            "Vědomí je po celou dobu trvání zcela lucidní a jasné",
+            "Průběh deliria je typicky fluktuující se zhoršováním v nočních hodinách a pacient má na stav amnézii",
+            "Lékem první volby u pooperačního geriatrického deliria je vysoká dávka diazepamu",
+            "Vzniká pozvolna po dobu několika let"
+          ],
+          "correctIndex": 1,
+          "explanation": "Delirium se vyznačuje akutním vznikem, kolísáním během 24 hodin (horší v noci) a typickou amnézií na proběhlý stav."
+        },
+        {
+          "id": "s02-test2",
+          "question": "Který lék je bezpečným a preferovaným antipsychotikem první volby při neklidu u geriatrických pacientů s deliriem?",
+          "options": [
+            "Tiaprid",
+            "Amitriptylin",
+            "Zolpidem",
+            "Chlorpromazin"
+          ],
+          "correctIndex": 0,
+          "explanation": "Tiaprid (selektivní D2/D3 antagonista) má minimální kardiální a extrapyramidové nežádoucí účinky a je lékem volby u gerontopsychiatrického deliria."
+        }
+      ]
+    },
+    {
+      "id": "s03-zavislost-alkohol-leky",
+      "number": 3,
+      "section": "specialni",
+      "sectionLabel": "Speciální psychiatrie",
+      "badgePrefix": "S03",
+      "title": "Syndrom závislosti na alkoholu a návykových lécích",
+      "shortDesc": "MKN-10 kritéria závislosti (6 znaků). Akutní intoxikace, škodlivé užívání, odvykací stav a delirium tremens. Wernicke-Korsakovův syndrom (thiamin). Protialkoholní léčba (disulfiram, akamprosat, naltrexon). Závislost na BZD a Z-látkách.",
+      "category": "psychopatologie",
+      "badge": "Závislosti",
+      "badgeColor": "rose",
+      "theory": {
+        "banner": {
+          "tag": "Poruchy vyvolané psychoaktivními látkami (F10–F19)",
+          "title": "Syndrom závislosti na alkoholu a sedativech",
+          "text": "Závislost je chronické relabující onemocnění charakterizované nutkavou potřebou užívat látku (craving), ztrátou kontroly a pokračováním v užívání navzdory závažným somatickým, psychickým i sociálním následkům."
+        },
+        "sections": [
+          {
+            "title": "1. Diagnostická kritéria syndromu závislosti (MKN-10 / F1x.2)",
+            "color": "rose",
+            "content": "\n                        <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700 text-xs\">\n                            <p class=\"text-slate-300 mb-2\">Pro diagnózu závislosti musí být přítomny <strong>alespoň 3 z následujících 6 znaků</strong> současně po dobu min. 1 měsíce (nebo opakovaně během 12 měsíců):</p>\n                            <ol class=\"list-decimal ml-4 text-slate-300 space-y-1\">\n                                <li><strong>Craving (bažení):</strong> Silná, nepřekonatelná touha nebo nutkání užít látku.</li>\n                                <li><strong>Ztráta kontroly:</strong> Narušená schopnost kontrolovat začátek, ukončení nebo množství užité látky.</li>\n                                <li><strong>Somatický odvykací stav (abstinenční syndrom):</strong> Příznaky po vysazení či snížení dávky.</li>\n                                <li><strong>Průkaz tolerance:</strong> Potřeba vyšších dávek k dosažení původního účinku.</li>\n                                <li><strong>Zanedbávání jiných zájmů a potěšení:</strong> Postupné podřizování veškerého času získávání látky.</li>\n                                <li><strong>Pokračování v užívání přes jasný důkaz škodlivých následků</strong> (jaterní cirhóza, rozpad rodiny, ztráta práce).</li>\n                            </ol>\n                        </div>\n                    "
+          },
+          {
+            "title": "2. Odvykací stav od alkoholu a Delirium tremens",
+            "color": "amber",
+            "content": "\n                        <div class=\"space-y-2 text-xs\">\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <strong class=\"text-amber-400\">Nekomplikovaný odvykací stav (nastupuje za 6–24 h po poklesu alkoholu):</strong>\n                                <p class=\"text-slate-300 mt-1\">Tremor jazyka a víček, pocení, tachykardie, hypertenze, nauzea, vnitřní tenze, insomnie. Riziko epileptických záchvatů (tzv. rumové záchvaty / epileptické paroxysmy z odnětí).</p>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-rose-950/40 border border-rose-500/40\">\n                                <strong class=\"text-rose-400\">🚨 Delirium tremens (nastupuje za 48–72 h po přerušení pití):</strong>\n                                <p class=\"text-slate-300 mt-1\">Život ohrožující stav (mortalita bez léčby až 15 %)! Dezorientace, masivní zrakové a taktilní halucinace (mikrozoopsie – hmyz, hlodavci), hrubý tremor, profúzní pocení, tachykardie, horečka, dehydratace.</p>\n                                <p class=\"text-slate-300 mt-1\"><strong>Léčba odvykacího stavu a deliria tremens:</strong></p>\n                                <ul class=\"list-disc ml-4 text-slate-300 space-y-0.5\">\n                                    <li><strong>Benzodiazepiny ve vysokých dávkách:</strong> Diazepam (10–20 mg p.o./i.v. titračně dle skóre CIWA-Ar) nebo Klomethiazol (Heminevrin).</li>\n                                    <li><strong>Thiamin (Vitamin B1) i.v./i.m. ve vysoké dávce:</strong> VŽDY aplikovat <strong>PŘED infuzí glukózy</strong> k prevenci Wernickeovy encefalopatie!</li>\n                                    <li>Hydratace, minerály (Mg2+, K+), monitoring vitálních funkcí na JIP.</li>\n                                </ul>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <strong class=\"text-violet-300\">Wernicke-Korsakovův syndrom (z těžkého deficitu vitaminu B1):</strong>\n                                <p class=\"text-slate-300 mt-1\"><strong>Wernickeova encefalopatie (akutní):</strong> Triáda – oftalmoplegie (obrny očních svalů, nystagmus) + ataxie chůze + zmatenost.</p>\n                                <p class=\"text-slate-300 mt-1\"><strong>Korsakovova psychóza (chronické stádium):</strong> Těžká anterográdní i retrográdní amnézie s <strong>konfabulacemi</strong> (vymýšlí si vzpomínky k zaplnění výpadků) a dezorientací časem.</p>\n                            </div>\n                        </div>\n                    "
+          },
+          {
+            "title": "3. Dlouhodobá léčba závislosti na alkoholu a lécích",
+            "color": "emerald",
+            "content": "\n                        <div class=\"grid md:grid-cols-2 gap-3 text-xs\">\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <h4 class=\"font-bold text-emerald-400 mb-1\">Farmakoterapie v udržovací léčbě</h4>\n                                <ul class=\"list-disc ml-4 text-slate-300 space-y-1\">\n                                    <li><strong>Disulfiram (Antabus):</strong> Blokuje acetaldehyddehydrogenázu ➔ po napití hromadění toxického acetaldehydu (flush, hypotenze, tachykardie, nauzea, strach ze smrti). Averzivní léčba.</li>\n                                    <li><strong>Akamprosat (Campral):</strong> Modulátor GABA/glutamátu, tlumí craving a 'protrahovaný abstinenční syndrom'.</li>\n                                    <li><strong>Naltrexon:</strong> Opioidní antagonista, blokuje euforizující účinek alkoholu, snižuje bažení.</li>\n                                    <li><strong>Nalmefen:</strong> Režim kontrolované konzumace u aktivních pijáků.</li>\n                                </ul>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <h4 class=\"font-bold text-violet-300 mb-1\">Závislost na sedativech a hypnoticích (BZD)</h4>\n                                <p class=\"text-slate-300\">Iatrogenní závislost vzniká již po 4–6 týdnech užívání. Odvykací stav: úzkost, nespavost, tremor, hypersenzitivita na hluk a světlo, křeče.</p>\n                                <p class=\"text-slate-300 mt-1\"><strong>Detoxifikace:</strong> Převod na ekvivalentní dávku dlouhodobě působícího Diazepamu a jeho <strong>velmi pomalé snižování</strong> (o 10–20 % za 1–2 týdny po dobu několika měsíců!).</p>\n                            </div>\n                        </div>\n                    "
+          }
+        ]
+      },
+      "recall": {
+        "scenarios": [
+          {
+            "id": "s03-r1",
+            "title": "Kazuistika S3: Prevence Wernickeovy encefalopatie na urgentním příjmu",
+            "question": "ZZS přiváží 52letého kachektického bezdomovce s chronickou závislostí na alkoholu. Je somnolentní, má těžkou hypoglykémii (2,1 mmol/l) a nystagmus. Lékař ordinoval rychlou infuzi 40% glukózy i.v. Jaký klíčový krok musí před aplikací glukózy bezpodmínečně provést?",
+            "answer": "Musí bezpodmínečně aplikovat vysokou dávku Thiaminu (Vitaminu B1, např. 100–500 mg i.v./i.m.) PŘED nebo současně s infuzí glukózy! Podání samotné glukózy u pacienta s deplecí thiaminu spotřebuje poslední zbytky kofaktoru pro glykolýzu a vyvolá akutní, potenciálně fatální Wernickeovu encefalopatii a nekrózu corpora mamillaria.",
+            "pearl": "Zlaté pravidlo urgentní medicíny: Alkoholikovi NIKDY nepodávat glukózu bez předchozího thiaminu!"
+          }
+        ]
+      },
+      "cards": [
+        {
+          "id": "sc03-1",
+          "front": "Kolik kritérií z MKN-10 musí být splněno pro stanovení diagnózy syndromu závislosti?",
+          "back": "Alespoň 3 z celkových 6 kritérií přítomných současně po dobu min. 1 měsíce (nebo opakovaně během roku).",
+          "hint": "MKN-10 kritéria",
+          "category": "psychopatologie"
+        },
+        {
+          "id": "sc03-2",
+          "front": "Jaký je mechanismus účinku disulfiramu (Antabusu)?",
+          "back": "Ireverzibilní inhibice acetaldehyddehydrogenázy, což při požití alkoholu vede k akumulaci toxického acetaldehydu a těžké averzivní reakci.",
+          "hint": "Enzymová blokáda",
+          "category": "psychopatologie"
+        },
+        {
+          "id": "sc03-3",
+          "front": "Jaké příznaky tvoří klasickou triádu Wernickeovy encefalopatie?",
+          "back": "1. Oftalmoplegie / nystagmus (poruchy okohybných svalů), 2. Ataxie chůze, 3. Globální zmatenost (mentální alterace).",
+          "hint": "Wernickeova triáda",
+          "category": "psychopatologie"
+        }
+      ],
+      "quiz": [
+        {
+          "id": "s03-test1",
+          "question": "Které léčivo je lékem první volby pro zvládnutí akutního alkoholového odvykacího stavu a prevenci epileptických paroxysmů?",
+          "options": [
+            "Diazepam (nebo Klomethiazol)",
+            "Disulfiram",
+            "Haloperidol v monoterapii",
+            "Naltrexon"
+          ],
+          "correctIndex": 0,
+          "explanation": "Benzodiazepiny (Diazepam) nahrazují chybějící GABA-ergní inhibici po vysazení alkoholu a brání rozvoji křečí a deliria tremens."
+        },
+        {
+          "id": "s03-test2",
+          "question": "Co je typickým projevem Korsakovovy psychózy vzniklé v důsledku chronického deficitu thiaminu u alkoholismu?",
+          "options": [
+            "Těžká anterográdní a retrográdní amnézie s konfabulacemi",
+            "Zrakové mikrozoopsie",
+            "Manická nálada s logoreou",
+            "Spastická paraparéza"
+          ],
+          "correctIndex": 0,
+          "explanation": "Korsakovova psychóza je charakterizována těžkým výpadkem paměti, který pacient nevědomky zaplňuje smyšlenými vzpomínkami (konfabulacemi)."
+        }
+      ]
+    },
+    {
+      "id": "s04-nelegalni-navyky-latky",
+      "number": 4,
+      "section": "specialni",
+      "sectionLabel": "Speciální psychiatrie",
+      "badgePrefix": "S04",
+      "title": "Syndrom závislosti na nelegálních psychoaktivních látkách",
+      "shortDesc": "Stimulancia (pervitin, kokain – toxická psychóza). Opioidy (heroin, fentanyl – intoxikační triáda, Naloxon, substituční léčba: buprenorfin, methadon). Kanabinoidy (amotivační syndrom). Halucinogeny (LSD), disociativa (ketamin) a těkavé látky.",
+      "category": "psychopatologie",
+      "badge": "Závislosti",
+      "badgeColor": "rose",
+      "theory": {
+        "banner": {
+          "tag": "Toxikomanie (F11–F19)",
+          "title": "Závislosti na nelegálních drogách",
+          "text": "Nelegální psychoaktivní látky vyvolávají závislost přímou stimulací odměnového dopaminového systému v nucleus accumbens. Liší se profilem intoxikace, rizikem předávkování a odvykacími syndromy."
+        },
+        "sections": [
+          {
+            "title": "1. Psychostimulancia (Metamfetamin / Pervitin, Kokain, MDMA / Extáze)",
+            "color": "rose",
+            "content": "\n                        <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700 text-xs space-y-2\">\n                            <span class=\"font-bold text-amber-400\">Metamfetamin (Pervitin) & Kokain:</span>\n                            <p class=\"text-slate-300\">Masivní vyplavení a blokáda zpětného vychytávání dopaminu a noradrenalinu (kokain navíc lokální anestetikum a kardiotoxikum – spazmy koronárek, IM, CMP).</p>\n                            <div class=\"grid md:grid-cols-2 gap-2 text-slate-300\">\n                                <div>\n                                    <strong>Akutní intoxikace:</strong> Mydriáza, tachykardie, hypertenze, motorický neklid, nespavost, euforie, vymizení hladu a únavy, logorea, hyperpyrexie.\n                                </div>\n                                <div>\n                                    <strong>Toxická psychóza (stíha):</strong> Paranoidně-persekuční bludy (policie, sledování), sluchové i taktilní halucinace (paraziti pod kůží – Magnanův příznak), agresivita.\n                                </div>\n                            </div>\n                            <p class=\"text-slate-300\"><strong>Odvykací stav (Crash syndrom):</strong> Těžká deprese, hypersomnie, hyperfagie (vlčí hlad), anhedonie a extrémní craving s vysokým suicidálním rizikem!</p>\n                            <p class=\"text-slate-300\"><strong>MDMA (Extáze):</strong> Entaktogen (vyplavení serotoninu), riziko život ohrožujícího <em>hyperpyretického a sérotoninového syndromu</em> při tanci v horku.</p>\n                        </div>\n                    "
+          },
+          {
+            "title": "2. Opioidy (Heroin, Fentanyl, Morfin, Oxykodon, Buprenorfin)",
+            "color": "indigo",
+            "content": "\n                        <div class=\"space-y-2 text-xs\">\n                            <div class=\"p-3 rounded-lg bg-rose-950/40 border border-rose-500/40\">\n                                <strong class=\"text-rose-400\">🚨 Akutní intoxikace / Předávkování opioidy (Fatální triáda):</strong>\n                                <ul class=\"list-disc ml-4 text-slate-300 space-y-0.5 mt-1\">\n                                    <li>1. <strong>Mióza</strong> (špendlíkovité zornice – pin-point pupils).</li>\n                                    <li>2. <strong>Útlum dechového centra</strong> (hypoventilace &lt; 8–10 dechů/min až apnoe, cyanóza).</li>\n                                    <li>3. <strong>Porucha vědomí</strong> (kóma).</li>\n                                </ul>\n                                <p class=\"text-emerald-400 font-bold mt-1\">Specifické antidotum: Naloxon i.v./i.m./intranazálně (opakovaně, má kratší poločas než většina opioidů!).</p>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <strong class=\"text-violet-300\">Odvykací stav a Substituční léčba:</strong>\n                                <p class=\"text-slate-300 mt-1\"><strong>Abstinenční syndrom:</strong> Mydriáza, slzení, rinorea, piloerekce ('cold turkey'), zívání, svalové bolesti, průjem, křeče v břiše. Není bezprostředně letální, ale je extrémně trýznivý.</p>\n                                <p class=\"text-slate-300 mt-1\"><strong>Substituční terapie (OAT):</strong></p>\n                                <ul class=\"list-disc ml-4 text-slate-300 space-y-0.5\">\n                                    <li><strong>Buprenorfin (Subutex / Suboxone s naloxonem):</strong> Parciální mý-opioidní agonista, má stropový efekt na útlum dechu (bezpečnější). Suboxone obsahuje naloxon k zabránění i.v. zneužití.</li>\n                                    <li><strong>Methadon:</strong> Plný syntetický agonista podávaný ve specializovaných centrech.</li>\n                                </ul>\n                            </div>\n                        </div>\n                    "
+          },
+          {
+            "title": "3. Kanabinoidy, Halucinogeny a Těkavé látky",
+            "color": "cyan",
+            "content": "\n                        <ul class=\"list-disc ml-5 space-y-1 text-xs text-slate-300\">\n                            <li><strong>Kanabinoidy (THC):</strong> Injekce spojivek, tachykardie, sucho v ústech, euforie/úzkost. <em>Rizika:</em> Amotivační syndrom (apatie, ztráta cílů) a provokace psychotické ataky u geneticky disponovaných jedinců (schizofrenie).</li>\n                            <li><strong>Halucinogeny (LSD, Psilocybin):</strong> Zkreslení vnímání, synestezie, depersonalizace. <em>Rizika:</em> 'Bad trip' (panická úzkost, toxická psychóza), 'Flashback' (návrat halucinací po měsících bez drogy).</li>\n                            <li><strong>Disociativní anestetika (Ketamin, PCP):</strong> Analgezie, disociace těla a mysli, anestetické stavy (K-hole), nystagmus.</li>\n                            <li><strong>Těkavé látky (Toluen, ředidla):</strong> Extrémně neurotoxické a kardiotoxické (náhlá smrt z arytmie 'sudden sniffing death', encefalopatie, poškození ledvin a jater).</li>\n                        </ul>\n                    "
+          }
+        ]
+      },
+      "recall": {
+        "scenarios": [
+          {
+            "id": "s04-r1",
+            "title": "Kazuistika S4: Předávkování neznámou látkou v nočním klubu",
+            "question": "Na diskotéce byl na toaletě nalezen 24letý muž v bezvědomí. Dýchá s frekvencí 6 dechů za minutu, je cyanotický, na obou očích má špendlíkovité zornice (miózu) a na předloktí čerstvé vpichy. Jaká je okamžitá diagnóza a terapie?",
+            "answer": "Jedná se o akutní předávkování opioidy (heroin/fentanyl) s dechovou depresí a komatem. Okamžitou terapií volby je aplikace specifického opioidního antagonisty Naloxonu (0,4–2 mg i.v. nebo i.m./intranazálně) spolu se zajištěním dýchacích cest a 100% kyslíkem. Vzhledem ke krátkému poločasu naloxonu je nutné pacienta monitorovat a dávku opakovat.",
+            "pearl": "Triáda předávkování opioidy: 1. Mióza (špendlíkovité zornice), 2. Dechový útlum/apnoe, 3. Kóma. Antidotum: Naloxon."
+          }
+        ]
+      },
+      "cards": [
+        {
+          "id": "sc04-1",
+          "front": "Jaká je klasická triáda předávkování opioidy a jaké je specifické antidotum?",
+          "back": "Triáda: 1. Mióza (špendlíkovité zornice), 2. Dechová deprese (hypoventilace/apnoe), 3. Kóma. Antidotum: Naloxon.",
+          "hint": "Opioidní toxicita",
+          "category": "psychopatologie"
+        },
+        {
+          "id": "sc04-2",
+          "front": "Které 2 hlavní látky se v ČR používají k substituční léčbě závislosti na opioidech?",
+          "back": "1. Buprenorfin (Subutex / Suboxone), 2. Methadon.",
+          "hint": "Substituční terapie",
+          "category": "psychopatologie"
+        },
+        {
+          "id": "sc04-3",
+          "front": "Jaký je hlavní rozdíl v očních zornicích při intoxikaci opioidy vs. stimulancii (pervitin/kokain)?",
+          "back": "Opioidy způsobují výraznou MIÓZU (zúžení), zatímco stimulancia způsobují výraznou MYDRIÁZU (rozšíření zornic).",
+          "hint": "Zornice",
+          "category": "psychopatologie"
+        }
+      ],
+      "quiz": [
+        {
+          "id": "s04-test1",
+          "question": "Které z následujících tvrzení o toxické psychóze vyvolané metamfetaminem (pervitinem) je SPRÁVNÉ?",
+          "options": [
+            "Typicky se projevuje výraznou miózou a somnolencí",
+            "Dominují paranoidně-persekuční bludy (pocit sledování), sluchové/taktilní halucinace a mydriáza",
+            "Vždy vyžaduje celoživotní léčbu klozapinem",
+            "Projevuje se těžkou bradykardií a hypotenzí"
+          ],
+          "correctIndex": 1,
+          "explanation": "Pervitinová toxická psychóza (stíha) se projevuje masivní dopaminergní stimulací s paranoiditou, mydriázou, tachykardií a halucinacemi."
+        },
+        {
+          "id": "s04-test2",
+          "question": "Proč obsahuje kombinovaný substituční přípravek Suboxone kromě buprenorfinu také naloxon?",
+          "options": [
+            "Naloxon zvyšuje vstřebávání buprenorfinu v žaludku",
+            "Při perorálním užití se naloxon nevstřebá, ale při pokusu o rozpuštění a nitrožilní aplikaci zablokuje účinek a vyvolá abstinenční syndrom (prevence zneužití)",
+            "Naloxon léčí poruchy spánku",
+            "Naloxon působí jako antidepresivum"
+          ],
+          "correctIndex": 1,
+          "explanation": "Naloxon má po sublingválním podání minimální biologickou dostupnost, ale při injekčním zneužití neutralizuje buprenorfin a odradí od i.v. aplikace."
+        }
+      ]
+    },
+    {
+      "id": "s05-depresivni-poruchy",
+      "number": 5,
+      "section": "specialni",
+      "sectionLabel": "Speciální psychiatrie",
+      "badgePrefix": "S05",
+      "title": "Depresivní poruchy (epidemiologie, etiopatogeneze, klinický obraz, léčba)",
+      "shortDesc": "Jádrové a somatické příznaky deprese. Klasifikace závažnosti (lehká, střední, těžká s/bez psychózy). Cotardův syndrom. Fáze a strategie léčby (SSRI, SNRI, NaSSA, augmentace, ECT, esketamin).",
+      "category": "psychopatologie",
+      "badge": "Afektivní poruchy",
+      "badgeColor": "violet",
+      "theory": {
+        "banner": {
+          "tag": "Afektivní poruchy (F30–F39)",
+          "title": "Depresivní porucha – prevalence, symptomatika a moderní terapie",
+          "text": "Deprese je jednou z nejčastějších příčin invalidity celosvětově (celoživotní prevalence 10–15 %, ženy : muži 2 : 1). Jde o systémové onemocnění s narušením monoaminergní transmise, osy HPA a hipokampální neuroplasticity."
+        },
+        "sections": [
+          {
+            "title": "1. Diagnostická kritéria depresivní epizody (MKN-10 / F32)",
+            "color": "violet",
+            "content": "\n                        <div class=\"space-y-2 text-xs\">\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <span class=\"font-bold text-violet-300\">3 Hlavní (jádrové) příznaky:</span>\n                                <ul class=\"list-disc ml-4 mt-1 text-slate-300 space-y-0.5\">\n                                    <li>1. <strong>Patologicky pokleslá nálada:</strong> Přetrvávající po většinu dne, téměř každý den, minimálně <strong>2 týdny</strong>, nezávislá na vnějších okolnostech.</li>\n                                    <li>2. <strong>Anhedonie a ztráta zájmů:</strong> Neschopnost prožívat radost a potěšení z aktivit, které dříve těšily.</li>\n                                    <li>3. <strong>Snížená energie a zvýšená únavnost:</strong> Výrazný pokles aktivity i po minimální námaze.</li>\n                                </ul>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <span class=\"font-bold text-cyan-300\">Další (přídatné a somatické) příznaky:</span>\n                                <p class=\"text-slate-300 mt-1\">Pokles sebevědomí, neodůvodněné pocity viny a sebeobviňování, <strong>suicidální myšlenky a chování</strong>, nerozhodnost a zhoršená koncentrace (bradypsychismus), psychomotorický útlum nebo agitovanost, <strong>poruchy spánku</strong> (typické probouzení o 2 a více hodin dříve), <strong>ranní pesima nálady</strong>, nechutenství s váhovým úbytkem (> 5 % za měsíc), pokles libida.</p>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <span class=\"font-bold text-emerald-300\">Stupně závažnosti:</span>\n                                <ul class=\"list-disc ml-4 text-slate-300 space-y-0.5\">\n                                    <li><strong>Lehká (F32.0):</strong> 2 hlavní + 2 přídatné (zvládá běžné fungování s obtížemi).</li>\n                                    <li><strong>Středně těžká (F32.1):</strong> 2 hlavní + 3–4 přídatné (výrazné obtíže v práci i rodině).</li>\n                                    <li><strong>Těžká bez psychózy (F32.2):</strong> 3 hlavní + min. 4 přídatné (neschopnost sebepéče, vysoké suicidální riziko).</li>\n                                    <li><strong>Těžká s psychotickými příznaky (F32.3):</strong> Bludy mikromanické (autoakuzační, ruinační, hypochondrické, Cotardův nihilistický syndrom) nebo sluchové halucinace hlasů obviňujících pacienta.</li>\n                                </ul>\n                            </div>\n                        </div>\n                    "
+          },
+          {
+            "title": "2. Léčebné strategie u depresivní poruchy",
+            "color": "emerald",
+            "content": "\n                        <div class=\"grid md:grid-cols-2 gap-3 text-xs\">\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <h4 class=\"font-bold text-emerald-400 mb-1\">Farmakoterapie dle volby</h4>\n                                <ul class=\"list-disc ml-4 text-slate-300 space-y-1\">\n                                    <li><strong>1. volba:</strong> SSRI (Sertralin, Escitalopram, Citalopram).</li>\n                                    <li><strong>Při těžké depresi a bolesti:</strong> SNRI (Venlafaxin, Duloxetin).</li>\n                                    <li><strong>Při insomnii a nechutenství:</strong> NaSSA (Mirtazapin) nebo Trazodon.</li>\n                                    <li><strong>Při útlumu a zachování libida:</strong> NDRI (Bupropion) nebo Vortioxetin.</li>\n                                    <li><strong>Pokračovací léčba:</strong> 6–9 měsíců ve stejné plné dávce!</li>\n                                </ul>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <h4 class=\"font-bold text-rose-400 mb-1\">Rezistentní a psychotická deprese</h4>\n                                <ul class=\"list-disc ml-4 text-slate-300 space-y-1\">\n                                    <li><strong>Augmentace:</strong> Přidání Lithia k antidepresivu nebo atypického AP (Quetiapin, Aripiprazol, Olanzapin).</li>\n                                    <li><strong>Psychotická deprese:</strong> VŽDY kombinace Antidepresivum + Antipsychotikum NEBO Elektrokonvulze (ECT).</li>\n                                    <li><strong>Elektrokonvulzivní terapie (ECT):</strong> Lék volby při těžké suicidalitě, psychóze a sitofobii (účinnost 85–90 %).</li>\n                                    <li><strong>Esketamin intranazálně (Spravato):</strong> Rychlá úleva u farmakorezistentní deprese.</li>\n                                </ul>\n                            </div>\n                        </div>\n                    "
+          }
+        ]
+      },
+      "recall": {
+        "scenarios": [
+          {
+            "id": "s05-r1",
+            "title": "Kazuistika S5: Melancholická deprese s ranními pesimy",
+            "question": "54letá úřednice přichází pro 2 měsíce trvající neschopnost pracovat, ztrátu veškeré radosti, buzení ve 3 hodiny ráno s úzkostí a pocitem, že 'celý život pokazila a rodině by bylo lépe bez ní'. Dopoledne je stav nejhorší, večer se cítí o něco lépe. Zhubla 7 kg. O jaký typ deprese se jedná a jaká je léčba?",
+            "answer": "Jedná se o těžkou depresivní epizodu se somatickým (melancholickým) syndromem a vysokým suicidálním rizikem (ranní pesima, insomnie s předčasným probouzením, anhedonie, váhový úbytek). Indikována je okamžitá psychiatrická péče, zahájení antidepresivní léčby (SSRI např. Sertralin 50–100 mg nebo SNRI Venlafaxin) s přechodnou anxiolytickou clonou (např. Trazodon či nízká dávka BZD na úvod) a zhodnocení nutnosti hospitalizace pro riziko suicidia.",
+            "pearl": "Somatický (melancholický) syndrom: Anhedonie + ranní probouzení (> 2h dříve) + ranní pesima + psychomotorické zpomalení + úbytek váhy (> 5%)."
+          }
+        ]
+      },
+      "cards": [
+        {
+          "id": "sc05-1",
+          "front": "Jaké jsou 3 základní jádrové příznaky depresivní epizody dle MKN-10?",
+          "back": "1. Pokleslá nálada (min. 2 týdny), 2. Anhedonie (ztráta zájmu a radosti), 3. Pokles energie a zvýšená únavnost.",
+          "hint": "3 hlavní symptomy",
+          "category": "psychopatologie"
+        },
+        {
+          "id": "sc05-2",
+          "front": "Jaká je definice ranních pesim u depresivní poruchy?",
+          "back": "Klinický stav, kdy se pacient cítí psychicky nejhůře časně ráno po probuzení a během večera dochází k mírnému relativnímu zlepšení nálady.",
+          "hint": "Cirkadiánní fluktuace",
+          "category": "psychopatologie"
+        },
+        {
+          "id": "sc05-3",
+          "front": "Jaká je doporučená farmakoterapie psychotické deprese?",
+          "back": "Kombinace Antidepresiva + Antipsychotika (např. Sertralin + Olanzapin/Quetiapin) nebo Elektrokonvulzivní terapie (ECT).",
+          "hint": "Psychotická deprese",
+          "category": "psychopatologie"
+        }
+      ],
+      "quiz": [
+        {
+          "id": "s05-test1",
+          "question": "Jaká je minimální doba trvání příznaků nutná pro stanovení diagnózy depresivní epizody dle MKN-10?",
+          "options": [
+            "3 dny",
+            "2 týdny",
+            "6 měsíců",
+            "1 rok"
+          ],
+          "correctIndex": 1,
+          "explanation": "Příznaky deprese musí přetrvávat po většinu dne téměř nepřetržitě po dobu nejméně 2 týdnů."
+        },
+        {
+          "id": "s05-test2",
+          "question": "Které antidepresivum je optimální volbou u depresivního pacienta, který trpí těžkou nespavostí a výrazným nechutenstvím s úbytkem váhy?",
+          "options": [
+            "Bupropion",
+            "Mirtazapin",
+            "Fluoxetin",
+            "Reboxetin"
+          ],
+          "correctIndex": 1,
+          "explanation": "Mirtazapin (NaSSA) má silný antihistaminový sedativní účinek podporující spánek a zvyšuje chuť k jídlu a tělesnou hmotnost."
+        }
+      ]
+    },
+    {
+      "id": "s06-bipolarni-afektivni-porucha",
+      "number": 6,
+      "section": "specialni",
+      "sectionLabel": "Speciální psychiatrie",
+      "badgePrefix": "S06",
+      "title": "Bipolární afektivní porucha (epidemiologie, etiopatogeneze, klinický obraz, léčba)",
+      "shortDesc": "BAP I (střídání mánií a depresí), BAP II (hypománie a deprese), cyklotymie, rapid cycling. Manický syndrom. Akutní léčba mánie (AP 2. gen, valproát, lithium). Dlouhodobá profylaxe (Lithium, Lamotrigin u bipolární deprese, atypika). Riziko přesmyku po AD.",
+      "category": "psychopatologie",
+      "badge": "Afektivní poruchy",
+      "badgeColor": "violet",
+      "theory": {
+        "banner": {
+          "tag": "Afektivní poruchy (F31)",
+          "title": "Bipolární afektivní porucha (BAP)",
+          "text": "BAP je závažné celoživotní onemocnění s vysokou heritabilitou (až 80 %), charakterizované opakovanými epizodami narušené nálady – mánie, hypománie, deprese a smíšených stavů."
+        },
+        "sections": [
+          {
+            "title": "1. Klasifikace a formy BAP",
+            "color": "violet",
+            "content": "\n                        <div class=\"grid md:grid-cols-2 gap-3 text-xs\">\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <h4 class=\"font-bold text-violet-300 mb-1\">Typologie bipolární poruchy</h4>\n                                <ul class=\"list-disc ml-4 space-y-1 text-slate-300\">\n                                    <li><strong>BAP I:</strong> Přítomnost alespoň jedné plně rozvinuté <strong>manické epizody</strong> (s psychózou či hospitalizací), obvykle střídající se s těžkými depresemi.</li>\n                                    <li><strong>BAP II:</strong> Přítomnost <strong>těžkých depresí</strong> a alespoň jedné <strong>hypomanické epizody</strong> (nikdy nebyla plná mánie ani psychóza). Často chybně diagnostikována jako unipolární deprese!</li>\n                                    <li><strong>Cyklotymie:</strong> Dlouhodobá (min. 2 roky) nestabilita nálady s četnými periodami mírné deprese a mírné hypománie nedosahující kritérií BAP.</li>\n                                    <li><strong>Rapid cycling (rychlé cyklování):</strong> ≥ 4 afektivní epizody během jednoho roku (horší prognóza, lékem volby Valproát).</li>\n                                </ul>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <h4 class=\"font-bold text-amber-300 mb-1\">Klinický obraz manické epizody</h4>\n                                <ul class=\"list-disc ml-4 space-y-0.5 text-slate-300\">\n                                    <li>Abnormálně nadnesená, expanzivní, euforická nebo dysforicky podrážděná nálada (min. 1 týden).</li>\n                                    <li>Grandiozita a megalomanické sebevědomí.</li>\n                                    <li><strong>Snížená potřeba spánku</strong> (např. 2–3 hodiny denně bez pocitu únavy).</li>\n                                    <li>Myšlenkový trysk (tachypsychismus, fuga idearum), logorea.</li>\n                                    <li>Psychomotorický neklid, překotná činnost.</li>\n                                    <li><strong>Rizikové a nezodpovědné jednání:</strong> Nekontrolované utrácení peněz, bezhlavé půjčky, riskantní investice, sexuální promiskuita.</li>\n                                    <li>Úplná ztráta náhledu na chorobnost stavu.</li>\n                                </ul>\n                            </div>\n                        </div>\n                    "
+          },
+          {
+            "title": "2. Léčba akutní mánie, bipolární deprese a dlouhodobá profylaxe",
+            "color": "emerald",
+            "content": "\n                        <div class=\"space-y-2 text-xs\">\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <strong class=\"text-rose-400\">1. Léčba akutní mánie:</strong>\n                                <p class=\"text-slate-300 mt-1\">Léky 1. volby: <strong>Atypická antipsychotika</strong> (Olanzapin, Quetiapin, Aripiprazol, Risperidon) v monoterapii nebo v kombinaci s <strong>Valproátem</strong> či <strong>Lithiem</strong>. Antidepresiva musí být okamžitě vysazena!</p>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <strong class=\"text-cyan-400\">2. Léčba bipolární deprese:</strong>\n                                <p class=\"text-slate-300 mt-1\">Léky volby: <strong>Quetiapin</strong>, <strong>Lurasidon</strong>, <strong>Lamotrigin</strong> nebo kombinace Olanzapin + Fluoxetin (OFC).<br>⚠️ <strong>Monoterapie antidepresivy (SSRI/TCA) je u BAP ZAKÁZÁNA</strong> – hrozí indukce přesmyku do mánie (switch) nebo rozvoj rapid cycling!</p>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <strong class=\"text-emerald-400\">3. Dlouhodobá profylaktická léčba (Tymoprofylaxe):</strong>\n                                <ul class=\"list-disc ml-4 text-slate-300 space-y-0.5 mt-1\">\n                                    <li><strong>Lithium (Li2CO3):</strong> Zlatý standard profylaxe mánií i depresí, silný antisuicidální efekt (TDM 0,6–0,8 mmol/l).</li>\n                                    <li><strong>Lamotrigin:</strong> Nejúčinnější v prevenci depresivních fází BAP.</li>\n                                    <li><strong>Valproát:</strong> Výborný u mánií a rapid cyclingu.</li>\n                                    <li><strong>Atypická antipsychotika:</strong> Quetiapin, Aripiprazol, Olanzapin.</li>\n                                </ul>\n                            </div>\n                        </div>\n                    "
+          }
+        ]
+      },
+      "recall": {
+        "scenarios": [
+          {
+            "id": "s06-r1",
+            "title": "Kazuistika S6: Farmakologický přesmyk z deprese do mánie",
+            "question": "32letá žena léčená pro údajnou 'unipolární depresi' citalopramem 40 mg začala po 3 týdnech spát jen 2 hodiny denně, nakoupila luxusní kabelky za 200 000 Kč na dluh, mluví překotně bez zastavení a tvrdí, že byla vybrána jako poradkyně prezidenta. O co se jedná a jaký je terapeutický krok?",
+            "answer": "Jedná se o farmakologicky indukovaný přesmyk (switch) z deprese do akutní mánie u dosud nediagnostikované Bipolární afektivní poruchy vyvolaný monoterapií SSRI. Okamžitý postup: 1. Ihned vysadit Citalopram, 2. Nasadit antimanickou léčbu – Atypické antipsychotikum (např. Olanzapin 10–20 mg nebo Quetiapin) a tymoprofylaktikum (Lithium nebo Valproát), 3. Zvážit akutní hospitalizaci k ochraně před finančními a sociálními škodami.",
+            "pearl": "Varování: Monoterapie antidepresivy u nerozpoznané BAP I/II vede k přesmykům do mánie a zhoršuje dlouhodobý průběh nemoci."
+          }
+        ]
+      },
+      "cards": [
+        {
+          "id": "sc06-1",
+          "front": "Jaký je zásadní rozdíl mezi diagnózou BAP I a BAP II?",
+          "back": "BAP I vyžaduje přítomnost alespoň 1 plné manické epizody (často s psychózou/hospitalizací), zatímco u BAP II se vyskytují pouze hypomanické epizody a těžké deprese.",
+          "hint": "BAP I vs II",
+          "category": "psychopatologie"
+        },
+        {
+          "id": "sc06-2",
+          "front": "Proč je monoterapie antidepresivy u bipolární afektivní poruchy kontraindikována?",
+          "back": "Protože nese vysoké riziko přesmyku (switche) do mánie a rozvoje rychlého cyklování (rapid cycling).",
+          "hint": "Riziko přesmyku",
+          "category": "psychopatologie"
+        },
+        {
+          "id": "sc06-3",
+          "front": "Které tymoprofylaktikum je specificky nejúčinnější v prevenci nových depresivních epizod u BAP?",
+          "back": "Lamotrigin.",
+          "hint": "Profylaxe deprese u BAP",
+          "category": "psychopatologie"
+        }
+      ],
+      "quiz": [
+        {
+          "id": "s06-test1",
+          "question": "Který stabilizátor nálady je celosvětově považován za zlatý standard profylaxe BAP a prokazatelně snižuje riziko dokonaných sebevražd?",
+          "options": [
+            "Lithium",
+            "Diazepam",
+            "Citalopram",
+            "Piracetam"
+          ],
+          "correctIndex": 0,
+          "explanation": "Lithium zůstává zlatým standardem dlouhodobé léčby BAP s unikátním a robustním antisuicidálním účinkem."
+        },
+        {
+          "id": "s06-test2",
+          "question": "Pojem 'rapid cycling' (rychlé cyklování) u bipolární afektivní poruchy označuje:",
+          "options": [
+            "Výskyt alespoň 4 afektivních epizod během jednoho roku",
+            "Přesmyk nálady během několika minut po podání kofeinu",
+            "Pouze sezónní výskyt mánií v létě",
+            "Denní kolísání krevního tlaku"
+          ],
+          "correctIndex": 0,
+          "explanation": "Rapid cycling je definován jako výskyt 4 a více afektivních fází (deprese, mánie, hypománie, smíšené) během 12 měsíců."
+        }
+      ]
+    },
+    {
+      "id": "s07-schizofrenie",
+      "number": 7,
+      "section": "specialni",
+      "sectionLabel": "Speciální psychiatrie",
+      "badgePrefix": "S07",
+      "title": "Schizofrenie",
+      "shortDesc": "Dopaminová a glutamátová hypotéza. Pozitivní vs. negativní symptomy. Schneiderovy příznaky 1. řádu. Formy schizofrenie (paranoidní, hebefrenní, katatonní, simplexní). Léčba (antipsychotika 2./3. gen, klozapin u rezistence, LAI depotní injekce, psychosociální rehabilitace).",
+      "category": "psychopatologie",
+      "badge": "Psychotické poruchy",
+      "badgeColor": "rose",
+      "theory": {
+        "banner": {
+          "tag": "Psychotické poruchy (F20–F29)",
+          "title": "Schizofrenie – jádrové psychotické onemocnění",
+          "text": "Schizofrenie je závažná chronická duševní porucha s celoživotní prevalencí kolem 1 %, charakterizovaná rozpadem myšlení, vnímání, emotivity a kontaktu s realitou. Typický nástup je v časné dospělosti (18–25 let)."
+        },
+        "sections": [
+          {
+            "title": "1. Pozitivní, Negativní a Kognitivní symptomatika",
+            "color": "rose",
+            "content": "\n                        <div class=\"grid md:grid-cols-3 gap-2 text-xs\">\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <strong class=\"text-rose-400\">Pozitivní symptomy (hyperdopaminergní mezolimbický stav):</strong>\n                                <ul class=\"list-disc ml-4 text-slate-300 space-y-0.5 mt-1\">\n                                    <li><strong>Bludy:</strong> Paranoidní, persekuční, vztahovačné, vlivu a ovládání.</li>\n                                    <li><strong>Halucinace:</strong> Zejména sluchové (komentující hlasy, imperativní hlasy, dialogické hádky hlasů).</li>\n                                    <li>Dezorganizované myšlení a řeč (paralogie, inkoherence, schizofázie).</li>\n                                    <li>Katatonní projevy (raptus, manýrování).</li>\n                                </ul>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <strong class=\"text-amber-400\">Negativní symptomy (hypodopaminergní mezokortikální stav):</strong>\n                                <ul class=\"list-disc ml-4 text-slate-300 space-y-0.5 mt-1\">\n                                    <li><strong>Afektivní oploštělost:</strong> Emoční chlad, otupělost, chudá mimika.</li>\n                                    <li><strong>Alogie:</strong> Ochuzení řeči a myšlení.</li>\n                                    <li><strong>Abulie a Apatie:</strong> Ztráta vůle, iniciativy a energie.</li>\n                                    <li><strong>Anhedonie a Asocialita:</strong> Ztráta schopnosti prožívat radost a stažení se ze společnosti.</li>\n                                </ul>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <strong class=\"text-cyan-400\">Kognitivní deficit a Schneiderovy příznaky 1. řádu:</strong>\n                                <p class=\"text-slate-300 mt-1\">Porucha pozornosti, pracovní paměti a exekutivy.</p>\n                                <p class=\"text-slate-300 mt-1\"><strong>Schneiderovy příznaky I. řádu:</strong> Hlasité myšlení (sonorizace), slyšení hlasů které se o pacientovi baví/komentují jeho jednání, tělesné halucinace vlivu, vkládání/odnímání/vysílání myšlenek cizí mocí, bludné vnímání.</p>\n                            </div>\n                        </div>\n                    "
+          },
+          {
+            "title": "2. Klinické formy schizofrenie (MKN-10 / F20)",
+            "color": "indigo",
+            "content": "\n                        <div class=\"space-y-2 text-xs\">\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <strong class=\"text-violet-300\">Paranoidní schizofrenie (F20.0 – nejčastější forma, cca 70–80 %):</strong>\n                                <p class=\"text-slate-300\">Dominují trvalé paranoidně-persekuční bludy a sluchové halucinace. Emoce a osobnost bývají v úvodu relativně zachovány. Nejlepší odpověď na léčbu antipsychotiky.</p>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <strong class=\"text-amber-300\">Hebefrenní schizofrenie (F20.1 – desorganizovaná):</strong>\n                                <p class=\"text-slate-300\">Začátek v adolescenci (15–25 let). Nepřiléhavé, šaškovské chování, manýrování, pseudofilozofování, afektivní oploštělost, rychlý rozvoj negativních symptomů. Horší prognóza.</p>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <strong class=\"text-rose-300\">Katatonní schizofrenie (F20.2):</strong>\n                                <p class=\"text-slate-300\">Dominují motorické poruchy – stupor s flexibilitas cerea a mutismem střídající se s katatonním raptem (divoký neklid). Hrozí febrilní katatonie (indikace k ECT!).</p>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <strong class=\"text-teal-300\">Simplexní schizofrenie (F20.6):</strong>\n                                <p class=\"text-slate-300\">Plíživý, postupný rozvoj těžkých negativních příznaků (apatie, ztráta zájmů, sociální pád, bezdomovectví) <strong>BEZ přítomnosti bludů a halucinací</strong>. Velmi špatná prognóza.</p>\n                            </div>\n                        </div>\n                    "
+          },
+          {
+            "title": "3. Komplexní léčba schizofrenie",
+            "color": "emerald",
+            "content": "\n                        <div class=\"grid md:grid-cols-2 gap-3 text-xs\">\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <h4 class=\"font-bold text-emerald-400 mb-1\">Farmakoterapie</h4>\n                                <ul class=\"list-disc ml-4 text-slate-300 space-y-1\">\n                                    <li><strong>1. volba:</strong> Atypická antipsychotika 2. a 3. generace (Risperidon, Olanzapin, Aripiprazol, Quetiapin, Cariprazin, Amisulprid).</li>\n                                    <li><strong>Dlouhodobě působící injekce (LAI / depotní AP):</strong> Paliperidon palmitát, Aripiprazol depot, Haloperidol decanoat – zajišťují spolehlivou adherenci a chrání před relapsem.</li>\n                                    <li><strong>Farmakorezistence:</strong> <strong>Klozapin</strong> (lék volby při selhání 2 různých AP, nutné kontroly KO!).</li>\n                                </ul>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <h4 class=\"font-bold text-cyan-400 mb-1\">Psychosociální intervence</h4>\n                                <ul class=\"list-disc ml-4 text-slate-300 space-y-1\">\n                                    <li>Psychoedukace pacienta i rodiny (snížení 'vyjádřených emocí' Expressed Emotion v rodině zásadně snižuje relapsy!).</li>\n                                    <li>Kognitivní trénink a nácvik sociálních dovedností.</li>\n                                    <li>Centra duševního zdraví (CDZ), podporované zaměstnávání a chráněné bydlení.</li>\n                                </ul>\n                            </div>\n                        </div>\n                    "
+          }
+        ]
+      },
+      "recall": {
+        "scenarios": [
+          {
+            "id": "s07-r1",
+            "title": "Kazuistika S7: První psychotická ataka schizofrenie",
+            "question": "20letý student informatiky se v posledních 6 měsících uzavřel do sebe, přestal chodit do školy a zanedbává hygienu. Poslední 2 týdny tvrdí, že přes zásuvky v bytě mu cizí organizace vysílá do mozku myšlenky a komentuje každý jeho krok v místnosti. Je přesvědčen, že je napojen na satelit. O jakou poruchu a formu se jedná a jaká je léčba?",
+            "answer": "Jedná se o první ataku paranoidní schizofrenie (F20.0) s přítomností pozitivních symptomů (persekuční bludy a bludy ovlivňování, sluchové komentující halucinace, intrapsychické halucinace vysílání myšlenek) a prodromálních negativních symptomů (sociální stažení, zanedbávání hygieny). Léčba: nasazení atypického antipsychotika 2. generace (např. Risperidon 2–4 mg/den nebo Aripiprazol 10–15 mg/den či Olanzapin), psychoedukace a po stabilizaci dispenzarizace.",
+            "pearl": "Včasná intervence: Zkrácení doby neléčené psychózy (DUP – Duration of Untreated Psychosis) je klíčovým prognostickým faktorem pro zachování kognitivních funkcí."
+          }
+        ]
+      },
+      "cards": [
+        {
+          "id": "sc07-1",
+          "front": "Které příznaky patří mezi Schneiderovy symptomy prvního řádu u schizofrenie?",
+          "back": "1. Hlasité myšlení (sonorizace), 2. Hlasy diskutující o pacientovi nebo komentující jeho chování, 3. Tělesné halucinace ovlivňování, 4. Vkládání, odnímání a vysílání myšlenek, 5. Bludné vnímání.",
+          "hint": "Schneider I. řád",
+          "category": "psychopatologie"
+        },
+        {
+          "id": "sc07-2",
+          "front": "Čím se vyznačuje simplexní schizofrenie (F20.6)?",
+          "back": "Plíživým, progresivním rozvojem závažných negativních symptomů (apatie, abulie, autismus, sociální propad) BEZ přítomnosti bludů a halucinací.",
+          "hint": "Simplexní forma",
+          "category": "psychopatologie"
+        },
+        {
+          "id": "sc07-3",
+          "front": "Jaký význam mají dlouhodobě působící injekční antipsychotika (LAI / depoty)?",
+          "back": "Zajišťují stabilní plazmatickou hladinu léku, překonávají non-compliance s polykáním tablet a dramaticky snižují riziko relapsu a rehospitalizace.",
+          "hint": "LAI antipsychotika",
+          "category": "psychopatologie"
+        }
+      ],
+      "quiz": [
+        {
+          "id": "s07-test1",
+          "question": "Která forma schizofrenie začíná typicky v adolescenci a projevuje se šaškovským, nezralým chováním, manýrováním a neadekvátní afektivitou?",
+          "options": [
+            "Paranoidní schizofrenie",
+            "Hebefrenní schizofrenie",
+            "Katatonní schizofrenie",
+            "Simplexní schizofrenie"
+          ],
+          "correctIndex": 1,
+          "explanation": "Hebefrenie (desorganizovaná schizofrenie) se manifestuje v pubertě a adolescenci šaškováním, manýrováním a nevhodným emočním laděním."
+        },
+        {
+          "id": "s07-test2",
+          "question": "Který lék je zlatým standardem a jediným schváleným antipsychotikem pro farmakorezistentní schizofrenii?",
+          "options": [
+            "Haloperidol",
+            "Klozapin",
+            "Diazepam",
+            "Citalopram"
+          ],
+          "correctIndex": 1,
+          "explanation": "Klozapin je indikován při farmakorezistenci (selhání alespoň 2 různých AP v adekvátní dávce) a vyžaduje pravidelný monitoring krevního obrazu."
+        }
+      ]
+    },
+    {
+      "id": "s08-ostatni-psychoticke-poruchy",
+      "number": 8,
+      "section": "specialni",
+      "sectionLabel": "Speciální psychiatrie",
+      "badgePrefix": "S08",
+      "title": "Ostatní psychotické poruchy mimo schizofrenii",
+      "shortDesc": "Porucha s trvalými bludy (paranoia – izolovaný blud bez halucinací a bez rozpadu osobnosti). Akutní a přechodné psychotické poruchy (ATP – náhlý vznik a rychlá úzdrava). Schizoafektivní porucha (manický/depresivní typ). Indukovaná porucha s bludy (folie à deux).",
+      "category": "psychopatologie",
+      "badge": "Psychotické poruchy",
+      "badgeColor": "rose",
+      "theory": {
+        "banner": {
+          "tag": "Psychotické poruchy (F22–F24)",
+          "title": "Neschizofrenní psychotické poruchy",
+          "text": "Skupina poruch s psychotickou symptomatologií, které nesplňují diagnostická kritéria schizofrenie ani primárních afektivních poruch. Zahrnují izolované bludy, rychlé přechodné ataky i schizoafektivní stavy."
+        },
+        "sections": [
+          {
+            "title": "1. Porucha s trvalými bludy (Paranoia / F22)",
+            "color": "rose",
+            "content": "\n                        <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700 text-xs\">\n                            <span class=\"font-bold text-violet-300\">Definice a rysy:</span>\n                            <p class=\"text-slate-300 mt-1\">Jediným nebo dominantním klinickým příznakem je <strong>jeden dlouhodobý, stabilní, systematizovaný blud</strong> trvající alespoň 3 měsíce. Osobnost, intelekt a běžné fungování mimo oblast bludu zůstávají <strong>zcela zachovány</strong>! Chybí trvalé sluchové halucinace a schizofrenní rozpad myšlení.</p>\n                            <p class=\"text-slate-300 mt-2\"><strong>Typické obsahy bludů:</strong></p>\n                            <ul class=\"list-disc ml-4 text-slate-300 space-y-0.5\">\n                                <li><strong>Persekuční blud:</strong> Pronásledování sousedy, tajnými službami.</li>\n                                <li><strong>Žárlivecký blud (Othellův syndrom):</strong> Nevývratné přesvědčení o nevěře partnera na základě nesmyslných 'důkazů' (pomačkané prostěradlo).</li>\n                                <li><strong>Kverulační blud:</strong> Neustálé soudní spory, stížnosti na úřady pro domnělé bezpráví.</li>\n                                <li><strong>Erotomanický blud (de Clérambaultův syndrom):</strong> Přesvědčení, že do pacienta je tajně zamilována vysoce postavená celebrita či politik.</li>\n                                <li><strong>Hypochondrický / Dysmorfofobický blud:</strong> Přesvědčení o zápachu z těla, parazitech (Ekbomův syndrom).</li>\n                            </ul>\n                            <p class=\"text-amber-400 mt-2\"><em>Léčba:</em> Antipsychotika (často slabá odpověď pro vysokou petrifikaci bludu), podpůrná psychoterapie (nevyvracet blud přímo, budovat alianci).</p>\n                        </div>\n                    "
+          },
+          {
+            "title": "2. Akutní a přechodné psychotické poruchy (ATP / F23) & Indukovaný blud (F24)",
+            "color": "indigo",
+            "content": "\n                        <div class=\"grid md:grid-cols-2 gap-3 text-xs\">\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <h4 class=\"font-bold text-cyan-300 mb-1\">Akutní a přechodná psychóza (ATP)</h4>\n                                <ul class=\"list-disc ml-4 text-slate-300 space-y-1\">\n                                    <li><strong>Akutní nástup:</strong> Rozvoj ze zdravého stavu do plné psychózy během <strong>&lt; 2 týdnů</strong> (často do 48 hodin po těžkém psychosociálním stresu).</li>\n                                    <li><strong>Polymorfní obraz:</strong> Proměnlivost bludů, halucinací a emocí ze dne na den (tzv. bouřlivý stav).</li>\n                                    <li><strong>Prognóza:</strong> Vynikající! Úplná úzdrava nastává obvykle do <strong>1–3 měsíců</strong>.</li>\n                                </ul>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <h4 class=\"font-bold text-amber-300 mb-1\">Indukovaná porucha s bludy (Folie à deux / F24)</h4>\n                                <p class=\"text-slate-300\">Bludné přesvědčení sdílené dvěma či více osobami žijícími v těsném emočním a sociálním kontaktu v izolaci od okolí.</p>\n                                <p class=\"text-slate-300 mt-1\">Pouze jedna osoba (induktor) trpí primární psychózou. Druhá, závislá osoba blud přebírá.</p>\n                                <p class=\"text-emerald-400 font-bold mt-1\">Léčba volby: Fyzické oddělení (separace) obou osob ➔ u indukované osoby blud spontánně vymizí!</p>\n                            </div>\n                        </div>\n                    "
+          },
+          {
+            "title": "3. Schizoafektivní porucha (F25)",
+            "color": "emerald",
+            "content": "\n                        <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700 text-xs\">\n                            <span class=\"font-bold text-emerald-400\">Charakteristika:</span>\n                            <p class=\"text-slate-300 mt-1\">Stav, kdy jsou v rámci téže ataky onemocnění <strong>současně přítomny</strong> jak jednoznačné <strong>schizofrenní příznaky</strong> (Schneiderovy příznaky 1. řádu, inkoherence), tak výrazné <strong>afektivní příznaky</strong> (plná manická nebo těžká depresivní epizoda).</p>\n                            <p class=\"text-slate-300 mt-1\">Dělí se na: <em>Schizoafektivní poruchu manický typ</em>, <em>depresivní typ</em> a <em>smíšený typ</em>. Prognóza je lepší než u schizofrenie, ale horší než u bipolární poruchy.</p>\n                            <p class=\"text-slate-300 mt-1\"><strong>Léčba:</strong> Kombinace Atypického antipsychotika + Stabilizátoru nálady (Lithium / Valproát) nebo Antidepresiva.</p>\n                        </div>\n                    "
+          }
+        ]
+      },
+      "recall": {
+        "scenarios": [
+          {
+            "id": "s08-r1",
+            "title": "Kazuistika S8: Kverulační bludy u zachovalé osobnosti",
+            "question": "60letý středoškolský profesor podal za poslední 3 roky přes 80 trestních oznámení a žalob na vedení školy a sousedy, o kterých tvrdí, že mu tajně odposlouchávají kabinet a falšují třídní knihy k jeho diskreditaci. Mimo toto téma učí bez chyb, je společensky upravený, kognitivně zcela intaktní a nemá halucinace. O jakou poruchu se jedná?",
+            "answer": "Jedná se o Poruchu s trvalými bludy (F22 – kverulační / persekuční typ paranoie). Typickým rysem je izolovaný, systematizovaný blud při plném zachování osobnosti, intelektu a fungování v oblastech, kterých se blud netýká.",
+            "pearl": "Terapeutický přístup: Přímé vyvracení bludu vede pouze ke ztrátě důvěry a pacient může lékaře zařadit do spiknutí. Cílem je navázání aliance a redukce úzkosti/napětí."
+          }
+        ]
+      },
+      "cards": [
+        {
+          "id": "sc08-1",
+          "front": "Jaký je klíčový rozdíl mezi schizofrenií a poruchou s trvalými bludy (paranoií)?",
+          "back": "U poruchy s trvalými bludy je přítomen izolovaný blud BEZ sluchových halucinací, BEZ inkoherence a BEZ rozpadu osobnosti (mimo blud funguje pacient normálně).",
+          "hint": "Paranoia vs Schizofrenie",
+          "category": "psychopatologie"
+        },
+        {
+          "id": "sc08-2",
+          "front": "Jaká je terapeutická intervence první volby u indukované poruchy s bludy (folie à deux)?",
+          "back": "Oddělení (separace) obou osob od sebe. U indukovaného partnera blud po separaci zpravidla spontánně vymizí.",
+          "hint": "Folie à deux",
+          "category": "psychopatologie"
+        },
+        {
+          "id": "sc08-3",
+          "front": "Co je to de Clérambaultův syndrom?",
+          "back": "Erotomanický blud v rámci poruchy s trvalými bludy, kdy je pacient nevývratně přesvědčen, že je do něj tajně zamilována vysoce postavená známá osobnost.",
+          "hint": "Erotomanie",
+          "category": "psychopatologie"
+        }
+      ],
+      "quiz": [
+        {
+          "id": "s08-test1",
+          "question": "Pro akutní a přechodnou psychotickou poruchu (ATP / F23) je typické:",
+          "options": [
+            "Plíživý nástup po dobu několika let a nevratná demence",
+            "Rychlý vznik ze zdravého stavu (do 2 týdnů), proměnlivá polymorfní symptomatologie a plná úzdrava do 1–3 měsíců",
+            "Přítomnost pouze tělesných příznaků bez bludů",
+            "Vznik výhradně po úrazu míchy"
+          ],
+          "correctIndex": 1,
+          "explanation": "ATP se vyznačuje bleskovým rozvojem psychózy, proměnlivým obrazem a výbornou prognózou s návratem k plnému zdraví."
+        },
+        {
+          "id": "s08-test2",
+          "question": "Při schizoafektivní poruše (F25) musí být v klinickém obraze téže ataky přítomny:",
+          "options": [
+            "Pouze těžké výpadky paměti a dezorientace",
+            "Současně jednoznačné schizofrenní příznaky i plně vyjádřené afektivní příznaky (mánie nebo deprese)",
+            "Pouze panické záchvaty s hyperventilací",
+            "Somatizační potíže bez psychózy"
+          ],
+          "correctIndex": 1,
+          "explanation": "Schizoafektivní porucha je definována současným výskytem schizofrenních a afektivních symptomů v rámci jedné epizody."
+        }
+      ]
+    },
+    {
+      "id": "s09-uzkostne-neuroticke-poruchy",
+      "number": 9,
+      "section": "specialni",
+      "sectionLabel": "Speciální psychiatrie",
+      "badgePrefix": "S09",
+      "title": "Úzkostné a neurotické poruchy (stresové poruchy, poruchy přizpůsobení, úzkostné poruchy, fobie, OCD)",
+      "shortDesc": "Panická porucha, agorafobie, sociální fobie, GAD. Obsedantně-kompulzivní porucha OCD (obsese, kompulze, ERP terapie). Reakce na těžký stres (ASR vs. PTSD: flashbacky, hyperarousal). Léčba (SSRI, pregabalin, KBT).",
+      "category": "psychopatologie",
+      "badge": "Neurotické poruchy",
+      "badgeColor": "cyan",
+      "theory": {
+        "banner": {
+          "tag": "Neurotické a stresové poruchy (F40–F48)",
+          "title": "Úzkostné a fobie – nejčastější psychické poruchy v populaci",
+          "text": "Úzkostné poruchy mají celoživotní prevalenci až 20–25 %. Vyznačují se nepřiměřeným, trýznivým strachem a úzkostí provázenou vegetativní hyperaktivitou, vyhýbavým chováním a narušením fungování."
+        },
+        "sections": [
+          {
+            "title": "1. Fobické a Úzkostné poruchy (F40, F41)",
+            "color": "cyan",
+            "content": "\n                        <div class=\"grid md:grid-cols-2 gap-3 text-xs\">\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <h4 class=\"font-bold text-violet-300 mb-1\">Panická porucha & Agorafobie</h4>\n                                <ul class=\"list-disc ml-4 space-y-1 text-slate-300\">\n                                    <li><strong>Panická porucha (F41.0):</strong> Rekurentní, neočekávané záchvaty masivní úzkosti a děsu bez reálného nebezpečí. <em>Příznaky:</em> Palpitace, tachykardie, dušnost, svírání na hrudi, závratě, pocit na omdlení, derealizace, strach ze smrti nebo zešílení. Trvá 10–30 minut.</li>\n                                    <li><strong>Agorafobie (F40.0):</strong> Strach z míst, kde by byl obtížný únik nebo pomoc při panickém záchvatu (davy, MHD, mosty, nákupní centra).</li>\n                                </ul>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <h4 class=\"font-bold text-cyan-300 mb-1\">GAD & Sociální fobie</h4>\n                                <ul class=\"list-disc ml-4 space-y-1 text-slate-300\">\n                                    <li><strong>Generalizovaná úzkostná porucha (GAD / F41.1):</strong> Chronická, 'volně plynoucí' generalizovaná úzkost, obavy ze všeho možného a svalové napětí trvající <strong>min. 6 měsíců</strong>.</li>\n                                    <li><strong>Sociální fobie (F40.1):</strong> Strach ze zkoumavých pohledů druhých, z trapnosti při vystupování, jídle na veřejnosti, provázený třesem a červenáním.</li>\n                                </ul>\n                            </div>\n                        </div>\n                    "
+          },
+          {
+            "title": "2. Obsedantně-kompulzivní porucha (OCD / F42)",
+            "color": "indigo",
+            "content": "\n                        <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700 text-xs\">\n                            <p class=\"text-slate-300 mb-2\">Charakterizována přítomností <strong>obsesí</strong> a/nebo <strong>kompulzí</strong> po většinu dnů po dobu alespoň 2 týdnů:</p>\n                            <div class=\"grid md:grid-cols-2 gap-2 text-slate-300\">\n                                <div>\n                                    <strong class=\"text-amber-400\">Obsese (vtíravé myšlenky):</strong><br>Nechtěné, opakující se, egodystonní myšlenky, představy či impulsy, které pacient vnímá jako nesmyslné a vlastní, vyvolávají masivní tíseň (např. kontaminace špínou, pochybnosti o zamčení, agresivní impulzy).\n                                </div>\n                                <div>\n                                    <strong class=\"text-amber-400\">Kompulze (rituály):</strong><br>Stereotypní chování nebo mentální akty prováděné k redukci úzkosti vyvolané obsesí (mytí rukou 50x denně, počítání, kontrolování spotřebičů).\n                                </div>\n                            </div>\n                            <p class=\"text-emerald-400 font-bold mt-2\">Léčba OCD: Vysoké dávky SSRI (Sertralin až 200 mg, Escitalopram 20 mg, Klomipramin) + KBT s expozicí a zábranou rituálu (ERP).</p>\n                        </div>\n                    "
+          },
+          {
+            "title": "3. Reakce na těžký stres (ASR vs. PTSD / F43)",
+            "color": "rose",
+            "content": "\n                        <div class=\"grid md:grid-cols-2 gap-3 text-xs\">\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <strong class=\"text-amber-400\">Akutní reakce na stres (ASR / F43.0):</strong>\n                                <p class=\"text-slate-300 mt-1\">Okamžitá reakce na katastrofickou událost (nehoda, útok). Začíná v minutách, projevuje se zúženým vědomím, dezorientací, stuporem či agitovaností. <strong>Odeznívá do 2–3 dnů.</strong></p>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-rose-950/30 border border-rose-500/30\">\n                                <strong class=\"text-rose-400\">🚨 Posttraumatická stresová porucha (PTSD / F43.1):</strong>\n                                <p class=\"text-slate-300 mt-1\">Opožděná reakce (latence týdnů až 6 měsíců) na extrémní trauma ohrožující život. <strong>Triáda symptomů:</strong></p>\n                                <ul class=\"list-disc ml-4 text-slate-300 space-y-0.5\">\n                                    <li>1. <strong>Intruze / Flashbacky:</strong> Nechtěné znovuprožívání traumatu v bdělém stavu, noční můry.</li>\n                                    <li>2. <strong>Vyhýbavé chování:</strong> Vyhýbání se všemu, co trauma připomíná, emoční oploštělost.</li>\n                                    <li>3. <strong>Hyperarousal (zvýšená bdělost):</strong> Nadměrná úleková reakce, poruchy spánku, vnitřní tenze.</li>\n                                </ul>\n                            </div>\n                        </div>\n                    "
+          }
+        ]
+      },
+      "recall": {
+        "scenarios": [
+          {
+            "id": "s09-r1",
+            "title": "Kazuistika S9: Pacient na interním příjmu s panickou atakou",
+            "question": "25letá studentka je přivezena ZZS pro náhlý vznik bušení srdce, dušnosti, mravenčení v prstech a obličeji (parestézie z hyperventilace) a panického strachu, že má infarkt a umírá. EKG, troponin a krevní plyny jsou normální. Jaký je okamžitý a jaký je dlouhodobý postup léčby?",
+            "answer": "Jedná se o panickou ataku v rámci panické poruchy. Akutní postup: zklidnění, dýchání do papírového sáčku (k úpravě respirační alkalózy z hyperventilace), event. sublingvální aplikace krátkodobého anxiolytika (např. Alprazolam / Oxazepam). Dlouhodobá léčba: lékem první volby jsou SSRI (např. Sertralin / Escitalopram) v kombinaci s Kognitivně-behaviorální terapií (KBT).",
+            "pearl": "Edukace: Benzodiazepiny jsou určeny pouze pro překlenutí prvních 2–4 týdnů do nástupu účinku SSRI a musí být včas vysazeny k prevenci závislosti."
+          }
+        ]
+      },
+      "cards": [
+        {
+          "id": "sc09-1",
+          "front": "Jaká je terapeutická technika první volby v KBT u obsedantně-kompulzivní poruchy (OCD)?",
+          "back": "Expozice se zábranou reakce/rituálu (ERP – Exposure and Response Prevention).",
+          "hint": "ERP technika",
+          "category": "psychopatologie"
+        },
+        {
+          "id": "sc09-2",
+          "front": "Jaké 3 klíčové domény příznaků charakterizují Posttraumatickou stresovou poruchu (PTSD)?",
+          "back": "1. Intruze (flashbacky a noční můry), 2. Vyhýbavé chování (avoidance), 3. Hyperarousal (zvýšená dráždivost a úleková reakce).",
+          "hint": "PTSD triáda",
+          "category": "psychopatologie"
+        },
+        {
+          "id": "sc09-3",
+          "front": "Jaké jsou léky 1. volby pro dlouhodobou farmakoterapii Generalizované úzkostné poruchy (GAD)?",
+          "back": "SSRI / SNRI (např. Venlafaxin, Duloxetin, Escitalopram) a Pregabalin.",
+          "hint": "GAD farmakoterapie",
+          "category": "psychopatologie"
+        }
+      ],
+      "quiz": [
+        {
+          "id": "s09-test1",
+          "question": "Záchvat panické úzkosti typicky vrcholí během jaké doby a jak dlouho obvykle trvá?",
+          "options": [
+            "Vrcholí do 10 minut a celkově trvá 15 až 30 minut",
+            "Trvá nepřetržitě 3 týdny bez kolísání",
+            "Trvá přesně 24 hodin",
+            "Trvá několik sekund bez vegetativních projevů"
+          ],
+          "correctIndex": 0,
+          "explanation": "Panická ataka má náhlý začátek, vrcholí během minut a spontánně odeznívá během 20–30 minut."
+        },
+        {
+          "id": "s09-test2",
+          "question": "Které z následujících antidepresiv se u OCD podává v signifikantně vyšších terapeutických dávkách než u prosté deprese?",
+          "options": [
+            "Sertralin (až 200 mg/den)",
+            "Mianserin (10 mg/den)",
+            "Agomelatin (10 mg/den)",
+            "Reboxetin (2 mg/den)"
+          ],
+          "correctIndex": 0,
+          "explanation": "U OCD je pro blokádu obsesí nutné podávat plné, maximální tolerované dávky SSRI (např. Sertralin 200 mg) po dobu min. 10–12 týdnů."
+        }
+      ]
+    },
+    {
+      "id": "s10-somatoformni-disociativni-poruchy",
+      "number": 10,
+      "section": "specialni",
+      "sectionLabel": "Speciální psychiatrie",
+      "badgePrefix": "S10",
+      "title": "Somatoformní poruchy, disociativní a konverzní poruchy a psychosomatický přístup",
+      "shortDesc": "Somatizační porucha, hypochondrická porucha, somatoformní autonomní dysfunkce. Disociativní (konverzní) poruchy: disociativní křeče (pseudozáchvaty), parezy, amnézie, fuga, la belle indifférence. Psychosomatika.",
+      "category": "psychopatologie",
+      "badge": "Somatoformní poruchy",
+      "badgeColor": "cyan",
+      "theory": {
+        "banner": {
+          "tag": "Psychosomatika & Disociace (F44, F45)",
+          "title": "Tělesné projevy duševního napětí",
+          "text": "Somatoformní a disociativní poruchy představují tělesnou manifestaci nevědomých intrapsychických konfliktů a emoční tísně bez přítomnosti prokazatelného strukturálního somatického onemocnění."
+        },
+        "sections": [
+          {
+            "title": "1. Somatoformní poruchy (F45)",
+            "color": "cyan",
+            "content": "\n                        <div class=\"space-y-2 text-xs\">\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <span class=\"font-bold text-violet-300\">Somatizační porucha (F45.0 / dříve Briquetův syndrom):</span>\n                                <p class=\"text-slate-300 mt-1\">Mnohočetné, opakující se a často se měnící tělesné příznaky (bolesti břicha, pálení žáhy, nevolnost, bolesti kloubů, kožní parestézie) trvající <strong>nejméně 2 roky</strong>. Pacient odmítá vysvětlení o neexistenci tělesné nemoci a vyžaduje další a další vyšetření ('doctor shopping').</p>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <span class=\"font-bold text-amber-300\">Hypochondrická porucha (F45.2):</span>\n                                <p class=\"text-slate-300 mt-1\">Trvalé, neoblomné přesvědčení pacienta, že trpí <strong>jednou nebo dvěma konkrétními závažnými tělesnými chorobami</strong> (např. karcinomem, ALS, roztroušenou sklerózou). Běžné tělesné vjemy (zvýšený puls, škroukání v břiše) interpretuje jako nezvratný důkaz fatální nemoci. Trvá min. 6 měsíců.</p>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <span class=\"font-bold text-teal-300\">Somatoformní autonomní dysfunkce (F45.3):</span>\n                                <p class=\"text-slate-300\">Příznaky vztažené k orgánovým systémům pod vlivem vegetativní inervace: kardiovaskulární (srdeční neuróza, Da Costův syndrom), gastrointestinální (dráždivý tračník, aerofagie), respirační (hyperventilační tetanie).</p>\n                            </div>\n                        </div>\n                    "
+          },
+          {
+            "title": "2. Disociativní (konverzní) poruchy (F44)",
+            "color": "indigo",
+            "content": "\n                        <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700 text-xs\">\n                            <p class=\"text-slate-300 mb-2\">Disociace je obranný mechanismus rozštěpení paměti, identity a vnímání vlastního těla v reakci na neřešitelný stres či trauma:</p>\n                            <ul class=\"list-disc ml-4 text-slate-300 space-y-1\">\n                                <li><strong>Disociativní motorické poruchy a parézy:</strong> Ochrnutí končetin bez neurologického korelátu (normální šlachové reflexy, chybí pyramidové jevy).</li>\n                                <li><strong>Disociativní křeče (neepileptické záchvaty / pseudozáchvaty):</strong> Napodobují grand mal paroxysmy, ale <strong>nemají epileptiformní výboje na EEG</strong>, zornice reagují na světlo, pacient se nepomočí, nepokouše do jazyka z boku a neublíží si při pádu.</li>\n                                <li><strong>La belle indifférence (Krásná lhostejnost):</strong> Nápadný klid a nedostatek obav pacienta z těžkého tělesného postižení (např. slepoty či ochrnutí).</li>\n                                <li><strong>Disociativní amnézie a Fuga:</strong> Výpadek paměti na traumatické události, bezcílné cestování s novou identitou.</li>\n                            </ul>\n                        </div>\n                    "
+          },
+          {
+            "title": "3. Psychosomatický přístup a Léčba",
+            "color": "emerald",
+            "content": "\n                        <ul class=\"list-disc ml-5 space-y-1 text-xs text-slate-300\">\n                            <li><strong>První krok lékaře:</strong> Validovat pacientovo utrpení (příznaky jsou pro pacienta reálné a bolestivé, nesimuluje je!).</li>\n                            <li><strong>Zákaz zbytečných invazivních vyšetření:</strong> Stanovit jednoho ošetřujícího lékaře, pravidelné kontrolní návštěvy nezávislé na intenzitě potíží.</li>\n                            <li><strong>Psychoterapie (Základ léčby):</strong> KBT, psychodynamická psychoterapie zaměřená na propojení emocí a těla.</li>\n                            <li><strong>Farmakoterapie:</strong> Antidepresiva (SSRI, SNRI např. Duloxetin u chronické somatoformní bolesti).</li>\n                        </ul>\n                    "
+          }
+        ]
+      },
+      "recall": {
+        "scenarios": [
+          {
+            "id": "s10-r1",
+            "title": "Kazuistika S10: Diferenciální diagnostika disociativního záchvatu a epilepsie",
+            "question": "19letá dívka byla přivezena po rodinné hádce s 'epileptickými záchvaty'. Na lůžku předvádí křečovité zmítání celým tělem, opistotonus (prohnutí do oblouku), má pevně sevřená víčka a brání se otevření očí lékařem. Zornice reagují na osvit, na jazyku není léze, EEG během záchvatu je zcela bez patologických výbojů. O jaký záchvat se jedná?",
+            "answer": "Jedná se o disociativní (konverzní / psychogenní neepileptický) záchvat (PNES). Typickými znaky jsou: aktivní odpor při otevírání víček, normální fotoreakce, bizarní motorické projevy (opistotonus, kývání hlavou ze strany na stranu), absence pomočení, normální EEG během záchvatu a časová souvislost s psychosociálním stresem.",
+            "pearl": "Léčba konverzních záchvatů: Pacienta nestigmatizovat, aplikovat KBT a psychoterapii, vyhnout se antiepileptikům."
+          }
+        ]
+      },
+      "cards": [
+        {
+          "id": "sc10-1",
+          "front": "Co znamená pojem 'la belle indifférence' u konverzních poruch?",
+          "back": "Nápadný klid, lhostejnost a nedostatek emočního zaujetí pacienta k závažnému tělesnému postižení (např. náhlé funkční slepotě či paréze).",
+          "hint": "Krásná lhostejnost",
+          "category": "psychopatologie"
+        },
+        {
+          "id": "sc10-2",
+          "front": "Jaký je hlavní rozdíl mezi hypochondrickou poruchou a somatizační poruchou?",
+          "back": "U hypochondrie se pacient obává jedné konkrétní vážné choroby (např. rakoviny), zatímco u somatizace trpí mnoha proměnlivými tělesnými příznaky v různých orgánech.",
+          "hint": "Jedna nemoc vs mnoho příznaků",
+          "category": "psychopatologie"
+        },
+        {
+          "id": "sc10-3",
+          "front": "Které antidepresivum ze skupiny SNRI je oficiálně schváleno a doporučeno pro léčbu chronické somatoformní a neuropatické bolesti?",
+          "back": "Duloxetin (Cymbalta).",
+          "hint": "SNRI a bolest",
+          "category": "psychopatologie"
+        }
+      ],
+      "quiz": [
+        {
+          "id": "s10-test1",
+          "question": "Pro disociativní (neepileptický) záchvat je na rozdíl od pravého epileptického záchvatu typické:",
+          "options": [
+            "Vždy masivní generalizované hrot-vlna výboje na EEG",
+            "Pevné sevření očních víček s odporem při pokusu o jejich otevření a normální fotoreakce zornic",
+            "Těžké prokousnutí postranního okraje jazyka a bezvědomí s areflexií",
+            "Vznik výhradně ve spánku bez přítomnosti svědků"
+          ],
+          "correctIndex": 1,
+          "explanation": "Aktivní odpor proti otevření očí, normální fotoreakce a absence EEG korelátu jsou klíčovými znaky psychogenních neepileptických záchvatů."
+        },
+        {
+          "id": "s10-test2",
+          "question": "Základním terapeutickým principem při péči o pacienta se somatizační poruchou je:",
+          "options": [
+            "Indikovat každé nové zobrazovací vyšetření, které si pacient vyžádá",
+            "Stanovit jednoho ošetřujícího lékaře, pravidelné kontrolní návštěvy a minimalizovat zbytečná invazivní vyšetření",
+            "Pacientovi okamžitě sdělit, že si potíže vymýšlí a simuluje",
+            "Předepsat vysoké dávky opioidů"
+          ],
+          "correctIndex": 1,
+          "explanation": "Vedení jedním lékařem s pravidelnými kontrolami brání 'doctor shoppingu' a omezuje zbytečnou iatrogenní zátěž."
+        }
+      ]
+    },
+    {
+      "id": "s11-poruchy-prijmu-potravy",
+      "number": 11,
+      "section": "specialni",
+      "sectionLabel": "Speciální psychiatrie",
+      "badgePrefix": "S11",
+      "title": "Poruchy příjmu potravy",
+      "shortDesc": "Mentální anorexie (F50.0 – BMI < 17,5, dysmorfofobie, amenorea, somatické komplikace, refeeding syndrom). Mentální bulimie (F50.2 – přejídání, kompenzace, Russellovo znamení, fluoxetin). Záchvatovité přejídání. KBT a nutriční rehabilitace.",
+      "category": "psychopatologie",
+      "badge": "Poruchy chování",
+      "badgeColor": "amber",
+      "theory": {
+        "banner": {
+          "tag": "Poruchy příjmu potravy (F50)",
+          "title": "Mentální anorexie a bulimie",
+          "text": "Poruchy příjmu potravy (PPP) jsou závažná psychosomatická onemocnění s nejvyšší mortalitou v celé psychiatrii (až 5–10 % u anorexie). Typicky začínají v pubertě a mladé dospělosti (ženy : muži 10 : 1)."
+        },
+        "sections": [
+          {
+            "title": "1. Mentální anorexie (F50.0)",
+            "color": "rose",
+            "content": "\n                        <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700 text-xs space-y-2\">\n                            <span class=\"font-bold text-rose-400\">4 Hlavní diagnostická kritéria MKN-10:</span>\n                            <ol class=\"list-decimal ml-4 text-slate-300 space-y-1\">\n                                <li><strong>Nízká tělesná hmotnost:</strong> Pokles hmotnosti alespoň 15 % pod normu nebo <strong>BMI &lt; 17,5 kg/m2</strong> u dospělých (u dětí pod 3. percentilem).</li>\n                                <li><strong>Úmyslné snižování váhy:</strong> Restrikcí potravy, nadměrným vyčerpávajícím cvičením, provokovaným zvracením, abúzem laxativ, diuretik či anorektik.</li>\n                                <li><strong>Dysmorfofobie a strach z tloušťky:</strong> Zkreslené vnímání vlastního těla jako 'příliš tlustého' a panický strach z přibírání.</li>\n                                <li><strong>Endokrinní porucha:</strong> Porucha osy hypotalamus–hypofýza–gonády vedoucí k <strong>amenoree</strong> (vynechání menstruace min. 3 cykly), u mužů ztráta libida a potence.</li>\n                            </ol>\n                            <div class=\"mt-2 text-amber-300\">\n                                <strong>Typy:</strong> Restriktivní typ vs. Purgativní typ (se záchvaty přejídání a zvracením).\n                            </div>\n                        </div>\n                    "
+          },
+          {
+            "title": "2. Mentální bulimie (F50.2) & Záchvatovité přejídání",
+            "color": "amber",
+            "content": "\n                        <div class=\"grid md:grid-cols-2 gap-3 text-xs\">\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <h4 class=\"font-bold text-amber-400 mb-1\">Mentální bulimie (F50.2)</h4>\n                                <ul class=\"list-disc ml-4 space-y-1 text-slate-300\">\n                                    <li>Opakované záchvaty nekontrolovaného přejídání (min. 2x týdně po dobu 3 měsíců).</li>\n                                    <li>Následné <strong>kompenzační chování</strong> k zabránění tloustnutí (provokované zvracení, laxativa, hladovění).</li>\n                                    <li>Hmotnost bývá v normálním rozmezí (BMI 18,5–25 kg/m2).</li>\n                                    <li><strong>Russellovo znamení:</strong> Mozoly a eroze na dorzu ruky od zubů při dráždění dávivého reflexu.</li>\n                                    <li>Zubní eroze skloviny ze žaludeční kyseliny, hypertrofie příušních žláz (sialoadenóza).</li>\n                                </ul>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <h4 class=\"font-bold text-cyan-300 mb-1\">Záchvatovité přejídání (Binge Eating Disorder)</h4>\n                                <p class=\"text-slate-300\">Záchvaty přejídání velkým množstvím jídla bez kompenzačního zvracení ➔ vede k rozvoji obezity a těžkým pocitům viny.</p>\n                            </div>\n                        </div>\n                    "
+          },
+          {
+            "title": "3. Somatické komplikace, Refeeding syndrom a Léčba",
+            "color": "emerald",
+            "content": "\n                        <div class=\"space-y-2 text-xs\">\n                            <div class=\"p-3 rounded-lg bg-rose-950/40 border border-rose-500/40\">\n                                <strong class=\"text-rose-400\">🚨 Somatické komplikace a Refeeding syndrom:</strong>\n                                <ul class=\"list-disc ml-4 text-slate-300 space-y-0.5 mt-1\">\n                                    <li><strong>Kardiální:</strong> Sinusová bradykardie (&lt; 40/min), prodloužení QTc, maligní arytmie z <strong>hypokalémie</strong>.</li>\n                                    <li><strong>Dermatologické:</strong> Lanugo (jemné ochlupení trupu), suchá kůže, padání vlasů, akrocyanóza.</li>\n                                    <li><strong>Kostní:</strong> Časná osteoporóza a patologické zlomeniny.</li>\n                                    <li><strong>Refeeding syndrom:</strong> Život ohrožující stav při příliš rychlém obnovení stravy u kachektických pacientů ➔ masivní vzestup inzulinu způsobí přesun fosfátů a draslíku do buněk ➔ <strong>těžká hypofosfatémie</strong>, srdeční selhání, edémy a smrt. Realimentace musí být pozvolná s monitoringem fosfátů!</li>\n                                </ul>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <strong class=\"text-emerald-400\">Terapie PPP:</strong>\n                                <p class=\"text-slate-300 mt-1\">1. Nutriční rehabilitace (cíl u anorexie: přírůstek 0,5–1 kg týdně, parenterální výživa jen v krajní nouzi), 2. Kognitivně-behaviorální terapie (KBT) a rodinná terapie (FBT dle Maudsley), 3. Farmakoterapie: <strong>Fluoxetin 60 mg/den</strong> (schválen u mentální bulimie ke snížení frekvence přejídání), u anorexie Olanzapin v nízké dávce k potlačení obsesí a podpoře příjmu stravy.</p>\n                            </div>\n                        </div>\n                    "
+          }
+        ]
+      },
+      "recall": {
+        "scenarios": [
+          {
+            "id": "s11-r1",
+            "title": "Kazuistika S11: Kritická kachexie u mentální anorexie",
+            "question": "17letá dívka s výškou 168 cm váží 34 kg (BMI 12,0 kg/m2). Má klidovou srdeční frekvenci 36/min, TK 80/50 mmHg, krevní odběry ukazují hypokalémii 2,8 mmol/l a hypoproteinémii. Rodiče požadují ambulantní léčbu. Jaký je správný postup?",
+            "answer": "Jedná se o těžkou, život ohrožující mentální anorexii v kritickém stádiu (BMI < 13 kg/m2, těžká bradykardie, hypokalémie s rizikem zástavy srdce). Indikována je OKAMŽITÁ akutní hospitalizace na jednotce intenzivní péče nebo specializovaném lůžkovém oddělení pro PPP (i nedobrovolně při odmítání). Reálné riziko představuje refeeding syndrom, proto musí být realimentace zahájena pomalu pod kontrolou hladin fosforu, draslíku a EKG.",
+            "pearl": "Kritéria pro akutní hospitalizaci u anorexie: BMI < 13–14 kg/m2, bradykardie < 40/min, QTc > 450 ms, hypokalémie < 3,0 mmol/l, tělesná teplota < 35,5 °C."
+          }
+        ]
+      },
+      "cards": [
+        {
+          "id": "sc11-1",
+          "front": "Jaká je diagnostická hranice BMI pro mentální anorexii u dospělých dle MKN-10?",
+          "back": "BMI pod 17,5 kg/m2 (nebo hmotnost alespoň 15 % pod normou).",
+          "hint": "BMI cut-off",
+          "category": "psychopatologie"
+        },
+        {
+          "id": "sc11-2",
+          "front": "Co je to refeeding syndrom a jaký minerál je nutné přísně sledovat při zahájení výživy?",
+          "back": "Potenciálně fatální metabolický rozvrat vyvolaný rychlým nárůstem inzulinu po zahájení stravy. Klíčové je monitorovat a doplňovat FOSFÁTY (hypofosfatémie vede k srdečnímu selhání).",
+          "hint": "Hypofosfatémie",
+          "category": "psychopatologie"
+        },
+        {
+          "id": "sc11-3",
+          "front": "Které antidepresivum je schváleno pro léčbu mentální bulimie a v jaké dávce?",
+          "back": "Fluoxetin ve vysoké dávce 60 mg/den (snižuje frekvenci záchvatů přejídání a zvracení).",
+          "hint": "Bulimie farmakoterapie",
+          "category": "psychopatologie"
+        }
+      ],
+      "quiz": [
+        {
+          "id": "s11-test1",
+          "question": "Pojem 'Russellovo znamení' u pacientek s mentální bulimií označuje:",
+          "options": [
+            "Mozoly a oděrky na kloubech prstů ruky způsobené opakovaným provokováním zvracení o řezáky",
+            "Pigmentace v oblasti obličeje",
+            "Hypotrofii svalstva dolních končetin",
+            "Krvácení do sítnice"
+          ],
+          "correctIndex": 0,
+          "explanation": "Russellovo znamení vzniká chronickým mechanickým třením hřbetu ruky o zuby při manuálním vyvolávání dávení."
+        },
+        {
+          "id": "s11-test2",
+          "question": "Která z následujících elektrolytových odchylek je u pacientů s purgativní formou anorexie či bulimie nejčastější příčinou fatálních srdečních arytmií?",
+          "options": [
+            "Hyperkalcémie",
+            "Hypokalémie (ztráty draslíku zvracením a laxativy)",
+            "Hypernatrémie",
+            "Hyperfosfatémie"
+          ],
+          "correctIndex": 1,
+          "explanation": "Zvracení a zneužívání laxativ/diuretik vede k těžké hypokalémii a metabolické alkalóze s rizikem maligních komorových arytmií."
+        }
+      ]
+    },
+    {
+      "id": "s12-poruchy-osobnosti",
+      "number": 12,
+      "section": "specialni",
+      "sectionLabel": "Speciální psychiatrie",
+      "badgePrefix": "S12",
+      "title": "Poruchy osobnosti",
+      "shortDesc": "Obecná diagnostická kritéria F60. Klastr A (podivínský: paranoidní, schizoidní, schizotypní). Klastr B (dramatický: disociální, hraniční BPD a štěpení/self-harm, histriónská, narcistická). Klastr C (úzkostný: vyhýbavá, závislá, anankastická OCPD). Terapie (DBT dle Linehanové).",
+      "category": "psychopatologie",
+      "badge": "Poruchy osobnosti",
+      "badgeColor": "violet",
+      "theory": {
+        "banner": {
+          "tag": "Poruchy osobnosti u dospělých (F60–F69)",
+          "title": "Specifické poruchy osobnosti – struktura a klastry",
+          "text": "Poruchy osobnosti představují hluboce zakořeněné, rigidní a maladaptivní vzorce prožívání a chování, které se odchylují od kulturní normy, jsou trvalé a vedou k významnému distresu nebo narušení fungování jedince."
+        },
+        "sections": [
+          {
+            "title": "1. Obecná diagnostická kritéria (F60)",
+            "color": "violet",
+            "content": "\n                        <ul class=\"list-disc ml-5 space-y-1 text-xs text-slate-300\">\n                            <li>Vzorce chování se projevují v oblastech: kognice (způsob vnímání sebe a světa), afektivita (rozsah a přiměřenost emocí), kontrola impulzů a interpersonální vztahy.</li>\n                            <li>Vzorec je <strong>nepružný (rigidní)</strong> a uplatňuje se v širokém spektru osobních a sociálních situací.</li>\n                            <li>Vede k <strong>významnému osobnímu strádání</strong> nebo nepříznivému dopadu na okolí.</li>\n                            <li>Je stabilní a dlouhodobý – začátek lze vystopovat do pozdního dětství či adolescence (formální diagnóza se stanovuje <strong>až po 18. roce věku</strong>).</li>\n                        </ul>\n                    "
+          },
+          {
+            "title": "2. Přehled klastrů a jednotlivých poruch osobnosti",
+            "color": "indigo",
+            "content": "\n                        <div class=\"space-y-3 text-xs\">\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <span class=\"font-bold text-violet-300\">KLASTR A – 'Podivní, excentričtí' (Odd/Eccentric):</span>\n                                <ul class=\"list-disc ml-4 mt-1 text-slate-300 space-y-0.5\">\n                                    <li><strong>Paranoidní (F60.0):</strong> Trvalá podezřívavost, vztahovačnost, neodpouští urážky, podezírá partnera z nevěry, vidí skryté hrozby.</li>\n                                    <li><strong>Schizoidní (F60.1):</strong> Emoční chlad, samotářství, nezájem o vztahy a sex, lhostejnost ke chvále i kritice.</li>\n                                    <li><strong>Schizotypní (F21):</strong> Magické myšlení, bizarní řeč a vystupování, iluze, sociální úzkost (genetická blízkost ke schizofrenii).</li>\n                                </ul>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <span class=\"font-bold text-rose-300\">KLASTR B – 'Dramatičtí, emoční, nestabilní' (Dramatic/Erratic):</span>\n                                <ul class=\"list-disc ml-4 mt-1 text-slate-300 space-y-1\">\n                                    <li><strong>Disociální / Antisociální (F60.2):</strong> Bezohlednost k právům druhých, absence pocitu viny a empatie, kriminalita, lhaní, agresivita, neschopnost poučit se z trestu.</li>\n                                    <li><strong>Emočně nestabilní – Hraniční typ (Borderline / BPD, F60.31):</strong> Nestabilita identity, vztahů a emocí, chronický pocit prázdnoty, extrémní strach z opuštění, štěpení (splitting – lidé jsou buď naprosto dokonalí, nebo zlí), <strong>rekurentní sebepoškozování a suicidální gesta</strong>.</li>\n                                    <li><strong>Histriónská (F60.4):</strong> Teatrálnost, dramatizace, touha být středem pozornosti, mělká afektivita, svůdnost.</li>\n                                    <li><strong>Narcistická:</strong> Grandiózní pocit vlastní důležitosti, potřeba obdivu, nedostatek empatie, zneužívání druhých.</li>\n                                </ul>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <span class=\"font-bold text-cyan-300\">KLASTR C – 'Úzkostní, bázliví' (Anxious/Fearful):</span>\n                                <ul class=\"list-disc ml-4 mt-1 text-slate-300 space-y-0.5\">\n                                    <li><strong>Vyhýbavá / Anxiózní (F60.6):</strong> Pocity méněcennosti, hypersenzitivita na odmítnutí a kritiku, touha po vztazích, ale vyhýbání se jim ze strachu.</li>\n                                    <li><strong>Závislá (F60.7):</strong> Neschopnost dělat rozhodnutí bez rad druhých, podřizování vlastních potřeb, strach ze samoty.</li>\n                                    <li><strong>Anankastická / Obsedantně-kompulzivní OCPD (F60.5):</strong> Perfekcionismus bránící dokončení úkolů, rigidita, pedantství, lakota. <em>Rozdíl od OCD:</em> Rysy jsou egosyntonní (považuje svůj styl za správný)!</li>\n                                </ul>\n                            </div>\n                        </div>\n                    "
+          },
+          {
+            "title": "3. Terapeutické přístupy u poruch osobnosti",
+            "color": "emerald",
+            "content": "\n                        <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700 text-xs\">\n                            <span class=\"font-bold text-emerald-400\">Psychoterapie (Zlatý standard léčby):</span>\n                            <p class=\"text-slate-300 mt-1\">Dlouhodobá strukturovaná psychoterapie: <strong>Dialektická behaviorální terapie (DBT dle Marshi Linehanové)</strong> – vyvinuta specificky pro hraniční poruchu (BPD), učí všímavost (mindfulness), regulaci emocí a zvládání krizí bez sebepoškozování. Schéma terapie, Mentalizační terapie (MBT).</p>\n                            <p class=\"text-slate-300 mt-2\"><strong>Farmakoterapie:</strong> Pouze symptomatická a přídatná (nízké dávky atypických AP u impulzivity a afektivní lability, SSRI u komorbidní úzkosti/deprese). Vyhnout se BZD pro riziko závislosti a paradoxní desinhibice!</p>\n                        </div>\n                    "
+          }
+        ]
+      },
+      "recall": {
+        "scenarios": [
+          {
+            "id": "s12-r1",
+            "title": "Kazuistika S12: Splitting a sebepoškozování u hraniční poruchy",
+            "question": "21letá pacientka na oddělení střídavě zbožňuje svou ošetřující lékařku jako 'nejlepšího anděla na světě' a vulgárně nadává staniční sestře, kterou označuje za 'zlou stvůru'. Po zamítnutí víkendové propustky se na toaletě pořezala žiletkou na stehně. O jaký psychologický mechanismus se jedná a jaký je terapeutický přístup personálu?",
+            "answer": "Jedná se o mechanismus 'štěpení' (splitting – neschopnost integrovat pozitivní a negativní vlastnosti lidí, černobílé vidění) typický pro Hraniční poruchu osobnosti (BPD). Terapeutickým přístupem je jednotný postoj celého týmu (nenechat se rozdělit), jasné hranice, nestigmatizující ošetření rány bez nadměrné pozornosti a zařazení do programu Dialektické behaviorální terapie (DBT).",
+            "pearl": "Splitting u BPD: Černobílé polarizované myšlení, kdy personál a blízcí lidé jsou buď glorifikováni, nebo zcela devalvováni."
+          }
+        ]
+      },
+      "cards": [
+        {
+          "id": "sc12-1",
+          "front": "Které poruchy osobnosti tvoří Klastr A (podivínský)?",
+          "back": "1. Paranoidní, 2. Schizoidní, 3. Schizotypní.",
+          "hint": "Klastr A",
+          "category": "psychopatologie"
+        },
+        {
+          "id": "sc12-2",
+          "front": "Jaká psychoterapeutická metoda byla vyvinuta specificky pro léčbu hraniční poruchy osobnosti (BPD)?",
+          "back": "Dialektická behaviorální terapie (DBT – Marsha Linehan).",
+          "hint": "DBT terapie",
+          "category": "psychopatologie"
+        },
+        {
+          "id": "sc12-3",
+          "front": "Jaký je zásadní rozdíl mezi OCD (obsedantně-kompulzivní poruchou) a anankastickou poruchou osobnosti (OCPD)?",
+          "back": "Obsese u OCD jsou EGODYSTONNÍ (pacient je vnímá jako cizí, nesmyslné a trpí jimi), zatímco perfekcionismus u anankastické poruchy je EGOSYNTONNÍ (pacient jej považuje za správný a morální standard).",
+          "hint": "Egodystonie vs Egosyntonie",
+          "category": "psychopatologie"
+        }
+      ],
+      "quiz": [
+        {
+          "id": "s12-test1",
+          "question": "Pro kterou poruchu osobnosti z Klastru B je typická trvalá absence pocitu viny, neschopnost empatie, porušování zákonů a bezohlednost k druhým?",
+          "options": [
+            "Disociální porucha osobnosti",
+            "Schizoidní porucha osobnosti",
+            "Závislá porucha osobnosti",
+            "Vyhýbavá porucha osobnosti"
+          ],
+          "correctIndex": 0,
+          "explanation": "Disociální (antisociální) porucha osobnosti se projevuje ignorováním společenských norem, kriminalitou a neschopností prožívat vinu."
+        },
+        {
+          "id": "s12-test2",
+          "question": "Od kterého věku lze dle platných diagnostických guidelines formálně stanovit diagnózu specifické poruchy osobnosti?",
+          "options": [
+            "Od 6 let",
+            "Od 12 let",
+            "Až po 18. roce věku (po dokončení vývoje osobnosti)",
+            "Až po 50. roce věku"
+          ],
+          "correctIndex": 2,
+          "explanation": "Diagnóza poruchy osobnosti vyžaduje plné vyzrání struktury osobnosti po adolescenci (typicky nad 18 let)."
+        }
+      ]
+    },
+    {
+      "id": "s13-mentalni-retardace",
+      "number": 13,
+      "section": "specialni",
+      "sectionLabel": "Speciální psychiatrie",
+      "badgePrefix": "S13",
+      "title": "Mentální retardace",
+      "shortDesc": "Definice a pásma IQ dle MKN-10 (lehká F70 50–69, středně těžká F71 35–49, těžká F72 20–34, hluboká F73 <20). Etiologie (genetika, Downův syndrom, FAS, perinatální asfyxie). Speciální pedagogika a symptomatická farmakoterapie.",
+      "category": "psychopatologie",
+      "badge": "Vývojové poruchy",
+      "badgeColor": "cyan",
+      "theory": {
+        "banner": {
+          "tag": "Poruchy intelektu (F70–F79)",
+          "title": "Mentální retardace (Oligofrenie / Intelektové postižení)",
+          "text": "Stav zastaveného nebo neúplného vývoje duševních schopností, charakterizovaný zejména narušením dovedností projevujících se během vývojového období (kognitivní, řečové, motorické a sociální schopnosti)."
+        },
+        "sections": [
+          {
+            "title": "1. Pásma mentální retardace dle MKN-10",
+            "color": "cyan",
+            "content": "\n                        <div class=\"grid md:grid-cols-2 gap-3 text-xs\">\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <span class=\"font-bold text-violet-300\">Lehká mentální retardace (F70 / IQ 50–69):</span>\n                                <p class=\"text-slate-300 mt-1\">Tvoří cca <strong>85 % všech případů</strong>. Mentální věk 9–12 let. Schopni řeči pro běžný život, vzdělatelní v praktických a speciálních školách, dosáhnou pracovní samostatnosti (jednoduchá manuální povolání), schopni samostatného bydlení s občasnou podporou.</p>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <span class=\"font-bold text-amber-300\">Středně těžká mentální retardace (F71 / IQ 35–49):</span>\n                                <p class=\"text-slate-300 mt-1\">Cca 10 % případů. Mentální věk 6–9 let. Vychovatelní (základní sebeobsluha – oblékání, hygiena), řeč je limitována, zvládnou jednoduchou strukturovanou práci v chráněných dílnách pod dohledem. Nejsou schopni samostatného života.</p>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <span class=\"font-bold text-rose-300\">Těžká mentální retardace (F72 / IQ 20–34):</span>\n                                <p class=\"text-slate-300 mt-1\">Cca 3–4 % případů. Mentální věk 3–6 let. Výrazné motorické a smyslové defekty, minimální řeč, vyžadují trvalou celodenní péči a dohled.</p>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <span class=\"font-bold text-rose-400\">Hluboká mentální retardace (F73 / IQ &lt; 20):</span>\n                                <p class=\"text-slate-300 mt-1\">Cca 1–2 %. Mentální věk &lt; 3 roky. Těžká imobilita, inkontinence, nerozumí řeči ani nekomunikují, plně závislí na ošetřovatelské péči.</p>\n                            </div>\n                        </div>\n                    "
+          },
+          {
+            "title": "2. Etiopatogeneze mentální retardace",
+            "color": "indigo",
+            "content": "\n                        <ul class=\"list-disc ml-5 space-y-1 text-xs text-slate-300\">\n                            <li><strong>Prenatální příčiny:</strong> Genetické aberace (Downův syndrom – trizomie 21, Syndrom fragilního X, Fenylketonurie), teratogeny (<strong>Fetální alkoholový syndrom FAS</strong>), intrauterinní infekce TORCH (toxoplazmóza, rubeola, CMV, herpes).</li>\n                            <li><strong>Perinatální příčiny:</strong> Těžká hypoxie a asfyxie plodu, porodní trauma, nedonošenost (těžká prematurita &lt; 1000 g), intrakraniální krvácení.</li>\n                            <li><strong>Postnatální příčiny (do 2 let):</strong> Meningoencefalitidy, kraniotraumata, těžká chronická malnutrice, těžká socio-emoční deprivace.</li>\n                        </ul>\n                    "
+          },
+          {
+            "title": "3. Komplexní péče a symptomatická terapie",
+            "color": "emerald",
+            "content": "\n                        <p class=\"mb-2 text-xs\">Mentální retardace je sama o sobě kauzálně nevyléčitelná; těžištěm je <strong>speciální pedagogika, raná péče, logopedie, ergoterapie a sociální integrace</strong>.</p>\n                        <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700 text-xs\">\n                            <span class=\"font-bold text-violet-300\">Symptomatická farmakoterapie:</span>\n                            <p class=\"text-slate-300 mt-1\">U komorbidních poruch chování (autoagrese, záchvaty vzteku, hyperaktivita) se uplatňují nízké dávky atypických antipsychotik (<strong>Risperidon</strong> od 5 let, Tiaprid), antiepileptika u komorbidní epilepsie.</p>\n                        </div>\n                    "
+          }
+        ]
+      },
+      "recall": {
+        "scenarios": [
+          {
+            "id": "s13-r1",
+            "title": "Kazuistika S13: Posouzení soběstačnosti u mentální retardace",
+            "question": "18letý mladík ukončil vzdělávání na praktické škole. Umí číst a psát jednoduché texty, zvládá samostatně cestovat známou trasou autobusem, nakoupit si a v rodinné dílně pracuje jako pomocný truhlář. Psychologickým vyšetřením bylo zjištěno IQ 62. Do kterého pásma mentální retardace spadá?",
+            "answer": "Jedná se o Lehkou mentální retardaci (F70 – pásmo IQ 50–69). Pro toto pásmo je typická schopnost osvojení praktických dovedností, samostatné sebeobsluhy a výkonu jednoduchých manuálních prací v podporovaném prostředí.",
+            "pearl": "F70: Nejčastější forma (85 % všech MR), jedinci jsou plně vzdělatelní a schopni sociální integrace."
+          }
+        ]
+      },
+      "cards": [
+        {
+          "id": "sc13-1",
+          "front": "Jaká jsou 4 pásma mentální retardace dle MKN-10 a jejich IQ rozmezí?",
+          "back": "1. Lehká (F70): IQ 50–69, 2. Středně těžká (F71): IQ 35–49, 3. Těžká (F72): IQ 20–34, 4. Hluboká (F73): IQ < 20.",
+          "hint": "4 pásma MR",
+          "category": "psychopatologie"
+        },
+        {
+          "id": "sc13-2",
+          "front": "Které antipsychotikum je schváleno od 5 let k léčbě těžkých poruch chování (agresivity) u mentální retardace?",
+          "back": "Risperidon.",
+          "hint": "Pediatrické AP",
+          "category": "psychopatologie"
+        },
+        {
+          "id": "sc13-3",
+          "front": "Která genetická odchylka je nejčastější příčinou vrozené mentální retardace?",
+          "back": "Downův syndrom (trizomie 21. chromozomu) a Syndrom fragilního chromozomu X.",
+          "hint": "Genetická etiologie",
+          "category": "psychopatologie"
+        }
+      ],
+      "quiz": [
+        {
+          "id": "s13-test1",
+          "question": "Jedinec se středně těžkou mentální retardací (F71, IQ 35–49) je z pedagogického hlediska:",
+          "options": [
+            "Plně vzdělatelný na běžné základní škole bez asistence",
+            "Vychovatelný (osvojí si základní sebeobsluhu a jednoduché manuální úkony v chráněném prostředí)",
+            "Neschopen jakékoliv komunikace a plně imobilní",
+            "Schopen úspěšně vystudovat gymnázium"
+          ],
+          "correctIndex": 1,
+          "explanation": "Středně těžká mentální retardace umožňuje osvojení základní sebeobsluhy (vychovatelnost), ale neumožňuje samostatné zvládání teoretického učiva."
+        },
+        {
+          "id": "s13-test2",
+          "question": "Který z následujících faktorů patří mezi prenatální teratogenní příčiny mentální retardace?",
+          "options": [
+            "Fetální alkoholový syndrom (FAS)",
+            "Dětská mozková obrna po porodu",
+            "Meningitida v 10 letech",
+            "Febrilní křeče"
+          ],
+          "correctIndex": 0,
+          "explanation": "Pravidelný abúzus alkoholu matkou v těhotenství vyvolává FAS charakterizovaný kraniofaciální dysmorfií a mentální retardací."
+        }
+      ]
+    },
+    {
+      "id": "s14-detska-psychiatrie-1-vyvoj",
+      "number": 14,
+      "section": "specialni",
+      "sectionLabel": "Speciální psychiatrie",
+      "badgePrefix": "S14",
+      "title": "Duševní poruchy v dětském věku I (poruchy psychického vývoje)",
+      "shortDesc": "Poruchy autistického spektra PAS (F84: Dětský autismus – triáda deficitů, Aspergerův syndrom – intaktní intelekt a řeč, speciální zájmy). Vývojová dysfázie. Specifické poruchy školních dovedností (dyslexie, dysgrafie, dyskalkulie). Včasná diagnostika a intervence.",
+      "category": "psychopatologie",
+      "badge": "Pedopsychiatrie",
+      "badgeColor": "cyan",
+      "theory": {
+        "banner": {
+          "tag": "Pedopsychiatrie I (F80–F89)",
+          "title": "Pervazivní a specifické poruchy psychického vývoje",
+          "text": "Poruchy psychického vývoje mají začátek vždy v kojeneckém či dětském věku a souvisejí s biologickým zráním CNS. Zahrnují poruchy autistického spektra a specifické poruchy řeči a učení."
+        },
+        "sections": [
+          {
+            "title": "1. Poruchy autistického spektra (PAS / F84)",
+            "color": "cyan",
+            "content": "\n                        <div class=\"space-y-2 text-xs\">\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <span class=\"font-bold text-violet-300\">Dětský autismus (Kannerův autismus / F84.0):</span>\n                                <p class=\"text-slate-300 mt-1\">Začátek před 3. rokem věku. <strong>Klasická triáda deficitů:</strong></p>\n                                <ul class=\"list-disc ml-4 text-slate-300 space-y-0.5\">\n                                    <li>1. <strong>Narušení reciproční sociální interakce:</strong> Chybí oční kontakt, neschopnost sdílet pozornost a emoce, nezájem o vrstevníky.</li>\n                                    <li>2. <strong>Narušení komunikace:</strong> Opožděný vývoj řeči, echolálie, doslovné chápání jazyka, neschopnost symbolické hry ('na něco').</li>\n                                    <li>3. <strong>Omezené, repetitivní a stereotypní vzorce chování:</strong> Trvání na neměnnosti rituálů, motorické stereotypie (třepetání rukama), ulpívavé zájmy (jízdní řády, točící se kola).</li>\n                                    <li>Často (v cca 70 %) asociován s mentální retardací.</li>\n                                </ul>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <span class=\"font-bold text-amber-300\">Aspergerův syndrom (F84.5):</span>\n                                <p class=\"text-slate-300 mt-1\">Zásadní rozdíl od dětského autismu: <strong>INTAKTNÍ intelekt (normální až nadprůměrné IQ) a NENÍ přítomno celkové opoždění řečového vývoje.</strong></p>\n                                <ul class=\"list-disc ml-4 text-slate-300 space-y-0.5\">\n                                    <li>Výrazná sociální neobratnost a neschopnost empatie a dekódování neverbálních signálů.</li>\n                                    <li>Extrémně vyhraněné, úzké speciální zájmy (astronomie, vlaky, počítače), o kterých encyklopedicky mluví.</li>\n                                    <li>Motorická neobratnost.</li>\n                                </ul>\n                            </div>\n                        </div>\n                    "
+          },
+          {
+            "title": "2. Specifické poruchy řeči a školních dovedností",
+            "color": "indigo",
+            "content": "\n                        <div class=\"grid md:grid-cols-2 gap-3 text-xs\">\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <h4 class=\"font-bold text-violet-300 mb-1\">Vývojové poruchy řeči (F80)</h4>\n                                <ul class=\"list-disc ml-4 space-y-1 text-slate-300\">\n                                    <li><strong>Vývojová dysfázie:</strong> Specifické narušení exprese nebo recepce řeči při normálním sluchu a nonverbálním intelektu.</li>\n                                    <li><strong>Dyslalie (patlavost):</strong> Porucha artikulace hlásek.</li>\n                                </ul>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <h4 class=\"font-bold text-cyan-300 mb-1\">Specifické poruchy učení (SPU / F81)</h4>\n                                <ul class=\"list-disc ml-4 space-y-1 text-slate-300\">\n                                    <li><strong>Dyslexie:</strong> Specifická porucha čtení (záměna písmen, pomalé tempo, neporozumění textu).</li>\n                                    <li><strong>Dysgrafie:</strong> Specifická porucha psaní a grafomotoriky.</li>\n                                    <li><strong>Dysortografie:</strong> Neschopnost aplikace gramatických pravidel.</li>\n                                    <li><strong>Dyskalkulie:</strong> Specifická porucha počítání a matematických operací.</li>\n                                </ul>\n                            </div>\n                        </div>\n                    "
+          },
+          {
+            "title": "3. Terapeutické přístupy u PAS",
+            "color": "emerald",
+            "content": "\n                        <ul class=\"list-disc ml-5 space-y-1 text-xs text-slate-300\">\n                            <li><strong>Behaviorální a edukační programy:</strong> Strukturované učení (program TEACCH), aplikovaná behaviorální analýza (ABA terapie), nácvik sociálních dovedností.</li>\n                            <li><strong>Symptomatická farmakoterapie:</strong> Risperidon nebo Aripiprazol při afektivních výbuších, autoagresi a těžkém neklidu.</li>\n                        </ul>\n                    "
+          }
+        ]
+      },
+      "recall": {
+        "scenarios": [
+          {
+            "id": "s14-r1",
+            "title": "Kazuistika S14: Diferenciace dětského autismu a Aspergerova syndromu",
+            "question": "8letý chlapec má vynikající slovní zásobu a encyklopedické znalosti o planetách sluneční soustavy. Mezi vrstevníky je však zcela izolovaný, nechápe ironii ani vtipy, mluví monotónním tónem jako dospělý a při změně rozvrhu ve škole propadá panickému křiku. Raný vývoj řeči byl včasný a IQ v pásmu nadprůměru (122). O jakou diagnózu z okruhu PAS se jedná?",
+            "answer": "Jedná se o Aspergerův syndrom (F84.5). Klíčovými rozlišovacími znaky od dětského autismu jsou: normální až nadprůměrný intelekt (IQ 122), intaktní a včasný vývoj řeči a přítomnost vysoce specializovaných zájmů v kombinaci s narušením pragmatické roviny komunikace a sociální interakce.",
+            "pearl": "Aspergerův syndrom: Intelekt a řeč jsou zachovány, deficit je v sociální reciprocitě a flexibilitě."
+          }
+        ]
+      },
+      "cards": [
+        {
+          "id": "sc14-1",
+          "front": "Jaké 3 oblasti tvoří diagnostickou triádu dětského autismu (F84.0)?",
+          "back": "1. Narušení reciproční sociální interakce, 2. Narušení verbální i neverbální komunikace, 3. Repetitivní a stereotypní vzorce chování a zájmů.",
+          "hint": "Autistická triáda",
+          "category": "psychopatologie"
+        },
+        {
+          "id": "sc14-2",
+          "front": "Jaký je hlavní rozdíl mezi Aspergerovým syndromem a dětským autismem?",
+          "back": "U Aspergerova syndromu NENÍ přítomno celkové opoždění řečového vývoje a intelekt je v normě nebo nadprůměrný (chybí mentální retardace).",
+          "hint": "Intelekt a řeč",
+          "category": "psychopatologie"
+        },
+        {
+          "id": "sc14-3",
+          "front": "Co znamená pojem 'dyslexie' a 'dyskalkulie'?",
+          "back": "Dyslexie = specifická porucha osvojování čtení; Dyskalkulie = specifická porucha matematických schopností a počítání.",
+          "hint": "SPU",
+          "category": "psychopatologie"
+        }
+      ],
+      "quiz": [
+        {
+          "id": "s14-test1",
+          "question": "Které z následujících tvrzení o Aspergerově syndromu je SPRÁVNÉ?",
+          "options": [
+            "Vždy je přítomna těžká mentální retardace s IQ pod 35",
+            "Řečový vývoj a intelekt jsou v normě, ale je přítomno narušení sociální interakce a vyhraněné stereotypní zájmy",
+            "Začíná až v dospělosti po 30. roce věku",
+            "Léčí se výhradně vysokými dávkami lithia"
+          ],
+          "correctIndex": 1,
+          "explanation": "Aspergerův syndrom je charakterizován sociálním deficitem a stereotypiemi při normální nebo nadprůměrné inteligenci a zachovaném vývoji řeči."
+        },
+        {
+          "id": "s14-test2",
+          "question": "Strukturované učení a vizualizace denního režimu (např. v programu TEACCH) se v pedopsychiatrii využívá především u dětí s:",
+          "options": [
+            "Poruchami autistického spektra (PAS)",
+            "Panickou poruchou",
+            "Bipolární afektivní poruchou",
+            "Narkolepsií"
+          ],
+          "correctIndex": 0,
+          "explanation": "Vizuální strukturalizace a předvídatelnost prostředí jsou základním pilířem edukace a péče o děti s PAS."
+        }
+      ]
+    },
+    {
+      "id": "s15-detska-psychiatrie-2-chovani-emoce",
+      "number": 15,
+      "section": "specialni",
+      "sectionLabel": "Speciální psychiatrie",
+      "badgePrefix": "S15",
+      "title": "Duševní poruchy v dětském věku II (poruchy chování a emocí se začátkem obvykle v dětství a adolescenci)",
+      "shortDesc": "Hyperkinetická porucha / ADHD (F90: triáda nepozornost, hyperaktivita, impulzivita, methylfenidát a atomoxetin). Poruchy chování (F91). Emoční poruchy (separační úzkost, elektivní mutismus). Tiky a Tourettův syndrom. Enuréza a enkopréza.",
+      "category": "psychopatologie",
+      "badge": "Pedopsychiatrie",
+      "badgeColor": "cyan",
+      "theory": {
+        "banner": {
+          "tag": "Pedopsychiatrie II (F90–F98)",
+          "title": "Poruchy chování a emocí u dětí a adolescentů",
+          "text": "Heterogenní skupina poruch manifestujících se v dětském věku, které zahrnují hyperkinetické syndromy (ADHD), disociální poruchy chování, specifické úzkosti v dětství, tiky a poruchy vyměšování."
+        },
+        "sections": [
+          {
+            "title": "1. Hyperkinetická porucha / ADHD (F90)",
+            "color": "cyan",
+            "content": "\n                        <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700 text-xs space-y-2\">\n                            <span class=\"font-bold text-violet-300\">Diagnostická triáda příznaků (začátek před 7.–12. rokem věku ve více prostředích – škola i domov):</span>\n                            <ul class=\"list-disc ml-4 text-slate-300 space-y-0.5\">\n                                <li>1. <strong>Porucha pozornosti (nepozornost):</strong> Snadná unavitelnost, neschopnost udržet pozornost u hry/úkolu, nepozorné chyby, zapomínání pomůcek, nedokončování práce.</li>\n                                <li>2. <strong>Hyperaktivita:</strong> Motorický neklid (vrtění, vstávání v lavici, neustálý pohyb jako 'na klíček').</li>\n                                <li>3. <strong>Impulzivita:</strong> Skákání do řeči, neschopnost počkat na řadu, unáhlené riskantní jednání bez domýšlení následků.</li>\n                            </ul>\n                            <div class=\"mt-2 text-emerald-300\">\n                                <strong>Léčba ADHD:</strong> 1. Režimová a edukační opatření, 2. KBT a trénink rodičovských kompetencí, 3. <strong>Farmakoterapie:</strong> <em>Methylfenidát</em> (stimulancium – Ritalin, Concerta), <em>Atomoxetin</em> (nestimulancium – Strattera), <em>Guanfacin</em>.\n                            </div>\n                        </div>\n                    "
+          },
+          {
+            "title": "2. Poruchy chování (F91) a Emoční poruchy specifické pro dětství (F93)",
+            "color": "indigo",
+            "content": "\n                        <div class=\"grid md:grid-cols-2 gap-3 text-xs\">\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <h4 class=\"font-bold text-rose-400 mb-1\">Poruchy chování (F91)</h4>\n                                <p class=\"text-slate-300\">Opakované, trvalé porušování sociálních norem a práv druhých (min. 6 měsíců):</p>\n                                <ul class=\"list-disc ml-4 space-y-0.5 text-slate-300\">\n                                    <li>Agrese k lidem a zvířatům (šikana, týrání zvířat).</li>\n                                    <li>Destrukce majetku (vandalismus, zakládání požárů).</li>\n                                    <li>Závažné krádeže a podvody.</li>\n                                    <li>Útěky z domova a záškoláctví.</li>\n                                    <li><em>Porucha opozičního vzdoru (F91.3):</em> U mladších dětí – vzdorovitost, hádavost, provokování dospělých bez těžké kriminality.</li>\n                                </ul>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <h4 class=\"font-bold text-amber-300 mb-1\">Emoční poruchy (F93) & Tiky</h4>\n                                <ul class=\"list-disc ml-4 space-y-1 text-slate-300\">\n                                    <li><strong>Separační úzkostná porucha v dětství (F93.0):</strong> Nepřiměřený, vývojově neadekvátní panický strach z odloučení od rodičů (odmítání školy, somatické bolesti břicha ráno před odchodem).</li>\n                                    <li><strong>Elektivní mutismus (F94.0):</strong> Dítě plynně mluví doma s rodiči, ale ve škole a s cizími zcela mlčí.</li>\n                                    <li><strong>Tourettův syndrom (F95.2):</strong> Kombinované motorické tiky (mrkání, trhání hlavou) a hlasové/vokální tiky (odkašlávání, pískání, <strong>koprolálie</strong> – nutkavé vykřikování vulgarismů).</li>\n                                </ul>\n                            </div>\n                        </div>\n                    "
+          },
+          {
+            "title": "3. Poruchy vyměšování (Enuréza a Enkopréza / F98)",
+            "color": "emerald",
+            "content": "\n                        <div class=\"grid md:grid-cols-2 gap-3 text-xs\">\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <strong>Neorganická enuréza (F98.0):</strong> Bezděčné pomočování (ve dne nebo v noci – <em>enuresis nocturna</em>) u dětí starších <strong>5 let</strong> bez organické příčiny. Léčba: režim tekutin, enuretický budík, desmopresin (Minirin).\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <strong>Neorganická enkopréza (F98.1):</strong> Opakované odcházení stolice na nevhodných místech u dětí starších <strong>4 let</strong> (často spojeno s chronickou obstipací a psychickým napětím).\n                            </div>\n                        </div>\n                    "
+          }
+        ]
+      },
+      "recall": {
+        "scenarios": [
+          {
+            "id": "s15-r1",
+            "title": "Kazuistika S15: Diferenciální diagnostika ranních bolestí břicha před školou",
+            "question": "7letá prvňačka si každé všední ráno stěžuje na kruté bolesti břicha, pláče a zvrací při loučení s matkou před školou. O víkendech a prázdninách je zcela bez obtíží a veselá. Pediatrické a gastroenterologické vyšetření je negativní. O jakou poruchu se jedná?",
+            "answer": "Jedná se o Separační úzkostnou poruchu v dětství (F93.0). Somatické projevy (bolesti břicha, nauzea) jsou vegetativním ekvivalentem extrémního strachu ze separace od primární pečující osoby (matky) a obav, že se rodičům během její nepřítomnosti něco stane.",
+            "pearl": "Terapie separační úzkosti: KBT (postupná expozice odloučení), rodinná terapie, nácvik ranních rituálů, medikace SSRI pouze při těžkém průběhu."
+          }
+        ]
+      },
+      "cards": [
+        {
+          "id": "sc15-1",
+          "front": "Jaká je základní triáda příznaků ADHD (hyperkinetické poruchy)?",
+          "back": "1. Nepozornost (porucha udržení pozornosti), 2. Hyperaktivita (motorický neklid), 3. Impulzivita.",
+          "hint": "ADHD triáda",
+          "category": "psychopatologie"
+        },
+        {
+          "id": "sc15-2",
+          "front": "Co je to Tourettův syndrom a jaký má specifický vokální projev?",
+          "back": "Kombinovaná tiková porucha s vícečetnými motorickými tiky a alespoň jedním zvukovým tikem; specifickým (nikoliv však nutným) projevem je koprolálie (vyrážení sprostých slov).",
+          "hint": "Tiková porucha",
+          "category": "psychopatologie"
+        },
+        {
+          "id": "sc15-3",
+          "front": "Od jakého věku se diagnostikuje noční enuréza jako duševní porucha?",
+          "back": "Od 5 let věku (před tímto věkem je noční pomočování považováno za fyziologickou nezralost mikčního reflexu).",
+          "hint": "Věk enurézy",
+          "category": "psychopatologie"
+        }
+      ],
+      "quiz": [
+        {
+          "id": "s15-test1",
+          "question": "Které léčivo je stimulanciem první volby pro farmakoterapii středně těžkého až těžkého ADHD u dětí od 6 let?",
+          "options": [
+            "Methylfenidát (Ritalin / Concerta)",
+            "Diazepam",
+            "Haloperidol",
+            "Karbamazepin"
+          ],
+          "correctIndex": 0,
+          "explanation": "Methylfenidát blokuje DAT a NET v prefrontálním kortexu a je nejúčinnějším lékem 1. volby pro ADHD."
+        },
+        {
+          "id": "s15-test2",
+          "question": "Pojem 'elektivní mutismus' v pedopsychiatrii označuje:",
+          "options": [
+            "Ztrátu sluchu po prodělané meningitidě",
+            "Schopnost normálně mluvit v určitých bezpečných situacích (doma), zatímco v jiných specifických situacích (ve škole) dítě zcela nemluví",
+            "Úplnou neschopnost porozumět mluvené řeči",
+            "Koktavost"
+          ],
+          "correctIndex": 1,
+          "explanation": "Elektivní mutismus je úzkostně podmíněná porucha, kdy dítě selektivně nekomunikuje v sociálních situacích (např. ve škole), ačkoliv doma hovoří plynule."
+        }
+      ]
+    },
+    {
+      "id": "s16-akutni-stavy-agrese-suicidalita",
+      "number": 16,
+      "section": "specialni",
+      "sectionLabel": "Speciální psychiatrie",
+      "badgePrefix": "S16",
+      "title": "Akutní stavy v psychiatrii (agresivní chování, suicidalita) a jejich řešení",
+      "shortDesc": "Management psychomotorického neklidu a agresivního pacienta (verbální deeskalace, farmakologické zklidnění, fyzické omezení). Krizová intervence u suicidálního pacienta (Ringelův presuicidální syndrom, odhad rizika, stálý dohled, detence do 24 h). Maligní stavy.",
+      "category": "vysetreni",
+      "badge": "Urgentní psychiatrie",
+      "badgeColor": "rose",
+      "theory": {
+        "banner": {
+          "tag": "Urgentní psychiatrie",
+          "title": "Akutní a život ohrožující stavy v psychiatrii",
+          "text": "Akutní psychiatrické stavy vyžadují neodkladný lékařský zásah k odvrácení bezprostředního ohrožení života nebo zdraví pacienta či jeho okolí. Zahrnují psychomotorický neklid s agresivitou, suicidalitu, těžká deliria a polékové emergentní stavy (MNS, sérotoninový syndrom)."
+        },
+        "sections": [
+          {
+            "title": "1. Management agresivního a neklidného pacienta",
+            "color": "rose",
+            "content": "\n                        <div class=\"space-y-2 text-xs\">\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <strong class=\"text-violet-300\">1. Verbální deeskalace (Základní přístup):</strong>\n                                <p class=\"text-slate-300 mt-1\">Klidný, věcný, neutrální tón hlasu, udržovat bezpečný odstup (na délku paže + krok), zajistit volnou únikovou cestu ze dveří pro personál, nezpochybňovat agresivně pacientovy bludy, ale stanovit jasné pevné hranice.</p>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <strong class=\"text-emerald-400\">2. Rychlá farmakologická sedace (Chemické zklidnění):</strong>\n                                <ul class=\"list-disc ml-4 text-slate-300 space-y-1 mt-1\">\n                                    <li><strong>Atypická antipsychotika i.m./p.o. (1. volba):</strong> Olanzapin 10 mg i.m. nebo Ziprasidon 10–20 mg i.m. (rychlý nástup do 15–30 min, minimální EPS).</li>\n                                    <li><strong>Klasická neuroleptika + BZD:</strong> Haloperidol 5 mg i.m. + Diazepam 10 mg i.m./p.o. (osvědčená kombinace u těžkého psychotického neklidu).</li>\n                                    <li><strong>Tiaprid (Tiapridal 100–200 mg i.m./i.v.):</strong> U geriatrických a intoxikovaných pacientů.</li>\n                                    <li>⚠️ <em>Pozor:</em> Nikdy neaplikovat Olanzapin i.m. a Diazepam/BZD i.m. současně do stejné stříkačky ani v těsném sledu (riziko těžké hypotenze a fatální dechové zástavy!).</li>\n                                </ul>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <strong class=\"text-amber-400\">3. Fyzické omezovací prostředky (Kurtace / Izolace):</strong>\n                                <p class=\"text-slate-300 mt-1\">Pouze jako <em>krajní prostředek</em> (ultima ratio) při selhání deeskalace a farmakologie k odvrácení přímého útoku. Vyžaduje: 1. Písemnou indikaci lékaře, 2. Pravidelné kontroly sester (min. po 15–30 min), 3. Záznam do dokumentace, 4. Ukončení ihned po odeznění nebezpečí.</p>\n                            </div>\n                        </div>\n                    "
+          },
+          {
+            "title": "2. Posouzení a řešení suicidálního rizika",
+            "color": "amber",
+            "content": "\n                        <div class=\"space-y-2 text-xs\">\n                            <div class=\"p-3 rounded-lg bg-rose-950/40 border border-rose-500/40\">\n                                <strong class=\"text-rose-400\">🚨 Presuicidální syndrom (Erwin Ringel):</strong>\n                                <ul class=\"list-disc ml-4 text-slate-300 space-y-0.5 mt-1\">\n                                    <li>1. <strong>Dynamické zúžení:</strong> Zúžení perspektivy, vztahů, zájmů a volby řešení (tunelové vidění – 'není jiné cesty').</li>\n                                    <li>2. <strong>Invertovaná (zadržená) agresivita:</strong> Hněv a agrese nejsou ventilovány navenek, ale obracejí se proti vlastní osobě.</li>\n                                    <li>3. <strong>Suicidální fantazie:</strong> Představy o vlastní smrti a reakcích okolí, které se postupně mění v konkrétní plány.</li>\n                                </ul>\n                            </div>\n                            <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700\">\n                                <strong class=\"text-violet-300\">Stupně suicidálního jednání:</strong>\n                                <p class=\"text-slate-300 mt-1\">Pasivní myšlenky ➔ Suicidální úvahy ➔ Suicidální tendence s plánem ➔ Bilanční sebevražda vs. Impulzivní zkratková sebevražda ➔ Suicidální pokus (parasuicidium) ➔ Dokonaná sebevražda.</p>\n                                <p class=\"text-emerald-400 font-bold mt-2\">Postup při vysokém riziku: Okamžitá hospitalizace na uzavřeném oddělení (při nesouhlasu nedobrovolná hospitalizace s hlášením soudu do 24 h), režim zvýšeného/stálého dohledu (1 : 1), odstranění nebezpečných předmětů (tkaničky, pásky, léky), farmakoterapie (sedace + Lithium v dlouhodobé profylaxi / ECT u psychotické deprese).</p>\n                            </div>\n                        </div>\n                    "
+          },
+          {
+            "title": "3. Právní rámec nedobrovolné hospitalizace (§ 38 ZZS)",
+            "color": "indigo",
+            "content": "\n                        <div class=\"p-3 rounded-lg bg-slate-900 border border-slate-700 text-xs\">\n                            <p class=\"text-slate-300\">Zdravotnické zařízení může pacienta převzít do péče bez jeho písemného souhlasu, pokud:</p>\n                            <ul class=\"list-disc ml-4 mt-1 text-slate-300 space-y-0.5\">\n                                <li>Bezprostředně a vážně ohrožuje sebe nebo své okolí a jeví známky duševní poruchy nebo je pod vlivem návykové látky.</li>\n                                <li><strong>Zákonná lhůta hlášení:</strong> Oznámení soudu <strong>do 24 hodin</strong>. Soud do 7 dnů rozhodne o zákonnosti převzetí.</li>\n                            </ul>\n                        </div>\n                    "
+          }
+        ]
+      },
+      "recall": {
+        "scenarios": [
+          {
+            "id": "s16-r1",
+            "title": "Kazuistika S16: Akutní psychomotorický neklid s agresí na ambulanci",
+            "question": "Na psychiatrickou ambulanci přiváží policie 28letého muže pod vlivem neznámé látky. Pacient demoluje nábytek, vyhrožuje zabitím personálu, má rozšířené zornice, tep 135/min. Verbální deeskalace zcela selhává. Jaký je okamžitý farmakologický a organizační postup?",
+            "answer": "1. Zajištění bezpečnosti personálu (přítomnost policie / ochranky), 2. Aplikace rychle působící farmakologické sedace i.m. (např. Olanzapin 10 mg i.m. nebo Haloperidol 5 mg i.m. + Diazepam 10 mg i.m. do oddělených stříkaček), 3. Fyzická imobilizace (kurtace) pouze na nezbytně nutnou dobu do nástupu sedace s řádným zápisem do dokumentace, 4. Vyšetření EKG, glykémie a toxikologie moči k vyloučení somatické komplikace a přemístění na uzavřené lůžko (detence do 24 h).",
+            "pearl": "Kombinační pravidlo: Nikdy neaplikovat intramuskulární Olanzapin a Benzodiazepin současně pro riziko kardiorespirační zástavy."
+          }
+        ]
+      },
+      "cards": [
+        {
+          "id": "sc16-1",
+          "front": "Jaké 3 složky charakterizují Ringelův presuicidální syndrom?",
+          "back": "1. Dynamické zúžení (vztahů, zájmů, hodnot), 2. Invertovaná (zadržená) agresivita proti sobě, 3. Suicidální fantazie.",
+          "hint": "Ringelův syndrom",
+          "category": "vysetreni"
+        },
+        {
+          "id": "sc16-2",
+          "front": "Jaká kombinace léků je kontraindikována k současnému intramuskulárnímu podání pro riziko zástavy dechu?",
+          "back": "Olanzapin i.m. a Benzodiazepiny i.m. (např. Diazepam/Lorazepam) – nesmí se podávat společně!",
+          "hint": "Olanzapin + BZD i.m.",
+          "category": "farmakologie"
+        },
+        {
+          "id": "sc16-3",
+          "front": "Do kolika hodin musí nemocnice nahlásit soudu nedobrovolnou hospitalizaci agresivního či suicidálního pacienta?",
+          "back": "Do 24 hodin od přijetí (§ 40 Zákona o zdravotních službách).",
+          "hint": "Zákonná lhůta",
+          "category": "vysetreni"
+        }
+      ],
+      "quiz": [
+        {
+          "id": "s16-test1",
+          "question": "Co je prvním a základním krokem při kontaktu s neklidným, potenciálně agresivním psychiatrickým pacientem?",
+          "options": [
+            "Okamžitá fyzická kurtace čtyřbodovými popruhy bez varování",
+            "Verbální deeskalace v klidném tónu při zajištění bezpečné vzdálenosti a únikové cesty pro personál",
+            "Aplikace elektrokonvulze",
+            "Vyhrožování trestním oznámením"
+          ],
+          "correctIndex": 1,
+          "explanation": "Verbální deeskalace, klidný přístup a udržování bezpečné vzdálenosti jsou základním pilířem před přistoupením k farmakologickému či fyzickému omezení."
+        },
+        {
+          "id": "s16-test2",
+          "question": "Které z následujících opatření je NEZBYTNÉ při umístění pacienta s vysokým rizikem sebevraždy na lůžkové oddělení?",
+          "options": [
+            "Ponechání pacienta o samotě v neosvětlené místnosti bez kontrol",
+            "Zajištění režimu stálého dohledu (1:1 nebo v dosahu personálu) a odstranění nebezpečných předmětů (tkaničky, pásky, sklo, ostré předměty)",
+            "Umožnění volného vycházení z nemocnice bez doprovodu",
+            "Podání stimulancií k aktivaci"
+          ],
+          "correctIndex": 1,
+          "explanation": "Bezpečné prostředí a stálý dohled jsou klíčem k záchraně života pacienta v akutní suicidální krizi."
         }
       ]
     }

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Psychiatrie | Portál 4. ročníku LF OU</title>
-  <meta name="description" content="Komplexní interaktivní výukový portál obecné psychiatrie pro studenty 4. ročníku všeobecného lékařství LF OU. Psychopatologie, psychofarmakoterapie, Leitner Spaced Repetition a testové otázky.">
+  <meta name="description" content="Komplexní interaktivní výukový portál obecné a speciální psychiatrie pro studenty 4. ročníku všeobecného lékařství LF OU. Psychopatologie, psychofarmakoterapie, nozologie, Leitner Spaced Repetition a testové otázky.">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,7 +34,7 @@
             <span>Psychiatrie</span>
             <span class="grade-tag">4. ročník • LF OU</span>
           </h1>
-          <p class="brand-subtitle">Obecná psychiatrie • Psychopatologie • Psychofarmaka • Spaced Repetition</p>
+          <p class="brand-subtitle">Obecná & Speciální psychiatrie • Psychopatologie • Nozologie • Psychofarmaka • Spaced Repetition</p>
         </div>
       </div>
 
@@ -78,7 +78,7 @@
             <span>Prozkoumaná témata</span>
           </span>
           <div class="dash-main-val">
-            <span id="stat-explored-count">0</span> / <span id="stat-total-modules">16</span>
+            <span id="stat-explored-count">0</span> / <span id="stat-total-modules">32</span>
           </div>
           <div class="progress-track">
             <div class="progress-fill-bar" id="stat-explored-bar"></div>
@@ -114,7 +114,7 @@
               <div class="box-mini-sub">10 dní</div>
             </div>
           </div>
-          <span class="dash-subtext">Celkem <span id="stat-total-cards">48</span> flashcards v databázi</span>
+          <span class="dash-subtext">Celkem <span id="stat-total-cards">96</span> flashcards v databázi</span>
         </div>
 
         <!-- K opakování dnes -->
@@ -156,7 +156,7 @@
       <div class="mode-tabs" role="tablist">
         <button class="tab-btn active" role="tab" aria-selected="true" data-tab="theory" id="tab-theory">
           <span>📖</span>
-          <span>16 Okruhů & Teorie</span>
+          <span id="tab-theory-label">32 Okruhů & Teorie</span>
         </button>
         <button class="tab-btn" role="tab" aria-selected="false" data-tab="recall" id="tab-recall">
           <span>🎯</span>
@@ -164,11 +164,11 @@
         </button>
         <button class="tab-btn" role="tab" aria-selected="false" data-tab="flashcards" id="tab-flashcards">
           <span>⚡</span>
-          <span>Spaced Repetition (Karty)</span>
+          <span>Spaced Repetition (96 Kartiček)</span>
         </button>
         <button class="tab-btn" role="tab" aria-selected="false" data-tab="quiz" id="tab-quiz">
           <span>📝</span>
-          <span>Cvičný test & Kvíz</span>
+          <span>Cvičný test (64 Otázek)</span>
         </button>
         <button class="tab-btn" role="tab" aria-selected="false" data-tab="cheatsheet" id="tab-cheatsheet">
           <span>📑</span>
@@ -177,14 +177,32 @@
       </div>
     </section>
 
-    <!-- Ovládací lišta: Vyhledávání & Kategorie -->
+    <!-- Ovládací lišta: Sekce, Vyhledávání & Kategorie -->
     <section class="controls-bar" id="controls-bar">
-      <div class="search-box">
-        <span class="search-icon" aria-hidden="true">🔍</span>
-        <input type="text" id="search-input" class="search-input" placeholder="Hledat v otázkách, lécích, syndromech..." aria-label="Vyhledávání v psychiatrii">
+      <!-- Přepínač sekce (Obecná vs Speciální vs Vše) -->
+      <div class="section-switch-wrapper" id="section-switch-wrapper" role="radiogroup" aria-label="Výběr státnicového okruhu">
+        <button class="section-pill active" data-section="all" aria-checked="true" role="radio">
+          <span>📚</span>
+          <span>Všechny okruhy (32)</span>
+        </button>
+        <button class="section-pill" data-section="obecna" aria-checked="false" role="radio">
+          <span>🧠</span>
+          <span>Obecná psychiatrie (16)</span>
+        </button>
+        <button class="section-pill" data-section="specialni" aria-checked="false" role="radio">
+          <span>🏥</span>
+          <span>Speciální psychiatrie (16)</span>
+        </button>
       </div>
-      <div class="category-pills" id="category-pills" role="group" aria-label="Filtrování kategorií">
-        <!-- Dynamicky generované pills -->
+
+      <div class="search-filter-row">
+        <div class="search-box">
+          <span class="search-icon" aria-hidden="true">🔍</span>
+          <input type="text" id="search-input" class="search-input" placeholder="Hledat v otázkách, lécích, syndromech (např. SSRI, schizofrenie, delirium, lithium)..." aria-label="Vyhledávání v psychiatrii">
+        </div>
+        <div class="category-pills" id="category-pills" role="group" aria-label="Filtrování témat">
+          <!-- Dynamicky generované pills -->
+        </div>
       </div>
     </section>
 
@@ -220,7 +238,7 @@
             <button class="grade-btn easy" data-grade="easy" title="Naprosto snadné – zvládnuto">Snadné (4)</button>
           </div>
           <div style="text-align: center; margin-top: 14px; font-size: 0.85rem; color: var(--text-muted);">
-            Karta <span id="fc-current-idx">1</span> z <span id="fc-total-count">48</span> • Klávesy: Mezerník = otočit, 1–4 = hodnocení
+            Karta <span id="fc-current-idx">1</span> z <span id="fc-total-count">96</span> • Klávesy: Mezerník = otočit, 1–4 = hodnocení
           </div>
         </div>
       </section>
