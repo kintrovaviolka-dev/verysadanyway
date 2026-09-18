@@ -815,9 +815,9 @@
     setTimeout(function() {
       // Vytvoření elementu pop-upu
       const popupHtml = `
-        <div id="support-popup-toast" class="support-popup-toast">
+        <div id="support-popup-toast" class="support-popup-toast" role="dialog" aria-modal="true" aria-labelledby="support-popup-title-id">
           <div class="support-popup-header">
-            <h4 class="support-popup-title">Líbí se ti portál? ☕</h4>
+            <h4 id="support-popup-title-id" class="support-popup-title">Líbí se ti portál? ☕</h4>
             <button id="support-popup-close" class="support-popup-close-btn" aria-label="Zavřít">&times;</button>
           </div>
           <p class="support-popup-body">
