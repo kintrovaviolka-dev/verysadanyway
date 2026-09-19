@@ -27,7 +27,7 @@ const PATFYZ_EXAM_QUESTIONS = [
   {
     "id": "pf-gen-5",
     "category": "Obecná patofyziologie",
-    "title": "Hypovolemický šok. Hemoragický šok-etiopatogeneze a následky.",
+    "title": "Hypovolemický šok. Hemoragický šok - etiopatogeneze a následky.",
     "organSystem": "Ostatní / Systémové procesy"
   },
   {
@@ -45,7 +45,7 @@ const PATFYZ_EXAM_QUESTIONS = [
   {
     "id": "pf-gen-8",
     "category": "Obecná patofyziologie",
-    "title": "Systémová zánětlivá odpověď- etiopatogeneze, následky.",
+    "title": "Systémová zánětlivá odpověď - etiopatogeneze, následky.",
     "organSystem": "Ostatní / Systémové procesy"
   },
   {
@@ -117,7 +117,7 @@ const PATFYZ_EXAM_QUESTIONS = [
   {
     "id": "pf-gen-20",
     "category": "Obecná patofyziologie",
-    "title": "Šok-definice, etiopatogeneze, rozdělení.",
+    "title": "Šok - definice, etiopatogeneze, rozdělení.",
     "organSystem": "Ostatní / Systémové procesy"
   },
   {
@@ -207,7 +207,7 @@ const PATFYZ_EXAM_QUESTIONS = [
   {
     "id": "pf-gen-35",
     "category": "Obecná patofyziologie",
-    "title": "Ikterus- etiopatogeneze.",
+    "title": "Ikterus - etiopatogeneze.",
     "organSystem": "Gastroenterologie a hepatologie"
   },
   {
@@ -681,7 +681,7 @@ const PATFYZ_EXAM_QUESTIONS = [
   {
     "id": "pf-spec2-14",
     "category": "Speciální II. (GIT, Endo, Neuro, Loko)",
-    "title": "Onemocnění žlučníku a žlučových cest-cholecystitida a cholangoitida. Cholecystolitiáza a choledocholitiáza - etiopatogeneze, projevy, následky",
+    "title": "Onemocnění žlučníku a žlučových cest - cholecystitida a cholangoitida. Cholecystolitiáza a choledocholitiáza - etiopatogeneze, projevy, následky",
     "organSystem": "Gastroenterologie a hepatologie"
   },
   {
@@ -717,7 +717,7 @@ const PATFYZ_EXAM_QUESTIONS = [
   {
     "id": "pf-spec2-20",
     "category": "Speciální II. (GIT, Endo, Neuro, Loko)",
-    "title": "Nespecifická zánětlivá onemocnění střev-Crohnova choroba, ulcerativní kolitida",
+    "title": "Nespecifická zánětlivá onemocnění střev - Crohnova choroba, ulcerativní kolitida",
     "organSystem": "Gastroenterologie a hepatologie"
   },
   {
@@ -813,7 +813,7 @@ const PATFYZ_EXAM_QUESTIONS = [
   {
     "id": "pf-spec2-36",
     "category": "Speciální II. (GIT, Endo, Neuro, Loko)",
-    "title": "Onemocnění tlustého střeva divertikulóza, polypóza a karcinom- etiopatogeneze a následky. Ileus - etiopatogeneze, projevy, následky",
+    "title": "Onemocnění tlustého střeva divertikulóza, polypóza a karcinom - etiopatogeneze a následky. Ileus - etiopatogeneze, projevy, následky",
     "organSystem": "Gastroenterologie a hepatologie"
   },
   {
