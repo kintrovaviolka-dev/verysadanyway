@@ -3207,3 +3207,7 @@ const MIKRA_QUESTIONS = [
     }
 }
 ];
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = MIKRA_QUESTIONS;
+}

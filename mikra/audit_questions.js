@@ -1,8 +1,5 @@
-const fs = require('fs');
-const code = fs.readFileSync('./mikra/data_mikra.js', 'utf8');
-eval(code + '; global.MIKRA_QUESTIONS = MIKRA_QUESTIONS;');
+const questions = require('./data_mikra.js');
 
-const questions = global.MIKRA_QUESTIONS;
 console.log('==================================================');
 console.log(`TOTAL DUAL-QUESTIONS: ${questions.length}`);
 console.log('==================================================');
