@@ -2330,7 +2330,7 @@ Nesmí se dotknout jazyka ani dutiny ústní
 
 Rychlý streptokokový test – průkaz N- acetylglukosaminu, negativní výsledek vyžaduje potvrzení kultivací
 
-Kultivace – barvení dle Gramma nemá význam
+Kultivace – barvení dle Grama nemá význam
 
 * + - * **SPÁLA, SKARLATINA**
         + Spála = tonsilofaryngitida komplikovaná produkcí spálového toxinu
@@ -2374,7 +2374,7 @@ Typu) -> ukládání v ledvinách
       * stěr z mandlí a zadní stěny hltanu
       * nalačno
     - Přímý průkaz - kultivace
-      * na krevní agaru, poté mikroskopie – barvení dle Gramma ->
+      * na krevní agaru, poté mikroskopie – barvení dle Grama ->
 
 viditelné řetízky
 

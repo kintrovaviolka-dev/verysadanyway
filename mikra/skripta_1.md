@@ -572,7 +572,7 @@ karbapenemy, fluorochinoly
 
 -bez pevného zařazení
 
--hlavně Acinetobacter Baumanii (fenotypově neodlišný od Acinetobacter Calcoaceticus)
+-hlavně Acinetobacter baumannii (fenotypově neodlišný od Acinetobacter calcoaceticus)
 
 -typicky u lidi s popáleninami, poruchami imunity, nemocniční prostředí
 
