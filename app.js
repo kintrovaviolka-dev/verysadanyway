@@ -689,6 +689,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const yCenter = window.innerHeight / 2;
     const colors = ['#fbbf24', '#a78bfa', '#3b82f6', '#2dd4bf', '#f87171'];
     
+    const fragment = document.createDocumentFragment();
+    const particles = [];
+
     for (let i = 0; i < 40; i++) {
       const particle = document.createElement('div');
       particle.className = 'confetti-particle';
@@ -712,9 +715,14 @@ document.addEventListener("DOMContentLoaded", () => {
       particle.style.setProperty('--y', `${yDest}px`);
       particle.style.setProperty('--r', rotation);
       
-      document.body.appendChild(particle);
-      setTimeout(() => particle.remove(), 1200);
+      fragment.appendChild(particle);
+      particles.push(particle);
     }
+
+    document.body.appendChild(fragment);
+    setTimeout(() => {
+      particles.forEach(p => p.remove());
+    }, 1200);
   };
 
 
@@ -725,6 +733,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const yCenter = rect.top + rect.height / 2 + window.scrollY;
 
     const colors = ['#2dd4bf', '#a78bfa', '#3b82f6', '#fbbf24', '#f87171'];
+
+    const fragment = document.createDocumentFragment();
+    const particles = [];
+
     for (let i = 0; i < 30; i++) {
       const particle = document.createElement('div');
       particle.className = 'confetti-particle';
@@ -751,12 +763,15 @@ document.addEventListener("DOMContentLoaded", () => {
       
       particle.style.animationDelay = `${Math.random() * 0.1}s`;
       
-      document.body.appendChild(particle);
-      
-      setTimeout(() => {
-        particle.remove();
-      }, 1200);
+      fragment.appendChild(particle);
+      particles.push(particle);
     }
+
+    document.body.appendChild(fragment);
+
+    setTimeout(() => {
+      particles.forEach(p => p.remove());
+    }, 1200);
   };
 
   // ==========================================
