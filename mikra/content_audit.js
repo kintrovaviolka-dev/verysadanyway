@@ -1,8 +1,4 @@
-const fs = require('fs');
-const code = fs.readFileSync('./mikra/data_mikra.js', 'utf8');
-eval(code + '; global.MIKRA_QUESTIONS = MIKRA_QUESTIONS;');
-
-const questions = global.MIKRA_QUESTIONS;
+const questions = require('./data_mikra.js');
 
 console.log('=== MEDICAL CONTENT AUDIT OF 40 DUAL-QUESTIONS ===');
 
