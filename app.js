@@ -938,7 +938,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const contentDiv = document.createElement("div");
     contentDiv.className = "message-content";
     if (role === "assistant") {
-      contentDiv.innerHTML = parseMarkdown(text);
+      contentDiv.innerHTML = DOMPurify.sanitize(parseMarkdown(text));
     } else {
       contentDiv.textContent = text;
     }
@@ -1179,7 +1179,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const onChunk = (text) => {
         responseText += text;
         if (contentDiv) {
-          contentDiv.innerHTML = parseMarkdown(responseText);
+          contentDiv.innerHTML = DOMPurify.sanitize(parseMarkdown(responseText));
           scrollToBottom();
         }
       };
