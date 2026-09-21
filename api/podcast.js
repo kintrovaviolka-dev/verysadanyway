@@ -308,7 +308,7 @@ router.post('/generate-audio', validateAccess, validateCaptcha, async (req, res)
       // Uložit dočasné audio
       const chunkBuffer = Buffer.from(await response.arrayBuffer());
       const chunkPath = path.join(tempAudioDir, `temp_${sessionToken}_${i}.mp3`);
-      fs.writeFileSync(chunkPath, chunkBuffer);
+      await fs.promises.writeFile(chunkPath, chunkBuffer);
       tempFiles.push(chunkPath);
     }
 
@@ -319,14 +319,14 @@ router.post('/generate-audio', validateAccess, validateCaptcha, async (req, res)
     // Vytvořit seznam pro ffmpeg concat
     const listFilePath = path.join(tempAudioDir, `list_${sessionToken}.txt`);
     const listContent = tempFiles.map(f => `file '${path.resolve(f)}'`).join('\n');
-    fs.writeFileSync(listFilePath, listContent, 'utf8');
+    await fs.promises.writeFile(listFilePath, listContent, 'utf8');
 
     // Spustit ffmpeg sloučení bez re-enkódování (rychlé a bezeztrátové)
     await new Promise((resolve, reject) => {
       exec(`ffmpeg -y -f concat -safe 0 -i "${listFilePath}" -c copy "${finalOutputPath}"`, (error, stdout, stderr) => {
         // Vždy smazat seznam
         try {
-          fs.unlinkSync(listFilePath);
+          fs.promises.unlink(listFilePath).catch(() => {});
         } catch (e) {}
 
         if (error) {
