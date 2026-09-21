@@ -3590,7 +3590,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
       "Generalizovaný edém a dušnost",
       "Horečka",
       "Bledá vlhká kůže",
-      "Infekce grammnegativními mikroorganizmy",
+      "Infekce gramnegativními mikroorganizmy",
       "Edém plic"
     ],
     "correct": 2
