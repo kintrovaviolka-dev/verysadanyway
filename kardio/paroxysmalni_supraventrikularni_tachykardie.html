@@ -1445,6 +1445,9 @@
           btn.classList.remove('active');
         }
       });
+      if (targetTab === 'theory' && currentTheorySub === 'ecg') {
+        setTimeout(resizeCanvas, 30);
+      }
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -1462,7 +1465,8 @@
         }
       });
       if (targetSub === 'ecg') {
-        setTimeout(resizeCanvas, 50);
+        setTimeout(resizeCanvas, 30);
+        updateEcgLabels();
       }
     }
 
@@ -1470,18 +1474,35 @@
     // HTML5 CANVAS ECG OSCILLOSCOPE SIMULATOR
     // ==========================================
     const canvas = document.getElementById('ecgCanvas');
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas ? canvas.getContext('2d') : null;
     let scanX = 0;
     let historyPoints = [];
     let animationId = null;
+    let timeStep = 0;
 
     function resizeCanvas() {
       if (!canvas || !canvas.parentElement) return;
-      canvas.width = canvas.parentElement.clientWidth;
-      canvas.height = canvas.parentElement.clientHeight;
-      historyPoints = new Array(canvas.width).fill(null);
+      const rect = canvas.parentElement.getBoundingClientRect();
+      const parentW = Math.floor(rect.width) || canvas.parentElement.clientWidth || 0;
+      const parentH = Math.floor(rect.height) || canvas.parentElement.clientHeight || 240;
+      
+      if (parentW > 0 && parentH > 0) {
+        if (canvas.width !== parentW || canvas.height !== parentH) {
+          canvas.width = parentW;
+          canvas.height = parentH;
+          historyPoints = new Array(parentW).fill(null);
+          scanX = 0;
+        }
+      }
     }
+
     window.addEventListener('resize', resizeCanvas);
+    if (window.ResizeObserver && canvas && canvas.parentElement) {
+      const ro = new ResizeObserver(() => {
+        resizeCanvas();
+      });
+      ro.observe(canvas.parentElement);
+    }
 
     function setEcgRhythm(rhythm) {
       currentRhythm = rhythm;
@@ -1499,136 +1520,221 @@
 
     function updateEcgLabels() {
       const dict = I18N_DATA[currentLang];
+      if (!dict || !dict.ecgPresets) return;
       const preset = dict.ecgPresets[currentRhythm];
       if (preset) {
-        document.getElementById('canvas-live-label').innerText = `${preset.title} | 25 mm/s, 10 mm/mV`;
-        document.getElementById('ecg-explanation-box').innerHTML = preset.explanation;
+        const labelEl = document.getElementById('canvas-live-label');
+        if (labelEl) labelEl.innerText = `${preset.title} | 25 mm/s, 10 mm/mV`;
+        const explEl = document.getElementById('ecg-explanation-box');
+        if (explEl) explEl.innerHTML = preset.explanation;
       }
     }
 
     function getEcgY(t, rhythm) {
-      const mid = canvas.height / 2;
-      const scale = canvas.height * 0.38;
+      const h = (canvas && canvas.height > 0) ? canvas.height : 240;
+      const mid = h / 2;
+      const scale = h * 0.36;
 
       if (rhythm === 'sinus') {
-        const period = 120; // ~75 bpm
+        const period = 90; // ~75-80 bpm
         const phase = t % period;
-        // P wave
-        if (phase > 20 && phase < 35) {
-          return mid - Math.sin((phase - 20) / 15 * Math.PI) * (scale * 0.2);
+        
+        // P wave (phase 12..26)
+        if (phase >= 12 && phase < 26) {
+          return mid - Math.sin((phase - 12) / 14 * Math.PI) * (scale * 0.18);
         }
-        // QRS
-        if (phase >= 50 && phase < 53) return mid + (scale * 0.15); // Q
-        if (phase >= 53 && phase < 58) return mid - (scale * 1.0);  // R
-        if (phase >= 58 && phase < 63) return mid + (scale * 0.35); // S
-        // T wave
-        if (phase > 80 && phase < 105) {
-          return mid - Math.sin((phase - 80) / 25 * Math.PI) * (scale * 0.28);
+        // PR segment isoelectric (phase 26..38)
+        if (phase >= 26 && phase < 38) return mid;
+        // Q wave (phase 38..41)
+        if (phase >= 38 && phase < 41) return mid + (scale * 0.12);
+        // R peak (phase 41..47)
+        if (phase >= 41 && phase < 44) return mid - ((phase - 41) / 3) * (scale * 0.95);
+        if (phase >= 44 && phase < 47) return mid - (scale * 0.95) + ((phase - 44) / 3) * (scale * 1.25);
+        // S wave (phase 47..51)
+        if (phase >= 47 && phase < 51) return mid + (scale * 0.3) - ((phase - 47) / 4) * (scale * 0.3);
+        // ST segment isoelectric (phase 51..60)
+        if (phase >= 51 && phase < 60) return mid;
+        // T wave (phase 60..80)
+        if (phase >= 60 && phase < 80) {
+          return mid - Math.sin((phase - 60) / 20 * Math.PI) * (scale * 0.28);
         }
         return mid;
       } 
       else if (rhythm === 'avnrt') {
-        const period = 50; // fast rate (~180 bpm)
+        const period = 38; // ~180 bpm rapid SVT
         const phase = t % period;
-        // Hidden P in QRS / pseudo-r'
-        if (phase >= 15 && phase < 17) return mid + (scale * 0.1);
-        if (phase >= 17 && phase < 21) return mid - (scale * 1.0); // R
-        if (phase >= 21 && phase < 24) return mid + (scale * 0.4); // S
-        if (phase >= 24 && phase < 27) return mid - (scale * 0.18); // pseudo-r'
-        // T wave
-        if (phase > 30 && phase < 45) {
-          return mid - Math.sin((phase - 30) / 15 * Math.PI) * (scale * 0.25);
+        
+        // Q dip (phase 4..6)
+        if (phase >= 4 && phase < 6) return mid + (scale * 0.1);
+        // Steep narrow R wave (phase 6..12)
+        if (phase >= 6 && phase < 9) return mid - ((phase - 6) / 3) * (scale * 0.95);
+        if (phase >= 9 && phase < 12) return mid - (scale * 0.95) + ((phase - 9) / 3) * (scale * 1.3);
+        // S wave dip + pseudo-r' notch (retrograde P buried at J-point) (phase 12..18)
+        if (phase >= 12 && phase < 15) return mid + (scale * 0.35);
+        if (phase >= 15 && phase < 18) return mid - (scale * 0.22);
+        // T wave with slight ST depression (phase 18..32)
+        if (phase >= 18 && phase < 32) {
+          return mid + (scale * 0.08) - Math.sin((phase - 18) / 14 * Math.PI) * (scale * 0.22);
         }
         return mid;
       }
       else if (rhythm === 'wpw') {
-        const period = 110;
+        const period = 85; // ~80 bpm
         const phase = t % period;
-        // P wave
-        if (phase > 15 && phase < 28) {
-          return mid - Math.sin((phase - 15) / 13 * Math.PI) * (scale * 0.18);
+        
+        // P wave (phase 10..22)
+        if (phase >= 10 && phase < 22) {
+          return mid - Math.sin((phase - 10) / 12 * Math.PI) * (scale * 0.16);
         }
-        // Short PR + Delta wave (phase 30-38)
-        if (phase >= 30 && phase < 38) {
-          const deltaProg = (phase - 30) / 8;
-          return mid - deltaProg * (scale * 0.38);
+        // Short PR: Delta wave starts immediately without isoelectric gap! (phase 22..30)
+        if (phase >= 22 && phase < 30) {
+          const dProg = (phase - 22) / 8;
+          return mid - dProg * (scale * 0.42);
         }
-        // R peak
-        if (phase >= 38 && phase < 43) return mid - (scale * 0.95);
-        if (phase >= 43 && phase < 48) return mid + (scale * 0.3);
-        // T wave
-        if (phase > 65 && phase < 90) {
-          return mid - Math.sin((phase - 65) / 25 * Math.PI) * (scale * 0.28);
+        // Steep R peak (phase 30..37)
+        if (phase >= 30 && phase < 33) {
+          const rProg = (phase - 30) / 3;
+          return mid - (scale * 0.42) - rProg * (scale * 0.58);
+        }
+        if (phase >= 33 && phase < 37) {
+          const sProg = (phase - 33) / 4;
+          return mid - (scale * 1.0) + sProg * (scale * 1.3);
+        }
+        // Wide S wave (phase 37..43)
+        if (phase >= 37 && phase < 43) {
+          return mid + (scale * 0.3) - ((phase - 37) / 6) * (scale * 0.3);
+        }
+        // Secondary ST-T wave changes (phase 43..70)
+        if (phase >= 43 && phase < 70) {
+          return mid + (scale * 0.06) - Math.sin((phase - 43) / 27 * Math.PI) * (scale * 0.24);
         }
         return mid;
       }
       else if (rhythm === 'vt') {
-        const period = 55; // 170 bpm
+        const period = 42; // ~170 bpm broad bizarre VT complexes
         const phase = t % period;
-        const sineVal = Math.sin((phase / period) * Math.PI * 2);
-        return mid + sineVal * (scale * 0.85);
+        
+        if (phase < 16) {
+          const notch = (phase > 6 && phase < 10) ? Math.sin((phase - 6) / 4 * Math.PI) * (scale * 0.12) : 0;
+          return mid - Math.sin(phase / 16 * Math.PI) * (scale * 0.85) + notch;
+        } else if (phase >= 16 && phase < 36) {
+          return mid + Math.sin((phase - 16) / 20 * Math.PI) * (scale * 0.65);
+        }
+        return mid;
       }
       return mid;
     }
 
-    let timeStep = 0;
     function drawEcg() {
-      if (!canvas || canvas.width === 0) {
+      if (!canvas || !ctx) {
         animationId = requestAnimationFrame(drawEcg);
         return;
       }
 
-      // Dark background
-      ctx.fillStyle = '#020617';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      // Check if canvas dimensions need update
+      if (canvas.width === 0 || canvas.height === 0 || (canvas.parentElement && canvas.parentElement.clientWidth > 0 && Math.floor(canvas.parentElement.clientWidth) !== canvas.width)) {
+        resizeCanvas();
+        if (canvas.width === 0 || canvas.height === 0) {
+          animationId = requestAnimationFrame(drawEcg);
+          return;
+        }
+      }
 
-      // Grid Lines
-      ctx.strokeStyle = 'rgba(16, 185, 129, 0.08)';
+      const w = canvas.width;
+      const h = canvas.height;
+      const mid = h / 2;
+
+      // 1. Dark monitor background with subtle gradient
+      const bgGrad = ctx.createLinearGradient(0, 0, 0, h);
+      bgGrad.addColorStop(0, '#020617');
+      bgGrad.addColorStop(1, '#091326');
+      ctx.fillStyle = bgGrad;
+      ctx.fillRect(0, 0, w, h);
+
+      // 2. Realistic ECG Grid Lines
+      // Minor grid (1 mm ~ 8 px)
+      ctx.strokeStyle = 'rgba(16, 185, 129, 0.06)';
+      ctx.lineWidth = 0.6;
+      const minorGrid = 8;
+      for (let x = 0; x < w; x += minorGrid) {
+        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
+      }
+      for (let y = 0; y < h; y += minorGrid) {
+        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
+      }
+
+      // Major grid (5 mm ~ 40 px)
+      ctx.strokeStyle = 'rgba(16, 185, 129, 0.18)';
       ctx.lineWidth = 1;
-      const gridSize = 16;
-      for (let x = 0; x < canvas.width; x += gridSize) {
-        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
+      const majorGrid = 40;
+      for (let x = 0; x < w; x += majorGrid) {
+        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
       }
-      for (let y = 0; y < canvas.height; y += gridSize) {
-        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(canvas.width, y); ctx.stroke();
-      }
-
-      // Update Sweep Point
-      timeStep += 1;
-      const yVal = getEcgY(timeStep, currentRhythm);
-      scanX = (scanX + 2) % canvas.width;
-      historyPoints[scanX] = yVal;
-
-      // Erase ahead of sweep line
-      for (let i = 1; i <= 18; i++) {
-        const clearIdx = (scanX + i) % canvas.width;
-        historyPoints[clearIdx] = null;
+      for (let y = 0; y < h; y += majorGrid) {
+        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
       }
 
-      // Draw Trace
+      // 3. Advance sweep cursor & fill continuous data
+      const speed = 2; // Sweep speed in pixels per frame
+      const lastX = scanX;
+      scanX = (scanX + speed) % w;
+
+      if (scanX > lastX) {
+        for (let x = lastX; x <= scanX; x++) {
+          timeStep += 1;
+          historyPoints[x] = getEcgY(timeStep, currentRhythm);
+        }
+      } else {
+        for (let x = lastX; x < w; x++) {
+          timeStep += 1;
+          historyPoints[x] = getEcgY(timeStep, currentRhythm);
+        }
+        for (let x = 0; x <= scanX; x++) {
+          timeStep += 1;
+          historyPoints[x] = getEcgY(timeStep, currentRhythm);
+        }
+      }
+
+      // Erase gap ahead of sweep line (CRT electron beam phosphor gap)
+      const eraseGap = 26;
+      for (let i = 1; i <= eraseGap; i++) {
+        historyPoints[(scanX + i) % w] = null;
+      }
+
+      // 4. Draw continuous glowing ECG Trace
       ctx.strokeStyle = '#10b981';
       ctx.lineWidth = 2.4;
       ctx.lineCap = 'round';
       ctx.lineJoin = 'round';
-      ctx.shadowBlur = 8;
+      ctx.shadowBlur = 7;
       ctx.shadowColor = '#34d399';
 
       ctx.beginPath();
-      let isDrawing = false;
-      for (let x = 0; x < canvas.width; x++) {
-        const pt = historyPoints[x];
-        if (pt !== null && pt !== undefined) {
-          if (!isDrawing) {
-            ctx.moveTo(x, pt);
-            isDrawing = true;
+      let segmentStarted = false;
+      for (let x = 0; x < w; x++) {
+        const y = historyPoints[x];
+        if (y !== null && y !== undefined) {
+          if (!segmentStarted) {
+            ctx.moveTo(x, y);
+            segmentStarted = true;
           } else {
-            ctx.lineTo(x, pt);
+            ctx.lineTo(x, y);
           }
         } else {
-          isDrawing = false;
+          segmentStarted = false;
         }
       }
       ctx.stroke();
+      ctx.shadowBlur = 0;
+
+      // 5. Leading sweep electron beam head (bright glowing pulse dot)
+      const currentY = (historyPoints[scanX] !== null && historyPoints[scanX] !== undefined) ? historyPoints[scanX] : mid;
+      ctx.fillStyle = '#ffffff';
+      ctx.shadowBlur = 12;
+      ctx.shadowColor = '#a7f3d0';
+      ctx.beginPath();
+      ctx.arc(scanX, currentY, 3.2, 0, Math.PI * 2);
+      ctx.fill();
       ctx.shadowBlur = 0;
 
       animationId = requestAnimationFrame(drawEcg);
