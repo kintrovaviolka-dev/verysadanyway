@@ -315,7 +315,7 @@ const PATFYZ_EXAM_QUESTIONS = [
   {
     "id": "pf-spec1-3",
     "category": "Speciální I. (Kardio, Resp, Nefro, Hema)",
-    "title": "Základní charakteristika plicních onemocnění: obstrukce a restrikce etiopatogeneze",
+    "title": "Základní charakteristika plicních onemocnění: obstrukce a restrikce - etiopatogeneze",
     "organSystem": "Respirační systém"
   },
   {
@@ -333,7 +333,7 @@ const PATFYZ_EXAM_QUESTIONS = [
   {
     "id": "pf-spec1-6",
     "category": "Speciální I. (Kardio, Resp, Nefro, Hema)",
-    "title": "Systémová arteriální hypotenze etiopatogeneze a následky",
+    "title": "Systémová arteriální hypotenze - etiopatogeneze a následky",
     "organSystem": "Kardiovaskulární systém"
   },
   {
@@ -381,7 +381,7 @@ const PATFYZ_EXAM_QUESTIONS = [
   {
     "id": "pf-spec1-14",
     "category": "Speciální I. (Kardio, Resp, Nefro, Hema)",
-    "title": "Primární (esenciální) hypertenze etiopatogeneze, akutní a chronické komplikace, následky",
+    "title": "Primární (esenciální) hypertenze - etiopatogeneze, akutní a chronické komplikace, následky",
     "organSystem": "Kardiovaskulární systém"
   },
   {
@@ -441,7 +441,7 @@ const PATFYZ_EXAM_QUESTIONS = [
   {
     "id": "pf-spec1-24",
     "category": "Speciální I. (Kardio, Resp, Nefro, Hema)",
-    "title": "Plicní edém etiopatogeneze, rozdělení, projevy, následky",
+    "title": "Plicní edém - etiopatogeneze, rozdělení, projevy, následky",
     "organSystem": "Respirační systém"
   },
   {
@@ -573,7 +573,7 @@ const PATFYZ_EXAM_QUESTIONS = [
   {
     "id": "pf-spec1-46",
     "category": "Speciální I. (Kardio, Resp, Nefro, Hema)",
-    "title": "Atelektáza. etiopatogeneze, projevy, následky",
+    "title": "Atelektáza - etiopatogeneze, projevy, následky",
     "organSystem": "Respirační systém"
   },
   {
