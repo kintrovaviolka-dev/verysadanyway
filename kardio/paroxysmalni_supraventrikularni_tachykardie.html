@@ -1,0 +1,1915 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">Guía Clínica: Taquicardia Supraventricular Paroxística (TSVP) | Módulo Interactivo</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Outfit', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            medblue: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              500: '#0284c7',
+              600: '#0369a1',
+              700: '#075985',
+              800: '#075985',
+              900: '#0c4a6e',
+            },
+            heartred: '#e11d48',
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    .perspective { perspective: 1000px; }
+    .transform-style-3d { transform-style: preserve-3d; }
+    .backface-hidden { 
+      backface-visibility: hidden; 
+      -webkit-backface-visibility: hidden; 
+    }
+    .rotate-y-180 { transform: rotateY(180deg); }
+    
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+    .glow-effect {
+      box-shadow: 0 0 25px -5px rgba(2, 132, 199, 0.15);
+    }
+    
+    .tab-btn.active {
+      background-color: #ffffff;
+      color: #0369a1;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col font-sans">
+
+  <!-- ================= HEADER ================= -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm backdrop-blur-md bg-white/90">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap justify-between items-center gap-3">
+      
+      <!-- Brand & Title -->
+      <div class="flex items-center space-x-3">
+        <a href="index.html" class="w-10 h-10 rounded-xl bg-gradient-to-tr from-rose-600 via-medblue-600 to-sky-500 flex items-center justify-center text-white shadow-md hover:scale-105 transition-transform" title="Portal Kardiologie / Cardiología">
+          <svg class="w-6 h-6 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+          </svg>
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-base sm:text-lg font-heading font-bold text-slate-900 leading-tight" id="header-title">
+              Taquicardia Supraventricular Paroxística (TSVP)
+            </h1>
+            <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-md bg-rose-100 text-rose-700">ESC & AFP 2023</span>
+          </div>
+          <p class="text-xs text-slate-500" id="header-subtitle">Guías Am Fam Physician 2023 (Nasir et al.) y Guías ESC</p>
+        </div>
+      </div>
+
+      <!-- Controls & Navigation -->
+      <div class="flex items-center gap-3">
+        
+        <!-- Language Switcher (ES default / CS) -->
+        <div class="flex items-center bg-slate-100 p-1 rounded-xl border border-slate-200 shadow-inner">
+          <button onclick="setLanguage('es')" id="lang-btn-es" class="px-2.5 py-1 text-xs font-bold rounded-lg transition-all flex items-center gap-1 bg-white shadow-sm text-sky-700">
+            <span>🇪🇸</span>
+            <span>ES</span>
+          </button>
+          <button onclick="setLanguage('cs')" id="lang-btn-cs" class="px-2.5 py-1 text-xs font-bold rounded-lg transition-all flex items-center gap-1 text-slate-600 hover:text-slate-900">
+            <span>🇨🇿</span>
+            <span>CZ</span>
+          </button>
+        </div>
+
+        <a href="index.html" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 text-xs font-semibold text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors" id="nav-hub-link">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span id="hub-btn-text">Portal Kardiologie</span>
+        </a>
+
+      </div>
+      
+      <!-- Main Tabs Navigation -->
+      <nav class="w-full flex space-x-1 bg-slate-100 p-1.5 rounded-xl text-xs font-semibold overflow-x-auto">
+        <button onclick="switchTab('theory')" id="btn-theory" class="tab-btn active px-3.5 py-2 rounded-lg transition-all flex items-center gap-1.5 whitespace-nowrap">
+          <svg class="w-4 h-4 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+          <span id="tab-label-1">1. Texto Didáctico y Visuales</span>
+        </button>
+        <button onclick="switchTab('recall')" id="btn-recall" class="tab-btn px-3.5 py-2 rounded-lg transition-all text-slate-600 hover:text-slate-900 flex items-center gap-1.5 whitespace-nowrap">
+          <svg class="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+          <span id="tab-label-2">2. Active Recall</span>
+        </button>
+        <button onclick="switchTab('summary')" id="btn-summary" class="tab-btn px-3.5 py-2 rounded-lg transition-all text-slate-600 hover:text-slate-900 flex items-center gap-1.5 whitespace-nowrap">
+          <svg class="w-4 h-4 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+          <span id="tab-label-3">3. Resumen Final y Perlas</span>
+        </button>
+        <button onclick="switchTab('quiz')" id="btn-quiz" class="tab-btn px-3.5 py-2 rounded-lg transition-all text-slate-600 hover:text-slate-900 flex items-center gap-1.5 whitespace-nowrap">
+          <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <span id="tab-label-4">4. Test de Casos Clínicos</span>
+        </button>
+        <button onclick="switchTab('flashcards')" id="btn-flashcards" class="tab-btn px-3.5 py-2 rounded-lg transition-all text-slate-600 hover:text-slate-900 flex items-center gap-1.5 whitespace-nowrap">
+          <svg class="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+          <span id="tab-label-5">5. Tarjetas de Memoria (3D)</span>
+        </button>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- ================= MAIN CONTAINER ================= -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+    <!-- ======================================================== -->
+    <!-- PASO 1: TEXTO DIDÁCTICO & ATLAS INTERACTIVO              -->
+    <!-- ======================================================== -->
+    <section id="sec-theory" class="space-y-6">
+      
+      <!-- Sub-navegación de Teoría -->
+      <div class="flex border-b border-slate-200 gap-4 sm:gap-6 text-xs sm:text-sm font-semibold overflow-x-auto pb-1">
+        <button onclick="switchTheorySub('types')" id="sub-types" class="theory-sub-btn pb-3 text-sky-600 border-b-2 border-sky-600 whitespace-nowrap">
+          <span id="sub-label-types">1. Tipos y Mecanismos de TSVP</span>
+        </button>
+        <button onclick="switchTheorySub('ecg')" id="sub-ecg" class="theory-sub-btn pb-3 text-slate-500 hover:text-slate-800 whitespace-nowrap">
+          <span id="sub-label-ecg">2. Atlas de ECG & Osciloscopio Canvas</span>
+        </button>
+        <button onclick="switchTheorySub('management')" id="sub-management" class="theory-sub-btn pb-3 text-slate-500 hover:text-slate-800 whitespace-nowrap">
+          <span id="sub-label-management">3. Manejo Agudo y Crónico</span>
+        </button>
+      </div>
+
+      <!-- Subsección 1: Tipos y Mecanismos -->
+      <div id="theory-content-types" class="space-y-6">
+        
+        <!-- Banner de Definición -->
+        <div class="bg-gradient-to-r from-sky-50 via-indigo-50 to-sky-50 p-6 rounded-2xl border border-sky-100 glow-effect flex flex-col lg:flex-row gap-6 items-center justify-between">
+          <div class="space-y-2">
+            <div class="flex items-center gap-2">
+              <span class="text-xs uppercase font-bold tracking-wider text-sky-700 bg-sky-100 px-2.5 py-0.5 rounded-md" id="banner-tag">Definición Fisiopatológica</span>
+              <span class="text-xs text-slate-500 font-mono" id="banner-incidence">Frecuencia cardíaca &gt; 100 lpm</span>
+            </div>
+            <h2 class="text-xl sm:text-2xl font-heading font-bold text-slate-900" id="banner-heading">¿Qué es la Taquicardia Supraventricular Paroxística (TSVP)?</h2>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-3xl" id="banner-text">
+              Ritmo cardíaco rápido y regular que se origina en el tejido del nodo auriculoventricular o por encima de la bifurcación del haz de His. Se caracteriza clínicamente por un <strong>inicio brusco y una terminación súbita</strong>. Afecta con mayor frecuencia a mujeres (62 % de los casos) y a menudo a pacientes jóvenes sin cardiopatía estructural de base.
+            </p>
+          </div>
+          
+          <!-- Epidemiología en 3 tarjetas -->
+          <div class="grid grid-cols-3 gap-3 text-center w-full lg:w-auto shrink-0">
+            <div class="bg-white p-3.5 rounded-xl shadow-sm border border-slate-100">
+              <div class="text-2xl sm:text-3xl font-black text-sky-600">~65%</div>
+              <div class="text-[11px] font-bold text-slate-500 uppercase mt-0.5" id="stat-avnrt-label">TRNAV</div>
+              <div class="text-[10px] text-slate-400" id="stat-avnrt-sub">Por reentrada nodal</div>
+            </div>
+            <div class="bg-white p-3.5 rounded-xl shadow-sm border border-slate-100">
+              <div class="text-2xl sm:text-3xl font-black text-indigo-600">~30%</div>
+              <div class="text-[11px] font-bold text-slate-500 uppercase mt-0.5" id="stat-avrt-label">TRAV</div>
+              <div class="text-[10px] text-slate-400" id="stat-avrt-sub">Vía accesoria / WPW</div>
+            </div>
+            <div class="bg-white p-3.5 rounded-xl shadow-sm border border-slate-100">
+              <div class="text-2xl sm:text-3xl font-black text-rose-600">~10%</div>
+              <div class="text-[11px] font-bold text-slate-500 uppercase mt-0.5" id="stat-at-label">TA</div>
+              <div class="text-[10px] text-slate-400" id="stat-at-sub">Taquicardia auricular</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 Tarjetas de Tipos Principales -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="types-cards-grid">
+          <!-- Renderizado dinámicamente según idioma -->
+        </div>
+
+        <!-- Disparadores & Pruebas Diagnósticas -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="triggers-tests-grid">
+          <!-- Renderizado dinámicamente según idioma -->
+        </div>
+
+      </div>
+
+      <!-- Subsección 2: Atlas de ECG con Canvas Oscilloscope -->
+      <div id="theory-content-ecg" class="hidden space-y-6">
+        
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <h3 class="text-lg font-heading font-bold text-slate-900" id="canvas-section-title">Osciloscopio Interactivo de ECG (Canvas HTML5)</h3>
+              </div>
+              <p class="text-xs text-slate-500 mt-0.5" id="canvas-section-sub">Seleccione un patrón arrítmico para simular el trazo en tiempo real y estudiar sus marcadores diagnósticos.</p>
+            </div>
+            
+            <!-- Botones de ritmo -->
+            <div class="flex flex-wrap gap-2" id="ecg-rhythm-buttons">
+              <button onclick="setEcgRhythm('sinus')" id="ecg-btn-sinus" class="ecg-selector-btn px-3 py-1.5 text-xs font-semibold rounded-lg bg-sky-600 text-white shadow-sm transition-all">
+                Sinusal (75 lpm)
+              </button>
+              <button onclick="setEcgRhythm('avnrt')" id="ecg-btn-avnrt" class="ecg-selector-btn px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 transition-all">
+                TRNAV Típica (180 lpm)
+              </button>
+              <button onclick="setEcgRhythm('wpw')" id="ecg-btn-wpw" class="ecg-selector-btn px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 transition-all">
+                Preexcitación WPW (Delta)
+              </button>
+              <button onclick="setEcgRhythm('vt')" id="ecg-btn-vt" class="ecg-selector-btn px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 transition-all">
+                QRS Ancho (TV / Antidrómica)
+              </button>
+            </div>
+          </div>
+
+          <!-- Canvas Monitor ECG -->
+          <div class="relative w-full bg-slate-950 rounded-2xl overflow-hidden shadow-2xl border border-slate-800" style="height: 240px;">
+            <canvas id="ecgCanvas" class="w-full h-full block"></canvas>
+            
+            <!-- HUD Overlays -->
+            <div class="absolute top-3 left-3 text-[11px] font-mono text-emerald-400 bg-slate-900/90 px-3 py-1.5 rounded-lg border border-emerald-500/30 backdrop-blur flex items-center gap-2">
+              <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+              <span id="canvas-live-label">Ritmo Sinusal Normal (75 lpm) | Calibración: 25 mm/s, 10 mm/mV</span>
+            </div>
+
+            <div class="absolute bottom-3 right-3 text-[10px] font-mono text-slate-400 bg-slate-900/80 px-2.5 py-1 rounded border border-slate-700 hidden sm:block">
+              Lead II Monitor • Sweep Speed 25 mm/s
+            </div>
+          </div>
+
+          <!-- Cuadro de Explicación Clínica del Trazo -->
+          <div id="ecg-explanation-box" class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs sm:text-sm text-slate-700 leading-relaxed">
+            <!-- Dinámico vía JavaScript -->
+          </div>
+
+        </div>
+
+        <!-- Tabla Comparativa de Diagnóstico Diferencial -->
+        <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+          <div class="px-5 py-4 border-b border-slate-100 bg-slate-50">
+            <h4 class="font-heading font-bold text-slate-900 text-sm" id="table-diff-title">Diagnóstico Diferencial Electrocardiográfico</h4>
+          </div>
+          <div class="overflow-x-auto" id="diff-table-container">
+            <!-- Contenido dinámico según idioma -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Subsección 3: Manejo Agudo y Crónico -->
+      <div id="theory-content-management" class="hidden space-y-6">
+        <div id="management-content-container" class="space-y-6">
+          <!-- Contenido dinámico según idioma -->
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- PASO 2: ACTIVE RECALL (PREGUNTAS DE AUTOEVALUACIÓN)       -->
+    <!-- ======================================================== -->
+    <section id="sec-recall" class="hidden space-y-6">
+      
+      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div class="max-w-3xl">
+          <span class="text-xs uppercase font-bold tracking-wider text-sky-700 bg-sky-100 px-2.5 py-0.5 rounded-md" id="recall-tag">Evocación Activa en Memoria</span>
+          <h2 class="text-xl sm:text-2xl font-heading font-bold text-slate-900 mt-1" id="recall-heading">Entrenador de Active Recall</h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1" id="recall-sub">
+            Formule mentalmente o en voz alta la respuesta <strong>antes</strong> de pulsar en "Ver Respuesta". Después autoevalúe la solidez de su recuerdo para afianzar el aprendizaje espaciado.
+          </p>
+        </div>
+        <div class="flex items-center gap-2 bg-slate-50 px-4 py-2 rounded-xl border border-slate-200 text-xs">
+          <span class="font-bold text-sky-700" id="recall-counter">6 Preguntas de Alto Rendimiento</span>
+        </div>
+      </div>
+
+      <!-- Contenedor de Preguntas de Active Recall -->
+      <div class="space-y-4" id="recall-questions-container">
+        <!-- Renderizado dinámicamente vía JS -->
+      </div>
+
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- PASO 3: RESUMEN FINAL, CRITERIOS BRUGADA & PERLAS        -->
+    <!-- ======================================================== -->
+    <section id="sec-summary" class="hidden space-y-6">
+      
+      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+        <span class="text-xs uppercase font-bold tracking-wider text-indigo-700 bg-indigo-100 px-2.5 py-0.5 rounded-md" id="summary-tag">Repaso Rápido de Alto Rendimiento</span>
+        <h2 class="text-xl sm:text-2xl font-heading font-bold text-slate-900 mt-1" id="summary-heading">Perlas Clínicas, Criterios de Brugada y Signos de Alarma</h2>
+        <p class="text-xs sm:text-sm text-slate-600 mt-1" id="summary-sub">Los conceptos imprescindibles para la práctica clínica real y exámenes de especialidad.</p>
+      </div>
+
+      <div id="summary-content-grid" class="space-y-6">
+        <!-- Contenido dinámico según idioma -->
+      </div>
+
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- PASO 4: TEST DE CASOS CLÍNICOS (SINGLE CHOICE)          -->
+    <!-- ======================================================== -->
+    <section id="sec-quiz" class="hidden space-y-6">
+      
+      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div>
+          <span class="text-xs uppercase font-bold tracking-wider text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-md" id="quiz-tag">Comprobación de Competencias</span>
+          <h2 class="text-xl sm:text-2xl font-heading font-bold text-slate-900 mt-1" id="quiz-heading">Test Clínico de Selección Única</h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-0.5" id="quiz-sub">Resuelva los siguientes casos clínicos interactivos con retroalimentación inmediata.</p>
+        </div>
+        <div id="quiz-score-badge" class="bg-gradient-to-br from-sky-50 to-indigo-50 px-5 py-3 rounded-2xl text-center border border-sky-100 shadow-sm shrink-0">
+          <div class="text-[10px] font-bold text-slate-500 uppercase tracking-wider" id="quiz-score-label">Puntuación</div>
+          <div class="text-xl font-black text-sky-700" id="quiz-score-text">0 / 6</div>
+        </div>
+      </div>
+
+      <!-- Contenedor de Casos Clínicos -->
+      <div class="space-y-4" id="quiz-container">
+        <!-- Generado dinámicamente vía JS -->
+      </div>
+
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- PASO 5: TARJETAS DE MEMORIA INTERACTIVAS (3D FLASHCARDS) -->
+    <!-- ======================================================== -->
+    <section id="sec-flashcards" class="hidden space-y-6">
+      
+      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div>
+          <span class="text-xs uppercase font-bold tracking-wider text-purple-700 bg-purple-100 px-2.5 py-0.5 rounded-md" id="flash-tag">Repaso Espaciado Activo</span>
+          <h2 class="text-xl sm:text-2xl font-heading font-bold text-slate-900 mt-1" id="flash-heading">Tarjetas de Memoria (3D Flashcards)</h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-0.5" id="flash-sub">Haga clic en la tarjeta o pulse la barra espaciadora para voltearla y verificar la respuesta.</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-xs font-semibold text-slate-600 bg-slate-100 px-3 py-1.5 rounded-lg" id="card-counter">Tarjeta 1 de 8</span>
+          <button onclick="resetFlashcards()" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1.5 rounded-lg font-bold transition-colors" id="flash-reset-btn">Reiniciar</button>
+        </div>
+      </div>
+
+      <!-- Interactive 3D Card Area -->
+      <div class="max-w-xl mx-auto flex flex-col items-center">
+        <div class="w-full perspective cursor-pointer select-none" style="height: 320px;" onclick="flipCurrentCard()" title="Haga clic para voltear / Klikněte pro otočení">
+          <div id="flashcard-inner" class="w-full h-full relative transform-style-3d transition-transform duration-500 shadow-xl rounded-3xl border border-slate-200">
+            
+            <!-- Anverso (Pregunta) -->
+            <div class="absolute inset-0 w-full h-full backface-hidden bg-white p-8 rounded-3xl flex flex-col justify-between items-center text-center">
+              <div class="w-full flex justify-between items-center">
+                <span class="text-[11px] font-bold text-sky-700 uppercase tracking-wider bg-sky-50 border border-sky-100 px-3 py-1 rounded-lg" id="card-category">Categoría</span>
+                <span class="text-xs text-slate-400 font-mono">Q</span>
+              </div>
+              
+              <div class="my-auto px-4">
+                <h3 class="text-lg sm:text-xl font-heading font-bold text-slate-900 leading-snug" id="card-front-text">Pregunta de la tarjeta</h3>
+              </div>
+              
+              <div class="w-full flex justify-between items-center text-xs text-slate-400">
+                <span class="flex items-center gap-1.5">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                  <span id="card-flip-hint">Haga clic para voltear</span>
+                </span>
+                <span>🔄</span>
+              </div>
+            </div>
+
+            <!-- Reverso (Respuesta) -->
+            <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 p-8 rounded-3xl flex flex-col justify-between items-center text-center text-white">
+              <div class="w-full flex justify-between items-center">
+                <span class="text-[11px] font-bold text-emerald-400 uppercase tracking-wider bg-emerald-950/70 border border-emerald-500/30 px-3 py-1 rounded-lg" id="card-back-badge">Respuesta Clínica</span>
+                <span class="text-xs text-emerald-400 font-mono">A</span>
+              </div>
+              
+              <div class="my-auto overflow-y-auto max-h-48 px-2">
+                <p class="text-sm sm:text-base leading-relaxed text-slate-100 font-medium" id="card-back-text">Respuesta detallada</p>
+              </div>
+              
+              <p class="text-xs text-slate-400" id="card-flip-back-hint">Haga clic para volver</p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Botones de Control de Flashcards -->
+        <div class="flex items-center gap-3 mt-6">
+          <button onclick="prevCard()" class="p-3 rounded-2xl bg-white border border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-50 shadow-sm transition-all" title="Anterior">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+          </button>
+          
+          <button onclick="markCardMastered(false)" class="px-4 py-2.5 rounded-2xl bg-amber-100 text-amber-900 font-bold text-xs hover:bg-amber-200 transition-colors" id="flash-btn-repeat">
+            Repasar otra vez
+          </button>
+          
+          <button onclick="markCardMastered(true)" class="px-5 py-2.5 rounded-2xl bg-emerald-600 text-white font-bold text-xs hover:bg-emerald-700 shadow-md shadow-emerald-600/20 transition-all" id="flash-btn-mastered">
+            ¡Dominada! 👍
+          </button>
+          
+          <button onclick="nextCard()" class="p-3 rounded-2xl bg-white border border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-50 shadow-sm transition-all" title="Siguiente">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </button>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-white border-t border-slate-200 mt-12 py-6 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 space-y-1">
+      <p id="footer-copy">© 2026 Portal de Cardiología Clínica • Módulo de Taquicardias Supraventriculares</p>
+      <p class="text-[11px] text-slate-400" id="footer-ref">Basado en Nasir et al. Am Fam Physician 2023;107(5):519-528 & Guías ESC 2019/2024</p>
+    </div>
+  </footer>
+
+  <!-- ================= BILINGUAL DATA & LOGIC SCRIPT ================= -->
+  <script>
+    // ==========================================
+    // BILINGUAL CONTENT DATABASE (ES / CS)
+    // ==========================================
+    const I18N_DATA = {
+      es: {
+        pageTitle: "Guía Clínica: Taquicardia Supraventricular Paroxística (TSVP) | Módulo Interactivo",
+        headerTitle: "Taquicardia Supraventricular Paroxística (TSVP)",
+        headerSubtitle: "Guías Am Fam Physician 2023 (Nasir et al.) y Guías ESC",
+        hubBtnText: "Portal Kardiologie",
+        tabLabels: [
+          "1. Texto Didáctico y Visuales",
+          "2. Active Recall",
+          "3. Resumen Final y Perlas",
+          "4. Test de Casos Clínicos",
+          "5. Tarjetas de Memoria (3D)"
+        ],
+        subLabels: {
+          types: "1. Tipos y Mecanismos de TSVP",
+          ecg: "2. Atlas de ECG & Osciloscopio Canvas",
+          management: "3. Manejo Agudo y Crónico"
+        },
+        banner: {
+          tag: "Definición Fisiopatológica",
+          incidence: "Frecuencia cardíaca > 100 lpm",
+          heading: "¿Qué es la Taquicardia Supraventricular Paroxística (TSVP)?",
+          text: "Ritmo cardíaco rápido y regular que se origina en el tejido del nodo auriculoventricular o por encima de la bifurcación del haz de His. Se caracteriza clínicamente por un <strong>inicio brusco y una terminación súbita</strong>. Afecta con mayor frecuencia a mujeres (62 % de los casos) y a menudo a pacientes jóvenes sin cardiopatía estructural de base.",
+          avnrtLabel: "TRNAV",
+          avnrtSub: "Por reentrada nodal",
+          avrtLabel: "TRAV",
+          avrtSub: "Vía accesoria / WPW",
+          atLabel: "TA",
+          atSub: "Taquicardia auricular"
+        },
+        typesCards: [
+          {
+            badge: "Más frecuente (~65 % de casos)",
+            code: "TRNAV / AVNRT",
+            title: "Taquicardia por Reentrada Nodal AV",
+            desc: "Típica en adultos jóvenes y mujeres. Se origina en el tejido perimodal del nodo AV por la presencia de <strong>dos vías electrofisiológicas:</strong> una vía lenta (con período refractario corto) y una vía rápida (con período refractario largo).",
+            mechanismTitle: "Mecanismo electrofisiológico:",
+            mechanismText: "Un extrasístole auricular (PAC) encuentra la vía rápida en refractariedad, conduce anterógradamente por la vía lenta y regresa retrógradamente por la vía rápida ya recuperada, estableciendo el circuito.",
+            ecgTitle: "Hallazgo en ECG:",
+            ecgText: "Ondas P <strong>ocultas en el QRS</strong> (activación simultánea de aurículas y ventrículos), o visibles como <em>pseudo-r'</em> en derivación V1 y <em>pseudo-s</em> en derivaciones inferiores (DII, DIII, aVF)."
+          },
+          {
+            badge: "Frecuente en jóvenes (~30 %)",
+            code: "TRAV / AVRT",
+            title: "Taquicardia por Reentrada AV (Vía accesoria)",
+            desc: "Requiere una <strong>conexión accesoria anómala</strong> (haz de Kent) entre aurícula y ventrículo por fuera del nodo AV. El paradigma clásico es el síndrome de Wolff-Parkinson-White (WPW).",
+            mechanismTitle: "Dos formas de conducción:",
+            mechanismText: "<strong>1. Ortodrómica (90 %):</strong> Conducción anterógrada por el nodo AV y retrógrada por la vía accesoria (<em>QRS estrecho</em>, RP < 1/2 RR).<br><strong>2. Antidrómica (10 %):</strong> Conducción anterógrada por la vía accesoria y retrógrada por el nodo AV (<em>¡QRS ancho y bizarro!</em>).",
+            ecgTitle: "Riesgo crítico:",
+            ecgText: "La fibrilación auricular preexcitada puede conducir 1:1 por la vía accesoria y degenerar en <strong>fibrilación ventricular y muerte súbita</strong>. ¡Nunca bloquear el nodo AV con adenosina/verapamilo en FA preexcitada!"
+          },
+          {
+            badge: "Menos frecuente (~10 %)",
+            code: "TA / AT",
+            title: "Taquicardia Auricular Focal",
+            desc: "Se origina en un foco ectópico en el miocardio auricular fuera del nodo sinusal. Puede deberse a aumento del automatismo, actividad gatillada o micro-reentrada.",
+            mechanismTitle: "Signos característicos:",
+            mechanismText: "A menudo presenta el fenómeno de <strong>'warm-up' y 'cool-down'</strong> (aceleración y desaceleración progresiva en los primeros 5–10 segundos), a diferencia del inicio en 'todo o nada' de TRNAV/TRAV.",
+            ecgTitle: "Hallazgo en ECG:",
+            ecgText: "Morfología y eje de la onda P anormal (diferente a la sinusal). La onda P precede al complejo QRS, con intervalo PR normal y <strong>intervalo RP > PR</strong> (taquicardia de RP largo)."
+          }
+        ],
+        triggersAndTests: {
+          triggersTitle: "Desencadenantes Frecuentes (Triggers)",
+          triggers: ["Cafeína y alcohol", "Hipertiroidismo", "Desequilibrios iónicos (K, Mg)", "Simpatomiméticos / descongestionantes", "Anemia", "Estrés físico / emocional", "Fiebre / infección", "Broncodilatadores"],
+          triggersNote: "Nota clínica: En mujeres jóvenes, la TSVP a menudo se diagnostica erróneamente como crisis de angustia o trastorno de pánico, causando un retraso significativo en el tratamiento definitivo.",
+          testsTitle: "Pruebas de Laboratorio y Complementarias",
+          tests: [
+            "<strong>Hemograma completo:</strong> descartar anemia e infección subyacente.",
+            "<strong>TSH (tirotropina):</strong> cribado de hipertiroidismo como causa reversible.",
+            "<strong>Bioquímica e iones (Na, K, Ca, Mg, función renal):</strong> alteraciones que bajan el umbral arrítmico.",
+            "<strong>Troponina y BNP:</strong> en caso de sospecha de isquemia miocárdica o insuficiencia cardíaca acompañante.",
+            "<strong>Ecocardiograma transtorácico:</strong> descartar cardiopatía estructural y evaluar fracción de eyección (FEVI)."
+          ]
+        },
+        canvasSection: {
+          title: "Osciloscopio Interactivo de ECG (Canvas HTML5)",
+          sub: "Seleccione un patrón arrítmico para simular el trazo en tiempo real y estudiar sus marcadores diagnósticos.",
+          buttons: {
+            sinus: "Sinusal (75 lpm)",
+            avnrt: "TRNAV Típica (180 lpm)",
+            wpw: "Preexcitación WPW (Delta)",
+            vt: "QRS Ancho (TV / Antidrómica)"
+          }
+        },
+        ecgPresets: {
+          sinus: {
+            title: "Ritmo Sinusal Normal (75 lpm)",
+            explanation: "<strong>Ritmo sinusal normal:</strong> Onda P positiva en derivación II que precede a cada complejo QRS, intervalo PR constante normal (120–200 ms), complejo QRS estrecho (< 120 ms) y onda T concordante con polaridad normal."
+          },
+          avnrt: {
+            title: "TRNAV Típica / AVNRT (180 lpm, QRS Estrecho)",
+            explanation: "<strong>Taquicardia por reentrada nodal típica:</strong> Ritmo regular rápido con QRS estrecho. Las ondas P retrógradas coinciden con la despolarización ventricular (ocultas en el QRS) o aparecen como una <strong>pseudo-onda r'</strong> al final del QRS en V1 y <strong>pseudo-s</strong> en derivaciones inferiores."
+          },
+          wpw: {
+            title: "Síndrome de Wolff-Parkinson-White (WPW) / Preexcitación",
+            explanation: "<strong>Tríada clásica de WPW en reposo:</strong> 1) Intervalo PR corto (< 120 ms), 2) Empastamiento inicial del QRS (<strong>onda delta</strong>), 3) Complejo QRS ensanchado (> 120 ms). Se produce por la activación ventricular precoz a través del haz anómalo de Kent."
+          },
+          vt: {
+            title: "Taquicardia de QRS Ancho (TV / TRAV Antidrómica, 170 lpm)",
+            explanation: "<strong>Complejo QRS ancho (≥ 120 ms):</strong> En el servicio de urgencias <em>siempre debe tratarse como Taquicardia Ventricular (TV)</em> hasta que se demuestre lo contrario mediante criterios de Brugada. ¡La administración de bloqueadores del nodo AV (verapamilo, adenosina) en arritmias preexcitadas puede desencadenar paro cardíaco!"
+          }
+        },
+        diffTable: {
+          title: "Diagnóstico Diferencial Electrocardiográfico",
+          headers: ["Entidad Arrítmica", "Anchura QRS", "Onda P", "Intervalo RP", "Hallazgo Patognomónico"],
+          rows: [
+            ["TRNAV Típica (AVNRT)", "Estrecho (< 120 ms)", "Oculta en QRS o retrógrada inmediata", "Muy corto (RP < 70 ms)", "Pseudo-r' en V1, pseudo-s en DII, DIII, aVF"],
+            ["TRAV Ortodrómica", "Estrecho (< 120 ms)", "Invertida retrógrada tras QRS", "Corto (RP < 1/2 intervalo RR)", "En ritmo sinusal previo puede haber onda delta (WPW)"],
+            ["TRAV Antidrómica", "Ancho (≥ 120 ms)", "A menudo enmascarada / retrógrada", "Largo (RP > 1/2 intervalo RR)", "PR corto, onda delta, simula taquicardia ventricular"],
+            ["Taquicardia Auricular (TA)", "Estrecho (< 120 ms)", "Morfología y eje anormal (precede QRS)", "Largo (RP > PR)", "Fenómeno de 'warm-up' y 'cool-down'; PR normal"]
+          ]
+        },
+        management: {
+          tag: "Protocolo de Urgencias y Manejo Curativo",
+          title: "Algoritmo de Toma de Decisiones en TSVP",
+          unstableTitle: "Paciente Hemodinámicamente INESTABLE",
+          unstableSigns: "Criterios de inestabilidad: alteración del nivel de conciencia, shock/hipotensión arterial severa, disnea intensa (edema agudo de pulmón), dolor torácico isquémico continuo.",
+          unstableCardio: "1.ª Línea: Cardioversión Eléctrica Sincronizada",
+          unstableCardioDesc: "Choque sincronizado inmediato (con analgesia/sedación previa si es posible). Si fracasa o recurre, aplicar protocolo ACLS de soporte vital avanzado.",
+          stableTitle: "Paciente Hemodinámicamente ESTABLE",
+          stableSigns: "Presión arterial conservada, sin signos de hipoperfusión periférica ni congestión pulmonar aguda.",
+          step1Title: "Paso 1: Maniobras Vagales (Eficacia 19–54 %)",
+          step1Desc: "<strong>Maniobra de Valsalva Modificada (Ensayo REVERT):</strong> espiración forzada en jeringa de 10 ml durante 15 s en posición semisentada, seguida de decúbito supino inmediato y <strong>elevación pasiva de miembros inferiores a 45° durante 15 s</strong>. Alternativas: masaje del seno carotídeo (5-10 s, tras auscultar soplos) o reflejo de inmersión en agua helada.",
+          step2Title: "Paso 2: Adenosina Intravenosa",
+          step2Desc: "<strong>Dosis:</strong> 6 mg IV en bolo ultrarrápido (push en 1-2 s) por vía venosa de gran calibre (fosa antecubital) con lavado inmediato de 20 ml de suero fisiológico. Si no revierte en 1–2 min: <strong>12 mg IV</strong>.<br><span class='text-rose-600 font-bold'>Advertencia:</span> Advertir al paciente de la sensación inminente de opresión torácica y calor. <em>¡Contraindicado si hay sospecha de preexcitación en FA!</em>",
+          step3Title: "Paso 3: Bloqueadores de Canales de Calcio no DHP o Beta-bloqueantes",
+          step3Desc: "Calcioantagonistas no dihidropiridínicos: <strong>Diltiazem</strong> 0,25 mg/kg IV en 2 min o <strong>Verapamilo</strong> 5–10 mg IV. Alternativa: Metoprolol o Esmolol IV. (Precaución con hipotensión e insuficiencia cardíaca con FEVI reducida).",
+          step4Title: "Paso 4: Resistencia a fármacos",
+          step4Desc: "Cardioversión eléctrica sincronizada si los fármacos no logran la reversión.",
+          wctTitle: "Taquicardia de Complejo Ancho (WCT)",
+          wctRule: "Regla de oro: <strong>¡Toda taquicardia regular de QRS ancho (≥ 120 ms) se considera Taquicardia Ventricular (TV) hasta demostrar lo contrario!</strong>",
+          wctDrugs: "<strong>Procainamida IV:</strong> Fármaco de 1.ª elección para QRS ancho estable (superior en eficacia y seguridad a la amiodarona según el ensayo PROCAMIO).<br><strong>Amiodarona IV:</strong> Alternativa (150 mg en 10 min, seguido de infusión continua).",
+          ablationTitle: "Tratamiento Curativo a Largo Plazo",
+          ablationMain: "<strong>Ablación por Catéter con Radiofrecuencia (RFA):</strong> Tratamiento curativo de 1.ª elección recomendado por guías para TSVP sintomática recurrente y todos los pacientes con WPW. Tasa de éxito superior al <strong>95 %</strong> con bajísimo índice de complicaciones.",
+          ablationChronic: "<strong>Farmacoterapia crónica (si se rechaza la ablación):</strong> Beta-bloqueantes o Calcioantagonistas no DHP. En corazón estructuralmente sano: antiarrítmicos de clase Ic (flecainida, propafenona)."
+        },
+        recallQuestions: [
+          {
+            id: 1,
+            q: "¿Cuál es la diferencia electrofisiológica fundamental entre la TRAV ortodrómica y la antidrómica?",
+            a: "<strong>TRAV Ortodrómica (90 % de los casos):</strong> El impulso desciende por el sistema de conducción fisiológico (nodo AV y haz de His), despolarizando los ventrículos de forma normal (&rarr; <em>QRS estrecho</em>), y asciende retrógradamente por la vía accesoria hacia las aurículas.<br><br><strong>TRAV Antidrómica (10 %):</strong> El impulso desciende por la vía accesoria directamente al miocardio ventricular (&rarr; <em>QRS ancho y bizarro</em>) y regresa retrógradamente por el haz de His y nodo AV."
+          },
+          {
+            id: 2,
+            q: "¿Qué hallazgos electrocardiográficos componen la tríada diagnóstica del síndrome de Wolff-Parkinson-White (WPW) en reposo?",
+            a: "1. <strong>Intervalo PR corto</strong> (&lt; 120 ms) por elusión del retraso fisiológico del nodo AV.<br>2. <strong>Onda delta</strong> (empastamiento inicial en la rama ascendente del QRS debido a la preexcitación ventricular).<br>3. <strong>Complejo QRS ensanchado</strong> (&gt; 120 ms) con alteraciones secundarias de la repolarización."
+          },
+          {
+            id: 3,
+            q: "¿Por qué los bloqueadores del nodo AV (adenosina, verapamilo, betabloqueantes) son potencialmente mortales en pacientes con fibrilación auricular preexcitada?",
+            a: "Al bloquear el nodo AV en presencia de una vía accesoria, todo el bombardeo de impulsos auriculares rápidos (300–600 lpm) se desvía exclusivamente a través de la vía accesoria, la cual carece de las propiedades de conducción decremental del nodo AV. Esto provoca una respuesta ventricular masivamente acelerada que desemboca en <strong>fibrilación ventricular y paro cardíaco</strong>."
+          },
+          {
+            id: 4,
+            q: "¿Cómo se ejecuta correctamente la Maniobra de Valsalva Modificada (protocolo REVERT) y cuál es su tasa de éxito?",
+            a: "El paciente en posición semisentada realiza una espiración forzada en una jeringa de 10 ml (presión aprox. de 40 mmHg) durante <strong>15 segundos</strong>. Inmediatamente después, se le acuesta en decúbito supino y el personal sanitario <strong>eleva sus piernas a 45° durante 15 segundos</strong>. La tasa de cardioversión a ritmo sinusal alcanza entre el <strong>43 % y el 54 %</strong> (frente al 17 % de la maniobra clásica)."
+          },
+          {
+            id: 5,
+            q: "¿Cuál es la dosis y técnica correcta de administración de adenosina intravenosa en un adulto con TSVP estable de QRS estrecho?",
+            a: "<strong>Primera dosis:</strong> 6 mg IV en bolo ultrarrápido (push en 1–2 segundos) en una vena periférica proximal de gran calibre (fosa antecubital), seguido de inmediato por un <strong>bolo de lavado rápido de 20 ml de suero fisiológico</strong>.<br>Si la taquicardia no revierte en 1–2 minutos, se administra una <strong>segunda dosis de 12 mg IV</strong> con la misma técnica."
+          },
+          {
+            id: 6,
+            q: "¿Cuál es el tratamiento de primera línea con intención curativa para la TSVP sintomática recurrente?",
+            a: "<strong>Ablación por catéter con radiofrecuencia (RFA)</strong>. Es el método curativo de elección recomendado por guías internacionales (ESC/ACC), con una eficacia demostrada <strong>superior al 95 %</strong> tanto en TRNAV como en TRAV/WPW, eliminando la necesidad de tratamiento farmacológico crónico."
+          }
+        ],
+        recallUI: {
+          tag: "Evocación Activa en Memoria",
+          heading: "Entrenador de Active Recall",
+          sub: "Formule mentalmente o en voz alta la respuesta antes de pulsar en 'Ver Respuesta'. Después autoevalúe la solidez de su recuerdo para afianzar el aprendizaje espaciado.",
+          counter: "6 Preguntas de Alto Rendimiento",
+          showAns: "Ver Respuesta",
+          hideAns: "Ocultar Respuesta",
+          myRating: "Mi autoevaluación:",
+          easy: "Fácil 👍",
+          medium: "Difícil ⚡",
+          hard: "No lo sabía ❌"
+        },
+        summaryUI: {
+          tag: "Repaso Rápido de Alto Rendimiento",
+          heading: "Perlas Clínicas, Criterios de Brugada y Signos de Alarma",
+          sub: "Los conceptos imprescindibles para la práctica clínica real y exámenes de especialidad.",
+          brugadaTitle: "Criterios de Brugada para QRS Ancho (≥ 120 ms)",
+          brugadaDesc: "Evalúe paso a paso. Cualquier respuesta afirmativa ('SÍ') establece el diagnóstico de <strong>Taquicardia Ventricular (TV)</strong>:",
+          brugadaSteps: [
+            "1. ¿Ausencia de complejo RS en todas las derivaciones precordiales (V1 a V6)? <span class='text-purple-700 font-bold'>SÍ &rarr; TV</span>",
+            "2. ¿Existe complejo RS, pero el intervalo desde el inicio de la R hasta el nadir de la S es > 100 ms en alguna derivación? <span class='text-purple-700 font-bold'>SÍ &rarr; TV</span>",
+            "3. ¿Existe disociación auriculoventricular (AV)? <span class='text-purple-700 font-bold'>SÍ &rarr; TV</span>",
+            "4. ¿Cumple criterios morfológicos clásicos de TV en derivaciones V1–V2 y V6? <span class='text-purple-700 font-bold'>SÍ &rarr; TV</span>"
+          ],
+          brugadaAllNo: "<strong>Si los 4 criterios son 'NO':</strong> Se confirma Taquicardia Supraventricular con conducción aberrante (p. ej. bloqueo de rama previo).",
+          redFlagsTitle: "Criterios de Derivación Urgente y Ablación (Signos de Alarma)",
+          redFlagsTag: "Tabla 8 Guías",
+          redFlags: [
+            "<strong>Preexcitación o presencia de onda delta</strong> en ECG de reposo (riesgo de muerte súbita).",
+            "<strong>Síncope o presíncope</strong> durante los episodios de palpitaciones.",
+            "<strong>Profesiones de alto riesgo:</strong> pilotos de aviación, conductores profesionales de transporte público/pesado, operadores de grúas, buceadores.",
+            "<strong>Cardiopatía estructural conocida</strong> (cardiopatía isquémica, miocardiopatías, valvulopatías).",
+            "Síntomas no controlados o intolerancia a la terapia farmacológica.",
+            "Diagnóstico dudoso o taquicardia con complejo QRS ancho."
+          ],
+          pharmaTitle: "Resumen Farmacológico Comparativo (Nasir 2023 Tabla 6)",
+          pharmaHeaders: ["Fármaco", "Clase / Mecanismo", "Posología Aguda", "Efectos Adversos y Contraindicaciones"],
+          pharmaRows: [
+            ["Adenosina", "Agonista purinérgico A1", "6 mg IV bolo rápido &rarr; 12 mg IV", "Rubor facial, opresión torácica, disnea. <strong>CI:</strong> Asma bronquial, FA preexcitada."],
+            ["Diltiazem / Verapamilo", "Calcioantagonistas no DHP", "0,25 mg/kg IV / 5–10 mg IV en bolo lento", "Hipotensión, bradicardia. <strong>CI:</strong> Insuficiencia cardíaca con FEVI reducida, QRS ancho."],
+            ["Procainamida", "Antiarrítmico Clase Ia", "10–17 mg/kg IV (20–50 mg/min)", "1.ª elección en QRS ancho estable. <strong>CI:</strong> QT largo, shock cardiogénico."],
+            ["Metoprolol / Esmolol", "Betabloqueantes (Clase II)", "Metoprolol 5 mg IV (hasta 15 mg)", "Bradicardia, bloqueo AV, broncoespasmo, hipotensión."]
+          ]
+        },
+        quizUI: {
+          tag: "Comprobación de Competencias",
+          heading: "Test Clínico de Selección Única",
+          sub: "Resuelva los siguientes casos clínicos interactivos con retroalimentación inmediata.",
+          scoreLabel: "Puntuación",
+          unanswered: "Sin responder",
+          correct: "¡Correcto! ✓",
+          incorrect: "Incorrecto ✗"
+        },
+        quizData: [
+          {
+            id: 1,
+            question: "Mujer de 32 años previamente sana acude a urgencias por palpitaciones rápidas de inicio brusco. PA 125/80 mmHg, FC 185 lpm, SatO2 98 %. El ECG muestra taquicardia regular de complejo QRS estrecho sin ondas P visibles. ¿Cuál es la conducta inicial más adecuada?",
+            options: [
+              "Bolo intravenoso de adenosina 6 mg",
+              "Cardioversión eléctrica sincronizada a 100 J",
+              "Maniobras vagales (p. ej., maniobra de Valsalva modificada)",
+              "Amiodarona 150 mg IV en infusión durante 10 minutos"
+            ],
+            correct: 2,
+            explanation: "En un paciente hemodinámicamente estable con taquicardia regular de complejo estrecho, las maniobras vagales (1.ª línea no farmacológica) deben intentarse antes de administrar fármacos. Tienen una eficacia del 19–54 % y nulos efectos secundarios."
+          },
+          {
+            id: 2,
+            question: "Si en la paciente anterior las maniobras vagales correctamente realizadas fracasan y la paciente se mantiene estable, ¿cuál es el fármaco de primera elección?",
+            options: [
+              "Diltiazem 0,25 mg/kg IV en 2 minutos",
+              "Adenosina 6 mg IV en bolo rápido con lavado de suero",
+              "Metoprolol 5 mg IV en 5 minutos",
+              "Digoxina 0,5 mg IV lenta"
+            ],
+            correct: 1,
+            explanation: "El fármaco de 1.ª elección tras el fracaso de maniobras vagales en TSVP estable es la adenosina IV en dosis inicial de 6 mg en bolo rápido. Los calcioantagonistas y betabloqueantes se reservan para cuando la adenosina fracasa."
+          },
+          {
+            id: 3,
+            question: "¿Cuál de los siguientes hallazgos electrocardiográficos en ritmo sinusal basal es diagnóstico de síndrome de Wolff-Parkinson-White (WPW)?",
+            options: [
+              "Intervalo PR > 200 ms con bloqueo completo de rama derecha",
+              "Intervalo PR < 120 ms, presencia de onda delta y QRS > 120 ms",
+              "Inversión de ondas T en V1–V3 con elevación cóncava del segmento ST",
+              "Ondas en dientes de sierra en derivaciones inferiores DII, DIII y aVF"
+            ],
+            correct: 1,
+            explanation: "La tríada clásica de preexcitación en WPW comprende intervalo PR corto (< 120 ms), empastamiento inicial del QRS (onda delta) y complejo QRS ensanchado (> 120 ms)."
+          },
+          {
+            id: 4,
+            question: "Varón de 54 años con antecedente de infarto de miocardio antiguo acude con taquicardia regular de QRS ancho (160 ms), FC 170 lpm, PA 115/75 mmHg. ¿Cuál es la conducta terapéutica correcta?",
+            options: [
+              "Administrar verapamilo 5 mg IV por sospecha de TRNAV con aberrancia",
+              "Tratar la arritmia como Taquicardia Ventricular (TV) y administrar Procainamida IV",
+              "Aplicar inmediatamente adenosina 18 mg IV en bolo",
+              "Alta a domicilio con prescripción de betabloqueante oral"
+            ],
+            correct: 1,
+            explanation: "Regla fundamental de urgencias: Toda taquicardia de QRS ancho se trata como Taquicardia Ventricular (TV) hasta demostrar lo contrario. En paciente estable, el fármaco de elección es la procainamida IV. ¡El verapamilo está formalmente contraindicado por riesgo de colapso hemodinámico!"
+          },
+          {
+            id: 5,
+            question: "¿Cuál es la forma más común de taquicardia supraventricular paroxística a nivel mundial, constituyendo aproximadamente dos tercios (~65 %) de todos los casos?",
+            options: [
+              "Taquicardia auricular focal (TA)",
+              "Taquicardia por reentrada nodal auriculoventricular (TRNAV)",
+              "Taquicardia por reentrada auriculoventricular ortodrómica (TRAV)",
+              "Taquicardia auricular multifocal (TAM)"
+            ],
+            correct: 1,
+            explanation: "La TRNAV (AVNRT) es la causa más común de TSVP (~65 %), con especial predominio en mujeres jóvenes, debida a la doble vía electrofisiológica nodal (lenta y rápida)."
+          },
+          {
+            id: 6,
+            question: "¿Qué procedimiento es considerado por las guías internacionales como el tratamiento de primera elección con intención curativa definitiva en TSVP sintomática recurrente?",
+            options: [
+              "Tratamiento médico indefinido con verapamilo oral",
+              "Implante de desfibrilador automático implantable (DAI)",
+              "Ablación por catéter con radiofrecuencia (RFA)",
+              "Procedimiento quirúrgico de MAZE"
+            ],
+            correct: 2,
+            explanation: "La ablación por radiofrecuencia es la técnica curativa de 1.ª línea con una tasa de éxito superior al 95 % y muy baja morbilidad, evitando la necesidad de fármacos de por vida."
+          }
+        ],
+        flashcardsUI: {
+          tag: "Repaso Espaciado Activo",
+          heading: "Tarjetas de Memoria (3D Flashcards)",
+          sub: "Haga clic en la tarjeta o pulse la barra espaciadora para voltearla y verificar la respuesta.",
+          counterPrefix: "Tarjeta",
+          counterOf: "de",
+          flipHint: "Haga clic para voltear",
+          flipBackHint: "Haga clic para volver",
+          backBadge: "Respuesta Clínica",
+          reset: "Reiniciar",
+          btnRepeat: "Repasar otra vez",
+          btnMastered: "¡Dominada! 👍"
+        },
+        flashcardsData: [
+          {
+            cat: "Epidemiología",
+            front: "¿Cuál es la prevalencia de la TSVP y qué grupo demográfico se afecta con mayor frecuencia?",
+            back: "La prevalencia es de aprox. 2,29 por cada 1.000 personas. El 62 % de los pacientes diagnosticados son mujeres, frecuentemente jóvenes o de mediana edad sin cardiopatía estructural."
+          },
+          {
+            cat: "Electrofisiología TRNAV",
+            front: "¿Dónde se localiza el circuito de reentrada en la TRNAV y qué dos vías lo componen?",
+            back: "En el nodo AV y tejido perinodal. Se compone de una <strong>vía lenta</strong> (con período refractario corto) y una <strong>vía rápida</strong> (con período refractario más largo)."
+          },
+          {
+            cat: "Diagnóstico en ECG",
+            front: "¿Qué origina la aparición de la 'pseudo-r'' en V1 y 'pseudo-s' en derivaciones inferiores?",
+            back: "La despolarización auricular retrógrada en la TRNAV típica. La onda P retrógrada se inscribe justo al final del complejo QRS, simulando una pequeña deflexión terminal."
+          },
+          {
+            cat: "Síndromes Cardíacos",
+            front: "¿Cómo se define el síndrome de Wolff-Parkinson-White (WPW)?",
+            back: "La combinación de <strong>preexcitación en el ECG basal</strong> (onda delta, PR corto, QRS ancho) junto con la presencia de <strong>taquiarritmias sintomáticas</strong> mediadas por la vía accesoria."
+          },
+          {
+            cat: "Terapéutica de Urgencia",
+            front: "¿Cuál es la conducta de 1.ª línea en un paciente con TSVP hemodinámicamente INESTABLE?",
+            back: "<strong>Cardioversión eléctrica sincronizada inmediata</strong> (con analgosedación previa si el estado de conciencia lo permite)."
+          },
+          {
+            cat: "Farmacología",
+            front: "¿Qué efectos adversos y sensaciones experimenta típicamente el paciente tras la adenosina IV?",
+            back: "Intensa opresión o dolor torácico, sofoco o rubor facial (flushing), disnea y sensación de muerte inminente por asistolia transitoria. Desaparecen en 10–20 segundos."
+          },
+          {
+            cat: "Diagnóstico Diferencial",
+            front: "¿Qué fármaco es la 1.ª elección en taquicardia de complejo QRS ancho hemodinámicamente ESTABLE?",
+            back: "<strong>Procainamida intravenosa</strong> (10–17 mg/kg en infusión). Ha demostrado mayor eficacia y menos eventos adversos mayores que la amiodarona en el ensayo PROCAMIO."
+          },
+          {
+            cat: "Indicaciones de Ablación",
+            front: "¿Qué pacientes con preexcitación asintomática en ECG deben someterse a estudio electrofisiológico y ablación?",
+            back: "Personas con <strong>profesiones de alto riesgo</strong> (pilotos, conductores de transporte público/pesado, operadores de maquinaria pesada, buceadores) y deportistas de élite."
+          }
+        ],
+        footer: {
+          copy: "© 2026 Portal de Cardiología Clínica • Módulo de Taquicardias Supraventriculares",
+          ref: "Basado en Nasir et al. Am Fam Physician 2023;107(5):519-528 & Guías ESC 2019/2024"
+        }
+      },
+      cs: {
+        pageTitle: "Klinický průvodce: Supraventrikulární tachykardie (pSVT) | Interaktivní modul",
+        headerTitle: "Paroxysmální SVT (pSVT): Diagnostika a management",
+        headerSubtitle: "Podle guidelines Am Fam Physician 2023 (Nasir et al.) a ESC guidelines",
+        hubBtnText: "Rozcestník Kardiologie",
+        tabLabels: [
+          "1. Učební text & Vizuály",
+          "2. Active Recall",
+          "3. Závěrečné shrnutí",
+          "4. Test (Kvíz)",
+          "5. Kartičky (3D)"
+        ],
+        subLabels: {
+          types: "1. Typy a mechanismy pSVT",
+          ecg: "2. Interaktivní EKG atlas (Canvas)",
+          management: "3. Akutní a dlouhodobý management"
+        },
+        banner: {
+          tag: "Základní definice",
+          incidence: "Srdeční frekvence > 100/min v klidu",
+          heading: "Co je to paroxysmální SVT (pSVT)?",
+          text: "Rychlý srdeční rytmus (TF > 100/min v klidu) vycházející z tkáně Hisova svazku nebo nad ním. Paroxysmální SVT je charakterizována <strong>náhlým začátkem i náhlým ukončením</strong> a pravidelným rytmem. Postihuje častěji ženy (62 % případů), často i mladé pacienty bez strukturálního onemocnění srdce.",
+          avnrtLabel: "AVNRT",
+          avnrtSub: "AV nodální reentry",
+          avrtLabel: "AVRT",
+          avrtSub: "Akcesorní dráha / WPW",
+          atLabel: "AT",
+          atSub: "Síňová tachykardie"
+        },
+        typesCards: [
+          {
+            badge: "Nejčastější (2/3 případů)",
+            code: "AVNRT",
+            title: "AV nodální reentry tachykardie",
+            desc: "Typická u mladých dospělých a žen. Vzniká v perimodální tkáni AV uzlu přítomností <strong>dvou elektrofyziologických drah:</strong> pomalé (slow) a rychlé (fast).",
+            mechanismTitle: "Elektrofyziologický mechanismus:",
+            mechanismText: "Předčasný síňový stah (PAC) zablokuje rychlou dráhu (má delší refrakterní periodu), šíří se pomalou dráhou anterográdně a retrográdně se vrací obnovenou rychlou dráhou.",
+            ecgTitle: "EKG korelace:",
+            ecgText: "P vlny jsou <strong>skryté v QRS</strong> (aktivace síní a komor probíhá současně), nebo se zobrazují jako <em>pseudo-r'</em> ve svodu V1 a <em>pseudo-s</em> v dolních svodech (II, III, aVF)."
+          },
+          {
+            badge: "Častá u dětí a mladých (30 %)",
+            code: "AVRT",
+            title: "AV reentry tachykardie (akcesorní dráha)",
+            desc: "Vyžaduje <strong>akcesorní spojku</strong> mezi síní a komorou mimo AV uzel. Klasickým příkladem je Wolffův-Parkinsonův-Whiteův (WPW) syndrom.",
+            mechanismTitle: "Dvě formy vedení:",
+            mechanismText: "<strong>1. Ortodromní (90 %):</strong> Dolů přes AV uzel, nahoru přes dráhu (<em>úzký QRS</em>, retrográdní P vlna za QRS, RP < 1/2 RR).<br><strong>2. Antidromní (10 %):</strong> Dolů přes akcesorní dráhu, nahoru přes AV uzel (<em>široký aberantní QRS komplex!</em>).",
+            ecgTitle: "Kritické riziko:",
+            ecgText: "FiS s preexcitací může vést k fibrilaci komor a náhlé srdeční smrti. <strong>Nikdy neblokovat AV uzel (adenosin/verapamil) při preexcitované FiS!</strong>"
+          },
+          {
+            badge: "Nejméně častá (~10 %)",
+            code: "AT",
+            title: "Síňová (atriální) tachykardie",
+            desc: "Vychází z ektopického ložiska v síni mimo SA uzel. Může být způsobena zvýšenou automaticitou nebo mikro-reentry okruhem.",
+            mechanismTitle: "Charakteristické znaky:",
+            mechanismText: "Často vykazuje tzv. <strong>„warm-up“ fenomén</strong> (postupné zrychlování v prvních 5–10 sekundách), na rozdíl od náhlého skoku u AVNRT/AVRT.",
+            ecgTitle: "EKG korelace:",
+            ecgText: "Abnormální morfologie a osa vlny P (odlišná od sinusové). Vlna P předchází QRS komplex, PR interval je normální, <strong>RP interval je delší než PR interval</strong>."
+          }
+        ],
+        triggersAndTests: {
+          triggersTitle: "Časté spouštěče (Triggers)",
+          triggers: ["Kofein & alkohol", "Hypertyreóza", "Elektrolytové dysbalance (K, Mg)", "Sympatomimetika / dekongestiva", "Anémie", "Fyzická námaha / stres", "Horečka / infekce", "Bronchodilatancia"],
+          triggersNote: "Poznámka: U mladých žen bývá pSVT často chybně diagnostikována jako panická ataka nebo úzkostná porucha, což vede k prodlevě v diagnóze.",
+          testsTitle: "Laboratorní a doplňková vyšetření",
+          tests: [
+            "<strong>Krevní obraz (KO):</strong> vyloučení anémie a skryté infekce.",
+            "<strong>TSH (tyreotropní hormon):</strong> screening hypertyreózy jako reverzibilní příčiny.",
+            "<strong>Minerály (BMP - Na, K, Ca, Mg, urea, kreatinin):</strong> iontové poruchy spouštějící arytmie.",
+            "<strong>Troponin a BNP:</strong> při podezření na ischemii či srdeční selhání.",
+            "<strong>Transtorakální ECHO:</strong> vyloučení strukturálního onemocnění srdce a zhodnocení ejekční frakce."
+          ]
+        },
+        canvasSection: {
+          title: "Interaktivní osciloskop EKG křivek (Canvas HTML5)",
+          sub: "Vyberte patologii pro simulaci a analýzu klíčových elektrokardiografických markerů.",
+          buttons: {
+            sinus: "Sinusový rytmus (75 bpm)",
+            avnrt: "Typická AVNRT (180 bpm)",
+            wpw: "WPW Preexcitace (Delta)",
+            vt: "Širokokomplexová (VT)"
+          }
+        },
+        ecgPresets: {
+          sinus: {
+            title: "Normální sinusový rytmus (75 bpm)",
+            explanation: "<strong>Normální sinusový rytmus:</strong> Pravidelný rytmus s normální vlnou P předcházející každý QRS komplex, normální PR interval (120–200 ms), úzký QRS komplex (< 120 ms) a normální repolarizace."
+          },
+          avnrt: {
+            title: "Typická AVNRT (180 bpm, Úzký QRS)",
+            explanation: "<strong>AV nodální reentry tachykardie:</strong> Rychlý pravidelný rytmus s úzkým QRS. Retrográdní vlny P splývají s komorovou depolarizací (skryté v QRS) nebo se zobrazují jako <strong>pseudo-r'</strong> ve svodu V1 a <strong>pseudo-s</strong> v dolních svodech."
+          },
+          wpw: {
+            title: "Wolff-Parkinson-White (WPW) syndrom / Preexcitace",
+            explanation: "<strong>WPW triáda:</strong> 1) Zkrácený PR interval (< 120 ms), 2) Pozvolný náběh QRS komplexu (<strong>delta vlna</strong>), 3) Rozšířený QRS komplex (> 120 ms). Vzniká předčasnou aktivací komor přes anomální akcesorní dráhu mimo AV uzel."
+          },
+          vt: {
+            title: "Širokokomplexová tachykardie (VT / Antidromní AVRT, 170 bpm)",
+            explanation: "<strong>Širokokomplexový rytmus:</strong> QRS komplex ≥ 120 ms. V urgentní péči se <em>vždy léčí jako komorová tachykardie (VT)</em>, dokud není vyloučena Brugada kritérii! Podání blokátorů AV uzlu (verapamil, adenosin) u preexcitované arytmie může vyvolat zástavu oběhu."
+          }
+        },
+        diffTable: {
+          title: "Diferenciální diagnostika na EKG",
+          headers: ["Entita", "Šířka QRS", "P vlna", "RP interval", "Charakteristický nález"],
+          rows: [
+            ["Typická AVNRT", "Úzký (< 120 ms)", "Skrytá v QRS nebo retrográdní těsně za ním", "Velmi krátký (RP < 70 ms)", "Pseudo-r' ve V1, pseudo-s ve svodech II, III, aVF"],
+            ["Ortodromní AVRT", "Úzký (< 120 ms)", "Invertovaná, následuje za QRS", "Krátký (RP < 1/2 RR intervalu)", "V klidu na sinusovém rytmu může být delta vlna (WPW)"],
+            ["Antidromní AVRT", "Široký (≥ 120 ms)", "Často maskovaná nebo retrográdní", "Dlouhý (RP > 1/2 RR intervalu)", "Zkrácený PR interval, delta vlna, simuluje komorovou tachykardii"],
+            ["Síňová tachykardie (AT)", "Úzký (< 120 ms)", "Abnormální tvar a osa (předchází QRS)", "Dlouhý (RP > PR)", "„Warm-up“ a „cool-down“ fenomén; normální PR interval"]
+          ]
+        },
+        management: {
+          tag: "Akutní postup na urgentním příjmu",
+          title: "Rozhodovací algoritmus managementu pSVT",
+          unstableTitle: "Hemodynamicky NESTABILNÍ pacient",
+          unstableSigns: "Příznaky nestability: alterace vědomí, šok/hypotenze, těžká dušnost (plicní edém), ischemická bolest na hrudi.",
+          unstableCardio: "1. linie: Synchronizovaná kardioverze",
+          unstableCardioDesc: "Okamžitý výboj (za sedace/analgezie). Pokud selže, přechod na ACLS protokol pro kardiopulmonální resuscitaci.",
+          stableTitle: "Hemodynamicky STABILNÍ pacient",
+          stableSigns: "Normální krevní tlak, bez známek hypoperfuze a plicního edému.",
+          step1Title: "1. Krok: Vagové manévry (Účinnost 19–54 %)",
+          step1Desc: "Modifikovaný Valsalvův manévr (usilovný výdech do 10ml stříkačky 15 s, poté položení a elevace DK o 45° na 15 s), masáž karotického sinu (5–10 s, po vyloučení šelestu), diving reflex.",
+          step2Title: "2. Krok: Intravenózní Adenosin",
+          step2Desc: "<strong>Dávkování:</strong> 6 mg IV rychlý bolus (push) s okamžitým proplachem 20 ml FR do velké žíly. Při neúčinnosti do 1–2 min: <strong>12 mg IV</strong>.<br><span class='text-rose-600 font-semibold'>Upozornění:</span> Pacienta varovat před pocitem tísně na hrudi a horka. <em>Přeskočit, pokud je přítomna preexcitace na EKG!</em>",
+          step3Title: "3. Krok: Blokátory vápníkových kanálů nebo Beta-blokátory",
+          step3Desc: "Nedihydropyridinové BKK: <strong>Diltiazem</strong> 0,25 mg/kg IV po dobu 2 min nebo <strong>Verapamil</strong> 5–10 mg IV. Alternativně IV Metoprolol či Esmolol. (Pozor na hypotenzi a srdeční selhání).",
+          step4Title: "4. Krok: Selhání medikace",
+          step4Desc: "Synchronizovaná elektrická kardioverze i u stabilního pacienta.",
+          wctTitle: "Širokokomplexová tachykardie (WCT)",
+          wctRule: "Zlaté pravidlo urgentní medicíny: <strong>Každou širokokomplexovou tachykardii (QRS ≥ 120 ms) považujeme za komorovou tachykardii (VT), dokud není prokázán opak!</strong>",
+          wctDrugs: "<strong>Procainamid IV:</strong> Lék 1. volby pro stabilní WCT (účinnější a bezpečnější než amiodaron).<br><strong>Amiodaron IV:</strong> Alternativa (150 mg bolus během 10 min, následně infuze).",
+          ablationTitle: "Dlouhodobý management a kurativní léčba",
+          ablationMain: "<strong>Katetrizační radiofrekvenční ablace (RFA):</strong> Kurativní metoda 1. volby u recidivující symptomatické pSVT a všech pacientů s WPW. Vysoká úspěšnost (> 95 %) a nízké riziko komplikací.",
+          ablationChronic: "<strong>Chronická farmakoterapie (pokud ablace není vhodná):</strong> Beta-blokátory nebo non-DHP BKK (diltiazem/verapamil). U strukturálně zdravého srdce antiarytmika třídy Ic (flecainid, propafenon)."
+        },
+        recallQuestions: [
+          {
+            id: 1,
+            q: "Jaký je elektrofyziologický rozdíl mezi ortodromní a antidromní AVRT?",
+            a: "<strong>Ortodromní AVRT (90 % případů):</strong> Vzruch putuje anterográdně přes normální AV uzel a Hisův svazek (depolarizace komor fyziologickou cestou &rarr; <em>úzký QRS komplex</em>) a retrográdně zpět do síní přes akcesorní dráhu.<br><br><strong>Antidromní AVRT (10 %):</strong> Vzruch putuje anterográdně přes akcesorní dráhu přímo do myokardu komor (&rarr; <em>široký aberantní QRS</em>) a retrográdně se vrací přes AV uzel/Hisův svazek."
+          },
+          {
+            id: 2,
+            q: "Jaké EKG nálezy tvoří diagnostickou triádu Wolffova-Parkinsonova-Whiteova (WPW) syndromu na klidovém EKG?",
+            a: "1. <strong>Zkrácený PR interval</strong> (&lt; 120 ms) v důsledku obejití fyziologického zdržení v AV uzlu.<br>2. <strong>Delta vlna</strong> (pozvolný náběh počátku QRS komplexu v důsledku preexcitace svaloviny komor).<br>3. <strong>Rozšířený QRS komplex</strong> (&gt; 120 ms) se sekundárními repolarizačními změnami."
+          },
+          {
+            id: 3,
+            q: "Proč je podání blokátorů AV uzlu (adenosin, verapamil, beta-blokátory) životu nebezpečné u pacienta s preexcitovanou fibrilací síní?",
+            a: "Pokud má pacient akcesorní dráhu (WPW) a dostane fibrilaci síní, blokádou AV uzlu se veškerý elektrický proud ze síní (300–600/min) přesměruje přes akcesorní dráhu, která nemá zdržovací schopnost AV uzlu. To způsobí bleskový převod na komory a přechod do <strong>fibrilace komor a náhlou srdeční smrt</strong>."
+          },
+          {
+            id: 4,
+            q: "Jak se správně provádí modifikovaný Valsalvův manévr (REVERT protokol) a jaké dosahuje účinnosti?",
+            a: "Pacient v polosedě usilovně fouká do 10ml stříkačky (tlak cca 40 mmHg) po dobu <strong>15 sekund</strong>. Ihned poté je položen na záda a personál mu <strong>zvedne dolní končetiny do úhlu 45° na 15 sekund</strong> (masivní žilní návrat). Účinnost ukončení pSVT je <strong>až 43–54 %</strong>, což je více než dvojnásobek oproti standardnímu manévru."
+          },
+          {
+            id: 5,
+            q: "Jaké je správné dávkování a technika podání adenosinu u dospělého se stabilní úzkokomplexovou pSVT?",
+            a: "<strong>První dávka:</strong> 6 mg IV rychlým bolusem (rapid push během 1–2 sekund) do periferní žíly co nejblíže srdci (ideálně kubitální žíla), ihned následováno <strong>rychlým proplachem 20 ml fyziologického roztoku</strong>.<br>Pokud nedojde k terminaci arytmie do 1–2 minut, podává se <strong>druhá dávka: 12 mg IV</strong> stejným způsobem."
+          },
+          {
+            id: 6,
+            q: "Jaká je metoda volby pro dlouhodobou kurativní léčbu recidivující symptomatické pSVT?",
+            a: "<strong>Katetrizační radiofrekvenční ablace (RFA)</strong>. Jde o bezpečnou, kurativní metodu první volby doporučovanou guidelines (ESC/ACC) s úspěšností přesahující 95 % u AVNRT i AVRT/WPW. Po úspěšné ablaci pacient zpravidla nepotřebuje žádnou chronickou antiarytmickou medikaci."
+          }
+        ],
+        recallUI: {
+          tag: "Aktivní vybavování z paměti",
+          heading: "Active Recall Trenažér",
+          sub: "Zkuste si zformulovat odpověď ve své mysli předtím, než kliknete na „Zobrazit odpověď“. Následně si sami ohodnoťte, jak snadné to pro vás bylo.",
+          counter: "6 otázek s vysokou výtěžností",
+          showAns: "Zobrazit odpověď",
+          hideAns: "Skrýt odpověď",
+          myRating: "Moje hodnocení:",
+          easy: "Snadné 👍",
+          medium: "Těžké ⚡",
+          hard: "Nevěděl(a) jsem ❌"
+        },
+        summaryUI: {
+          tag: "Rychlé klinické repetitorium",
+          heading: "Klinické perly a varovné signály (Red Flags)",
+          sub: "To nejdůležitější z článku do atestační či reálné klinické praxe.",
+          brugadaTitle: "Brugada kritéria pro široký QRS (≥ 120 ms)",
+          brugadaDesc: "Postupujte krok za krokem. Odpověď „ANO“ na kterýkoliv bod potvrzuje <strong>komorovou tachykardii (VT)</strong>:",
+          brugadaSteps: [
+            "1. Absence RS komplexu ve všech prekordiálních svodech (V1–V6)? <span class='text-purple-700 font-bold'>Ano &rarr; VT</span>",
+            "2. Je přítomen RS komplex a interval od začátku R do hrotu S je > 100 ms v některém svodu? <span class='text-purple-700 font-bold'>Ano &rarr; VT</span>",
+            "3. Je přítomna atrioventrikulární (AV) disociace? <span class='text-purple-700 font-bold'>Ano &rarr; VT</span>",
+            "4. Jsou přítomna morfologická kritéria pro VT ve svodech V1–V2 a V6? <span class='text-purple-700 font-bold'>Ano &rarr; VT</span>"
+          ],
+          brugadaAllNo: "<strong>Všechna 4 kritéria „NE“:</strong> Diagnostikována SVT s aberantním vedením (např. raménkový blok).",
+          redFlagsTitle: "Indikace k odeslání kardiologovi (Ablace)",
+          redFlagsTag: "Table 8 Guidelines",
+          redFlags: [
+            "<strong>Preexcitace nebo delta vlna</strong> na klidovém EKG (riziko náhlé smrti).",
+            "<strong>Synkopa nebo presynkopa</strong> během paroxysmu palpitací.",
+            "<strong>Vysoce rizikové povolání:</strong> pilot, řidič kamionu/MHD, jeřábník, potápěč.",
+            "<strong>Známé strukturální onemocnění srdce</strong> (ICHS, kardiomyopatie, chlopenní vady).",
+            "Symptomy nekontrolované farmakoterapií nebo netolerující medikaci.",
+            "Nejasnost v diagnóze či široký QRS komplex."
+          ],
+          pharmaTitle: "Farmakologický přehled (Nasir 2023 Table 6)",
+          pharmaHeaders: ["Léčivo", "Třída", "Akutní dávkování", "Nežádoucí účinky & Kontraindikace"],
+          pharmaRows: [
+            ["Adenosin", "Agonista A1 purin. receptorů", "6 mg IV bolus &rarr; 12 mg IV", "Flush, dyspnoe, bronchospasmus. <strong>KI:</strong> Preexcitace s FiS, astma."],
+            ["Diltiazem / Verapamil", "BKK (non-dihydropyridiny)", "0,25 mg/kg IV / 5–10 mg IV", "Hypotenze, bradykardie. <strong>KI:</strong> HFrEF (selhání se sníženou EF), široký QRS."],
+            ["Procainamid", "Antiarytmikum Ia", "10–17 mg/kg IV (20–50 mg/min)", "Lék 1. volby pro stabilní široký QRS. <strong>KI:</strong> Prodloužený QT, srdeční selhání."],
+            ["Metoprolol / Esmolol", "Beta-blokátory (II)", "Metoprolol 5 mg IV (max 15 mg)", "Bradykardie, AV blokády, bronchospasmus, hypotenze."]
+          ]
+        },
+        quizUI: {
+          tag: "Ověření znalostí",
+          heading: "Klinický test se single-choice otázkami",
+          sub: "Otestujte své rozhodovací schopnosti na reálných kazuistikách.",
+          scoreLabel: "Skóre",
+          unanswered: "Nezodpovězeno",
+          correct: "Správně ✓",
+          incorrect: "Chybně ✗"
+        },
+        quizData: [
+          {
+            id: 1,
+            question: "32letá dosud zdravá žena přichází na urgentní příjem s náhle vzniklým bušením srdce. TK je 125/80 mmHg, TF 185/min, saturace 98 %. EKG ukazuje pravidelnou tachykardii s úzkými QRS komplexy bez zřetelných vln P. Jaký je nejvhodnější bezprostřední první krok v managementu?",
+            options: [
+              "Intravenózní bolus adenosinu 6 mg",
+              "Synchronizovaná elektrická kardioverze 100 J",
+              "Vagové manévry (např. modifikovaný Valsalvův manévr)",
+              "Amiodaron 150 mg IV v infuzi po dobu 10 minut"
+            ],
+            correct: 2,
+            explanation: "U hemodynamicky stabilního pacienta s pravidelnou úzkokomplexovou tachykardií jsou nefarmakologické vagové manévry (1. linie) doporučeny před podáním léků. Mají úspěšnost 19–54 % a nulové riziko lékových nežádoucích účinků."
+          },
+          {
+            id: 2,
+            question: "Pokud u výše uvedené pacientky správně provedené vagové manévry nevedou k ukončení tachykardie a pacientka zůstává stabilní, jaký farmakologický krok je doporučen jako lék první volby?",
+            options: [
+              "Diltiazem 0,25 mg/kg IV po dobu 2 minut",
+              "Adenosin 6 mg IV rychlý bolus následovaný proplachem",
+              "Metoprolol 5 mg IV opakovaně po 5 minutách",
+              "Digoxin 0,5 mg IV pomalu"
+            ],
+            correct: 1,
+            explanation: "Pokud vagové manévry selžou, lékem 1. volby je intravenózní adenosin v počáteční dávce 6 mg IV rapid push. Blokátory kalciových kanálů či beta-blokátory jsou až dalším krokem při selhání adenosinu."
+          },
+          {
+            id: 3,
+            question: "Který z následujících EKG nálezů svědčí pro Wolff-Parkinson-Whiteův (WPW) syndrom v klidovém období (mimo paroxysmus tachykardie)?",
+            options: [
+              "Prodloužený PR interval > 200 ms a blokáda pravého raménka",
+              "Zkrácený PR interval < 120 ms, přítomnost delta vlny a rozšířený QRS",
+              "Inverze vln T v prekordiálních svodech V1–V3 a elevace ST úseku",
+              "Pravidelný flutterový zubovitý vzorec ve svodech II, III, aVF"
+            ],
+            correct: 1,
+            explanation: "Klasickou triádou preexcitace u WPW je zkrácený PR interval (< 120 ms), pomalý vzestup QRS komplexu (tzv. delta vlna) a rozšířený QRS komplex (> 120 ms)."
+          },
+          {
+            id: 4,
+            question: "54letý muž s anamnézou infarktu myokardu přichází s pravidelnou tachykardií s širokými QRS komplexy (160 ms), TF 170/min, TK 115/75 mmHg. Který z následujících postupů je správný?",
+            options: [
+              "Podat verapamil 5 mg IV pro podezření na aberantně vedenou AVNRT",
+              "Přistupovat k rytmu jako ke komorové tachykardii (VT) a podat IV Procainamid",
+              "Okamžitě aplikovat adenosin 18 mg IV",
+              "Propustit pacienta domů s preskripcí perorálního beta-blokátoru"
+            ],
+            correct: 1,
+            explanation: "Zásadní pravidlo: Každá širokokomplexová tachykardie se považuje za komorovou tachykardii (VT), dokud se neprokáže opak. U stabilního pacienta je lékem volby IV procainamid (nebo amiodaron). Verapamil je u VT přísně kontraindikován, hrozí hemodynamický kolaps!"
+          },
+          {
+            id: 5,
+            question: "Který typ paroxysmální supraventrikulární tachykardie je celosvětově nejčastější a tvoří přibližně dvě třetiny (cca 65 %) všech případů pSVT?",
+            options: [
+              "Fokální síňová (atriální) tachykardie (AT)",
+              "Atrioventrikulární nodální reentry tachykardie (AVNRT)",
+              "Ortodromní atrioventrikulární reentry tachykardie (AVRT)",
+              "Multifokální síňová tachykardie (MAT)"
+            ],
+            correct: 1,
+            explanation: "AVNRT je nejčastější formou pSVT (~65 % případů), typicky postihuje mladší dospělé a ženy. Její podstatou je reentry okruh v oblasti AV uzlu tvořený pomalou a rychlou dráhou."
+          },
+          {
+            id: 6,
+            question: "Která intervence je doporučována současnými kardiologickými guidelines jako metoda první volby pro definitivní kurativní léčbu symptomatické recidivující AVNRT či AVRT?",
+            options: [
+              "Doživotní monoterapie verapamilem per os",
+              "Implantace kardioverteru-defibrilátoru (ICD)",
+              "Katetrizační radiofrekvenční ablace (RFA)",
+              "Chirurgický MAZE zákrok"
+            ],
+            correct: 2,
+            explanation: "Katetrizační ablace je metodou 1. volby s kurativním potenciálem (> 95 % úspěšnost, minimální morbidita). Odstraňuje nutnost trvalé farmakoterapie."
+          }
+        ],
+        flashcardsUI: {
+          tag: "Spaced Repetition",
+          heading: "Opakovací kartičky (Flashcards)",
+          sub: "Klikněte na kartičku pro její otočení. Procvičujte až do úplného zvládnutí.",
+          counterPrefix: "Kartička",
+          counterOf: "z",
+          flipHint: "Klikněte pro otočení",
+          flipBackHint: "Klikněte pro otočení zpět",
+          backBadge: "Vysvětlení / Odpověď",
+          reset: "Reset",
+          btnRepeat: "Ještě zopakovat",
+          btnMastered: "Umím 👍"
+        },
+        flashcardsData: [
+          {
+            cat: "Epidemiologie",
+            front: "Jaká je prevalence pSVT a která demografická skupina je nejčastěji postižena?",
+            back: "Prevalence je cca 2,29 na 1 000 osob. Nejčastěji jsou postiženy ženy středního věku (tvoří odhadem 62 % všech případů)."
+          },
+          {
+            cat: "Elektrofyziologie AVNRT",
+            front: "Kde se nachází reentry okruh u AVNRT a jaké dvě dráhy obsahuje?",
+            back: "Okruh je v AV uzlu a perinodální síňové tkáni. Obsahuje pomalou dráhu (slow pathway - kratší refrakterní perioda) a rychlou dráhu (fast pathway - delší refrakterní perioda)."
+          },
+          {
+            cat: "EKG Diagnostika",
+            front: "Co způsobuje vznik 'pseudo-r'' vlny ve svodu V1 a 'pseudo-s' vlny v dolních svodech?",
+            back: "Relativně opožděné retrográdní síňové vedení u typické AVNRT. Retrográdní vlna P se zapíše na samém konci QRS komplexu a vytvoří tyto pseudo-výchylky."
+          },
+          {
+            cat: "Syndromologie",
+            front: "Jak je definován Wolff-Parkinson-Whiteův (WPW) syndrom?",
+            back: "Kombinace preexcitace na EKG (delta vlna, krátký PR, široký QRS) a přítomnosti symptomatických tachyarytmií využívajících akcesorní spojku."
+          },
+          {
+            cat: "Akutní terapie",
+            front: "Jaký je postup 1. linie u hemodynamicky NESTABILNÍHO pacienta s pSVT?",
+            back: "Okamžitá synchronizovaná elektrická kardioverze (za analgosedace). Při selhání přechod na ACLS postupy."
+          },
+          {
+            cat: "Farmakologie",
+            front: "Jaké jsou hlavní nežádoucí účinky a pocity pacienta po nitrožilním podání adenosinu?",
+            back: "Výrazný pocit tísně či bolesti na hrudi, nával horka (flushing), dyspnoe, přechodná asystolie/bradykardie. Pacienta je nutné předem uklidnit, že odezní do 10–20 sekund."
+          },
+          {
+            cat: "Diferenciální diagnóza",
+            front: "Které farmakum je lékem 1. volby u hemodynamicky STABILNÍ širokokomplexové tachykardie?",
+            back: "Intravenózní Procainamid (10–17 mg/kg IV infuzí). V klinických studiích prokázal vyšší účinnost a méně kardiovaskulárních nežádoucích účinků než amiodaron."
+          },
+          {
+            cat: "Kardiologické indikace",
+            front: "Kteří pacienti s asymptomatickou preexcitací na EKG vyžadují elektrofyzikální vyšetření a zvážení ablace?",
+            back: "Osoby s vysoce rizikovým povoláním (piloti, řidiči MHD/kamionů, jeřábníci, potápěči) a vrcholoví sportovci z důvodu rizika náhlé smrti během zátěže."
+          }
+        ],
+        footer: {
+          copy: "© 2026 Viola Kintrová • Kardiologický výukový portál pro 4. ročník Všeobecného lékařství.",
+          ref: "Podle Nasir et al. Am Fam Physician 2023;107(5):519-528 a ESC Guidelines pro supraventrikulární tachykardie"
+        }
+      }
+    };
+
+    // ==========================================
+    // APPLICATION STATE (SPANISH AS DEFAULT)
+    // ==========================================
+    let currentLang = 'es'; // Default language is Spanish as requested
+    let currentTab = 'theory';
+    let currentTheorySub = 'types';
+    let currentRhythm = 'sinus';
+    let currentCardIndex = 0;
+    let isFlipped = false;
+    let userAnswers = {};
+
+    // Check URL param or localStorage
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlLang = urlParams.get('lang');
+    if (urlLang === 'cs' || urlLang === 'es') {
+      currentLang = urlLang;
+    } else {
+      const stored = localStorage.getItem('psvt_lang_v1');
+      if (stored === 'cs' || stored === 'es') {
+        currentLang = stored;
+      }
+    }
+
+    // ==========================================
+    // LANGUAGE SWITCHER
+    // ==========================================
+    function setLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('psvt_lang_v1', lang);
+
+      // Toggle Lang Button Styles
+      const btnEs = document.getElementById('lang-btn-es');
+      const btnCs = document.getElementById('lang-btn-cs');
+      if (lang === 'es') {
+        btnEs.className = "px-2.5 py-1 text-xs font-bold rounded-lg transition-all flex items-center gap-1 bg-white shadow-sm text-sky-700";
+        btnCs.className = "px-2.5 py-1 text-xs font-bold rounded-lg transition-all flex items-center gap-1 text-slate-600 hover:text-slate-900";
+        document.documentElement.lang = 'es';
+      } else {
+        btnCs.className = "px-2.5 py-1 text-xs font-bold rounded-lg transition-all flex items-center gap-1 bg-white shadow-sm text-sky-700";
+        btnEs.className = "px-2.5 py-1 text-xs font-bold rounded-lg transition-all flex items-center gap-1 text-slate-600 hover:text-slate-900";
+        document.documentElement.lang = 'cs';
+      }
+
+      renderAllContent();
+    }
+
+    function renderAllContent() {
+      const dict = I18N_DATA[currentLang];
+
+      // Page Title & Header
+      document.getElementById('page-title').innerText = dict.pageTitle;
+      document.getElementById('header-title').innerText = dict.headerTitle;
+      document.getElementById('header-subtitle').innerText = dict.headerSubtitle;
+      document.getElementById('hub-btn-text').innerText = dict.hubBtnText;
+
+      // Nav Tabs
+      dict.tabLabels.forEach((label, idx) => {
+        document.getElementById(`tab-label-${idx + 1}`).innerText = label;
+      });
+
+      // Theory Sub-tabs
+      document.getElementById('sub-label-types').innerText = dict.subLabels.types;
+      document.getElementById('sub-label-ecg').innerText = dict.subLabels.ecg;
+      document.getElementById('sub-label-management').innerText = dict.subLabels.management;
+
+      // Banner
+      document.getElementById('banner-tag').innerText = dict.banner.tag;
+      document.getElementById('banner-incidence').innerText = dict.banner.incidence;
+      document.getElementById('banner-heading').innerText = dict.banner.heading;
+      document.getElementById('banner-text').innerHTML = dict.banner.text;
+      document.getElementById('stat-avnrt-label').innerText = dict.banner.avnrtLabel;
+      document.getElementById('stat-avnrt-sub').innerText = dict.banner.avnrtSub;
+      document.getElementById('stat-avrt-label').innerText = dict.banner.avrtLabel;
+      document.getElementById('stat-avrt-sub').innerText = dict.banner.avrtSub;
+      document.getElementById('stat-at-label').innerText = dict.banner.atLabel;
+      document.getElementById('stat-at-sub').innerText = dict.banner.atSub;
+
+      // Types 3 Cards
+      const typesGrid = document.getElementById('types-cards-grid');
+      typesGrid.innerHTML = dict.typesCards.map((c, i) => `
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 hover:shadow-md transition-shadow flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="bg-${i === 0 ? 'sky' : (i === 1 ? 'indigo' : 'rose')}-100 text-${i === 0 ? 'sky' : (i === 1 ? 'indigo' : 'rose')}-800 text-xs font-bold px-2.5 py-1 rounded-md">${c.badge}</span>
+              <span class="text-xs text-slate-400 font-mono font-bold">${c.code}</span>
+            </div>
+            <h3 class="text-lg font-heading font-bold text-slate-900">${c.title}</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">${c.desc}</p>
+            <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100 space-y-1.5 text-xs">
+              <div class="font-bold text-slate-800">${c.mechanismTitle}</div>
+              <p class="text-slate-600 leading-relaxed">${c.mechanismText}</p>
+              <div class="font-bold text-${i === 1 ? 'rose-600' : 'slate-800'} pt-1.5">${c.ecgTitle}</div>
+              <p class="text-slate-600 leading-relaxed">${c.ecgText}</p>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      // Triggers & Diagnostic Tests
+      const trigGrid = document.getElementById('triggers-tests-grid');
+      trigGrid.innerHTML = `
+        <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+          <h4 class="font-heading font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span> ${dict.triggersAndTests.triggersTitle}
+          </h4>
+          <div class="flex flex-wrap gap-1.5 text-xs text-slate-700">
+            ${dict.triggersAndTests.triggers.map(t => `<span class="bg-slate-100 border border-slate-200/60 px-2.5 py-1 rounded-lg font-medium">${t}</span>`).join('')}
+          </div>
+          <p class="text-xs text-slate-500 mt-3 italic leading-relaxed">${dict.triggersAndTests.triggersNote}</p>
+        </div>
+        <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+          <h4 class="font-heading font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-medblue-500"></span> ${dict.triggersAndTests.testsTitle}
+          </h4>
+          <ul class="text-xs text-slate-600 space-y-2 leading-relaxed">
+            ${dict.triggersAndTests.tests.map(t => `<li class="flex items-start gap-2"><span class="text-medblue-500 mt-0.5">•</span><span>${t}</span></li>`).join('')}
+          </ul>
+        </div>
+      `;
+
+      // Canvas ECG Controls & Buttons
+      document.getElementById('canvas-section-title').innerText = dict.canvasSection.title;
+      document.getElementById('canvas-section-sub').innerText = dict.canvasSection.sub;
+      document.getElementById('ecg-btn-sinus').innerText = dict.canvasSection.buttons.sinus;
+      document.getElementById('ecg-btn-avnrt').innerText = dict.canvasSection.buttons.avnrt;
+      document.getElementById('ecg-btn-wpw').innerText = dict.canvasSection.buttons.wpw;
+      document.getElementById('ecg-btn-vt').innerText = dict.canvasSection.buttons.vt;
+      updateEcgLabels();
+
+      // Diff Table
+      document.getElementById('table-diff-title').innerText = dict.diffTable.title;
+      const diffContainer = document.getElementById('diff-table-container');
+      diffContainer.innerHTML = `
+        <table class="w-full text-left text-xs border-collapse">
+          <thead>
+            <tr class="border-b border-slate-200 bg-slate-100/80 text-slate-700 font-bold uppercase text-[10px] tracking-wider">
+              ${dict.diffTable.headers.map(h => `<th class="p-3.5">${h}</th>`).join('')}
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 text-slate-600">
+            ${dict.diffTable.rows.map(r => `
+              <tr class="hover:bg-slate-50 transition-colors">
+                <td class="p-3.5 font-bold text-slate-900">${r[0]}</td>
+                <td class="p-3.5 ${r[1].includes('Ancho') || r[1].includes('Široký') ? 'text-rose-600' : 'text-emerald-600'} font-semibold">${r[1]}</td>
+                <td class="p-3.5">${r[2]}</td>
+                <td class="p-3.5 font-mono">${r[3]}</td>
+                <td class="p-3.5">${r[4]}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      `;
+
+      // Management Section
+      const mgmt = dict.management;
+      const mgmtContainer = document.getElementById('management-content-container');
+      mgmtContainer.innerHTML = `
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+          <div class="border-b border-slate-100 pb-4">
+            <span class="text-xs uppercase font-bold text-rose-600 bg-rose-50 px-2.5 py-0.5 rounded-md">${mgmt.tag}</span>
+            <h3 class="text-lg sm:text-xl font-heading font-bold text-slate-900 mt-1">${mgmt.title}</h3>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Inestable -->
+            <div class="border-2 border-rose-200 bg-rose-50/40 rounded-2xl p-5 space-y-3">
+              <div class="flex items-center gap-2 text-rose-700 font-bold text-sm sm:text-base">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                ${mgmt.unstableTitle}
+              </div>
+              <p class="text-xs text-slate-600 leading-relaxed">${mgmt.unstableSigns}</p>
+              <div class="bg-white p-4 rounded-xl border border-rose-200 text-xs space-y-1 shadow-sm">
+                <div class="font-bold text-rose-700 text-sm">${mgmt.unstableCardio}</div>
+                <p class="text-slate-600 leading-relaxed">${mgmt.unstableCardioDesc}</p>
+              </div>
+            </div>
+
+            <!-- Estable -->
+            <div class="border-2 border-emerald-200 bg-emerald-50/40 rounded-2xl p-5 space-y-3">
+              <div class="flex items-center gap-2 text-emerald-800 font-bold text-sm sm:text-base">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                ${mgmt.stableTitle}
+              </div>
+              <p class="text-xs text-slate-600">${mgmt.stableSigns}</p>
+              
+              <div class="space-y-2 text-xs">
+                <div class="bg-white p-3.5 rounded-xl border border-emerald-200 shadow-sm">
+                  <div class="font-bold text-slate-900 text-xs sm:text-sm mb-1">${mgmt.step1Title}</div>
+                  <p class="text-slate-600 leading-relaxed">${mgmt.step1Desc}</p>
+                </div>
+                <div class="bg-white p-3.5 rounded-xl border border-emerald-200 shadow-sm">
+                  <div class="font-bold text-slate-900 text-xs sm:text-sm mb-1">${mgmt.step2Title}</div>
+                  <p class="text-slate-600 leading-relaxed">${mgmt.step2Desc}</p>
+                </div>
+                <div class="bg-white p-3.5 rounded-xl border border-emerald-200 shadow-sm">
+                  <div class="font-bold text-slate-900 text-xs sm:text-sm mb-1">${mgmt.step3Title}</div>
+                  <p class="text-slate-600 leading-relaxed">${mgmt.step3Desc}</p>
+                </div>
+                <div class="bg-white p-3.5 rounded-xl border border-emerald-200 shadow-sm">
+                  <div class="font-bold text-rose-700 text-xs sm:text-sm mb-1">${mgmt.step4Title}</div>
+                  <p class="text-slate-600 leading-relaxed">${mgmt.step4Desc}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- QRS Ancho y Ablación -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+            <h4 class="font-heading font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-purple-600"></span> ${mgmt.wctTitle}
+            </h4>
+            <p class="text-xs text-slate-600 leading-relaxed">${mgmt.wctRule}</p>
+            <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100 text-xs leading-relaxed space-y-1.5">
+              ${mgmt.wctDrugs}
+            </div>
+          </div>
+
+          <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+            <h4 class="font-heading font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-600"></span> ${mgmt.ablationTitle}
+            </h4>
+            <div class="p-3.5 bg-emerald-50/60 rounded-xl border border-emerald-100 text-xs leading-relaxed text-emerald-950">
+              ${mgmt.ablationMain}
+            </div>
+            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-100 text-xs leading-relaxed text-slate-700">
+              ${mgmt.ablationChronic}
+            </div>
+          </div>
+        </div>
+      `;
+
+      // Active Recall UI
+      document.getElementById('recall-tag').innerText = dict.recallUI.tag;
+      document.getElementById('recall-heading').innerText = dict.recallUI.heading;
+      document.getElementById('recall-sub').innerText = dict.recallUI.sub;
+      document.getElementById('recall-counter').innerText = dict.recallUI.counter;
+      renderRecallQuestions();
+
+      // Summary UI
+      document.getElementById('summary-tag').innerText = dict.summaryUI.tag;
+      document.getElementById('summary-heading').innerText = dict.summaryUI.heading;
+      document.getElementById('summary-sub').innerText = dict.summaryUI.sub;
+      renderSummarySection();
+
+      // Quiz UI
+      document.getElementById('quiz-tag').innerText = dict.quizUI.tag;
+      document.getElementById('quiz-heading').innerText = dict.quizUI.heading;
+      document.getElementById('quiz-sub').innerText = dict.quizUI.sub;
+      document.getElementById('quiz-score-label').innerText = dict.quizUI.scoreLabel;
+      renderQuiz();
+
+      // Flashcards UI
+      document.getElementById('flash-tag').innerText = dict.flashcardsUI.tag;
+      document.getElementById('flash-heading').innerText = dict.flashcardsUI.heading;
+      document.getElementById('flash-sub').innerText = dict.flashcardsUI.sub;
+      document.getElementById('card-flip-hint').innerText = dict.flashcardsUI.flipHint;
+      document.getElementById('card-flip-back-hint').innerText = dict.flashcardsUI.flipBackHint;
+      document.getElementById('card-back-badge').innerText = dict.flashcardsUI.backBadge;
+      document.getElementById('flash-reset-btn').innerText = dict.flashcardsUI.reset;
+      document.getElementById('flash-btn-repeat').innerText = dict.flashcardsUI.btnRepeat;
+      document.getElementById('flash-btn-mastered').innerText = dict.flashcardsUI.btnMastered;
+      renderCurrentCard();
+
+      // Footer
+      document.getElementById('footer-copy').innerText = dict.footer.copy;
+      document.getElementById('footer-ref').innerText = dict.footer.ref;
+    }
+
+    // ==========================================
+    // TABS MANAGEMENT
+    // ==========================================
+    const tabs = ['theory', 'recall', 'summary', 'quiz', 'flashcards'];
+
+    function switchTab(targetTab) {
+      currentTab = targetTab;
+      tabs.forEach(tab => {
+        const sec = document.getElementById(`sec-${tab}`);
+        const btn = document.getElementById(`btn-${tab}`);
+        if (tab === targetTab) {
+          sec.classList.remove('hidden');
+          btn.classList.add('active');
+        } else {
+          sec.classList.add('hidden');
+          btn.classList.remove('active');
+        }
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function switchTheorySub(targetSub) {
+      currentTheorySub = targetSub;
+      ['types', 'ecg', 'management'].forEach(sub => {
+        const content = document.getElementById(`theory-content-${sub}`);
+        const btn = document.getElementById(`sub-${sub}`);
+        if (sub === targetSub) {
+          content.classList.remove('hidden');
+          btn.className = "theory-sub-btn pb-3 text-sky-600 border-b-2 border-sky-600 whitespace-nowrap font-bold";
+        } else {
+          content.classList.add('hidden');
+          btn.className = "theory-sub-btn pb-3 text-slate-500 hover:text-slate-800 whitespace-nowrap font-medium";
+        }
+      });
+      if (targetSub === 'ecg') {
+        setTimeout(resizeCanvas, 50);
+      }
+    }
+
+    // ==========================================
+    // HTML5 CANVAS ECG OSCILLOSCOPE SIMULATOR
+    // ==========================================
+    const canvas = document.getElementById('ecgCanvas');
+    const ctx = canvas.getContext('2d');
+    let scanX = 0;
+    let historyPoints = [];
+    let animationId = null;
+
+    function resizeCanvas() {
+      if (!canvas || !canvas.parentElement) return;
+      canvas.width = canvas.parentElement.clientWidth;
+      canvas.height = canvas.parentElement.clientHeight;
+      historyPoints = new Array(canvas.width).fill(null);
+    }
+    window.addEventListener('resize', resizeCanvas);
+
+    function setEcgRhythm(rhythm) {
+      currentRhythm = rhythm;
+      document.querySelectorAll('.ecg-selector-btn').forEach(btn => {
+        btn.classList.remove('bg-sky-600', 'text-white');
+        btn.classList.add('bg-slate-100', 'text-slate-700');
+      });
+      const activeBtn = document.getElementById(`ecg-btn-${rhythm}`);
+      if (activeBtn) {
+        activeBtn.classList.add('bg-sky-600', 'text-white');
+        activeBtn.classList.remove('bg-slate-100', 'text-slate-700');
+      }
+      updateEcgLabels();
+    }
+
+    function updateEcgLabels() {
+      const dict = I18N_DATA[currentLang];
+      const preset = dict.ecgPresets[currentRhythm];
+      if (preset) {
+        document.getElementById('canvas-live-label').innerText = `${preset.title} | 25 mm/s, 10 mm/mV`;
+        document.getElementById('ecg-explanation-box').innerHTML = preset.explanation;
+      }
+    }
+
+    function getEcgY(t, rhythm) {
+      const mid = canvas.height / 2;
+      const scale = canvas.height * 0.38;
+
+      if (rhythm === 'sinus') {
+        const period = 120; // ~75 bpm
+        const phase = t % period;
+        // P wave
+        if (phase > 20 && phase < 35) {
+          return mid - Math.sin((phase - 20) / 15 * Math.PI) * (scale * 0.2);
+        }
+        // QRS
+        if (phase >= 50 && phase < 53) return mid + (scale * 0.15); // Q
+        if (phase >= 53 && phase < 58) return mid - (scale * 1.0);  // R
+        if (phase >= 58 && phase < 63) return mid + (scale * 0.35); // S
+        // T wave
+        if (phase > 80 && phase < 105) {
+          return mid - Math.sin((phase - 80) / 25 * Math.PI) * (scale * 0.28);
+        }
+        return mid;
+      } 
+      else if (rhythm === 'avnrt') {
+        const period = 50; // fast rate (~180 bpm)
+        const phase = t % period;
+        // Hidden P in QRS / pseudo-r'
+        if (phase >= 15 && phase < 17) return mid + (scale * 0.1);
+        if (phase >= 17 && phase < 21) return mid - (scale * 1.0); // R
+        if (phase >= 21 && phase < 24) return mid + (scale * 0.4); // S
+        if (phase >= 24 && phase < 27) return mid - (scale * 0.18); // pseudo-r'
+        // T wave
+        if (phase > 30 && phase < 45) {
+          return mid - Math.sin((phase - 30) / 15 * Math.PI) * (scale * 0.25);
+        }
+        return mid;
+      }
+      else if (rhythm === 'wpw') {
+        const period = 110;
+        const phase = t % period;
+        // P wave
+        if (phase > 15 && phase < 28) {
+          return mid - Math.sin((phase - 15) / 13 * Math.PI) * (scale * 0.18);
+        }
+        // Short PR + Delta wave (phase 30-38)
+        if (phase >= 30 && phase < 38) {
+          const deltaProg = (phase - 30) / 8;
+          return mid - deltaProg * (scale * 0.38);
+        }
+        // R peak
+        if (phase >= 38 && phase < 43) return mid - (scale * 0.95);
+        if (phase >= 43 && phase < 48) return mid + (scale * 0.3);
+        // T wave
+        if (phase > 65 && phase < 90) {
+          return mid - Math.sin((phase - 65) / 25 * Math.PI) * (scale * 0.28);
+        }
+        return mid;
+      }
+      else if (rhythm === 'vt') {
+        const period = 55; // 170 bpm
+        const phase = t % period;
+        const sineVal = Math.sin((phase / period) * Math.PI * 2);
+        return mid + sineVal * (scale * 0.85);
+      }
+      return mid;
+    }
+
+    let timeStep = 0;
+    function drawEcg() {
+      if (!canvas || canvas.width === 0) {
+        animationId = requestAnimationFrame(drawEcg);
+        return;
+      }
+
+      // Dark background
+      ctx.fillStyle = '#020617';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Grid Lines
+      ctx.strokeStyle = 'rgba(16, 185, 129, 0.08)';
+      ctx.lineWidth = 1;
+      const gridSize = 16;
+      for (let x = 0; x < canvas.width; x += gridSize) {
+        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
+      }
+      for (let y = 0; y < canvas.height; y += gridSize) {
+        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(canvas.width, y); ctx.stroke();
+      }
+
+      // Update Sweep Point
+      timeStep += 1;
+      const yVal = getEcgY(timeStep, currentRhythm);
+      scanX = (scanX + 2) % canvas.width;
+      historyPoints[scanX] = yVal;
+
+      // Erase ahead of sweep line
+      for (let i = 1; i <= 18; i++) {
+        const clearIdx = (scanX + i) % canvas.width;
+        historyPoints[clearIdx] = null;
+      }
+
+      // Draw Trace
+      ctx.strokeStyle = '#10b981';
+      ctx.lineWidth = 2.4;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      ctx.shadowBlur = 8;
+      ctx.shadowColor = '#34d399';
+
+      ctx.beginPath();
+      let isDrawing = false;
+      for (let x = 0; x < canvas.width; x++) {
+        const pt = historyPoints[x];
+        if (pt !== null && pt !== undefined) {
+          if (!isDrawing) {
+            ctx.moveTo(x, pt);
+            isDrawing = true;
+          } else {
+            ctx.lineTo(x, pt);
+          }
+        } else {
+          isDrawing = false;
+        }
+      }
+      ctx.stroke();
+      ctx.shadowBlur = 0;
+
+      animationId = requestAnimationFrame(drawEcg);
+    }
+
+    // ==========================================
+    // ACTIVE RECALL ENGINE
+    // ==========================================
+    function renderRecallQuestions() {
+      const dict = I18N_DATA[currentLang];
+      const container = document.getElementById('recall-questions-container');
+      container.innerHTML = dict.recallQuestions.map(item => `
+        <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+          <div class="flex items-start justify-between gap-4">
+            <span class="text-xs font-bold text-sky-700 bg-sky-50 border border-sky-100 px-3 py-1 rounded-lg"># ${item.id}</span>
+            <span class="text-xs text-slate-400 font-mono">Active Recall</span>
+          </div>
+          <h3 class="text-sm sm:text-base font-heading font-bold text-slate-900">${item.q}</h3>
+          
+          <div id="recall-ans-${item.id}" class="hidden mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-700 leading-relaxed">
+            ${item.a}
+          </div>
+
+          <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-100">
+            <button onclick="toggleRecall(${item.id})" id="btn-toggle-recall-${item.id}" class="text-xs font-bold text-sky-700 hover:text-sky-900 flex items-center gap-1.5 transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+              <span id="recall-btn-text-${item.id}">${dict.recallUI.showAns}</span>
+            </button>
+            <div class="flex items-center gap-1.5 text-[11px]">
+              <span class="text-slate-400 mr-1 hidden sm:inline">${dict.recallUI.myRating}</span>
+              <button onclick="rateRecall(this, 'easy')" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-emerald-100 hover:text-emerald-800 transition-colors font-medium">${dict.recallUI.easy}</button>
+              <button onclick="rateRecall(this, 'medium')" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-amber-100 hover:text-amber-800 transition-colors font-medium">${dict.recallUI.medium}</button>
+              <button onclick="rateRecall(this, 'hard')" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-rose-100 hover:text-rose-800 transition-colors font-medium">${dict.recallUI.hard}</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function toggleRecall(id) {
+      const dict = I18N_DATA[currentLang];
+      const box = document.getElementById(`recall-ans-${id}`);
+      const btnText = document.getElementById(`recall-btn-text-${id}`);
+      if (box.classList.contains('hidden')) {
+        box.classList.remove('hidden');
+        btnText.innerText = dict.recallUI.hideAns;
+      } else {
+        box.classList.add('hidden');
+        btnText.innerText = dict.recallUI.showAns;
+      }
+    }
+
+    function rateRecall(btn) {
+      const parent = btn.parentElement;
+      parent.querySelectorAll('button').forEach(b => b.classList.remove('ring-2', 'ring-sky-500', 'font-bold'));
+      btn.classList.add('ring-2', 'ring-sky-500', 'font-bold');
+    }
+
+    // ==========================================
+    // SUMMARY SECTION ENGINE
+    // ==========================================
+    function renderSummarySection() {
+      const dict = I18N_DATA[currentLang];
+      const s = dict.summaryUI;
+      const container = document.getElementById('summary-content-grid');
+      container.innerHTML = `
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <!-- Brugada Criterios -->
+          <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <h3 class="font-heading font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-purple-500"></span> ${s.brugadaTitle}
+              </h3>
+              <span class="text-[10px] bg-slate-100 px-2.5 py-1 rounded-md font-mono font-bold text-slate-600">VT vs SVT</span>
+            </div>
+            <p class="text-xs text-slate-500 leading-relaxed">${s.brugadaDesc}</p>
+            <ol class="space-y-2 text-xs text-slate-700 font-medium">
+              ${s.brugadaSteps.map(step => `<li class="p-2.5 bg-slate-50 rounded-xl border border-slate-100">${step}</li>`).join('')}
+            </ol>
+            <div class="p-3 bg-emerald-50 rounded-xl border border-emerald-200 text-xs text-emerald-900 leading-relaxed">
+              ${s.brugadaAllNo}
+            </div>
+          </div>
+
+          <!-- Red Flags -->
+          <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <h3 class="font-heading font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-rose-500"></span> ${s.redFlagsTitle}
+              </h3>
+              <span class="text-[10px] bg-rose-100 text-rose-800 px-2.5 py-1 rounded-md font-bold">${s.redFlagsTag}</span>
+            </div>
+            <ul class="space-y-2 text-xs text-slate-700 leading-relaxed">
+              ${s.redFlags.map(rf => `
+                <li class="flex items-start gap-2 p-2 bg-slate-50/70 rounded-lg">
+                  <svg class="w-4 h-4 text-rose-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                  <span>${rf}</span>
+                </li>
+              `).join('')}
+            </ul>
+          </div>
+        </div>
+
+        <!-- Pharmacology Summary Table -->
+        <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+          <div class="p-4 sm:p-5 bg-slate-50 border-b border-slate-200">
+            <h3 class="font-heading font-bold text-slate-900 text-sm sm:text-base">${s.pharmaTitle}</h3>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-xs text-left">
+              <thead class="bg-slate-100/80 text-slate-700 uppercase font-bold text-[10px] tracking-wider">
+                <tr>
+                  ${s.pharmaHeaders.map(h => `<th class="p-3.5">${h}</th>`).join('')}
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 text-slate-600">
+                ${s.pharmaRows.map(r => `
+                  <tr class="hover:bg-slate-50 transition-colors">
+                    <td class="p-3.5 font-bold text-slate-900">${r[0]}</td>
+                    <td class="p-3.5">${r[1]}</td>
+                    <td class="p-3.5 font-mono text-sky-800 font-semibold">${r[2]}</td>
+                    <td class="p-3.5 leading-relaxed">${r[3]}</td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      `;
+    }
+
+    // ==========================================
+    // CLINICAL CASES QUIZ (SINGLE CHOICE)
+    // ==========================================
+    function renderQuiz() {
+      const dict = I18N_DATA[currentLang];
+      const container = document.getElementById('quiz-container');
+      container.innerHTML = dict.quizData.map((q, idx) => `
+        <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4" id="quiz-card-${q.id}">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Caso ${idx + 1} / ${dict.quizData.length}</span>
+            <span id="quiz-status-${q.id}" class="text-xs font-semibold text-slate-400">${dict.quizUI.unanswered}</span>
+          </div>
+          <h3 class="text-sm sm:text-base font-heading font-bold text-slate-900 leading-relaxed">${q.question}</h3>
+          
+          <div class="space-y-2">
+            ${q.options.map((opt, optIdx) => `
+              <button onclick="handleAnswer(${q.id}, ${optIdx})" id="opt-btn-${q.id}-${optIdx}" class="quiz-opt-btn w-full text-left p-3.5 rounded-xl border border-slate-200 text-xs sm:text-sm font-medium text-slate-700 hover:bg-slate-50 hover:border-slate-300 transition-all flex items-center justify-between">
+                <span>${opt}</span>
+                <span class="circle-indicator w-4 h-4 rounded-full border border-slate-300 shrink-0 ml-3"></span>
+              </button>
+            `).join('')}
+          </div>
+
+          <div id="quiz-expl-${q.id}" class="hidden p-4 rounded-xl text-xs sm:text-sm leading-relaxed">
+            <!-- Dinámico -->
+          </div>
+        </div>
+      `).join('');
+      updateQuizScore();
+    }
+
+    function handleAnswer(questionId, selectedIdx) {
+      if (userAnswers[questionId] !== undefined) return;
+
+      const dict = I18N_DATA[currentLang];
+      const q = dict.quizData.find(item => item.id === questionId);
+      userAnswers[questionId] = selectedIdx;
+
+      const isCorrect = selectedIdx === q.correct;
+      const statusBadge = document.getElementById(`quiz-status-${questionId}`);
+      const explBox = document.getElementById(`quiz-expl-${questionId}`);
+
+      for (let i = 0; i < q.options.length; i++) {
+        const btn = document.getElementById(`opt-btn-${questionId}-${i}`);
+        btn.disabled = true;
+        btn.classList.remove('hover:bg-slate-50', 'hover:border-slate-300');
+        if (i === q.correct) {
+          btn.classList.add('bg-emerald-50', 'border-emerald-500', 'text-emerald-900', 'font-bold');
+        } else if (i === selectedIdx && !isCorrect) {
+          btn.classList.add('bg-rose-50', 'border-rose-400', 'text-rose-900');
+        } else {
+          btn.classList.add('opacity-50');
+        }
+      }
+
+      if (isCorrect) {
+        statusBadge.innerText = dict.quizUI.correct;
+        statusBadge.className = "text-xs font-bold text-emerald-600";
+        explBox.className = "p-4 rounded-xl text-xs sm:text-sm leading-relaxed bg-emerald-50 text-emerald-900 border border-emerald-200 block";
+        explBox.innerHTML = `<strong>${dict.quizUI.correct}</strong> ${q.explanation}`;
+      } else {
+        statusBadge.innerText = dict.quizUI.incorrect;
+        statusBadge.className = "text-xs font-bold text-rose-600";
+        explBox.className = "p-4 rounded-xl text-xs sm:text-sm leading-relaxed bg-rose-50 text-rose-900 border border-rose-200 block";
+        explBox.innerHTML = `<strong>${dict.quizUI.incorrect}</strong> ${q.explanation}`;
+      }
+
+      updateQuizScore();
+    }
+
+    function updateQuizScore() {
+      const dict = I18N_DATA[currentLang];
+      let correctCount = 0;
+      Object.keys(userAnswers).forEach(qId => {
+        const q = dict.quizData.find(item => item.id === parseInt(qId));
+        if (q && userAnswers[qId] === q.correct) correctCount++;
+      });
+      document.getElementById('quiz-score-text').innerText = `${correctCount} / ${dict.quizData.length}`;
+    }
+
+    // ==========================================
+    // 3D FLASHCARDS ENGINE
+    // ==========================================
+    function renderCurrentCard() {
+      const dict = I18N_DATA[currentLang];
+      const card = dict.flashcardsData[currentCardIndex];
+      document.getElementById('card-category').innerText = card.cat;
+      document.getElementById('card-front-text').innerText = card.front;
+      document.getElementById('card-back-text').innerHTML = card.back;
+      document.getElementById('card-counter').innerText = `${dict.flashcardsUI.counterPrefix} ${currentCardIndex + 1} ${dict.flashcardsUI.counterOf} ${dict.flashcardsData.length}`;
+      
+      const inner = document.getElementById('flashcard-inner');
+      inner.classList.remove('rotate-y-180');
+      isFlipped = false;
+    }
+
+    function flipCurrentCard() {
+      const inner = document.getElementById('flashcard-inner');
+      isFlipped = !isFlipped;
+      if (isFlipped) {
+        inner.classList.add('rotate-y-180');
+      } else {
+        inner.classList.remove('rotate-y-180');
+      }
+    }
+
+    function nextCard() {
+      const dict = I18N_DATA[currentLang];
+      currentCardIndex = (currentCardIndex + 1) % dict.flashcardsData.length;
+      renderCurrentCard();
+    }
+
+    function prevCard() {
+      const dict = I18N_DATA[currentLang];
+      currentCardIndex = (currentCardIndex - 1 + dict.flashcardsData.length) % dict.flashcardsData.length;
+      renderCurrentCard();
+    }
+
+    function markCardMastered(mastered) {
+      nextCard();
+    }
+
+    function resetFlashcards() {
+      currentCardIndex = 0;
+      renderCurrentCard();
+    }
+
+    // Keyboard shortcuts for Flashcards
+    document.addEventListener('keydown', (e) => {
+      if (currentTab === 'flashcards') {
+        if (e.code === 'Space') {
+          e.preventDefault();
+          flipCurrentCard();
+        } else if (e.code === 'ArrowRight') {
+          nextCard();
+        } else if (e.code === 'ArrowLeft') {
+          prevCard();
+        }
+      }
+    });
+
+    // ==========================================
+    // INITIALIZATION
+    // ==========================================
+    window.addEventListener('DOMContentLoaded', () => {
+      setLanguage(currentLang);
+      setEcgRhythm('sinus');
+      resizeCanvas();
+      drawEcg();
+    });
+  </script>
+</body>
+</html>

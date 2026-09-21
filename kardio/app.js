@@ -119,6 +119,10 @@ document.addEventListener("DOMContentLoaded", () => {
       srDoneCategory: "HOTOVO",
       srHighYieldLabel: "High-Yield:",
       srEmptyAlert: "Pro zvolený filtr nemáte momentálně žádné karty k opakování!",
+      featuredBannerTag: "🔥 NOVÝ SAMOSTATNÝ MODUL (2023 AFP/ESC)",
+      featuredBannerTitle: "Paroxysmální supraventrikulární tachykardie (pSVT / TSVP)",
+      featuredBannerDesc: "Interaktivní klinický průvodce: AVNRT vs. AVRT/WPW vs. Síňová tachykardie, EKG osciloskop na Canvasu, modifikovaný Valsalva manévr, 6 kazuistik a 3D opakovací kartičky.",
+      featuredBannerBtn: "Otevřít interaktivní modul →",
       footerText: "© 2026 Viola Kintrová • Kardiologický výukový portál pro 4. ročník Všeobecného lékařství."
     },
     es: {
@@ -190,6 +194,10 @@ document.addEventListener("DOMContentLoaded", () => {
       srDoneCategory: "COMPLETADO",
       srHighYieldLabel: "Alto Rendimiento:",
       srEmptyAlert: "¡No tiene tarjetas pendientes de repaso para el filtro seleccionado!",
+      featuredBannerTag: "🔥 NUEVO MÓDULO INTERACTIVO (2023 AFP/ESC)",
+      featuredBannerTitle: "Taquicardia Supraventricular Paroxística (TSVP / pSVT)",
+      featuredBannerDesc: "Guía clínica interactiva: TRNAV vs. TRAV/WPW vs. Taquicardia auricular, osciloscopio de ECG en Canvas, maniobra de Valsalva modificada, 6 casos clínicos y tarjetas 3D.",
+      featuredBannerBtn: "Abrir módulo interactivo →",
       footerText: "© 2026 Viola Kintrová • Portal de estudio de cardiología para 4.º curso de Medicina."
     }
   };
@@ -504,6 +512,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const srKeyHints = document.getElementById("sr-key-hints");
     if (srKeyHints) srKeyHints.innerHTML = i18n.srKeyHints;
+
+    // Featured Banner
+    const featuredBannerTag = document.getElementById("featured-banner-tag");
+    if (featuredBannerTag && i18n.featuredBannerTag) featuredBannerTag.textContent = i18n.featuredBannerTag;
+
+    const featuredBannerTitle = document.getElementById("featured-banner-title");
+    if (featuredBannerTitle && i18n.featuredBannerTitle) featuredBannerTitle.textContent = i18n.featuredBannerTitle;
+
+    const featuredBannerDesc = document.getElementById("featured-banner-desc");
+    if (featuredBannerDesc && i18n.featuredBannerDesc) featuredBannerDesc.textContent = i18n.featuredBannerDesc;
+
+    const featuredBannerBtn = document.getElementById("featured-banner-btn");
+    if (featuredBannerBtn && i18n.featuredBannerBtn) featuredBannerBtn.textContent = i18n.featuredBannerBtn;
 
     // Footer
     const footerText = document.getElementById("footer-text");
