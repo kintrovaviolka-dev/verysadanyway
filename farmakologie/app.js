@@ -943,6 +943,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const colors = ['#10b981', '#34d399', '#059669', '#3b82f6', '#f59e0b', '#8b5cf6', '#ec4899'];
     const shapes = ['50%', '0%', '0% 50%'];
 
+    const fragment = document.createDocumentFragment();
+    const particles = [];
+
     for (let i = 0; i < 35; i++) {
       const particle = document.createElement('div');
       particle.className = 'confetti-particle';
@@ -969,12 +972,15 @@ document.addEventListener("DOMContentLoaded", () => {
       
       particle.style.animationDelay = `${Math.random() * 0.15}s`;
       
-      document.body.appendChild(particle);
-      
-      setTimeout(() => {
-        particle.remove();
-      }, 1300);
+      fragment.appendChild(particle);
+      particles.push(particle);
     }
+
+    document.body.appendChild(fragment);
+
+    setTimeout(() => {
+      particles.forEach(p => p.remove());
+    }, 1300);
   };
 
   // --- INICIALIZACE STRÁNKY ---
