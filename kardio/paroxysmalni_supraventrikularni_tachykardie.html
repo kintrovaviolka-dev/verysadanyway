@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es" class="h-full">
+<html lang="cs" class="h-full">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="page-title">Guía Clínica: Taquicardia Supraventricular Paroxística (TSVP) | Módulo Interactivo</title>
+  <title id="page-title">Klinický průvodce: Supraventrikulární tachykardie (pSVT) | Interaktivní modul</title>
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -82,32 +82,32 @@
         <div>
           <div class="flex items-center gap-2">
             <h1 class="text-base sm:text-lg font-heading font-bold text-slate-900 leading-tight" id="header-title">
-              Taquicardia Supraventricular Paroxística (TSVP)
+              Paroxysmální SVT (pSVT): Diagnostika a management
             </h1>
-            <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-md bg-rose-100 text-rose-700">ESC & AFP 2023</span>
+            <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-md bg-rose-100 text-rose-700">ESC 2019 & AFP 2023</span>
           </div>
-          <p class="text-xs text-slate-500" id="header-subtitle">Guías Am Fam Physician 2023 (Nasir et al.) y Guías ESC</p>
+          <p class="text-xs text-slate-500" id="header-subtitle">Podle přehledového článku Nasir et al. (Am Fam Physician 2023) a ESC Guidelines 2019</p>
         </div>
       </div>
 
       <!-- Controls & Navigation -->
       <div class="flex items-center gap-3">
         
-        <!-- Language Switcher (ES default / CS) -->
+        <!-- Language Switcher (CS default / ES) -->
         <div class="flex items-center bg-slate-100 p-1 rounded-xl border border-slate-200 shadow-inner">
-          <button onclick="setLanguage('es')" id="lang-btn-es" class="px-2.5 py-1 text-xs font-bold rounded-lg transition-all flex items-center gap-1 bg-white shadow-sm text-sky-700">
-            <span>🇪🇸</span>
-            <span>ES</span>
-          </button>
-          <button onclick="setLanguage('cs')" id="lang-btn-cs" class="px-2.5 py-1 text-xs font-bold rounded-lg transition-all flex items-center gap-1 text-slate-600 hover:text-slate-900">
+          <button onclick="setLanguage('cs')" id="lang-btn-cs" class="px-2.5 py-1 text-xs font-bold rounded-lg transition-all flex items-center gap-1 bg-white shadow-sm text-sky-700">
             <span>🇨🇿</span>
             <span>CZ</span>
+          </button>
+          <button onclick="setLanguage('es')" id="lang-btn-es" class="px-2.5 py-1 text-xs font-bold rounded-lg transition-all flex items-center gap-1 text-slate-600 hover:text-slate-900">
+            <span>🇪🇸</span>
+            <span>ES</span>
           </button>
         </div>
 
         <a href="index.html" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 text-xs font-semibold text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors" id="nav-hub-link">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-          <span id="hub-btn-text">Portal Kardiologie</span>
+          <span id="hub-btn-text">Rozcestník Kardiologie</span>
         </a>
 
       </div>
@@ -116,7 +116,7 @@
       <nav class="w-full flex space-x-1 bg-slate-100 p-1.5 rounded-xl text-xs font-semibold overflow-x-auto">
         <button onclick="switchTab('theory')" id="btn-theory" class="tab-btn active px-3.5 py-2 rounded-lg transition-all flex items-center gap-1.5 whitespace-nowrap">
           <svg class="w-4 h-4 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-          <span id="tab-label-1">1. Texto Didáctico y Visuales</span>
+          <span id="tab-label-1">1. Učební text & Vizuály</span>
         </button>
         <button onclick="switchTab('recall')" id="btn-recall" class="tab-btn px-3.5 py-2 rounded-lg transition-all text-slate-600 hover:text-slate-900 flex items-center gap-1.5 whitespace-nowrap">
           <svg class="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
@@ -124,15 +124,15 @@
         </button>
         <button onclick="switchTab('summary')" id="btn-summary" class="tab-btn px-3.5 py-2 rounded-lg transition-all text-slate-600 hover:text-slate-900 flex items-center gap-1.5 whitespace-nowrap">
           <svg class="w-4 h-4 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-          <span id="tab-label-3">3. Resumen Final y Perlas</span>
+          <span id="tab-label-3">3. Závěrečné shrnutí</span>
         </button>
         <button onclick="switchTab('quiz')" id="btn-quiz" class="tab-btn px-3.5 py-2 rounded-lg transition-all text-slate-600 hover:text-slate-900 flex items-center gap-1.5 whitespace-nowrap">
           <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          <span id="tab-label-4">4. Test de Casos Clínicos</span>
+          <span id="tab-label-4">4. Test (Kvíz)</span>
         </button>
         <button onclick="switchTab('flashcards')" id="btn-flashcards" class="tab-btn px-3.5 py-2 rounded-lg transition-all text-slate-600 hover:text-slate-900 flex items-center gap-1.5 whitespace-nowrap">
           <svg class="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
-          <span id="tab-label-5">5. Tarjetas de Memoria (3D)</span>
+          <span id="tab-label-5">5. Kartičky (3D)</span>
         </button>
       </nav>
 
@@ -150,13 +150,13 @@
       <!-- Sub-navegación de Teoría -->
       <div class="flex border-b border-slate-200 gap-4 sm:gap-6 text-xs sm:text-sm font-semibold overflow-x-auto pb-1">
         <button onclick="switchTheorySub('types')" id="sub-types" class="theory-sub-btn pb-3 text-sky-600 border-b-2 border-sky-600 whitespace-nowrap">
-          <span id="sub-label-types">1. Tipos y Mecanismos de TSVP</span>
+          <span id="sub-label-types">1. Typy a mechanismy pSVT</span>
         </button>
         <button onclick="switchTheorySub('ecg')" id="sub-ecg" class="theory-sub-btn pb-3 text-slate-500 hover:text-slate-800 whitespace-nowrap">
-          <span id="sub-label-ecg">2. Atlas de ECG & Osciloscopio Canvas</span>
+          <span id="sub-label-ecg">2. Interaktivní EKG atlas (Canvas)</span>
         </button>
         <button onclick="switchTheorySub('management')" id="sub-management" class="theory-sub-btn pb-3 text-slate-500 hover:text-slate-800 whitespace-nowrap">
-          <span id="sub-label-management">3. Manejo Agudo y Crónico</span>
+          <span id="sub-label-management">3. Akutní a dlouhodobý management</span>
         </button>
       </div>
 
@@ -167,12 +167,12 @@
         <div class="bg-gradient-to-r from-sky-50 via-indigo-50 to-sky-50 p-6 rounded-2xl border border-sky-100 glow-effect flex flex-col lg:flex-row gap-6 items-center justify-between">
           <div class="space-y-2">
             <div class="flex items-center gap-2">
-              <span class="text-xs uppercase font-bold tracking-wider text-sky-700 bg-sky-100 px-2.5 py-0.5 rounded-md" id="banner-tag">Definición Fisiopatológica</span>
-              <span class="text-xs text-slate-500 font-mono" id="banner-incidence">Frecuencia cardíaca &gt; 100 lpm</span>
+              <span class="text-xs uppercase font-bold tracking-wider text-sky-700 bg-sky-100 px-2.5 py-0.5 rounded-md" id="banner-tag">Základní definice</span>
+              <span class="text-xs text-slate-500 font-mono" id="banner-incidence">Srdeční frekvence &gt; 100/min v klidu</span>
             </div>
-            <h2 class="text-xl sm:text-2xl font-heading font-bold text-slate-900" id="banner-heading">¿Qué es la Taquicardia Supraventricular Paroxística (TSVP)?</h2>
+            <h2 class="text-xl sm:text-2xl font-heading font-bold text-slate-900" id="banner-heading">Co je to paroxysmální SVT (pSVT)?</h2>
             <p class="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-3xl" id="banner-text">
-              Ritmo cardíaco rápido y regular que se origina en el tejido del nodo auriculoventricular o por encima de la bifurcación del haz de His. Se caracteriza clínicamente por un <strong>inicio brusco y una terminación súbita</strong>. Afecta con mayor frecuencia a mujeres (62 % de los casos) y a menudo a pacientes jóvenes sin cardiopatía estructural de base.
+              <!-- Dynamicky via JS -->
             </p>
           </div>
           
@@ -180,18 +180,18 @@
           <div class="grid grid-cols-3 gap-3 text-center w-full lg:w-auto shrink-0">
             <div class="bg-white p-3.5 rounded-xl shadow-sm border border-slate-100">
               <div class="text-2xl sm:text-3xl font-black text-sky-600">~65%</div>
-              <div class="text-[11px] font-bold text-slate-500 uppercase mt-0.5" id="stat-avnrt-label">TRNAV</div>
-              <div class="text-[10px] text-slate-400" id="stat-avnrt-sub">Por reentrada nodal</div>
+              <div class="text-[11px] font-bold text-slate-500 uppercase mt-0.5" id="stat-avnrt-label">AVNRT</div>
+              <div class="text-[10px] text-slate-400" id="stat-avnrt-sub">AV nodální reentry</div>
             </div>
             <div class="bg-white p-3.5 rounded-xl shadow-sm border border-slate-100">
               <div class="text-2xl sm:text-3xl font-black text-indigo-600">~30%</div>
-              <div class="text-[11px] font-bold text-slate-500 uppercase mt-0.5" id="stat-avrt-label">TRAV</div>
-              <div class="text-[10px] text-slate-400" id="stat-avrt-sub">Vía accesoria / WPW</div>
+              <div class="text-[11px] font-bold text-slate-500 uppercase mt-0.5" id="stat-avrt-label">AVRT</div>
+              <div class="text-[10px] text-slate-400" id="stat-avrt-sub">Akcesorní dráha / WPW</div>
             </div>
             <div class="bg-white p-3.5 rounded-xl shadow-sm border border-slate-100">
               <div class="text-2xl sm:text-3xl font-black text-rose-600">~10%</div>
-              <div class="text-[11px] font-bold text-slate-500 uppercase mt-0.5" id="stat-at-label">TA</div>
-              <div class="text-[10px] text-slate-400" id="stat-at-sub">Taquicardia auricular</div>
+              <div class="text-[11px] font-bold text-slate-500 uppercase mt-0.5" id="stat-at-label">AT</div>
+              <div class="text-[10px] text-slate-400" id="stat-at-sub">Síňová tachykardie</div>
             </div>
           </div>
         </div>
@@ -216,24 +216,24 @@
             <div>
               <div class="flex items-center gap-2">
                 <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                <h3 class="text-lg font-heading font-bold text-slate-900" id="canvas-section-title">Osciloscopio Interactivo de ECG (Canvas HTML5)</h3>
+                <h3 class="text-lg font-heading font-bold text-slate-900" id="canvas-section-title">Interaktivní osciloskop EKG křivek (Canvas HTML5)</h3>
               </div>
-              <p class="text-xs text-slate-500 mt-0.5" id="canvas-section-sub">Seleccione un patrón arrítmico para simular el trazo en tiempo real y estudiar sus marcadores diagnósticos.</p>
+              <p class="text-xs text-slate-500 mt-0.5" id="canvas-section-sub">Vyberte patologii pro simulaci a analýzu klíčových elektrokardiografických markerů.</p>
             </div>
             
             <!-- Botones de ritmo -->
             <div class="flex flex-wrap gap-2" id="ecg-rhythm-buttons">
               <button onclick="setEcgRhythm('sinus')" id="ecg-btn-sinus" class="ecg-selector-btn px-3 py-1.5 text-xs font-semibold rounded-lg bg-sky-600 text-white shadow-sm transition-all">
-                Sinusal (75 lpm)
+                Sinusový rytmus (75 bpm)
               </button>
               <button onclick="setEcgRhythm('avnrt')" id="ecg-btn-avnrt" class="ecg-selector-btn px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 transition-all">
-                TRNAV Típica (180 lpm)
+                Typická AVNRT (180 bpm)
               </button>
               <button onclick="setEcgRhythm('wpw')" id="ecg-btn-wpw" class="ecg-selector-btn px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 transition-all">
-                Preexcitación WPW (Delta)
+                WPW Preexcitace (Delta)
               </button>
               <button onclick="setEcgRhythm('vt')" id="ecg-btn-vt" class="ecg-selector-btn px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 transition-all">
-                QRS Ancho (TV / Antidrómica)
+                Širokokomplexová (VT)
               </button>
             </div>
           </div>
@@ -245,7 +245,7 @@
             <!-- HUD Overlays -->
             <div class="absolute top-3 left-3 text-[11px] font-mono text-emerald-400 bg-slate-900/90 px-3 py-1.5 rounded-lg border border-emerald-500/30 backdrop-blur flex items-center gap-2">
               <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-              <span id="canvas-live-label">Ritmo Sinusal Normal (75 lpm) | Calibración: 25 mm/s, 10 mm/mV</span>
+              <span id="canvas-live-label">Normální sinusový rytmus (75 bpm) | Calibración: 25 mm/s, 10 mm/mV</span>
             </div>
 
             <div class="absolute bottom-3 right-3 text-[10px] font-mono text-slate-400 bg-slate-900/80 px-2.5 py-1 rounded border border-slate-700 hidden sm:block">
@@ -263,7 +263,7 @@
         <!-- Tabla Comparativa de Diagnóstico Diferencial -->
         <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
           <div class="px-5 py-4 border-b border-slate-100 bg-slate-50">
-            <h4 class="font-heading font-bold text-slate-900 text-sm" id="table-diff-title">Diagnóstico Diferencial Electrocardiográfico</h4>
+            <h4 class="font-heading font-bold text-slate-900 text-sm" id="table-diff-title">Diferenciální diagnostika na EKG</h4>
           </div>
           <div class="overflow-x-auto" id="diff-table-container">
             <!-- Contenido dinámico según idioma -->
@@ -288,14 +288,14 @@
       
       <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div class="max-w-3xl">
-          <span class="text-xs uppercase font-bold tracking-wider text-sky-700 bg-sky-100 px-2.5 py-0.5 rounded-md" id="recall-tag">Evocación Activa en Memoria</span>
-          <h2 class="text-xl sm:text-2xl font-heading font-bold text-slate-900 mt-1" id="recall-heading">Entrenador de Active Recall</h2>
+          <span class="text-xs uppercase font-bold tracking-wider text-sky-700 bg-sky-100 px-2.5 py-0.5 rounded-md" id="recall-tag">Aktivní vybavování z paměti</span>
+          <h2 class="text-xl sm:text-2xl font-heading font-bold text-slate-900 mt-1" id="recall-heading">Active Recall Trenažér</h2>
           <p class="text-xs sm:text-sm text-slate-600 mt-1" id="recall-sub">
-            Formule mentalmente o en voz alta la respuesta <strong>antes</strong> de pulsar en "Ver Respuesta". Después autoevalúe la solidez de su recuerdo para afianzar el aprendizaje espaciado.
+            Zkuste si zformulovat odpověď ve své mysli <strong>předtím</strong>, než kliknete na „Zobrazit odpověď“. Následně si sami ohodnoťte, jak snadné to pro vás bylo.
           </p>
         </div>
         <div class="flex items-center gap-2 bg-slate-50 px-4 py-2 rounded-xl border border-slate-200 text-xs">
-          <span class="font-bold text-sky-700" id="recall-counter">6 Preguntas de Alto Rendimiento</span>
+          <span class="font-bold text-sky-700" id="recall-counter">6 otázek s vysokou výtěžností</span>
         </div>
       </div>
 
@@ -312,9 +312,9 @@
     <section id="sec-summary" class="hidden space-y-6">
       
       <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-        <span class="text-xs uppercase font-bold tracking-wider text-indigo-700 bg-indigo-100 px-2.5 py-0.5 rounded-md" id="summary-tag">Repaso Rápido de Alto Rendimiento</span>
-        <h2 class="text-xl sm:text-2xl font-heading font-bold text-slate-900 mt-1" id="summary-heading">Perlas Clínicas, Criterios de Brugada y Signos de Alarma</h2>
-        <p class="text-xs sm:text-sm text-slate-600 mt-1" id="summary-sub">Los conceptos imprescindibles para la práctica clínica real y exámenes de especialidad.</p>
+        <span class="text-xs uppercase font-bold tracking-wider text-indigo-700 bg-indigo-100 px-2.5 py-0.5 rounded-md" id="summary-tag">Rychlé klinické repetitorium</span>
+        <h2 class="text-xl sm:text-2xl font-heading font-bold text-slate-900 mt-1" id="summary-heading">Klinické perly, Brugada kritéria a varovné signály (Red Flags)</h2>
+        <p class="text-xs sm:text-sm text-slate-600 mt-1" id="summary-sub">To nejdůležitější z článku a doporučení do atestační či reálné klinické praxe.</p>
       </div>
 
       <div id="summary-content-grid" class="space-y-6">
@@ -330,12 +330,12 @@
       
       <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <span class="text-xs uppercase font-bold tracking-wider text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-md" id="quiz-tag">Comprobación de Competencias</span>
-          <h2 class="text-xl sm:text-2xl font-heading font-bold text-slate-900 mt-1" id="quiz-heading">Test Clínico de Selección Única</h2>
-          <p class="text-xs sm:text-sm text-slate-600 mt-0.5" id="quiz-sub">Resuelva los siguientes casos clínicos interactivos con retroalimentación inmediata.</p>
+          <span class="text-xs uppercase font-bold tracking-wider text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-md" id="quiz-tag">Ověření znalostí</span>
+          <h2 class="text-xl sm:text-2xl font-heading font-bold text-slate-900 mt-1" id="quiz-heading">Klinický test se single-choice otázkami</h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-0.5" id="quiz-sub">Otestujte své rozhodovací schopnosti na reálných kazuistikách.</p>
         </div>
         <div id="quiz-score-badge" class="bg-gradient-to-br from-sky-50 to-indigo-50 px-5 py-3 rounded-2xl text-center border border-sky-100 shadow-sm shrink-0">
-          <div class="text-[10px] font-bold text-slate-500 uppercase tracking-wider" id="quiz-score-label">Puntuación</div>
+          <div class="text-[10px] font-bold text-slate-500 uppercase tracking-wider" id="quiz-score-label">Skóre</div>
           <div class="text-xl font-black text-sky-700" id="quiz-score-text">0 / 6</div>
         </div>
       </div>
@@ -354,36 +354,36 @@
       
       <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <span class="text-xs uppercase font-bold tracking-wider text-purple-700 bg-purple-100 px-2.5 py-0.5 rounded-md" id="flash-tag">Repaso Espaciado Activo</span>
-          <h2 class="text-xl sm:text-2xl font-heading font-bold text-slate-900 mt-1" id="flash-heading">Tarjetas de Memoria (3D Flashcards)</h2>
-          <p class="text-xs sm:text-sm text-slate-600 mt-0.5" id="flash-sub">Haga clic en la tarjeta o pulse la barra espaciadora para voltearla y verificar la respuesta.</p>
+          <span class="text-xs uppercase font-bold tracking-wider text-purple-700 bg-purple-100 px-2.5 py-0.5 rounded-md" id="flash-tag">Spaced Repetition</span>
+          <h2 class="text-xl sm:text-2xl font-heading font-bold text-slate-900 mt-1" id="flash-heading">Opakovací kartičky (3D Flashcards)</h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-0.5" id="flash-sub">Klikněte na kartičku nebo stiskněte Mezerník pro její otočení. Procvičujte až do úplného zvládnutí.</p>
         </div>
         <div class="flex items-center gap-3">
-          <span class="text-xs font-semibold text-slate-600 bg-slate-100 px-3 py-1.5 rounded-lg" id="card-counter">Tarjeta 1 de 8</span>
-          <button onclick="resetFlashcards()" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1.5 rounded-lg font-bold transition-colors" id="flash-reset-btn">Reiniciar</button>
+          <span class="text-xs font-semibold text-slate-600 bg-slate-100 px-3 py-1.5 rounded-lg" id="card-counter">Kartička 1 z 8</span>
+          <button onclick="resetFlashcards()" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1.5 rounded-lg font-bold transition-colors" id="flash-reset-btn">Reset</button>
         </div>
       </div>
 
       <!-- Interactive 3D Card Area -->
       <div class="max-w-xl mx-auto flex flex-col items-center">
-        <div class="w-full perspective cursor-pointer select-none" style="height: 320px;" onclick="flipCurrentCard()" title="Haga clic para voltear / Klikněte pro otočení">
+        <div class="w-full perspective cursor-pointer select-none" style="height: 320px;" onclick="flipCurrentCard()" title="Klikněte pro otočení / Haga clic para voltear">
           <div id="flashcard-inner" class="w-full h-full relative transform-style-3d transition-transform duration-500 shadow-xl rounded-3xl border border-slate-200">
             
             <!-- Anverso (Pregunta) -->
             <div class="absolute inset-0 w-full h-full backface-hidden bg-white p-8 rounded-3xl flex flex-col justify-between items-center text-center">
               <div class="w-full flex justify-between items-center">
-                <span class="text-[11px] font-bold text-sky-700 uppercase tracking-wider bg-sky-50 border border-sky-100 px-3 py-1 rounded-lg" id="card-category">Categoría</span>
+                <span class="text-[11px] font-bold text-sky-700 uppercase tracking-wider bg-sky-50 border border-sky-100 px-3 py-1 rounded-lg" id="card-category">Kategorie</span>
                 <span class="text-xs text-slate-400 font-mono">Q</span>
               </div>
               
               <div class="my-auto px-4">
-                <h3 class="text-lg sm:text-xl font-heading font-bold text-slate-900 leading-snug" id="card-front-text">Pregunta de la tarjeta</h3>
+                <h3 class="text-lg sm:text-xl font-heading font-bold text-slate-900 leading-snug" id="card-front-text">Přední strana otázky</h3>
               </div>
               
               <div class="w-full flex justify-between items-center text-xs text-slate-400">
                 <span class="flex items-center gap-1.5">
                   <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
-                  <span id="card-flip-hint">Haga clic para voltear</span>
+                  <span id="card-flip-hint">Klikněte pro otočení</span>
                 </span>
                 <span>🔄</span>
               </div>
@@ -392,15 +392,15 @@
             <!-- Reverso (Respuesta) -->
             <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 p-8 rounded-3xl flex flex-col justify-between items-center text-center text-white">
               <div class="w-full flex justify-between items-center">
-                <span class="text-[11px] font-bold text-emerald-400 uppercase tracking-wider bg-emerald-950/70 border border-emerald-500/30 px-3 py-1 rounded-lg" id="card-back-badge">Respuesta Clínica</span>
+                <span class="text-[11px] font-bold text-emerald-400 uppercase tracking-wider bg-emerald-950/70 border border-emerald-500/30 px-3 py-1 rounded-lg" id="card-back-badge">Vysvětlení / Odpověď</span>
                 <span class="text-xs text-emerald-400 font-mono">A</span>
               </div>
               
               <div class="my-auto overflow-y-auto max-h-48 px-2">
-                <p class="text-sm sm:text-base leading-relaxed text-slate-100 font-medium" id="card-back-text">Respuesta detallada</p>
+                <p class="text-sm sm:text-base leading-relaxed text-slate-100 font-medium" id="card-back-text">Podrobná odpověď</p>
               </div>
               
-              <p class="text-xs text-slate-400" id="card-flip-back-hint">Haga clic para volver</p>
+              <p class="text-xs text-slate-400" id="card-flip-back-hint">Klikněte pro otočení zpět</p>
             </div>
 
           </div>
@@ -408,19 +408,19 @@
 
         <!-- Botones de Control de Flashcards -->
         <div class="flex items-center gap-3 mt-6">
-          <button onclick="prevCard()" class="p-3 rounded-2xl bg-white border border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-50 shadow-sm transition-all" title="Anterior">
+          <button onclick="prevCard()" class="p-3 rounded-2xl bg-white border border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-50 shadow-sm transition-all" title="Předchozí">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
           </button>
           
           <button onclick="markCardMastered(false)" class="px-4 py-2.5 rounded-2xl bg-amber-100 text-amber-900 font-bold text-xs hover:bg-amber-200 transition-colors" id="flash-btn-repeat">
-            Repasar otra vez
+            Ještě zopakovat
           </button>
           
           <button onclick="markCardMastered(true)" class="px-5 py-2.5 rounded-2xl bg-emerald-600 text-white font-bold text-xs hover:bg-emerald-700 shadow-md shadow-emerald-600/20 transition-all" id="flash-btn-mastered">
-            ¡Dominada! 👍
+            Umím 👍
           </button>
           
-          <button onclick="nextCard()" class="p-3 rounded-2xl bg-white border border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-50 shadow-sm transition-all" title="Siguiente">
+          <button onclick="nextCard()" class="p-3 rounded-2xl bg-white border border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-50 shadow-sm transition-all" title="Další">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
           </button>
         </div>
@@ -434,376 +434,21 @@
   <!-- ================= FOOTER ================= -->
   <footer class="bg-white border-t border-slate-200 mt-12 py-6 text-center text-xs text-slate-500">
     <div class="max-w-7xl mx-auto px-4 space-y-1">
-      <p id="footer-copy">© 2026 Portal de Cardiología Clínica • Módulo de Taquicardias Supraventriculares</p>
-      <p class="text-[11px] text-slate-400" id="footer-ref">Basado en Nasir et al. Am Fam Physician 2023;107(5):519-528 & Guías ESC 2019/2024</p>
+      <p id="footer-copy">© 2026 Viola Kintrová • Kardiologický výukový portál pro 4. ročník Všeobecného lékařství.</p>
+      <p class="text-[11px] text-slate-400" id="footer-ref">Nasir et al. Am Fam Physician 2023;107(6):631-641 a ESC Guidelines 2019 pro SVT (Eur Heart J 2020;41:655-720)</p>
     </div>
   </footer>
 
   <!-- ================= BILINGUAL DATA & LOGIC SCRIPT ================= -->
   <script>
     // ==========================================
-    // BILINGUAL CONTENT DATABASE (ES / CS)
+    // BILINGUAL CONTENT DATABASE (CS / ES)
     // ==========================================
     const I18N_DATA = {
-      es: {
-        pageTitle: "Guía Clínica: Taquicardia Supraventricular Paroxística (TSVP) | Módulo Interactivo",
-        headerTitle: "Taquicardia Supraventricular Paroxística (TSVP)",
-        headerSubtitle: "Guías Am Fam Physician 2023 (Nasir et al.) y Guías ESC",
-        hubBtnText: "Portal Kardiologie",
-        tabLabels: [
-          "1. Texto Didáctico y Visuales",
-          "2. Active Recall",
-          "3. Resumen Final y Perlas",
-          "4. Test de Casos Clínicos",
-          "5. Tarjetas de Memoria (3D)"
-        ],
-        subLabels: {
-          types: "1. Tipos y Mecanismos de TSVP",
-          ecg: "2. Atlas de ECG & Osciloscopio Canvas",
-          management: "3. Manejo Agudo y Crónico"
-        },
-        banner: {
-          tag: "Definición Fisiopatológica",
-          incidence: "Frecuencia cardíaca > 100 lpm",
-          heading: "¿Qué es la Taquicardia Supraventricular Paroxística (TSVP)?",
-          text: "Ritmo cardíaco rápido y regular que se origina en el tejido del nodo auriculoventricular o por encima de la bifurcación del haz de His. Se caracteriza clínicamente por un <strong>inicio brusco y una terminación súbita</strong>. Afecta con mayor frecuencia a mujeres (62 % de los casos) y a menudo a pacientes jóvenes sin cardiopatía estructural de base.",
-          avnrtLabel: "TRNAV",
-          avnrtSub: "Por reentrada nodal",
-          avrtLabel: "TRAV",
-          avrtSub: "Vía accesoria / WPW",
-          atLabel: "TA",
-          atSub: "Taquicardia auricular"
-        },
-        typesCards: [
-          {
-            badge: "Más frecuente (~65 % de casos)",
-            code: "TRNAV / AVNRT",
-            title: "Taquicardia por Reentrada Nodal AV",
-            desc: "Típica en adultos jóvenes y mujeres. Se origina en el tejido perimodal del nodo AV por la presencia de <strong>dos vías electrofisiológicas:</strong> una vía lenta (con período refractario corto) y una vía rápida (con período refractario largo).",
-            mechanismTitle: "Mecanismo electrofisiológico:",
-            mechanismText: "Un extrasístole auricular (PAC) encuentra la vía rápida en refractariedad, conduce anterógradamente por la vía lenta y regresa retrógradamente por la vía rápida ya recuperada, estableciendo el circuito.",
-            ecgTitle: "Hallazgo en ECG:",
-            ecgText: "Ondas P <strong>ocultas en el QRS</strong> (activación simultánea de aurículas y ventrículos), o visibles como <em>pseudo-r'</em> en derivación V1 y <em>pseudo-s</em> en derivaciones inferiores (DII, DIII, aVF)."
-          },
-          {
-            badge: "Frecuente en jóvenes (~30 %)",
-            code: "TRAV / AVRT",
-            title: "Taquicardia por Reentrada AV (Vía accesoria)",
-            desc: "Requiere una <strong>conexión accesoria anómala</strong> (haz de Kent) entre aurícula y ventrículo por fuera del nodo AV. El paradigma clásico es el síndrome de Wolff-Parkinson-White (WPW).",
-            mechanismTitle: "Dos formas de conducción:",
-            mechanismText: "<strong>1. Ortodrómica (90 %):</strong> Conducción anterógrada por el nodo AV y retrógrada por la vía accesoria (<em>QRS estrecho</em>, RP < 1/2 RR).<br><strong>2. Antidrómica (10 %):</strong> Conducción anterógrada por la vía accesoria y retrógrada por el nodo AV (<em>¡QRS ancho y bizarro!</em>).",
-            ecgTitle: "Riesgo crítico:",
-            ecgText: "La fibrilación auricular preexcitada puede conducir 1:1 por la vía accesoria y degenerar en <strong>fibrilación ventricular y muerte súbita</strong>. ¡Nunca bloquear el nodo AV con adenosina/verapamilo en FA preexcitada!"
-          },
-          {
-            badge: "Menos frecuente (~10 %)",
-            code: "TA / AT",
-            title: "Taquicardia Auricular Focal",
-            desc: "Se origina en un foco ectópico en el miocardio auricular fuera del nodo sinusal. Puede deberse a aumento del automatismo, actividad gatillada o micro-reentrada.",
-            mechanismTitle: "Signos característicos:",
-            mechanismText: "A menudo presenta el fenómeno de <strong>'warm-up' y 'cool-down'</strong> (aceleración y desaceleración progresiva en los primeros 5–10 segundos), a diferencia del inicio en 'todo o nada' de TRNAV/TRAV.",
-            ecgTitle: "Hallazgo en ECG:",
-            ecgText: "Morfología y eje de la onda P anormal (diferente a la sinusal). La onda P precede al complejo QRS, con intervalo PR normal y <strong>intervalo RP > PR</strong> (taquicardia de RP largo)."
-          }
-        ],
-        triggersAndTests: {
-          triggersTitle: "Desencadenantes Frecuentes (Triggers)",
-          triggers: ["Cafeína y alcohol", "Hipertiroidismo", "Desequilibrios iónicos (K, Mg)", "Simpatomiméticos / descongestionantes", "Anemia", "Estrés físico / emocional", "Fiebre / infección", "Broncodilatadores"],
-          triggersNote: "Nota clínica: En mujeres jóvenes, la TSVP a menudo se diagnostica erróneamente como crisis de angustia o trastorno de pánico, causando un retraso significativo en el tratamiento definitivo.",
-          testsTitle: "Pruebas de Laboratorio y Complementarias",
-          tests: [
-            "<strong>Hemograma completo:</strong> descartar anemia e infección subyacente.",
-            "<strong>TSH (tirotropina):</strong> cribado de hipertiroidismo como causa reversible.",
-            "<strong>Bioquímica e iones (Na, K, Ca, Mg, función renal):</strong> alteraciones que bajan el umbral arrítmico.",
-            "<strong>Troponina y BNP:</strong> en caso de sospecha de isquemia miocárdica o insuficiencia cardíaca acompañante.",
-            "<strong>Ecocardiograma transtorácico:</strong> descartar cardiopatía estructural y evaluar fracción de eyección (FEVI)."
-          ]
-        },
-        canvasSection: {
-          title: "Osciloscopio Interactivo de ECG (Canvas HTML5)",
-          sub: "Seleccione un patrón arrítmico para simular el trazo en tiempo real y estudiar sus marcadores diagnósticos.",
-          buttons: {
-            sinus: "Sinusal (75 lpm)",
-            avnrt: "TRNAV Típica (180 lpm)",
-            wpw: "Preexcitación WPW (Delta)",
-            vt: "QRS Ancho (TV / Antidrómica)"
-          }
-        },
-        ecgPresets: {
-          sinus: {
-            title: "Ritmo Sinusal Normal (75 lpm)",
-            explanation: "<strong>Ritmo sinusal normal:</strong> Onda P positiva en derivación II que precede a cada complejo QRS, intervalo PR constante normal (120–200 ms), complejo QRS estrecho (< 120 ms) y onda T concordante con polaridad normal."
-          },
-          avnrt: {
-            title: "TRNAV Típica / AVNRT (180 lpm, QRS Estrecho)",
-            explanation: "<strong>Taquicardia por reentrada nodal típica:</strong> Ritmo regular rápido con QRS estrecho. Las ondas P retrógradas coinciden con la despolarización ventricular (ocultas en el QRS) o aparecen como una <strong>pseudo-onda r'</strong> al final del QRS en V1 y <strong>pseudo-s</strong> en derivaciones inferiores."
-          },
-          wpw: {
-            title: "Síndrome de Wolff-Parkinson-White (WPW) / Preexcitación",
-            explanation: "<strong>Tríada clásica de WPW en reposo:</strong> 1) Intervalo PR corto (< 120 ms), 2) Empastamiento inicial del QRS (<strong>onda delta</strong>), 3) Complejo QRS ensanchado (> 120 ms). Se produce por la activación ventricular precoz a través del haz anómalo de Kent."
-          },
-          vt: {
-            title: "Taquicardia de QRS Ancho (TV / TRAV Antidrómica, 170 lpm)",
-            explanation: "<strong>Complejo QRS ancho (≥ 120 ms):</strong> En el servicio de urgencias <em>siempre debe tratarse como Taquicardia Ventricular (TV)</em> hasta que se demuestre lo contrario mediante criterios de Brugada. ¡La administración de bloqueadores del nodo AV (verapamilo, adenosina) en arritmias preexcitadas puede desencadenar paro cardíaco!"
-          }
-        },
-        diffTable: {
-          title: "Diagnóstico Diferencial Electrocardiográfico",
-          headers: ["Entidad Arrítmica", "Anchura QRS", "Onda P", "Intervalo RP", "Hallazgo Patognomónico"],
-          rows: [
-            ["TRNAV Típica (AVNRT)", "Estrecho (< 120 ms)", "Oculta en QRS o retrógrada inmediata", "Muy corto (RP < 70 ms)", "Pseudo-r' en V1, pseudo-s en DII, DIII, aVF"],
-            ["TRAV Ortodrómica", "Estrecho (< 120 ms)", "Invertida retrógrada tras QRS", "Corto (RP < 1/2 intervalo RR)", "En ritmo sinusal previo puede haber onda delta (WPW)"],
-            ["TRAV Antidrómica", "Ancho (≥ 120 ms)", "A menudo enmascarada / retrógrada", "Largo (RP > 1/2 intervalo RR)", "PR corto, onda delta, simula taquicardia ventricular"],
-            ["Taquicardia Auricular (TA)", "Estrecho (< 120 ms)", "Morfología y eje anormal (precede QRS)", "Largo (RP > PR)", "Fenómeno de 'warm-up' y 'cool-down'; PR normal"]
-          ]
-        },
-        management: {
-          tag: "Protocolo de Urgencias y Manejo Curativo",
-          title: "Algoritmo de Toma de Decisiones en TSVP",
-          unstableTitle: "Paciente Hemodinámicamente INESTABLE",
-          unstableSigns: "Criterios de inestabilidad: alteración del nivel de conciencia, shock/hipotensión arterial severa, disnea intensa (edema agudo de pulmón), dolor torácico isquémico continuo.",
-          unstableCardio: "1.ª Línea: Cardioversión Eléctrica Sincronizada",
-          unstableCardioDesc: "Choque sincronizado inmediato (con analgesia/sedación previa si es posible). Si fracasa o recurre, aplicar protocolo ACLS de soporte vital avanzado.",
-          stableTitle: "Paciente Hemodinámicamente ESTABLE",
-          stableSigns: "Presión arterial conservada, sin signos de hipoperfusión periférica ni congestión pulmonar aguda.",
-          step1Title: "Paso 1: Maniobras Vagales (Eficacia 19–54 %)",
-          step1Desc: "<strong>Maniobra de Valsalva Modificada (Ensayo REVERT):</strong> espiración forzada en jeringa de 10 ml durante 15 s en posición semisentada, seguida de decúbito supino inmediato y <strong>elevación pasiva de miembros inferiores a 45° durante 15 s</strong>. Alternativas: masaje del seno carotídeo (5-10 s, tras auscultar soplos) o reflejo de inmersión en agua helada.",
-          step2Title: "Paso 2: Adenosina Intravenosa",
-          step2Desc: "<strong>Dosis:</strong> 6 mg IV en bolo ultrarrápido (push en 1-2 s) por vía venosa de gran calibre (fosa antecubital) con lavado inmediato de 20 ml de suero fisiológico. Si no revierte en 1–2 min: <strong>12 mg IV</strong>.<br><span class='text-rose-600 font-bold'>Advertencia:</span> Advertir al paciente de la sensación inminente de opresión torácica y calor. <em>¡Contraindicado si hay sospecha de preexcitación en FA!</em>",
-          step3Title: "Paso 3: Bloqueadores de Canales de Calcio no DHP o Beta-bloqueantes",
-          step3Desc: "Calcioantagonistas no dihidropiridínicos: <strong>Diltiazem</strong> 0,25 mg/kg IV en 2 min o <strong>Verapamilo</strong> 5–10 mg IV. Alternativa: Metoprolol o Esmolol IV. (Precaución con hipotensión e insuficiencia cardíaca con FEVI reducida).",
-          step4Title: "Paso 4: Resistencia a fármacos",
-          step4Desc: "Cardioversión eléctrica sincronizada si los fármacos no logran la reversión.",
-          wctTitle: "Taquicardia de Complejo Ancho (WCT)",
-          wctRule: "Regla de oro: <strong>¡Toda taquicardia regular de QRS ancho (≥ 120 ms) se considera Taquicardia Ventricular (TV) hasta demostrar lo contrario!</strong>",
-          wctDrugs: "<strong>Procainamida IV:</strong> Fármaco de 1.ª elección para QRS ancho estable (superior en eficacia y seguridad a la amiodarona según el ensayo PROCAMIO).<br><strong>Amiodarona IV:</strong> Alternativa (150 mg en 10 min, seguido de infusión continua).",
-          ablationTitle: "Tratamiento Curativo a Largo Plazo",
-          ablationMain: "<strong>Ablación por Catéter con Radiofrecuencia (RFA):</strong> Tratamiento curativo de 1.ª elección recomendado por guías para TSVP sintomática recurrente y todos los pacientes con WPW. Tasa de éxito superior al <strong>95 %</strong> con bajísimo índice de complicaciones.",
-          ablationChronic: "<strong>Farmacoterapia crónica (si se rechaza la ablación):</strong> Beta-bloqueantes o Calcioantagonistas no DHP. En corazón estructuralmente sano: antiarrítmicos de clase Ic (flecainida, propafenona)."
-        },
-        recallQuestions: [
-          {
-            id: 1,
-            q: "¿Cuál es la diferencia electrofisiológica fundamental entre la TRAV ortodrómica y la antidrómica?",
-            a: "<strong>TRAV Ortodrómica (90 % de los casos):</strong> El impulso desciende por el sistema de conducción fisiológico (nodo AV y haz de His), despolarizando los ventrículos de forma normal (&rarr; <em>QRS estrecho</em>), y asciende retrógradamente por la vía accesoria hacia las aurículas.<br><br><strong>TRAV Antidrómica (10 %):</strong> El impulso desciende por la vía accesoria directamente al miocardio ventricular (&rarr; <em>QRS ancho y bizarro</em>) y regresa retrógradamente por el haz de His y nodo AV."
-          },
-          {
-            id: 2,
-            q: "¿Qué hallazgos electrocardiográficos componen la tríada diagnóstica del síndrome de Wolff-Parkinson-White (WPW) en reposo?",
-            a: "1. <strong>Intervalo PR corto</strong> (&lt; 120 ms) por elusión del retraso fisiológico del nodo AV.<br>2. <strong>Onda delta</strong> (empastamiento inicial en la rama ascendente del QRS debido a la preexcitación ventricular).<br>3. <strong>Complejo QRS ensanchado</strong> (&gt; 120 ms) con alteraciones secundarias de la repolarización."
-          },
-          {
-            id: 3,
-            q: "¿Por qué los bloqueadores del nodo AV (adenosina, verapamilo, betabloqueantes) son potencialmente mortales en pacientes con fibrilación auricular preexcitada?",
-            a: "Al bloquear el nodo AV en presencia de una vía accesoria, todo el bombardeo de impulsos auriculares rápidos (300–600 lpm) se desvía exclusivamente a través de la vía accesoria, la cual carece de las propiedades de conducción decremental del nodo AV. Esto provoca una respuesta ventricular masivamente acelerada que desemboca en <strong>fibrilación ventricular y paro cardíaco</strong>."
-          },
-          {
-            id: 4,
-            q: "¿Cómo se ejecuta correctamente la Maniobra de Valsalva Modificada (protocolo REVERT) y cuál es su tasa de éxito?",
-            a: "El paciente en posición semisentada realiza una espiración forzada en una jeringa de 10 ml (presión aprox. de 40 mmHg) durante <strong>15 segundos</strong>. Inmediatamente después, se le acuesta en decúbito supino y el personal sanitario <strong>eleva sus piernas a 45° durante 15 segundos</strong>. La tasa de cardioversión a ritmo sinusal alcanza entre el <strong>43 % y el 54 %</strong> (frente al 17 % de la maniobra clásica)."
-          },
-          {
-            id: 5,
-            q: "¿Cuál es la dosis y técnica correcta de administración de adenosina intravenosa en un adulto con TSVP estable de QRS estrecho?",
-            a: "<strong>Primera dosis:</strong> 6 mg IV en bolo ultrarrápido (push en 1–2 segundos) en una vena periférica proximal de gran calibre (fosa antecubital), seguido de inmediato por un <strong>bolo de lavado rápido de 20 ml de suero fisiológico</strong>.<br>Si la taquicardia no revierte en 1–2 minutos, se administra una <strong>segunda dosis de 12 mg IV</strong> con la misma técnica."
-          },
-          {
-            id: 6,
-            q: "¿Cuál es el tratamiento de primera línea con intención curativa para la TSVP sintomática recurrente?",
-            a: "<strong>Ablación por catéter con radiofrecuencia (RFA)</strong>. Es el método curativo de elección recomendado por guías internacionales (ESC/ACC), con una eficacia demostrada <strong>superior al 95 %</strong> tanto en TRNAV como en TRAV/WPW, eliminando la necesidad de tratamiento farmacológico crónico."
-          }
-        ],
-        recallUI: {
-          tag: "Evocación Activa en Memoria",
-          heading: "Entrenador de Active Recall",
-          sub: "Formule mentalmente o en voz alta la respuesta antes de pulsar en 'Ver Respuesta'. Después autoevalúe la solidez de su recuerdo para afianzar el aprendizaje espaciado.",
-          counter: "6 Preguntas de Alto Rendimiento",
-          showAns: "Ver Respuesta",
-          hideAns: "Ocultar Respuesta",
-          myRating: "Mi autoevaluación:",
-          easy: "Fácil 👍",
-          medium: "Difícil ⚡",
-          hard: "No lo sabía ❌"
-        },
-        summaryUI: {
-          tag: "Repaso Rápido de Alto Rendimiento",
-          heading: "Perlas Clínicas, Criterios de Brugada y Signos de Alarma",
-          sub: "Los conceptos imprescindibles para la práctica clínica real y exámenes de especialidad.",
-          brugadaTitle: "Criterios de Brugada para QRS Ancho (≥ 120 ms)",
-          brugadaDesc: "Evalúe paso a paso. Cualquier respuesta afirmativa ('SÍ') establece el diagnóstico de <strong>Taquicardia Ventricular (TV)</strong>:",
-          brugadaSteps: [
-            "1. ¿Ausencia de complejo RS en todas las derivaciones precordiales (V1 a V6)? <span class='text-purple-700 font-bold'>SÍ &rarr; TV</span>",
-            "2. ¿Existe complejo RS, pero el intervalo desde el inicio de la R hasta el nadir de la S es > 100 ms en alguna derivación? <span class='text-purple-700 font-bold'>SÍ &rarr; TV</span>",
-            "3. ¿Existe disociación auriculoventricular (AV)? <span class='text-purple-700 font-bold'>SÍ &rarr; TV</span>",
-            "4. ¿Cumple criterios morfológicos clásicos de TV en derivaciones V1–V2 y V6? <span class='text-purple-700 font-bold'>SÍ &rarr; TV</span>"
-          ],
-          brugadaAllNo: "<strong>Si los 4 criterios son 'NO':</strong> Se confirma Taquicardia Supraventricular con conducción aberrante (p. ej. bloqueo de rama previo).",
-          redFlagsTitle: "Criterios de Derivación Urgente y Ablación (Signos de Alarma)",
-          redFlagsTag: "Tabla 8 Guías",
-          redFlags: [
-            "<strong>Preexcitación o presencia de onda delta</strong> en ECG de reposo (riesgo de muerte súbita).",
-            "<strong>Síncope o presíncope</strong> durante los episodios de palpitaciones.",
-            "<strong>Profesiones de alto riesgo:</strong> pilotos de aviación, conductores profesionales de transporte público/pesado, operadores de grúas, buceadores.",
-            "<strong>Cardiopatía estructural conocida</strong> (cardiopatía isquémica, miocardiopatías, valvulopatías).",
-            "Síntomas no controlados o intolerancia a la terapia farmacológica.",
-            "Diagnóstico dudoso o taquicardia con complejo QRS ancho."
-          ],
-          pharmaTitle: "Resumen Farmacológico Comparativo (Nasir 2023 Tabla 6)",
-          pharmaHeaders: ["Fármaco", "Clase / Mecanismo", "Posología Aguda", "Efectos Adversos y Contraindicaciones"],
-          pharmaRows: [
-            ["Adenosina", "Agonista purinérgico A1", "6 mg IV bolo rápido &rarr; 12 mg IV", "Rubor facial, opresión torácica, disnea. <strong>CI:</strong> Asma bronquial, FA preexcitada."],
-            ["Diltiazem / Verapamilo", "Calcioantagonistas no DHP", "0,25 mg/kg IV / 5–10 mg IV en bolo lento", "Hipotensión, bradicardia. <strong>CI:</strong> Insuficiencia cardíaca con FEVI reducida, QRS ancho."],
-            ["Procainamida", "Antiarrítmico Clase Ia", "10–17 mg/kg IV (20–50 mg/min)", "1.ª elección en QRS ancho estable. <strong>CI:</strong> QT largo, shock cardiogénico."],
-            ["Metoprolol / Esmolol", "Betabloqueantes (Clase II)", "Metoprolol 5 mg IV (hasta 15 mg)", "Bradicardia, bloqueo AV, broncoespasmo, hipotensión."]
-          ]
-        },
-        quizUI: {
-          tag: "Comprobación de Competencias",
-          heading: "Test Clínico de Selección Única",
-          sub: "Resuelva los siguientes casos clínicos interactivos con retroalimentación inmediata.",
-          scoreLabel: "Puntuación",
-          unanswered: "Sin responder",
-          correct: "¡Correcto! ✓",
-          incorrect: "Incorrecto ✗"
-        },
-        quizData: [
-          {
-            id: 1,
-            question: "Mujer de 32 años previamente sana acude a urgencias por palpitaciones rápidas de inicio brusco. PA 125/80 mmHg, FC 185 lpm, SatO2 98 %. El ECG muestra taquicardia regular de complejo QRS estrecho sin ondas P visibles. ¿Cuál es la conducta inicial más adecuada?",
-            options: [
-              "Bolo intravenoso de adenosina 6 mg",
-              "Cardioversión eléctrica sincronizada a 100 J",
-              "Maniobras vagales (p. ej., maniobra de Valsalva modificada)",
-              "Amiodarona 150 mg IV en infusión durante 10 minutos"
-            ],
-            correct: 2,
-            explanation: "En un paciente hemodinámicamente estable con taquicardia regular de complejo estrecho, las maniobras vagales (1.ª línea no farmacológica) deben intentarse antes de administrar fármacos. Tienen una eficacia del 19–54 % y nulos efectos secundarios."
-          },
-          {
-            id: 2,
-            question: "Si en la paciente anterior las maniobras vagales correctamente realizadas fracasan y la paciente se mantiene estable, ¿cuál es el fármaco de primera elección?",
-            options: [
-              "Diltiazem 0,25 mg/kg IV en 2 minutos",
-              "Adenosina 6 mg IV en bolo rápido con lavado de suero",
-              "Metoprolol 5 mg IV en 5 minutos",
-              "Digoxina 0,5 mg IV lenta"
-            ],
-            correct: 1,
-            explanation: "El fármaco de 1.ª elección tras el fracaso de maniobras vagales en TSVP estable es la adenosina IV en dosis inicial de 6 mg en bolo rápido. Los calcioantagonistas y betabloqueantes se reservan para cuando la adenosina fracasa."
-          },
-          {
-            id: 3,
-            question: "¿Cuál de los siguientes hallazgos electrocardiográficos en ritmo sinusal basal es diagnóstico de síndrome de Wolff-Parkinson-White (WPW)?",
-            options: [
-              "Intervalo PR > 200 ms con bloqueo completo de rama derecha",
-              "Intervalo PR < 120 ms, presencia de onda delta y QRS > 120 ms",
-              "Inversión de ondas T en V1–V3 con elevación cóncava del segmento ST",
-              "Ondas en dientes de sierra en derivaciones inferiores DII, DIII y aVF"
-            ],
-            correct: 1,
-            explanation: "La tríada clásica de preexcitación en WPW comprende intervalo PR corto (< 120 ms), empastamiento inicial del QRS (onda delta) y complejo QRS ensanchado (> 120 ms)."
-          },
-          {
-            id: 4,
-            question: "Varón de 54 años con antecedente de infarto de miocardio antiguo acude con taquicardia regular de QRS ancho (160 ms), FC 170 lpm, PA 115/75 mmHg. ¿Cuál es la conducta terapéutica correcta?",
-            options: [
-              "Administrar verapamilo 5 mg IV por sospecha de TRNAV con aberrancia",
-              "Tratar la arritmia como Taquicardia Ventricular (TV) y administrar Procainamida IV",
-              "Aplicar inmediatamente adenosina 18 mg IV en bolo",
-              "Alta a domicilio con prescripción de betabloqueante oral"
-            ],
-            correct: 1,
-            explanation: "Regla fundamental de urgencias: Toda taquicardia de QRS ancho se trata como Taquicardia Ventricular (TV) hasta demostrar lo contrario. En paciente estable, el fármaco de elección es la procainamida IV. ¡El verapamilo está formalmente contraindicado por riesgo de colapso hemodinámico!"
-          },
-          {
-            id: 5,
-            question: "¿Cuál es la forma más común de taquicardia supraventricular paroxística a nivel mundial, constituyendo aproximadamente dos tercios (~65 %) de todos los casos?",
-            options: [
-              "Taquicardia auricular focal (TA)",
-              "Taquicardia por reentrada nodal auriculoventricular (TRNAV)",
-              "Taquicardia por reentrada auriculoventricular ortodrómica (TRAV)",
-              "Taquicardia auricular multifocal (TAM)"
-            ],
-            correct: 1,
-            explanation: "La TRNAV (AVNRT) es la causa más común de TSVP (~65 %), con especial predominio en mujeres jóvenes, debida a la doble vía electrofisiológica nodal (lenta y rápida)."
-          },
-          {
-            id: 6,
-            question: "¿Qué procedimiento es considerado por las guías internacionales como el tratamiento de primera elección con intención curativa definitiva en TSVP sintomática recurrente?",
-            options: [
-              "Tratamiento médico indefinido con verapamilo oral",
-              "Implante de desfibrilador automático implantable (DAI)",
-              "Ablación por catéter con radiofrecuencia (RFA)",
-              "Procedimiento quirúrgico de MAZE"
-            ],
-            correct: 2,
-            explanation: "La ablación por radiofrecuencia es la técnica curativa de 1.ª línea con una tasa de éxito superior al 95 % y muy baja morbilidad, evitando la necesidad de fármacos de por vida."
-          }
-        ],
-        flashcardsUI: {
-          tag: "Repaso Espaciado Activo",
-          heading: "Tarjetas de Memoria (3D Flashcards)",
-          sub: "Haga clic en la tarjeta o pulse la barra espaciadora para voltearla y verificar la respuesta.",
-          counterPrefix: "Tarjeta",
-          counterOf: "de",
-          flipHint: "Haga clic para voltear",
-          flipBackHint: "Haga clic para volver",
-          backBadge: "Respuesta Clínica",
-          reset: "Reiniciar",
-          btnRepeat: "Repasar otra vez",
-          btnMastered: "¡Dominada! 👍"
-        },
-        flashcardsData: [
-          {
-            cat: "Epidemiología",
-            front: "¿Cuál es la prevalencia de la TSVP y qué grupo demográfico se afecta con mayor frecuencia?",
-            back: "La prevalencia es de aprox. 2,29 por cada 1.000 personas. El 62 % de los pacientes diagnosticados son mujeres, frecuentemente jóvenes o de mediana edad sin cardiopatía estructural."
-          },
-          {
-            cat: "Electrofisiología TRNAV",
-            front: "¿Dónde se localiza el circuito de reentrada en la TRNAV y qué dos vías lo componen?",
-            back: "En el nodo AV y tejido perinodal. Se compone de una <strong>vía lenta</strong> (con período refractario corto) y una <strong>vía rápida</strong> (con período refractario más largo)."
-          },
-          {
-            cat: "Diagnóstico en ECG",
-            front: "¿Qué origina la aparición de la 'pseudo-r'' en V1 y 'pseudo-s' en derivaciones inferiores?",
-            back: "La despolarización auricular retrógrada en la TRNAV típica. La onda P retrógrada se inscribe justo al final del complejo QRS, simulando una pequeña deflexión terminal."
-          },
-          {
-            cat: "Síndromes Cardíacos",
-            front: "¿Cómo se define el síndrome de Wolff-Parkinson-White (WPW)?",
-            back: "La combinación de <strong>preexcitación en el ECG basal</strong> (onda delta, PR corto, QRS ancho) junto con la presencia de <strong>taquiarritmias sintomáticas</strong> mediadas por la vía accesoria."
-          },
-          {
-            cat: "Terapéutica de Urgencia",
-            front: "¿Cuál es la conducta de 1.ª línea en un paciente con TSVP hemodinámicamente INESTABLE?",
-            back: "<strong>Cardioversión eléctrica sincronizada inmediata</strong> (con analgosedación previa si el estado de conciencia lo permite)."
-          },
-          {
-            cat: "Farmacología",
-            front: "¿Qué efectos adversos y sensaciones experimenta típicamente el paciente tras la adenosina IV?",
-            back: "Intensa opresión o dolor torácico, sofoco o rubor facial (flushing), disnea y sensación de muerte inminente por asistolia transitoria. Desaparecen en 10–20 segundos."
-          },
-          {
-            cat: "Diagnóstico Diferencial",
-            front: "¿Qué fármaco es la 1.ª elección en taquicardia de complejo QRS ancho hemodinámicamente ESTABLE?",
-            back: "<strong>Procainamida intravenosa</strong> (10–17 mg/kg en infusión). Ha demostrado mayor eficacia y menos eventos adversos mayores que la amiodarona en el ensayo PROCAMIO."
-          },
-          {
-            cat: "Indicaciones de Ablación",
-            front: "¿Qué pacientes con preexcitación asintomática en ECG deben someterse a estudio electrofisiológico y ablación?",
-            back: "Personas con <strong>profesiones de alto riesgo</strong> (pilotos, conductores de transporte público/pesado, operadores de maquinaria pesada, buceadores) y deportistas de élite."
-          }
-        ],
-        footer: {
-          copy: "© 2026 Portal de Cardiología Clínica • Módulo de Taquicardias Supraventriculares",
-          ref: "Basado en Nasir et al. Am Fam Physician 2023;107(5):519-528 & Guías ESC 2019/2024"
-        }
-      },
       cs: {
         pageTitle: "Klinický průvodce: Supraventrikulární tachykardie (pSVT) | Interaktivní modul",
         headerTitle: "Paroxysmální SVT (pSVT): Diagnostika a management",
-        headerSubtitle: "Podle guidelines Am Fam Physician 2023 (Nasir et al.) a ESC guidelines",
+        headerSubtitle: "Podle přehledového článku Nasir et al. (Am Fam Physician 2023) a ESC Guidelines 2019",
         hubBtnText: "Rozcestník Kardiologie",
         tabLabels: [
           "1. Učební text & Vizuály",
@@ -821,7 +466,7 @@
           tag: "Základní definice",
           incidence: "Srdeční frekvence > 100/min v klidu",
           heading: "Co je to paroxysmální SVT (pSVT)?",
-          text: "Rychlý srdeční rytmus (TF > 100/min v klidu) vycházející z tkáně Hisova svazku nebo nad ním. Paroxysmální SVT je charakterizována <strong>náhlým začátkem i náhlým ukončením</strong> a pravidelným rytmem. Postihuje častěji ženy (62 % případů), často i mladé pacienty bez strukturálního onemocnění srdce.",
+          text: "<strong>Supraventrikulární tachykardie (SVT)</strong> označuje jakýkoliv rychlý srdeční rytmus (srdeční frekvence > 100/min v klidu) vycházející z tkáně Hisova svazku nebo nad ním. <strong>Paroxysmální SVT (pSVT)</strong> představuje její podskupinu s pravidelným rytmem a <strong>náhlým začátkem i náhlým ukončením</strong> (klasicky nezahrnuje komorové tachykardie ani fibrilaci síní). Postihuje nejčastěji ženy středního věku (odhadem 62 % případů), často i mladé jedince bez strukturálního onemocnění srdce.",
           avnrtLabel: "AVNRT",
           avnrtSub: "AV nodální reentry",
           avrtLabel: "AVRT",
@@ -831,45 +476,45 @@
         },
         typesCards: [
           {
-            badge: "Nejčastější (2/3 případů)",
+            badge: "Nejčastější (~65 % případů)",
             code: "AVNRT",
             title: "AV nodální reentry tachykardie",
-            desc: "Typická u mladých dospělých a žen. Vzniká v perimodální tkáni AV uzlu přítomností <strong>dvou elektrofyziologických drah:</strong> pomalé (slow) a rychlé (fast).",
+            desc: "Typická u mladých dospělých a žen. Vzniká v perinodální tkáni AV uzlu přítomností <strong>dvou elektrofyziologických drah:</strong> pomalé (slow pathway - kratší refrakterní perioda) a rychlé (fast pathway - delší refrakterní perioda).",
             mechanismTitle: "Elektrofyziologický mechanismus:",
             mechanismText: "Předčasný síňový stah (PAC) zablokuje rychlou dráhu (má delší refrakterní periodu), šíří se pomalou dráhou anterográdně a retrográdně se vrací obnovenou rychlou dráhou.",
             ecgTitle: "EKG korelace:",
             ecgText: "P vlny jsou <strong>skryté v QRS</strong> (aktivace síní a komor probíhá současně), nebo se zobrazují jako <em>pseudo-r'</em> ve svodu V1 a <em>pseudo-s</em> v dolních svodech (II, III, aVF)."
           },
           {
-            badge: "Častá u dětí a mladých (30 %)",
+            badge: "Častá u dětí a mladých (~30 %)",
             code: "AVRT",
             title: "AV reentry tachykardie (akcesorní dráha)",
-            desc: "Vyžaduje <strong>akcesorní spojku</strong> mezi síní a komorou mimo AV uzel. Klasickým příkladem je Wolffův-Parkinsonův-Whiteův (WPW) syndrom.",
+            desc: "Vyžaduje <strong>akcesorní spojku</strong> mezi síní a komorou mimo AV uzel (např. Kentův svazek). Klasickým příkladem je Wolffův-Parkinsonův-Whiteův (WPW) syndrom.",
             mechanismTitle: "Dvě formy vedení:",
-            mechanismText: "<strong>1. Ortodromní (90 %):</strong> Dolů přes AV uzel, nahoru přes dráhu (<em>úzký QRS</em>, retrográdní P vlna za QRS, RP < 1/2 RR).<br><strong>2. Antidromní (10 %):</strong> Dolů přes akcesorní dráhu, nahoru přes AV uzel (<em>široký aberantní QRS komplex!</em>).",
+            mechanismText: "<strong>1. Ortodromní (většina případů):</strong> Dolů přes AV uzel, nahoru přes akcesorní dráhu (<em>úzký QRS</em>, retrográdní P vlna za QRS, RP < 1/2 RR).<br><strong>2. Antidromní (menšina případů):</strong> Dolů přes akcesorní dráhu, nahoru přes AV uzel (<em>široký aberantní QRS komplex!</em>).",
             ecgTitle: "Kritické riziko:",
-            ecgText: "FiS s preexcitací může vést k fibrilaci komor a náhlé srdeční smrti. <strong>Nikdy neblokovat AV uzel (adenosin/verapamil) při preexcitované FiS!</strong>"
+            ecgText: "FiS s preexcitací může vést k převodu 1:1 přes akcesorní dráhu, fibrilaci komor a náhlé srdeční smrti. <strong>Všechny AV-blokující léky jsou kontraindikovány (adenosin, verapamil, diltiazem, beta-blokátory, digoxin, i.v. amiodaron; ESC 2019, třída III)!</strong>"
           },
           {
-            badge: "Nejméně častá (~10 %)",
+            badge: "Méně častá (~10 %)",
             code: "AT",
             title: "Síňová (atriální) tachykardie",
-            desc: "Vychází z ektopického ložiska v síni mimo SA uzel. Může být způsobena zvýšenou automaticitou nebo mikro-reentry okruhem.",
+            desc: "Vychází z ektopického ložiska v síni mimo SA uzel. Může být způsobena zvýšenou automaticitou, spouštěnou aktivitou nebo mikro-reentry okruhem.",
             mechanismTitle: "Charakteristické znaky:",
-            mechanismText: "Často vykazuje tzv. <strong>„warm-up“ fenomén</strong> (postupné zrychlování v prvních 5–10 sekundách), na rozdíl od náhlého skoku u AVNRT/AVRT.",
+            mechanismText: "U fokální AT ze zvýšené automaticity je typický <strong>„warm-up“ a „cool-down“ fenomén</strong> (postupné zrychlování a zpomalování frekvence), který ji pomáhá odlišit od sinusové tachykardie a náhlého skoku u reentry. Naopak <strong>mikro-reentry AT</strong> začíná i končí náhle bez fenoménu warm-up.",
             ecgTitle: "EKG korelace:",
             ecgText: "Abnormální morfologie a osa vlny P (odlišná od sinusové). Vlna P předchází QRS komplex, PR interval je normální, <strong>RP interval je delší než PR interval</strong>."
           }
         ],
         triggersAndTests: {
           triggersTitle: "Časté spouštěče (Triggers)",
-          triggers: ["Kofein & alkohol", "Hypertyreóza", "Elektrolytové dysbalance (K, Mg)", "Sympatomimetika / dekongestiva", "Anémie", "Fyzická námaha / stres", "Horečka / infekce", "Bronchodilatancia"],
+          triggers: ["Kofein & alkohol", "Hypertyreóza", "Elektrolytové dysbalance (K, Mg)", "Fyzická námaha", "Hypovolemie", "Horečka / infekce", "Anémie", "Léky (přehledový článek / Table 1: sympatomimetika, stimulancia, antipsychotika, kortikosteroidy, kanabinoidy, katecholaminy, inotropika, kličková diuretika, vazodilatancia, bronchodilatancia)"],
           triggersNote: "Poznámka: U mladých žen bývá pSVT často chybně diagnostikována jako panická ataka nebo úzkostná porucha, což vede k prodlevě v diagnóze.",
           testsTitle: "Laboratorní a doplňková vyšetření",
           tests: [
             "<strong>Krevní obraz (KO):</strong> vyloučení anémie a skryté infekce.",
             "<strong>TSH (tyreotropní hormon):</strong> screening hypertyreózy jako reverzibilní příčiny.",
-            "<strong>Minerály (BMP - Na, K, Ca, Mg, urea, kreatinin):</strong> iontové poruchy spouštějící arytmie.",
+            "<strong>Iontogram / BMP (Na, K, Ca, urea, kreatinin) + Mg:</strong> iontové poruchy spouštějící či udržující arytmie.",
             "<strong>Troponin a BNP:</strong> při podezření na ischemii či srdeční selhání.",
             "<strong>Transtorakální ECHO:</strong> vyloučení strukturálního onemocnění srdce a zhodnocení ejekční frakce."
           ]
@@ -894,8 +539,8 @@
             explanation: "<strong>AV nodální reentry tachykardie:</strong> Rychlý pravidelný rytmus s úzkým QRS. Retrográdní vlny P splývají s komorovou depolarizací (skryté v QRS) nebo se zobrazují jako <strong>pseudo-r'</strong> ve svodu V1 a <strong>pseudo-s</strong> v dolních svodech."
           },
           wpw: {
-            title: "Wolff-Parkinson-White (WPW) syndrom / Preexcitace",
-            explanation: "<strong>WPW triáda:</strong> 1) Zkrácený PR interval (< 120 ms), 2) Pozvolný náběh QRS komplexu (<strong>delta vlna</strong>), 3) Rozšířený QRS komplex (> 120 ms). Vzniká předčasnou aktivací komor přes anomální akcesorní dráhu mimo AV uzel."
+            title: "Wolffův-Parkinsonův-Whiteův (WPW) syndrom / Preexcitace",
+            explanation: "<strong>Preexcitační (WPW) vzorec na EKG:</strong> 1) Zkrácený PR interval (< 120 ms), 2) Pozvolný náběh QRS komplexu (<strong>delta vlna</strong>), 3) Rozšířený QRS komplex (> 120 ms). Vzniká předčasnou aktivací komor přes anomální akcesorní dráhu mimo AV uzel. <em>WPW syndrom</em> je definován jako přítomnost tohoto preexcitačního vzorce spolu se symptomatickou tachyarytmií."
           },
           vt: {
             title: "Širokokomplexová tachykardie (VT / Antidromní AVRT, 170 bpm)",
@@ -909,7 +554,7 @@
             ["Typická AVNRT", "Úzký (< 120 ms)", "Skrytá v QRS nebo retrográdní těsně za ním", "Velmi krátký (RP < 70 ms)", "Pseudo-r' ve V1, pseudo-s ve svodech II, III, aVF"],
             ["Ortodromní AVRT", "Úzký (< 120 ms)", "Invertovaná, následuje za QRS", "Krátký (RP < 1/2 RR intervalu)", "V klidu na sinusovém rytmu může být delta vlna (WPW)"],
             ["Antidromní AVRT", "Široký (≥ 120 ms)", "Často maskovaná nebo retrográdní", "Dlouhý (RP > 1/2 RR intervalu)", "Zkrácený PR interval, delta vlna, simuluje komorovou tachykardii"],
-            ["Síňová tachykardie (AT)", "Úzký (< 120 ms)", "Abnormální tvar a osa (předchází QRS)", "Dlouhý (RP > PR)", "„Warm-up“ a „cool-down“ fenomén; normální PR interval"]
+            ["Síňová tachykardie (AT)", "Úzký (< 120 ms)", "Abnormální tvar a osa (předchází QRS)", "Dlouhý (RP > PR)", "„Warm-up“ a „cool-down“ fenomén u automaticity; normální PR interval"]
           ]
         },
         management: {
@@ -922,50 +567,50 @@
           stableTitle: "Hemodynamicky STABILNÍ pacient",
           stableSigns: "Normální krevní tlak, bez známek hypoperfuze a plicního edému.",
           step1Title: "1. Krok: Vagové manévry (Účinnost 19–54 %)",
-          step1Desc: "Modifikovaný Valsalvův manévr (usilovný výdech do 10ml stříkačky 15 s, poté položení a elevace DK o 45° na 15 s), masáž karotického sinu (5–10 s, po vyloučení šelestu), diving reflex.",
+          step1Desc: "Modifikovaný Valsalvův manévr (usilovný výdech do 10ml stříkačky 15 s, poté položení a elevace DK o 45° na 15 s – studie REVERT prokázala 43 % vs. 17 % u standardního manévru), masáž karotického sinu (5–10 s, po vyloučení šelestu), diving reflex.",
           step2Title: "2. Krok: Intravenózní Adenosin",
-          step2Desc: "<strong>Dávkování:</strong> 6 mg IV rychlý bolus (push) s okamžitým proplachem 20 ml FR do velké žíly. Při neúčinnosti do 1–2 min: <strong>12 mg IV</strong>.<br><span class='text-rose-600 font-semibold'>Upozornění:</span> Pacienta varovat před pocitem tísně na hrudi a horka. <em>Přeskočit, pokud je přítomna preexcitace na EKG!</em>",
+          step2Desc: "<strong>Dávkování:</strong> 6 mg IV rychlý bolus (push během 1–2 s) s okamžitým proplachem 20 ml FR do velké periferní žíly. Při neúčinnosti do 1–2 min: <strong>12 mg IV</strong> (ESC 2019 uvádí možnost titrace až do 18 mg IV).<br><span class='text-rose-600 font-semibold'>Upozornění a NÚ:</span> Pacienta předem varovat před návalem horka (flush), dyspnoí, hypotenzí a přechodnou bolestí/tísní na hrudi. <strong>Kontraindikace:</strong> preexcitace na EKG (zejména preexcitovaná fibrilace síní). U asthma bronchiale dbát zvýšené opatrnosti.",
           step3Title: "3. Krok: Blokátory vápníkových kanálů nebo Beta-blokátory",
           step3Desc: "Nedihydropyridinové BKK: <strong>Diltiazem</strong> 0,25 mg/kg IV po dobu 2 min nebo <strong>Verapamil</strong> 5–10 mg IV. Alternativně IV Metoprolol či Esmolol. (Pozor na hypotenzi a srdeční selhání).",
           step4Title: "4. Krok: Selhání medikace",
           step4Desc: "Synchronizovaná elektrická kardioverze i u stabilního pacienta.",
           wctTitle: "Širokokomplexová tachykardie (WCT)",
           wctRule: "Zlaté pravidlo urgentní medicíny: <strong>Každou širokokomplexovou tachykardii (QRS ≥ 120 ms) považujeme za komorovou tachykardii (VT), dokud není prokázán opak!</strong>",
-          wctDrugs: "<strong>Procainamid IV:</strong> Lék 1. volby pro stabilní WCT (účinnější a bezpečnější než amiodaron).<br><strong>Amiodaron IV:</strong> Alternativa (150 mg bolus během 10 min, následně infuze).",
+          wctDrugs: "<strong>Procainamid IV:</strong> U hemodynamicky stabilní WCT (článek: u hospitalizovaných pacientů) účinnější a s méně kardiálními NÚ než amiodaron; vyhnout se u srdečního selhání a prodlouženého QT.<br><strong>Pacient po IM / se strukturálním postižením:</strong> Nutno ověřit ejekční frakci (EF); při snížené EF nebo nejistotě zvážit <strong>amiodaron IV</strong> či <strong>synchronizovanou kardioverzi</strong>.",
           ablationTitle: "Dlouhodobý management a kurativní léčba",
-          ablationMain: "<strong>Katetrizační radiofrekvenční ablace (RFA):</strong> Kurativní metoda 1. volby u recidivující symptomatické pSVT a všech pacientů s WPW. Vysoká úspěšnost (> 95 %) a nízké riziko komplikací.",
-          ablationChronic: "<strong>Chronická farmakoterapie (pokud ablace není vhodná):</strong> Beta-blokátory nebo non-DHP BKK (diltiazem/verapamil). U strukturálně zdravého srdce antiarytmika třídy Ic (flecainid, propafenon)."
+          ablationMain: "<strong>Katetrizační radiofrekvenční ablace (RFA):</strong> Metoda první volby u recidivující symptomatické pSVT s vysokou úspěšností a nízkým rizikem komplikací; má být pacientovi nabídnuta po důkladném probrání rizik a přínosů. U pacientů s WPW syndromem je indikováno odeslání na elektrofyziologické vyšetření (EFV) a zvážení ablace; u asymptomatické preexcitace je nutná kardiologická stratifikace rizika a ablace při zjištění vysoce rizikových rysů na EFV. U AVNRT s řídkými, dobře tolerovanými epizodami lze ablaci či chronickou farmakoterapii odložit (cca 50 % pacientů se v průběhu času stane asymptomatickými) a pacienta je nutné podrobně edukovat o provádění vagových manévrů.",
+          ablationChronic: "<strong>Chronická farmakoterapie (pokud ablace není vhodná či je odmítnuta):</strong> Beta-blokátory nebo non-DHP BKK (diltiazem/verapamil). U strukturálně zdravého srdce antiarytmika třídy Ic (flecainid, propafenon).<br><strong>Ambulantní diagnostika a patient-centered přístup:</strong> K záchytu paroxysmů využít Holter EKG, event/patch recordery či implantabilní loop recorder (ILR). Terapeutická rozhodnutí mají být sdílená s pacientem s ohledem na profese a rizikové aktivity (Nasir Table 8: parašutismus, horolezectví, piloti, řidiči)."
         },
         recallQuestions: [
           {
             id: 1,
             q: "Jaký je elektrofyziologický rozdíl mezi ortodromní a antidromní AVRT?",
-            a: "<strong>Ortodromní AVRT (90 % případů):</strong> Vzruch putuje anterográdně přes normální AV uzel a Hisův svazek (depolarizace komor fyziologickou cestou &rarr; <em>úzký QRS komplex</em>) a retrográdně zpět do síní přes akcesorní dráhu.<br><br><strong>Antidromní AVRT (10 %):</strong> Vzruch putuje anterográdně přes akcesorní dráhu přímo do myokardu komor (&rarr; <em>široký aberantní QRS</em>) a retrográdně se vrací přes AV uzel/Hisův svazek."
+            a: "<strong>Ortodromní AVRT (většina případů):</strong> Vzruch putuje anterográdně přes normální AV uzel a Hisův svazek (depolarizace komor fyziologickou cestou &rarr; <em>úzký QRS komplex</em>) a retrográdně zpět do síní přes akcesorní dráhu.<br><br><strong>Antidromní AVRT (menšina případů):</strong> Vzruch putuje anterográdně přes akcesorní dráhu přímo do myokardu komor (&rarr; <em>široký aberantní QRS</em>) a retrográdně se vrací přes AV uzel/Hisův svazek."
           },
           {
             id: 2,
-            q: "Jaké EKG nálezy tvoří diagnostickou triádu Wolffova-Parkinsonova-Whiteova (WPW) syndromu na klidovém EKG?",
-            a: "1. <strong>Zkrácený PR interval</strong> (&lt; 120 ms) v důsledku obejití fyziologického zdržení v AV uzlu.<br>2. <strong>Delta vlna</strong> (pozvolný náběh počátku QRS komplexu v důsledku preexcitace svaloviny komor).<br>3. <strong>Rozšířený QRS komplex</strong> (&gt; 120 ms) se sekundárními repolarizačními změnami."
+            q: "Jaké EKG nálezy tvoří preexcitační (WPW) vzorec na klidovém EKG a jak se liší od WPW syndromu?",
+            a: "<strong>Preexcitační (WPW) vzorec na EKG:</strong><br>1. <strong>Zkrácený PR interval</strong> (&lt; 120 ms) v důsledku obejití fyziologického zdržení v AV uzlu.<br>2. <strong>Delta vlna</strong> (pozvolný náběh počátku QRS komplexu v důsledku preexcitace svaloviny komor).<br>3. <strong>Rozšířený QRS komplex</strong> (&gt; 120 ms) se sekundárními repolarizačními změnami.<br><br><em>WPW syndrom</em> je pak definován jako přítomnost tohoto preexcitačního vzorce na EKG <strong>společně se symptomatickými tachyarytmiemi</strong>."
           },
           {
             id: 3,
-            q: "Proč je podání blokátorů AV uzlu (adenosin, verapamil, beta-blokátory) životu nebezpečné u pacienta s preexcitovanou fibrilací síní?",
-            a: "Pokud má pacient akcesorní dráhu (WPW) a dostane fibrilaci síní, blokádou AV uzlu se veškerý elektrický proud ze síní (300–600/min) přesměruje přes akcesorní dráhu, která nemá zdržovací schopnost AV uzlu. To způsobí bleskový převod na komory a přechod do <strong>fibrilace komor a náhlou srdeční smrt</strong>."
+            q: "Proč jsou blokátory AV uzlu (adenosin, verapamil, diltiazem, beta-blokátory, digoxin, amiodaron) přísně kontraindikovány u preexcitované fibrilace síní?",
+            a: "Při fibrilaci síní s akcesorní dráhou (WPW) způsobí blokáda AV uzlu přesměrování veškerých chaotických síňových vzruchů (300–600/min) přes akcesorní dráhu, která nemá zdržovací schopnost AV uzlu. To vede k extrémně rychlé komorové odpovědi s degenerací do <strong>fibrilace komor a zástavy oběhu</strong>. Dle ESC Guidelines 2019 jsou adenosin, verapamil, diltiazem, beta-blokátory, digoxin i i.v. amiodaron <strong>přísně kontraindikovány (Třída III)</strong>."
           },
           {
             id: 4,
             q: "Jak se správně provádí modifikovaný Valsalvův manévr (REVERT protokol) a jaké dosahuje účinnosti?",
-            a: "Pacient v polosedě usilovně fouká do 10ml stříkačky (tlak cca 40 mmHg) po dobu <strong>15 sekund</strong>. Ihned poté je položen na záda a personál mu <strong>zvedne dolní končetiny do úhlu 45° na 15 sekund</strong> (masivní žilní návrat). Účinnost ukončení pSVT je <strong>až 43–54 %</strong>, což je více než dvojnásobek oproti standardnímu manévru."
+            a: "Pacient v polosedě usilovně fouká do 10ml stříkačky (tlak cca 40 mmHg) po dobu <strong>15 sekund</strong>. Ihned poté je položen na záda a personál mu <strong>zvedne dolní končetiny do úhlu 45° na 15 sekund</strong> (což zvýší žilní návrat).<br>• <strong>Účinnost:</strong> Studie REVERT prokázala úspěšnost <strong>43 % vs. 17 %</strong> u standardního manévru; obecná účinnost vagových manévrů se v literatuře pohybuje mezi <strong>19–54 %</strong>."
           },
           {
             id: 5,
             q: "Jaké je správné dávkování a technika podání adenosinu u dospělého se stabilní úzkokomplexovou pSVT?",
-            a: "<strong>První dávka:</strong> 6 mg IV rychlým bolusem (rapid push během 1–2 sekund) do periferní žíly co nejblíže srdci (ideálně kubitální žíla), ihned následováno <strong>rychlým proplachem 20 ml fyziologického roztoku</strong>.<br>Pokud nedojde k terminaci arytmie do 1–2 minut, podává se <strong>druhá dávka: 12 mg IV</strong> stejným způsobem."
+            a: "<strong>První dávka:</strong> 6 mg IV rychlým bolusem (rapid push během 1–2 sekund) do proximální periferní žíly (fosa cubitalis), ihned následováno <strong>rychlým proplachem 20 ml fyziologického roztoku</strong>.<br>Pokud nedojde k terminaci arytmie do 1–2 minut, podává se <strong>druhá dávka: 12 mg IV</strong> stejným způsobem (ESC 2019 uvádí možnost titrace až do 18 mg).<br><em>Kontraindikace:</em> preexcitace na EKG (zejm. preexcitovaná FS); u astmatu zvýšená opatrnost. Mezi časté NÚ patří flush, dyspnoe, hypotenze a bolest/tíseň na hrudi."
           },
           {
             id: 6,
-            q: "Jaká je metoda volby pro dlouhodobou kurativní léčbu recidivující symptomatické pSVT?",
-            a: "<strong>Katetrizační radiofrekvenční ablace (RFA)</strong>. Jde o bezpečnou, kurativní metodu první volby doporučovanou guidelines (ESC/ACC) s úspěšností přesahující 95 % u AVNRT i AVRT/WPW. Po úspěšné ablaci pacient zpravidla nepotřebuje žádnou chronickou antiarytmickou medikaci."
+            q: "Jaká je metoda volby pro dlouhodobou kurativní léčbu recidivující symptomatické pSVT a jaký je přístup u WPW či mírné AVNRT?",
+            a: "<strong>Katetrizační radiofrekvenční ablace (RFA)</strong> je metodou první volby u recidivující symptomatické pSVT s vysokou úspěšností a má být pacientovi nabídnuta po probrání rizik a přínosů.<br>• <strong>WPW syndrom:</strong> Odeslání na elektrofyziologické vyšetření (EFV) a zvážení ablace.<br>• <strong>Asymptomatická preexcitace:</strong> Kardiologická stratifikace rizika a ablace při vysoce rizikových rysech na EFV.<br>• <strong>Mírná AVNRT (řídké, dobře tolerované ataky):</strong> Ablaci či farmakoterapii lze odložit (cca 50 % pacientů se stane asymptomatickými) a pacient se edukuje o vagových manévrech."
           }
         ],
         recallUI: {
@@ -982,8 +627,8 @@
         },
         summaryUI: {
           tag: "Rychlé klinické repetitorium",
-          heading: "Klinické perly a varovné signály (Red Flags)",
-          sub: "To nejdůležitější z článku do atestační či reálné klinické praxe.",
+          heading: "Klinické perly, Brugada kritéria a varovné signály (Red Flags)",
+          sub: "To nejdůležitější z článku a doporučení do atestační či reálné klinické praxe.",
           brugadaTitle: "Brugada kritéria pro široký QRS (≥ 120 ms)",
           brugadaDesc: "Postupujte krok za krokem. Odpověď „ANO“ na kterýkoliv bod potvrzuje <strong>komorovou tachykardii (VT)</strong>:",
           brugadaSteps: [
@@ -993,23 +638,23 @@
             "4. Jsou přítomna morfologická kritéria pro VT ve svodech V1–V2 a V6? <span class='text-purple-700 font-bold'>Ano &rarr; VT</span>"
           ],
           brugadaAllNo: "<strong>Všechna 4 kritéria „NE“:</strong> Diagnostikována SVT s aberantním vedením (např. raménkový blok).",
-          redFlagsTitle: "Indikace k odeslání kardiologovi (Ablace)",
-          redFlagsTag: "Table 8 Guidelines",
+          redFlagsTitle: "Indikace k odeslání kardiologovi a zvážení ablace",
+          redFlagsTag: "přehledový článek / Nasir 2023, Table 8",
           redFlags: [
-            "<strong>Preexcitace nebo delta vlna</strong> na klidovém EKG (riziko náhlé smrti).",
+            "<strong>Preexcitace nebo delta vlna</strong> na klidovém EKG (stratifikace rizika a zvážení ablace).",
             "<strong>Synkopa nebo presynkopa</strong> během paroxysmu palpitací.",
-            "<strong>Vysoce rizikové povolání:</strong> pilot, řidič kamionu/MHD, jeřábník, potápěč.",
+            "<strong>Vysoce riziková povolání a aktivity (Nasir Table 8):</strong> pilot, řidič z povolání / MHD, jeřábník, potápěč, parašutista (sky diver), horolezec (rock climber).",
             "<strong>Známé strukturální onemocnění srdce</strong> (ICHS, kardiomyopatie, chlopenní vady).",
-            "Symptomy nekontrolované farmakoterapií nebo netolerující medikaci.",
+            "Symptomy nekontrolované farmakoterapií nebo intolerance medikace.",
             "Nejasnost v diagnóze či široký QRS komplex."
           ],
-          pharmaTitle: "Farmakologický přehled (Nasir 2023 Table 6)",
+          pharmaTitle: "Farmakologický přehled (přehledový článek / Nasir 2023, Table 6)",
           pharmaHeaders: ["Léčivo", "Třída", "Akutní dávkování", "Nežádoucí účinky & Kontraindikace"],
           pharmaRows: [
-            ["Adenosin", "Agonista A1 purin. receptorů", "6 mg IV bolus &rarr; 12 mg IV", "Flush, dyspnoe, bronchospasmus. <strong>KI:</strong> Preexcitace s FiS, astma."],
-            ["Diltiazem / Verapamil", "BKK (non-dihydropyridiny)", "0,25 mg/kg IV / 5–10 mg IV", "Hypotenze, bradykardie. <strong>KI:</strong> HFrEF (selhání se sníženou EF), široký QRS."],
-            ["Procainamid", "Antiarytmikum Ia", "10–17 mg/kg IV (20–50 mg/min)", "Lék 1. volby pro stabilní široký QRS. <strong>KI:</strong> Prodloužený QT, srdeční selhání."],
-            ["Metoprolol / Esmolol", "Beta-blokátory (II)", "Metoprolol 5 mg IV (max 15 mg)", "Bradykardie, AV blokády, bronchospasmus, hypotenze."]
+            ["Adenosin", "Agonista A1 purinergních receptorů", "6 mg IV bolus &rarr; 12 mg IV (ESC uvádí titraci až do 18 mg)", "Flush, dyspnoe, hypotenze, bolest/tíseň na hrudi. <strong>KI:</strong> Preexcitace na EKG (zejm. preexcitovaná FS). <em>Opatrnost:</em> asthma bronchiale."],
+            ["Diltiazem / Verapamil", "BKK (non-dihydropyridiny)", "0,25 mg/kg IV / 5–10 mg IV", "Hypotenze, bradykardie. <strong>KI:</strong> HFrEF (selhání se sníženou EF), široký QRS, preexcitovaná FS."],
+            ["Procainamid", "Antiarytmikum třídy Ia", "10–17 mg/kg IV (20–50 mg/min)", "U stabilní WCT účinnější a bezpečnější než amiodaron. <strong>KI / vyhnout se:</strong> Prodloužený QT, srdeční selhání. Při snížené EF po IM zvážit amiodaron či kardioverzi."],
+            ["Metoprolol / Esmolol", "Beta-blokátory (II)", "Metoprolol 5 mg IV (max 15 mg)", "Bradykardie, AV blokády, bronchospasmus, hypotenze. <strong>KI:</strong> Preexcitovaná FS."]
           ]
         },
         quizUI: {
@@ -1048,7 +693,7 @@
           },
           {
             id: 3,
-            question: "Který z následujících EKG nálezů svědčí pro Wolff-Parkinson-Whiteův (WPW) syndrom v klidovém období (mimo paroxysmus tachykardie)?",
+            question: "Který z následujících nálezů charakterizuje preexcitační (WPW) vzorec na klidovém EKG (mimo paroxysmus tachykardie)?",
             options: [
               "Prodloužený PR interval > 200 ms a blokáda pravého raménka",
               "Zkrácený PR interval < 120 ms, přítomnost delta vlny a rozšířený QRS",
@@ -1056,7 +701,7 @@
               "Pravidelný flutterový zubovitý vzorec ve svodech II, III, aVF"
             ],
             correct: 1,
-            explanation: "Klasickou triádou preexcitace u WPW je zkrácený PR interval (< 120 ms), pomalý vzestup QRS komplexu (tzv. delta vlna) a rozšířený QRS komplex (> 120 ms)."
+            explanation: "Klasický preexcitační (WPW) vzorec na EKG zahrnuje zkrácený PR interval (< 120 ms), pomalý vzestup počátku QRS komplexu (delta vlna) a rozšířený QRS komplex (> 120 ms). WPW syndrom je definován jako spojení tohoto vzorce se symptomatickou tachyarytmií."
           },
           {
             id: 4,
@@ -1068,7 +713,7 @@
               "Propustit pacienta domů s preskripcí perorálního beta-blokátoru"
             ],
             correct: 1,
-            explanation: "Zásadní pravidlo: Každá širokokomplexová tachykardie se považuje za komorovou tachykardii (VT), dokud se neprokáže opak. U stabilního pacienta je lékem volby IV procainamid (nebo amiodaron). Verapamil je u VT přísně kontraindikován, hrozí hemodynamický kolaps!"
+            explanation: "Zásadní pravidlo: Každá širokokomplexová tachykardie se považuje za komorovou tachykardii (VT), dokud se neprokáže opak. U stabilního hospitalizovaného pacienta je lékem volby IV procainamid (účinnější a s méně kardiálními NÚ než amiodaron; vyhnout se u srdečního selhání a prodlouženého QT). U pacienta po IM je nutné ověřit EF, při snížené EF či nejistotě zvážit amiodaron či synchronizovanou kardioverzi. Verapamil je u VT přísně kontraindikován!"
           },
           {
             id: 5,
@@ -1080,11 +725,11 @@
               "Multifokální síňová tachykardie (MAT)"
             ],
             correct: 1,
-            explanation: "AVNRT je nejčastější formou pSVT (~65 % případů), typicky postihuje mladší dospělé a ženy. Její podstatou je reentry okruh v oblasti AV uzlu tvořený pomalou a rychlou dráhou."
+            explanation: "AVNRT je nejčastější formou pSVT (~65 % případů), typicky postihuje ženy středního věku a mladé dospělé. Její podstatou je reentry okruh v oblasti AV uzlu tvořený pomalou a rychlou dráhou."
           },
           {
             id: 6,
-            question: "Která intervence je doporučována současnými kardiologickými guidelines jako metoda první volby pro definitivní kurativní léčbu symptomatické recidivující AVNRT či AVRT?",
+            question: "Která intervence je doporučována současnými doporučeními jako metoda první volby pro definitivní kurativní léčbu symptomatické recidivující pSVT (AVNRT / AVRT)?",
             options: [
               "Doživotní monoterapie verapamilem per os",
               "Implantace kardioverteru-defibrilátoru (ICD)",
@@ -1092,13 +737,13 @@
               "Chirurgický MAZE zákrok"
             ],
             correct: 2,
-            explanation: "Katetrizační ablace je metodou 1. volby s kurativním potenciálem (> 95 % úspěšnost, minimální morbidita). Odstraňuje nutnost trvalé farmakoterapie."
+            explanation: "Katetrizační radiofrekvenční ablace (RFA) je metodou 1. volby u recidivující symptomatické pSVT s vysokou úspěšností a minimálním rizikem komplikací; má být nabídnuta po probrání rizik a přínosů. U WPW je indikováno odeslání na EFV a zvážení ablace."
           }
         ],
         flashcardsUI: {
           tag: "Spaced Repetition",
-          heading: "Opakovací kartičky (Flashcards)",
-          sub: "Klikněte na kartičku pro její otočení. Procvičujte až do úplného zvládnutí.",
+          heading: "Opakovací kartičky (3D Flashcards)",
+          sub: "Klikněte na kartičku nebo stiskněte Mezerník pro její otočení. Procvičujte až do úplného zvládnutí.",
           counterPrefix: "Kartička",
           counterOf: "z",
           flipHint: "Klikněte pro otočení",
@@ -1127,40 +772,395 @@
           {
             cat: "Syndromologie",
             front: "Jak je definován Wolff-Parkinson-Whiteův (WPW) syndrom?",
-            back: "Kombinace preexcitace na EKG (delta vlna, krátký PR, široký QRS) a přítomnosti symptomatických tachyarytmií využívajících akcesorní spojku."
+            back: "Kombinace <strong>preexcitačního vzorce na EKG</strong> (delta vlna, krátký PR < 120 ms, široký QRS) a přítomnosti <strong>symptomatických tachyarytmií</strong> využívajících akcesorní spojku."
           },
           {
             cat: "Akutní terapie",
             front: "Jaký je postup 1. linie u hemodynamicky NESTABILNÍHO pacienta s pSVT?",
-            back: "Okamžitá synchronizovaná elektrická kardioverze (za analgosedace). Při selhání přechod na ACLS postupy."
+            back: "<strong>Okamžitá synchronizovaná elektrická kardioverze</strong> (za analgosedace, pokud to stav vědomí umožňuje). Při selhání přechod na ACLS postupy."
           },
           {
             cat: "Farmakologie",
             front: "Jaké jsou hlavní nežádoucí účinky a pocity pacienta po nitrožilním podání adenosinu?",
-            back: "Výrazný pocit tísně či bolesti na hrudi, nával horka (flushing), dyspnoe, přechodná asystolie/bradykardie. Pacienta je nutné předem uklidnit, že odezní do 10–20 sekund."
+            back: "Výrazný pocit tísně či bolesti na hrudi, nával horka (flushing), dyspnoe, hypotenze a přechodná asystolie/bradykardie. Pacienta je nutné předem uklidnit, že odezní do 10–20 sekund."
           },
           {
             cat: "Diferenciální diagnóza",
-            front: "Které farmakum je lékem 1. volby u hemodynamicky STABILNÍ širokokomplexové tachykardie?",
-            back: "Intravenózní Procainamid (10–17 mg/kg IV infuzí). V klinických studiích prokázal vyšší účinnost a méně kardiovaskulárních nežádoucích účinků než amiodaron."
+            front: "Jaká jsou specifika podání procainamidu u hemodynamicky stabilní širokokomplexové tachykardie (WCT)?",
+            back: "Procainamid IV je u stabilní WCT (u hospitalizovaných) účinnější a má méně kardiálních NÚ než amiodaron. Je nutné se mu <strong>vyhnout při srdečním selhání a prodlouženém QT</strong>. U pacientů po IM je nutné ověřit EF a při snížené EF či nejistotě zvážit amiodaron či synchronizovanou kardioverzi."
           },
           {
             cat: "Kardiologické indikace",
-            front: "Kteří pacienti s asymptomatickou preexcitací na EKG vyžadují elektrofyzikální vyšetření a zvážení ablace?",
-            back: "Osoby s vysoce rizikovým povoláním (piloti, řidiči MHD/kamionů, jeřábníci, potápěči) a vrcholoví sportovci z důvodu rizika náhlé smrti během zátěže."
+            front: "Jaký je doporučený postup u pacientů s asymptomatickou preexcitací na EKG?",
+            back: "Doporučuje se <strong>kardiologické vyšetření a stratifikace rizika</strong>, zejména u osob s vysoce rizikovým povoláním (piloti, řidiči MHD/kamionů, jeřábníci, potápěči) a vrcholových sportovců; <strong>katetrizační ablace</strong> je indikována při zjištění vysoce rizikových rysů na elektrofyziologickém vyšetření (EFV)."
           }
         ],
         footer: {
           copy: "© 2026 Viola Kintrová • Kardiologický výukový portál pro 4. ročník Všeobecného lékařství.",
-          ref: "Podle Nasir et al. Am Fam Physician 2023;107(5):519-528 a ESC Guidelines pro supraventrikulární tachykardie"
+          ref: "Nasir et al. Am Fam Physician 2023;107(6):631-641 a ESC Guidelines 2019 pro SVT (Eur Heart J 2020;41:655-720)"
+        }
+      },
+      es: {
+        pageTitle: "Guía Clínica: Taquicardia Supraventricular Paroxística (TSVP) | Módulo Interactivo",
+        headerTitle: "Taquicardia Supraventricular Paroxística (TSVP)",
+        headerSubtitle: "Basado en el artículo de revisión de Nasir et al. (Am Fam Physician 2023) y Guías ESC 2019",
+        hubBtnText: "Portal Kardiologie",
+        tabLabels: [
+          "1. Texto Didáctico y Visuales",
+          "2. Active Recall",
+          "3. Resumen Final y Perlas",
+          "4. Test de Casos Clínicos",
+          "5. Tarjetas de Memoria (3D)"
+        ],
+        subLabels: {
+          types: "1. Tipos y Mecanismos de TSVP",
+          ecg: "2. Atlas de ECG & Osciloscopio Canvas",
+          management: "3. Manejo Agudo y Crónico"
+        },
+        banner: {
+          tag: "Definición Fisiopatológica",
+          incidence: "Frecuencia cardíaca > 100 lpm en reposo",
+          heading: "¿Qué es la Taquicardia Supraventricular Paroxística (TSVP)?",
+          text: "La <strong>taquicardia supraventricular (TSV)</strong> engloba cualquier ritmo cardíaco rápido (frecuencia cardíaca > 100 lpm en reposo) originado en el haz de His o por encima de él. La <strong>taquicardia supraventricular paroxística (TSVP)</strong> es un subgrupo de TSV caracterizado por un ritmo regular con <strong>inicio brusco y terminación súbita</strong> (clásicamente no incluye taquicardias ventriculares ni fibrilación auricular). Afecta predominantemente a mujeres de mediana edad (estimado en el 62 % de los casos), a menudo en pacientes jóvenes sin cardiopatía estructural subyacente.",
+          avnrtLabel: "TRNAV",
+          avnrtSub: "Por reentrada nodal",
+          avrtLabel: "TRAV",
+          avrtSub: "Vía accesoria / WPW",
+          atLabel: "TA",
+          atSub: "Taquicardia auricular"
+        },
+        typesCards: [
+          {
+            badge: "Más frecuente (~65 % de casos)",
+            code: "TRNAV / AVNRT",
+            title: "Taquicardia por Reentrada Nodal AV",
+            desc: "Típica en adultos jóvenes y mujeres. Se origina en el tejido perinodal del nodo AV por la presencia de <strong>dos vías electrofisiológicas:</strong> una vía lenta (con período refractario corto) y una vía rápida (con período refractario más largo).",
+            mechanismTitle: "Mecanismo electrofisiológico:",
+            mechanismText: "Un extrasístole auricular (PAC) encuentra la vía rápida en refractariedad, conduce anterógradamente por la vía lenta y regresa retrógradamente por la vía rápida ya recuperada, estableciendo el circuito.",
+            ecgTitle: "Hallazgo en ECG:",
+            ecgText: "Ondas P <strong>ocultas en el QRS</strong> (activación simultánea de aurículas y ventrículos), o visibles como <em>pseudo-r'</em> en derivación V1 y <em>pseudo-s</em> en derivaciones inferiores (DII, DIII, aVF)."
+          },
+          {
+            badge: "Frecuente en jóvenes (~30 %)",
+            code: "TRAV / AVRT",
+            title: "Taquicardia por Reentrada AV (Vía accesoria)",
+            desc: "Requiere una <strong>conexión accesoria anómala</strong> (haz de Kent) entre aurícula y ventrículo por fuera del nodo AV. El paradigma clásico es el síndrome de Wolff-Parkinson-White (WPW).",
+            mechanismTitle: "Dos formas de conducción:",
+            mechanismText: "<strong>1. Ortodrómica (la gran mayoría de casos):</strong> Conducción anterógrada por el nodo AV y retrógrada por la vía accesoria (<em>QRS estrecho</em>, RP < 1/2 RR).<br><strong>2. Antidrómica (la minoría de casos):</strong> Conducción anterógrada por la vía accesoria y retrógrada por el nodo AV (<em>¡QRS ancho y bizarro!</em>).",
+            ecgTitle: "Riesgo crítico:",
+            ecgText: "La FA preexcitada puede conducir 1:1 por la vía accesoria y degenerar en fibrilación ventricular y muerte súbita. <strong>¡Todos los fármacos bloqueadores del nodo AV están contraindicados (adenosina, verapamilo, diltiazem, betabloqueantes, digoxina, amiodarona i.v.; guías ESC 2019, Clase III)!</strong>"
+          },
+          {
+            badge: "Menos frecuente (~10 %)",
+            code: "TA / AT",
+            title: "Taquicardia Auricular Focal",
+            desc: "Se origina en un foco ectópico en el miocardio auricular fuera del nodo sinusal. Puede deberse a aumento del automatismo, actividad gatillada o microrreentrada.",
+            mechanismTitle: "Signos característicos:",
+            mechanismText: "En la TA focal por automatismo aumentado es característico el fenómeno de <strong>'warm-up' y 'cool-down'</strong> (aceleración y desaceleración progresiva), que ayuda a diferenciarla de la taquicardia sinusal y del inicio brusco por reentrada. Por el contrario, la <strong>TA por microrreentrada</strong> inicia y termina de forma súbita sin fenómeno de warm-up.",
+            ecgTitle: "Hallazgo en ECG:",
+            ecgText: "Morfología y eje de la onda P anormal (diferente a la sinusal). La onda P precede al complejo QRS, con intervalo PR normal y <strong>intervalo RP > PR</strong> (taquicardia de RP largo)."
+          }
+        ],
+        triggersAndTests: {
+          triggersTitle: "Desencadenantes Frecuentes (Triggers)",
+          triggers: ["Cafeína y alcohol", "Hipertiroidismo", "Desequilibrios electrolíticos (K, Mg)", "Esfuerzo físico", "Hipovolemia", "Fiebre / infección", "Anemia", "Fármacos (artículo de revisión / Tabla 1: simpaticomiméticos, estimulantes, antipsicóticos, corticosteroides, cannabinoides, catecolaminas, inotrópicos, diuréticos de asa, vasodilatadores, broncodilatadores)"],
+          triggersNote: "Nota clínica: En mujeres jóvenes, la TSVP a menudo se diagnostica erróneamente como crisis de angustia o trastorno de pánico, causando un retraso significativo en el tratamiento definitivo.",
+          testsTitle: "Pruebas de Laboratorio y Complementarias",
+          tests: [
+            "<strong>Hemograma completo:</strong> descartar anemia e infección subyacente.",
+            "<strong>TSH (tirotropina):</strong> cribado de hipertiroidismo como causa reversible.",
+            "<strong>Iontograma / BMP (Na, K, Ca, urea, creatinina) + Mg:</strong> alteraciones electrolíticas que desencadenan arritmias.",
+            "<strong>Troponina y BNP:</strong> en caso de sospecha de isquemia miocárdica o insuficiencia cardíaca acompañante.",
+            "<strong>Ecocardiograma transtorácico:</strong> descartar cardiopatía estructural y evaluar fracción de eyección (FEVI)."
+          ]
+        },
+        canvasSection: {
+          title: "Osciloscopio Interactivo de ECG (Canvas HTML5)",
+          sub: "Seleccione un patrón arrítmico para simular el trazo en tiempo real y estudiar sus marcadores diagnósticos.",
+          buttons: {
+            sinus: "Sinusal (75 lpm)",
+            avnrt: "TRNAV Típica (180 lpm)",
+            wpw: "Preexcitación WPW (Delta)",
+            vt: "QRS Ancho (TV / Antidrómica)"
+          }
+        },
+        ecgPresets: {
+          sinus: {
+            title: "Ritmo Sinusal Normal (75 lpm)",
+            explanation: "<strong>Ritmo sinusal normal:</strong> Onda P positiva en derivación II que precede a cada complejo QRS, intervalo PR constante normal (120–200 ms), complejo QRS estrecho (< 120 ms) y onda T concordante con polaridad normal."
+          },
+          avnrt: {
+            title: "TRNAV Típica / AVNRT (180 lpm, QRS Estrecho)",
+            explanation: "<strong>Taquicardia por reentrada nodal típica:</strong> Ritmo regular rápido con QRS estrecho. Las ondas P retrógradas coinciden con la despolarización ventricular (ocultas en el QRS) o aparecen como una <strong>pseudo-onda r'</strong> al final del QRS en V1 y <strong>pseudo-s</strong> en derivaciones inferiores."
+          },
+          wpw: {
+            title: "Síndrome de Wolff-Parkinson-White (WPW) / Preexcitación",
+            explanation: "<strong>Patrón de preexcitación (WPW) en el ECG:</strong> 1) Intervalo PR corto (< 120 ms), 2) Empastamiento inicial del QRS (<strong>onda delta</strong>), 3) Complejo QRS ensanchado (> 120 ms). Se produce por la activación ventricular precoz a través de una vía accesoria anómala. El <em>síndrome de WPW</em> se define como la combinación de este patrón de preexcitación con taquiarritmias sintomáticas."
+          },
+          vt: {
+            title: "Taquicardia de QRS Ancho (TV / TRAV Antidrómica, 170 lpm)",
+            explanation: "<strong>Complejo QRS ancho (≥ 120 ms):</strong> En el servicio de urgencias <em>siempre debe tratarse como Taquicardia Ventricular (TV)</em> hasta que se demuestre lo contrario mediante criterios de Brugada. ¡La administración de bloqueadores del nodo AV (verapamilo, adenosina) en arritmias preexcitadas puede desencadenar paro cardíaco!"
+          }
+        },
+        diffTable: {
+          title: "Diagnóstico Diferencial Electrocardiográfico",
+          headers: ["Entidad Arrítmica", "Anchura QRS", "Onda P", "Intervalo RP", "Hallazgo Patognomónico"],
+          rows: [
+            ["TRNAV Típica (AVNRT)", "Estrecho (< 120 ms)", "Oculta en QRS o retrógrada inmediata", "Muy corto (RP < 70 ms)", "Pseudo-r' en V1, pseudo-s en DII, DIII, aVF"],
+            ["TRAV Ortodrómica", "Estrecho (< 120 ms)", "Invertida retrógrada tras QRS", "Corto (RP < 1/2 intervalo RR)", "En ritmo sinusal previo puede haber onda delta (WPW)"],
+            ["TRAV Antidrómica", "Ancho (≥ 120 ms)", "A menudo enmascarada / retrógrada", "Largo (RP > 1/2 intervalo RR)", "PR corto, onda delta, simula taquicardia ventricular"],
+            ["Taquicardia Auricular (TA)", "Estrecho (< 120 ms)", "Morfología y eje anormal (precede QRS)", "Largo (RP > PR)", "Fenómeno de 'warm-up' y 'cool-down' en automatismo; PR normal"]
+          ]
+        },
+        management: {
+          tag: "Protocolo de Urgencias y Manejo Curativo",
+          title: "Algoritmo de Toma de Decisiones en TSVP",
+          unstableTitle: "Paciente Hemodinámicamente INESTABLE",
+          unstableSigns: "Criterios de inestabilidad: alteración del nivel de conciencia, shock/hipotensión arterial severa, disnea intensa (edema agudo de pulmón), dolor torácico isquémico continuo.",
+          unstableCardio: "1.ª Línea: Cardioversión Eléctrica Sincronizada",
+          unstableCardioDesc: "Choque sincronizado inmediato (con analgesia/sedación previa si es posible). Si fracasa o recurre, aplicar protocolo ACLS de soporte vital avanzado.",
+          stableTitle: "Paciente Hemodinámicamente ESTABLE",
+          stableSigns: "Presión arterial conservada, sin signos de hipoperfusión periférica ni congestión pulmonar aguda.",
+          step1Title: "Paso 1: Maniobras Vagales (Eficacia 19–54 %)",
+          step1Desc: "<strong>Maniobra de Valsalva Modificada (Ensayo REVERT):</strong> espiración forzada en jeringa de 10 ml durante 15 s en posición semisentada, seguida de decúbito supino inmediato y <strong>elevación pasiva de miembros inferiores a 45° durante 15 s</strong> (el ensayo REVERT demostró un 43 % vs. 17 % de la clásica). Alternativas: masaje del seno carotídeo (5-10 s, tras descartar soplos) o reflejo de inmersión.",
+          step2Title: "Paso 2: Adenosina Intravenosa",
+          step2Desc: "<strong>Dosis:</strong> 6 mg IV en bolo ultrarrápido (push en 1-2 s) por vía venosa proximal con lavado inmediato de 20 ml de suero fisiológico. Si no revierte en 1–2 min: <strong>12 mg IV</strong> (las guías ESC 2019 contemplan titulación hasta 18 mg IV).<br><span class='text-rose-600 font-bold'>Advertencias y EA:</span> Advertir al paciente sobre rubor facial (flushing), disnea, hipotensión y dolor/opresión torácica transitoria. <strong>Contraindicación:</strong> preexcitación en el ECG (especialmente FA preexcitada). En asma bronquial usar con precaución.",
+          step3Title: "Paso 3: Bloqueadores de Canales de Calcio no DHP o Beta-bloqueantes",
+          step3Desc: "Calcioantagonistas no dihidropiridínicos: <strong>Diltiazem</strong> 0,25 mg/kg IV en 2 min o <strong>Verapamilo</strong> 5–10 mg IV. Alternativa: Metoprolol o Esmolol IV. (Precaución con hipotensión e insuficiencia cardíaca con FEVI reducida).",
+          step4Title: "Paso 4: Resistencia a fármacos",
+          step4Desc: "Cardioversión eléctrica sincronizada si los fármacos no logran la reversión.",
+          wctTitle: "Taquicardia de Complejo Ancho (WCT)",
+          wctRule: "Regla de oro: <strong>¡Toda taquicardia regular de QRS ancho (≥ 120 ms) se considera Taquicardia Ventricular (TV) hasta demostrar lo contrario!</strong>",
+          wctDrugs: "<strong>Procainamida IV:</strong> En taquicardia de QRS ancho hemodinámicamente estable (artículo: en pacientes hospitalizados) es más eficaz y con menos efectos adversos cardíacos que la amiodarona; evitar en insuficiencia cardíaca y QT prolongado.<br><strong>Paciente post-IM / con cardiopatía estructural:</strong> Es necesario verificar la fracción de eyección (FEVI); ante FEVI reducida o incertidumbre, considerar <strong>amiodarona IV</strong> o <strong>cardioversión sincronizada</strong>.",
+          ablationTitle: "Tratamiento Curativo a Largo Plazo",
+          ablationMain: "<strong>Ablación por catéter con radiofrecuencia (RFA):</strong> Método de primera elección en la TSVP sintomática recurrente con alta tasa de éxito y bajo riesgo de complicaciones; debe ofrecerse tras comentar exhaustivamente los riesgos y beneficios. En pacientes con síndrome de WPW se indica derivación a estudio electrofisiológico (EEF) y consideración de ablación; en preexcitación asintomática se requiere estratificación cardiológica del riesgo y ablación si se detectan rasgos de alto riesgo en el EEF. En la TRNAV con episodios infrecuentes y bien tolerados, la ablación o la farmacoterapia pueden posponerse (aprox. el 50 % de los pacientes se vuelve asintomático con el tiempo) y es fundamental educar al paciente en maniobras vagales.",
+          ablationChronic: "<strong>Farmacoterapia crónica (si se pospone o rechaza la ablación):</strong> Beta-bloqueantes o Calcioantagonistas no DHP. En corazón estructuralmente sano: antiarrítmicos de clase Ic (flecainida, propafenona).<br><strong>Monitorización ambulatoria y enfoque centrado en el paciente:</strong> Para documentar paroxismos usar Holter de eventos/parches o monitor cardíaco implantable (ILR). Las decisiones terapéuticas deben ser compartidas valorando profesiones y actividades de alto riesgo (Nasir Tabla 8: paracaidismo, escalada, pilotos, conductores)."
+        },
+        recallQuestions: [
+          {
+            id: 1,
+            q: "¿Cuál es la diferencia electrofisiológica fundamental entre la TRAV ortodrómica y la antidrómica?",
+            a: "<strong>TRAV Ortodrómica (la gran mayoría de casos):</strong> El impulso desciende por el sistema de conducción fisiológico (nodo AV y haz de His), despolarizando los ventrículos de forma normal (&rarr; <em>QRS estrecho</em>), y asciende retrógradamente por la vía accesoria hacia las aurículas.<br><br><strong>TRAV Antidrómica (la minoría de casos):</strong> El impulso desciende por la vía accesoria directamente al miocardio ventricular (&rarr; <em>QRS ancho y bizarro</em>) y regresa retrógradamente por el haz de His y nodo AV."
+          },
+          {
+            id: 2,
+            q: "¿Qué hallazgos electrocardiográficos componen el patrón de preexcitación (WPW) en el ECG y cómo se diferencia del síndrome de WPW?",
+            a: "<strong>Patrón de preexcitación (WPW) en el ECG:</strong><br>1. <strong>Intervalo PR corto</strong> (&lt; 120 ms) por elusión del retraso fisiológico del nodo AV.<br>2. <strong>Onda delta</strong> (empastamiento inicial en la rama ascendente del QRS por preexcitación ventricular).<br>3. <strong>Complejo QRS ensanchado</strong> (&gt; 120 ms) con alteraciones secundarias de repolarización.<br><br>El <em>síndrome de WPW</em> se define como la presencia de este patrón de preexcitación en el ECG <strong>junto con taquiarritmias sintomáticas</strong>."
+          },
+          {
+            id: 3,
+            q: "¿Por qué los bloqueadores del nodo AV (adenosina, verapamilo, diltiazem, betabloqueantes, digoxina, amiodarona) están estrictamente contraindicados en la FA preexcitada?",
+            a: "En la fibrilación auricular con vía accesoria (WPW), el bloqueo del nodo AV desvía todos los impulsos auriculares caóticos (300–600 lpm) exclusivamente por la vía accesoria sin conducción decremental. Esto desencadena una respuesta ventricular masiva y degenera en <strong>fibrilación ventricular y paro cardíaco</strong>. Según las guías ESC 2019, la adenosina, verapamilo, diltiazem, betabloqueantes, digoxina y amiodarona i.v. están <strong>estrictamente contraindicados (Clase III)</strong>."
+          },
+          {
+            id: 4,
+            q: "¿Cómo se ejecuta correctamente la Maniobra de Valsalva Modificada (protocolo REVERT) y cuál es su tasa de éxito?",
+            a: "El paciente en posición semisentada realiza una espiración forzada en una jeringa de 10 ml (presión aprox. de 40 mmHg) durante <strong>15 segundos</strong>. Inmediatamente después, se le acuesta en decúbito supino y el personal <strong>eleva sus piernas a 45° durante 15 segundos</strong> (aumentando el retorno venoso).<br>• <strong>Eficacia:</strong> El ensayo REVERT demostró una eficacia del <strong>43 % frente al 17 %</strong> de la maniobra clásica; la eficacia general de las maniobras vagales oscila entre el <strong>19 % y el 54 %</strong>."
+          },
+          {
+            id: 5,
+            q: "¿Cuál es la dosis y técnica correcta de administración de adenosina intravenosa en un adulto con TSVP estable de QRS estrecho?",
+            a: "<strong>Primera dosis:</strong> 6 mg IV en bolo ultrarrápido (push en 1–2 segundos) en vena proximal de gran calibre (fosa antecubital), seguido de inmediato por un <strong>bolo de lavado rápido de 20 ml de suero fisiológico</strong>.<br>Si la taquicardia no revierte en 1–2 minutos, se administra una <strong>segunda dosis de 12 mg IV</strong> con la misma técnica (las guías ESC 2019 contemplan titulación hasta 18 mg).<br><em>Contraindicación:</em> preexcitación en el ECG (especialmente FA preexcitada); precaución en asma. Efectos adversos frecuentes: flushing, disnea, hipotensión y dolor/opresión torácica."
+          },
+          {
+            id: 6,
+            q: "¿Cuál es el tratamiento de elección para la TSVP sintomática recurrente y cuál es la conducta en WPW o TRNAV leve?",
+            a: "La <strong>ablación con catéter por radiofrecuencia (RFA)</strong> es el método de primera elección en TSVP sintomática recurrente con alta tasa de éxito y debe ofrecerse tras evaluar riesgos y beneficios.<br>• <strong>Síndrome de WPW:</strong> Derivación a estudio electrofisiológico (EEF) y valorar ablación.<br>• <strong>Preexcitación asintomática:</strong> Estratificación cardiológica del riesgo y ablación si hay rasgos de alto riesgo en el EEF.<br>• <strong>TRNAV leve (episodios infrecuentes y bien tolerados):</strong> Puede posponerse la ablación/fármacos (aprox. el 50 % se vuelve asintomático) educando al paciente en maniobras vagales."
+          }
+        ],
+        recallUI: {
+          tag: "Evocación Activa en Memoria",
+          heading: "Entrenador de Active Recall",
+          sub: "Formule mentalmente o en voz alta la respuesta antes de pulsar en 'Ver Respuesta'. Después autoevalúe la solidez de su recuerdo para afianzar el aprendizaje espaciado.",
+          counter: "6 Preguntas de Alto Rendimiento",
+          showAns: "Ver Respuesta",
+          hideAns: "Ocultar Respuesta",
+          myRating: "Mi autoevaluación:",
+          easy: "Fácil 👍",
+          medium: "Difícil ⚡",
+          hard: "No lo sabía ❌"
+        },
+        summaryUI: {
+          tag: "Repaso Rápido de Alto Rendimiento",
+          heading: "Perlas Clínicas, Criterios de Brugada y Signos de Alarma",
+          sub: "Los conceptos imprescindibles para la práctica clínica real y exámenes de especialidad.",
+          brugadaTitle: "Criterios de Brugada para QRS Ancho (≥ 120 ms)",
+          brugadaDesc: "Evalúe paso a paso. Cualquier respuesta afirmativa ('SÍ') establece el diagnóstico de <strong>Taquicardia Ventricular (TV)</strong>:",
+          brugadaSteps: [
+            "1. ¿Ausencia de complejo RS en todas las derivaciones precordiales (V1 a V6)? <span class='text-purple-700 font-bold'>SÍ &rarr; TV</span>",
+            "2. ¿Existe complejo RS, pero el intervalo desde el inicio de la R hasta el nadir de la S es > 100 ms en alguna derivación? <span class='text-purple-700 font-bold'>SÍ &rarr; TV</span>",
+            "3. ¿Existe disociación auriculoventricular (AV)? <span class='text-purple-700 font-bold'>SÍ &rarr; TV</span>",
+            "4. ¿Cumple criterios morfológicos clásicos de TV en derivaciones V1–V2 y V6? <span class='text-purple-700 font-bold'>SÍ &rarr; TV</span>"
+          ],
+          brugadaAllNo: "<strong>Si los 4 criterios son 'NO':</strong> Se confirma Taquicardia Supraventricular con conducción aberrante (p. ej. bloqueo de rama previo).",
+          redFlagsTitle: "Criterios de Derivación Urgente y Ablación (Signos de Alarma)",
+          redFlagsTag: "artículo de revisión / Nasir 2023, Tabla 8",
+          redFlags: [
+            "<strong>Preexcitación o presencia de onda delta</strong> en ECG de reposo (estratificación de riesgo y valorar ablación).",
+            "<strong>Síncope o presíncope</strong> durante los episodios de palpitaciones.",
+            "<strong>Profesiones y actividades de alto riesgo (Nasir Tabla 8):</strong> pilotos, conductores profesionales de transporte público/pesado, operadores de grúas, buceadores, paracaidistas (sky divers), escaladores (rock climbers).",
+            "<strong>Cardiopatía estructural conocida</strong> (cardiopatía isquémica, miocardiopatías, valvulopatías).",
+            "Síntomas no controlados o intolerancia a la terapia farmacológica.",
+            "Diagnóstico dudoso o taquicardia con complejo QRS ancho."
+          ],
+          pharmaTitle: "Resumen Farmacológico Comparativo (artículo de revisión / Nasir 2023, Tabla 6)",
+          pharmaHeaders: ["Fármaco", "Clase / Mecanismo", "Posología Aguda", "Efectos Adversos y Contraindicaciones"],
+          pharmaRows: [
+            ["Adenosina", "Agonista purinérgico A1", "6 mg IV bolo rápido &rarr; 12 mg IV (guías ESC contemplan titulación hasta 18 mg)", "Rubor facial (flushing), disnea, hipotensión, dolor/opresión torácica. <strong>CI:</strong> Preexcitación en ECG (especialmente FA preexcitada). <em>Precaución:</em> asma bronquial."],
+            ["Diltiazem / Verapamilo", "Calcioantagonistas no DHP", "0,25 mg/kg IV / 5–10 mg IV en bolo lento", "Hipotensión, bradicardia. <strong>CI:</strong> Insuficiencia cardíaca con FEVI reducida, QRS ancho, FA preexcitada."],
+            ["Procainamida", "Antiarrítmico Clase Ia", "10–17 mg/kg IV (20–50 mg/min)", "En QRS ancho estable más eficaz y segura que amiodarona. <strong>CI / evitar:</strong> QT largo, insuficiencia cardíaca. En paciente post-IM con FEVI reducida valorar amiodarona o cardioversión."],
+            ["Metoprolol / Esmolol", "Betabloqueantes (Clase II)", "Metoprolol 5 mg IV (hasta 15 mg)", "Bradicardia, bloqueo AV, broncoespasmo, hipotensión. <strong>CI:</strong> FA preexcitada."]
+          ]
+        },
+        quizUI: {
+          tag: "Comprobación de Competencias",
+          heading: "Test Clínico de Selección Única",
+          sub: "Resuelva los siguientes casos clínicos interactivos con retroalimentación inmediata.",
+          scoreLabel: "Puntuación",
+          unanswered: "Sin responder",
+          correct: "¡Correcto! ✓",
+          incorrect: "Incorrecto ✗"
+        },
+        quizData: [
+          {
+            id: 1,
+            question: "Mujer de 32 años previamente sana acude a urgencias por palpitaciones rápidas de inicio brusco. PA 125/80 mmHg, FC 185 lpm, SatO2 98 %. El ECG muestra taquicardia regular de complejo QRS estrecho sin ondas P visibles. ¿Cuál es la conducta inicial más adecuada?",
+            options: [
+              "Bolo intravenoso de adenosina 6 mg",
+              "Cardioversión eléctrica sincronizada a 100 J",
+              "Maniobras vagales (p. ej., maniobra de Valsalva modificada)",
+              "Amiodarona 150 mg IV en infusión durante 10 minutos"
+            ],
+            correct: 2,
+            explanation: "En un paciente hemodinámicamente estable con taquicardia regular de complejo estrecho, las maniobras vagales (1.ª línea no farmacológica) deben intentarse antes de administrar fármacos. Tienen una eficacia del 19–54 % y nulos efectos secundarios."
+          },
+          {
+            id: 2,
+            question: "Si en la paciente anterior las maniobras vagales correctamente realizadas fracasan y la paciente se mantiene estable, ¿cuál es el fármaco de primera elección?",
+            options: [
+              "Diltiazem 0,25 mg/kg IV en 2 minutos",
+              "Adenosina 6 mg IV en bolo rápido con lavado de suero",
+              "Metoprolol 5 mg IV en 5 minutos",
+              "Digoxina 0,5 mg IV lenta"
+            ],
+            correct: 1,
+            explanation: "El fármaco de 1.ª elección tras el fracaso de maniobras vagales en TSVP estable es la adenosina IV en dosis inicial de 6 mg en bolo rápido. Los calcioantagonistas y betabloqueantes se reservan para cuando la adenosina fracasa."
+          },
+          {
+            id: 3,
+            question: "¿Cuál de los siguientes hallazgos caracteriza el patrón de preexcitación (WPW) en el ECG basal en reposo?",
+            options: [
+              "Intervalo PR > 200 ms con bloqueo completo de rama derecha",
+              "Intervalo PR < 120 ms, presencia de onda delta y QRS > 120 ms",
+              "Inversión de ondas T en V1–V3 con elevación cóncava del segmento ST",
+              "Ondas en dientes de sierra en derivaciones inferiores DII, DIII y aVF"
+            ],
+            correct: 1,
+            explanation: "El patrón de preexcitación (WPW) en el ECG comprende intervalo PR corto (< 120 ms), empastamiento inicial del QRS (onda delta) y complejo QRS ensanchado (> 120 ms). El síndrome de WPW requiere además la presencia de taquiarritmias sintomáticas."
+          },
+          {
+            id: 4,
+            question: "Varón de 54 años con antecedente de infarto de miocardio antiguo acude con taquicardia regular de QRS ancho (160 ms), FC 170 lpm, PA 115/75 mmHg. ¿Cuál es la conducta terapéutica correcta?",
+            options: [
+              "Administrar verapamilo 5 mg IV por sospecha de TRNAV con aberrancia",
+              "Tratar la arritmia como Taquicardia Ventricular (TV) y administrar Procainamida IV",
+              "Aplicar inmediatamente adenosina 18 mg IV en bolo",
+              "Alta a domicilio con prescripción de betabloqueante oral"
+            ],
+            correct: 1,
+            explanation: "Regla fundamental: Toda taquicardia de QRS ancho se considera Taquicardia Ventricular (TV) hasta demostrar lo contrario. En paciente hospitalizado estable, el fármaco de elección es procainamida IV (más eficaz y con menos efectos adversos cardíacos que amiodarona; evitar en insuficiencia cardíaca y QT largo). En paciente post-IM se debe verificar la FEVI, considerando amiodarona o cardioversión si está reducida. ¡El verapamilo está contraindicado!"
+          },
+          {
+            id: 5,
+            question: "¿Cuál es la forma más común de taquicardia supraventricular paroxística a nivel mundial, constituyendo aproximadamente dos tercios (~65 %) de todos los casos?",
+            options: [
+              "Taquicardia auricular focal (TA)",
+              "Taquicardia por reentrada nodal auriculoventricular (TRNAV)",
+              "Taquicardia por reentrada auriculoventricular ortodrómica (TRAV)",
+              "Taquicardia auricular multifocal (TAM)"
+            ],
+            correct: 1,
+            explanation: "La TRNAV (AVNRT) es la causa más común de TSVP (~65 %), con especial predominio en mujeres de mediana edad y adultos jóvenes, debida a la doble vía electrofisiológica nodal (lenta y rápida)."
+          },
+          {
+            id: 6,
+            question: "¿Qué intervención se recomienda como método de primera elección para el tratamiento curativo definitivo de la TSVP sintomática recurrente (TRNAV / TRAV)?",
+            options: [
+              "Tratamiento médico indefinido con verapamilo oral",
+              "Implante de desfibrilador automático implantable (DAI)",
+              "Ablación por catéter con radiofrecuencia (RFA)",
+              "Procedimiento quirúrgico de MAZE"
+            ],
+            correct: 2,
+            explanation: "La ablación con catéter por radiofrecuencia (RFA) es el método de 1.ª elección en TSVP sintomática recurrente con alta tasa de éxito y baja morbilidad; debe ofrecerse tras comentar riesgos y beneficios. En WPW se indica derivación a EEF y valorar ablación."
+          }
+        ],
+        flashcardsUI: {
+          tag: "Repaso Espaciado Activo",
+          heading: "Tarjetas de Memoria (3D Flashcards)",
+          sub: "Haga clic en la tarjeta o pulse la barra espaciadora para voltearla y verificar la respuesta.",
+          counterPrefix: "Tarjeta",
+          counterOf: "de",
+          flipHint: "Haga clic para voltear",
+          flipBackHint: "Haga clic para volver",
+          backBadge: "Respuesta Clínica",
+          reset: "Reiniciar",
+          btnRepeat: "Repasar otra vez",
+          btnMastered: "¡Dominada! 👍"
+        },
+        flashcardsData: [
+          {
+            cat: "Epidemiología",
+            front: "¿Cuál es la prevalencia de la TSVP y qué grupo demográfico se afecta con mayor frecuencia?",
+            back: "La prevalencia es de aprox. 2,29 por cada 1.000 personas. El 62 % de los pacientes diagnosticados son mujeres de mediana edad, frecuentemente sin cardiopatía estructural."
+          },
+          {
+            cat: "Electrofisiología TRNAV",
+            front: "¿Dónde se localiza el circuito de reentrada en la TRNAV y qué dos vías lo componen?",
+            back: "En el nodo AV y tejido perinodal. Se compone de una <strong>vía lenta</strong> (con período refractario corto) y una <strong>vía rápida</strong> (con período refractario más largo)."
+          },
+          {
+            cat: "Diagnóstico en ECG",
+            front: "¿Qué origina la aparición de la 'pseudo-r'' en V1 y 'pseudo-s' en derivaciones inferiores?",
+            back: "La despolarización auricular retrógrada en la TRNAV típica. La onda P retrógrada se inscribe justo al final del complejo QRS, simulando una pequeña deflexión terminal."
+          },
+          {
+            cat: "Síndromes Cardíacos",
+            front: "¿Cómo se define el síndrome de Wolff-Parkinson-White (WPW)?",
+            back: "La combinación de <strong>patrón de preexcitación en el ECG basal</strong> (onda delta, PR corto < 120 ms, QRS ancho) junto con la presencia de <strong>taquiarritmias sintomáticas</strong> mediadas por la vía accesoria."
+          },
+          {
+            cat: "Terapéutica de Urgencia",
+            front: "¿Cuál es la conducta de 1.ª línea en un paciente con TSVP hemodinámicamente INESTABLE?",
+            back: "<strong>Cardioversión eléctrica sincronizada inmediata</strong> (con analgosedación previa si el estado de conciencia lo permite). En caso de fracaso, aplicar soporte vital avanzado (ACLS)."
+          },
+          {
+            cat: "Farmacología",
+            front: "¿Qué efectos adversos y sensaciones experimenta típicamente el paciente tras la adenosina IV?",
+            back: "Intensa opresión o dolor torácico, sofoco o rubor facial (flushing), disnea, hipotensión y asistolia/bradicardia transitoria. Desaparecen en 10–20 segundos."
+          },
+          {
+            cat: "Diagnóstico Diferencial",
+            front: "¿Cuáles son las particularidades de la procainamida en la taquicardia de complejo QRS ancho (WCT) estable?",
+            back: "La procainamida IV en WCT estable (en hospitalizados) es más eficaz y presenta menos efectos adversos cardíacos que la amiodarona. Se debe <strong>evitar en insuficiencia cardíaca y QT prolongado</strong>. En pacientes post-IM se debe verificar la FEVI y, ante disfunción sistólica o duda, considerar amiodarona o cardioversión sincronizada."
+          },
+          {
+            cat: "Indicaciones de Ablación",
+            front: "¿Cuál es el manejo recomendado en pacientes con preexcitación asintomática en el ECG?",
+            back: "Se recomienda <strong>evaluación cardiológica y estratificación del riesgo</strong>, especialmente en profesiones de alto riesgo (pilotos, conductores de transporte público/pesado, operadores de grúas, buceadores) y deportistas de élite; la <strong>ablación con catéter</strong> está indicada si se detectan rasgos de alto riesgo en el estudio electrofisiológico (EEF)."
+          }
+        ],
+        footer: {
+          copy: "© 2026 Portal de Cardiología Clínica • Módulo de Taquicardias Supraventriculares",
+          ref: "Nasir et al. Am Fam Physician 2023;107(6):631-641 y Guías ESC 2019 para TSV (Eur Heart J 2020;41:655-720)"
         }
       }
     };
 
     // ==========================================
-    // APPLICATION STATE (SPANISH AS DEFAULT)
+    // APPLICATION STATE (CZECH AS DEFAULT)
     // ==========================================
-    let currentLang = 'es'; // Default language is Spanish as requested
+    let currentLang = 'cs'; // Default language set to Czech as requested in point 15
     let currentTab = 'theory';
     let currentTheorySub = 'types';
     let currentRhythm = 'sinus';
@@ -1321,7 +1321,7 @@
           </div>
 
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <!-- Inestable -->
+            <!-- Inestable / Nestabilní -->
             <div class="border-2 border-rose-200 bg-rose-50/40 rounded-2xl p-5 space-y-3">
               <div class="flex items-center gap-2 text-rose-700 font-bold text-sm sm:text-base">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
@@ -1334,7 +1334,7 @@
               </div>
             </div>
 
-            <!-- Estable -->
+            <!-- Estable / Stabilní -->
             <div class="border-2 border-emerald-200 bg-emerald-50/40 rounded-2xl p-5 space-y-3">
               <div class="flex items-center gap-2 text-emerald-800 font-bold text-sm sm:text-base">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
@@ -1371,7 +1371,7 @@
               <span class="w-2.5 h-2.5 rounded-full bg-purple-600"></span> ${mgmt.wctTitle}
             </h4>
             <p class="text-xs text-slate-600 leading-relaxed">${mgmt.wctRule}</p>
-            <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100 text-xs leading-relaxed space-y-1.5">
+            <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100 text-xs leading-relaxed space-y-2">
               ${mgmt.wctDrugs}
             </div>
           </div>
@@ -1383,7 +1383,7 @@
             <div class="p-3.5 bg-emerald-50/60 rounded-xl border border-emerald-100 text-xs leading-relaxed text-emerald-950">
               ${mgmt.ablationMain}
             </div>
-            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-100 text-xs leading-relaxed text-slate-700">
+            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-100 text-xs leading-relaxed text-slate-700 space-y-1">
               ${mgmt.ablationChronic}
             </div>
           </div>
@@ -1769,7 +1769,7 @@
       container.innerHTML = dict.quizData.map((q, idx) => `
         <div class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4" id="quiz-card-${q.id}">
           <div class="flex items-center justify-between">
-            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Caso ${idx + 1} / ${dict.quizData.length}</span>
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Caso / Případ ${idx + 1} z ${dict.quizData.length}</span>
             <span id="quiz-status-${q.id}" class="text-xs font-semibold text-slate-400">${dict.quizUI.unanswered}</span>
           </div>
           <h3 class="text-sm sm:text-base font-heading font-bold text-slate-900 leading-relaxed">${q.question}</h3>
