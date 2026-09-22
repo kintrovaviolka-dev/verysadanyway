@@ -119,10 +119,25 @@ document.addEventListener("DOMContentLoaded", () => {
       srDoneCategory: "HOTOVO",
       srHighYieldLabel: "High-Yield:",
       srEmptyAlert: "Pro zvolený filtr nemáte momentálně žádné karty k opakování!",
-      featuredBannerTag: "🔥 NOVÝ SAMOSTATNÝ MODUL (2023 AFP/ESC)",
-      featuredBannerTitle: "Paroxysmální supraventrikulární tachykardie (pSVT / TSVP)",
-      featuredBannerDesc: "Interaktivní klinický průvodce: AVNRT vs. AVRT/WPW vs. Síňová tachykardie, EKG osciloskop na Canvasu, modifikovaný Valsalva manévr, 6 kazuistik a 3D opakovací kartičky.",
-      featuredBannerBtn: "Otevřít interaktivní modul →",
+      guidelinesHeading: "Oficiální fulltexty ESC Guidelines & Reference",
+      suppSectionTitle: "Doplňkové interaktivní moduly & Fulltextové průvodce",
+      suppSectionSubtitle: "Samostatné interaktivní simulátory, hloubkové ESC průvodce, kazuistiky a osciloskopy",
+      suppTag: "Doplňkové studijní materiály",
+      suppPsvtTitle: "Paroxysmální SVT (pSVT / TSVP)",
+      suppPsvtDesc: "Interaktivní klinický simulátor s EKG osciloskopem, AVNRT vs. AVRT/WPW, modifikovaný Valsalva manévr a 6 reálných kazuistik.",
+      suppPsvtBtn: "Otevřít pSVT simulátor →",
+      suppAksTitle: "ESC Guidelines: Akutní koronární syndrom",
+      suppAksDesc: "Samostatný interaktivní výukový portál pro doporučení ESC 2023 s integrovanými 3D kartami a kazuistikami.",
+      suppAksBtn: "Otevřít AKS průvodce →",
+      suppHtnTitle: "ESC Guidelines: Arteriální hypertenze",
+      suppHtnDesc: "Interaktivní aplikace pokrývající novou definici zvýšeného TK, cílový STK 120–129 mmHg a fixní trojkombinace.",
+      suppHtnBtn: "Otevřít Hypertenze průvodce →",
+      suppHfTitle: "ESC Guidelines: Srdeční selhání",
+      suppHfDesc: "Hloubkový modul pro léčbu srdečního selhání, pilíře farmakoterapie (ARNI/ACEi, BB, MRA, SGLT2i) a i.v. železo.",
+      suppHfBtn: "Otevřít HF průvodce →",
+      suppMidefTitle: "5. Univerzální definice infarktu myokardu",
+      suppMidefDesc: "Interaktivní průvodce klasifikací typů 1–5 IM, kritéria myokardiálního poškození, MINOCA a periprocedurálního infarktu.",
+      suppMidefBtn: "Otevřít Definici IM →",
       footerText: "© 2026 Viola Kintrová • Kardiologický výukový portál pro 4. ročník Všeobecného lékařství."
     },
     es: {
@@ -194,10 +209,25 @@ document.addEventListener("DOMContentLoaded", () => {
       srDoneCategory: "COMPLETADO",
       srHighYieldLabel: "Alto Rendimiento:",
       srEmptyAlert: "¡No tiene tarjetas pendientes de repaso para el filtro seleccionado!",
-      featuredBannerTag: "🔥 NUEVO MÓDULO INTERACTIVO (2023 AFP/ESC)",
-      featuredBannerTitle: "Taquicardia Supraventricular Paroxística (TSVP / pSVT)",
-      featuredBannerDesc: "Guía clínica interactiva: TRNAV vs. TRAV/WPW vs. Taquicardia auricular, osciloscopio de ECG en Canvas, maniobra de Valsalva modificada, 6 casos clínicos y tarjetas 3D.",
-      featuredBannerBtn: "Abrir módulo interactivo →",
+      guidelinesHeading: "Guías Oficiales ESC de Texto Completo y Referencias",
+      suppSectionTitle: "Módulos interactivos complementarios y Guías de texto completo",
+      suppSectionSubtitle: "Simuladores clínicos interactivos, guías profundas ESC, casos y osciloscopio",
+      suppTag: "Materiales complementarios de estudio",
+      suppPsvtTitle: "Taquicardia Supraventricular Paroxística (TSVP / pSVT)",
+      suppPsvtDesc: "Guía clínica interactiva: TRNAV vs. TRAV/WPW vs. Taquicardia auricular, osciloscopio de ECG en Canvas, maniobra de Valsalva modificada y 6 casos.",
+      suppPsvtBtn: "Abrir simulador TSVP →",
+      suppAksTitle: "Guías ESC: Síndrome Coronario Agudo",
+      suppAksDesc: "Portal interactivo dedicado a las recomendaciones ESC 2023 con tarjetas 3D y casos integrados.",
+      suppAksBtn: "Abrir guía de SCA →",
+      suppHtnTitle: "Guías ESC: Hipertensión arterial",
+      suppHtnDesc: "Aplicación interactiva que aborda la nueva definición de PA elevada, objetivo PAS 120–129 mmHg y combinaciones triples.",
+      suppHtnBtn: "Abrir guía de Hipertensión →",
+      suppHfTitle: "Guías ESC: Insuficiencia cardíaca",
+      suppHfDesc: "Módulo profundo para el tratamiento de la insuficiencia cardíaca, pilares de farmacoterapia (ARNI/IECA, BB, ARM, iSGLT2) y hierro i.v.",
+      suppHfBtn: "Abrir guía de IC →",
+      suppMidefTitle: "5.ª Definición universal de infarto",
+      suppMidefDesc: "Guía interactiva sobre los tipos 1–5 de IM, criterios de daño miocárdico, MINOCA e infarto periprocedimiento.",
+      suppMidefBtn: "Abrir Definición de IM →",
       footerText: "© 2026 Viola Kintrová • Portal de estudio de cardiología para 4.º curso de Medicina."
     }
   };
@@ -513,6 +543,41 @@ document.addEventListener("DOMContentLoaded", () => {
     const srKeyHints = document.getElementById("sr-key-hints");
     if (srKeyHints) srKeyHints.innerHTML = i18n.srKeyHints;
 
+    // Supplementary Section
+    const suppSectionTitle = document.getElementById("supp-section-title");
+    if (suppSectionTitle && i18n.suppSectionTitle) suppSectionTitle.textContent = i18n.suppSectionTitle;
+
+    const suppSectionSubtitle = document.getElementById("supp-section-subtitle");
+    if (suppSectionSubtitle && i18n.suppSectionSubtitle) suppSectionSubtitle.textContent = i18n.suppSectionSubtitle;
+
+    const suppTag = document.getElementById("supp-tag");
+    if (suppTag && i18n.suppTag) suppTag.textContent = i18n.suppTag;
+
+    const suppPsvtTitle = document.getElementById("supp-psvt-title");
+    if (suppPsvtTitle && i18n.suppPsvtTitle) suppPsvtTitle.textContent = i18n.suppPsvtTitle;
+    const suppPsvtDesc = document.getElementById("supp-psvt-desc");
+    if (suppPsvtDesc && i18n.suppPsvtDesc) suppPsvtDesc.textContent = i18n.suppPsvtDesc;
+
+    const suppAksTitle = document.getElementById("supp-aks-title");
+    if (suppAksTitle && i18n.suppAksTitle) suppAksTitle.textContent = i18n.suppAksTitle;
+    const suppAksDesc = document.getElementById("supp-aks-desc");
+    if (suppAksDesc && i18n.suppAksDesc) suppAksDesc.textContent = i18n.suppAksDesc;
+
+    const suppHtnTitle = document.getElementById("supp-htn-title");
+    if (suppHtnTitle && i18n.suppHtnTitle) suppHtnTitle.textContent = i18n.suppHtnTitle;
+    const suppHtnDesc = document.getElementById("supp-htn-desc");
+    if (suppHtnDesc && i18n.suppHtnDesc) suppHtnDesc.textContent = i18n.suppHtnDesc;
+
+    const suppHfTitle = document.getElementById("supp-hf-title");
+    if (suppHfTitle && i18n.suppHfTitle) suppHfTitle.textContent = i18n.suppHfTitle;
+    const suppHfDesc = document.getElementById("supp-hf-desc");
+    if (suppHfDesc && i18n.suppHfDesc) suppHfDesc.textContent = i18n.suppHfDesc;
+
+    const suppMidefTitle = document.getElementById("supp-midef-title");
+    if (suppMidefTitle && i18n.suppMidefTitle) suppMidefTitle.textContent = i18n.suppMidefTitle;
+    const suppMidefDesc = document.getElementById("supp-midef-desc");
+    if (suppMidefDesc && i18n.suppMidefDesc) suppMidefDesc.textContent = i18n.suppMidefDesc;
+
     // Featured Banner
     const featuredBannerTag = document.getElementById("featured-banner-tag");
     if (featuredBannerTag && i18n.featuredBannerTag) featuredBannerTag.textContent = i18n.featuredBannerTag;
@@ -570,6 +635,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
   portalLangCsBtn?.addEventListener("click", () => setLanguage("cs"));
   portalLangEsBtn?.addEventListener("click", () => setLanguage("es"));
+
+  // Helper to render official ESC guideline links
+  const renderGuidelinesBox = (mod, i18n) => {
+    if (!mod.guidelineLinks || mod.guidelineLinks.length === 0) return "";
+    return `
+      <div class="guidelines-ref-box">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 1.1rem;">📚</span>
+            <strong style="font-size: 0.88rem; color: #38bdf8;">${i18n.guidelinesHeading || "Oficiální fulltexty ESC Guidelines & Reference"}</strong>
+          </div>
+          <span style="font-size: 0.72rem; color: var(--text-muted); font-family: var(--font-mono);">European Heart Journal • ESC</span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px;">
+          ${mod.guidelineLinks
+            .map(
+              (link) => `
+            <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="guideline-link-item" title="${escapeHTML(link.title)}">
+              <span>🔗</span>
+              <span>${escapeHTML(link.title)} ${link.year ? `(${link.year})` : ""}</span>
+              <span style="font-size: 0.7rem; opacity: 0.8; font-family: var(--font-mono); margin-left: 2px;">[Fulltext ↗]</span>
+            </a>
+          `
+            )
+            .join("")}
+        </div>
+      </div>
+    `;
+  };
 
   // --- RENDER MODULES LIST ---
   const renderModulesList = () => {
@@ -662,6 +756,8 @@ document.addEventListener("DOMContentLoaded", () => {
           )
           .join("")}
       </div>
+
+      ${renderGuidelinesBox(mod, i18n)}
 
       <div class="step-footer-actions">
         <span>${i18n.theoryDone}</span>
@@ -851,6 +947,8 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         </div>
       </div>
+
+      ${renderGuidelinesBox(mod, i18n)}
 
       <div style="text-align: center; margin-top: 30px; display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
         <button class="btn btn-secondary" id="btn-back-to-modules">
