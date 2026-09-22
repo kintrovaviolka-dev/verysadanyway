@@ -744,6 +744,8 @@ document.addEventListener("DOMContentLoaded", () => {
         <p class="theory-desc">${formatMarkdown(mod.theory.banner.text)}</p>
       </div>
 
+      <div class="module-interactive-showcase" id="module-interactive-showcase"></div>
+
       <div class="theory-sections-list">
         ${mod.theory.sections
           .map(
@@ -766,6 +768,12 @@ document.addEventListener("DOMContentLoaded", () => {
         </button>
       </div>
     `;
+
+    window.currentCardioLang = state.lang;
+    const widgetContainer = document.getElementById("module-interactive-showcase");
+    if (widgetContainer && window.CardioInteractiveWidgets) {
+      window.CardioInteractiveWidgets.renderWidget(moduleId, widgetContainer);
+    }
 
     document.getElementById("btn-next-to-recall")?.addEventListener("click", () => {
       switchTopicStep("recall");
