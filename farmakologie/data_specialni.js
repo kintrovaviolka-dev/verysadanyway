@@ -4008,13 +4008,13 @@ const PHARM_SPEC_DETAILS = {
     ]
   },
   "pharm-spec-33": {
-    "definition": "Léky chronického srdečního selhání (CHSS) jsou farmaka zaměřená na snížení kardiovaskulární mortality, hospitalizací pro dekompenzované srdeční selhání (DHF) a zlepšení symptomů u pacientů se sníženou ejekční frakcí levé komory (HFrEF ≤ 50 %) i se zachovalou ejekční frakcí (HFpEF ≥ 50 %; kategorie HFmrEF byla v ESC Guidelines 2026 zrušena).",
+    "definition": "Léky chronického srdečního selhání (CHSS) jsou farmaka zaměřená na snížení kardiovaskulární mortality, hospitalizací pro dekompenzované srdeční selhání (DHF) a zlepšení symptomů u pacientů se sníženou ejekční frakcí levé komory (HFrEF < 50 %) i se zachovalou ejekční frakcí (HFpEF ≥ 50 %; kategorie HFmrEF byla v ESC Guidelines 2026 zrušena).",
     "kinetics": [
       "Sacubitril/Valsartan (ARNI) je fixní kombinace v poměru 1:1. Sacubitril je proléčivo, které se esterázami mění na aktivní sacubitrilát (inhibitor neprilysinu). Valsartan blokuje $AT_1$ receptory. Vylučuje se játry a ledvinami.",
       "SGLT2 inhibitory (dapagliflozin, empagliflozin) se dobře vstřebávají p.o. a mají dlouhý poločas (cca 12 hodin), což umožňuje dávkování jednou denně; eliminují se močí."
     ],
     "dynamics": [
-      "Základní farmakoterapie (Foundational Medical Therapy - FMT) HFrEF (LVEF ≤ 50 %) stojí na **4 pilířích** s Class I doporučením, které se nasazují včasně a simultánně:",
+      "Základní farmakoterapie (Foundational Medical Therapy - FMT) HFrEF (LVEF < 50 %) stojí na **4 pilířích** s Class I doporučením, které se nasazují včasně a simultánně:",
       "  1. **ARNI** (angiotensin receptor-neprilysin inhibitor - sacubitril/valsartan): sacubitril inhibuje neprilysin (enzym odbourávající natriuretické peptidy ANP/BNP), což posiluje vasodilataci a diurézu; valsartan blokuje $AT_1$ k zamezení škodlivého vlivu angiotenzinu II. Nahrazuje ACEi/ARB (studie PARADIGM-HF).",
       "  2. **Beta-blokátory** (kardioselektivní s důkazy: bisoprolol, metoprolol sukcinát, nebivolol, nebo neselektivní carvedilol): snižují sympatickou hyperaktivitu, chrání před arytmiemi a podporují reverzní remodelaci komory.",
       "  3. **MRA** (mineralokortikoidní receptoroví antagonisté - spironolakton, eplerenon): blokují aldosteron, brání fibrotizaci myokardu a retenci sodíku. Dle ESC 2026 indikováno pro VŠECHNY pacienty s CHSS bez ohledu na EF!",
@@ -4029,7 +4029,7 @@ const PHARM_SPEC_DETAILS = {
     "pearl": "Wash-out perioda 36 hodin při přechodu z ACE-inhibitoru (např. perindoprilu) na ARNI (sacubitril/valsartan) je kritickým bezpečnostním pravidlem. Oba léky totiž zvyšují hladinu bradykininu (neprilysin i ACE bradykinin odbourávají). Společná přítomnost obou léčiv vede k masivní akumulaci bradykininu a rozvoji fatálního angioedému (otoku jazyka, hrtanu a udušení)!",
     "tableData": [
       {
-        "name": "Pilíře foundational terapie HFrEF (EF <= 50 %)",
+        "name": "Pilíře foundational terapie HFrEF (EF < 50 %)",
         "value": "ARNI/ACEi + Beta-blokátor + MRA + SGLT2i"
       },
       {
@@ -4043,15 +4043,15 @@ const PHARM_SPEC_DETAILS = {
     ],
     "quiz": [
       {
-        "question": "Které čtyři skupiny léčiv tvoří základní farmakoterapii (Foundational Medical Therapy - FMT) a jsou dnes dle ESC Guidelines 2026 doporučeny jako 1. linie u každého pacienta s HFrEF (LVEF ≤ 50 %)?",
+        "question": "Které čtyři skupiny léčiv tvoří základní farmakoterapii (Foundational Medical Therapy - FMT) a jsou dnes dle ESC Guidelines 2026 doporučeny jako 1. linie u každého pacienta s HFrEF (LVEF < 50 %)?",
         "options": [
           "Digoxin + Furosemid + Spironolakton + Warfarin",
           "ARNI/ACEi + beta-blokátor (např. bisoprolol) + MRA (např. spironolakton) + SGLT2 inhibitor (např. dapagliflozin)",
           "ACE-inhibitor + Kličkové diuretikum + Verapamil + Aspirin",
           "Ivabradine + Nitráty + Amilorid + Atorvastatin"
         ],
-        correct: 1,
-        explanations: [
+        "correct": 1,
+        "explanations": [
           "Nesprávně. Digoxin a furosemid jsou pouze symptomatické léky, nesnižují mortalitu.",
           "Správně! Tato 4 pilířová kombinace prokazatelně prodlužuje život, snižuje hospitalizace a zpomaluje remodelaci myokardu. Měla by být nasazena a vytitrována co nejdříve po diagnóze.",
           "Nesprávně. Verapamil (non-dihydropyridinový CCB) tlumí kontraktilitu a je u HFrEF přísně kontraindikován.",
@@ -4066,8 +4066,8 @@ const PHARM_SPEC_DETAILS = {
           "Hrozí rozvoj těžké hyperglykémie",
           "ARNI by se nevstřebal z tenkého střeva"
         ],
-        correct: 1,
-        explanations: [
+        "correct": 1,
+        "explanations": [
           "Nesprávně. Interakce neprobíhá precipitací v ledvinách, ale biochemicky na úrovni bradykininu.",
           "Správně! Otok sliznic (angioedém) je vyvolán bradykininem indukovanou vasodilatací a permeabilitou. Wash-out perioda 36h je nutná pro obnovení aktivity ACE před podáním inhibitoru neprilysinu. U přechodu z ARB (sartanů) na ARNI wash-out perioda nutná není (sartany neovlivňují ACE).",
           "Nesprávně. Glykémie není touto interakcí ovlivněna.",
@@ -4082,8 +4082,8 @@ const PHARM_SPEC_DETAILS = {
           "Zvyšují krevní tlak a tepovou frekvenci",
           "Působí jako silná antiarytmika třídy I"
         ],
-        correct: 1,
-        explanations: [
+        "correct": 1,
+        "explanations": [
           "Nesprávně. Glifloziny u srdečního selhání fungují skvěle i u nediabetiků.",
           "Správně! Glifloziny v ESC 2026 guidelines tvoří foundational terapii nezávislou na LVEF. Zlepšují metabolickou energetiku kardiomyocytů a snižují hospitalizace i KV mortalitu.",
           "Nesprávně. Glifloziny krevní tlak mírně snižují (diuretický efekt), tepovou frekvenci neovlivňují.",
@@ -4092,7 +4092,7 @@ const PHARM_SPEC_DETAILS = {
       }
     ],
     "modern_updates": [
-      "Dle ESC Guidelines 2026 byla kategorie HFmrEF zrušena a HFrEF byla rozšířena na LVEF ≤ 50 %, zatímco HFpEF zahrnuje LVEF ≥ 50 %. SGLT2 inhibitory a MRA tvoří Foundational Medical Therapy (FMT) pro všechna fenotypová spektra selhání.",
+      "Dle ESC Guidelines 2026 byla kategorie HFmrEF zrušena a HFrEF byla rozšířena na LVEF < 50 %, zatímco HFpEF zahrnuje LVEF ≥ 50 %. SGLT2 inhibitory a MRA tvoří Foundational Medical Therapy (FMT) pro všechna fenotypová spektra selhání.",
       "V léčbě HFpEF spojeného s obezitou a T2DM se nově uplatňují agonisty receptorů GLP-1 (např. semaglutid) pro prokazatelné zlepšení symptomů, zátěžové kapacity a redukci KV příhod.",
       "U kardiální amyloidózy (ATTR-CA) je indikována specifická léčba stabilizátorem transthyretinu (Tafamidis), který blokuje rozpad tetrameru TTR a zabraňuje ukládání amyloidních vláken v myokardu.",
       "Terminologicky byl termín 'akutní srdeční selhání' nahrazen pojmem dekompenzované srdeční selhání (DHF), přičemž prioritou péče je včasné zahájení SGLT2i ještě za hospitalizace po stabilizaci pacienta."
@@ -4561,7 +4561,7 @@ const PHARM_SPEC_DETAILS = {
     ],
     "modern_updates": [
       "Moderní strategie léčby HFrEF („fantastická čtyřka“) zahrnuje rychlé nasazení všech pilířů včetně MRA (spironolakton/eplerenon) během 4 týdnů, přičemž eplerenon je preferován u mužů pro absenci antiandrogenních účinků, které jsou u spironolaktonu častou příčinou gynekomastie.",
-      "SGLT-2 inhibitory (dapagliflozin, empagliflozin) již nejsou chápány pouze jako antidiabetika, ale jako pilíř léčby všech typů srdečního selhání (HFrEF, HFmrEF, HFpEF) díky mechanismu inhibice Na+/H+ výměníku v myokardu a metabolickému přepnutí na efektivnější využívání ketolátek.",
+      "SGLT-2 inhibitory (dapagliflozin, empagliflozin) již nejsou chápány pouze jako antidiabetika, ale jako pilíř léčby obou fenotypů srdečního selhání (jak HFrEF < 50 %, tak HFpEF ≥ 50 %; kategorie HFmrEF byla dle ESC Guidelines 2026 zrušena) díky mechanismu inhibice Na+/H+ výměníku v myokardu a metabolickému přepnutí na efektivnější využívání ketolátek.",
       "Při přechodu z ACE-inhibitorů na ARNI (sakubitril/valsartan) je nezbytná dodržení wash-out periody 36 hodin, aby se předešlo riziku život ohrožujícího angioedému v důsledku kumulativního účinku neprilysinu na odbourávání bradykininu.",
       "Mavacamten představuje průlom v terapii symptomatické obstrukční hypertrofické kardiomyopatie (HCM) jako selektivní inhibitor srdečního myosinu, který přímo snižuje hyperkontraktilitu myokardu a tím zmírňuje výtokovou obstrukci levé komory, čímž doplňuje či nahrazuje dosavadní symptomatickou léčbu beta-blokátory."
     ]
@@ -4766,10 +4766,12 @@ const PHARM_SPEC_DETAILS = {
       "Mají rychlý nástup účinku (2-4 hodiny) a stabilní terapeutické okno."
     ],
     "clinical": [
-      "Indikace: prevence cévní mozkové příhody u pacientů s nevalvulární fibrilací síní, léčba a sekundární prevence hluboké žilní trombózy (DVT) a plicní embolie (PE), profylaxe po ortopedických operacích.",
-      "Při krvácení nebo urgentní operaci máme k dispozici specifická antidota:",
+      "Indikace: prevence cévní mozkové příhody u pacientů s fibrilací síní v rámci integrovaného **CARE přístupu** dle ESC 2024 (indikováno dle skóre **$CHA_2DS_2\\text{-}VA$**, kde $\\ge 2$ body znamenají jasnou indikaci a 1 bod zvážení OAC; bod za ženské pohlaví byl v ESC 2024 zrušen).",
+      "Dále léčba a sekundární prevence hluboké žilní trombózy (DVT) a plicní embolie (PE), profylaxe po ortopedických operacích.",
+      "Při závažném krvácení nebo urgentní operaci máme k dispozici specifická antidota:",
       "  - **Idarucizumab** (Praxbind): humanizovaný fragment protilátky ($Fab$), který okamžitě a specificky vyvazuje dabigatran.",
-      "  - **Andexanet alfa** (Ondexxya): rekombinantní, katalyticky neaktivní analog lidského faktoru Xa, který funguje jako klamný cíl (decoy receptor) a vyvazuje xabany."
+      "  - **Andexanet alfa** (Ondexxya): rekombinantní, katalyticky neaktivní analog lidského faktoru Xa, který funguje jako klamný cíl (decoy receptor) a vyvazuje xabany.",
+      "  - **4-faktorový PCC** (koncentrát protrombinového komplexu): nespecifická záchranná léčba při nedostupnosti specifických antidot."
     ],
     "pearl": "Tobolky dabigatranu se nesmějí drtit, kousat ani vysypávat! Vysypáním pelet z tobolky se biologická dostupnost zvýší až o 75 %, což dramaticky zvýší expozici léčivu a vyvolá život ohrožující krvácení. Pacient musí polykat tobolky celé!",
     "tableData": [
@@ -4837,10 +4839,10 @@ const PHARM_SPEC_DETAILS = {
       }
     ],
     "modern_updates": [
+      "Dle ESC Guidelines 2024 pro fibrilaci síní je indikace DOACs hodnocena skórem CHA2DS2-VA (kategorie ženského pohlaví Sc byla ze skórovacího schématu vyřazena k zamezení podléčení), přičemž antikoagulace tvoří pilíř 'A' (Avoid stroke) v rámci komplexního CARE managementu.",
       "Absolutní kontraindikace DOACs u mechanických srdečních chlopní a středně závažné až závažné mitrální stenózy: v těchto případech zůstává warfarin jedinou validní volbou vzhledem k selhání klinických studií s DOACs a zvýšenému riziku tromboembolických komplikací u mechanických náhrad.",
       "Důraz na renální clearance DOACs: Dabigatran vyžaduje obezřetnost při eGFR < 30 ml/min pro riziko akumulace, zatímco xabany (rivaroxaban, apixaban, edoxaban) vykazují vyšší podíl hepatálního metabolismu, avšak i u nich je nutná úprava dávkování dle renálních funkcí, na rozdíl od warfarinu, který je při renálním selhání bezpečnější.",
-      "Klinický management antidot: Idarucizumab je specifický pouze pro dabigatran, zatímco Andexanet alfa je určen primárně pro reverzi účinku inhibitorů faktoru Xa (rivaroxaban, apixaban) a nesmí být zaměňován; v případě urgentních stavů bez dostupnosti specifických antidot u DOACs se jako alternativní řešení volí koncentráty koagulačních faktorů (PCC - Prothrombinex).",
-      "Riziko HIT (heparinem indukovaná trombocytopenie): Studenti musí rozlišovat mezi DOACs a parenterálními antikoagulancii; zatímco DOACs nevyvolávají HIT, u pacientů léčených heparinem (UFH/LMWH) je nutné při poklesu trombocytů o více než 50 % ihned zvážit HIT a v případě potvrzení přejít na alternativu jako fondaparinux či argatroban."
+      "Klinický management antidot: Idarucizumab je specifický pouze pro dabigatran, zatímco Andexanet alfa je určen primárně pro reverzi účinku inhibitorů faktoru Xa (rivaroxaban, apixaban) a nesmí být zaměňován; v případě urgentních stavů bez dostupnosti specifických antidot u DOACs se jako alternativní řešení volí koncentráty koagulačních faktorů (PCC - Prothrombinex/Beriplex)."
     ]
   },
   "pharm-spec-42": {
@@ -6975,13 +6977,14 @@ const PHARM_SPEC_DETAILS = {
       "Dělení podle mechanismu účinku:",
       "  - **Biguanidy (Metformin)**: aktivuje **AMP-aktivovanou proteinázu (AMPK)**. Tlumí glukoneogenezi v játrech, zvyšuje citlivost svalů k inzulinu a snižuje absorpci glukózy z GIT. Nezpůsobuje hypoglykémii a je hmotnostně neutrální.",
       "  - **SGLT2 inhibitory / Glifloziny** (Empagliflozin, Dapagliflozin): blokují sodíko-glukózový kotransportér 2 v proximálním tubulu ledvin. Způsobují masivní **glukosurii** (cca 70-100 g cukru za den vyloučeno močí). Zvyšují vylučování sodíku a vody (diuretický efekt).",
-      "  - **Agonisté receptoru GLP-1 / Inkretinová mimetika** (Semaglutid, Liraglutid - s.c. nebo p.o. semaglutid): stimulují sekreci inzulinu a tlumí glukagon (pouze v přítomnosti glukózy - bez rizika hypoglykémie), zpomalují vyprazdňování žaludku a tlumí centrum sytosti v CNS (výrazný pokles hmotnosti).",
+      "  - **Agonisté receptoru GLP-1 / Inkretinová mimetika** (Semaglutid, Liraglutid) a **Duální GIP/GLP-1 agonisté** (**Tirzepatid**): stimulují sekreci inzulinu a tlumí glukagon (pouze v přítomnosti glukózy - bez rizika hypoglykémie), zpomalují vyprazdňování žaludku a tlumí centrum sytosti v CNS (výrazný pokles hmotnosti).",
       "  - **Inhibitory DPP-4 / Gliptiny** (Sitagliptin, Vildagliptin): blokují enzym DPP-4 rozkládající endogenní GLP-1.",
-      "  - **Sulfonylurey** (Gliclazid, Glimepirid): blokují $K_{ATP}$ kanály v beta-buňkách, což vede k depolarizaci a masivní sekreci inzulinu nezávisle na glykémii. Riziko hypoglykémie!"
+      "  - **Sulfonylurey** (Gliclazid, Glimepirid): blokují $K_{ATP}$ kanály v beta-buňkách, což vede k depolarizaci a masivní sekreci inzulinu nezávisle na glykémii. Riziko hypoglykémie!",
+      "  - **Nesteroidní selektivní MRA (Finerenon)**: specifická renoprotektivní terapie u diabetického onemocnění ledvin (CKD + DM2T) snižující albuminurii a renální progresi."
     ],
     "clinical": [
       "Metformin: lék 1. volby u všech pacientů s DM2T. Kontraindikován při eGFR < 30 ml/min a akutních stavech (riziko laktátové acidózy).",
-      "U pacientů s kardiovaskulárním onemocněním, srdečním selháním nebo chronickým onemocněním ledvin (CKD) se přednostně nasazují **SGLT2i** (glifloziny) nebo **GLP-1 analoga** pro jejich silný kardioprotektivní a nefroprotektivní efekt.",
+      "U pacientů s kardiovaskulárním onemocněním, srdečním selháním nebo chronickým onemocněním ledvin (CKD) se přednostně nasazují **SGLT2i** (glifloziny) nebo **GLP-1 analoga / Tirzepatid** pro jejich silný kardioprotektivní a nefroprotektivní efekt nezávisle na bazálním HbA1c.",
       "Nežádoucí účinky: GIT dyskomfort a laktátová acidóza (metformin), **urogenitální mykotické infekce** a dehydratace (glifloziny), nauzea a zvracení (GLP-1 analoga)."
     ],
     "pearl": "Laktátová acidóza je sice vzácný (cca 3 případy na 100 000 pacientoroků), ale extrémně nebezpečný nežádoucí účinek metforminu s 50% úmrtností. Metformin tlumí mitochondriální dýchací řetězec v játrech, což posouvá metabolismus k anaerobní glykolýze a zvýšené tvorbě kyseliny mléčné (laktátu). K tomu dochází při renálním selhání, dehydrataci nebo podání jodové kontrastní látky, kdy ledviny přestanou metformin vylučovat!",
@@ -7051,8 +7054,8 @@ const PHARM_SPEC_DETAILS = {
     ],
     "modern_updates": [
       "SGLT2 inhibitory (empagliflozin, dapagliflozin) jsou nyní indikovanou léčbou pro srdeční selhání (HFrEF i HFpEF) i chronické onemocnění ledvin (CKD) nezávisle na přítomnosti diabetu, přičemž jejich nefroprotektivní efekt zahrnuje snížení intraglomerulárního tlaku a inhibici tubuloglomerulární zpětné vazby.",
-      "Agonisté GLP-1 receptoru, zejména semaglutid (s.c. Ozempic i p.o. Rybelsus), jsou v aktuálních doporučeních upřednostňováni u pacientů s vysokým kardiovaskulárním rizikem (aterosklerotické KV onemocnění) díky prokázanému snížení rizika MACE (Major Adverse Cardiovascular Events) a výraznému redukčnímu vlivu na hmotnost.",
-      "Dipeptidyl-peptidáza-4 inhibitory (gliptiny, např. sitagliptin) zůstávají díky vynikajícímu bezpečnostnímu profilu a minimu nežádoucích účinků volbou pro geriatrické pacienty a polymorbidní nemocné, kde je prioritou minimalizace rizika hypoglykémie, a to i přes absenci přímého kardioprotektivního benefitu.",
+      "Duální agonisté receptorů GIP/GLP-1 (Tirzepatid) a GLP-1 agonisté (Semaglutid) představují v moderních ADA/EASD doporučeních nejúčinnější farmakoterapii pro současnou kompenzaci glykémie, masivní redukci hmotnosti a signifikantní pokles rizika kardiovaskulárních příhod (MACE).",
+      "Finerenon, selektivní nesteroidní mineralokortikoidní receptorový antagonista (MRA), je dle doporučení ADA/KDIGO indikován u pacientů s DM2T a chronickým onemocněním ledvin s perzistující albuminurií prokazatelně snižující riziko terminálního selhání ledvin a KV mortality.",
       "U derivátů sulfonylurey dochází k postupnému ústupu od starších molekul (glibenklamid) ve prospěch gliclazidu s řízeným uvolňováním, který vykazuje nejnižší riziko závažných hypoglykémií a díky své farmakodynamice je považován za nejvhodnějšího zástupce skupiny pro případy, kdy je nutná intenzifikace inzulinosekrece."
     ]
   },
