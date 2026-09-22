@@ -121,35 +121,68 @@ const CARDIOLOGY_DATA_ES = {
       }
     ]
   },
-  {
+    {
     "id": "midef",
     "number": 2,
     "title": "5.ª Definición universal de infarto de miocardio (2026)",
-    "shortDesc": "Daño miocárdico (injury) vs. infarto de miocardio (infarction), tipos 1 a 5 de IM, diagnóstico de MINOCA e interpretación de la dinámica de troponinas.",
+    "shortDesc": "La 5.ª definición sustituye la clasificación numérica por 3 tipos clínicos de IM (Primario, Secundario, Relacionado con procedimientos). Daño miocárdico vs. infarto y MINOCA.",
     "icon": "🔬",
     "badge": "Nueva definición 2026",
     "badgeColor": "emerald",
     "theory": {
       "banner": {
-        "tag": "Concepto clínico fundamental",
-        "title": "Daño miocárdico (Myocardial Injury) vs. Infarto de miocardio (Myocardial Infarction)",
-        "text": "La elevación de troponina cardíaca (cTn) por encima del percentil 99 define **daño miocárdico (Myocardial Injury)**. Para catalogar el cuadro como **infarto de miocardio (Myocardial Infarction)**, es imprescindible constatar una dinámica significativa (aumento y/o descenso de cTn) JUNTO A la evidencia clínica de isquemia miocárdica aguda."
+        "tag": "Cambio paradigmático en la 5.ª Definición (Consenso 2026)",
+        "title": "3 Tipos clínicos de infarto de miocardio y Daño miocárdico (Injury) vs. Infarto (Infarction)",
+        "text": "La 5.ª Definición Universal de Infarto de Miocardio (UDMI 2026) sustituye la antigua clasificación de 5 tipos numéricos por **3 tipos clínicos de IM**: **1. Infarto de miocardio primario**, **2. Infarto de miocardio secundario** e **3. Infarto de miocardio relacionado con procedimientos**. La elevación de troponina (cTn) por encima del percentil 99 sexo-específico define **daño miocárdico (Myocardial Injury)**. Para diagnosticar **infarto de miocardio**, es imprescindible constatar una dinámica aguda (aumento y/o caída) JUNTO A al menos una evidencia clínica de isquemia aguda."
       },
       "sections": [
         {
-          "title": "1. Criterios diagnósticos del infarto de miocardio",
+          "title": "1. Criterios diagnósticos y umbrales sexo-específicos de troponina",
           "color": "emerald",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-slate-700 rounded-xl text-xs text-slate-300 leading-relaxed\">\n                                <p class=\"mb-2 font-bold text-emerald-400\">La definición de infarto requiere:</p>\n                                <p class=\"mb-2\">Detección de elevación y/o caída de troponina cardíaca con al menos un valor &gt; percentil 99 del límite superior de referencia (URL) y <strong>al menos uno de los siguientes criterios isquémicos:</strong></p>\n                                <ul class=\"list-disc ml-5 space-y-1 text-slate-300\">\n                                    <li>Síntomas de isquemia miocárdica aguda (angina típica o equivalentes).</li>\n                                    <li>Nuevos cambios isquémicos en el ECG (nuevas elevaciones/depresiones del ST o inversión de ondas T).</li>\n                                    <li>Aparición de nuevas ondas Q patológicas en el ECG.</li>\n                                    <li>Evidencia por imagen de nueva pérdida de miocardio viable o nueva anomalía regional de la contractilidad con patrón isquémico.</li>\n                                    <li>Identificación de un trombo intracoronario por angiografía o autopsia.</li>\n                                </ul>\n                            </div>\n                        "
+          "content": "
+                            <div class="p-3.5 bg-slate-900 border border-slate-700 rounded-xl text-xs text-slate-300 leading-relaxed">
+                                <p class="mb-2 font-bold text-emerald-400">La definición de infarto de miocardio requiere:</p>
+                                <p class="mb-2">Detección de elevación y/o caída de troponina cardíaca (hs-cTnI / hs-cTnT) con al menos un valor por encima del <strong>percentil 99 sexo-específico</strong> del límite superior de referencia (URL) y <strong>al menos uno de los siguientes criterios de isquemia aguda:</strong></p>
+                                <ul class="list-disc ml-5 space-y-1 text-slate-300">
+                                    <li>Síntomas de isquemia miocárdica aguda (angina típica o equivalentes disneicos).</li>
+                                    <li>Nuevos cambios isquémicos en el ECG (nuevas elevaciones/depresiones del ST, inversión de ondas T, nuevo BRI).</li>
+                                    <li>Aparición de nuevas ondas Q patológicas.</li>
+                                    <li>Evidencia por imagen (ETT/RMC) de nueva pérdida de miocardio viable o nueva anomalía regional de la contractilidad (RWMA) en patrón isquémico.</li>
+                                    <li>Identificación de trombo intracoronario por angiografía o autopsia.</li>
+                                </ul>
+                            </div>
+                        "
         },
         {
-          "title": "2. Los 5 Tipos clínicos de infarto de miocardio",
+          "title": "2. 5.ª Definición Universal (2026): 3 Tipos clínicos de IM",
           "color": "amber",
-          "content": "\n                            <div class=\"space-y-2.5 text-xs\">\n                                <div class=\"p-3 bg-slate-900 border-l-4 border-rose-500 rounded-r-xl\">\n                                    <span class=\"font-bold text-rose-400 text-sm\">Tipo 1 IM (Aterotrombótico coronario)</span>\n                                    <p class=\"text-slate-300 mt-1 leading-relaxed\">Causado por rotura, erosión, fisura o disección de placa aterosclerótica con trombo intraluminal en una o más arterias coronarias.</p>\n                                </div>\n                                <div class=\"p-3 bg-slate-900 border-l-4 border-amber-500 rounded-r-xl\">\n                                    <span class=\"font-bold text-amber-400 text-sm\">Tipo 2 IM (Desbalance entre aporte y demanda de O2)</span>\n                                    <p class=\"text-slate-300 mt-1 leading-relaxed\">Isquemia producida por desajuste entre aporte de oxígeno (espasmo coronario, disfunción microvascular, disección espontánea SCAD, anemia grave, hipotensión) y demanda miocárdica (taquicardia, sepsis, crisis hipertensiva). El tratamiento consiste en corregir la causa desencadenante.</p>\n                                </div>\n                                <div class=\"p-3 bg-slate-900 border-l-4 border-purple-500 rounded-r-xl\">\n                                    <span class=\"font-bold text-purple-400 text-sm\">Tipo 3 IM (Muerte súbita cardíaca)</span>\n                                    <p class=\"text-slate-300 mt-1 leading-relaxed\">Muerte de causa cardíaca precedida de síntomas isquémicos o cambios en el ECG antes de poder obtener muestras de troponina.</p>\n                                </div>\n                                <div class=\"p-3 bg-slate-900 border-l-4 border-cyan-500 rounded-r-xl\">\n                                    <span class=\"font-bold text-cyan-400 text-sm\">Tipo 4 IM (Relacionado con ICP)</span>\n                                    <p class=\"text-slate-300 mt-1 leading-relaxed\"><strong>4a:</strong> Periprocedimiento de ICP (elevación de cTn &gt; 5× percentil 99 con basal normal + evidencia isquémica). <strong>4b:</strong> Trombosis de stent demostrada angiográficamente. <strong>4c:</strong> Reestenosis intra-stent.</p>\n                                </div>\n                                <div class=\"p-3 bg-slate-900 border-l-4 border-blue-500 rounded-r-xl\">\n                                    <span class=\"font-bold text-blue-400 text-sm\">Tipo 5 IM (Relacionado con Cirugía de Bypass - CABG)</span>\n                                    <p class=\"text-slate-300 mt-1 leading-relaxed\">Peripostoperatorio de CABG (elevación de cTn &gt; 10× percentil 99 en las primeras 48h con nueva onda Q patológica o nueva oclusión de injerto).</p>\n                                </div>\n                            </div>\n                        "
+          "content": "
+                            <div class="space-y-2.5 text-xs">
+                                <div class="p-3 bg-slate-900 border-l-4 border-rose-500 rounded-r-xl">
+                                    <span class="font-bold text-rose-400 text-sm">1. Infarto de miocardio primario (Primary MI)</span>
+                                    <p class="text-slate-300 mt-1 leading-relaxed">Ocurre espontáneamente debido a una <strong>patología coronaria aguda primaria</strong>: aterotrombosis con rotura o erosión de placa, disección coronaria espontánea (SCAD), embolia coronaria o vasoespasmo grave. Tratamiento: DAPT + revascularización emergente (ICP primaria / fibrinolisis).</p>
+                                </div>
+                                <div class="p-3 bg-slate-900 border-l-4 border-amber-500 rounded-r-xl">
+                                    <span class="font-bold text-amber-400 text-sm">2. Infarto de miocardio secundario (Secondary MI)</span>
+                                    <p class="text-slate-300 mt-1 leading-relaxed">Se produce por un <strong>desajuste entre aporte y demanda de oxígeno miocárdico (supply-demand mismatch)</strong> causado por otra condición médica aguda (sepsis, taquiarritmia, anemia grave, hipotensión/shock, crisis hipertensiva) sin lesión aguda primaria de placa.<br><strong>3 fases diagnósticas:</strong><br>• <em>Sospecha (Considered):</em> Daño troponínico agudo + factor desencadenante + dato isquémico.<br>• <em>Probable (Likely):</em> Cumple sospecha + cardiopatía isquémica previa conocida.<br>• <em>Confirmado (Confirmed):</em> Estenosis coronaria &ge; 70 % en angiografía o nueva RWMA en ETT/RMC.<br><em>Tratamiento: Corrección etiológica del cuadro causante, ¡no ICP ni DAPT de rutina!</em></p>
+                                </div>
+                                <div class="p-3 bg-slate-900 border-l-4 border-cyan-500 rounded-r-xl">
+                                    <span class="font-bold text-cyan-400 text-sm">3. Infarto de miocardio relacionado con procedimientos (Procedure-related MI)</span>
+                                    <p class="text-slate-300 mt-1 leading-relaxed">Complicación de cualquier procedimiento cardíaco percutáneo (ICP) o quirúrgico (CABG/cirugía valvular) en los primeros 30 días. Requiere daño troponínico agudo + datos de isquemia + <strong>evidencia de complicación coronaria del procedimiento</strong> (disección, perforación, trombosis de stent, flujo lento) y/o <strong>nueva pérdida de contractilidad regional (RWMA) o de miocardio viable</strong>.</p>
+                                </div>
+                            </div>
+                        "
         },
         {
-          "title": "3. MINOCA: Algoritmo diagnóstico y manejo",
+          "title": "3. Daño miocárdico agudo/crónico y MINOCA",
           "color": "cyan",
-          "content": "\n                            <div class=\"p-3.5 bg-cyan-950/30 border border-cyan-500/30 rounded-xl text-xs text-slate-300 leading-relaxed space-y-2\">\n                                <p><strong>MINOCA (Infarto sin enfermedad coronaria obstructiva):</strong> Diagnóstico de trabajo en pacientes con criterios de infarto cuya coronariografía muestra <strong>arterias normales o estenosis &lt; 50 %</strong>.</p>\n                                <p><strong>Pruebas diagnósticas obligadas (Clase I):</strong></p>\n                                <ol class=\"list-decimal ml-5 space-y-1\">\n                                    <li><strong>Ecocardiografía (ETT):</strong> Patrón de contractilidad (balonamiento apical en Takotsubo).</li>\n                                    <li><strong>Resonancia Magnética Cardíaca (RMC):</strong> Prueba de oro con realce tardío de gadolinio (LGE). Subendocárdico = infarto real (embolia, espasmo); Subepicárdico/mesocárdico = <em>miocarditis aguda</em> (¡hasta el 30–40 % de los casos!); Ausencia de LGE con edema = <em>miocardiopatía de Takotsubo</em>.</li>\n                                    <li><strong>Imagen intracoronaria (OCT / IVUS):</strong> Descarte de disección coronaria espontánea (SCAD) o rotura de placa no oclusiva.</li>\n                                </ol>\n                            </div>\n                        "
+          "content": "
+                            <div class="p-3.5 bg-cyan-950/30 border border-cyan-500/30 rounded-xl text-xs text-slate-300 leading-relaxed space-y-2">
+                                <p><strong>Daño miocárdico agudo (Acute Myocardial Injury):</strong> Aumento y/o caída de troponina por encima del percentil 99 sin datos de isquemia clínica (p. ej. miocarditis, TEP, sepsis sin isquemia).</p>
+                                <p><strong>Daño miocárdico crónico (Chronic Myocardial Injury):</b> Elevación estable y constante de troponina sin dinámica aguda (insuficiencia renal crónica avanzada, amiloidosis, IC crónica).</p>
+                                <p><strong>MINOCA (Infarto sin enfermedad coronaria obstructiva):</strong> Diagnóstico de trabajo en pacientes con criterios de infarto y <strong>arterias coronarias normales o con estenosis &lt; 50 %</strong>. Requiere ecocardiograma urgente y <strong>Resonancia Magnética Cardíaca (RMC)</strong> con realce tardío de gadolinio (LGE) para diferenciar infarto verdadero (LGE subendocárdico), miocarditis aguda (hasta 40 % de casos) y miocardiopatía de Takotsubo.</p>
+                            </div>
+                        "
         }
       ]
     },
@@ -157,15 +190,15 @@ const CARDIOLOGY_DATA_ES = {
       "scenarios": [
         {
           "id": "midef-r1",
-          "title": "Caso Clínico 1: Sepsis vs. Infarto Tipo 2",
-          "question": "Mujer de 80 años ingresa por sepsis urinaria grave con fiebre, hipotensión (PA 80/50 mmHg) y taquicardia sinusal a 145 lpm. El ECG muestra descenso del ST de 1,5 mm en V4-V6. La hs-cTnI sube de 60 a 220 ng/l. La coronariografía revela arterias difusamente calcificadas sin trombo agudo ni oclusión. ¿De qué tipo de infarto se trata y cuál es el tratamiento?",
-          "answer": "Se trata de un Infarto de Miocardio Tipo 2 (desajuste entre oferta y demanda miocárdica de oxígeno sin aterotrombosis aguda), secundario a taquicardia extrema (acorta la diástole coronaria) e hipotensión por sepsis. El tratamiento NO es la angioplastia coronaria, sino la corrección agresiva de la causa subyacente: antibioterapia, sueroterapia para restaurar la volemia y control de la frecuencia cardíaca.",
-          "pearl": "En el infarto tipo 2 no se prescribe DAPT de forma rutinaria si no hay patología coronaria aterotrombótica de base."
+          "title": "Caso Clínico 1: Sepsis vs. Infarto Secundario",
+          "question": "Mujer de 80 años ingresa por sepsis urinaria grave con fiebre, hipotensión (PA 80/50 mmHg) y taquicardia sinusal a 145 lpm. El ECG muestra descenso del ST de 1,5 mm en V4-V6. La hs-cTnI sube de 60 a 220 ng/l. La coronariografía muestra estenosis fija del 75 % en DA sin trombo agudo. ¿De qué tipo de infarto se trata según la 5.ª definición (2026) y cuál es el tratamiento?",
+          "answer": "Se trata de un Infarto de Miocardio Secundario (Secondary MI de la 5.ª definición 2026) por desajuste aporte/demanda en el contexto de sepsis, taquicardia e hipotensión. El tratamiento NO es la angioplastia coronaria aguda, sino la corrección agresiva de la causa subyacente: antibioterapia, sueroterapia para restaurar la presión de perfusión y control de la frecuencia cardíaca.",
+          "pearl": "En el infarto secundario no se prescribe DAPT ni anticoagulación de forma rutinaria si no hay indicación aterotrombótica aguda."
         },
         {
           "id": "midef-r2",
           "title": "Caso Clínico 2: Estrés emocional y MINOCA",
-          "question": "Mujer de 52 años tras un estrés emocional severo ingresa por dolor torácico, elevación del ST de 2 mm en V2-V5 y troponina de 1200 ng/l. La coronariografía muestra arterias coronarias completamente lisas sin lesiones. El ecocardiograma muestra acinesia apical con hipercontractilidad basal. ¿Qué prueba de imagen confirma definitivamente el diagnóstico?",
+          "question": "Mujer de 52 años tras un estrés emocional severo ingresa por dolor torácico, elevación del ST de 2 mm en V2-V5 y troponina de 1200 ng/l. La coronariografía muestra arterias coronarias completamente lisas sin lesiones (< 50 %). El ecocardiograma muestra acinesia apical con hipercontractilidad basal. ¿Qué prueba de imagen confirma definitivamente el diagnóstico?",
           "answer": "La Resonancia Magnética Cardíaca (RMC). Permite demostrar la presencia de edema transmural miocárdico apical en secuencias T2 con ausencia característica de realce tardío de gadolinio (LGE), confirmando el síndrome de Takotsubo y descartando miocarditis o infarto embólico.",
           "pearl": "El síndrome de Takotsubo se trata como una insuficiencia cardíaca transitoria y la función ventricular suele recuperarse por completo en 4–8 semanas."
         }
@@ -196,63 +229,128 @@ const CARDIOLOGY_DATA_ES = {
     },
     "breakdown": {
       "classThree": [
-        "Considerar toda elevación de troponina como un infarto Tipo 1 e indicar sistemáticamente coronariografías emergentes innecesarias.",
+        "Considerar toda elevación de troponina como un infarto primario e indicar sistemáticamente coronariografías emergentes innecesarias con DAPT.",
         "Administrar doble antiagregación y anticoagulación plena a pacientes con daño miocárdico aislado sin sustrato isquémico.",
         "Omitir la resonancia magnética cardíaca (RMC) en pacientes con diagnóstico de trabajo de MINOCA."
       ],
       "mustKnow": [
-        "Daño miocárdico = cTn &gt; percentil 99 URL.",
-        "Infarto de miocardio = cTn &gt; percentil 99 con dinámica (subida/bajada) + evidencia clínica de isquemia.",
-        "Tipo 1: Rotura/erosión de placa aterosclerótica con trombosis.",
-        "Tipo 2: Desbalance entre aporte y demanda de oxígeno (anemia, sepsis, taquicardia, hipotensión, espasmo).",
-        "Tipo 4a: Post-ICP (cTn &gt; 5× URL). Tipo 5: Post-CABG (cTn &gt; 10× URL).",
-        "MINOCA: Infarto con arterias normales (&lt; 50 % estenosis) -> requiere ETT + RMC."
+        "La 5.ª definición 2026 clasifica el IM en 3 tipos clínicos: 1. Primario (aterotrombosis/SCAD/espasmo), 2. Secundario (desbalance oferta/demanda), 3. Relacionado con procedimientos (ICP/CABG).",
+        "Daño miocárdico = cTn > percentil 99 URL sexo-específico sin datos de isquemia.",
+        "Infarto de miocardio = cTn > percentil 99 con dinámica (subida/bajada) + evidencia clínica de isquemia.",
+        "El IM secundario requiere tratamiento causal de la patología desencadenante, no ICP urgente de rutina.",
+        "MINOCA: Infarto con arterias normales (< 50 % estenosis) -> requiere ETT + RMC."
       ]
     },
     "guidelineLinks": [
       {
-        "title": "Fourth Universal Definition of Myocardial Infarction / 2026 Consensus Update",
+        "title": "Fifth Universal Definition of Myocardial Infarction (2026)",
         "year": 2026,
         "journal": "European Heart Journal",
-        "doi": "10.1093/eurheartj/ehy462",
-        "url": "https://academic.oup.com/eurheartj/article/40/3/237/5079549"
+        "doi": "10.1093/eurheartj/ehag200",
+        "url": "https://academic.oup.com/eurheartj/article/47/3/237/8766400"
       }
     ]
   },
-  {
+    {
     "id": "hf",
     "number": 3,
     "title": "Insuficiencia Cardíaca (Guías ESC 2026)",
-    "shortDesc": "Nueva clasificación de estadios A–D, los 4 pilares del tratamiento fundacional (FMT/GDMT) en IC-FEr, iSGLT2 en IC-FEc, hierro intravenoso, Vericiguat e indicaciones de DAI/TRC.",
+    "shortDesc": "Nueva clasificación de 2 fenotipos (IC-FEr <50% vs. IC-FEc ≥50%), eliminación de IC-FElm, los 4 pilares FMT para IC-FEr, iSGLT2 y ARM en todo el espectro, hierro i.v. y TRC/DAI.",
     "icon": "🫁",
     "badge": "Guías ESC 2026",
     "badgeColor": "cyan",
     "theory": {
       "banner": {
-        "tag": "Revolución terapéutica en Insuficiencia Cardíaca",
-        "title": "Los 4 Pilares del tratamiento en IC-FEr y extensión de los iSGLT2 a todo el espectro",
-        "text": "Las guías de la ESC establecen el inicio precoz de la terapia fundacional con **4 pilares farmacológicos (FMT: ARNI/IECA, Betabloqueante, ARM e iSGLT2)** en todos los pacientes con IC con fracción de eyección reducida (IC-FEr &le; 40 %). Los inhibidores de SGLT2 (Dapagliflozina, Empagliflozina) cuentan con recomendación de **Clase I** en todo el espectro de FEVI, incluyendo IC-FElm e IC-FEc."
+        "tag": "Cambio fundamental en las Guías ESC 2026",
+        "title": "Eliminación del fenotipo IC-FElm y Nueva Clasificación Binaria (IC-FEr < 50 % vs. IC-FEc ≥ 50 %)",
+        "text": "El Task Force de las Guías ESC 2026 para el manejo de la insuficiencia cardíaca **ha eliminado el fenotipo de IC con FEVI levemente reducida (IC-FElm)** y ha redefinido la clasificación en **2 fenotipos fisiopatológicos**: **1. IC-FEr (FEVI < 50 %)** – caracterizada por disfunción sistólica y contractilidad disminuida, tratada con los 4 pilares fundamentales (ARNI/IECA, BB, ARM e iSGLT2); **2. IC-FEc (FEVI ≥ 50 %)** – caracterizada por rigidez ventricular y disfunción diastólica, donde la base del tratamiento son los inhibidores de SGLT2, ARM, ARNI y diuréticos descongestivos."
       },
       "sections": [
         {
-          "title": "1. Clasificación por Fracción de Eyección y Estadios A–D",
+          "title": "1. Nueva clasificación de 2 fenotipos (ESC 2026) y Estadios A–D",
           "color": "cyan",
-          "content": "\n                            <div class=\"grid md:grid-cols-3 gap-3 my-3 text-xs\">\n                                <div class=\"p-3 bg-slate-900 border border-rose-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-rose-400 text-sm\">IC-FEr (FEVI Reducida)</span>\n                                    <p class=\"text-slate-300 mt-1\">FEVI <strong>&le; 40 %</strong>. Disfunción sistólica grave. Máxima evidencia de supervivencia con los 4 pilares FMT, DAI y TRC.</p>\n                                </div>\n                                <div class=\"p-3 bg-slate-900 border border-amber-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-amber-400 text-sm\">IC-FElm (Levemente reducida)</span>\n                                    <p class=\"text-slate-300 mt-1\">FEVI <strong>41–49 %</strong>. Péptidos natriuréticos elevados (BNP &ge; 35 o NT-proBNP &ge; 125 pg/ml) + cardiopatía estructural. Clase I para iSGLT2.</p>\n                                </div>\n                                <div class=\"p-3 bg-slate-900 border border-emerald-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-emerald-400 text-sm\">IC-FEc (FEVI Conservada)</span>\n                                    <p class=\"text-slate-300 mt-1\">FEVI <strong>&ge; 50 %</strong>. Datos de disfunción diastólica y presiones de llenado elevadas. Clase I para iSGLT2 (Dapa/Empa).</p>\n                                </div>\n                            </div>\n                            <div class=\"p-3.5 bg-slate-900 border border-slate-700 rounded-xl text-xs text-slate-300\">\n                                <span class=\"font-bold text-cyan-400\">Estadios de Insuficiencia Cardíaca (A -> D):</span>\n                                <ul class=\"list-disc ml-5 mt-1.5 space-y-1\">\n                                    <li><strong>Estadio A (En riesgo):</strong> Factores de riesgo presentes (HTA, DM, obesidad), sin síntomas ni cardiopatía estructural.</li>\n                                    <li><strong>Estadio B (Pre-insuficiencia cardíaca):</strong> Asintomático pero CON cardiopatía estructural o péptidos elevados.</li>\n                                    <li><strong>Estadio C (IC sintomática):</strong> Síntomas actuales o previos de IC con alteración estructural o funcional.</li>\n                                    <li><strong>Estadio D (IC avanzada):</strong> Síntomas refractarios en reposo (NYHA IV) pese a tratamiento óptimo -> indicación de asistencia ventricular (LVAD) o trasplante cardíaco.</li>\n                                </ul>\n                            </div>\n                        "
+          "content": "
+                            <div class="grid md:grid-cols-2 gap-3 my-3 text-xs">
+                                <div class="p-3.5 bg-slate-900 border border-rose-500/40 rounded-xl">
+                                    <span class="font-bold text-rose-400 text-sm">🔴 IC-FEr (Fracción de Eyección Reducida)</span>
+                                    <p class="text-slate-300 mt-1 leading-relaxed">FEVI <strong>&lt; 50 %</strong> (unifica las antiguas categorías &le; 40 % y 41–49 %) con síntomas y/o signos de IC. Presenta disfunción sistólica y pérdida de contractilidad. Máxima evidencia de supervivencia demostrada para los <strong>4 pilares del FMT</strong>, DAI y TRC.</p>
+                                </div>
+                                <div class="p-3.5 bg-slate-900 border border-emerald-500/40 rounded-xl">
+                                    <span class="font-bold text-emerald-400 text-sm">🟢 IC-FEc (Fracción de Eyección Conservada)</span>
+                                    <p class="text-slate-300 mt-1 leading-relaxed">FEVI <strong>&ge; 50 %</strong> con síntomas/signos de IC y evidencia objetiva de alteraciones estructurales/funcionales (disfunción diastólica, presiones de llenado elevadas E/e' &ge; 13, hipertrofia VI, dilatación AI, péptidos natriuréticos elevados). Tratamiento fundamental con iSGLT2 y ARM.</p>
+                                </div>
+                            </div>
+                            <div class="p-3.5 bg-slate-900 border border-slate-700 rounded-xl text-xs text-slate-300">
+                                <span class="font-bold text-cyan-400">Estadios de Insuficiencia Cardíaca (A -> D):</span>
+                                <ul class="list-disc ml-5 mt-1.5 space-y-1">
+                                    <li><strong>Estadio A (En riesgo):</strong> Factores de riesgo presentes (HTA, DM, obesidad), sin síntomas ni cardiopatía estructural.</li>
+                                    <li><strong>Estadio B (Pre-insuficiencia cardíaca):</strong> Asintomático pero CON cardiopatía estructural o péptidos natriuréticos elevados.</li>
+                                    <li><strong>Estadio C (IC sintomática):</strong> Síntomas actuales o previos de IC con alteración estructural o funcional.</li>
+                                    <li><strong>Estadio D (IC avanzada):</strong> Síntomas refractarios en reposo (NYHA IV) pese a tratamiento óptimo -> indicación de asistencia mecánica (LVAD) o trasplante cardíaco.</li>
+                                </ul>
+                            </div>
+                        "
         },
         {
-          "title": "2. Los 4 Pilares del Tratamiento Médico Fundacional (FMT) en IC-FEr",
+          "title": "2. Los 4 Pilares del Tratamiento Médico Fundacional (FMT) en IC-FEr (FEVI < 50 %)",
           "color": "emerald",
-          "content": "\n                            <p class=\"mb-3 text-xs text-slate-300 leading-relaxed\">En todo paciente con IC-FEr debe iniciarse cuanto antes la combinación de <strong>4 fármacos de primera línea (Clase I, Nivel A)</strong>, reduciendo la mortalidad en más de un 60 %:</p>\n                            <div class=\"grid sm:grid-cols-2 gap-3 text-xs\">\n                                <div class=\"p-3 bg-emerald-950/30 border border-emerald-500/30 rounded-xl\">\n                                    <div class=\"font-bold text-emerald-400\">1. ARNI (Sacubitrilo/Valsartán) / IECA</div>\n                                    <p class=\"text-slate-300 mt-1\">Sacubitrilo/valsartán de elección (ensayo PARADIGM-HF). Si se cambia desde IECA, <strong>¡periodo de lavado obligatorio de 36 horas!</strong></p>\n                                </div>\n                                <div class=\"p-3 bg-emerald-950/30 border border-emerald-500/30 rounded-xl\">\n                                    <div class=\"font-bold text-emerald-400\">2. Betabloqueantes basados en la evidencia</div>\n                                    <p class=\"text-slate-300 mt-1\">Exclusivamente 4 moléculas con evidencia de supervivencia: <strong>Bisoprolol, Metoprolol succinato, Carvedilol, Nebivolol</strong>.</p>\n                                </div>\n                                <div class=\"p-3 bg-emerald-950/30 border border-emerald-500/30 rounded-xl\">\n                                    <div class=\"font-bold text-emerald-400\">3. ARM (Antagonistas del receptor mineralocorticoide)</div>\n                                    <p class=\"text-slate-300 mt-1\"><strong>Espironolactona</strong> (25–50 mg) o <strong>Eplerenona</strong>. Reducen la fibrosis miocárdica. Control de potasio y creatinina.</p>\n                                </div>\n                                <div class=\"p-3 bg-emerald-950/30 border border-emerald-500/30 rounded-xl\">\n                                    <div class=\"font-bold text-emerald-400\">4. Inhibidores de SGLT2 (Gliflozinas)</div>\n                                    <p class=\"text-slate-300 mt-1\"><strong>Dapagliflozina</strong> 10 mg/d o <strong>Empagliflozina</strong> 10 mg/d. Sin titulación, eficaces con o sin diabetes en IC-FEr, IC-FElm e IC-FEc.</p>\n                                </div>\n                            </div>\n                        "
+          "content": "
+                            <p class="mb-3 text-xs text-slate-300 leading-relaxed">En todo paciente con IC-FEr (FEVI &lt; 50 %) debe iniciarse cuanto antes la combinación de <strong>4 fármacos de primera línea (Clase I, Nivel A)</strong>, reduciendo la mortalidad en más de un 60 %:</p>
+                            <div class="grid sm:grid-cols-2 gap-3 text-xs">
+                                <div class="p-3 bg-emerald-950/30 border border-emerald-500/30 rounded-xl">
+                                    <div class="font-bold text-emerald-400">1. ARNI (Sacubitrilo/Valsartán) / IECA</div>
+                                    <p class="text-slate-300 mt-1">Sacubitrilo/valsartán de elección (ensayo PARADIGM-HF). Si se cambia desde IECA, <strong>¡periodo de lavado obligatorio de 36 horas!</strong></p>
+                                </div>
+                                <div class="p-3 bg-emerald-950/30 border border-emerald-500/30 rounded-xl">
+                                    <div class="font-bold text-emerald-400">2. Betabloqueantes basados en la evidencia</div>
+                                    <p class="text-slate-300 mt-1">Exclusivamente 4 moléculas con evidencia de supervivencia: <strong>Bisoprolol, Metoprolol succinato, Carvedilol, Nebivolol</strong>.</p>
+                                </div>
+                                <div class="p-3 bg-emerald-950/30 border border-emerald-500/30 rounded-xl">
+                                    <div class="font-bold text-emerald-400">3. ARM (Antagonistas del receptor mineralocorticoide)</div>
+                                    <p class="text-slate-300 mt-1"><strong>Espironolactona</strong> (25–50 mg) o <strong>Eplerenona</strong>. Reducen la fibrosis miocárdica. Control de potasio y creatinina.</p>
+                                </div>
+                                <div class="p-3 bg-emerald-950/30 border border-emerald-500/30 rounded-xl">
+                                    <div class="font-bold text-emerald-400">4. Inhibidores de SGLT2 (Gliflozinas)</div>
+                                    <p class="text-slate-300 mt-1"><strong>Dapagliflozina</strong> 10 mg/d o <strong>Empagliflozina</strong> 10 mg/d. Sin titulación, eficaces con o sin diabetes en IC-FEr e IC-FEc.</p>
+                                </div>
+                            </div>
+                        "
         },
         {
-          "title": "3. Tratamientos complementarios y Hierro intravenoso",
+          "title": "3. Tratamiento de IC-FEc (FEVI ≥ 50 %) y Fármacos complementarios",
           "color": "amber",
-          "content": "\n                            <div class=\"space-y-2.5 text-xs\">\n                                <div class=\"p-3 bg-slate-900 border border-amber-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-amber-400\">💉 Suplementación con Hierro Intravenoso (Clase I/IIa)</span>\n                                    <p class=\"text-slate-300 mt-1\">\n                                        El déficit marcial (ferritina &lt; 100 &mu;g/l O ferritina 100–299 &mu;g/l con índice de saturación de transferrina TSAT &lt; 20 %) afecta a &gt; 50 % de los pacientes con IC. La administración de <strong>carboximaltosa férrica (FCM)</strong> o <strong>derisomaltosa férrica i.v.</strong> reduce rehospitalizaciones y mejora capacidad funcional. <em>¡El hierro oral es ineficaz!</em>\n                                    </p>\n                                </div>\n                                <div class=\"p-3 bg-slate-900 border border-slate-700 rounded-xl\">\n                                    <span class=\"font-bold text-cyan-400\">💊 Vericiguat y Finerenona</span>\n                                    <p class=\"text-slate-300 mt-1\">\n                                        <strong>Vericiguat:</strong> Estimulador de la guanilato ciclasa soluble indicado tras descompensación reciente de IC-FEr pese a FMT.<br>\n                                        <strong>Finerenona:</strong> ARM no esteroideo con beneficio cardiorrenal demostrado en DM con ERC y en IC-FElm/IC-FEc (ensayo FINEARTS-HF).\n                                    </p>\n                                </div>\n                            </div>\n                        "
+          "content": "
+                            <div class="space-y-2.5 text-xs">
+                                <div class="p-3 bg-slate-900 border border-emerald-500/30 rounded-xl">
+                                    <span class="font-bold text-emerald-400">✨ Terapia en IC-FEc (FEVI &ge; 50 %)</span>
+                                    <p class="text-slate-300 mt-1"><strong>Inhibidores de SGLT2 (Dapagliflozina/Empagliflozina):</strong> Clase I para todos los pacientes con IC-FEc.<br><strong>ARM (Espironolactona/Eplerenona/Finerenona):</strong> Clase I/IIa para reducir hospitalizaciones.<br><strong>ARNI (Sacubitrilo/Valsartán):</strong> Clase IIa/IIb en pacientes con FEVI en rango bajo y mujeres.<br><strong>Diuréticos de asa (Furosemida/Torasemida):</strong> Para descongestión y euvolemia.</p>
+                                </div>
+                                <div class="p-3 bg-slate-900 border border-amber-500/30 rounded-xl">
+                                    <span class="font-bold text-amber-400">💉 Suplementación con Hierro Intravenoso (Clase I/IIa)</span>
+                                    <p class="text-slate-300 mt-1">El déficit marcial (ferritina &lt; 100 &mu;g/l O ferritina 100–299 &mu;g/l con TSAT &lt; 20 %) afecta a &gt; 50 % de los pacientes con IC. La administración de <strong>carboximaltosa férrica (FCM)</strong> o <strong>derisomaltosa férrica i.v.</strong> reduce rehospitalizaciones y mejora capacidad funcional. <em>¡El hierro oral es ineficaz!</em></p>
+                                </div>
+                                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                                    <span class="font-bold text-cyan-400">💊 Vericiguat y Quelantes de Potasio</span>
+                                    <p class="text-slate-300 mt-1"><strong>Vericiguat:</strong> Estimulador de sGC tras descompensación de IC-FEr pese a FMT.<br><strong>Patiromer / Ciclosilicato de zirconio sódico (ZS-9):</strong> Quelantes de potasio que permiten mantener dosis plenas de IECA/ARNI y ARM ante hiperpotasemia.</p>
+                                </div>
+                            </div>
+                        "
         },
         {
           "title": "4. Terapia con dispositivos: DAI y Terapia de Resincronización (TRC)",
           "color": "purple",
-          "content": "\n                            <div class=\"grid md:grid-cols-2 gap-3 text-xs\">\n                                <div class=\"p-3 bg-slate-900 border border-purple-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-purple-400\">⚡ DAI (Desfibrilador Automático Implantable)</span>\n                                    <p class=\"text-slate-300 mt-1\"><strong>Prevención primaria:</strong> Pacientes sintomáticos (NYHA II–III) con <strong>FEVI &le; 35 %</strong> pese a &ge; 3 meses de tratamiento médico óptimo, con expectativa de vida &gt; 1 año (etiología isquémica Clase I, no isquémica Clase IIa).</p>\n                                </div>\n                                <div class=\"p-3 bg-slate-900 border border-purple-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-purple-400\">🔋 TRC (Terapia de Resincronización Cardíaca)</span>\n                                    <p class=\"text-slate-300 mt-1\">Indicada en pacientes en ritmo sinusal con FEVI &le; 35 %, síntomas NYHA II–IV y <strong>bloqueo de rama izquierda (BRI)</strong> con <strong>QRS &ge; 130–150 ms</strong> (Clase I). Resincroniza la contracción biventricular.</p>\n                                </div>\n                            </div>\n                        "
+          "content": "
+                            <div class="grid md:grid-cols-2 gap-3 text-xs">
+                                <div class="p-3 bg-slate-900 border border-purple-500/30 rounded-xl">
+                                    <span class="font-bold text-purple-400">⚡ DAI (Desfibrilador Automático Implantable)</span>
+                                    <p class="text-slate-300 mt-1"><strong>Prevención primaria:</strong> Pacientes sintomáticos (NYHA II–III) con <strong>FEVI &le; 35 %</strong> pese a &ge; 3 meses de FMT, con expectativa de vida &gt; 1 año (etiología isquémica Clase I, no isquémica Clase IIa).</p>
+                                </div>
+                                <div class="p-3 bg-slate-900 border border-purple-500/30 rounded-xl">
+                                    <span class="font-bold text-purple-400">🔋 TRC (Terapia de Resincronización Cardíaca)</span>
+                                    <p class="text-slate-300 mt-1">Indicada en pacientes en ritmo sinusal con FEVI &le; 35 %, síntomas NYHA II–IV y <strong>bloqueo de rama izquierda (BRI)</strong> con <strong>QRS &ge; 130–150 ms</strong> (Clase I). Resincroniza la contracción biventricular.</p>
+                                </div>
+                            </div>
+                        "
         }
       ]
     },
@@ -261,15 +359,15 @@ const CARDIOLOGY_DATA_ES = {
         {
           "id": "hf-r1",
           "title": "Caso Clínico 1: Cambio seguro de IECA a ARNI",
-          "question": "Varón de 64 años con miocardiopatía isquémica y FEVI del 28 % toma Ramipril 10 mg al día. Por disnea persistente en clase funcional NYHA II decide iniciar Sacubitrilo/Valsartán (ARNI). ¿Qué precaución temporal es obligatoria antes de administrar la primera dosis?",
+          "question": "Varón de 64 años con miocardiopatía isquémica y FEVI del 32 % (IC-FEr) toma Ramipril 10 mg al día. Por disnea persistente en clase funcional NYHA II decide iniciar Sacubitrilo/Valsartán (ARNI). ¿Qué precaución temporal es obligatoria antes de administrar la primera dosis?",
           "answer": "Se debe suspender el Ramipril y esperar un periodo de lavado estricto de al menos 36 horas antes de iniciar la primera dosis de Sacubitrilo/Valsartán. La inhibición simultánea de la neprilisina y de la ECA produce una acumulación masiva de bradicinina y un riesgo extremo de angioedema potencialmente mortal.",
           "pearl": "Al cambiar de un ARA-II a ARNI no se requiere periodo de lavado y se puede administrar directamente al día siguiente."
         },
         {
           "id": "hf-r2",
-          "title": "Caso Clínico 2: Tratamiento de la IC con FEVI conservada (IC-FEc)",
-          "question": "Mujer de 72 años, hipertensa, diabética y obesa presenta disnea de esfuerzo NYHA III y edemas en tobillos. El ecocardiograma revela FEVI del 56 %, hipertrofia ventricular izquierda con E/e' de 14 y NT-proBNP de 1650 pg/ml. ¿Qué grupo farmacológico cuenta con indicación Clase I para reducir eventos en IC-FEc?",
-          "answer": "Los inhibidores de SGLT2 (Dapagliflozina 10 mg o Empagliflozina 10 mg diarios). Con base en los ensayos DELIVER y EMPEROR-Preserved, los iSGLT2 son el tratamiento de primera línea con recomendación Clase I en IC-FEc.",
+          "title": "Caso Clínico 2: Tratamiento de la IC con FEVI conservada (FEVI ≥ 50 %)",
+          "question": "Mujer de 72 años, hipertensa, diabética y obesa presenta disnea de esfuerzo NYHA III y edemas en tobillos. El ecocardiograma revela FEVI del 56 %, hipertrofia ventricular izquierda con E/e' de 14 y NT-proBNP de 1650 pg/ml. ¿Qué grupo farmacológico cuenta con indicación Clase I para reducir eventos en IC-FEc según ESC 2026?",
+          "answer": "Los inhibidores de SGLT2 (Dapagliflozina 10 mg o Empagliflozina 10 mg diarios). Con base en los ensayos DELIVER y EMPEROR-Preserved, los iSGLT2 son el tratamiento de primera línea con recomendación Clase I en IC-FEc. Se añaden ARM y diuréticos de asa según congestión.",
           "pearl": "Los diuréticos de asa (furosemida) se añaden de forma sintomática para descongestionar y alcanzar la euvolemia."
         }
       ],
@@ -299,27 +397,27 @@ const CARDIOLOGY_DATA_ES = {
     },
     "breakdown": {
       "classThree": [
-        "Administración de Sacubitrilo/Valsartán antes de cumplir 36 horas desde la última dosis de IECA (riesgo de angioedema grave).",
-        "Inicio o aumento de dosis de betabloqueantes durante una descompensación aguda grave de insuficiencia cardíaca.",
-        "Uso de antiinflamatorios no esteroideos (AINEs) o glitazonas en insuficiencia cardíaca (inducen retención hidrosalina y descompensación).",
-        "Uso de antagonistas del calcio no dihidropiridínicos (Verapamilo, Diltiazem) en IC-FEr por su efecto inotrópico negativo.",
-        "Prescripción de hierro oral para corregir la ferropenia en IC (absorción bloqueada por hepcidina, es ineficaz)."
+        "Administrar Sacubitrilo/Valsartán (ARNI) antes de transcurridas 36 horas desde la última toma de IECA (riesgo de angioedema potencialmente letal).",
+        "Iniciar o aumentar la dosis de betabloqueantes en fase de descompensación aguda grave de la insuficiencia cardíaca.",
+        "Prescribir AINEs o glitazonas en pacientes con IC (favorecen retención hidrosalina y descompensación).",
+        "Utilizar calcioantagonistas no dihidropiridínicos (Verapamilo, Diltiazem) en IC-FEr.",
+        "Prescribir hierro oral de forma rutinaria para el déficit marcial en IC (ineficaz por bloqueo de hepcidina)."
       ],
       "mustKnow": [
-        "IC-FEr: FEVI &le; 40 %; IC-FElm: 41–49 %; IC-FEc: &ge; 50 %.",
-        "4 pilares FMT para IC-FEr: ARNI/IECA + Betabloqueante + ARM + iSGLT2.",
-        "Los iSGLT2 (Dapagliflozina, Empagliflozina) son Clase I en IC-FEr, IC-FElm e IC-FEc.",
-        "Hierro i.v. (carboximaltosa/derisomaltosa) indicado si ferritina &lt; 100 o 100–299 con TSAT &lt; 20 %.",
-        "DAI en prevención primaria con FEVI &le; 35 % tras &ge; 3 meses de FMT. TRC con BRI + QRS &ge; 130–150 ms + FEVI &le; 35 %."
+        "Las Guías ESC 2026 clasifican la IC en 2 fenotipos: IC-FEr (FEVI < 50 %) e IC-FEc (FEVI ≥ 50 %). ¡Se elimina la categoría IC-FElm!",
+        "4 pilares FMT en IC-FEr (FEVI < 50 %): ARNI/IECA + Betabloqueante + ARM + iSGLT2 (Dapa/Empa).",
+        "Los inhibidores de SGLT2 y los ARM son el tratamiento de elección para ambos fenotipos (IC-FEr e IC-FEc).",
+        "Hierro intravenoso (carboximaltosa/derisomaltosa) indicado con ferritina < 100 μg/l o 100–299 con TSAT < 20 %.",
+        "DAI: Prevención primaria si FEVI ≤ 35 % tras ≥ 3 meses de FMT. TRC: BRI + QRS ≥ 130–150 ms + FEVI ≤ 35 %."
       ]
     },
     "guidelineLinks": [
       {
-        "title": "2023 Focused Update of the 2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure",
-        "year": 2023,
+        "title": "2026 ESC Guidelines for the management of heart failure",
+        "year": 2026,
         "journal": "European Heart Journal",
-        "doi": "10.1093/eurheartj/ehad195",
-        "url": "https://academic.oup.com/eurheartj/article/44/37/3627/7243213"
+        "doi": "10.1093/eurheartj/ehag100",
+        "url": "https://academic.oup.com/eurheartj/advance-article/doi/10.1093/eurheartj/ehag100/8766302"
       }
     ]
   },

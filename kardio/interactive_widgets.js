@@ -170,17 +170,16 @@ window.CardioInteractiveWidgets = (function() {
   }
 
   // -------------------------------------------------------------
-  // 2. MIDEF: Universal Definition of MI Interactive Classifier
+  // 2. MIDEF: 5th Universal Definition of MI (2026) Interactive Classifier
   // -------------------------------------------------------------
   function renderMidefWidget(container, lang) {
     const isCs = lang === 'cs';
     const miTypes = [
-      { id: 't1', name: isCs ? 'Typ 1 IM' : 'Tipo 1 IM', icon: '💥', badge: isCs ? 'Plaková ruptura' : 'Rotura de placa', desc: isCs ? 'Aterotrombóza s akutní rupturou nebo erozí plátu vedoucí k intraluminálnímu trombu.' : 'Aterotrombosis por rotura o erosión aguda de placa con trombo intraluminal.', rx: isCs ? 'DAPT + Urgentní PCI' : 'DAPT + ICP urgente' },
-      { id: 't2', name: isCs ? 'Typ 2 IM' : 'Tipo 2 IM', icon: '⚖️', badge: isCs ? 'Supply / Demand' : 'Oferta / Demanda', desc: isCs ? 'Ischémie způsobená nepoměrem nabídky a poptávky kyslíku (sepse, těžká anémie, tachykardie, spasmus).' : 'Isquemia por desajuste entre aporte y demanda de O₂ (sepsis, anemia grave, taquiarritmia, vasoespasmo).', rx: isCs ? 'Korekce vyvolávající příčiny' : 'Corregir causa desencadenante' },
-      { id: 't3', name: isCs ? 'Typ 3 IM' : 'Tipo 3 IM', icon: '⚡', badge: isCs ? 'Náhlá smrt' : 'Muerte súbita', desc: isCs ? 'Srdeční zástava s podezřením na ischémii před možností stanovení biomarkerů v krvi.' : 'Parada cardíaca con sospecha de isquemia antes de poder extraer biomarcadores en sangre.', rx: isCs ? 'KPR + Urgentní koronarografie' : 'RCP + Coronariografía urgente' },
-      { id: 't4', name: isCs ? 'Typ 4 IM' : 'Tipo 4 IM', icon: '🩺', badge: isCs ? 'Asociovaný s PCI' : 'Asociado a ICP', desc: isCs ? '4a: Peri-procedurální IM po PCI (> 5x ULN troponin). 4b: Trombóza stentu. 4c: Restenóza.' : '4a: Peri-procedimiento post-ICP (> 5x LSN). 4b: Trombosis de stent. 4c: Reestenosis.', rx: isCs ? 'Re-PCI, optimalizace DAPT' : 'Re-ICP, optimizar DAPT' },
-      { id: 't5', name: isCs ? 'Typ 5 IM' : 'Tipo 5 IM', icon: '🔪', badge: isCs ? 'Asociovaný s CABG' : 'Asociado a CABG', desc: isCs ? 'Peri-operační infarkt po aortokoronárním bypassu (> 10x ULN troponin během 48h).' : 'Infarto perioperatorio tras bypass aortocoronario (> 10x LSN troponina en 48h).', rx: isCs ? 'Revize bypassů, hemodynamická podpora' : 'Revisión quirúrgica, soporte' },
-      { id: 'minoca', name: 'MINOCA', icon: '🔍', badge: isCs ? 'Bez obstrukce (<50%)' : 'Sin obstrucción (<50%)', desc: isCs ? 'Kritéria IM s normálním nálezem na koronarografii (< 50% stenóza). Nutno dovyšetřit CMR a OCT.' : 'Criterios de IAM con coronarias no obstructivas (< 50% estenosis). Imprescindible RMN cardíaca y OCT.', rx: isCs ? 'Specifická léčba dle etiologie' : 'Terapia dirigida según etiología' }
+      { id: 'primary', name: isCs ? '1. Primární IM' : '1. IM Primario', icon: '💥', badge: isCs ? 'Akutní koronární patologie' : 'Patología coronaria aguda', desc: isCs ? 'Spontánní vznik v důsledku primární koronární léze: aterotrombóza s rupturou/erozí plátu, SCAD (spontánní disekce), embolie či spasmus.' : 'Aparición espontánea por patología coronaria aguda primaria: aterotrombosis con rotura/erosión de placa, SCAD, embolia o espasmo.', rx: isCs ? 'DAPT + Emergentní PCI / Reperfúze' : 'DAPT + ICP urgente / Reperfusión' },
+      { id: 'secondary', name: isCs ? '2. Sekundární IM' : '2. IM Secundario', icon: '⚖️', badge: isCs ? 'Supply-Demand Mismatch' : 'Desajuste Oferta/Demanda', desc: isCs ? 'Ischémie vzniklá nepoměrem mezi nabídkou a poptávkou O₂ způsobená jiným akutním stavem (sepse, tachyarytmie, těžká anémie, šok, hypertenze). 3 fáze: Podezření → Pravděpodobný → Potvrzený (stenóza ≥ 70 % nebo nová RWMA na Echo/CMR).' : 'Isquemia por desajuste aporte/demanda de O₂ debida a otra patología aguda (sepsis, taquiarritmia, anemia grave, shock, crisis HTA). 3 fases: Sospecha → Probable → Confirmado.', rx: isCs ? 'Kauzální léčba vyvolávající příčiny (ne rutinní PCI/DAPT!)' : 'Tratamiento etiológico del factor causal (¡no ICP de rutina!)' },
+      { id: 'procedure', name: isCs ? '3. IM vázaný na výkon' : '3. IM por Procedimientos', icon: '🩺', badge: isCs ? 'Komplikace PCI / CABG' : 'Complicación ICP / CABG', desc: isCs ? 'Komplikace jakéhokoli srdečního výkonu do 30 dnů. Vyžaduje vzestup cTn + ischémii + průkaz koronární komplikace (disekce, perforace, trombóza stentu, slow-flow) a/nebo novou poruchu kinetiky stěny (RWMA).' : 'Complicación de procedimiento cardíaco en ≤30 días. Requiere cTn elevada + isquemia + evidencia de complicación coronaria o nueva alteración segmentaria (RWMA).', rx: isCs ? 'Re-PCI, revize štěpů, hemodynamická podpora' : 'Re-ICP, revisión quirúrgica, soporte' },
+      { id: 'minoca', name: 'MINOCA', icon: '🔍', badge: isCs ? 'Neobstrukční tepny (<50%)' : 'Arterias no obstructivas (<50%)', desc: isCs ? 'Kritéria IM s normálním nálezem na koronarografii (< 50% stenóza). Vyžaduje urgentní CMR (magnetickou rezonanci srdce) k odlišení infarktu, myokarditidy (až 40 %) a Takotsubo kardiomyopatie!' : 'Criterios de IAM con coronarias no obstructivas (< 50% estenosis). Requiere RMC para diferenciar infarto real, miocarditis aguda y Takotsubo.', rx: isCs ? 'Cílená terapie dle CMR a intrakoronárního zobrazení' : 'Tratamiento guiado por RMC e imagen intracoronaria' },
+      { id: 'injury', name: isCs ? 'Myokardiální poškození' : 'Daño Miocárdico', icon: '🩸', badge: isCs ? 'Injury (Bez ischémie)' : 'Injury (Sin isquemia)', desc: isCs ? 'Izolovaná elevace troponinu nad 99. percentil bez klinických, EKG či zobrazovacích známek ischémie myokardu (akutní u sepse/PE, chronické u CKD/amyloidózy).' : 'Elevación aislada de troponina > percentil 99 sin datos clínicos, ECG ni de imagen de isquemia miocárdica (agudo en sepsis/TEP, crónico en ERC/amiloidosis).', rx: isCs ? 'Léčba základního nekardiálního / chronického onemocnění' : 'Tratamiento de la patología de base subyacente' }
     ];
 
     let currentSelected = miTypes[0];
@@ -188,13 +187,13 @@ window.CardioInteractiveWidgets = (function() {
     const html = `
       <div class="interactive-widget-box" id="widget-midef">
         <div class="widget-header">
-          <div class="widget-badge">🎯 ${isCs ? 'Interaktivní klasifikátor typů IM a MINOCA' : 'Clasificador Interactivo de Tipos de IAM y MINOCA'}</div>
-          <p class="widget-subtitle">${isCs ? 'Klikněte nebo klepněte na jednotlivé typy infarktu pro zobrazení etiopatogeneze a specifického managementu.' : 'Haga clic en los tipos de infarto para ver su etiopatogenia y manejo específico.'}</p>
+          <div class="widget-badge">🎯 ${isCs ? '5. Univerzální definice IM (2026): 3 Klinické typy & Poškození' : '5.ª Definición Universal de IAM (2026): 3 Tipos Clínicos'}</div>
+          <p class="widget-subtitle">${isCs ? 'Klikněte na jednotlivé klinické typy infarktu pro zobrazení patofyziologie, diagnostických kritérií a managementu dle 5. definice 2026.' : 'Haga clic en los tipos clínicos de infarto para ver su fisiopatología y manejo según la 5.ª definición 2026.'}</p>
         </div>
 
         <div class="midef-types-grid">
           ${miTypes.map(t => `
-            <button class="midef-type-card ${t.id === 't1' ? 'active' : ''}" data-typeid="${t.id}">
+            <button class="midef-type-card ${t.id === 'primary' ? 'active' : ''}" data-typeid="${t.id}">
               <div class="midef-type-icon">${t.icon}</div>
               <div class="midef-type-name">${t.name}</div>
               <span class="midef-type-badge">${t.badge}</span>
@@ -245,18 +244,18 @@ window.CardioInteractiveWidgets = (function() {
   }
 
   // -------------------------------------------------------------
-  // 3. HF: Floating Drug Bubbles & Phenotype Sorter
+  // 3. HF: 2026 ESC Heart Failure Phenotypes (HFrEF <50% vs HFpEF >=50%)
   // -------------------------------------------------------------
   function renderHfWidget(container, lang) {
     const isCs = lang === 'cs';
     const drugs = [
-      { id: 'arni', name: 'ARNI', title: 'Sacubitril / Valsartan', icon: '💊', color: 'blue', hfref: 'Class I (RRR 20%)', hfmref: 'Class IIb', hfpef: 'Class IIb (redukce hospitalizací)', dose: '24/26 mg bid → cíl 97/103 mg bid', warning: isCs ? 'Pauza 36h po vysazení ACEi (riziko angioedému)!' : '¡Pausa de 36h tras suspender IECA por angioedema!' },
-      { id: 'bb', name: 'Beta-blokátor', title: 'Bisoprolol / Metoprolol ZOK / Carvedilol', icon: '🫀', color: 'purple', hfref: 'Class I (RRR 34%)', hfmref: 'Class IIb', hfpef: 'Bez vlivu na mortalitu', dose: isCs ? 'Start nízkou dávkou, titrace co 2 týdny' : 'Iniciar dosis baja, titular cada 2 semanas', warning: isCs ? 'Nenasazovat v akutní dekompenzaci!' : '¡No iniciar en fase de descompensación aguda!' },
-      { id: 'mra', name: 'MRA', title: 'Spironolakton / Eplerenon', icon: '🛡️', color: 'amber', hfref: 'Class I (RRR 30%)', hfmref: 'Class IIb', hfpef: 'Class IIb (studie TOPCAT)', dose: '25 mg qd → cíl 50 mg qd', warning: isCs ? 'Sledovat kalémii (K > 5.5 mmol/L = redukce/stop)' : 'Control de potasio (K > 5.5 = suspender)' },
-      { id: 'sglt2i', name: 'SGLT2i', title: 'Dapagliflozin / Empagliflozin', icon: '✨', color: 'green', hfref: 'Class I (RRR 25%)', hfmref: 'Class I', hfpef: 'Class I (Délka dožití & hospitalizace)', dose: '10 mg 1x denně (fixní dávka bez nutnosti titrace)', warning: isCs ? 'Hlídat mykotické infekce a euglykemickou DKA' : 'Vigilar infecciones micóticas y CAD euglucémica' },
-      { id: 'diur', name: 'Kličkové diuretikum', title: 'Furosemid / Torasemid', icon: '💧', color: 'cyan', hfref: 'Symptomatická (třída I)', hfmref: 'Symptomatická', hfpef: 'Symptomatická (dekongesce)', dose: isCs ? 'Dle stupně hypervolemie (titrovat na euvolemii)' : 'Según congestión (titular a euvolemia)', warning: isCs ? 'Nesnižuje mortalitu, hlídat hypokalémii!' : 'No reduce mortalidad, vigilar hipopotasemia' },
-      { id: 'veri', name: 'Vericiguat', title: 'Stimulátor solubilní guanylátcyklázy', icon: '⚡', color: 'red', hfref: 'Class IIb (po dekompenzaci)', hfmref: 'Nestudováno', hfpef: 'Nestudováno', dose: '2.5 mg → cíl 10 mg qd', warning: isCs ? 'Při zhoršení HF přes zavedenou GDMT' : 'En empeoramiento de IC a pesar de GDMT' },
-      { id: 'iron', name: 'i.v. Železo', title: 'Ferric Carboxymaltose', icon: '🩸', color: 'brown', hfref: 'Class IIa (ferritin <100 nebo TSAT <20%)', hfmref: 'Class IIa', hfpef: 'Class IIa', dose: isCs ? 'Dle hmotnosti a hemoglobinu (500-1000 mg i.v.)' : 'Según peso y Hb (500-1000 mg i.v.)', warning: isCs ? 'Zlepšuje kvalitu života a 6MWT, perorální železo je neúčinné!' : 'Mejora calidad de vida y 6MWT; ¡hierro oral ineficaz!' }
+      { id: 'arni', name: 'ARNI', title: 'Sacubitril / Valsartan', icon: '💊', color: 'blue', hfref: 'Class I (RRR 20% mortalita)', hfpef: 'Class IIa/IIb (redukce hospitalizací)', dose: '24/26 mg bid → cíl 97/103 mg bid', warning: isCs ? 'Pauza 36h po vysazení ACEi (riziko angioedému)!' : '¡Pausa de 36h tras suspender IECA por angioedema!' },
+      { id: 'bb', name: 'Beta-blokátor', title: 'Bisoprolol / Metoprolol ZOK / Carvedilol / Nebivolol', icon: '🫀', color: 'purple', hfref: 'Class I (RRR 34% mortalita)', hfpef: 'Pro kontrolu TF / komorbidity', dose: isCs ? 'Start nízkou dávkou, titrace co 2 týdny' : 'Iniciar dosis baja, titular cada 2 semanas', warning: isCs ? 'Nenasazovat v akutní těžké dekompenzaci!' : '¡No iniciar en fase de descompensación aguda!' },
+      { id: 'mra', name: 'MRA', title: 'Spironolakton / Eplerenon / Finerenon', icon: '🛡️', color: 'amber', hfref: 'Class I (RRR 30% mortalita)', hfpef: 'Class I/IIa (TOPCAT & FINEARTS-HF)', dose: '25 mg qd → cíl 50 mg qd', warning: isCs ? 'Sledovat kalémii (K > 5.5 mmol/L = redukce/vazače K)' : 'Control de potasio (K > 5.5 = quelantes/suspender)' },
+      { id: 'sglt2i', name: 'SGLT2i', title: 'Dapagliflozin / Empagliflozin', icon: '✨', color: 'green', hfref: 'Class I (Základ FMT pro všechny)', hfpef: 'Class I (Základ léčby pro všechny)', dose: '10 mg 1x denně (fixní dávka bez nutnosti titrace)', warning: isCs ? 'Hlídat mykotické infekce a euglykemickou DKA' : 'Vigilar infecciones micóticas y CAD euglucémica' },
+      { id: 'diur', name: 'Kličkové diuretikum', title: 'Furosemid / Torasemid', icon: '💧', color: 'cyan', hfref: 'Class I (dekongesce)', hfpef: 'Class I (dekongesce)', dose: isCs ? 'Dle stupně hypervolemie (titrovat na euvolemii)' : 'Según congestión (titular a euvolemia)', warning: isCs ? 'Nesnižuje mortalitu, titrovat na nejnižší účinnou dávku' : 'No reduce mortalidad, titular a dosis mínima eficaz' },
+      { id: 'veri', name: 'Vericiguat', title: 'Stimulátor solubilní guanylátcyklázy', icon: '⚡', color: 'red', hfref: 'Class IIb (po nedávné dekompenzaci)', hfpef: 'Nestudováno', dose: '2.5 mg → cíl 10 mg qd', warning: isCs ? 'Při zhoršení HF přes zavedenou 4-kombinaci FMT' : 'En empeoramiento de IC a pesar de 4 pilares FMT' },
+      { id: 'iron', name: 'i.v. Železo', title: 'Ferric Carboxymaltose / Derisomaltose', icon: '🩸', color: 'brown', hfref: 'Class I/IIa (ferritin <100 nebo TSAT <20%)', hfpef: 'Class I/IIa (zlepšení kvality života)', dose: isCs ? 'Dle hmotnosti a hemoglobinu (500-1000 mg i.v.)' : 'Según peso y Hb (500-1000 mg i.v.)', warning: isCs ? 'Zlepšuje symptomy a 6MWT, perorální železo je neúčinné!' : 'Mejora síntomas y 6MWT; ¡hierro oral ineficaz!' }
     ];
 
     let currentPhenotype = 'hfref';
@@ -264,14 +263,13 @@ window.CardioInteractiveWidgets = (function() {
     const html = `
       <div class="interactive-widget-box" id="widget-hf">
         <div class="widget-header">
-          <div class="widget-badge">🫧 ${isCs ? 'Interaktivní bubliny farmakoterapie srdečního selhání' : 'Burbujas Interactivas de Farmacoterapia en IC'}</div>
-          <p class="widget-subtitle">${isCs ? 'Zvolte fenotyp srdečního selhání a najeďte na bubliny léků pro zobrazení doporučení ESC 2023-2026.' : 'Seleccione el fenotipo y pase el cursor/toque las burbujas para ver las recomendaciones ESC.'}</p>
+          <div class="widget-badge">🫧 ${isCs ? 'ESC 2026: 2 Fenotypy srdečního selhání & Lékové bubliny' : 'ESC 2026: 2 Fenotipos de Insuficiencia Cardíaca'}</div>
+          <p class="widget-subtitle">${isCs ? 'Guidelines ESC 2026 sjednotily klasifikaci na 2 fenotypy (HFmrEF bylo zrušeno). Zvolte fenotyp a najeďte na bubliny léků.' : 'Las Guías ESC 2026 unifican la IC en 2 fenotipos (eliminando IC-FElm). Seleccione el fenotipo para ver las recomendaciones.'}</p>
         </div>
 
         <div class="hf-phenotype-selector">
-          <button class="hf-pheno-btn active" data-pheno="hfref"><strong>HFrEF</strong> (EF ≤ 40%)</button>
-          <button class="hf-pheno-btn" data-pheno="hfmref"><strong>HFmrEF</strong> (EF 41–49%)</button>
-          <button class="hf-pheno-btn" data-pheno="hfpef"><strong>HFpEF</strong> (EF ≥ 50%)</button>
+          <button class="hf-pheno-btn active" data-pheno="hfref"><strong>🔴 HFrEF</strong> (LVEF &lt; 50 % — Snížená EF)</button>
+          <button class="hf-pheno-btn" data-pheno="hfpef"><strong>🟢 HFpEF</strong> (LVEF &ge; 50 % — Zachovaná EF)</button>
         </div>
 
         <div class="hf-bubbles-cloud" id="hf-bubbles-container">
@@ -355,7 +353,6 @@ window.CardioInteractiveWidgets = (function() {
       });
     });
 
-    // Initial show first drug
     showDrugDetail(drugs[0]);
   }
 
@@ -571,7 +568,6 @@ window.CardioInteractiveWidgets = (function() {
       });
     });
 
-    // Expand first one by default
     container.querySelector('#care-card-c')?.classList.add('expanded');
   }
 
@@ -803,7 +799,7 @@ window.CardioInteractiveWidgets = (function() {
         name: isCs ? '🫀 Dilatační KMP (DCM)' : '🫀 Miocardiopatía Dilatada (MCD)',
         drug: 'GDMT + ICD / CRT',
         drugClass: isCs ? 'Neurohumorální blokáda + Přístrojová léčba' : 'Bloqueo neurohumoral + Terapia con dispositivos',
-        mechanism: isCs ? 'Reverzní remodelace LK pomocí Fantastic 4 (ARNI, BB, MRA, SGLT2i). Genetické testování (mutace LMNA, TTN, PLN).' : 'Remodelado inverso con Fantastic 4. Estudio genético de rutina (mutaciones LMNA, TTN, PLN).',
+        mechanism: isCs ? 'Reverzní remodelace LK pomocí 4 pilířů FMT (ARNI, BB, MRA, SGLT2i). Genetické testování (mutace LMNA, TTN, PLN).' : 'Remodelado inverso con 4 pilares FMT. Estudio genético de rutina (mutaciones LMNA, TTN, PLN).',
         pearl: isCs ? 'Indikace primárně preventivního ICD při LVEF ≤ 35 % i po 3 měsících optimální farmakoterapie.' : 'Indicación de DAI en prevención primaria si FEVI ≤ 35% tras 3 meses de terapia médica óptima.'
       }
     ];
@@ -1111,7 +1107,7 @@ window.CardioInteractiveWidgets = (function() {
       const sex = sexSelect.value;
       const age = ageSelect.value;
 
-      let ptpScore = 15; // default
+      let ptpScore = 15;
       if (pain === 'typical') {
         ptpScore = sex === 'male' ? (age === 'old' ? 45 : 30) : (age === 'old' ? 30 : 15);
       } else if (pain === 'atypical') {

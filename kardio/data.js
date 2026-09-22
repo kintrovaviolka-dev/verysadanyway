@@ -121,35 +121,68 @@ const CARDIOLOGY_DATA = {
       }
     ]
   },
-  {
+    {
     "id": "midef",
     "number": 2,
     "title": "5. Univerzální definice infarktu myokardu (2026)",
-    "shortDesc": "Myokardiální poškození (injury) vs. infarkt myokardu (infarction), typy 1–5 IM, diagnostika MINOCA a klinická interpretace dynamiky troponinu.",
+    "shortDesc": "Pátá definice nahrazuje starou 5-číselnou klasifikaci 3 klinickými typy IM (Primární, Sekundární, Vázaný na výkon). Myokardiální poškození vs. infarkt a MINOCA.",
     "icon": "🔬",
     "badge": "2026 Nová definice",
     "badgeColor": "emerald",
     "theory": {
       "banner": {
-        "tag": "Zásadní klinický koncept (2026 Konsenzus)",
-        "title": "Myocardial Injury (Poškození) vs. Myocardial Infarction (Infarkt)",
-        "text": "Zvýšená hodnota srdečního troponinu (cTn) nad 99. percentil horního referenčního limitu definuje **poškození myokardu (Myocardial Injury)**. Aby byl stav klasifikován jako **infarkt myokardu (Myocardial Infarction)**, musí být přítomna signifikantní dynamika troponinu (vzestup a/nebo pokles) A SOUČASNĚ alespoň jeden klinický průkaz akutní ischémie myokardu!"
+        "tag": "Zásadní změna v 5. definici (2026 Konsenzus)",
+        "title": "3 Klinické typy infarktu myokardu & Poškození (Injury) vs. Infarkt (Infarction)",
+        "text": "Pátá univerzální definice infarktu myokardu (UDMI 2026) nahrazuje starou numerickou klasifikaci (Typ 1–5) **3 klinickými typy IM**: **1. Primární IM**, **2. Sekundární IM** a **3. IM související s výkonem**. Zvýšená hodnota srdečního troponinu (cTn) nad pohlavně specifický 99. percentil definuje **poškození myokardu (Myocardial Injury)**. Aby byl stav klasifikován jako **infarkt myokardu (Myocardial Infarction)**, musí být přítomna dynamika troponinu (vzestup a/nebo pokles) A SOUČASNĚ alespoň jeden klinický průkaz akutní ischémie myokardu!"
       },
       "sections": [
         {
-          "title": "1. Diagnostická kritéria infarktu myokardu (Typ 1 a Typ 2)",
+          "title": "1. Diagnostická kritéria infarktu & Pohlavně specifické prahy troponinu",
           "color": "emerald",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-slate-700 rounded-xl text-xs text-slate-300 leading-relaxed\">\n                                <p class=\"mb-2 font-bold text-emerald-400\">Definice infarktu myokardu vyžaduje:</p>\n                                <p class=\"mb-2\">Detekci vzestupu a/nebo poklesu hodnot cTn s alespoň jednou hodnotou nad 99. percentilem URL (horní referenční limit) a <strong>současnou přítomnost alespoň 1 z následujících ischemických kritérií:</strong></p>\n                                <ul class=\"list-disc ml-5 space-y-1 text-slate-300\">\n                                    <li>Symptomy akutní myokardiální ischémie (typická stenokardie, ekvivalenty).</li>\n                                    <li>Nové ischemické EKG změny (nové ST-T elevace či deprese, nová inverze T vln).</li>\n                                    <li>Vznik nových patologických kmitů Q na EKG.</li>\n                                    <li>Zobrazovací průkaz nové ztráty viabilního myokardu nebo nové regionální poruchy kinetiky stěny v ischemickém vzorci.</li>\n                                    <li>Průkaz intrakoronárního trombu angiograficky nebo při pitvě.</li>\n                                </ul>\n                            </div>\n                        "
+          "content": "
+                            <div class="p-3.5 bg-slate-900 border border-slate-700 rounded-xl text-xs text-slate-300 leading-relaxed">
+                                <p class="mb-2 font-bold text-emerald-400">Definice infarktu myokardu vyžaduje:</p>
+                                <p class="mb-2">Detekci vzestupu a/nebo poklesu hodnot srdečního troponinu (hs-cTnI / hs-cTnT) s alespoň jednou hodnotou nad <strong>pohlavně specifickým 99. percentilem URL</strong> (horní referenční mez k zamezení poddiagnostikování u žen) a <strong>současnou přítomnost alespoň 1 z následujících ischemických kritérií:</strong></p>
+                                <ul class="list-disc ml-5 space-y-1 text-slate-300">
+                                    <li>Symptomy akutní myokardiální ischémie (typická stenokardie, ekvivalenty dušnosti).</li>
+                                    <li>Nové ischemické EKG změny (nové ST elevace/deprese, nová inverze T vln, nový LBBB).</li>
+                                    <li>Vznik nových patologických kmitů Q na EKG.</li>
+                                    <li>Zobrazovací průkaz nové ztráty viabilního myokardu nebo nové regionální poruchy kinetiky stěny (RWMA) v ischemickém vzorci (Echo/CMR).</li>
+                                    <li>Identifikace intrakoronární trombózy angiograficky nebo při pitvě.</li>
+                                </ul>
+                            </div>
+                        "
         },
         {
-          "title": "2. Přehled 5 klinických typů infarktu myokardu",
+          "title": "2. Pátá univerzální definice (2026): 3 Klinické typy IM",
           "color": "amber",
-          "content": "\n                            <div class=\"space-y-2.5 text-xs\">\n                                <div class=\"p-3 bg-slate-900 border-l-4 border-rose-500 rounded-r-xl\">\n                                    <span class=\"font-bold text-rose-400 text-sm\">Typ 1 IM (Aterotrombotický koronární infarkt)</span>\n                                    <p class=\"text-slate-300 mt-1 leading-relaxed\">Způsoben rupturou, ulcerací, fisurou nebo erozí aterosklerotického plátu s intraluminálním trombem v jedné či více koronárních tepnách vedoucím k redukci průtoku krve a distální embolizaci.</p>\n                                </div>\n                                <div class=\"p-3 bg-slate-900 border-l-4 border-amber-500 rounded-r-xl\">\n                                    <span class=\"font-bold text-amber-400 text-sm\">Typ 2 IM (Nepoměr nabídky a poptávky O2 bez akutní trombózy)</span>\n                                    <p class=\"text-slate-300 mt-1 leading-relaxed\">Ischémie vzniklá nepoměrem mezi dodávkou kyslíku myokardu (spasmus koronárních tepen, mikrovaskulární dysfunkce, SCAD, těžká anémie, hypotenze, hypoxémie) a spotřebou kyslíku (tachykardie, tachyarytmie, těžká hypertenze s hypertrofií LK). Léčba spočívá v korekci vyvolávající příčiny!</p>\n                                </div>\n                                <div class=\"p-3 bg-slate-900 border-l-4 border-purple-500 rounded-r-xl\">\n                                    <span class=\"font-bold text-purple-400 text-sm\">Typ 3 IM (Náhlá srdeční smrt)</span>\n                                    <p class=\"text-slate-300 mt-1 leading-relaxed\">Srdeční smrt s ischemickými symptomy a předpokládanou novou ischémií na EKG nebo fibrilací komor, kdy pacient zemře dříve, než bylo možné odebrat krev na srdeční biomarkery.</p>\n                                </div>\n                                <div class=\"p-3 bg-slate-900 border-l-4 border-cyan-500 rounded-r-xl\">\n                                    <span class=\"font-bold text-cyan-400 text-sm\">Typ 4 IM (Infarkt spojený s PCI)</span>\n                                    <p class=\"text-slate-300 mt-1 leading-relaxed\">\n                                        <strong>4a:</strong> Periprocedurální IM při PCI (vzestup cTn &gt; 5× nad 99. percentil URL u normální výchozí hodnoty + ischemické známky).<br>\n                                        <strong>4b:</strong> Trombóza stentu prokázaná angiograficky či autopticky.<br>\n                                        <strong>4c:</strong> Restenóza ve stentu.\n                                    </p>\n                                </div>\n                                <div class=\"p-3 bg-slate-900 border-l-4 border-blue-500 rounded-r-xl\">\n                                    <span class=\"font-bold text-blue-400 text-sm\">Typ 5 IM (Infarkt spojený s CABG)</span>\n                                    <p class=\"text-slate-300 mt-1 leading-relaxed\">Perioperační IM po kardiochirurgickém bypassu (vzestup cTn &gt; 10× nad 99. percentil URL během prvních 48 hodin po operaci s novým patologickým Q, novou okluzí štěpu či ztrátou viability myokardu).</p>\n                                </div>\n                            </div>\n                        "
+          "content": "
+                            <div class="space-y-2.5 text-xs">
+                                <div class="p-3 bg-slate-900 border-l-4 border-rose-500 rounded-r-xl">
+                                    <span class="font-bold text-rose-400 text-sm">1. Primární infarkt myokardu (Primary MI)</span>
+                                    <p class="text-slate-300 mt-1 leading-relaxed">Vzniká spontánně v důsledku <strong>primární akutní koronární patologie</strong>: akutní aterotrombóza s rupturou či erozí plátu, spontánní disekce koronární tepny (SCAD), koronární embolie nebo těžký vazospasmus. Léčba: DAPT + emergentní revaskularizace (primární PCI / fibrinolýza).</p>
+                                </div>
+                                <div class="p-3 bg-slate-900 border-l-4 border-amber-500 rounded-r-xl">
+                                    <span class="font-bold text-amber-400 text-sm">2. Sekundární infarkt myokardu (Secondary MI)</span>
+                                    <p class="text-slate-300 mt-1 leading-relaxed">Vzniká v důsledku <strong>nepoměru mezi nabídkou a poptávkou kyslíku (supply-demand mismatch)</strong> způsobeného jiným akutním stavem (sepse, tachyarytmie, těžká anémie, hypotenze/šok, těžká hypertenze) bez primární akutní koronární léze plátu.<br><strong>3 diagnostické fáze dle 5. definice:</strong><br>• <em>Podezření (Considered):</em> Akutní troponinové poškození + vyvolávající stav + známka ischémie.<br>• <em>Pravděpodobný (Likely):</em> Splněno podezření + známá ICHS v anamnéze.<br>• <em>Potvrzený (Confirmed):</em> Stenóza &ge; 70 % na SKG nebo nová RWMA na Echo/CMR.<br><em>Léčba: Kauzální terapie vyvolávající příčiny (sepse, tekutiny, kontrola frekvence), nikoliv rutinní PCI a DAPT!</em></p>
+                                </div>
+                                <div class="p-3 bg-slate-900 border-l-4 border-cyan-500 rounded-r-xl">
+                                    <span class="font-bold text-cyan-400 text-sm">3. Infarkt myokardu související s výkonem (Procedure-related MI)</span>
+                                    <p class="text-slate-300 mt-1 leading-relaxed">Vzniká jako komplikace jakéhokoli srdečního výkonu (perkutánního - PCI, nebo chirurgického - CABG/chlopenní operace) do 30 dnů. Vyžaduje akutní poškození myokardu (vzestup cTn) + známky ischémie + <strong>průkaz koronární komplikace výkonu</strong> (disekce, perforace, trombóza stentu, slow-flow) a/nebo <strong>novou regionální poruchu kinetiky stěny či ztrátu viability</strong>.</p>
+                                </div>
+                            </div>
+                        "
         },
         {
-          "title": "3. MINOCA: Diagnostický a vyšetřovací algoritmus",
+          "title": "3. Akutní a chronické poškození myokardu & MINOCA",
           "color": "cyan",
-          "content": "\n                            <div class=\"p-3.5 bg-cyan-950/30 border border-cyan-500/30 rounded-xl text-xs text-slate-300 leading-relaxed space-y-2\">\n                                <p><strong>MINOCA (Myocardial Infarction with Non-Obstructive Coronary Arteries):</strong> Pracovní diagnóza u pacientů splňujících kritéria infarktu myokardu (cTn dynamika + ischemické projevy), kteří mají na akutní koronarografii <strong>normální nález nebo stenózy &lt; 50 %</strong>.</p>\n                                <p><strong>Diagnostický postup k určení konečné diagnózy (Třída I):</strong></p>\n                                <ol class=\"list-decimal ml-5 space-y-1\">\n                                    <li><strong>Transtorakální ECHO (TTE):</strong> Posouzení regionální kinetiky (apikální balonování u Takotsubo, perikardiální výpotek).</li>\n                                    <li><strong>Magnetická rezonance srdce (CMR - Kardio MR):</strong> Klíčové vyšetření s pozdním sycením gadoliniem (LGE). Subendokardiální/transmurální LGE = skutečný infarkt (Typ 1 embolizace, Typ 2 spasmus); Subepikardiální/mid-myokardiální LGE = <em>akutní myokarditida</em> (tvoří až 30–40 % všech MINOCA!); Absence LGE + edém hrotu = <em>Takotsubo kardiomyopatie</em>.</li>\n                                    <li><strong>Intrakoronární zobrazování (OCT / IVUS):</strong> Průkaz disekce (SCAD), eroze plátu či ruptury.</li>\n                                </ol>\n                            </div>\n                        "
+          "content": "
+                            <div class="p-3.5 bg-cyan-950/30 border border-cyan-500/30 rounded-xl text-xs text-slate-300 leading-relaxed space-y-2">
+                                <p><strong>Akutní poškození myokardu (Acute Myocardial Injury):</strong> Vzestup a/nebo pokles srdečního troponinu nad 99. percentil URL bez přítomnosti ischemických projevů (např. myokarditida, plicní embolie, sepse bez ischémie).</p>
+                                <p><strong>Chronické poškození myokardu (Chronic Myocardial Injury):</strong> Trvale a stabilně zvýšené hodnoty troponinu bez významné dynamiky (chronická renální insuficience, amyloidóza, chronické srdeční selhání).</p>
+                                <p><strong>MINOCA (Poškození myokardu s neobstrukčními koronárními tepnami):</strong> Pracovní diagnóza u pacientů splňujících kritéria infarktu myokardu, kteří mají na koronarografii <strong>normální nález nebo stenózy &lt; 50 %</strong>. Vyžaduje urgentní provedení <strong>TTE</strong> a <strong>Magnetické rezonance srdce (CMR)</strong> k odlišení skutečného infarktu (subendokardiální LGE), akutní myokarditidy (až 40 % případů) a Takotsubo kardiomyopatie!</p>
+                            </div>
+                        "
         }
       ]
     },
@@ -157,15 +190,15 @@ const CARDIOLOGY_DATA = {
       "scenarios": [
         {
           "id": "midef-r1",
-          "title": "Kazuistika 1: Sepse vs. Infarkt Typu 2",
-          "question": "80letá polymorbidní pacientka je hospitalizována pro těžkou urosepsi s febriliemi, hypotenzí (TK 80/50 mmHg) a sinusovou tachykardií 145/min. EKG vykazuje horizontální deprese ST 1,5 mm ve svodech V4-V6. Vstupní hs-cTnI je 60 ng/l, za 3 hodiny 220 ng/l. Na urgentní koronarografii jsou tepny difuzně sklerotické bez akutního trombu a bez uzávěru. O jaký typ IM se jedná a jaký je léčebný postup?",
-          "answer": "Jedná se o Infarkt myokardu Typu 2 (mismatch mezi nabídkou a poptávkou kyslíku bez akutní aterotrombózy). Způsobený tachykardií zkracující diastolické koronární plnění a hypotenzí při sepsi. Léčba nespočívá v PCI, ale v kauzální terapii vyvolávající příčiny: agresivní léčba sepse antibiotiky, volumoterapie krystaloidy pro normalizaci tlaku a zpomalení srdeční frekvence.",
-          "pearl": "U IM typu 2 nepodáváme rutinně plnou DAPT ani antikoagulaci, pokud není přítomna jiná kardiovaskulární indikace."
+          "title": "Kazuistika 1: Sepse vs. Sekundární infarkt myokardu",
+          "question": "80letá polymorbidní pacientka je hospitalizována pro těžkou urosepsi s febriliemi, hypotenzí (TK 80/50 mmHg) a sinusovou tachykardií 145/min. EKG vykazuje horizontální deprese ST 1,5 mm ve svodech V4-V6. Vstupní hs-cTnI je 60 ng/l, za 3 hodiny 220 ng/l. Na urgentní koronarografii jsou tepny difuzně sklerotické se stabilní stenózou 75 % na RIA bez akutního trombu a bez uzávěru. O jaký typ IM se jedná dle 5. definice a jaký je léčebný postup?",
+          "answer": "Jedná se o Sekundární infarkt myokardu (Secondary MI dle 5. univerzální definice 2026). Je způsoben nepoměrem mezi nabídkou a poptávkou kyslíku při těžké sepsi, hypotenzi a tachykardii v terénu chronické stenózy. Léčba nespočívá v akutní PCI, ale v kauzální terapii vyvolávající příčiny: agresivní léčba sepse antibiotiky, volumoterapie krystaloidy k obnovení perfuzního tlaku a zpomalení srdeční frekvence.",
+          "pearl": "U sekundárního IM nepodáváme rutinně plnou DAPT ani antikoagulaci, pokud není přítomna jiná kardiovaskulární indikace."
         },
         {
           "id": "midef-r2",
           "title": "Kazuistika 2: Emoční stres a MINOCA",
-          "question": "52letá žena po náhlém úmrtí partnera přijata pro prudkou retrosternální bolest a dušnost. EKG: elevace ST 2 mm ve V2-V5. Troponin hs-cTnI stoupá na 1200 ng/l. Na urgentní SKG jsou koronární tepny zcela hladké bez stenóz. ECHO ukazuje akinézu hrotu a středních segmentů LK s hyperkontrakcí báze (EF LK 35 %). Jaká je diagnóza a jaké vyšetření ji definitivně potvrdí?",
+          "question": "52letá žena po náhlém úmrtí partnera přijata pro prudkou retrosternální bolest a dušnost. EKG: elevace ST 2 mm ve V2-V5. Troponin hs-cTnI stoupá na 1200 ng/l. Na urgentní SKG jsou koronární tepny zcela hladké bez stenóz (< 50 %). ECHO ukazuje akinézu hrotu a středních segmentů LK s hyperkontrakcí báze (EF LK 35 %). Jaká je pracovní diagnóza a jaké vyšetření ji definitivně potvrdí?",
           "answer": "Pracovní diagnóza je MINOCA, klinicky vysoce suspektní pro Takotsubo syndrom (stresová kardiomyopatie). Zlatým standardem k definitivnímu potvrzení je Magnetická rezonance srdce (CMR), která prokáže transmurální edém myokardu v oblasti hrotu bez přítomnosti pozdního sycení gadoliniem (LGE) a vyloučí akutní myokarditidu.",
           "pearl": "Takotsubo syndrom se léčí podpůrně jako srdeční selhání (ACEi, betablokátory, diuretika) a funkce LK se typicky plně zotaví během 4–8 týdnů."
         }
@@ -183,7 +216,7 @@ const CARDIOLOGY_DATA = {
             "isCorrect": false
           },
           {
-            "text": "C) Pacient po úspěšné KPR pro komorovou fibrilaci s novým patologickým kmitém Q ve svodech II, III, aVF",
+            "text": "C) Pacient po úspěšné KPR pro komorovou fibrilaci s novým patologickým kmitem Q ve svodech II, III, aVF",
             "isCorrect": false
           },
           {
@@ -196,63 +229,128 @@ const CARDIOLOGY_DATA = {
     },
     "breakdown": {
       "classThree": [
-        "Považovat každou izolovanou elevaci troponinu za akutní infarkt myokardu Typu 1 a automaticky indikovat emergentní invazivní koronarografii.",
-        "Podávat agresivní protidestičkovou (DAPT) a antikoagulační léčbu pacientům s chronickým poškozením myokardu bez průkazu koronární ischémie.",
+        "Považovat každou izolovanou elevaci troponinu za akutní primární infarkt myokardu a automaticky indikovat emergentní invazivní koronarografii s DAPT.",
+        "Podávat agresivní protidestičkovou (DAPT) a antikoagulační léčbu pacientům s izolovaným poškozením myokardu (Myocardial Injury) bez průkazu koronární ischémie.",
         "Opomenout vyšetření magnetickou rezonancí srdce (CMR) u pacientů s pracovní diagnózou MINOCA (vede k chybnému přehlédnutí myokarditidy)."
       ],
       "mustKnow": [
-        "Myocardial Injury = cTn &gt; 99. percentil URL.",
-        "Myocardial Infarction = cTn &gt; 99. percentil s dynamikou (vzestup/pokles) + klinický průkaz akutní ischémie.",
-        "Typ 1: Ruptura/eroze aterosklerotického plátu s trombózou.",
-        "Typ 2: Mismatch mezi dodávkou a spotřebou O2 (hypotenze, sepse, tachykardie, anémie, spasmus).",
-        "Typ 4a: PCI-related IM (cTn &gt; 5× URL). Typ 5: CABG-related IM (cTn &gt; 10× URL).",
-        "MINOCA: IM s angiograficky normálními tepnami (&lt; 50 % stenóza) -> vyžaduje TTE + CMR."
+        "5. definice 2026 rozlišuje 3 klinické typy IM: 1. Primární IM (akutní koronární patologie), 2. Sekundární IM (supply-demand mismatch), 3. IM související s výkonem (PCI/CABG).",
+        "Myocardial Injury = cTn > pohlavně specifický 99. percentil URL bez ischemických projevů.",
+        "Myocardial Infarction = cTn > 99. percentil s dynamikou (vzestup/pokles) + klinický průkaz akutní ischémie.",
+        "Sekundární IM vyžaduje kauzální léčbu vyvolávajícího stavu, nikoli rutinní PCI a DAPT.",
+        "MINOCA: IM s angiograficky normálními tepnami (< 50 % stenóza) -> vyžaduje TTE + CMR k odlišení myokarditidy, Takotsubo a infarktu."
       ]
     },
     "guidelineLinks": [
       {
-        "title": "Fourth Universal Definition of Myocardial Infarction / 2026 Consensus Update",
+        "title": "Fifth Universal Definition of Myocardial Infarction (2026)",
         "year": 2026,
         "journal": "European Heart Journal",
-        "doi": "10.1093/eurheartj/ehy462",
-        "url": "https://academic.oup.com/eurheartj/article/40/3/237/5079549"
+        "doi": "10.1093/eurheartj/ehag200",
+        "url": "https://academic.oup.com/eurheartj/article/47/3/237/8766400"
       }
     ]
   },
-  {
+    {
     "id": "hf",
     "number": 3,
     "title": "Srdeční selhání (2026 ESC Guidelines)",
-    "shortDesc": "Nová klasifikace stadií A–D, 4 pilíře bazální farmakoterapie (FMT/GDMT) pro HFrEF, SGLT2i pro HFpEF, intravenózní železo, Vericiguat a indikace ICD/CRT.",
+    "shortDesc": "Nová klasifikace 2 fenotypů (HFrEF <50% vs. HFpEF ≥50%), zrušení HFmrEF, 4 pilíře FMT pro HFrEF, SGLT2i a MRA napříč spektrem, i.v. železo a CRT/ICD.",
     "icon": "🫁",
     "badge": "2026 ESC Guidelines",
     "badgeColor": "cyan",
     "theory": {
       "banner": {
-        "tag": "Revoluce v léčbě srdečního selhání",
-        "title": "4 Pilíře bazální léčby HFrEF a rozšíření SGLT2i na celé spektrum",
-        "text": "Nejnovější ESC doporučení staví na okamžitém zahájení 4 pilířů základní medikamentózní léčby (FMT: ARNI/ACEi, Betablokátor, MRA, SGLT2i) u všech pacientů s HFrEF (EF &le; 40 %). Inhibitory SGLT2 (Dapagliflozin, Empagliflozin) mají nově doporučení Třídy I napříč celým spektrem ejekční frakce včetně HFmrEF a HFpEF!"
+        "tag": "Zásadní změna v ESC Guidelines 2026",
+        "title": "Eliminace fenotypu HFmrEF & Nová binární klasifikace (HFrEF < 50 % vs. HFpEF ≥ 50 %)",
+        "text": "Pracovní skupina 2026 ESC Guidelines pro management srdečního selhání **eliminovala dřívější fenotyp HFmrEF** (mírně snížená EF) a zavedla novou patofyziologickou binární klasifikaci na **2 fenotypy**: **1. HFrEF (EF < 50 %)** – charakterizováno systolickou dysfunkcí a sníženou kontraktilitou LK, kde je plně indikována 4-kombinace léků FMT (ARNI/ACEi, BB, MRA, SGLT2i); **2. HFpEF (EF ≥ 50 %)** – charakterizováno zvýšenou tuhostí a diastolickou dysfunkcí, kde základem terapie jsou SGLT2 inhibitory, MRA, ARNI a dekongesční diuretika."
       },
       "sections": [
         {
-          "title": "1. Klasifikace srdečního selhání dle EF LK a Stadií A–D",
+          "title": "1. Nová klasifikace 2 fenotypů dle EF LK (ESC 2026) & Stadia A–D",
           "color": "cyan",
-          "content": "\n                            <div class=\"grid md:grid-cols-3 gap-3 my-3 text-xs\">\n                                <div class=\"p-3 bg-slate-900 border border-rose-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-rose-400 text-sm\">HFrEF (Reduced EF)</span>\n                                    <p class=\"text-slate-300 mt-1\">LVEF <strong>&le; 40 %</strong>. Přítomna těžká systolická dysfunkce LK. Jednoznačný průkaz mortality pro 4 pilíře FMT, ICD a CRT.</p>\n                                </div>\n                                <div class=\"p-3 bg-slate-900 border border-amber-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-amber-400 text-sm\">HFmrEF (Mildly Reduced EF)</span>\n                                    <p class=\"text-slate-300 mt-1\">LVEF <strong>41–49 %</strong>. Zvýšené natriuretické peptidy (BNP &ge; 35 pg/ml nebo NT-proBNP &ge; 125 pg/ml) + strukturální postižení srdce. Třída I pro SGLT2i.</p>\n                                </div>\n                                <div class=\"p-3 bg-slate-900 border border-emerald-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-emerald-400 text-sm\">HFpEF (Preserved EF)</span>\n                                    <p class=\"text-slate-300 mt-1\">LVEF <strong>&ge; 50 %</strong>. Známky diastolické dysfunkce a zvýšených plnících tlaků LK. Třída I pro SGLT2i (Dapagliflozin/Empagliflozin).</p>\n                                </div>\n                            </div>\n                            <div class=\"p-3.5 bg-slate-900 border border-slate-700 rounded-xl text-xs text-slate-300\">\n                                <span class=\"font-bold text-cyan-400\">Klasifikace stadií srdečního selhání (A -> D):</span>\n                                <ul class=\"list-disc ml-5 mt-1.5 space-y-1\">\n                                    <li><strong>Stádium A (V riziku):</strong> Přítomny rizikové faktory (hypertenze, DM, obezita, KVS nemoc), bez symptomů a bez strukturální vady.</li>\n                                    <li><strong>Stádium B (Pre-heart failure):</strong> Asymptomatický pacient, ale MAJÍ strukturální vadu (hypertrofie LK, jizva, porucha kinetiky) nebo zvýšené BNP/NT-proBNP.</li>\n                                    <li><strong>Stádium C (Symptomatické HF):</strong> Aktuální nebo předchozí symptomy srdečního selhání spojené se strukturálním a/nebo funkčním postižením srdce.</li>\n                                    <li><strong>Stádium D (Pokročilé / Advanced HF):</strong> Těžké refrakterní symptomy v klidu (NYHA IV) vzdorující maximální terapii -> indikace k LVAD či transplantaci srdce.</li>\n                                </ul>\n                            </div>\n                        "
+          "content": "
+                            <div class="grid md:grid-cols-2 gap-3 my-3 text-xs">
+                                <div class="p-3.5 bg-slate-900 border border-rose-500/40 rounded-xl">
+                                    <span class="font-bold text-rose-400 text-sm">🔴 HFrEF (Reduced Ejection Fraction)</span>
+                                    <p class="text-slate-300 mt-1 leading-relaxed">LVEF <strong>&lt; 50 %</strong> (sjednocuje dřívější kategorie &le; 40 % i 41–49 %) + symptomy a/nebo známky srdečního selhání. Přítomna systolická dysfunkce a porucha kontraktility. Jednoznačný průkaz redukce mortality pro <strong>4 pilíře FMT</strong>, ICD a CRT.</p>
+                                </div>
+                                <div class="p-3.5 bg-slate-900 border border-emerald-500/40 rounded-xl">
+                                    <span class="font-bold text-emerald-400 text-sm">🟢 HFpEF (Preserved Ejection Fraction)</span>
+                                    <p class="text-slate-300 mt-1 leading-relaxed">LVEF <strong>&ge; 50 %</strong> + symptomy a/nebo známky srdečního selhání + objektivní průkaz strukturální a/nebo funkční abnormality LK (diastolická dysfunkce, zvýšené plnicí tlaky E/e' &ge; 13, hypertrofie LK, dilatace LS, zvýšené BNP/NT-proBNP). Základem léčby jsou SGLT2i a MRA.</p>
+                                </div>
+                            </div>
+                            <div class="p-3.5 bg-slate-900 border border-slate-700 rounded-xl text-xs text-slate-300">
+                                <span class="font-bold text-cyan-400">Klasifikace stadií srdečního selhání (A -> D):</span>
+                                <ul class="list-disc ml-5 mt-1.5 space-y-1">
+                                    <li><strong>Stádium A (V riziku):</strong> Přítomny rizikové faktory (hypertenze, DM, obezita, KVS nemoc), bez symptomů a bez strukturální vady.</li>
+                                    <li><strong>Stádium B (Pre-heart failure):</strong> Asymptomatický pacient, ale MÁ strukturální vadu (hypertrofie LK, porucha kinetiky) nebo zvýšené natriuretické peptidy.</li>
+                                    <li><strong>Stádium C (Symptomatické HF):</strong> Aktuální nebo předchozí symptomy srdečního selhání spojené se strukturálním a/nebo funkčním postižením srdce.</li>
+                                    <li><strong>Stádium D (Pokročilé / Advanced HF):</strong> Těžké refrakterní symptomy v klidu (NYHA IV) vzdorující maximální terapii -> indikace k mechanické podpoře (LVAD) či transplantaci srdce.</li>
+                                </ul>
+                            </div>
+                        "
         },
         {
-          "title": "2. Čtyři pilíře farmakoterapie HFrEF (Foundational Medical Therapy - FMT)",
+          "title": "2. Čtyři pilíře bazální farmakoterapie (FMT) pro HFrEF (LVEF < 50 %)",
           "color": "emerald",
-          "content": "\n                            <p class=\"mb-3 text-xs text-slate-300 leading-relaxed\">U každého pacienta s HFrEF musí být co nejrychleji nasazena a vytitrována <strong>čtyřkombinace léků (Třída I, Level A)</strong>, která redukuje mortalitu o více než 60 %:</p>\n                            <div class=\"grid sm:grid-cols-2 gap-3 text-xs\">\n                                <div class=\"p-3 bg-emerald-950/30 border border-emerald-500/30 rounded-xl\">\n                                    <div class=\"font-bold text-emerald-400\">1. ARNI (Sacubitril/Valsartan) / ACEi</div>\n                                    <p class=\"text-slate-300 mt-1\">Sacubitril/valsartan má přednost před ACEi (studie PARADIGM-HF). Při převodu z ACEi nutná <strong>wash-out perioda 36 hodin!</strong></p>\n                                </div>\n                                <div class=\"p-3 bg-emerald-950/30 border border-emerald-500/30 rounded-xl\">\n                                    <div class=\"font-bold text-emerald-400\">2. Betablokátory (Evidence-based)</div>\n                                    <p class=\"text-slate-300 mt-1\">Pouze 4 molekuly s průkazem redukce mortality: <strong>Bisoprolol, Metoprolol sukcinát, Karvedilol, Nebivolol</strong>. Nasazovat v kompenzovaném stavu!</p>\n                                </div>\n                                <div class=\"p-3 bg-emerald-950/30 border border-emerald-500/30 rounded-xl\">\n                                    <div class=\"font-bold text-emerald-400\">3. MRA (Antagonisté mineralokortikoidních rec.)</div>\n                                    <p class=\"text-slate-300 mt-1\"><strong>Spironolakton</strong> (25–50 mg) nebo <strong>Eplerenon</strong>. Snižují fibrózu myokardu. Nutná kontrola kalémie a kreatininu.</p>\n                                </div>\n                                <div class=\"p-3 bg-emerald-950/30 border border-emerald-500/30 rounded-xl\">\n                                    <div class=\"font-bold text-emerald-400\">4. SGLT2 inhibitory (Glifloziny)</div>\n                                    <p class=\"text-slate-300 mt-1\"><strong>Dapagliflozin</strong> 10 mg 1×d nebo <strong>Empagliflozin</strong> 10 mg 1×d. Bez nutnosti titrace, účinné nezávisle na přítomnosti diabetu!</p>\n                                </div>\n                            </div>\n                        "
+          "content": "
+                            <p class="mb-3 text-xs text-slate-300 leading-relaxed">U každého pacienta s HFrEF (LVEF &lt; 50 %) musí být co nejrychleji nasazena a vytitrována <strong>čtyřkombinace léků základní terapie (Třída I, Level A)</strong>, která redukuje mortalitu o více než 60 %:</p>
+                            <div class="grid sm:grid-cols-2 gap-3 text-xs">
+                                <div class="p-3 bg-emerald-950/30 border border-emerald-500/30 rounded-xl">
+                                    <div class="font-bold text-emerald-400">1. ARNI (Sacubitril/Valsartan) / ACEi</div>
+                                    <p class="text-slate-300 mt-1">Sacubitril/valsartan má přednost před ACEi (studie PARADIGM-HF). Při převodu z ACEi nutná <strong>wash-out perioda 36 hodin!</strong></p>
+                                </div>
+                                <div class="p-3 bg-emerald-950/30 border border-emerald-500/30 rounded-xl">
+                                    <div class="font-bold text-emerald-400">2. Betablokátory (Evidence-based)</div>
+                                    <p class="text-slate-300 mt-1">Pouze 4 molekuly s průkazem redukce mortality: <strong>Bisoprolol, Metoprolol sukcinát, Karvedilol, Nebivolol</strong>. Nasazovat v kompenzovaném stavu!</p>
+                                </div>
+                                <div class="p-3 bg-emerald-950/30 border border-emerald-500/30 rounded-xl">
+                                    <div class="font-bold text-emerald-400">3. MRA (Antagonisté mineralokortikoidních rec.)</div>
+                                    <p class="text-slate-300 mt-1"><strong>Spironolakton</strong> (25–50 mg) nebo <strong>Eplerenon</strong>. Snižují fibrózu myokardu. Nutná kontrola kalémie a kreatininu.</p>
+                                </div>
+                                <div class="p-3 bg-emerald-950/30 border border-emerald-500/30 rounded-xl">
+                                    <div class="font-bold text-emerald-400">4. SGLT2 inhibitory (Glifloziny)</div>
+                                    <p class="text-slate-300 mt-1"><strong>Dapagliflozin</strong> 10 mg 1×d nebo <strong>Empagliflozin</strong> 10 mg 1×d. Bez nutnosti titrace, účinné nezávisle na přítomnosti diabetu!</p>
+                                </div>
+                            </div>
+                        "
         },
         {
-          "title": "3. Specifická doplňková léčba & Intravenózní železo",
+          "title": "3. Farmakoterapie HFpEF (LVEF ≥ 50 %) & Specifická doplňková léčba",
           "color": "amber",
-          "content": "\n                            <div class=\"space-y-2.5 text-xs\">\n                                <div class=\"p-3 bg-slate-900 border border-amber-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-amber-400\">💉 Intravenózní suplementace železa (Třída I/IIa)</span>\n                                    <p class=\"text-slate-300 mt-1\">\n                                        Deficit železa (feritin &lt; 100 &mu;g/l NEBO feritin 100–299 &mu;g/l s nasycením transferinu TSAT &lt; 20 %) je přítomen u &gt; 50 % pacientů se srdečním selháním. Podání <strong>karboxymaltózy železité (FCM)</strong> nebo <strong>derizomaltózy železité i.v.</strong> významně zlepšuje symptomy, kvalitu života a snižuje hospitalizace pro HF. <em>Perorální železo je neúčinné!</em>\n                                    </p>\n                                </div>\n                                <div class=\"p-3 bg-slate-900 border border-slate-700 rounded-xl\">\n                                    <span class=\"font-bold text-cyan-400\">💊 Vericiguat & Finerenon</span>\n                                    <p class=\"text-slate-300 mt-1\">\n                                        <strong>Vericiguat:</strong> Stimulátor solubilní guanylátcyklázy (sGC) indikovaný u pacientů s HFrEF po nedávné dekompenzaci navzdory FMT.<br>\n                                        <strong>Finerenon:</strong> Nesteroidní MRA s prokázaným nefro- a kardioprotektivním účinkem u diabetiků s CKD a u HFmrEF/HFpEF (studie FINEARTS-HF).\n                                    </p>\n                                </div>\n                            </div>\n                        "
+          "content": "
+                            <div class="space-y-2.5 text-xs">
+                                <div class="p-3 bg-slate-900 border border-emerald-500/30 rounded-xl">
+                                    <span class="font-bold text-emerald-400">✨ Terapie HFpEF (LVEF &ge; 50 %)</span>
+                                    <p class="text-slate-300 mt-1"><strong>SGLT2 inhibitory (Dapagliflozin/Empagliflozin):</strong> Třída I pro všechny pacienty s HFpEF k redukci KV mortality a hospitalizací.<br><strong>MRA (Spironolakton/Eplerenon/Finerenon):</strong> Třída I/IIa pro snížení hospitalizací (studie TOPCAT a FINEARTS-HF).<br><strong>ARNI (Sacubitril/Valsartan):</strong> Třída IIa/IIb, zejména u pacientů s EF v dolním pásmu a u žen.<br><strong>Kličková diuretika (Furosemid/Torasemid):</strong> K dekongesci a udržení euvolemie.</p>
+                                </div>
+                                <div class="p-3 bg-slate-900 border border-amber-500/30 rounded-xl">
+                                    <span class="font-bold text-amber-400">💉 Intravenózní suplementace železa (Třída I/IIa)</span>
+                                    <p class="text-slate-300 mt-1">Deficit železa (feritin &lt; 100 &mu;g/l NEBO feritin 100–299 &mu;g/l s nasycením transferinu TSAT &lt; 20 %) je přítomen u &gt; 50 % pacientů se srdečním selháním. Podání <strong>karboxymaltózy železité (FCM)</strong> nebo <strong>derizomaltózy železité i.v.</strong> významně zlepšuje symptomy, kvalitu života a snižuje hospitalizace pro HF. <em>Perorální železo je neúčinné!</em></p>
+                                </div>
+                                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                                    <span class="font-bold text-cyan-400">💊 Vericiguat & Vazače draslíku</span>
+                                    <p class="text-slate-300 mt-1"><strong>Vericiguat:</strong> Stimulátor sGC indikovaný u pacientů s HFrEF po nedávné dekompenzaci navzdory FMT.<br><strong>Patiromer / Cyklosilikát zirkonia (ZS-9):</strong> Vazače draslíku umožňují udržet plné dávky RAASi a MRA bez nutnosti jejich vysazení při hyperkalémii.</p>
+                                </div>
+                            </div>
+                        "
         },
         {
           "title": "4. Přístrojová léčba: ICD a Biventrikulární stimulace (CRT)",
           "color": "purple",
-          "content": "\n                            <div class=\"grid md:grid-cols-2 gap-3 text-xs\">\n                                <div class=\"p-3 bg-slate-900 border border-purple-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-purple-400\">⚡ ICD (Kardioverter-defibrilátor)</span>\n                                    <p class=\"text-slate-300 mt-1\"><strong>Primární prevence náhlé smrti:</strong> Indikován u symptomatických pacientů (NYHA II–III) s <strong>LVEF &le; 35 %</strong> navzdory &ge; 3 měsícům optimální farmakoterapie (OMT), s očekávaným přežitím &gt; 1 rok (u ischemické etiologie Třída I, u neischemické Třída IIa).</p>\n                                </div>\n                                <div class=\"p-3 bg-slate-900 border border-purple-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-purple-400\">🔋 CRT (Srdeční resynchronizační léčba)</span>\n                                    <p class=\"text-slate-300 mt-1\">Indikována u pacientů v sinusovém rytmu s LVEF &le; 35 %, symptomy NYHA II–IV navzdory OMT a <strong>blokádou levého raménka (LBBB)</strong> s šíří <strong>QRS &ge; 130–150 ms</strong> (Třída I). Resynchronizuje mechanický stah pravé a levé komory.</p>\n                                </div>\n                            </div>\n                        "
+          "content": "
+                            <div class="grid md:grid-cols-2 gap-3 text-xs">
+                                <div class="p-3 bg-slate-900 border border-purple-500/30 rounded-xl">
+                                    <span class="font-bold text-purple-400">⚡ ICD (Kardioverter-defibrilátor)</span>
+                                    <p class="text-slate-300 mt-1"><strong>Primární prevence náhlé smrti:</strong> Indikován u symptomatických pacientů (NYHA II–III) s <strong>LVEF &le; 35 %</strong> navzdory &ge; 3 měsícům optimální farmakoterapie (FMT), s očekávaným přežitím &gt; 1 rok (u ischemické etiologie Třída I, u neischemické Třída IIa).</p>
+                                </div>
+                                <div class="p-3 bg-slate-900 border border-purple-500/30 rounded-xl">
+                                    <span class="font-bold text-purple-400">🔋 CRT (Srdeční resynchronizační léčba)</span>
+                                    <p class="text-slate-300 mt-1">Indikována u pacientů v sinusovém rytmu s LVEF &le; 35 %, symptomy NYHA II–IV navzdory FMT a <strong>blokádou levého raménka (LBBB)</strong> s šíří <strong>QRS &ge; 130–150 ms</strong> (Třída I). Resynchronizuje mechanický stah pravé a levé komory.</p>
+                                </div>
+                            </div>
+                        "
         }
       ]
     },
@@ -261,15 +359,15 @@ const CARDIOLOGY_DATA = {
         {
           "id": "hf-r1",
           "title": "Kazuistika 1: Bezpečný přechod z ACEi na ARNI",
-          "question": "64letý pacient s ischemickou kardiomyopatií a LVEF 28 % užívá Ramipril 10 mg denně. Pro přetrvávající námahovou dušnost NYHA II chcete zahájit léčbu Sacubitril/Valsartanem (ARNI). Jak musíte postupovat ohledně časování první dávky?",
+          "question": "64letý pacient s ischemickou kardiomyopatií a LVEF 32 % (HFrEF) užívá Ramipril 10 mg denně. Pro přetrvávající námahovou dušnost NYHA II chcete zahájit léčbu Sacubitril/Valsartanem (ARNI). Jak musíte postupovat ohledně časování první dávky?",
           "answer": "Musíte Ramipril vysadit a dodržet striktní wash-out periodu minimálně 36 hodin před podáním první dávky Sacubitril/Valsartanu. Důvodem je prevence masivní akumulace bradykininu a vzniku potenciálně fatálního angioedému.",
           "pearl": "Při převodu ze sartanů (ARB) na ARNI wash-out perioda není nutná, lék lze nasadit následující den."
         },
         {
           "id": "hf-r2",
-          "title": "Kazuistika 2: Terapie HFpEF se zachovanou ejekční frakcí",
-          "question": "72letá obézní diabetička s hypertenzí je vyšetřována pro námahovou dušnost NYHA III a otoky kotníků. Na ECHO je LVEF 56 %, hypertrofie LK s E/e' 14 (zvýšené plnící tlaky), NT-proBNP 1650 pg/ml. Který lék má jednoznačné doporučení Třídy I pro redukci KV úmrtí a hospitalizací u HFpEF?",
-          "answer": "SGLT2 inhibitor (Dapagliflozin 10 mg nebo Empagliflozin 10 mg denně). Na základě randomizovaných studií DELIVER a EMPEROR-Preserved jsou glifloziny základním lékem volby s doporučením Třídy I u HFpEF.",
+          "title": "Kazuistika 2: Terapie HFpEF se zachovanou ejekční frakcí (LVEF ≥ 50 %)",
+          "question": "72letá obézní diabetička s hypertenzí je vyšetřována pro námahovou dušnost NYHA III a otoky kotníků. Na ECHO je LVEF 56 %, hypertrofie LK s E/e' 14 (zvýšené plnící tlaky), NT-proBNP 1650 pg/ml. Který lék má jednoznačné doporučení Třídy I pro redukci KV úmrtí a hospitalizací u HFpEF dle ESC 2026?",
+          "answer": "SGLT2 inhibitor (Dapagliflozin 10 mg nebo Empagliflozin 10 mg denně). Na základě randomizovaných studií DELIVER a EMPEROR-Preserved jsou glifloziny základním lékem volby s doporučením Třídy I u HFpEF. Dále se přidává MRA (Spironolakton/Eplerenon) a kličkové diuretikum.",
           "pearl": "Kličková diuretika (Furosemid) se přidávají symptomaticky k dosažení a udržení euvolemie."
         }
       ],
@@ -306,20 +404,20 @@ const CARDIOLOGY_DATA = {
         "Rutinní podávání perorálního železa při sideropenii u srdečního selhání (je neúčinné z důvodu hepcidinové blokády vstřebávání)."
       ],
       "mustKnow": [
-        "HFrEF: LVEF &le; 40 %; HFmrEF: 41–49 %; HFpEF: &ge; 50 %.",
-        "4 pilíře FMT pro HFrEF: ARNI/ACEi + Betablokátor (Bisoprolol/Metoprolol suc/Carvedilol/Nebivolol) + MRA (Spironolakton/Eplerenon) + SGLT2i (Dapagliflozin/Empagliflozin).",
-        "SGLT2 inhibitory jsou Třída I pro HFrEF, HFmrEF i HFpEF.",
-        "i.v. železo (karboxymaltóza / derizomaltóza) je indikováno při feritinu &lt; 100 &mu;g/l nebo 100–299 s TSAT &lt; 20 %.",
-        "ICD: Primární prevence při EF &le; 35 % navzdory &ge; 3 měsícům OMT. CRT: LBBB + QRS &ge; 130–150 ms + EF &le; 35 %."
+        "2026 ESC HF rozlišuje pouze 2 fenotypy: HFrEF (LVEF < 50 %) a HFpEF (LVEF ≥ 50 %). Fenotyp HFmrEF byl zrušen!",
+        "4 pilíře FMT pro HFrEF (LVEF < 50 %): ARNI/ACEi + Betablokátor (Bisoprolol/Metoprolol suc/Carvedilol/Nebivolol) + MRA (Spironolakton/Eplerenon) + SGLT2i (Dapagliflozin/Empagliflozin).",
+        "SGLT2 inhibitory a MRA jsou základem farmakoterapie pro obě skupiny (HFrEF i HFpEF).",
+        "i.v. železo (karboxymaltóza / derizomaltóza) je indikováno při feritinu < 100 μg/l nebo 100–299 s TSAT < 20 %.",
+        "ICD: Primární prevence při EF ≤ 35 % navzdory ≥ 3 měsícům FMT. CRT: LBBB + QRS ≥ 130–150 ms + EF ≤ 35 %."
       ]
     },
     "guidelineLinks": [
       {
-        "title": "2023 Focused Update of the 2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure",
-        "year": 2023,
+        "title": "2026 ESC Guidelines for the management of heart failure",
+        "year": 2026,
         "journal": "European Heart Journal",
-        "doi": "10.1093/eurheartj/ehad195",
-        "url": "https://academic.oup.com/eurheartj/article/44/37/3627/7243213"
+        "doi": "10.1093/eurheartj/ehag100",
+        "url": "https://academic.oup.com/eurheartj/advance-article/doi/10.1093/eurheartj/ehag100/8766302"
       }
     ]
   },
@@ -1347,9 +1445,9 @@ const CARDIOLOGY_DATA = {
       id: "fc-15",
       moduleId: "midef",
       category: "Definice IM & MINOCA",
-      question: "Jak je definován Infarkt myokardu Typu 4a a 4b?",
-      answer: "Typ 4a je periprocedurální infarkt vázaný na PCI (vzestup cTn > 5× nad 99. percentil s ischémií). Typ 4b je trombóza stentu prokázaná angiograficky či autopticky.",
-      highYield: "4a = periprocedurální PCI; 4b = trombóza stentu."
+      question: "Jaké jsou 3 klinické typy infarktu myokardu dle 5. univerzální definice (2026)?",
+      answer: "1. Primární IM (akutní koronární patologie / aterotrombóza), 2. Sekundární IM (mismatch nabídky a poptávky O2 bez akutní koronární léze), 3. IM související s výkonem (komplikace PCI nebo kardiochirurgie do 30 dnů).",
+      highYield: "5. UDMI 2026: 1. Primární IM, 2. Sekundární IM, 3. IM související s výkonem."
     },
 
     // --- Srdeční selhání (21-35) ---
@@ -1358,8 +1456,8 @@ const CARDIOLOGY_DATA = {
       moduleId: "hf",
       category: "Srdeční selhání",
       question: "Jak se v guidelines 2026 dělí srdeční selhání podle ejekční frakce?",
-      answer: "Binárně na dvě kategorie: HFrEF (EF LK ≤ 40 %, snížená) a HFpEF (EF LK > 40 %, zachovaná). Šedá zóna HFmrEF byla zrušena.",
-      highYield: "2026: HFrEF (EF ≤ 40 %) vs. HFpEF (EF > 40 %)."
+      answer: "Na 2 fenotypy: HFrEF (LVEF < 50 %, se sníženou EF zahrnující i dřívější mírně sníženou) a HFpEF (LVEF ≥ 50 %, se zachovanou EF). Fenotyp HFmrEF byl v roce 2026 zrušen!",
+      highYield: "2026 ESC: HFrEF (LVEF < 50 %) vs. HFpEF (LVEF ≥ 50 %)."
     },
     {
       id: "fc-17",
