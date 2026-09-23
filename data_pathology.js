@@ -224,7 +224,7 @@ const PATHOLOGY_QUESTIONS = [
     category: "Speciální patologie",
     title: "Nádory plic – bronchogenní karcinom (dlaždicobuněčný, malobuněčný, adenokarcinom) – histologie, lokalizace a prognóza.",
     organSystem: "Respirační systém",
-    keyTerms: ["Dlaždicobuněčný karcinom", "Adenokarcinom", "Malobuněčný karcinom", "Paraneoplastický syndrom", "Neuroendokrinní differentiation"],
+    keyTerms: ["Dlaždicobuněčný karcinom", "Adenokarcinom", "Malobuněčný karcinom", "Paraneoplastický syndrom", "Neuroendokrinní diferenciace"],
     quiz: [
       {
         question: "Který typ plicního karcinomu je typicky lokalizován centrálně, vykazuje neuroendokrinní diferenciaci, je extrémně agresivní a často spojen s paraneoplastickými syndromy?",
