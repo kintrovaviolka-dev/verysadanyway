@@ -106,12 +106,7 @@ if (cleanupInterval.unref) {
 
 function getClientIp(req) {
   if (req.ip) return req.ip;
-  const forwarded = req.headers['x-vercel-forwarded-for'] || req.headers['x-forwarded-for'];
-  if (typeof forwarded === 'string') {
-    const ips = forwarded.split(',');
-    return ips[ips.length - 1].trim();
-  }
-  return req.socket?.remoteAddress || 'unknown';
+  return req.headers['x-vercel-forwarded-for'] || req.socket?.remoteAddress || 'unknown';
 }
 
 app.use((req, res, next) => {

@@ -1,0 +1,4 @@
+{
+  "title": "🔒 Fix IP Spoofing in Rate Limiter",
+  "description": "🎯 **What:** The `getClientIp` function in `api/chat.js`, `api/podcast.js`, and `server.js` was vulnerable to IP spoofing because it manually parsed the `x-forwarded-for` header and took the last IP without verification.\n\n⚠️ **Risk:** An attacker could bypass rate limits by spoofing the `x-forwarded-for` header, potentially leading to abuse of the Gemini API and related services.\n\n🛡️ **Solution:** Removed the manual parsing of `x-forwarded-for`. The implementation now relies on securely populated headers like `x-vercel-forwarded-for` (which Vercel sanitizes) for serverless functions, and correctly delegates to `req.ip` when the express app is configured with `app.set('trust proxy', 1)`."
+}
