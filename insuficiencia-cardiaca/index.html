@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Insuficiencia Cardíaca – Guías ESC 2026 | Medicina Interna I</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="presentation.css">
+</head>
+<body class="presentation-body">
+
+  <!-- Top Progress Bar -->
+  <header class="pres-header">
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <div class="header-content">
+      <div class="course-badge">
+        <span class="pulse-dot"></span>
+        <span class="badge-text">MEDICINA INTERNA I • 7º SEMESTRE</span>
+      </div>
+      <div class="pres-title-mini">Insuficiencia Cardíaca (ESC 2026)</div>
+      <div class="header-controls">
+        <span class="slide-indicator" id="slideIndicator">1 / 16</span>
+        <button class="icon-btn" id="btnGrid" title="Ver todas las diapositivas (G)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+        </button>
+        <button class="icon-btn" id="btnNotes" title="Notas del docente (N)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+        </button>
+        <button class="icon-btn" id="btnFullscreen" title="Pantalla completa (F)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Presentation Stage Container -->
+  <main class="presentation-stage" id="presentationStage">
+
+    <!-- Slide 1: Portada -->
+    <section class="slide active" data-slide="1" data-notes="Bienvenida a los alumnos de 7º semestre. Enfatizar que esta clase sintetiza las nuevas guías ESC 2026, destacando la simplificación a 2 fenotipos clínicos y la implementación inmediata de los 4 pilares.">
+      <div class="slide-content cover-layout">
+        <div class="cover-visual-bg"></div>
+        <div class="hero-tag-group">
+          <span class="tag-pill tag-esc">GUÍAS ESC 2026</span>
+          <span class="tag-pill tag-med">CLÍNICA MÉDICA</span>
+          <span class="tag-pill tag-year">7º SEMESTRE</span>
+        </div>
+        <h1 class="hero-title">
+          Insuficiencia <span class="gradient-text">Cardíaca</span>
+        </h1>
+        <p class="hero-subtitle">
+          Fisiopatología, Diagnóstico Escalonado y Terapia Médica Fundamental en los 2 Fenotipos Clínicos
+        </p>
+        <div class="hero-footer-card">
+          <div class="author-item">
+            <div class="author-icon">🩺</div>
+            <div>
+              <div class="author-label">Cátedra</div>
+              <div class="author-name">Medicina Interna I</div>
+            </div>
+          </div>
+          <div class="author-item">
+            <div class="author-icon">📚</div>
+            <div>
+              <div class="author-label">Enfoque</div>
+              <div class="author-name">ESC Guidelines 2026</div>
+            </div>
+          </div>
+          <div class="author-item">
+            <div class="author-icon">⏱️</div>
+            <div>
+              <div class="author-label">Duración Estimada</div>
+              <div class="author-name">45 – 50 min</div>
+            </div>
+          </div>
+        </div>
+        <div class="action-prompt">
+          <span class="key-hint">Desliza en móvil o presiona <kbd>→</kbd> / <kbd>Espacio</kbd></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 2: Objetivos de Aprendizaje -->
+    <section class="slide" data-slide="2" data-notes="Explicar los 5 objetivos cardinales. Este semestre nos enfocamos en que el estudiante no sólo memorice fármacos, sino que entienda cómo iniciar los 4 pilares de forma segura sin retrasos innecesarios.">
+      <div class="slide-content">
+        <div class="slide-badge">MAPA DE LA CLASE</div>
+        <h2 class="slide-title">Objetivos de Aprendizaje Cardinales</h2>
+        <div class="goals-grid">
+          <div class="goal-card" style="--accent: #3b82f6;">
+            <div class="goal-num">01</div>
+            <h3>Definición y Fisiopatología</h3>
+            <p>Comprender la tríada clínica universal y el círculo vicioso del remodelado neurohormonal (SRAA, SNS, Neprilisina).</p>
+          </div>
+          <div class="goal-card" style="--accent: #ec4899;">
+            <div class="goal-num">02</div>
+            <h3>Los 2 Fenotipos ESC 2026</h3>
+            <p>Dominar la clasificación dual: <strong>ICFEr (&lt; 50%)</strong> vs. <strong>ICFEp (≥ 50%)</strong> tras la eliminación definitiva del fenotipo HFmrEF.</p>
+          </div>
+          <div class="goal-card" style="--accent: #10b981;">
+            <div class="goal-num">03</div>
+            <h3>Terapia de 4 Pilares (FMT)</h3>
+            <p>Aprender la prescripción simultánea y titulación de ARNI, Betabloqueantes, ARM e iSGLT2 para reducir mortalidad.</p>
+          </div>
+          <div class="goal-card" style="--accent: #f59e0b;">
+            <div class="goal-num">04</div>
+            <h3>Descompensación Aguda (DHF)</h3>
+            <p>Estratificar según los 4 perfiles hemodinámicos de Stevenson e indicar diuréticos de asa según respuesta natriurética.</p>
+          </div>
+          <div class="goal-card" style="--accent: #8b5cf6;">
+            <div class="goal-num">05</div>
+            <h3>Resolución de Casos Reales</h3>
+            <p>Integrar el juicio clínico en pases de visita con toma de decisiones terapéuticas interactivas y de alta seguridad.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 3: Definición Universal & Fisiopatología -->
+    <section class="slide" data-slide="3" data-notes="Resaltar la definición universal: la IC no es un diagnóstico etiológico, sino un síndrome clínico complejo. Destacar la elevación de péptidos natriuréticos como marcador objetivo de sobrecarga de presión o volumen.">
+      <div class="slide-content">
+        <div class="slide-badge">FUNDAMENTOS CLÍNICOS</div>
+        <h2 class="slide-title">Definición Universal y Cascada Fisiopatológica</h2>
+        
+        <div class="quote-box">
+          <p><strong>Definición Universal (ESC 2026):</strong> Síndrome clínico caracterizado por síntomas cardinales (disnea, ortopnea, fatiga) ± signos objetivos (edemas, ingurgitación yugular, R3), causados por una alteración cardíaca estructural o funcional que genera presiones intracardíacas elevadas o gasto cardíaco insuficiente.</p>
+        </div>
+
+        <div class="patho-flow-grid">
+          <div class="patho-step">
+            <div class="step-badge">1. Injuria Inicial</div>
+            <h4>Agresión Miocárdica</h4>
+            <p>Isquemia (IM), sobrecarga de presión (HTA), miocardiopatías o tóxicos $\rightarrow$ pérdida o rigidez de miocitos.</p>
+          </div>
+          <div class="patho-arrow">→</div>
+          <div class="patho-step highlight-step">
+            <div class="step-badge">2. Compensación Maladaptativa</div>
+            <h4>Activación Neurohormonal</h4>
+            <p><strong>SNS</strong> (taquicardia, vasoconstricción), <strong>SRAA</strong> (retención de $\text{Na}^+/\text{H}_2\text{O}$), degradación de péptidos natriuréticos por <strong>Neprilisina</strong>.</p>
+          </div>
+          <div class="patho-arrow">→</div>
+          <div class="patho-step">
+            <div class="step-badge">3. Consecuencia Clínica</div>
+            <h4>Remodelado & Congestión</h4>
+            <p>Fibrosis intersticial, hipertrofia/dilatación ventricular, aumento de presiones de llenado y congestión pulmonar/sistémica.</p>
+          </div>
+        </div>
+
+        <div class="callout-card">
+          <span class="callout-icon">💡</span>
+          <div>
+            <strong>Perla Fisiopatológica:</strong> El corazón intenta compensar la caída del gasto activando el sistema simpático y la angiotensina II. A corto plazo salvan la perfusión; a medio y largo plazo provocan apoptosis celular, fibrosis y muerte por insuficiencia de bomba o arritmias ventriculares.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 4: Los 2 Fenotipos ESC 2026 -->
+    <section class="slide" data-slide="4" data-notes="Punto clave 2026: Explicar por qué se eliminó HFmrEF (41-49%). Los estudios demostraron que los pacientes con FEVI entre 41-49% responden a los mismos fármacos que FEVI < 40%, por lo que la clasificación se unificó en FEVI < 50% vs FEVI >= 50%.">
+      <div class="slide-content">
+        <div class="slide-badge">PARADIGMA ESC 2026</div>
+        <h2 class="slide-title">Clasificación Fenotípica: Solo 2 Grupos Clínicos</h2>
+        
+        <div class="alert-box-warning">
+          <strong>⚠️ Actualización Crucial 2026:</strong> La categoría intermedia <em>HFmrEF</em> (41–49%) ha sido <strong>eliminada definitivamente</strong>. La evidencia clínica demostró que responde de manera idéntica al tratamiento que las fracciones menores. La IC se divide ahora estrictamente en <strong>2 fenotipos</strong> según el punto de corte del 50%.
+        </div>
+
+        <div class="phenotype-dual-grid">
+          <!-- HFrEF Card -->
+          <div class="phenotype-card card-hfref">
+            <div class="pheno-header">
+              <span class="pheno-tag tag-hfref">ICFEr • HFrEF</span>
+              <h3>Fracción de Eyección Reducida</h3>
+              <div class="lvef-badge">&lt; 50 %</div>
+            </div>
+            <ul class="pheno-list">
+              <li><strong>Fisiopatología:</strong> Falla de bomba sistólica primaria, dilatación de cavidad, pérdida progresiva de sarcómeros.</li>
+              <li><strong>Etiología típica:</strong> Cardiopatía isquémica post-IM, miocardiopatía dilatada idiopática, miocarditis.</li>
+              <li><strong>Manejo:</strong> Terapia Médica Fundamental de <strong>4 Pilares obligatorios</strong> con beneficio demostrado en supervivencia (Clase I, A).</li>
+            </ul>
+          </div>
+
+          <!-- HFpEF Card -->
+          <div class="phenotype-card card-hfpef">
+            <div class="pheno-header">
+              <span class="pheno-tag tag-hfpef">ICFEp • HFpEF</span>
+              <h3>Fracción de Eyección Preservada</h3>
+              <div class="lvef-badge">≥ 50 %</div>
+            </div>
+            <ul class="pheno-list">
+              <li><strong>Fisiopatología:</strong> Rigidez miocárdica, hipertrofia concéntrica, disfunción diastólica ($E/e' &gt; 14$) y congestión venosa retrógrada.</li>
+              <li><strong>Etiología típica:</strong> HTA de larga data, diabetes mellitus, obesidad, edad avanzada, amiloidosis cardíaca.</li>
+              <li><strong>Manejo:</strong> <strong>iSGLT2</strong> (Clase I) + <strong>ARM</strong> + <strong>ARNI</strong> + Agonistas GLP-1 (en obesidad) + control etiológico estricto.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 5: Ruta Diagnóstica Escalonada -->
+    <section class="slide" data-slide="5" data-notes="Detallar el algoritmo diagnóstico de 3 pasos: sospecha clínica -> biomarcadores natriuréticos de exclusión -> ecocardiograma transtorácico obligatorio.">
+      <div class="slide-content">
+        <div class="slide-badge">MÉTODO CLÍNICO</div>
+        <h2 class="slide-title">Algoritmo Diagnóstico Escalonado</h2>
+
+        <div class="diag-steps-row">
+          <!-- Step 1 -->
+          <div class="diag-step-card">
+            <div class="step-circle">1</div>
+            <h4>Sospecha Clínica</h4>
+            <div class="step-detail">
+              <p><strong>Síntomas:</strong> Disnea de esfuerzo, ortopnea, disnea paroxística nocturna (DPN), fatiga.</p>
+              <p><strong>Signos cardinales:</strong> Ingurgitación yugular (IY a 45°), reflujo hepatoyugular, tercer tono (R3), crepitantes pulmonares bibasales, edemas maleolares simétricos.</p>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="diag-step-card highlight-card">
+            <div class="step-circle">2</div>
+            <h4>Biomarcadores (Péptidos)</h4>
+            <div class="step-detail">
+              <p><strong>Valor Predictivo Negativo &gt; 98%:</strong></p>
+              <div class="biomarker-box">
+                <div><span>NT-proBNP</span> <strong>&lt; 125 pg/mL</strong></div>
+                <div><span>BNP</span> <strong>&lt; 35 pg/mL</strong></div>
+              </div>
+              <p class="micro-note">Si los valores están por debajo, la IC es extremadamente improbable. En urgencias: punto de corte en agudo NT-proBNP &gt; 300 pg/mL.</p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="diag-step-card">
+            <div class="step-circle">3</div>
+            <h4>Ecocardiograma (ETT)</h4>
+            <div class="step-detail">
+              <p><strong>Estudio Confirmatorio de Elección:</strong></p>
+              <ul>
+                <li>Cuantificación de FEVI (Simpson biplano).</li>
+                <li>Volumen indexado de aurícula izquierda (LAVI &gt; 34 mL/m²).</li>
+                <li>Relación $E/e'$ (&gt; 14 indica presiones elevadas).</li>
+                <li>Presión Sistólica Arterial Pulmonar (PSAP).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="mnemonic-banner">
+          <span class="m-icon">🎯</span>
+          <span><strong>Regla Diagnóstica de Guardia:</strong> Un paciente con disnea y NT-proBNP normal <em>NO TIENE</em> insuficiencia cardíaca aguda; busca tromboembolismo pulmonar, asma, neumonía o anemia.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 6: Terapia de 4 Pilares en ICFEr -->
+    <section class="slide" data-slide="6" data-notes="Esta es la diapositiva central de la clase. Los 4 pilares deben presentarse con su mecanismo, beneficio en mortalidad y fármacos representativos. Enfatizar que se inician los 4 simultáneamente a dosis bajas.">
+      <div class="slide-content">
+        <div class="slide-badge">FARMACOTERAPIA FUNDAMENTAL</div>
+        <h2 class="slide-title">ICFEr (&lt; 50%): Los 4 Pilares Innegociables (FMT)</h2>
+
+        <div class="pillars-grid-4">
+          <!-- Pillar 1 -->
+          <div class="pillar-card p-arni">
+            <div class="pillar-top">
+              <span class="pillar-number">PILAR 1</span>
+              <span class="pillar-class">Clase I, A</span>
+            </div>
+            <h3>ARNI</h3>
+            <div class="drug-name">Sacubitrilo / Valsartán</div>
+            <p class="pillar-desc">Inhibe neprilisina (↑ péptidos natriuréticos endógenos) y bloquea receptor $AT_1$. Supera a los IECAs (estudio PARADIGM-HF).</p>
+            <div class="pillar-target">Dosis inicial: 24/26 mg bid → Meta: 97/103 mg bid</div>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="pillar-card p-bb">
+            <div class="pillar-top">
+              <span class="pillar-number">PILAR 2</span>
+              <span class="pillar-class">Clase I, A</span>
+            </div>
+            <h3>Betabloqueantes</h3>
+            <div class="drug-name">Bisoprolol • Carvedilol • Metoprolol ZOK</div>
+            <p class="pillar-desc">Bloquean la hiperactividad simpática, previenen arritmias letales y promueven el remodelado ventricular inverso.</p>
+            <div class="pillar-target">Iniciar con paciente estable sin congestión masiva</div>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="pillar-card p-mra">
+            <div class="pillar-top">
+              <span class="pillar-number">PILAR 3</span>
+              <span class="pillar-class">Clase I, A</span>
+            </div>
+            <h3>ARM</h3>
+            <div class="drug-name">Espironolactona • Eplerenona</div>
+            <p class="pillar-desc">Antagonistas del receptor mineralocorticoide. Frenan la fibrosis miocárdica y vascular, y retienen potasio.</p>
+            <div class="pillar-target">Espironolactona 25 mg/d (vigilar K+ sérico y eGFR)</div>
+          </div>
+
+          <!-- Pillar 4 -->
+          <div class="pillar-card p-sglt2">
+            <div class="pillar-top">
+              <span class="pillar-number">PILAR 4</span>
+              <span class="pillar-class">Clase I, A</span>
+            </div>
+            <h3>iSGLT2 (Gliflozinas)</h3>
+            <div class="drug-name">Dapagliflozina • Empagliflozina</div>
+            <p class="pillar-desc">Inhiben cotransporte $\text{Na}^+$/Glucosa renal. Efecto metabólico mitocondrial y descongestión sin caída de PA.</p>
+            <div class="pillar-target">Dosis fija: 10 mg/día (¡no requiere titulación!)</div>
+          </div>
+        </div>
+
+        <div class="pillars-summary-card">
+          <strong>Resultado Clínico Combinado:</strong> La combinación precoz de los 4 pilares reduce la mortalidad por cualquier causa en más del <strong>60% a 2 años</strong> comparado con el tratamiento histórico convencional.
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 7: Estrategia de Inicio Rápido y Seguridad -->
+    <section class="slide" data-slide="7" data-notes="Explicar la regla del inicio rápido (primeras 4 semanas) y la regla de oro de seguridad: las 36 horas de lavado entre IECA y ARNI. Explicar qué hacer ante elevaciones leves de creatinina.">
+      <div class="slide-content">
+        <div class="slide-badge">PRÁCTICA CLÍNICA</div>
+        <h2 class="slide-title">Estrategia de Inicio Simultáneo & Reglas de Seguridad</h2>
+
+        <div class="strategy-columns">
+          <div class="strategy-col">
+            <div class="col-header">
+              <span class="col-icon">⚡</span>
+              <h3>Inicio Rápido en 4 Semanas</h3>
+            </div>
+            <div class="timeline-box">
+              <div class="t-step">
+                <span class="t-dot"></span>
+                <div>
+                  <strong>Semana 1 (Hospital o Consulta):</strong>
+                  <p>Iniciar simultáneamente dosis bajas de <strong>iSGLT2 + Betabloqueante + ARNI (o IECA) + ARM</strong>.</p>
+                </div>
+              </div>
+              <div class="t-step">
+                <span class="t-dot"></span>
+                <div>
+                  <strong>Semana 2 a 4:</strong>
+                  <p>Duplicar dosis de ARNI y Betabloqueante según tolerancia hemodinámica ($\text{PA} \ge 95\text{ mmHg}$, $\text{FC} \ge 60\text{ lpm}$).</p>
+                </div>
+              </div>
+              <div class="t-step">
+                <span class="t-dot"></span>
+                <div>
+                  <strong>Control Bioquímico a los 7-14 días:</strong>
+                  <p>Monitorear $\text{K}^+$ sérico y creatinina (un aumento de creatinina hasta el $30\%$ es transitorio y tolerable).</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="strategy-col safety-col">
+            <div class="col-header">
+              <span class="col-icon">🛡️</span>
+              <h3>Reglas de Oro de Seguridad</h3>
+            </div>
+            <div class="safety-cards-stack">
+              <div class="safety-rule-card red-rule">
+                <h4>🔴 Ventana de Lavado de 36 Horas</h4>
+                <p>Al pasar de un IECA (ej. enalapril) a ARNI (sacubitrilo/valsartán), es <strong>OBLIGATORIO</strong> suspender el IECA durante 36 h completas para evitar un <strong>angioedema letal</strong> por exceso de bradicinina.</p>
+              </div>
+
+              <div class="safety-rule-card amber-rule">
+                <h4>🟠 Manejo del Potasio Sérico</h4>
+                <p>Suspender o reducir ARM si $\text{K}^+ &gt; 5.5\text{ mmol/L}$. Si $\text{K}^+ &gt; 6.0\text{ mmol/L}$, suspender temporalmente y asociar quelantes de $\text{K}^+$ (Pativirómero).</p>
+              </div>
+
+              <div class="safety-rule-card blue-rule">
+                <h4>🔵 iSGLT2: Fácil y Seguro</h4>
+                <p>No provocan hipoglucemia en pacientes no diabéticos y tienen un impacto mínimo en la presión arterial.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 8: Manejo Farmacológico de ICFEp -->
+    <section class="slide" data-slide="8" data-notes="Explicar que la ICFEp (FEVI >= 50%) dejó de ser un 'huérfano terapéutico'. Los iSGLT2 demostraron reducir hospitalizaciones de forma contundente (estudios EMPEROR-Preserved y DELIVER), y la semaglutida demostró mejorar síntomas en fenotipo obeso (STEP-HFpEF).">
+      <div class="slide-content">
+        <div class="slide-badge">FRACCIÓN PRESERVADA</div>
+        <h2 class="slide-title">Manejo Integral de la ICFEp (FEVI ≥ 50%)</h2>
+
+        <div class="hfpef-framework-grid">
+          <!-- Col 1: FMT -->
+          <div class="hfpef-box hfpef-core">
+            <div class="box-tag">COLUMNA VERTEBRAL</div>
+            <h3>1. iSGLT2 (Clase I, A)</h3>
+            <p><strong>Empagliflozina 10 mg</strong> o <strong>Dapagliflozina 10 mg</strong></p>
+            <p class="box-desc">Demostraron en los ensayos <em>EMPEROR-Preserved</em> y <em>DELIVER</em> una reducción del <strong>20% en el endpoint combinado</strong> de muerte cardiovascular y hospitalizaciones por IC.</p>
+          </div>
+
+          <!-- Col 2: Moduladores -->
+          <div class="hfpef-box hfpef-second">
+            <div class="box-tag">MODULACIÓN HEMODINÁMICA</div>
+            <h3>2. ARM + ARNI</h3>
+            <ul class="box-bullets">
+              <li><strong>ARM (Espironolactona 25 mg):</strong> Reduce la rigidez miocárdica y el remodelado fibrótico diastólico.</li>
+              <li><strong>ARNI (Sacubitrilo/Valsartán):</strong> Particularmente eficaz en mujeres y en el rango de FEVI limítrofe (50–57%).</li>
+            </ul>
+          </div>
+
+          <!-- Col 3: Fenotipo Metabólico -->
+          <div class="hfpef-box hfpef-metabolic">
+            <div class="box-tag">FENOTIPO OBESIDAD / DM2</div>
+            <h3>3. Agonistas GLP-1 & Tirzepatida</h3>
+            <p><strong>Semaglutida s.c. (estudio STEP-HFpEF)</strong></p>
+            <p class="box-desc">En pacientes con ICFEp e $\text{IMC} \ge 30\text{ kg/m}^2$, induce pérdida ponderal sustancial, disminuye la carga inflamatoria pericárdica y mejora la capacidad funcional y calidad de vida.</p>
+          </div>
+        </div>
+
+        <div class="hfpef-control-row">
+          <div class="control-item">
+            <span class="c-badge">Diuréticos</span>
+            <span>Uso juicioso de Furosemida a dosis mínima para mantener euvolemia sin provocar hipovolemia prerrenal.</span>
+          </div>
+          <div class="control-item">
+            <span class="c-badge">Fibrilación Auricular</span>
+            <span>Control estricto de frecuencia o ritmo (ablación precoz) y anticoagulación con DOACs según $CHA_2DS_2\text{-}VA$.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 9: Terapias Complementarias Específicas -->
+    <section class="slide" data-slide="9" data-notes="Mencionar las terapias dirigidas a fenotipos específicos: Vericiguat para empeoramiento reciente, Tafamidis para amiloidosis, suplementación con hierro e.v., e Ivabradina.">
+      <div class="slide-content">
+        <div class="slide-badge">TERAPIAS AVANZADAS</div>
+        <h2 class="slide-title">Fármacos Específicos & Fenotipos Especiales</h2>
+
+        <div class="targeted-cards-grid">
+          <!-- Card 1: Vericiguat -->
+          <div class="targeted-card">
+            <div class="t-icon">⚡</div>
+            <h4>Vericiguat</h4>
+            <div class="t-sub">Estimulador soluble de Guuanilato Ciclasa (sGC)</div>
+            <p><strong>Indicación:</strong> Pacientes con ICFEr empeorada tras un ingreso reciente por descompensación o necesidad de diuréticos e.v. (estudio VICTORIA).</p>
+            <span class="t-badge">Restituye la vía NO-sGC-cGMP</span>
+          </div>
+
+          <!-- Card 2: Tafamidis -->
+          <div class="targeted-card highlight-targeted">
+            <div class="t-icon">🧬</div>
+            <h4>Tafamidis</h4>
+            <div class="t-sub">Estabilizador del tetrámero de Transtiretina (TTR)</div>
+            <p><strong>Indicación:</strong> Amiloidosis cardíaca por transtiretina (ATTR-CA, nativa o mutada). Frena el depósito amiloide y reduce mortalidad.</p>
+            <span class="t-badge">Terapia modificadora de enfermedad</span>
+          </div>
+
+          <!-- Card 3: Hierro e.v. -->
+          <div class="targeted-card">
+            <div class="t-icon">🩸</div>
+            <h4>Hierro Carboximaltosa i.v.</h4>
+            <div class="t-sub">Tratamiento del Déficit Marcial</div>
+            <p><strong>Indicación:</strong> Ferritina $&lt; 100\text{ ng/mL}$ o Ferritina $100\text{--}299$ con IST $&lt; 20\%$, con o sin anemia. Mejora capacidad funcional y hospitalizaciones.</p>
+            <span class="t-badge">¡El hierro oral es ineficaz en IC!</span>
+          </div>
+
+          <!-- Card 4: Ivabradina -->
+          <div class="targeted-card">
+            <div class="t-icon">💓</div>
+            <h4>Ivabradina</h4>
+            <div class="t-sub">Inhibidor selectivo de corriente $I_f$ del nodo SA</div>
+            <p><strong>Indicación:</strong> Pacientes en ritmo sinusal con $\text{FC} \ge 70\text{ lpm}$ que persisten sintomáticos a pesar de dosis máxima tolerada de betabloqueante.</p>
+            <span class="t-badge">Disminuye consumo de O2 sin efecto inótropo</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 10: Dispositivos y Terapia Eléctrica -->
+    <section class="slide" data-slide="10" data-notes="Recordar los criterios estrictos para DAI (prevención de muerte súbita) y TRC (resincronización en bloqueo de rama izquierda).">
+      <div class="slide-content">
+        <div class="slide-badge">TERAPIA CON DISPOSITIVOS</div>
+        <h2 class="slide-title">Dispositivos Implantables: DAI y Resincronización (TRC)</h2>
+
+        <div class="device-dual-grid">
+          <!-- ICD Card -->
+          <div class="device-card">
+            <div class="device-header">
+              <span class="dev-badge badge-dai">DAI / ICD</span>
+              <h3>Desfibrilador Automático Implantable</h3>
+            </div>
+            <div class="dev-body">
+              <p><strong>Objetivo:</strong> Prevención de muerte súbita por arritmias ventriculares malignas (TV/FV).</p>
+              <div class="criteria-box">
+                <strong>Criterios de Indicación (Clase I):</strong>
+                <ul>
+                  <li>$\text{FEVI} \le 35\%$ tras al menos <strong>3 meses de tratamiento médico óptimo (FMT)</strong>.</li>
+                  <li>Clase funcional NYHA II – III.</li>
+                  <li>Expectativa de vida con buena calidad &gt; 1 año.</li>
+                  <li>Etiología isquémica (&gt;40 días post-IM) o no isquémica.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- CRT Card -->
+          <div class="device-card">
+            <div class="device-header">
+              <span class="dev-badge badge-trc">TRC / CRT</span>
+              <h3>Terapia de Resincronización Cardíaca</h3>
+            </div>
+            <div class="dev-body">
+              <p><strong>Objetivo:</strong> Corregir la disincronía electromecánica interventricular e intraventricular.</p>
+              <div class="criteria-box">
+                <strong>Criterios de Indicación (Clase I, A):</strong>
+                <ul>
+                  <li>$\text{FEVI} \le 35\%$ sintomáticos a pesar de FMT óptima.</li>
+                  <li>Ritmo sinusal con <strong>Bloqueo Completo de Rama Izquierda (BCRIHH)</strong>.</li>
+                  <li>Duración del $\text{QRS} \ge 150\text{ ms}$ (o $130\text{--}149\text{ ms}$ Clase IIa).</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="transplant-strip">
+          <span>🚀 <strong>Estadios Finales (NYHA IV / INTERMACS 1–4):</strong> Valorar Asistencia Ventricular Mecánica de larga duración (LVAD como puente al trasplante o terapia de destino) y Trasplante Cardíaco Ortotópico.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 11: Insuficiencia Cardíaca Descompensada (ICD) – Perfiles de Stevenson -->
+    <section class="slide" data-slide="11" data-notes="Perfiles de Stevenson: herramienta clínica esencial en la cabecera del paciente en urgencias. Preguntar: ¿Está caliente o frío? ¿Está húmedo o seco? La inmensa mayoría de ingresos son 'Caliente y Húmedo'.">
+      <div class="slide-content">
+        <div class="slide-badge">URGENCIAS MÉDICAS</div>
+        <h2 class="slide-title">Insuficiencia Cardíaca Descompensada: Perfiles de Stevenson</h2>
+
+        <div class="stevenson-matrix-wrapper">
+          <div class="matrix-axis-y">← PERFUSIÓN TISULAR (Gasto Cardíaco) →</div>
+          <div class="stevenson-grid">
+            <!-- Caliente y Seco -->
+            <div class="matrix-quadrant q-dry-warm">
+              <div class="quad-header">
+                <span class="quad-tag">Perfil A</span>
+                <h4>CALIENTE & SECO</h4>
+              </div>
+              <p class="quad-state">Compensado • Euvolemia • Buena perfusión</p>
+              <div class="quad-rx"><strong>Manejo:</strong> Ajuste o titulación de tratamiento médico ambulatorio (FMT).</div>
+            </div>
+
+            <!-- Caliente y Húmedo -->
+            <div class="matrix-quadrant q-wet-warm highlight-quad">
+              <div class="quad-header">
+                <span class="quad-tag tag-dominant">Perfil B • &gt; 85% de casos</span>
+                <h4>CALIENTE & HÚMEDO</h4>
+              </div>
+              <p class="quad-state">Congestivo • Bien perfundido • $\text{PA}$ normal/alta</p>
+              <div class="quad-rx"><strong>Manejo de Elección:</strong> Diuréticos de asa e.v. (Furosemida) + Vasodilatadores (Nitroglicerina) si $\text{PAS} &gt; 110\text{ mmHg}$.</div>
+            </div>
+
+            <!-- Frío y Seco -->
+            <div class="matrix-quadrant q-dry-cold">
+              <div class="quad-header">
+                <span class="quad-tag">Perfil L</span>
+                <h4>FRÍO & SECO</h4>
+              </div>
+              <p class="quad-state">Hipoperfusión • Sin congestión • Hipovolemia</p>
+              <div class="quad-rx"><strong>Manejo:</strong> Prueba cautelosa de sobrecarga de volumen con cristaloides ($250\text{--}500\text{ mL}$).</div>
+            </div>
+
+            <!-- Frío y Húmedo -->
+            <div class="matrix-quadrant q-wet-cold alert-quad">
+              <div class="quad-header">
+                <span class="quad-tag tag-shock">Perfil C • Shock Cardiogénico</span>
+                <h4>FRÍO & HÚMEDO</h4>
+              </div>
+              <p class="quad-state">Hipoperfusión tisular severa + Congestión sistémica/pulmonar</p>
+              <div class="quad-rx"><strong>Manejo:</strong> Inotrópicos (Dobutamina / Levosimendán) + Vasopresor (Noradrenalina si $\text{PAS} &lt; 90$). Diuréticos una vez restaurada la perfusión.</div>
+            </div>
+          </div>
+          <div class="matrix-axis-x">← ESTADO DE CONGESTIÓN (Presión de Llenado) →</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 12: Protocolo del Diurético de Asa -->
+    <section class="slide" data-slide="12" data-notes="Detallar cómo usar la furosemida e.v. con el protocolo ESC: medir sodio urinario a las 2h o diuresis horaria. Si no responde, duplicar dosis y luego bloquear la nefrona en otros sitios.">
+      <div class="slide-content">
+        <div class="slide-badge">PROTOCOLO DE URGENCIA</div>
+        <h2 class="slide-title">Protocolo Escalonado de Descongestión con Diuréticos</h2>
+
+        <div class="diuretic-protocol-grid">
+          <!-- Step A -->
+          <div class="d-card">
+            <div class="d-header">
+              <span class="d-num">Paso 1</span>
+              <h4>Dosis de Carga i.v.</h4>
+            </div>
+            <ul class="d-list">
+              <li><strong>Paciente sin diurético previo:</strong> 20 a 40 mg de Furosemida e.v. en bolo.</li>
+              <li><strong>Paciente en tratamiento crónico oral:</strong> 1 a 2.5 veces su dosis diaria oral administrada en bolo e.v. (ej. si toma 40 mg p.o. $\rightarrow$ administrar 40 a 80 mg e.v.).</li>
+            </ul>
+          </div>
+
+          <!-- Step B -->
+          <div class="d-card d-highlight">
+            <div class="d-header">
+              <span class="d-num">Paso 2</span>
+              <h4>Evaluación Precoz (2h y 6h)</h4>
+            </div>
+            <div class="target-eval-box">
+              <div class="eval-row">
+                <span>🎯 Sodio Urinario a las 2 h:</span>
+                <strong>&gt; 50 – 70 mmol/L</strong>
+              </div>
+              <div class="eval-row">
+                <span>🎯 Ritmo Diurético a las 6 h:</span>
+                <strong>&gt; 100 – 150 mL / hora</strong>
+              </div>
+            </div>
+            <p class="eval-rule">Si se alcanza la meta: Mantener la pauta cada 12 horas hasta lograr euvolemia completa.</p>
+          </div>
+
+          <!-- Step C -->
+          <div class="d-card">
+            <div class="d-header">
+              <span class="d-num">Paso 3</span>
+              <h4>Bloqueo Secuencial</h4>
+            </div>
+            <ul class="d-list">
+              <li>Si la respuesta natriurética es insuficiente: <strong>Duplicar la dosis</strong> de Furosemida e.v.</li>
+              <li>Si persiste resistencia diurética: Añadir <strong>bloqueo secuencial de la nefrona</strong> asociando Tiazidas (Hidroclorotiazida), Indapamida, Acetazolamida (inhibidor AC) o iSGLT2.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pearl-banner-warning">
+          <span>⚠️ <strong>Cuidado:</strong> El alivio de la congestión clínica no significa suspensión inmediata de la terapia de base. Los 4 pilares deben mantenerse o iniciarse antes del alta médica hospitalaria.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 13: Caso Clínico 1 (Interactivo) -->
+    <section class="slide" data-slide="13" data-notes="Pase de visita interactivo. Dejar que los estudiantes piensen y voten la mejor opción antes de revelar la respuesta correcta con su justificación.">
+      <div class="slide-content case-slide">
+        <div class="slide-badge">PASE DE VISITA CLÍNICO • CASO 1</div>
+        <h2 class="slide-title">Caso Clínico: ICFEr de Novo Post-Infarto</h2>
+
+        <div class="case-layout">
+          <div class="case-vignette">
+            <div class="vignette-header">
+              <div class="patient-avatar">👨‍🦳</div>
+              <div>
+                <h4>Paciente: Don Carlos, 63 años</h4>
+                <p>Ingreso en planta de Medicina Interna tras angioplastia primaria por infarto anterior hace 5 días.</p>
+              </div>
+            </div>
+            <div class="vignette-data">
+              <div class="data-item"><span>Clase Funcional:</span> <strong>NYHA III (Disnea a mínimos esfuerzos)</strong></div>
+              <div class="data-item"><span>Ecocardiograma:</span> <strong>FEVI 34 % (Acinesia anterior extensa)</strong></div>
+              <div class="data-item"><span>Biomarcadores:</span> <strong>NT-proBNP 3,850 pg/mL • K+ 4.3 mmol/L</strong></div>
+              <div class="data-item"><span>Constantes:</span> <strong>PA 118/74 mmHg • FC 82 lpm • Euvolemia</strong></div>
+              <div class="data-item"><span>Función Renal:</span> <strong>eGFR 68 mL/min/1.73m²</strong></div>
+            </div>
+          </div>
+
+          <div class="case-interactive-panel">
+            <h4 class="q-title">Pregunta Docente: ¿Cuál es la conducta terapéutica de alta más adecuada según las Guías ESC 2026?</h4>
+            <div class="case-options" id="caseOptions1">
+              <button class="case-opt-btn" data-correct="false" onclick="handleCaseAnswer(this, 1, false)">
+                <span class="opt-letter">A</span>
+                <span class="opt-text">Alta sólo con Furosemida 40 mg/d y Enalapril 5 mg/d; esperar 3 meses para añadir betabloqueantes en consulta ambulatoria.</span>
+              </button>
+              <button class="case-opt-btn" data-correct="true" onclick="handleCaseAnswer(this, 1, true)">
+                <span class="opt-letter">B</span>
+                <span class="opt-text">Iniciar precozmente antes del alta los 4 Pilares a dosis bajas: Sacubitrilo/Valsartán + Bisoprolol + Espironolactona + Empagliflozina.</span>
+              </button>
+              <button class="case-opt-btn" data-correct="false" onclick="handleCaseAnswer(this, 1, false)">
+                <span class="opt-letter">C</span>
+                <span class="opt-text">Prescribir Verapamilo para bajar la frecuencia cardíaca y Digoxina para aumentar la contractilidad miocárdica.</span>
+              </button>
+            </div>
+            <div class="case-feedback" id="caseFeedback1"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 14: Caso Clínico 2 (Interactivo) -->
+    <section class="slide" data-slide="14" data-notes="Caso de ICFEp típica en paciente anciana con síndrome metabólico. Resaltar la combinación de iSGLT2 + ARM y el rol innovador de los análogos de GLP-1/Tirzepatida.">
+      <div class="slide-content case-slide">
+        <div class="slide-badge">PASE DE VISITA CLÍNICO • CASO 2</div>
+        <h2 class="slide-title">Caso Clínico: ICFEp en Paciente con Síndrome Metabólico</h2>
+
+        <div class="case-layout">
+          <div class="case-vignette">
+            <div class="vignette-header">
+              <div class="patient-avatar">👵</div>
+              <div>
+                <h4>Paciente: Doña Elena, 74 años</h4>
+                <p>Antecedentes de hipertensión arterial mal controlada, diabetes tipo 2 y obesidad grado II ($\text{IMC } 35.4\text{ kg/m}^2$).</p>
+              </div>
+            </div>
+            <div class="vignette-data">
+              <div class="data-item"><span>Motivo de Consulta:</span> <strong>Disnea progresiva al caminar 50m y edemas vespertinos</strong></div>
+              <div class="data-item"><span>Ecocardiograma:</span> <strong>FEVI 58 % • Hipertrofia VI concéntrica • E/e' 15.6</strong></div>
+              <div class="data-item"><span>Biomarcadores:</span> <strong>NT-proBNP 920 pg/mL • HbA1c 8.1%</strong></div>
+              <div class="data-item"><span>Constantes:</span> <strong>PA 154/90 mmHg • FC 76 lpm sinusal</strong></div>
+            </div>
+          </div>
+
+          <div class="case-interactive-panel">
+            <h4 class="q-title">Pregunta Docente: ¿Cuál es la estrategia farmacológica de primera línea recomendada por las Guías ESC 2026?</h4>
+            <div class="case-options" id="caseOptions2">
+              <button class="case-opt-btn" data-correct="false" onclick="handleCaseAnswer(this, 2, false)">
+                <span class="opt-letter">A</span>
+                <span class="opt-text">Tratar únicamente con dieta hiposódica y Furosemida a demanda, ya que con FEVI normal no existen fármacos modificadores del pronóstico.</span>
+              </button>
+              <button class="case-opt-btn" data-correct="true" onclick="handleCaseAnswer(this, 2, true)">
+                <span class="opt-letter">B</span>
+                <span class="opt-text">Indicar Empagliflozina 10 mg/d (Clase I) + Espironolactona 25 mg/d + optimización tensional con ARNI/ARA-II + Semaglutida/Tirzepatida para componente metabólico.</span>
+              </button>
+              <button class="case-opt-btn" data-correct="false" onclick="handleCaseAnswer(this, 2, false)">
+                <span class="opt-letter">C</span>
+                <span class="opt-text">Indicar Diltiazem intravenoso y suspender toda medicación previa hasta que baje de peso.</span>
+              </button>
+            </div>
+            <div class="case-feedback" id="caseFeedback2"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 15: Perlas Clínicas para el Examen -->
+    <section class="slide" data-slide="15" data-notes="Repasar estas 5 perlas de alta rentabilidad. Son preguntas clásicas tanto en el examen de Medicina Interna como en el examen de residencia (MIR/ENARM).">
+      <div class="slide-content">
+        <div class="slide-badge">CHECKLIST PARA EL EXAMEN</div>
+        <h2 class="slide-title">5 Perlas Clínicas "Must-Know" de Medicina Interna</h2>
+
+        <div class="pearls-cards-grid">
+          <div class="exam-pearl-card">
+            <div class="p-num">1</div>
+            <h4>El Período de Lavado de 36 Horas</h4>
+            <p>Pregunta clásica: Nunca superponer un IECA con Sacubitrilo/Valsartán. Se requieren estrictamente <strong>36 horas de intervalo</strong> para permitir la reconstitución de la enzima convertidora y evitar el angioedema letal.</p>
+          </div>
+
+          <div class="exam-pearl-card">
+            <div class="p-num">2</div>
+            <h4>Verapamilo & Diltiazem en ICFEr</h4>
+            <p>Están <strong>CONTRAINDICADOS</strong> en pacientes con $\text{FEVI} &lt; 50\%$. Su potente efecto inotrópico negativo puede precipitar shock cardiogénico o edema agudo de pulmón.</p>
+          </div>
+
+          <div class="exam-pearl-card">
+            <div class="p-num">3</div>
+            <h4>iSGLT2 en Pacientes NO Diabéticos</h4>
+            <p>Las gliflozinas (Dapagliflozina, Empagliflozina) tienen indicación <strong>Clase I, A</strong> en todos los pacientes con IC, independientemente de si tienen o no diabetes mellitus. No causan hipoglucemia en normoglucémicos.</p>
+          </div>
+
+          <div class="exam-pearl-card">
+            <div class="p-num">4</div>
+            <h4>AINEs: Enemigos Mortales</h4>
+            <p>Los antiinflamatorios no esteroideos (ibuprofeno, naproxeno, diclofenaco) inhiben las prostaglandinas renales, provocan vasoconstricción de la arteriola aferente, retención de sodio y anulan el efecto diurético.</p>
+          </div>
+
+          <div class="exam-pearl-card">
+            <div class="p-num">5</div>
+            <h4>Elevación Leve de Creatinina tras Iniciar FMT</h4>
+            <p>Un incremento de hasta el <strong>$20\text{--}30\%$ de la creatinina sérica</strong> tras iniciar ARNI o iSGLT2 refleja cambios hemodinámicos glomerulares y no daño tubular intrínseco. ¡No suspender el fármaco!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 16: Conclusiones y Mensajes para Llevar a Casa -->
+    <section class="slide" data-slide="16" data-notes="Cierre de la presentación. Agradecer a los alumnos y abrir el turno de preguntas clínicas.">
+      <div class="slide-content summary-slide">
+        <div class="slide-badge">MENSAJES CLAVE</div>
+        <h2 class="slide-title">Conclusiones & Mensajes para Llevar a Casa</h2>
+
+        <div class="takehome-grid">
+          <div class="takehome-item">
+            <div class="t-check">✓</div>
+            <div>
+              <strong>Nueva Clasificación Binaria:</strong> Solo existen 2 fenotipos en 2026: ICFEr ($\text{FEVI} &lt; 50\%$) e ICFEp ($\text{FEVI} \ge 50\%$).
+            </div>
+          </div>
+          <div class="takehome-item">
+            <div class="t-check">✓</div>
+            <div>
+              <strong>Los 4 Pilares Salvan Vidas:</strong> Iniciar ARNI + Betabloqueante + ARM + iSGLT2 de forma precoz y simultánea en ICFEr.
+            </div>
+          </div>
+          <div class="takehome-item">
+            <div class="t-check">✓</div>
+            <div>
+              <strong>Revolución en ICFEp:</strong> Los iSGLT2 son el pilar Clase I junto a la modulación de comorbilidades (obesidad/DM2 con agonistas GLP-1).
+            </div>
+          </div>
+          <div class="takehome-item">
+            <div class="t-check">✓</div>
+            <div>
+              <strong>Enfoque Hemodinámico en Urgencias:</strong> Identificar el perfil de Stevenson y dosificar Furosemida guiada por natriuresis precoz.
+            </div>
+          </div>
+        </div>
+
+        <div class="final-card-banner">
+          <div class="final-avatar">🎓</div>
+          <div>
+            <h3>¡Excelente trabajo en la clase de Medicina Interna I!</h3>
+            <p>Estudien estas diapositivas para el pase de visita y la discusión de casos en el hospital.</p>
+          </div>
+          <button class="restart-btn" onclick="goToSlide(1)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 4v6h6M23 20v-6h-6"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
+            Reiniciar Presentación
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Interactive Presentation Controls -->
+  <footer class="pres-footer">
+    <div class="footer-left">
+      <span class="brand-text">Medicina Interna I • Cátedra de Cardiología Clínica</span>
+    </div>
+    <div class="footer-center">
+      <button class="nav-control-btn" id="btnPrev" title="Anterior (←)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        <span>Anterior</span>
+      </button>
+      <div class="slide-dots" id="slideDots"></div>
+      <button class="nav-control-btn btn-primary" id="btnNext" title="Siguiente (→ / Espacio)">
+        <span>Siguiente</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+    </div>
+    <div class="footer-right">
+      <span class="shortcut-tip"><kbd>←</kbd> <kbd>→</kbd> para navegar</span>
+    </div>
+  </footer>
+
+  <!-- Slide Overview Grid Modal -->
+  <div class="grid-modal" id="gridModal">
+    <div class="grid-modal-backdrop" id="gridBackdrop"></div>
+    <div class="grid-modal-content">
+      <div class="grid-modal-header">
+        <h3>Índice de Diapositivas</h3>
+        <button class="close-modal-btn" id="btnCloseGrid">✕</button>
+      </div>
+      <div class="grid-thumbnails" id="gridThumbnails"></div>
+    </div>
+  </div>
+
+  <!-- Speaker Notes Drawer -->
+  <div class="notes-drawer" id="notesDrawer">
+    <div class="notes-header">
+      <div class="notes-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+        <span>Notas del Docente / Guía Pedagógica</span>
+      </div>
+      <button class="close-notes-btn" id="btnCloseNotes">✕</button>
+    </div>
+    <div class="notes-body" id="notesContent">
+      Cargando notas de la diapositiva...
+    </div>
+  </div>
+
+  <!-- Tap Zones for Touch Devices -->
+  <div class="touch-zone left-touch" id="leftTouch"></div>
+  <div class="touch-zone right-touch" id="rightTouch"></div>
+
+  <script src="presentation.js"></script>
+</body>
+</html>
