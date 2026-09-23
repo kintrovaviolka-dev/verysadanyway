@@ -46,7 +46,7 @@ function checkRateLimit(ip, type) {
 }
 
 function getClientIp(req) {
-  return req.headers['x-forwarded-for'] || req.socket.remoteAddress || 'unknown';
+  return req.headers['x-vercel-forwarded-for'] || req.socket?.remoteAddress || 'unknown';
 }
 
 // --- REFERER & TOKEN VALIDATION MIDDLEWARE ---
