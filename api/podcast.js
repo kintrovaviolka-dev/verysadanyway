@@ -282,8 +282,13 @@ router.post('/generate-audio', validateAccess, validateCaptcha, async (req, res)
 
   try {
     // 1. Vygenerovat jednotlivé repliky z Fish AI
+    // We pre-populate tempFiles with the intended paths so that cleanup
+    // will successfully catch all files created by async tasks even if one of them fails.
     for (let i = 0; i < dialogue.length; i++) {
-      const replica = dialogue[i];
+        tempFiles.push(path.join(tempAudioDir, `temp_${sessionToken}_${i}.mp3`));
+    }
+
+    const fetchPromises = dialogue.map(async (replica, i) => {
       const voiceId = replica.speaker === 'Teacher' ? teacherVoiceId : studentVoiceId;
       
       const response = await fetch('https://api.fish.audio/v1/tts', {
@@ -307,10 +312,11 @@ router.post('/generate-audio', validateAccess, validateCaptcha, async (req, res)
 
       // Uložit dočasné audio
       const chunkBuffer = Buffer.from(await response.arrayBuffer());
-      const chunkPath = path.join(tempAudioDir, `temp_${sessionToken}_${i}.mp3`);
+      const chunkPath = tempFiles[i];
       await fs.promises.writeFile(chunkPath, chunkBuffer);
-      tempFiles.push(chunkPath);
-    }
+    });
+
+    await Promise.all(fetchPromises);
 
     // 2. Sloučit soubory pomocí ffmpeg
     const finalFileName = `podcast_${sessionToken}.mp3`;
