@@ -138,7 +138,7 @@ function buildPharmDatabase() {
 function parseMedicalMarkdown(text) {
   if (!text) return "";
   
-  // 1. Fix the alert/bell character anomaly \u0007lpha -> α and other Unicode controls
+  // 1. [COMPLETED] Fix the alert/bell character anomaly \u0007lpha -> α and other Unicode controls
   let res = text.replace(/\u0007lpha/g, "α")
                 .replace(/\x08eta/g, "β")
                 .replace(/\x1Bpsilon/g, "ε")
