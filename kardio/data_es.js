@@ -1,1326 +1,1269 @@
-// data_es.js - Base de datos completa de Cardiología para 4.º curso de Medicina General (Versión en Español)
-// 12 módulos (Desglose en 3 fases: Teoría/Aprender -> Active Recall/Casos -> Resumen Final/Tahák) + 115 tarjetas de Repetición Espaciada
+// data_es.js - Base de datos completa de Cardiología en Español
+// 12 módulos (3 fases: Teoría/Learn -> Active Recall -> Resumen/Breakdown) + 115+ Flashcards
 // Actualizado según las últimas Guías ESC (2023–2026)
 
 const CARDIOLOGY_DATA_ES = {
   modules: [
-  {
-    "id": "aks",
-    "number": 1,
-    "title": "Síndromes Coronarios Agudos (SCA)",
-    "shortDesc": "SCACEST, SCASEST y angina inestable. Guías ESC 2023, algoritmo hs-cTn 0h/1h, tiempos de coronariografía, estrategia DAPT, pre-tratamiento y prevención secundaria.",
-    "icon": "🫀",
-    "badge": "Guías ESC 2023",
-    "badgeColor": "rose",
-    "theory": {
-      "banner": {
-        "tag": "Cambio de paradigma (Guías ESC 2023)",
-        "title": "El SCA como un espectro integrado de enfermedad",
-        "text": "Por primera vez, la ESC unifica las recomendaciones de SCACEST y SCASEST en un solo documento común (Guías ESC 2023 de SCA). El síndrome coronario agudo representa un continuum desde la angina inestable y el SCASEST hasta el SCACEST transmural, compartiendo una fisiopatología común (rotura o erosión de placa aterosclerótica con trombosis intraluminal sobreañadida)."
-      },
-      "sections": [
-        {
-          "title": "1. Fisiopatología y Triaje: SCACEST vs. SCASEST",
-          "color": "rose",
-          "content": "\n                            <p class=\"mb-3 text-slate-300 leading-relaxed\">\n                                Fisiopatológicamente distinguimos la <strong>rotura de placa</strong> (más frecuente en varones con capa fibrosa fina y gran núcleo lipídico), la <strong>erosión de placa</strong> (más frecuente en mujeres y fumadores jóvenes con capa fibrosa intacta) y el <strong>nódulo calcificado</strong>.\n                            </p>\n                            <div class=\"grid md:grid-cols-2 gap-3 my-3 text-xs\">\n                                <div class=\"p-3.5 bg-rose-950/40 border border-rose-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-rose-400 text-sm\">🚨 SCACEST (Con elevación del ST)</span>\n                                    <p class=\"text-slate-300 mt-1 leading-relaxed\">Oclusión transmural completa de una arteria epicárdica por un trombo rojo rico en fibrina. Indicación inmediata de reperfusión (ICP primaria en &lt; 90 min desde el diagnóstico, o &lt; 60 min en centro con hemodinámica).</p>\n                                </div>\n                                <div class=\"p-3.5 bg-amber-950/40 border border-amber-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-amber-400 text-sm\">⚠️ SCASEST (Sin elevación del ST)</span>\n                                    <p class=\"text-slate-300 mt-1 leading-relaxed\">Oclusión subtotal por un trombo blanco plaquetario o microembolización distal. La distinción entre SCASEST y angina inestable se basa en la positividad de la troponina de alta sensibilidad (hs-cTn).</p>\n                                </div>\n                            </div>\n                        "
-        },
-        {
-          "title": "2. Diagnóstico rápido: Algoritmo hs-cTn 0 h / 1 h y 0 h / 2 h",
-          "color": "emerald",
-          "content": "\n                            <p class=\"mb-3 text-slate-300 text-xs leading-relaxed\">\n                                La base diagnóstica en el SCASEST es la determinación de <strong>troponina cardíaca de alta sensibilidad (hs-cTnI / hs-cTnT)</strong>. La ESC recomienda de forma prioritaria el <strong>algoritmo 0h / 1h</strong> (o 0h / 2h):\n                            </p>\n                            <div class=\"grid md:grid-cols-3 gap-3 my-3\">\n                                <div class=\"bg-emerald-950/40 border border-emerald-500/30 p-3.5 rounded-xl\">\n                                    <div class=\"text-emerald-400 font-bold mb-1 text-xs\">📉 RULE-OUT (Descarte)</div>\n                                    <p class=\"text-[11px] text-slate-300 leading-relaxed\">Valor inicial de hs-cTn <strong>muy bajo</strong> (ej. hs-cTnT &lt; 5 ng/l) <strong>O</strong> valor inicial bajo sin aumento tras 1h (Δ1h bajo el umbral). Tras descartar otras patologías, alta segura y manejo ambulatorio.</p>\n                                </div>\n                                <div class=\"bg-amber-950/40 border border-amber-500/30 p-3.5 rounded-xl\">\n                                    <div class=\"text-amber-400 font-bold mb-1 text-xs\">👀 OBSERVE (Observación)</div>\n                                    <p class=\"text-[11px] text-slate-300 leading-relaxed\">Pacientes que no cumplen criterios ni de descarte ni de confirmación. Requieren <strong>tercera determinación de hs-cTn a las 3 horas</strong> y ecocardiograma transtorácico urgente.</p>\n                                </div>\n                                <div class=\"bg-rose-950/40 border border-rose-500/30 p-3.5 rounded-xl\">\n                                    <div class=\"text-rose-400 font-bold mb-1 text-xs\">📈 RULE-IN (Confirmación)</div>\n                                    <p class=\"text-[11px] text-slate-300 leading-relaxed\">Valor inicial de hs-cTn <strong>marcadamente elevado</strong> (ej. hs-cTnT &ge; 52 ng/l) <strong>O</strong> incremento significativo a la 1h (Δ1h &ge; 5 ng/l). Indicación de ingreso en Unidad Coronaria y coronariografía invasiva.</p>\n                                </div>\n                            </div>\n                        "
-        },
-        {
-          "title": "3. Tiempos de la estrategia invasiva y Reperfusión",
-          "color": "amber",
-          "content": "\n                            <div class=\"space-y-3 text-xs\">\n                                <div class=\"p-3.5 rounded-xl bg-rose-950/40 border border-rose-500/40\">\n                                    <div class=\"font-bold text-rose-400 mb-1\">🚨 Estrategia invasiva inmediata (&lt; 2 horas - Emergencia)</div>\n                                    <p class=\"text-slate-300 mb-2\"><strong>Todos los SCACEST</strong> y <strong>SCASEST de muy alto riesgo</strong>:</p>\n                                    <ul class=\"list-disc ml-5 text-slate-300 space-y-1\">\n                                        <li>Shock cardiogénico o inestabilidad hemodinámica.</li>\n                                        <li>Dolor torácico refractario o recurrente en reposo pese a tratamiento.</li>\n                                        <li>Arritmias ventriculares malignas (FV o TV sostenida) o parada cardíaca.</li>\n                                        <li>Complicaciones mecánicas del infarto (rotura papilar, CIV).</li>\n                                        <li>Insuficiencia cardíaca aguda secundaria a isquemia miocárdica.</li>\n                                        <li>Cambios dinámicos del ST-T (especialmente elevación intermitente del ST).</li>\n                                    </ul>\n                                </div>\n                                <div class=\"p-3.5 rounded-xl bg-amber-950/40 border border-amber-500/40\">\n                                    <div class=\"font-bold text-amber-400 mb-1\">⏱️ Estrategia invasiva precoz (&lt; 24 horas)</div>\n                                    <p class=\"text-slate-300 mb-2\"><strong>SCASEST de alto riesgo (Clase IIa):</strong></p>\n                                    <ul class=\"list-disc ml-5 text-slate-300 space-y-1\">\n                                        <li>Diagnóstico confirmado de NSTEMI según algoritmo hs-cTn.</li>\n                                        <li>Puntuación de riesgo GRACE &gt; 140 puntos.</li>\n                                        <li>Cambios isquémicos dinámicos del segmento ST o de las ondas T.</li>\n                                    </ul>\n                                </div>\n                                <div class=\"p-3.5 rounded-xl bg-slate-900 border border-slate-700\">\n                                    <div class=\"font-bold text-cyan-400 mb-1\">💉 Fibrinólisis en SCACEST: ¿Cuándo y cómo?</div>\n                                    <p class=\"text-slate-300\">\n                                        Si el tiempo estimado desde el diagnóstico de SCACEST hasta la apertura de la arteria (FMC-to-wire) <strong>supera los 120 minutos</strong>, está indicada la <strong>fibrinólisis sistémica inmediata</strong> (Tenecteplasa i.v. en bolo según peso) en los primeros <strong>10 minutos</strong>, seguida de traslado urgente a centro con ICP en 2–24 horas (estrategia farmacoinvasiva).\n                                    </p>\n                                </div>\n                            </div>\n                        "
-        },
-        {
-          "title": "4. Antiagregación, Anticoagulación y Prohibición del Pre-tratamiento",
-          "color": "cyan",
-          "content": "\n                            <div class=\"space-y-3 text-xs\">\n                                <div class=\"p-3.5 bg-slate-900 border border-rose-500/40 rounded-xl\">\n                                    <h5 class=\"font-bold text-rose-400 mb-1.5 text-xs\">❌ Prohibición del pre-tratamiento en SCASEST (Clase III)</h5>\n                                    <p class=\"text-slate-300 leading-relaxed\">\n                                        La administración rutinaria de un inhibidor P2Y12 (prasugrel, ticagrelor, clopidogrel) <em>antes de conocer la anatomía coronaria</em> en SCASEST programados para coronariografía precoz <strong>no se recomienda (Clase III)</strong>. Incrementa hemorragias graves, no reduce eventos isquémicos y retrasa la opción de cirugía de bypass urgente (CABG). ¡El fármaco se administra en la mesa de hemodinámica tras confirmar la ICP!\n                                    </p>\n                                </div>\n                                <div class=\"p-3.5 bg-slate-900 border border-slate-700 rounded-xl\">\n                                    <h5 class=\"font-bold text-cyan-400 mb-1.5 text-xs\">💊 Estrategia DAPT (Prasugrel vs. Ticagrelor)</h5>\n                                    <p class=\"text-slate-300 leading-relaxed\">\n                                        En la ICP por SCA, se prefiere <strong>Prasugrel</strong> (dosis de carga 60 mg, mantenimiento 10 mg/d; 5 mg en &ge; 75 años o &lt; 60 kg) frente a <strong>Ticagrelor</strong> (180 mg carga, 90 mg/12h) según el ensayo ISAR-REACT 5. <em>¡Prasugrel está contraindicado en antecedentes de ICTUS/AIT!</em>\n                                    </p>\n                                </div>\n                                <div class=\"p-3.5 bg-slate-900 border border-cyan-500/30 rounded-xl\">\n                                    <h5 class=\"font-bold text-cyan-400 mb-1.5 text-xs\">🩸 Fibrilación auricular + SCA sometido a ICP</h5>\n                                    <p class=\"text-slate-300 leading-relaxed\">\n                                        Terapia triple (<strong>TAT: ACOD a dosis completa + Aspirina + Clopidogrel 75 mg</strong>) limitada únicamente a la <strong>estancia hospitalaria (&le; 1 semana)</strong>. Después, terapia dual (<strong>DAT: ACOD + Clopidogrel</strong>) hasta los 12 meses. Desde el mes 12, monoterapia exclusiva con ACOD. ¡Nunca usar Prasugrel o Ticagrelor en la terapia triple (Clase III)!\n                                    </p>\n                                </div>\n                            </div>\n                        "
-        },
-        {
-          "title": "5. Prevención secundaria y 'The Big 5' post-SCA",
-          "color": "purple",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-purple-500/30 rounded-xl text-xs text-slate-300 space-y-2\">\n                                <p><strong>Tratamiento hipolipemiante intensivo:</strong> Objetivo de c-LDL post-SCA: <strong>&lt; 1,4 mmol/l (55 mg/dl) Y reducción de al menos el 50 %</strong> respecto al valor basal. Paso 1: Estatina de alta potencia (Atorvastatina 40–80 mg / Rosuvastatina 20–40 mg). Paso 2: Añadir Ezetimiba 10 mg. Paso 3: Inhibidor PCSK9 (Evolocumab/Alirocumab) o Ácido bempedoico / Inclisirán.</p>\n                                <div class=\"p-2.5 bg-slate-800 rounded-lg border border-slate-700\">\n                                    <span class=\"font-bold text-purple-400\">Pilares de prevención secundaria ('The Big 5'):</span>\n                                    <ol class=\"list-decimal ml-5 mt-1 space-y-0.5 text-[11px]\">\n                                        <li><strong>DAPT:</strong> Aspirina + Prasugrel/Ticagrelor durante 12 meses.</li>\n                                        <li><strong>Estatina de alta intensidad + Ezetimiba:</strong> c-LDL &lt; 1,4 mmol/l.</li>\n                                        <li><strong>Betabloqueante:</strong> Especialmente si FEVI &le; 40 % o infarto transmural.</li>\n                                        <li><strong>IECA / ARA-II:</strong> Si FEVI &le; 40 %, insuficiencia cardíaca, DM o HTA.</li>\n                                        <li><strong>ARM (Espironolactona/Eplerenona):</strong> Si FEVI &le; 40 % y síntomas de IC.</li>\n                                    </ol>\n                                </div>\n                            </div>\n                        "
-        }
-      ]
-    },
-    "recall": {
-      "scenarios": [
-        {
-          "id": "aks-r1",
-          "title": "Caso Clínico 1: Pre-tratamiento en SCASEST",
-          "question": "Varón de 68 años ingresa por dolor retroesternal opresivo de 2 horas. ECG: descenso del ST de 1,5 mm en V4-V6 sin elevación del ST. La hs-cTnI inicial es positiva (95 ng/l). La coronariografía se programa para mañana por la mañana (en 14 horas). ¿Debe administrarse en planta una dosis de carga de Prasugrel 60 mg?",
-          "answer": "NO DEBE ADMINISTRARSE. El pre-tratamiento rutinario con inhibidores P2Y12 en SCASEST antes de conocer la anatomía coronaria no se recomienda (Guías ESC 2023, Clase III) si la estrategia invasiva se realiza en &lt; 24 horas. La dosis de carga se administra directamente en la sala de hemodinámica tras visualizar las arterias y confirmar la indicación de ICP.",
-          "pearl": "El pre-tratamiento incrementa el riesgo de sangrado grave sin reducir eventos isquémicos y compromete la realización de cirugía de bypass urgente (CABG)."
-        },
-        {
-          "id": "aks-r2",
-          "title": "Caso Clínico 2: Fibrilación auricular + SCA tras ICP (Terapia triple)",
-          "question": "Paciente de 72 años tras ICP con stent farmacoactivo por NSTEMI presenta fibrilación auricular crónica anticoagulada con Apixabán 5 mg/12h (CHA2DS2-VASc = 4). ¿Cuál es la pauta antitrombótica recomendada al alta hospitalaria?",
-          "answer": "Terapia triple (TAT: Apixabán a dosis plena + Aspirina 100 mg + Clopidogrel 75 mg) únicamente durante el ingreso (&le; 1 semana tras la ICP). Al alta continúa con Terapia Dual (DAT: Apixabán 5 mg/12h + Clopidogrel 75 mg) hasta los 12 meses. A partir del mes 12 se mantiene exclusivamente Apixabán en monoterapia.",
-          "pearl": "¡Nunca combinar ACOD con Prasugrel o Ticagrelor en terapia triple (Clase III) por riesgo extremo de hemorragia mortal!"
-        },
-        {
-          "id": "aks-r3",
-          "title": "Caso Clínico 3: Desescalada del tratamiento antiplaquetario",
-          "question": "Paciente a los 14 días de un SCACEST tratado con DAPT (Aspirina + Prasugrel) presenta pequeñas equimosis en antebrazos. ¿Está indicada la desescalada inmediata de Prasugrel a Clopidogrel?",
-          "answer": "NO ESTÁ INDICADA. La desescalada del tratamiento antiplaquetario (cambio de Prasugrel/Ticagrelor a Clopidogrel) durante los primeros 30 días post-SCA no se recomienda (Clase III). El riesgo de trombosis aguda del stent y reinfarto es máximo en el primer mes. Pequeñas equimosis cutáneas no justifican el cambio.",
-          "pearl": "La actividad trombogénica de la placa y del stent es máxima en los primeros 30 días; la desescalada guiada solo se considera a partir del mes 1 o entre los 3–6 meses en pacientes estables."
-        }
+{
+      id: "aks",
+      number: 1,
+      title: "Síndromes Coronarios Agudos (SCA)",
+      shortDesc: "SCACEST, SCASEST y angina inestable. Guías ESC 2023, algoritmo hs-cTn 0h/1h, tiempos de coronariografía, estrategia DAPT y pre-tratamiento.",
+      icon: "🫀",
+      badge: "Guías ESC 2023",
+      badgeColor: "rose",
+            guidelineLinks: [
+        { title: "2023 ESC Guidelines for the Management of Acute Coronary Syndromes", url: "https://academic.oup.com/eurheartj/article/44/38/3720/7243210", year: "2023" }
       ],
-      "quiz": {
-        "title": "Miniquiz de decisión: Shock cardiogénico y complicaciones mecánicas",
-        "prompt": "Varón de 62 años al 4.º día de un SCACEST inferior desarrolla bruscamente shock cardiogénico (PA 75/40 mmHg, taquipnea, crepitantes pulmonares). A la auscultación se detecta un nuevo soplo holosistólico rudo en ápex con irradiación a la axila. ¿Cuál es el diagnóstico más probable y la conducta inmediata?",
-        "options": [
+theory: {
+        banner: {
+          tag: "Cambio de paradigma (ESC 2023)",
+          title: "El SCA como un espectro integrado de enfermedad",
+          text: "Por primera vez, la ESC unifica las recomendaciones de SCACEST y SCASEST en un solo documento común. Se enfatiza que el síndrome coronario agudo es un continuum que abarca desde la angina inestable y el SCASEST hasta el SCACEST transmural, compartiendo una fisiopatología común (rotura o erosión de placa aterosclerótica con trombosis sobreañadida)."
+        },
+        sections: [
           {
-            "text": "A) Rotura del músculo papilar posteromedial con insuficiencia mitral masiva aguda -> ETT emergente y cirugía cardíaca urgente",
-            "isCorrect": true
+            title: "Diagnóstico rápido: hs-cTn (Algoritmo 0 h / 1 h o 0 h / 2 h)",
+            color: "rose",
+            content: `
+              <p class="mb-4 text-slate-300">La base del diagnóstico en el SCASEST es la determinación de <strong>troponina cardíaca de alta sensibilidad (hs-cTnI / hs-cTnT)</strong>. Las extracciones se realizan a las 0 h y 1 h (o 2 h).</p>
+              <div class="grid md:grid-cols-3 gap-4 my-4">
+                <div class="bg-emerald-950/40 border border-emerald-500/30 p-4 rounded-xl">
+                  <div class="text-emerald-400 font-bold mb-1">📉 RULE-OUT (Descarte)</div>
+                  <p class="text-xs text-slate-300 leading-relaxed">Valor basal muy bajo de hs-cTn (0h) <strong>O</strong> valor basal bajo sin incremento significativo a la 1h (Δ1h por debajo del punto de corte). Bajo riesgo: considerar alta y estudio ambulatorio.</p>
+                </div>
+                <div class="bg-amber-950/40 border border-amber-500/30 p-4 rounded-xl">
+                  <div class="text-amber-400 font-bold mb-1">👀 OBSERVE (Observación)</div>
+                  <p class="text-xs text-slate-300 leading-relaxed">Pacientes que no cumplen criterios ni de descarte ni de confirmación. Requiere <strong>tercera toma a las 3 horas</strong> y ecocardiografía urgente.</p>
+                </div>
+                <div class="bg-rose-950/40 border border-rose-500/30 p-4 rounded-xl">
+                  <div class="text-rose-400 font-bold mb-1">📈 RULE-IN (Confirmación)</div>
+                  <p class="text-xs text-slate-300 leading-relaxed">hs-cTn muy elevada al ingreso <strong>O</strong> aumento absoluto significativo a la 1h/2h. Indicación de ingreso en Unidad Coronaria y coronariografía invasiva.</p>
+                </div>
+              </div>
+            `
           },
           {
-            "text": "B) Rotura de pared libre del ventrículo izquierdo -> pericardiocentesis inmediata en cama",
-            "isCorrect": false
+            title: "Tiempos de la estrategia invasiva (Coronariografía diagnóstica)",
+            color: "amber",
+            content: `
+              <div class="space-y-3">
+                <div class="p-4 rounded-xl bg-rose-950/30 border border-rose-500/30">
+                  <div class="font-bold text-rose-400 text-sm mb-1">🚨 Estrategia invasiva inmediata (&lt; 2 horas - Emergencia)</div>
+                  <p class="text-xs text-slate-300 mb-2"><strong>Todos los SCACEST</strong> (objetivo FMC-to-wire &lt; 90 min) y <strong>SCASEST de muy alto riesgo</strong>:</p>
+                  <ul class="list-disc ml-5 text-xs text-slate-300 space-y-1">
+                    <li>Shock cardiogénico o inestabilidad hemodinámica.</li>
+                    <li>Dolor torácico refractario o recurrente en reposo pese a tratamiento médico.</li>
+                    <li>Arritmias ventriculares malignas (TV/FV) o parada cardiorrespiratoria reanimada.</li>
+                    <li>Insuficiencia cardíaca aguda secundaria a isquemia miocárdica en curso.</li>
+                    <li>Cambios dinámicos del segmento ST-T (especialmente elevación intermitente del ST).</li>
+                  </ul>
+                </div>
+                <div class="p-4 rounded-xl bg-amber-950/30 border border-amber-500/30">
+                  <div class="font-bold text-amber-400 text-sm mb-1">⏱️ Estrategia invasiva precoz (&lt; 24 horas)</div>
+                  <p class="text-xs text-slate-300 mb-2"><strong>SCASEST de alto riesgo</strong> (recomendación Clase IIa - durante el ingreso):</p>
+                  <ul class="list-disc ml-5 text-xs text-slate-300 space-y-1">
+                    <li>SCASEST confirmado (según algoritmo de hs-cTn).</li>
+                    <li>Puntuación de riesgo GRACE &gt; 140 puntos.</li>
+                    <li>Cambios dinámicos del segmento ST o de las ondas T (sintomáticos o silentes).</li>
+                  </ul>
+                </div>
+              </div>
+            `
           },
           {
-            "text": "C) Infarto de ventrículo derecho -> infusión agresiva de cristaloides",
-            "isCorrect": false
+            title: "Tratamiento antiagregante y anticoagulante (DAPT y Pre-tratamiento)",
+            color: "cyan",
+            content: `
+              <div class="grid md:grid-cols-2 gap-4">
+                <div class="p-4 rounded-xl bg-slate-900 border border-slate-700">
+                  <h4 class="font-bold text-cyan-400 mb-2 text-sm">❌ Prohibición de pre-tratamiento en SCASEST</h4>
+                  <p class="text-xs text-slate-300 leading-relaxed">
+                    La administración rutinaria de un inhibidor del receptor P2Y12 (prasugrel / ticagrelor / clopidogrel) antes de conocer la anatomía coronaria en SCASEST <strong>no se recomienda (Clase III)</strong> cuando se planea coronariografía precoz en &lt; 24h. Aumenta el riesgo de hemorragia y retrasa un bypass coronario urgente. El fármaco se administra en la sala de hemodinámica tras confirmar la ICP.
+                  </p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-900 border border-slate-700">
+                  <h4 class="font-bold text-cyan-400 mb-2 text-sm">💊 Elección del inhibidor P2Y12 y DAPT</h4>
+                  <p class="text-xs text-slate-300 leading-relaxed">
+                    En la ICP por SCA, se prefiere <strong>Prasugrel</strong> (carga de 60 mg, 10 mg/día) frente a Ticagrelor (basado en el ensayo ISAR-REACT 5). La DAPT estándar = <strong>12 meses</strong> (AAS + P2Y12 potente). En pacientes estables sin eventos, se puede considerar desescalar a monoterapia con P2Y12 tras 3–6 meses.
+                  </p>
+                </div>
+              </div>
+            `
+          }
+        ]
+      },
+      recall: {
+        scenarios: [
+          {
+            id: "aks-r1",
+            title: "Pregunta 1: Pre-tratamiento en SCASEST",
+            question: "Varón de 68 años ingresa en urgencias por dolor retroesternal opresivo. EKG: descenso del ST en derivaciones V4-V6 de 1.5 mm sin elevación del ST. La hs-cTnI resulta positiva. Programa coronariografía para mañana por la mañana (dentro de 16 horas). ¿Debe administrar una dosis de carga de Prasugrel en planta?",
+            answer: "NO DEBE. El pre-tratamiento rutinario con inhibidores P2Y12 en SCASEST antes de conocer la anatomía coronaria no se recomienda (ESC Clase III) si la estrategia invasiva está planificada en las primeras 24 horas. La carga se administra en la sala de hemodinámica tras visualizar las arterias coronarias y decidir la ICP.",
+            pearl: "El pre-tratamiento aumenta el riesgo de hemorragia sin reducir eventos isquémicos y dificulta una cirugía de revascularización coronaria (CABG) urgente."
           },
           {
-            "text": "D) Hipotensión por fármacos antihipertensivos -> retirada de medicación y observación",
-            "isCorrect": false
+            id: "aks-r2",
+            title: "Pregunta 2: Fibrilación Auricular + SCA (Estrategia antitrombótica)",
+            question: "Paciente de 72 años tras ICP exitosa con implante de stent farmacoactivo (DES) por NSTEMI. Presenta fibrilación auricular crónica en tratamiento con Apixabán (CHA2DS2-VASc = 4). ¿Cuál es la pauta antitrombótica recomendada al alta?",
+            answer: "Terapia triple (TAT: ACOD + Aspirina + Clopidogrel) únicamente durante el ingreso hospitalario / hasta 1 semana, seguida de Terapia Doble (DAT: ACOD a dosis completa + Clopidogrel 75 mg) durante 12 meses. A partir del mes 12, se continúa únicamente con monoterapia de ACOD.",
+            pearl: "Nunca combine un ACOD con Prasugrel o Ticagrelor en el régimen triple (Clase III) por el riesgo prohibitivo de hemorragia mortal."
+          },
+          {
+            id: "aks-r3",
+            title: "Pregunta 3: Desescalada del tratamiento antiplaquetario",
+            question: "Paciente a los 14 días de un SCACEST tratado con DAPT (Aspirina + Prasugrel) refiere pequeños hematomas en antebrazos. ¿Recomienda el cambio inmediato de Prasugrel a Clopidogrel?",
+            answer: "NO LO RECOMIENDA. La desescalada del tratamiento antiplaquetario (de Prasugrel/Ticagrelor a Clopidogrel) durante los primeros 30 días tras un SCA está contraindicada (Clase III). El riesgo de trombosis aguda del stent y reinfarto es máximo en el primer mes.",
+            pearl: "Ante hematomas cutáneos leves sin signos de sangrado mayor, se tranquiliza al paciente y se mantiene la medicación sin cambios durante los primeros 30 días."
           }
         ],
-        "explanation": "La aparición de un nuevo soplo holosistólico apical con edema agudo de pulmón y shock en un infarto inferior (territorio de la arteria coronaria derecha) indica la rotura del músculo papilar posteromedial (que posee vascularización unívoca) y una insuficiencia mitral aguda masiva. Requiere ecocardiograma urgente e intervención quirúrgica inmediata."
-      }
-    },
-    "breakdown": {
-      "classThree": [
-        "Administración rutinaria de oxígeno en SCA si la saturación SpO2 es &ge; 90 % (la hiperoxia induce vasoconstricción coronaria y estrés oxidativo).",
-        "Pre-tratamiento rutinario con inhibidor P2Y12 en SCASEST antes de la coronariografía si se planea estrategia invasiva &lt; 24h.",
-        "Desescalada del tratamiento antiplaquetario de Prasugrel/Ticagrelor a Clopidogrel en los primeros 30 días post-SCA.",
-        "Uso de Prasugrel o Ticagrelor en combinación triple (TAT) con anticoagulantes orales (ACOD/AVK).",
-        "Tromboaspiración manual rutinaria durante la ICP primaria en SCACEST.",
-        "Uso de AINEs (excepto aspirina) en pacientes con SCA (aumentan reinfarto y mortalidad)."
-      ],
-      "mustKnow": [
-        "Criterios ECG de SCACEST: Elevación del ST en punto J en 2 derivaciones contiguas (&ge; 2,5 mm en V2–V3 en varones &lt; 40a; &ge; 2,0 mm en varones &ge; 40a; &ge; 1,5 mm en mujeres; &ge; 1,0 mm en resto).",
-        "Tiempos de reperfusión: FMC-to-wire &lt; 90 min (en centro con hemodinámica &lt; 60 min). Si el traslado supera 120 min -> fibrinólisis en &lt; 10 min.",
-        "Potencia P2Y12: Prasugrel &gt; Ticagrelor &gt; Clopidogrel. Prasugrel está contraindicado en antecedentes de ICTUS/AIT.",
-        "Objetivo lipídico ESC 2023: c-LDL &lt; 1,4 mmol/l (55 mg/dl) y reducción &ge; 50 % respecto al basal.",
-        "The Big 5 post-SCA: DAPT (12 meses) + Estatina de alta potencia + Betabloqueante + IECA/ARA-II + ARM."
-      ]
-    },
-    "guidelineLinks": [
-      {
-        "title": "2023 ESC Guidelines for the management of acute coronary syndromes",
-        "year": 2023,
-        "journal": "European Heart Journal",
-        "doi": "10.1093/eurheartj/ehad191",
-        "url": "https://academic.oup.com/eurheartj/article/44/38/3720/7243210"
-      }
-    ]
-  },
-    {
-    "id": "midef",
-    "number": 2,
-    "title": "5.ª Definición universal de infarto de miocardio (2026)",
-    "shortDesc": "La 5.ª definición sustituye la clasificación numérica por 3 tipos clínicos de IM (Primario, Secundario, Relacionado con procedimientos). Daño miocárdico vs. infarto y MINOCA.",
-    "icon": "🔬",
-    "badge": "Nueva definición 2026",
-    "badgeColor": "emerald",
-    "theory": {
-      "banner": {
-        "tag": "Cambio paradigmático en la 5.ª Definición (Consenso 2026)",
-        "title": "3 Tipos clínicos de infarto de miocardio y Daño miocárdico (Injury) vs. Infarto (Infarction)",
-        "text": "La 5.ª Definición Universal de Infarto de Miocardio (UDMI 2026) sustituye la antigua clasificación de 5 tipos numéricos por **3 tipos clínicos de IM**: **1. Infarto de miocardio primario**, **2. Infarto de miocardio secundario** e **3. Infarto de miocardio relacionado con procedimientos**. La elevación de troponina (cTn) por encima del percentil 99 sexo-específico define **daño miocárdico (Myocardial Injury)**. Para diagnosticar **infarto de miocardio**, es imprescindible constatar una dinámica aguda (aumento y/o caída) JUNTO A al menos una evidencia clínica de isquemia aguda."
+        quiz: {
+          title: "Miniquiz de decisión: Shock cardiogénico y complicaciones mecánicas",
+          prompt: "Paciente de 62 años con SCACEST de cara inferior presenta súbitamente al 4.º día hipotensión grave (PA 75/40 mmHg), taquipnea, nuevo soplo holosistólico rudo con máxima intensidad en ápex e irradiación a axila, y crepitantes húmedos bilaterales hasta campos medios. ¿Cuál es el diagnóstico más probable y la conducta inmediata?",
+          options: [
+            { text: "A) Rotura de músculo papilar con insuficiencia mitral aguda -> ecocardiograma urgente inmediato y revisión quirúrgica cardiotorácica de emergencia", isCorrect: true },
+            { text: "B) Rotura de pared libre del ventrículo izquierdo -> pericardiocentesis inmediata en cama", isCorrect: false },
+            { text: "C) Progresión de infarto de ventrículo derecho -> sobrecarga de volumen con 2 litros de cristaloides", isCorrect: false },
+            { text: "D) Hipotensión farmacológica por IECA -> suspender medicación y monitorizar", isCorrect: false }
+          ],
+          explanation: "La aparición de un nuevo soplo holosistólico con edema agudo de pulmón y shock cardiogénico tras un infarto inferior (frecuentemente en territorio de la ACD que irriga el músculo papilar posteromedial mediante un flujo arterial único) indica rotura del músculo papilar e insuficiencia mitral aguda masiva. Requiere ecocardiografía urgente e intervención quirúrgica de emergencia."
+        }
       },
-      "sections": [
-        {
-          "title": "1. Criterios diagnósticos y umbrales sexo-específicos de troponina",
-          "color": "emerald",
-          "content": "
-                            <div class="p-3.5 bg-slate-900 border border-slate-700 rounded-xl text-xs text-slate-300 leading-relaxed">
-                                <p class="mb-2 font-bold text-emerald-400">La definición de infarto de miocardio requiere:</p>
-                                <p class="mb-2">Detección de elevación y/o caída de troponina cardíaca (hs-cTnI / hs-cTnT) con al menos un valor por encima del <strong>percentil 99 sexo-específico</strong> del límite superior de referencia (URL) y <strong>al menos uno de los siguientes criterios de isquemia aguda:</strong></p>
-                                <ul class="list-disc ml-5 space-y-1 text-slate-300">
-                                    <li>Síntomas de isquemia miocárdica aguda (angina típica o equivalentes disneicos).</li>
-                                    <li>Nuevos cambios isquémicos en el ECG (nuevas elevaciones/depresiones del ST, inversión de ondas T, nuevo BRI).</li>
-                                    <li>Aparición de nuevas ondas Q patológicas.</li>
-                                    <li>Evidencia por imagen (ETT/RMC) de nueva pérdida de miocardio viable o nueva anomalía regional de la contractilidad (RWMA) en patrón isquémico.</li>
-                                    <li>Identificación de trombo intracoronario por angiografía o autopsia.</li>
-                                </ul>
-                            </div>
-                        "
-        },
-        {
-          "title": "2. 5.ª Definición Universal (2026): 3 Tipos clínicos de IM",
-          "color": "amber",
-          "content": "
-                            <div class="space-y-2.5 text-xs">
-                                <div class="p-3 bg-slate-900 border-l-4 border-rose-500 rounded-r-xl">
-                                    <span class="font-bold text-rose-400 text-sm">1. Infarto de miocardio primario (Primary MI)</span>
-                                    <p class="text-slate-300 mt-1 leading-relaxed">Ocurre espontáneamente debido a una <strong>patología coronaria aguda primaria</strong>: aterotrombosis con rotura o erosión de placa, disección coronaria espontánea (SCAD), embolia coronaria o vasoespasmo grave. Tratamiento: DAPT + revascularización emergente (ICP primaria / fibrinolisis).</p>
-                                </div>
-                                <div class="p-3 bg-slate-900 border-l-4 border-amber-500 rounded-r-xl">
-                                    <span class="font-bold text-amber-400 text-sm">2. Infarto de miocardio secundario (Secondary MI)</span>
-                                    <p class="text-slate-300 mt-1 leading-relaxed">Se produce por un <strong>desajuste entre aporte y demanda de oxígeno miocárdico (supply-demand mismatch)</strong> causado por otra condición médica aguda (sepsis, taquiarritmia, anemia grave, hipotensión/shock, crisis hipertensiva) sin lesión aguda primaria de placa.<br><strong>3 fases diagnósticas:</strong><br>• <em>Sospecha (Considered):</em> Daño troponínico agudo + factor desencadenante + dato isquémico.<br>• <em>Probable (Likely):</em> Cumple sospecha + cardiopatía isquémica previa conocida.<br>• <em>Confirmado (Confirmed):</em> Estenosis coronaria &ge; 70 % en angiografía o nueva RWMA en ETT/RMC.<br><em>Tratamiento: Corrección etiológica del cuadro causante, ¡no ICP ni DAPT de rutina!</em></p>
-                                </div>
-                                <div class="p-3 bg-slate-900 border-l-4 border-cyan-500 rounded-r-xl">
-                                    <span class="font-bold text-cyan-400 text-sm">3. Infarto de miocardio relacionado con procedimientos (Procedure-related MI)</span>
-                                    <p class="text-slate-300 mt-1 leading-relaxed">Complicación de cualquier procedimiento cardíaco percutáneo (ICP) o quirúrgico (CABG/cirugía valvular) en los primeros 30 días. Requiere daño troponínico agudo + datos de isquemia + <strong>evidencia de complicación coronaria del procedimiento</strong> (disección, perforación, trombosis de stent, flujo lento) y/o <strong>nueva pérdida de contractilidad regional (RWMA) o de miocardio viable</strong>.</p>
-                                </div>
-                            </div>
-                        "
-        },
-        {
-          "title": "3. Daño miocárdico agudo/crónico y MINOCA",
-          "color": "cyan",
-          "content": "
-                            <div class="p-3.5 bg-cyan-950/30 border border-cyan-500/30 rounded-xl text-xs text-slate-300 leading-relaxed space-y-2">
-                                <p><strong>Daño miocárdico agudo (Acute Myocardial Injury):</strong> Aumento y/o caída de troponina por encima del percentil 99 sin datos de isquemia clínica (p. ej. miocarditis, TEP, sepsis sin isquemia).</p>
-                                <p><strong>Daño miocárdico crónico (Chronic Myocardial Injury):</b> Elevación estable y constante de troponina sin dinámica aguda (insuficiencia renal crónica avanzada, amiloidosis, IC crónica).</p>
-                                <p><strong>MINOCA (Infarto sin enfermedad coronaria obstructiva):</strong> Diagnóstico de trabajo en pacientes con criterios de infarto y <strong>arterias coronarias normales o con estenosis &lt; 50 %</strong>. Requiere ecocardiograma urgente y <strong>Resonancia Magnética Cardíaca (RMC)</strong> con realce tardío de gadolinio (LGE) para diferenciar infarto verdadero (LGE subendocárdico), miocarditis aguda (hasta 40 % de casos) y miocardiopatía de Takotsubo.</p>
-                            </div>
-                        "
-        }
-      ]
+      breakdown: {
+        classThree: [
+          "Administración rutinaria de oxígeno en pacientes con SCA si la saturación de SpO2 es ≥ 90 %.",
+          "Pre-tratamiento sistemático con inhibidor P2Y12 en SCASEST antes de coronariografía cuando la estrategia invasiva es &lt; 24h.",
+          "Desescalada del tratamiento antiplaquetario en los primeros 30 días posteriores al SCA.",
+          "Uso de Prasugrel o Ticagrelor en terapia triple (TAT) combinados con anticoagulante oral (ACOD / AVK).",
+          "Tromboaspiración manual rutinaria durante la ICP primaria en SCACEST."
+        ],
+        mustKnow: [
+          "Criterios de SCACEST: Elevación del ST en el punto J en 2 derivaciones contiguas (varones &lt; 40 años: ≥ 2.5 mm en V2-V3; varones ≥ 40 años: ≥ 2.0 mm; mujeres: ≥ 1.5 mm; otras derivaciones ≥ 1.0 mm) o bloqueo de rama nuevo con clínica isquémica.",
+          "Ventana temporal dorada: FMC-to-wire &lt; 90 min (en centro con hemodinámica &lt; 60 min). Si el traslado supera los 120 minutos, se indica fibrinólisis sistémica en los primeros 10 minutos.",
+          "Prevención secundaria tras SCA: 'The Big 5' = DAPT (12 meses), Estatina de alta potencia (objetivo LDL &lt; 1.4 mmol/l y reducción ≥ 50 %), IECA/ARA-II (en FEVI &lt; 40 %, DM o HTA), Betabloqueante (en FEVI &lt; 40 %), ARM (espironolactona/eplerenona en FEVI &lt; 40 % e IC)."
+        ]
+      }
     },
-    "recall": {
-      "scenarios": [
-        {
-          "id": "midef-r1",
-          "title": "Caso Clínico 1: Sepsis vs. Infarto Secundario",
-          "question": "Mujer de 80 años ingresa por sepsis urinaria grave con fiebre, hipotensión (PA 80/50 mmHg) y taquicardia sinusal a 145 lpm. El ECG muestra descenso del ST de 1,5 mm en V4-V6. La hs-cTnI sube de 60 a 220 ng/l. La coronariografía muestra estenosis fija del 75 % en DA sin trombo agudo. ¿De qué tipo de infarto se trata según la 5.ª definición (2026) y cuál es el tratamiento?",
-          "answer": "Se trata de un Infarto de Miocardio Secundario (Secondary MI de la 5.ª definición 2026) por desajuste aporte/demanda en el contexto de sepsis, taquicardia e hipotensión. El tratamiento NO es la angioplastia coronaria aguda, sino la corrección agresiva de la causa subyacente: antibioterapia, sueroterapia para restaurar la presión de perfusión y control de la frecuencia cardíaca.",
-          "pearl": "En el infarto secundario no se prescribe DAPT ni anticoagulación de forma rutinaria si no hay indicación aterotrombótica aguda."
-        },
-        {
-          "id": "midef-r2",
-          "title": "Caso Clínico 2: Estrés emocional y MINOCA",
-          "question": "Mujer de 52 años tras un estrés emocional severo ingresa por dolor torácico, elevación del ST de 2 mm en V2-V5 y troponina de 1200 ng/l. La coronariografía muestra arterias coronarias completamente lisas sin lesiones (< 50 %). El ecocardiograma muestra acinesia apical con hipercontractilidad basal. ¿Qué prueba de imagen confirma definitivamente el diagnóstico?",
-          "answer": "La Resonancia Magnética Cardíaca (RMC). Permite demostrar la presencia de edema transmural miocárdico apical en secuencias T2 con ausencia característica de realce tardío de gadolinio (LGE), confirmando el síndrome de Takotsubo y descartando miocarditis o infarto embólico.",
-          "pearl": "El síndrome de Takotsubo se trata como una insuficiencia cardíaca transitoria y la función ventricular suele recuperarse por completo en 4–8 semanas."
-        }
+{
+      id: "midef",
+      number: 2,
+      title: "5.ª Definición Universal del Infarto de Miocardio (2026)",
+      shortDesc: "Daño miocárdico vs. infarto de miocardio, tipos 1–5 de IM, MINOCA e interpretación clínica de la cinética de troponinas.",
+      icon: "🔬",
+      badge: "Definición 2026",
+      badgeColor: "emerald",
+            guidelineLinks: [
+        { title: "Fifth Universal Definition of Myocardial Infarction Consensus Document", url: "https://academic.oup.com/eurheartj/article-lookup/doi/10.1093/eurheartj/ehae555", year: "2026" }
       ],
-      "quiz": {
-        "title": "Miniquiz: Daño miocárdico vs. Infarto de miocardio",
-        "prompt": "¿Cuál de los siguientes pacientes presenta ÚNICAMENTE daño miocárdico crónico (Chronic Myocardial Injury) y NO un infarto de miocardio?",
-        "options": [
+theory: {
+        banner: {
+          tag: "Diferenciación crucial",
+          title: "Myocardial Injury (Daño) vs. Myocardial Infarction (Infarto)",
+          text: "Un valor elevado de troponina cardíaca por encima del percentil 99 del límite superior de referencia define el **daño miocárdico (Myocardial Injury)**. Para clasificar el cuadro como **infarto de miocardio (IM)**, debe existir una dinámica de troponina (ascenso/descenso) Y ADEMÁS al menos una evidencia clínica de isquemia miocárdica aguda."
+        },
+        sections: [
           {
-            "text": "A) Paciente con enfermedad renal crónica (eGFR 25 ml/min) con valores estables de hs-cTnT de 48 ng/l en determinaciones repetidas durante meses, sin angina y sin cambios electrocardiográficos",
-            "isCorrect": true
+            title: "5 Tipos de Infarto de Miocardio",
+            color: "emerald",
+            content: `
+              <div class="space-y-3">
+                <div class="p-3 bg-slate-900 border-l-4 border-rose-500 rounded-r-xl">
+                  <span class="font-bold text-rose-400 text-sm">Tipo 1 (Aterotrombótico)</span>
+                  <p class="text-xs text-slate-300 mt-1">Desencadenado por rotura, fisura, erosión o disección de placa aterosclerótica con trombo intraluminal en la arteria coronaria.</p>
+                </div>
+                <div class="p-3 bg-slate-900 border-l-4 border-amber-500 rounded-r-xl">
+                  <span class="font-bold text-amber-400 text-sm">Tipo 2 (Desbalance aporte/demanda de O2)</span>
+                  <p class="text-xs text-slate-300 mt-1">Isquemia originada por desajuste entre el aporte y la demanda de oxígeno sin aterotrombosis aguda (ej. anemia grave, sepsis, taquiarritmia, hipotensión grave, vasoespasmo, SCAD).</p>
+                </div>
+                <div class="p-3 bg-slate-900 border-l-4 border-purple-500 rounded-r-xl">
+                  <span class="font-bold text-purple-400 text-sm">Tipo 3 (Muerte súbita cardíaca)</span>
+                  <p class="text-xs text-slate-300 mt-1">Muerte de origen cardíaco con síntomas isquémicos y cambios electrocardiográficos, cuando el paciente fallece antes de poder extraer biomarcadores.</p>
+                </div>
+                <div class="p-3 bg-slate-900 border-l-4 border-cyan-500 rounded-r-xl">
+                  <span class="font-bold text-cyan-400 text-sm">Tipo 4 (Relacionado con ICP)</span>
+                  <p class="text-xs text-slate-300 mt-1"><strong>4a:</strong> IM periprocedimiento en ICP (elevación de cTn &gt; 5× por encima del percentil 99 con basal normal). <strong>4b:</strong> Trombosis del stent demostrada angiográfica o anatomopatológicamente. <strong>4c:</strong> Reestenosis intrastent.</p>
+                </div>
+                <div class="p-3 bg-slate-900 border-l-4 border-blue-500 rounded-r-xl">
+                  <span class="font-bold text-blue-400 text-sm">Tipo 5 (Relacionado con cirugía CABG)</span>
+                  <p class="text-xs text-slate-300 mt-1">IM perioperatorio tras bypass coronario (elevación de cTn &gt; 10× por encima del percentil 99 con nueva onda Q patológica o nueva oclusión de injerto).</p>
+                </div>
+              </div>
+            `
           },
           {
-            "text": "B) Paciente con dolor precordial opresivo, inversión de ondas T en V4-V6 y elevación de hs-cTnI de 12 a 180 ng/l",
-            "isCorrect": false
+            title: "MINOCA (Infarto de miocardio sin arterias coronarias obstructivas)",
+            color: "cyan",
+            content: `
+              <p class="text-xs text-slate-300 leading-relaxed mb-3">
+                El diagnóstico de MINOCA es un diagnóstico de trabajo en pacientes con infarto de miocardio establecido (dinámica de troponina + evidencia isquémica) que presentan en la coronariografía <strong>arterias coronarias normales o estenosis &lt; 50 %</strong>.
+              </p>
+              <div class="p-3 bg-cyan-950/40 border border-cyan-500/30 rounded-xl text-xs text-slate-200">
+                <strong>Prueba estándar de oro:</strong> La Resonancia Magnética Cardíaca (RMC / CMR) está <strong>recomendada en todos los pacientes con MINOCA (Clase I)</strong> para diferenciar un infarto verdadero (realce tardío de gadolinio subendocárdico), miocarditis (realce subepicárdico o mesocárdico) y síndrome de Takotsubo (acinesia apical típica sin realce tardío).
+              </div>
+            `
+          }
+        ]
+      },
+      recall: {
+        scenarios: [
+          {
+            id: "midef-r1",
+            title: "Pregunta 1: Diferenciación del tipo de IM",
+            question: "Mujer pluripatológica de 82 años ingresa por urosepsis con fiebre, hipotensión (PA 80/50 mmHg) y taquicardia sinusal a 140 lpm. EKG: descenso horizontal difuso del ST de 1 mm. La hs-cTnI de control asciende de 45 a 180 ng/l. La coronariografía muestra aterosclerosis difusa crónica sin trombo agudo. ¿De qué tipo de IM se trata?",
+            answer: "Infarto de Miocardio Tipo 2. La isquemia se produce por un desajuste entre el aporte de oxígeno (hipotensión, taquicardia que acorta la diástole coronaria) y el incremento de demanda metabólica por la sepsis, sin rotura aguda de placa.",
+            pearl: "El tratamiento del IM tipo 2 no consiste en ICP urgente, sino en corregir la causa desencadenante (tratar la sepsis, hidratar, estabilizar presión y frecuencia)."
           },
           {
-            "text": "C) Paciente tras parada cardíaca recuperada con nueva onda Q patológica en derivaciones II, III, aVF",
-            "isCorrect": false
-          },
-          {
-            "text": "D) Paciente con sepsis, disnea súbita, nueva acinesia inferior en el ecocardiograma y curva de troponinas",
-            "isCorrect": false
+            id: "midef-r2",
+            title: "Pregunta 2: Conducta diagnóstica en MINOCA",
+            question: "Mujer de 48 años sin factores de riesgo cardiovascular ingresa tras un episodio de estrés emocional grave con dolor torácico típico, elevación del ST en V2-V4 y troponina de 850 ng/l. La coronariografía urgente revela coronarias lisas sin lesiones obstructivas (&lt; 20 %). ¿Qué estudio está indicado obligatoriamente para filiar el diagnóstico?",
+            answer: "Resonancia Magnética Cardíaca (CMR). Permite diferenciar con alta especificidad miocardiopatía de Takotsubo, miocarditis aguda o infarto microembólico.",
+            pearl: "Hasta un 30-40 % de los casos inicialmente catalogados como MINOCA son en realidad miocarditis agudas."
           }
         ],
-        "explanation": "La elevación crónica y estable de troponina sin ascenso/descenso dinámico agudo y sin ningún dato clínico o de imagen que sugiera isquemia miocárdica define el daño miocárdico crónico (Chronic Myocardial Injury), muy habitual en la insuficiencia renal avanzada, amiloidosis cardíaca o insuficiencia cardíaca crónica."
-      }
-    },
-    "breakdown": {
-      "classThree": [
-        "Considerar toda elevación de troponina como un infarto primario e indicar sistemáticamente coronariografías emergentes innecesarias con DAPT.",
-        "Administrar doble antiagregación y anticoagulación plena a pacientes con daño miocárdico aislado sin sustrato isquémico.",
-        "Omitir la resonancia magnética cardíaca (RMC) en pacientes con diagnóstico de trabajo de MINOCA."
-      ],
-      "mustKnow": [
-        "La 5.ª definición 2026 clasifica el IM en 3 tipos clínicos: 1. Primario (aterotrombosis/SCAD/espasmo), 2. Secundario (desbalance oferta/demanda), 3. Relacionado con procedimientos (ICP/CABG).",
-        "Daño miocárdico = cTn > percentil 99 URL sexo-específico sin datos de isquemia.",
-        "Infarto de miocardio = cTn > percentil 99 con dinámica (subida/bajada) + evidencia clínica de isquemia.",
-        "El IM secundario requiere tratamiento causal de la patología desencadenante, no ICP urgente de rutina.",
-        "MINOCA: Infarto con arterias normales (< 50 % estenosis) -> requiere ETT + RMC."
-      ]
-    },
-    "guidelineLinks": [
-      {
-        "title": "Fifth Universal Definition of Myocardial Infarction (2026)",
-        "year": 2026,
-        "journal": "European Heart Journal",
-        "doi": "10.1093/eurheartj/ehag200",
-        "url": "https://academic.oup.com/eurheartj/article/47/3/237/8766400"
-      }
-    ]
-  },
-    {
-    "id": "hf",
-    "number": 3,
-    "title": "Insuficiencia Cardíaca (Guías ESC 2026)",
-    "shortDesc": "Nueva clasificación de 2 fenotipos (IC-FEr <50% vs. IC-FEc ≥50%), eliminación de IC-FElm, los 4 pilares FMT para IC-FEr, iSGLT2 y ARM en todo el espectro, hierro i.v. y TRC/DAI.",
-    "icon": "🫁",
-    "badge": "Guías ESC 2026",
-    "badgeColor": "cyan",
-    "theory": {
-      "banner": {
-        "tag": "Cambio fundamental en las Guías ESC 2026",
-        "title": "Eliminación del fenotipo IC-FElm y Nueva Clasificación Binaria (IC-FEr < 50 % vs. IC-FEc ≥ 50 %)",
-        "text": "El Task Force de las Guías ESC 2026 para el manejo de la insuficiencia cardíaca **ha eliminado el fenotipo de IC con FEVI levemente reducida (IC-FElm)** y ha redefinido la clasificación en **2 fenotipos fisiopatológicos**: **1. IC-FEr (FEVI < 50 %)** – caracterizada por disfunción sistólica y contractilidad disminuida, tratada con los 4 pilares fundamentales (ARNI/IECA, BB, ARM e iSGLT2); **2. IC-FEc (FEVI ≥ 50 %)** – caracterizada por rigidez ventricular y disfunción diastólica, donde la base del tratamiento son los inhibidores de SGLT2, ARM, ARNI y diuréticos descongestivos."
+        quiz: {
+          title: "Quiz: Myocardial Injury vs Infarto de Miocardio",
+          prompt: "¿Cuál de los siguientes pacientes presenta ÚNICAMENTE daño miocárdico (Myocardial Injury) y NO cumple criterios de infarto de miocardio según la 5.ª definición universal?",
+          options: [
+            { text: "A) Paciente con insuficiencia renal crónica y elevación estable y crónica de hs-cTn en 60 ng/l sin síntomas, sin alteraciones en EKG y sin cinética de ascenso/descenso.", isCorrect: true },
+            { text: "B) Paciente con opresión torácica, inversión de ondas T y ascenso de hs-cTn de 15 a 150 ng/l.", isCorrect: false },
+            { text: "C) Paciente tras parada cardiorrespiratoria con nueva onda Q patológica en II, III, aVF y ascenso de troponina.", isCorrect: false },
+            { text: "D) Paciente séptico con nueva alteración de la motilidad segmentaria de la cara inferior en ecocardiograma y ascenso de troponina.", isCorrect: false }
+          ],
+          explanation: "La elevación crónica y estable de troponina sin ascenso/descenso agudo y sin ningún dato de isquemia miocárdica (dolor, nuevo cambio en EKG, alteración ecográfica de la contractilidad) cumple únicamente la definición de daño miocárdico crónico (chronic myocardial injury)."
+        }
       },
-      "sections": [
-        {
-          "title": "1. Nueva clasificación de 2 fenotipos (ESC 2026) y Estadios A–D",
-          "color": "cyan",
-          "content": "
-                            <div class="grid md:grid-cols-2 gap-3 my-3 text-xs">
-                                <div class="p-3.5 bg-slate-900 border border-rose-500/40 rounded-xl">
-                                    <span class="font-bold text-rose-400 text-sm">🔴 IC-FEr (Fracción de Eyección Reducida)</span>
-                                    <p class="text-slate-300 mt-1 leading-relaxed">FEVI <strong>&lt; 50 %</strong> (unifica las antiguas categorías &le; 40 % y 41–49 %) con síntomas y/o signos de IC. Presenta disfunción sistólica y pérdida de contractilidad. Máxima evidencia de supervivencia demostrada para los <strong>4 pilares del FMT</strong>, DAI y TRC.</p>
-                                </div>
-                                <div class="p-3.5 bg-slate-900 border border-emerald-500/40 rounded-xl">
-                                    <span class="font-bold text-emerald-400 text-sm">🟢 IC-FEc (Fracción de Eyección Conservada)</span>
-                                    <p class="text-slate-300 mt-1 leading-relaxed">FEVI <strong>&ge; 50 %</strong> con síntomas/signos de IC y evidencia objetiva de alteraciones estructurales/funcionales (disfunción diastólica, presiones de llenado elevadas E/e' &ge; 13, hipertrofia VI, dilatación AI, péptidos natriuréticos elevados). Tratamiento fundamental con iSGLT2 y ARM.</p>
-                                </div>
-                            </div>
-                            <div class="p-3.5 bg-slate-900 border border-slate-700 rounded-xl text-xs text-slate-300">
-                                <span class="font-bold text-cyan-400">Estadios de Insuficiencia Cardíaca (A -> D):</span>
-                                <ul class="list-disc ml-5 mt-1.5 space-y-1">
-                                    <li><strong>Estadio A (En riesgo):</strong> Factores de riesgo presentes (HTA, DM, obesidad), sin síntomas ni cardiopatía estructural.</li>
-                                    <li><strong>Estadio B (Pre-insuficiencia cardíaca):</strong> Asintomático pero CON cardiopatía estructural o péptidos natriuréticos elevados.</li>
-                                    <li><strong>Estadio C (IC sintomática):</strong> Síntomas actuales o previos de IC con alteración estructural o funcional.</li>
-                                    <li><strong>Estadio D (IC avanzada):</strong> Síntomas refractarios en reposo (NYHA IV) pese a tratamiento óptimo -> indicación de asistencia mecánica (LVAD) o trasplante cardíaco.</li>
-                                </ul>
-                            </div>
-                        "
-        },
-        {
-          "title": "2. Los 4 Pilares del Tratamiento Médico Fundacional (FMT) en IC-FEr (FEVI < 50 %)",
-          "color": "emerald",
-          "content": "
-                            <p class="mb-3 text-xs text-slate-300 leading-relaxed">En todo paciente con IC-FEr (FEVI &lt; 50 %) debe iniciarse cuanto antes la combinación de <strong>4 fármacos de primera línea (Clase I, Nivel A)</strong>, reduciendo la mortalidad en más de un 60 %:</p>
-                            <div class="grid sm:grid-cols-2 gap-3 text-xs">
-                                <div class="p-3 bg-emerald-950/30 border border-emerald-500/30 rounded-xl">
-                                    <div class="font-bold text-emerald-400">1. ARNI (Sacubitrilo/Valsartán) / IECA</div>
-                                    <p class="text-slate-300 mt-1">Sacubitrilo/valsartán de elección (ensayo PARADIGM-HF). Si se cambia desde IECA, <strong>¡periodo de lavado obligatorio de 36 horas!</strong></p>
-                                </div>
-                                <div class="p-3 bg-emerald-950/30 border border-emerald-500/30 rounded-xl">
-                                    <div class="font-bold text-emerald-400">2. Betabloqueantes basados en la evidencia</div>
-                                    <p class="text-slate-300 mt-1">Exclusivamente 4 moléculas con evidencia de supervivencia: <strong>Bisoprolol, Metoprolol succinato, Carvedilol, Nebivolol</strong>.</p>
-                                </div>
-                                <div class="p-3 bg-emerald-950/30 border border-emerald-500/30 rounded-xl">
-                                    <div class="font-bold text-emerald-400">3. ARM (Antagonistas del receptor mineralocorticoide)</div>
-                                    <p class="text-slate-300 mt-1"><strong>Espironolactona</strong> (25–50 mg) o <strong>Eplerenona</strong>. Reducen la fibrosis miocárdica. Control de potasio y creatinina.</p>
-                                </div>
-                                <div class="p-3 bg-emerald-950/30 border border-emerald-500/30 rounded-xl">
-                                    <div class="font-bold text-emerald-400">4. Inhibidores de SGLT2 (Gliflozinas)</div>
-                                    <p class="text-slate-300 mt-1"><strong>Dapagliflozina</strong> 10 mg/d o <strong>Empagliflozina</strong> 10 mg/d. Sin titulación, eficaces con o sin diabetes en IC-FEr e IC-FEc.</p>
-                                </div>
-                            </div>
-                        "
-        },
-        {
-          "title": "3. Tratamiento de IC-FEc (FEVI ≥ 50 %) y Fármacos complementarios",
-          "color": "amber",
-          "content": "
-                            <div class="space-y-2.5 text-xs">
-                                <div class="p-3 bg-slate-900 border border-emerald-500/30 rounded-xl">
-                                    <span class="font-bold text-emerald-400">✨ Terapia en IC-FEc (FEVI &ge; 50 %)</span>
-                                    <p class="text-slate-300 mt-1"><strong>Inhibidores de SGLT2 (Dapagliflozina/Empagliflozina):</strong> Clase I para todos los pacientes con IC-FEc.<br><strong>ARM (Espironolactona/Eplerenona/Finerenona):</strong> Clase I/IIa para reducir hospitalizaciones.<br><strong>ARNI (Sacubitrilo/Valsartán):</strong> Clase IIa/IIb en pacientes con FEVI en rango bajo y mujeres.<br><strong>Diuréticos de asa (Furosemida/Torasemida):</strong> Para descongestión y euvolemia.</p>
-                                </div>
-                                <div class="p-3 bg-slate-900 border border-amber-500/30 rounded-xl">
-                                    <span class="font-bold text-amber-400">💉 Suplementación con Hierro Intravenoso (Clase I/IIa)</span>
-                                    <p class="text-slate-300 mt-1">El déficit marcial (ferritina &lt; 100 &mu;g/l O ferritina 100–299 &mu;g/l con TSAT &lt; 20 %) afecta a &gt; 50 % de los pacientes con IC. La administración de <strong>carboximaltosa férrica (FCM)</strong> o <strong>derisomaltosa férrica i.v.</strong> reduce rehospitalizaciones y mejora capacidad funcional. <em>¡El hierro oral es ineficaz!</em></p>
-                                </div>
-                                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
-                                    <span class="font-bold text-cyan-400">💊 Vericiguat y Quelantes de Potasio</span>
-                                    <p class="text-slate-300 mt-1"><strong>Vericiguat:</strong> Estimulador de sGC tras descompensación de IC-FEr pese a FMT.<br><strong>Patiromer / Ciclosilicato de zirconio sódico (ZS-9):</strong> Quelantes de potasio que permiten mantener dosis plenas de IECA/ARNI y ARM ante hiperpotasemia.</p>
-                                </div>
-                            </div>
-                        "
-        },
-        {
-          "title": "4. Terapia con dispositivos: DAI y Terapia de Resincronización (TRC)",
-          "color": "purple",
-          "content": "
-                            <div class="grid md:grid-cols-2 gap-3 text-xs">
-                                <div class="p-3 bg-slate-900 border border-purple-500/30 rounded-xl">
-                                    <span class="font-bold text-purple-400">⚡ DAI (Desfibrilador Automático Implantable)</span>
-                                    <p class="text-slate-300 mt-1"><strong>Prevención primaria:</strong> Pacientes sintomáticos (NYHA II–III) con <strong>FEVI &le; 35 %</strong> pese a &ge; 3 meses de FMT, con expectativa de vida &gt; 1 año (etiología isquémica Clase I, no isquémica Clase IIa).</p>
-                                </div>
-                                <div class="p-3 bg-slate-900 border border-purple-500/30 rounded-xl">
-                                    <span class="font-bold text-purple-400">🔋 TRC (Terapia de Resincronización Cardíaca)</span>
-                                    <p class="text-slate-300 mt-1">Indicada en pacientes en ritmo sinusal con FEVI &le; 35 %, síntomas NYHA II–IV y <strong>bloqueo de rama izquierda (BRI)</strong> con <strong>QRS &ge; 130–150 ms</strong> (Clase I). Resincroniza la contracción biventricular.</p>
-                                </div>
-                            </div>
-                        "
-        }
-      ]
+      breakdown: {
+        classThree: [
+          "No catalogar cualquier elevación aislada de troponina automáticamente como trombosis coronaria aguda (IM tipo 1) con indicación de cateterismo urgente.",
+          "No pautar tratamiento invasivo rutinario (heparina, DAPT) en pacientes con daño miocárdico estable crónico en ausencia de isquemia."
+        ],
+        mustKnow: [
+          "Criterios de IM: Aumento o descenso de hs-cTn por encima del percentil 99 + al menos 1 de: síntomas isquémicos, nuevos cambios electrocardiográficos isquémicos (ST-T o nueva onda Q), evidencia en imagen de nueva pérdida de miocardio viable / nueva alteración segmentaria de motilidad, o identificación de trombo intracoronario en angiografía.",
+          "5 tipos: 1 = aterotrombosis de placa; 2 = desajuste aporte/demanda O2; 3 = muerte súbita; 4 = relacionado con ICP; 5 = relacionado con CABG."
+        ]
+      }
     },
-    "recall": {
-      "scenarios": [
-        {
-          "id": "hf-r1",
-          "title": "Caso Clínico 1: Cambio seguro de IECA a ARNI",
-          "question": "Varón de 64 años con miocardiopatía isquémica y FEVI del 32 % (IC-FEr) toma Ramipril 10 mg al día. Por disnea persistente en clase funcional NYHA II decide iniciar Sacubitrilo/Valsartán (ARNI). ¿Qué precaución temporal es obligatoria antes de administrar la primera dosis?",
-          "answer": "Se debe suspender el Ramipril y esperar un periodo de lavado estricto de al menos 36 horas antes de iniciar la primera dosis de Sacubitrilo/Valsartán. La inhibición simultánea de la neprilisina y de la ECA produce una acumulación masiva de bradicinina y un riesgo extremo de angioedema potencialmente mortal.",
-          "pearl": "Al cambiar de un ARA-II a ARNI no se requiere periodo de lavado y se puede administrar directamente al día siguiente."
-        },
-        {
-          "id": "hf-r2",
-          "title": "Caso Clínico 2: Tratamiento de la IC con FEVI conservada (FEVI ≥ 50 %)",
-          "question": "Mujer de 72 años, hipertensa, diabética y obesa presenta disnea de esfuerzo NYHA III y edemas en tobillos. El ecocardiograma revela FEVI del 56 %, hipertrofia ventricular izquierda con E/e' de 14 y NT-proBNP de 1650 pg/ml. ¿Qué grupo farmacológico cuenta con indicación Clase I para reducir eventos en IC-FEc según ESC 2026?",
-          "answer": "Los inhibidores de SGLT2 (Dapagliflozina 10 mg o Empagliflozina 10 mg diarios). Con base en los ensayos DELIVER y EMPEROR-Preserved, los iSGLT2 son el tratamiento de primera línea con recomendación Clase I en IC-FEc. Se añaden ARM y diuréticos de asa según congestión.",
-          "pearl": "Los diuréticos de asa (furosemida) se añaden de forma sintomática para descongestionar y alcanzar la euvolemia."
-        }
+{
+      id: "hf",
+      number: 3,
+      title: "Insuficiencia Cardíaca (Guías ESC 2026)",
+      shortDesc: "Nueva clasificación por estadios A–D, desaparición de la HFmrEF, los 4 pilares de la Terapia Médica Fundacional (FMT), IC aguda y shock cardiogénico.",
+      icon: "🫁",
+      badge: "Guías ESC 2026",
+      badgeColor: "cyan",
+            guidelineLinks: [
+        { title: "2026 ESC Guidelines for the Diagnosis and Treatment of Acute and Chronic Heart Failure", url: "https://academic.oup.com/eurheartj/article/42/36/3599/6358045", year: "2026" }
       ],
-      "quiz": {
-        "title": "Miniquiz de decisión: Insuficiencia cardíaca aguda",
-        "prompt": "Paciente ingresa por edema agudo de pulmón con perfil 'caliente y húmedo' (PA 185/105 mmHg, FC 115 lpm, taquipnea, crepitantes pulmonares bilaterales, SpO2 86 % aire ambiente). ¿Cuál es la intervención farmacológica prioritaria?",
-        "options": [
+theory: {
+        banner: {
+          tag: "Revolución en Guías 2026",
+          title: "Clasificación simplificada y nueva nomenclatura terapéutica",
+          text: "Las Guías ESC 2026 unifican la clasificación: se elimina la categoría intermedia HFmrEF y los pacientes se dividen de forma binaria en **IC-FEr (FEVI ≤ 40 %)** e **IC-FEp (FEVI > 40 %)**. Se adoptan los **estadios A–D** con gran énfasis en prevención y se sustituye el término GDMT por la división entre **FMT (Foundational Medical Therapy)** y **AMT (Additional Medical Therapy)**."
+        },
+        sections: [
           {
-            "text": "A) Oxigenoterapia / VMNI, bolo i.v. de diurético de asa (Furosemida) y vasodilatador i.v. (Nitratos) para reducir la poscarga y las presiones de llenado",
-            "isCorrect": true
+            title: "Estadios de la Insuficiencia Cardíaca (A -> D)",
+            color: "cyan",
+            content: `
+              <div class="grid sm:grid-cols-2 gap-3 text-xs">
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <div class="font-bold text-slate-200">Estadio A: En riesgo (At Risk)</div>
+                  <p class="text-slate-400 mt-1">Pacientes con HTA, DM, obesidad o enfermedad cardiovascular, pero SIN alteración estructural cardíaca y SIN biomarcadores/síntomas.</p>
+                </div>
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <div class="font-bold text-cyan-400">Estadio B: Pre-insuficiencia cardíaca</div>
+                  <p class="text-slate-400 mt-1">Asintomáticos, pero TIENEN cardiopatía estructural (hipertrofia de VI, alteración de contractilidad) O péptidos natriuréticos elevados (BNP/NT-proBNP).</p>
+                </div>
+                <div class="p-3 bg-slate-900 border border-amber-500/50 rounded-xl">
+                  <div class="font-bold text-amber-400">Estadio C: Insuficiencia cardíaca sintomática</div>
+                  <p class="text-slate-400 mt-1">Pacientes con síntomas actuales o previos de insuficiencia cardíaca (disnea, edemas, astenia) y cardiopatía estructural documentada.</p>
+                </div>
+                <div class="p-3 bg-slate-900 border border-rose-500/50 rounded-xl">
+                  <div class="font-bold text-rose-400">Estadio D: IC avanzada (Advanced HF)</div>
+                  <p class="text-slate-400 mt-1">Síntomas graves refractarios en reposo pese a tratamiento médico óptimo. Indicación de asistencia ventricular mecánica (LVAD) o trasplante cardíaco.</p>
+                </div>
+              </div>
+            `
           },
           {
-            "text": "B) Infusión inmediata de inotrópico (Dobutamina) y vasopresor (Noradrenalina)",
-            "isCorrect": false
+            title: "Los 4 Pilares del Tratamiento Médico Fundacional en IC-FEr (FMT)",
+            color: "emerald",
+            content: `
+              <p class="text-xs text-slate-300 mb-3">En todo paciente con IC-FEr (FEVI ≤ 40 %) debe instaurarse precozmente la **cuádruple terapia fundacional (FMT)**, que reduce la mortalidad en más de un 60 %:</p>
+              <div class="grid sm:grid-cols-2 gap-3">
+                <div class="p-3 bg-emerald-950/30 border border-emerald-500/30 rounded-xl">
+                  <div class="font-bold text-emerald-400 text-xs">1. ARNI (Sacubitrilo/Valsartán)</div>
+                  <p class="text-[11px] text-slate-300 mt-0.5">O IECA/ARA-II si no se tolera. ARNI es la primera opción preferente.</p>
+                </div>
+                <div class="p-3 bg-emerald-950/30 border border-emerald-500/30 rounded-xl">
+                  <div class="font-bold text-emerald-400 text-xs">2. Betabloqueantes</div>
+                  <p class="text-[11px] text-slate-300 mt-0.5">Únicamente los 4 con evidencia en mortalidad: Bisoprolol, Succinato de Metoprolol, Carvedilol, Nebivolol.</p>
+                </div>
+                <div class="p-3 bg-emerald-950/30 border border-emerald-500/30 rounded-xl">
+                  <div class="font-bold text-emerald-400 text-xs">3. ARM (Antagonistas del receptor mineralocorticoide)</div>
+                  <p class="text-[11px] text-slate-300 mt-0.5">Espironolactona o Eplerenona. ¡Controlar potasio sérico y función renal!</p>
+                </div>
+                <div class="p-3 bg-emerald-950/30 border border-emerald-500/30 rounded-xl">
+                  <div class="font-bold text-emerald-400 text-xs">4. Inhibidores SGLT2 (Gliflozinas)</div>
+                  <p class="text-[11px] text-slate-300 mt-0.5">Dapagliflozina o Empagliflozina. ¡Eficaces en IC-FEr e IC-FEp, con o sin diabetes!</p>
+                </div>
+              </div>
+            `
+          }
+        ]
+      },
+      recall: {
+        scenarios: [
+          {
+            id: "hf-r1",
+            title: "Pregunta 1: Transición de IECA a ARNI",
+            question: "Paciente con IC-FEr toma Ramipril 10 mg/día de forma estable. Decide cambiar el tratamiento a Sacubitrilo/Valsartán (ARNI). ¿Cuánto tiempo de ventana libre de fármaco (periodo de lavado/wash-out) debe respetarse entre la última toma de Ramipril y el primer comprimido de ARNI?",
+            answer: "Al menos 36 horas. La administración conjunta o inmediata de IECA y ARNI provoca acumulación masiva de bradicinina y desencadena angioedema potencialmente mortal.",
+            pearl: "En la transición desde antagonistas de los receptores de angiotensina (ARA-II) a ARNI no es necesario periodo de lavado; puede iniciarse al día siguiente."
           },
           {
-            "text": "C) Sobrecarga rápida de 1000 ml de suero fisiológico",
-            "isCorrect": false
-          },
-          {
-            "text": "D) Bolo intravenoso de betabloqueante a dosis alta",
-            "isCorrect": false
+            id: "hf-r2",
+            title: "Pregunta 2: Tratamiento de la IC-FEp (Fracción de eyección preservada)",
+            question: "Mujer de 74 años con HTA y obesidad presenta disnea de esfuerzo NYHA III, NT-proBNP 1400 pg/ml, ecocardiograma con FEVI 55 % y datos de disfunción diastólica (IC-FEp). ¿Qué grupo farmacológico ha demostrado de forma concluyente reducir la mortalidad cardiovascular y las hospitalizaciones en IC-FEp (Clase I)?",
+            answer: "Los inhibidores de SGLT2 (Empagliflozina o Dapagliflozina). Basado en los ensayos EMPEROR-Preserved y DELIVER, las gliflozinas son el tratamiento de primera línea de elección para la IC-FEp.",
+            pearl: "Los diuréticos de asa (furosemida) se añaden de forma sintomática para alcanzar y mantener la euvolemia."
           }
         ],
-        "explanation": "En el edema agudo de pulmón hipertensivo caliente y húmedo, la causa principal es la redistribución de líquidos por poscarga excesiva. El tratamiento prioritario consiste en oxigenoterapia/VMNI, vasodilatadores intravenosos (nitroglicerina/dinitrato de isosorbida) y diuréticos de asa intravenosos en bolo."
-      }
-    },
-    "breakdown": {
-      "classThree": [
-        "Administrar Sacubitrilo/Valsartán (ARNI) antes de transcurridas 36 horas desde la última toma de IECA (riesgo de angioedema potencialmente letal).",
-        "Iniciar o aumentar la dosis de betabloqueantes en fase de descompensación aguda grave de la insuficiencia cardíaca.",
-        "Prescribir AINEs o glitazonas en pacientes con IC (favorecen retención hidrosalina y descompensación).",
-        "Utilizar calcioantagonistas no dihidropiridínicos (Verapamilo, Diltiazem) en IC-FEr.",
-        "Prescribir hierro oral de forma rutinaria para el déficit marcial en IC (ineficaz por bloqueo de hepcidina)."
-      ],
-      "mustKnow": [
-        "Las Guías ESC 2026 clasifican la IC en 2 fenotipos: IC-FEr (FEVI < 50 %) e IC-FEc (FEVI ≥ 50 %). ¡Se elimina la categoría IC-FElm!",
-        "4 pilares FMT en IC-FEr (FEVI < 50 %): ARNI/IECA + Betabloqueante + ARM + iSGLT2 (Dapa/Empa).",
-        "Los inhibidores de SGLT2 y los ARM son el tratamiento de elección para ambos fenotipos (IC-FEr e IC-FEc).",
-        "Hierro intravenoso (carboximaltosa/derisomaltosa) indicado con ferritina < 100 μg/l o 100–299 con TSAT < 20 %.",
-        "DAI: Prevención primaria si FEVI ≤ 35 % tras ≥ 3 meses de FMT. TRC: BRI + QRS ≥ 130–150 ms + FEVI ≤ 35 %."
-      ]
-    },
-    "guidelineLinks": [
-      {
-        "title": "2026 ESC Guidelines for the management of heart failure",
-        "year": 2026,
-        "journal": "European Heart Journal",
-        "doi": "10.1093/eurheartj/ehag100",
-        "url": "https://academic.oup.com/eurheartj/advance-article/doi/10.1093/eurheartj/ehag100/8766302"
-      }
-    ]
-  },
-  {
-    "id": "htn",
-    "number": 4,
-    "title": "Hipertensión arterial (Guías ESC 2024)",
-    "shortDesc": "Nueva categoría de presión arterial elevada (Elevated BP), objetivos estrictos de 120–129 mmHg, combinaciones fijas en 1 comprimido (SPC), denervación renal e hipertensión secundaria.",
-    "icon": "🩺",
-    "badge": "Guías ESC 2024",
-    "badgeColor": "amber",
-    "theory": {
-      "banner": {
-        "tag": "Novedades clave en Guías ESC 2024",
-        "title": "Categoría 'PA Elevada' y objetivo unificado de PAS 120–129 mmHg",
-        "text": "Las Guías ESC 2024 definen 3 categorías de presión arterial: 1. **PA no elevada (< 120/70 mmHg)**, 2. **PA elevada (Elevated BP: 120–139 / 70–89 mmHg)** y 3. **Hipertensión (&ge; 140/90 mmHg)**. El objetivo terapéutico para la gran mayoría de adultos tratados se sitúa de forma unificada en **120–129 mmHg** de presión sistólica."
+        quiz: {
+          title: "Quiz: Manejo de la Insuficiencia Cardíaca Aguda",
+          prompt: "En un paciente que ingresa por edema agudo de pulmón (perfil 'caliente y húmedo': PA 175/100 mmHg, taquipnea, crepitantes en 1/2 inferior de ambos campos pulmonares, SpO2 88 %), la prioridad farmacológica urgente es:",
+          options: [
+            { text: "A) Oxigenoterapia (si SpO2 < 90 %), bolo i.v. de Furosemida y vasodilatadores i.v. (nitratos) para reducir la precarga y postcarga", isCorrect: true },
+            { text: "B) Infusión inmediata de Dobutamina y Noradrenalina", isCorrect: false },
+            { text: "C) Administración rápida de 1000 ml de suero fisiológico", isCorrect: false },
+            { text: "D) Inicio inmediato de dosis altas de betabloqueante intravenoso", isCorrect: false }
+          ],
+          explanation: "En el edema agudo de pulmón hipertensivo ('caliente y húmedo'), la clave es reducir las presiones de llenado y la postcarga combinando nitratos intravenosos (dinitrato de isosorbida / nitroglicerina) y diuréticos de asa i.v. (furosemida) junto con soporte de oxígeno o ventilación no invasiva (VNI)."
+        }
       },
-      "sections": [
-        {
-          "title": "1. Nueva clasificación de la PA según ESC 2024",
-          "color": "amber",
-          "content": "\n                            <div class=\"grid md:grid-cols-3 gap-3 my-3 text-xs\">\n                                <div class=\"p-3 bg-emerald-950/30 border border-emerald-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-emerald-400\">1. PA no elevada (Non-elevated)</span>\n                                    <p class=\"text-slate-300 mt-1\">PA <strong>&lt; 120/70 mmHg</strong>. Valor óptimo con menor riesgo cardiovascular.</p>\n                                </div>\n                                <div class=\"p-3 bg-amber-950/30 border border-amber-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-amber-400\">2. PA elevada (Elevated BP)</span>\n                                    <p class=\"text-slate-300 mt-1\">PAS <strong>120–139 mmHg</strong> y/o PAD <strong>70–89 mmHg</strong>. Modificación del estilo de vida; fármacos si alto riesgo CV.</p>\n                                </div>\n                                <div class=\"p-3 bg-rose-950/30 border border-rose-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-rose-400\">3. Hipertensión (Hypertension)</span>\n                                    <p class=\"text-slate-300 mt-1\">PAS <strong>&ge; 140 mmHg</strong> y/o PAD <strong>&ge; 90 mmHg</strong> en consulta (o en MAPA diurno &ge; 135/85 mmHg).</p>\n                                </div>\n                            </div>\n                        "
-        },
-        {
-          "title": "2. Algoritmo terapéutico: Combinaciones en 1 solo comprimido (SPC)",
-          "color": "emerald",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-slate-700 rounded-xl text-xs text-slate-300 leading-relaxed space-y-2.5\">\n                                <p><strong>Regla fundamental ESC 2024:</strong> Iniciar tratamiento con <strong>combinación doble a dosis fija en un solo comprimido (SPC)</strong> como primera opción (Clase I).</p>\n                                <div class=\"grid sm:grid-cols-3 gap-3\">\n                                    <div class=\"p-2.5 bg-slate-800 rounded-lg border border-slate-600\">\n                                        <span class=\"font-bold text-amber-400\">Paso 1: Doble combinación</span>\n                                        <p class=\"text-[11px] mt-1 text-slate-300\"><strong>IECA o ARA-II + Antagonista del calcio</strong> (DHP) O <strong>Diurético tiazídico/tiazida-like</strong> (Indapamida/Clortalidona).</p>\n                                    </div>\n                                    <div class=\"p-2.5 bg-slate-800 rounded-lg border border-slate-600\">\n                                        <span class=\"font-bold text-amber-400\">Paso 2: Triple combinación</span>\n                                        <p class=\"text-[11px] mt-1 text-slate-300\"><strong>IECA/ARA-II + Calcioantagonista + Diurético</strong> en 1 solo comprimido (A + C + D).</p>\n                                    </div>\n                                    <div class=\"p-2.5 bg-slate-800 rounded-lg border border-slate-600\">\n                                        <span class=\"font-bold text-amber-400\">Paso 3: HTA resistente</span>\n                                        <p class=\"text-[11px] mt-1 text-slate-300\">Triple terapia + <strong>Espironolactona</strong> (25–50 mg) o Eplerenona / Amilorida / Betabloqueante.</p>\n                                    </div>\n                                </div>\n                                <p class=\"text-slate-400 text-[11px]\"><em>Denervación renal (RDN):</em> Recomendación Clase IIa/IIb como terapia coadyuvante en hipertensión resistente confirmada.</p>\n                            </div>\n                        "
-        },
-        {
-          "title": "3. Hipertensión secundaria: Cribado y Diagnóstico",
-          "color": "rose",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-rose-500/30 rounded-xl text-xs text-slate-300 space-y-2\">\n                                <p class=\"font-bold text-rose-400\">¿Cuándo sospechar y buscar causas secundarias?</p>\n                                <ul class=\"list-disc ml-5 space-y-1\">\n                                    <li><strong>Edad joven (&lt; 35 años)</strong> o aparición brusca de hipertensión grave.</li>\n                                    <li><strong>Hipertensión resistente:</strong> PA no controlada con 3 fármacos a dosis plenas incluyendo un diurético.</li>\n                                    <li><strong>Hiperaldosteronismo primario (Síndrome de Conn):</strong> Hipopotasemia (espontánea o con diuréticos). Cribado: <strong>cociente aldosterona/renina (ARR)</strong> tras suspender ARM 4–6 semanas.</li>\n                                    <li><strong>Hipertensión renovascular:</strong> Aterosclerosis de arteria renal en fumadores añosos o <em>displasia fibromuscular (DFM)</em> en mujeres jóvenes. Diagnóstico: Eco-Doppler o Angio-TC renal.</li>\n                                    <li><strong>Feocromocitoma:</strong> Triada paroxística (cefalea, sudoración profusa, palpitaciones). Cribado: <em>metanefrinas libres fraccionadas en plasma o en orina</em>.</li>\n                                    <li><strong>Apnea obstructiva del sueño (SAOS):</strong> Ronquidos, somnolencia, patrón non-dipper en MAPA. ¡Causa secundaria más frecuente!</li>\n                                </ul>\n                            </div>\n                        "
-        }
-      ]
+      breakdown: {
+        classThree: [
+          "Administración de ARNI dentro de las 36 horas posteriores a la última dosis de un IECA (riesgo grave de angioedema).",
+          "Inicio o aumento de dosis de betabloqueantes durante una descompensación aguda grave de insuficiencia cardíaca.",
+          "Uso de AINEs y glitazonas (aumentan la retención hidrosalina y descompensan la IC).",
+          "Uso de antagonistas del calcio no dihidropiridínicos (verapamilo, diltiazem) en IC-FEr (efecto inotrópico negativo)."
+        ],
+        mustKnow: [
+          "4 pilares FMT: ARNI/IECA + Betabloqueante + ARM + iSGLT2. Todo paciente con IC-FEr debe recibir los cuatro fármacos.",
+          "Los diuréticos no han demostrado reducir la mortalidad a largo plazo, pero son indispensables para lograr la descongestión y euvolemia.",
+          "El DAI (desfibrilador automático implantable) está indicado en prevención primaria en pacientes sintomáticos (NYHA II–III) con FEVI ≤ 35 % tras ≥ 3 meses de tratamiento médico óptimo."
+        ]
+      }
     },
-    "recall": {
-      "scenarios": [
-        {
-          "id": "htn-r1",
-          "title": "Caso Clínico 1: Cribado de hiperaldosteronismo primario",
-          "question": "Varón de 44 años con HTA resistente (PA 168/104 mmHg con Perindopril + Amlodipino + Indapamida) presenta en analítica potasio de 3,0 mmol/l. ¿Cuál es el test inicial de elección para descartar hiperaldosteronismo primario y qué fármacos deben suspenderse antes?",
-          "answer": "La prueba de cribado de elección es el cociente aldosterona/actividad de renina plasmática (ARR). Al menos 4 semanas antes de la extracción deben suspenderse los antagonistas del receptor mineralocorticoide (Espironolactona, Eplerenona) y los diuréticos ahorradores de potasio para evitar interferencias farmacológicas en el eje RAA.",
-          "pearl": "La normopotasemia no excluye el hiperaldosteronismo primario; hasta el 50 % de los pacientes con síndrome de Conn tienen cifras normales de potasio."
-        },
-        {
-          "id": "htn-r2",
-          "title": "Caso Clínico 2: Emergencia vs. Urgencia hipertensiva",
-          "question": "Varón de 58 años acude con PA de 210/125 mmHg, cefalea intensa y visión borrosa. En el fondo de ojo se observan hemorragias en llama y edema de papila. ¿Cuál es la diferencia entre emergencia y urgencia hipertensiva y cuál es el objetivo de descenso tensional?",
-          "answer": "Se trata de una emergencia hipertensiva (elevación tensional grave con daño orgánico agudo progresivo: retinopatía y encefalopatía hipertensiva). Requiere ingreso en UCI y tratamiento intravenoso titulado (ej. Urapidilo, Labetalol). El objetivo es reducir la presión arterial media (PAM) en no más de un 20–25 % en la primera hora para evitar hipoperfusión cerebral, coronaria o renal.",
-          "pearl": "La única excepción con necesidad de reducción radical inmediata a PAS &lt; 120 mmHg en &lt; 20 minutos es la disección aórtica aguda."
-        }
+{
+      id: "htn",
+      number: 4,
+      title: "Hipertensión Arterial (Guías ESC 2024)",
+      shortDesc: "Nueva categoría de PA elevada, objetivos de 120–129 mmHg, combinaciones fijas en un solo comprimido y despistaje de HTA secundaria.",
+      icon: "🩺",
+      badge: "Guías ESC 2024",
+      badgeColor: "amber",
+            guidelineLinks: [
+        { title: "2024 ESC Guidelines for the Management of Elevated Blood Pressure and Hypertension", url: "https://academic.oup.com/eurheartj/article/45/39/3912/7741355", year: "2024" }
       ],
-      "quiz": {
-        "title": "Miniquiz: Combinaciones prohibidas en hipertensión",
-        "prompt": "¿Cuál de las siguientes combinaciones de antihipertensivos está CONTRAINDICADA (Clase III) por las guías ESC?",
-        "options": [
+theory: {
+        banner: {
+          tag: "Nueva clasificación (ESC 2024)",
+          title: "Objetivos más estrictos y categoría de 'Presión Arterial Elevada'",
+          text: "La ESC 2024 establece 3 categorías de presión arterial: 1. **PA Normal (< 120/70 mmHg)**, 2. **PA Elevada (Elevated BP: 120–139 / 70–89 mmHg)** y 3. **Hipertensión (≥ 140/90 mmHg)**. El objetivo de presión arterial sistólica para la gran mayoría de adultos en tratamiento se unifica en **120–129 mmHg** (siempre que sea bien tolerado)."
+        },
+        sections: [
           {
-            "text": "A) Tratamiento simultáneo con un IECA (ej. Enalapril) y un ARA-II (ej. Losartán) o un inhibidor directo de la renina",
-            "isCorrect": true
+            title: "Estrategia de inicio: Combinación en un solo comprimido (Single-Pill Combination)",
+            color: "amber",
+            content: `
+              <div class="p-4 bg-slate-900 border border-slate-700 rounded-xl text-xs text-slate-300 leading-relaxed">
+                <p class="mb-2"><strong>Regla esencial 2024:</strong> El inicio del tratamiento antihipertensivo con <strong>terapia combinada doble en un solo comprimido (SPC)</strong> se recomienda para la inmensa mayoría de pacientes (Clase I).</p>
+                <div class="grid sm:grid-cols-3 gap-3 my-3">
+                  <div class="p-2.5 bg-slate-800 rounded-lg border border-slate-600">
+                    <span class="font-bold text-amber-400">Paso 1: Terapia doble (SPC)</span>
+                    <p class="text-[11px] mt-1 text-slate-300">IECA o ARA-II + Antagonista del calcio (DHP) O diurético tiazídico/tiazida-like.</p>
+                  </div>
+                  <div class="p-2.5 bg-slate-800 rounded-lg border border-slate-600">
+                    <span class="font-bold text-amber-400">Paso 2: Terapia triple (SPC)</span>
+                    <p class="text-[11px] mt-1 text-slate-300">IECA/ARA-II + Antagonista del calcio + Diurético tiazídico en 1 comprimido.</p>
+                  </div>
+                  <div class="p-2.5 bg-slate-800 rounded-lg border border-slate-600">
+                    <span class="font-bold text-amber-400">Paso 3: HTA resistente</span>
+                    <p class="text-[11px] mt-1 text-slate-300">Terapia triple + Espironolactona (25–50 mg) o betabloqueante/fármaco central.</p>
+                  </div>
+                </div>
+                <p class="text-slate-400">La monoterapia queda reservada únicamente a pacientes ancianos frágiles o hipertensión de bajo riesgo grado 1 (PA &lt; 150/95 mmHg).</p>
+              </div>
+            `
           },
           {
-            "text": "B) IECA + Antagonista del calcio dihidropiridínico",
-            "isCorrect": false
+            title: "Hipertensión Arterial Secundaria (¿Cuándo sospecharla?)",
+            color: "rose",
+            content: `
+              <ul class="list-disc ml-5 text-xs text-slate-300 space-y-1.5">
+                <li><strong>Edad joven (&lt; 35 años)</strong> o aparición brusca de hipertensión grave/maligna.</li>
+                <li><strong>Hipertensión resistente</strong> (cifras no controladas pese a triple terapia a dosis plenas incluyendo un diurético).</li>
+                <li><strong>Hipopotasemia</strong> (espontánea o tras dosis bajas de diuréticos) -> sospecha de <em>hiperaldosteronismo primario (síndrome de Conn)</em> -> ratio aldosterona/renina (ARR).</li>
+                <li><strong>Asimetría renal / soplo abdominal</strong> -> <em>hipertensión renovascular</em> (aterosclerosis en ancianos, displasia fibromuscular en mujeres jóvenes).</li>
+                <li><strong>Crisis paroxísticas con la tríada clásica (cefalea, sudoración, palpitaciones)</strong> -> <em>feocromocitoma</em> (metanefrinas plasmáticas o urinarias).</li>
+                <li><strong>Síndrome de apnea obstructiva del sueño (SAOS)</strong> – ¡la causa secundaria más frecuente!</li>
+              </ul>
+            `
+          }
+        ]
+      },
+      recall: {
+        scenarios: [
+          {
+            id: "htn-r1",
+            title: "Pregunta 1: Diagnóstico de hiperaldosteronismo primario",
+            question: "Varón de 42 años con hipertensión refractaria (PA 165/105 mmHg con triple terapia) presenta en analítica potasio sérico de 3.1 mmol/l. ¿Cuál es la prueba de cribado inicial ante la sospecha de síndrome de Conn y qué fármacos deben suspenderse previamente?",
+            answer: "Determinación del cociente aldosterona plasmática / actividad o concentración de renina plasmática (ARR = Aldosterone-to-Renin Ratio). Al menos 4 semanas antes de la prueba se deben suspender los antagonistas del receptor mineralocorticoide (Espironolactona, Eplerenona).",
+            pearl: "Si el ARR resulta positivo, se realiza prueba de confirmación (ej. sobrecarga salina i.v.) y TC de glándulas suprarrenales."
           },
           {
-            "text": "C) ARA-II + Diurético tiazida-like (Indapamida)",
-            "isCorrect": false
-          },
-          {
-            "text": "D) Triple combinación IECA + Calcioantagonista + Espironolactona",
-            "isCorrect": false
+            id: "htn-r2",
+            title: "Pregunta 2: Crisis hipertensiva – Emergencia vs Urgencia",
+            question: "¿Cuál es la diferencia fundamental entre una emergencia hipertensiva y una urgencia hipertensiva y cómo varía su tratamiento?",
+            answer: "La emergencia hipertensiva es una elevación grave de la PA (habitualmente > 180/120 mmHg) ACOMPAÑADA de daño agudo progresivo en órganos diana (edema agudo de pulmón, disección aórtica, eclampsia, encefalopatía). Precisa ingreso en UCI y tratamiento parenteral (i.v.) con descenso progresivo y controlado de la PA. La urgencia hipertensiva no presenta daño agudo de órgano diana y se maneja con medicación oral de forma ambulatoria.",
+            pearl: "En la emergencia hipertensiva (excepto en la disección aórtica aguda), la PA no debe reducirse más de un 25 % en la primera hora para no provocar isquemia cerebral o renal."
           }
         ],
-        "explanation": "El doble bloqueo del sistema renina-angiotensina-aldosterona (combinación de IECA + ARA-II o aliskireno) está formalmente contraindicado (Clase III) según los grandes ensayos (ONTARGET, ALTITUDE), ya que no aporta beneficio cardiovascular y multiplica el riesgo de insuficiencia renal aguda, hipotensión y episodios de hiperpotasemia grave."
-      }
-    },
-    "breakdown": {
-      "classThree": [
-        "Combinación simultánea de dos bloqueadores del SRAA (IECA + ARA-II o inhibidor directo de renina).",
-        "Uso rutinario de betabloqueantes como fármaco de primera línea en hipertensión esencial no complicada (salvo en cardiopatía isquémica, insuficiencia cardíaca, arritmias o embarazo).",
-        "Descensos bruscos y excesivos de la PA en la fase aguda del ictus isquémico no candidato a trombólisis.",
-        "Uso de cápsulas sublinguales de nifedipino de acción corta en crisis hipertensivas."
-      ],
-      "mustKnow": [
-        "Categorías ESC 2024: PA No elevada (&lt; 120/70), PA Elevada (120–139 / 70–89), Hipertensión (&ge; 140/90 mmHg).",
-        "Objetivo en tratamiento: PAS 120–129 mmHg y PAD 70–79 mmHg para la mayoría de pacientes.",
-        "Pilar de inicio: Doble combinación a dosis fija en 1 solo comprimido (SPC: IECA/ARA-II + Calcioantagonista o Diurético).",
-        "Hipertensión resistente: Triple combinación a dosis plena + Espironolactona 25–50 mg.",
-        "Emergencia hipertensiva: Fármacos i.v. con descenso de PAM de max. 20–25 % en la 1.ª hora."
-      ]
-    },
-    "guidelineLinks": [
-      {
-        "title": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension",
-        "year": 2024,
-        "journal": "European Heart Journal",
-        "doi": "10.1093/eurheartj/ehae178",
-        "url": "https://academic.oup.com/eurheartj/article/45/38/3912/7741010"
-      }
-    ]
-  },
-  {
-    "id": "afib",
-    "number": 5,
-    "title": "Fibrilación auricular (Guías ESC 2024)",
-    "shortDesc": "Nuevo enfoque AF-CARE, puntuación CHA2DS2-VA, indicación de ACOD, control precoz del ritmo vs. frecuencia y ablación por catéter de venas pulmonares (PVI).",
-    "icon": "⚡",
-    "badge": "Guías ESC 2024",
-    "badgeColor": "purple",
-    "theory": {
-      "banner": {
-        "tag": "Nuevo esquema integral (Guías ESC 2024)",
-        "title": "AF-CARE: Manejo integral centrado en el paciente",
-        "text": "Las Guías ESC 2024 introducen el marco **AF-CARE**: **C** (Comorbidity management - tratamiento de comorbilidades y estilo de vida), **A** (Avoid stroke - prevención del ictus con escala CHA2DS2-VA y ACOD), **R** (Rate & Rhythm control - control de frecuencia y ritmo precoz) y **E** (Evaluation - reevaluación dinámica). ¡La ablación por catéter se sitúa como terapia de primera línea!"
+        quiz: {
+          title: "Quiz: Selección de antihipertensivos",
+          prompt: "¿Cuál de las siguientes combinaciones antihipertensivas está CONTRAINDICADA por elevado riesgo de hiperpotasemia, hipotensión grave y fracaso renal agudo?",
+          options: [
+            { text: "A) Coadministración de un IECA (ej. Perindopril) y un ARA-II (ej. Telmisartán)", isCorrect: true },
+            { text: "B) IECA + Antagonista del calcio", isCorrect: false },
+            { text: "C) ARA-II + Indapamida", isCorrect: false },
+            { text: "D) Triple terapia IECA + Antagonista del calcio + Espironolactona", isCorrect: false }
+          ],
+          explanation: "El doble bloqueo del SRAA (combinación de IECA + ARA-II o inhibidor directo de la renina) está formalmente contraindicado (Clase III) por los estudios ONTARGET y ALTITUDE, al multiplicar los episodios de fallo renal e hiperpotasemia sin aportar ningún beneficio cardiovascular."
+        }
       },
-      "sections": [
-        {
-          "title": "1. El Marco AF-CARE paso a paso",
-          "color": "purple",
-          "content": "\n                            <div class=\"grid sm:grid-cols-2 gap-3 my-3 text-xs\">\n                                <div class=\"p-3 bg-slate-900 border border-purple-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-purple-400\">C: Comorbidities & Risk factors</span>\n                                    <p class=\"text-slate-300 mt-1\">Control de la HTA, reducción ponderal en obesidad (&ge; 10 % del peso), tratamiento de la apnea del sueño (CPAP) y abandono del alcohol.</p>\n                                </div>\n                                <div class=\"p-3 bg-slate-900 border border-purple-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-purple-400\">A: Avoid stroke / Anticoagulation</span>\n                                    <p class=\"text-slate-300 mt-1\">Prevención tromboembólica mediante escala <strong>CHA2DS2-VA</strong>. Preferencia de anticoagulantes directos (ACOD: Apixabán, Rivaroxabán, Dabigatrán, Edoxabán) frente a sintrom/warfarina.</p>\n                                </div>\n                                <div class=\"p-3 bg-slate-900 border border-purple-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-purple-400\">R: Rate and Rhythm control</span>\n                                    <p class=\"text-slate-300 mt-1\">Control de frecuencia (betabloqueantes, verapamilo/diltiazem, digoxina) y <strong>control precoz del ritmo</strong> (ablación PVI, cardioversión, antiarrítmicos) para preservar ritmo sinusal.</p>\n                                </div>\n                                <div class=\"p-3 bg-slate-900 border border-purple-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-purple-400\">E: Evaluation & Re-assessment</span>\n                                    <p class=\"text-slate-300 mt-1\">Reevaluación periódica de síntomas, progresión de la arritmia y función renal/hepática para ajustar dosis de ACOD.</p>\n                                </div>\n                            </div>\n                        "
-        },
-        {
-          "title": "2. Estratificación del riesgo embólico: Escala CHA2DS2-VA y ACOD",
-          "color": "cyan",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-cyan-500/30 rounded-xl text-xs text-slate-300 space-y-2\">\n                                <p><strong>Escala CHA2DS2-VA:</strong> C (Insuficiencia cardíaca = 1), H (Hipertensión = 1), A2 (Edad &ge; 75 años = <strong>2 puntos</strong>), D (Diabetes = 1), S2 (ICTUS/AIT previo = <strong>2 puntos</strong>), V (Enfermedad vascular = 1), A (Edad 65–74 años = 1).</p>\n                                <div class=\"p-2.5 bg-cyan-950/40 border border-cyan-500/30 rounded-lg\">\n                                    <span class=\"font-bold text-cyan-400\">Reglas de anticoagulación (ACOD):</span>\n                                    <ul class=\"list-disc ml-5 mt-1 space-y-0.5 text-[11px]\">\n                                        <li><strong>Puntuación &ge; 2 puntos:</strong> Anticoagulación <strong>RECOMENDADA (Clase I, Nivel A)</strong>.</li>\n                                        <li><strong>Puntuación = 1 punto:</strong> Anticoagulación <strong>A CONSIDERAR (Clase IIa, Nivel B)</strong>.</li>\n                                        <li><strong>Puntuación = 0 puntos:</strong> Anticoagulación o antiagregación <strong>NO RECOMENDADA (Clase III)</strong>.</li>\n                                    </ul>\n                                </div>\n                                <p class=\"text-[11px] text-slate-400\"><em>Escala HAS-BLED:</em> Sirve para identificar y corregir factores modificables de sangrado, <strong>nunca para denegar la anticoagulación indicada</strong>.</p>\n                            </div>\n                        "
-        },
-        {
-          "title": "3. Control del ritmo: Cardioversión y Ablación de venas pulmonares (PVI)",
-          "color": "rose",
-          "content": "\n                            <div class=\"space-y-2.5 text-xs text-slate-300\">\n                                <div class=\"p-3 bg-slate-900 border border-slate-700 rounded-xl\">\n                                    <span class=\"font-bold text-rose-400\">⚡ Cardioversión eléctrica o farmacológica</span>\n                                    <p class=\"mt-1\">\n                                        Si la FA dura &gt; 48 horas (o tiempo indeterminado), la cardioversión solo es segura tras <strong>&ge; 3 semanas de anticoagulación efectiva (ACOD)</strong> O tras descartar trombo en orejuela izquierda mediante <strong>ecocardiograma transesofágico (ETE)</strong>. Posteriormente se mantiene anticoagulación al menos 4 semanas.\n                                    </p>\n                                </div>\n                                <div class=\"p-3 bg-slate-900 border border-emerald-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-emerald-400\">🔥 Ablación por catéter de venas pulmonares (PVI)</span>\n                                    <p class=\"mt-1\">\n                                        La ablación PVI es <strong>tratamiento de primera línea (Clase I)</strong> en FA paroxística o persistente sintomática para prevenir recurrencias, y en pacientes con FA e insuficiencia cardíaca con FE reducida (ensayo CASTLE-AF).\n                                    </p>\n                                </div>\n                            </div>\n                        "
-        }
-      ]
+      breakdown: {
+        classThree: [
+          "Combinación simultánea de dos bloqueadores del SRAA (IECA + ARA-II / inhibidor directo de renina).",
+          "Prescripción de betabloqueantes como fármaco de primera línea rutinario para la HTA esencial no complicada (salvo en cardiopatía isquémica, arritmias o insuficiencia cardíaca).",
+          "Descenso excesivamente brusco de la PA en el ictus isquémico agudo (salvo indicación de trombólisis)."
+        ],
+        mustKnow: [
+          "Objetivo de PA: 120–129 / 70–79 mmHg para la gran mayoría de pacientes.",
+          "Estrategia principal: Combinación doble fija en 1 comprimido (Single-Pill Combination) desde el inicio.",
+          "Emergencias hipertensivas: tratamiento intravenoso inmediato (Urapidilo, Labetalol, Nitroglicerina, Nitroprusiato)."
+        ]
+      }
     },
-    "recall": {
-      "scenarios": [
-        {
-          "id": "af-r1",
-          "title": "Caso Clínico 1: Anticoagulación tras ablación exitosa",
-          "question": "Varón de 66 años hipertenso y diabético se sometió a ablación de venas pulmonares (PVI) por FA paroxística. En el Holter de control a los 6 meses permanece en ritmo sinusal perfecto sin episodios de FA. Solicita retirar el Apixabán. ¿Cuál es la decisión correcta?",
-          "answer": "NO SE DEBE SUSPENDER EL APIXABÁN. La indicación de anticoagulación a largo plazo depende exclusivamente del perfil de riesgo embólico del paciente (CHA2DS2-VA = 3 puntos: edad 66 = 1, HTA = 1, DM = 1), y no del éxito aparente de la ablación. Hasta un 30 % de los pacientes presentan recurrencias asintomáticas de FA con idéntico riesgo de ictus cardioembólico.",
-          "pearl": "La ablación o cardioversión exitosa no exime de anticoagulación continua si el riesgo tromboembólico es moderado o alto."
-        },
-        {
-          "id": "af-r2",
-          "title": "Caso Clínico 2: Fibrilación auricular en Síndrome de WPW (FBI)",
-          "question": "Joven de 26 años acude por palpitaciones intensas y síncope. El ECG muestra taquicardia irregular de complejos anchos y abigarrados a 240 lpm (patrón FBI: Fast, Broad, Irregular). ¿Qué fármacos están formalmente contraindicados?",
-          "answer": "Están formalmente contraindicados todos los bloqueadores del nodo AV (Adenosina, Verapamilo, Diltiazem, Betabloqueantes, Digoxina). Bloquear el nodo AV desvía todos los impulsos auriculares (a &gt; 300 lpm) por la vía accesoria de Kent directamente a los ventrículos, provocando fibrilación ventricular y parada cardíaca. El tratamiento de elección es la cardioversión eléctrica inmediata o Ibutilida i.v.",
-          "pearl": "Patrón FBI (Fast, Broad, Irregular) = FA + WPW -> ¡prohibido frenar el nodo AV, aplicar choque eléctrico inmediato!"
-        }
+{
+      id: "afib",
+      number: 5,
+      title: "Fibrilación y Flutter Auricular (Guías ESC 2024)",
+      shortDesc: "Estrategia CARE, puntuación CHA2DS2-VA (eliminación del sexo femenino), indicación de ACOD, control de ritmo vs. frecuencia y ablación por catéter.",
+      icon: "⚡",
+      badge: "Guías ESC 2024",
+      badgeColor: "purple",
+            guidelineLinks: [
+        { title: "2024 ESC Guidelines for the Management of Atrial Fibrillation", url: "https://academic.oup.com/eurheartj/article/45/39/3314/7741354", year: "2024" }
       ],
-      "quiz": {
-        "title": "Miniquiz: Elección de antiarrítmicos para cardioversión",
-        "prompt": "Paciente de 60 años con FA paroxística de 6 horas de evolución y antecedente de infarto de miocardio previo con FEVI del 35 % precisa cardioversión farmacológica. ¿Qué fármaco es el adecuado?",
-        "options": [
+theory: {
+        banner: {
+          tag: "Novedad ESC 2024",
+          title: "Estrategia CARE y eliminación de 'Sc' en la escala CHA2DS2-VA",
+          text: "Las guías ESC 2024 introducen el enfoque integral **CARE** (Comorbidity management, Avoid stroke, Reduce symptoms, Evaluate). La novedad principal es la transición a la escala **CHA2DS2-VA**: el sexo femenino (Sc) deja de computar un punto independiente, ya que ser mujer en ausencia de otros factores de riesgo cardiovascular no incrementa per se el riesgo de ictus."
+        },
+        sections: [
           {
-            "text": "A) Amiodarona i.v.",
-            "isCorrect": true
+            title: "Indicación de anticoagulación oral (CHA2DS2-VA)",
+            color: "purple",
+            content: `
+              <div class="p-4 bg-slate-900 border border-slate-700 rounded-xl text-xs space-y-3">
+                <p class="text-slate-300"><strong>Criterios de inicio de ACOD (Apixabán, Edoxabán, Rivaroxabán, Dabigatrán):</strong></p>
+                <div class="grid sm:grid-cols-3 gap-3">
+                  <div class="p-3 bg-rose-950/40 border border-rose-500/30 rounded-lg">
+                    <span class="font-bold text-rose-400 text-sm">Puntuación ≥ 2 puntos</span>
+                    <p class="text-slate-300 mt-1">Anticoagulación <strong>CLARAMENTE INDICADA (Clase I)</strong>.</p>
+                  </div>
+                  <div class="p-3 bg-amber-950/40 border border-amber-500/30 rounded-lg">
+                    <span class="font-bold text-amber-400 text-sm">Puntuación = 1 punto</span>
+                    <p class="text-slate-300 mt-1">Anticoagulación <strong>DEBE CONSIDERARSE (Clase IIa)</strong>.</p>
+                  </div>
+                  <div class="p-3 bg-emerald-950/40 border border-emerald-500/30 rounded-lg">
+                    <span class="font-bold text-emerald-400 text-sm">Puntuación = 0 puntos</span>
+                    <p class="text-slate-300 mt-1">Anticoagulación <strong>NO INDICADA (Clase III)</strong>.</p>
+                  </div>
+                </div>
+                <p class="text-slate-400">Los ACOD son de elección preferente frente a los antagonistas de la vitamina K (Warfarina/Acenocumarol) en toda FA no valvular.</p>
+              </div>
+            `
           },
           {
-            "text": "B) Flecainida i.v.",
-            "isCorrect": false
+            title: "Control de Ritmo vs. Control de Frecuencia y Ablación por Catéter",
+            color: "cyan",
+            content: `
+              <div class="grid md:grid-cols-2 gap-4 text-xs">
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <h4 class="font-bold text-cyan-400 mb-1">Control de frecuencia (Rate Control)</h4>
+                  <p class="text-slate-300 leading-relaxed">
+                    Objetivo de FC en reposo &lt; 100–110 lpm. Fármacos de 1.ª elección: <strong>Betabloqueantes</strong> o calcioantagonistas no dihidropiridínicos (Verapamilo/Diltiazem, ¡solo si FEVI &gt; 40 %!). En insuficiencia cardíaca: Digoxina.
+                  </p>
+                </div>
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <h4 class="font-bold text-cyan-400 mb-1">Ablación por catéter (Aislamiento de venas pulmonares - PVI)</h4>
+                  <p class="text-slate-300 leading-relaxed">
+                    El aislamiento de venas pulmonares está recomendado en 2024 como <strong>tratamiento de primera línea (Clase I)</strong> en FA paroxística sintomática incluso antes del fracaso de antiarrítmicos, y especialmente en pacientes con FA e insuficiencia cardíaca (IC-FEr).
+                  </p>
+                </div>
+              </div>
+            `
+          }
+        ]
+      },
+      recall: {
+        scenarios: [
+          {
+            id: "af-r1",
+            title: "Pregunta 1: ¿Cuándo sigue siendo insustituible el Sintrom / Warfarina?",
+            question: "¿En qué dos grupos específicos de pacientes con fibrilación auricular están formalmente contraindicados los ACOD y el fármaco de elección sigue siendo el antagonista de la vitamina K (AVK) con control estricto de INR?",
+            answer: "1. Pacientes portadores de prótesis valvulares cardíacas mecánicas. 2. Pacientes con estenosis mitral moderada o grave (típicamente de origen reumático).",
+            pearl: "En prótesis biológicas o tras plastia valvular, los ACOD son seguros una vez transcurrido el periodo postoperatorio inicial."
           },
           {
-            "text": "C) Propafenona oral",
-            "isCorrect": false
-          },
-          {
-            "text": "D) Verapamilo i.v.",
-            "isCorrect": false
+            id: "af-r2",
+            title: "Pregunta 2: Cardioversión eléctrica y ecocardiograma transesofágico",
+            question: "Paciente acude por palpitaciones de 4 días de evolución. El EKG confirma fibrilación auricular con respuesta ventricular rápida. No tomaba anticoagulantes previamente. Desea realizar cardioversión eléctrica programada. ¿Cuál es el protocolo?",
+            answer: "Si la arritmia dura > 48 horas y el paciente no ha estado correctamente anticoagulado durante al menos 3 semanas, es obligatorio realizar ANTES de la cardioversión un ecocardiograma transesofágico (ETE) para descartar trombo en la orejuela izquierda. Posteriormente, la anticoagulación debe mantenerse al menos 4 semanas tras el procedimiento.",
+            pearl: "En caso de inestabilidad hemodinámica (shock, edema pulmonar), se realiza cardioversión eléctrica urgente con bolo de heparina sin demorarla por el ETE."
           }
         ],
-        "explanation": "En pacientes con cardiopatía estructural (antecedente de infarto de miocardio, hipertrofia ventricular o insuficiencia cardíaca con FE reducida), los antiarrítmicos de clase Ic (Flecainida, Propafenona) están contraindicados por alto riesgo de arritmias ventriculares letales (estudio CAST). El antiarrítmico de elección para la cardioversión farmacológica en cardiopatía estructural es la Amiodarona."
-      }
-    },
-    "breakdown": {
-      "classThree": [
-        "Uso de antiarrítmicos de clase Ic (Flecainida, Propafenona) en pacientes con cardiopatía estructural, infarto previo o insuficiencia cardíaca.",
-        "Uso de frenadores del nodo AV (Adenosina, Verapamilo, Betabloqueantes, Digoxina) en FA preexcitada con WPW.",
-        "Uso de aspirina o antiagregación plaquetaria como sustituto de la anticoagulación para prevenir ictus en FA.",
-        "Suspensión de la anticoagulación tras ablación exitosa en pacientes con CHA2DS2-VA elevado.",
-        "Cardioversión de FA de &gt; 48 horas de evolución sin anticoagulación previa durante 3 semanas o sin ETE previo."
-      ],
-      "mustKnow": [
-        "Marco AF-CARE: Comorbidities, Avoid stroke, Rate/Rhythm control, Evaluation.",
-        "CHA2DS2-VA: &ge; 2 puntos indicación de ACOD (Clase I), 1 punto considerar ACOD (Clase IIa), 0 puntos sin OAC.",
-        "Los ACOD (Apixabán, Rivaroxabán, Dabigatrán, Edoxabán) se prefieren a la warfarina/sintrom.",
-        "La ablación por catéter PVI es Clase I en FA sintomática y en FA con insuficiencia cardíaca.",
-        "Taquicardia FBI (Fast, Broad, Irregular) = FA + WPW -> ¡cardioversión eléctrica urgente!"
-      ]
-    },
-    "guidelineLinks": [
-      {
-        "title": "2024 ESC Guidelines for the management of atrial fibrillation",
-        "year": 2024,
-        "journal": "European Heart Journal",
-        "doi": "10.1093/eurheartj/ehae176",
-        "url": "https://academic.oup.com/eurheartj/article/45/38/3314/7740997"
-      }
-    ]
-  },
-  {
-    "id": "arytmie",
-    "number": 6,
-    "title": "Arritmias supraventriculares y ventriculares",
-    "shortDesc": "Diagnóstico diferencial de taquicardias de QRS estrecho y ancho, TRNAV, TRAV/WPW, tormenta eléctrica, antiarrítmicos y ablación por catéter.",
-    "icon": "⚡",
-    "badge": "Guías ESC",
-    "badgeColor": "amber",
-    "theory": {
-      "banner": {
-        "tag": "Diagnóstico diferencial de taquiarritmias",
-        "title": "Taquicardias de QRS estrecho (< 120 ms) vs. QRS ancho (&ge; 120 ms)",
-        "text": "La estabilidad hemodinámica marca la urgencia: inestabilidad (shock, síncope, edema pulmonar) requiere cardioversión eléctrica sincronizada inmediata. Toda taquicardia de QRS ancho debe tratarse como **taquicardia ventricular (TV)** hasta que se demuestre lo contrario, ya que frenar el nodo AV en una TV puede causar colapso hemodinámico letal."
+        quiz: {
+          title: "Quiz: Antiarrítmicos en fibrilación auricular",
+          prompt: "¿Cuál de los siguientes antiarrítmicos es SEGURO para el mantenimiento del ritmo sinusal en un paciente con fibrilación auricular y disfunción ventricular izquierda grave (FEVI 28 %)?",
+          options: [
+            { text: "A) Amiodarona", isCorrect: true },
+            { text: "B) Propafenona (Clase Ic)", isCorrect: false },
+            { text: "C) Flecainida (Clase Ic)", isCorrect: false },
+            { text: "D) Dronedarona", isCorrect: false }
+          ],
+          explanation: "Los antiarrítmicos de clase Ic (Propafenona, Flecainida) y la Dronedarona están contraindicados en pacientes con cardiopatía estructural o FEVI reducida por su elevado riesgo proarrítmico y mortalidad (estudio CAST). En la IC-FEr, el único antiarrítmico seguro es la Amiodarona."
+        }
       },
-      "sections": [
-        {
-          "title": "1. TSVP: TRNAV vs. TRAV vs. Taquicardia auricular",
-          "color": "amber",
-          "content": "\n                            <div class=\"grid md:grid-cols-3 gap-3 my-3 text-xs\">\n                                <div class=\"p-3 bg-slate-900 border border-slate-700 rounded-xl\">\n                                    <span class=\"font-bold text-amber-400\">1. TRNAV (Reentrada nodal)</span>\n                                    <p class=\"text-slate-300 mt-1\">Más frecuente (60 %). Reentrada en el nodo AV (vía lenta y rápida). Onda P retrógrada oculta en el QRS (pseudo r' en V1, pseudo s en cara inferior). Intervalo RP &lt; 70 ms.</p>\n                                </div>\n                                <div class=\"p-3 bg-slate-900 border border-slate-700 rounded-xl\">\n                                    <span class=\"font-bold text-cyan-400\">2. TRAV (Ortodrómica / WPW)</span>\n                                    <p class=\"text-slate-300 mt-1\">30 % de las TSVP. Reentrada a través del haz accesorio de Kent. QRS estrecho con onda P retrógrada visible en el segmento ST (RP &gt; 70 ms).</p>\n                                </div>\n                                <div class=\"p-3 bg-slate-900 border border-slate-700 rounded-xl\">\n                                    <span class=\"font-bold text-purple-400\">3. Taquicardia auricular (TA)</span>\n                                    <p class=\"text-slate-300 mt-1\">Foco ectópico auricular. Morfología anómala de onda P con frecuencia 130–240 lpm, RP &gt; PR (taquicardia de RP largo). Adenosina no la suele revertir, solo desenmascara las ondas P.</p>\n                                </div>\n                            </div>\n                        "
-        },
-        {
-          "title": "2. Manejo agudo de la TSVP: Valsalva y Adenosina",
-          "color": "emerald",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-emerald-500/30 rounded-xl text-xs text-slate-300 space-y-2\">\n                                <p><strong>Paso 1: Maniobra de Valsalva modificada (Estudio REVERT):</strong> Espiración forzada contra 40 mmHg en posición sentada durante 15 s, seguida de decúbito supino con elevación pasiva de piernas a 45° durante 15 s. ¡La tasa de reversión aumenta del 17 % al <strong>43 %</strong>!</p>\n                                <p><strong>Paso 2: Adenosina i.v. en bolo rápido:</strong> Bolo inicial de <strong>6 mg</strong> en vena antecubital con lavado de 20 ml de suero fisiológico. Si no revierte, escalar a <strong>12 mg</strong> y hasta <strong>18 mg</strong>. <em>¡Contraindicada en asma bronquial grave!</em></p>\n                                <p><strong>Paso 3: Calcioantagonistas no DHP / Betabloqueantes:</strong> Verapamilo 5–10 mg i.v. lento o Metoprolol 5 mg i.v.</p>\n                            </div>\n                        "
-        },
-        {
-          "title": "3. Arritmias ventriculares, Tormenta eléctrica y DAI",
-          "color": "rose",
-          "content": "\n                            <div class=\"space-y-2.5 text-xs text-slate-300\">\n                                <div class=\"p-3 bg-slate-900 border border-rose-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-rose-400\">🚨 Tormenta eléctrica (Electrical Storm)</span>\n                                    <p class=\"mt-1\">\n                                        Definida como <strong>&ge; 3 episodios de TV/FV sostenida en 24 horas</strong> que requieren choque o cardioversión. Manejo: sedación profunda, betabloqueante i.v. no selectivo (Esmolol / Propranolol) + Amiodarona i.v., corrección electrolítica, coronariografía emergente y ablación precoz de TV o bloqueo del ganglio estrellado.\n                                    </p>\n                                </div>\n                                <div class=\"p-3 bg-slate-900 border border-slate-700 rounded-xl\">\n                                    <span class=\"font-bold text-cyan-400\">🛡️ Indicación de DAI en prevención secundaria</span>\n                                    <p class=\"mt-1\">\n                                        El implante de DAI está formalmente indicado (Clase I) tras parada cardíaca por FV o tras TV sostenida con compromiso hemodinámico sin causa reversible aguda.\n                                    </p>\n                                </div>\n                            </div>\n                        "
-        }
-      ]
+      breakdown: {
+        classThree: [
+          "Uso de ACOD en pacientes con prótesis mecánicas o estenosis mitral significativa.",
+          "Uso de antiarrítmicos de clase Ic (Propafenona, Flecainida) en pacientes con infarto previo o IC-FEr.",
+          "Uso de Verapamilo o Diltiazem en pacientes con IC-FEr (FEVI ≤ 40 %).",
+          "Monoterapia con antiagregantes plaquetarios (Aspirina) para prevención de ictus en fibrilación auricular (ineficaz y hemorrágica)."
+        ],
+        mustKnow: [
+          "Escala CHA2DS2-VA: C (insuficiencia 1p), H (hipertensión 1p), A2 (edad ≥ 75 2p), D (diabetes 1p), S2 (ictus/AIT 2p), V (enfermedad vascular 1p), A (edad 65–74 1p).",
+          "Estrategia Pill-in-the-pocket: Dosis única oral de Propafenona (450–600 mg) en pacientes seleccionados sin cardiopatía estructural.",
+          "La ablación por catéter (PVI) tiene recomendación Clase I en FA sintomática y en FA con insuficiencia cardíaca."
+        ]
+      }
     },
-    "recall": {
-      "scenarios": [
-        {
-          "id": "ary-r1",
-          "title": "Caso Clínico 1: Taquicardia de QRS ancho",
-          "question": "Varón de 62 años con infarto previo acude por palpitaciones y PA 105/70 mmHg. El ECG muestra taquicardia regular a 165 lpm con QRS de 150 ms y morfología de BRI. El médico de guardia propone Verapamilo i.v. ¿Es correcto este manejo?",
-          "answer": "ES COMPLETAMENTE INCORRECTO Y PELIGROSO. En un paciente con infarto previo, más del 90 % de las taquicardias de QRS ancho son taquicardias ventriculares (TV). Administrar verapamilo en una TV causa vasodilatación y colapso cardiovascular inmediato. El tratamiento de elección es Amiodarona i.v. o cardioversión eléctrica sincronizada.",
-          "pearl": "Regla de oro: Toda taquicardia de QRS ancho es una TV hasta que se demuestre lo contrario. Verapamilo y diltiazem están prohibidos."
-        },
-        {
-          "id": "ary-r2",
-          "title": "Caso Clínico 2: Torsades de Pointes y QT largo",
-          "question": "Mujer de 55 años en tratamiento con sotalol y ciprofloxacino sufre síncopes de repetición. En el monitor se observa TV polimórfica con torsión de las puntas (Torsades de Pointes) y QTc basal de 560 ms. ¿Cuál es el tratamiento farmacológico inmediato?",
-          "answer": "Sulfato de magnesio intravenoso (2 g i.v. en bolo lento en 1–2 minutos), suspensión inmediata de fármacos que prolonguen el QT, corrección del potasio (objetivo 4,5–5,0 mmol/l) y aceleración de la frecuencia cardíaca (marcapasos temporal o isoproterenol).",
-          "pearl": "El magnesio i.v. es el fármaco de primera elección en Torsades de Pointes incluso con magnesemia normal."
-        }
+{
+      id: "arytmie",
+      number: 6,
+      title: "Otras arritmias y trastornos de la conducción",
+      shortDesc: "Taquicardias supraventriculares (AVNRT, AVRT/WPW), taquicardias ventriculares, bloqueos AV de I-III grado y bloqueos de rama.",
+      icon: "⚡",
+      badge: "Cardiología y EKG",
+      badgeColor: "blue",
+            guidelineLinks: [
+        { title: "2022 ESC Guidelines for the Management of Ventricular Arrhythmias and Prevention of SCD", url: "https://academic.oup.com/eurheartj/article/43/40/3997/6675633", year: "2022" },
+        { title: "2019 ESC Guidelines for the Management of Supraventricular Tachycardia", url: "https://academic.oup.com/eurheartj/article/41/7/655/5556821", year: "2019" }
       ],
-      "quiz": {
-        "title": "Miniquiz: Criterios diagnósticos de TV",
-        "prompt": "¿Cuál de los siguientes signos en el ECG confirma con mayor especificidad el diagnóstico de Taquicardia Ventricular?",
-        "options": [
+theory: {
+        banner: {
+          tag: "Diagnóstico diferencial",
+          title: "Taquicardia de QRS estrecho vs. QRS ancho",
+          text: "QRS estrecho (&lt; 120 ms) = origen supraventricular (AVNRT, AVRT, fibrilación/flutter auricular, taquicardia sinusal). QRS ancho (≥ 120 ms) = **en el 80 % de los casos es taquicardia ventricular (TV)** hasta que se demuestre lo contrario. ¡Nunca administre verapamilo en una taquicardia de QRS ancho de origen indeterminado!"
+        },
+        sections: [
           {
-            "text": "A) Disociación auriculoventricular (ondas P independientes de los complejos QRS anchos) o latidos de captura/fusión",
-            "isCorrect": true
+            title: "Taquicardias supraventriculares (TSV)",
+            color: "blue",
+            content: `
+              <div class="space-y-3 text-xs text-slate-300">
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <span class="font-bold text-blue-400">AVNRT (Taquicardia por reentrada intranodal)</span>
+                  <p class="mt-1">La TSV regular más frecuente. Inicio y fin bruscos (palpitaciones en cuello - 'signo de la rana'). EKG: QRS estrecho, onda P oculta en el QRS o inmediatamente posterior (pseudo r' en V1).</p>
+                  <p class="mt-1 text-slate-400"><strong>Tratamiento:</strong> Maniobras vagales (Valsalva modificada), si fracasa <strong>Adenosina i.v.</strong> en bolo rápido (6 mg -> 12 mg). Curativo: ablación por radiofrecuencia de la vía lenta nodal.</p>
+                </div>
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <span class="font-bold text-blue-400">Síndrome de WPW (Wolff-Parkinson-White / AVRT)</span>
+                  <p class="mt-1">Vía accesoria auriculoventricular (haz de Kent). EKG basal: PR corto (&lt; 120 ms), <strong>onda delta</strong>, QRS ensanchado.</p>
+                  <p class="mt-1 text-rose-300"><strong>Peligro: Fibrilación auricular en WPW (taquicardia FBI - Fast, Broad, Irregular):</strong> La conducción anterógrada por la vía accesoria puede superar los 300 lpm y degenerar en fibrilación ventricular. ¡Los frenadores del nodo AV (verapamilo, digoxina, adenosina) están PROHIBIDOS! Tratamiento: cardioversión eléctrica o Ibutilida / Procainamida i.v.</p>
+                </div>
+              </div>
+            `
           },
           {
-            "text": "B) Frecuencia cardíaca exactamente a 150 lpm",
-            "isCorrect": false
+            title: "Trastornos de la conducción (Bloqueos AV y Bloqueos de Rama)",
+            color: "amber",
+            content: `
+              <div class="grid sm:grid-cols-2 gap-3 text-xs">
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <span class="font-bold text-amber-400">Bloqueos AV</span>
+                  <ul class="list-disc ml-4 mt-1 text-slate-300 space-y-1">
+                    <li><strong>1.er grado:</strong> PR &gt; 200 ms constante, todas las P conducen.</li>
+                    <li><strong>2.º grado Mobitz I (Wenckebach):</strong> alargamiento progresivo del PR hasta que una P no conduce. Generalmente benigno e intranodal.</li>
+                    <li><strong>2.º grado Mobitz II:</strong> PR constante con fallo súbito de conducción de ondas P. Infranodal y alto riesgo -> indicación de marcapasos.</li>
+                    <li><strong>3.er grado (Completo):</strong> disociación auriculoventricular completa. ¡Indicación formal de marcapasos definitivo!</li>
+                  </ul>
+                </div>
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <span class="font-bold text-amber-400">Bloqueos de rama (BRI vs BRD)</span>
+                  <ul class="list-disc ml-4 mt-1 text-slate-300 space-y-1">
+                    <li><strong>BRI (Bloqueo de rama izquierda):</strong> QRS ≥ 120 ms, onda S ancha y profunda en V1–V2, onda R ancha y mellada en M en V5–V6, I y aVL. ¡Enmascara el infarto! BRI nuevo con dolor torácico = equivalente a SCACEST.</li>
+                    <li><strong>BRD (Bloqueo de rama derecha):</strong> QRS ≥ 120 ms, patrón rsR' ('orejas de conejo') en V1–V2, onda S empastada en V5–V6. Frecuente en cor pulmonale o embolia pulmonar.</li>
+                  </ul>
+                </div>
+              </div>
+            `
+          }
+        ]
+      },
+      recall: {
+        scenarios: [
+          {
+            id: "ary-r1",
+            title: "Pregunta 1: Parada cardíaca y ritmos",
+            question: "¿Cuáles son los 2 ritmos desfibrilables y cuáles los 2 ritmos no desfibrilables en la parada cardiorrespiratoria?",
+            answer: "Desfibrilables: 1. Fibrilación ventricular (FV), 2. Taquicardia ventricular sin pulso (TVSP). No desfibrilables: 1. Asistolia, 2. Actividad eléctrica sin pulso (AESP).",
+            pearl: "En los ritmos desfibrilables, la Adrenalina (1 mg i.v.) se administra tras el 3.er choque (y luego en ciclos alternos) junto con Amiodarona (300 mg i.v.)."
           },
           {
-            "text": "C) Duración del QRS de 125 ms",
-            "isCorrect": false
-          },
-          {
-            "text": "D) Respuesta positiva al masaje del seno carotídeo",
-            "isCorrect": false
+            id: "ary-r2",
+            title: "Pregunta 2: Manejo de la bradicardia aguda",
+            question: "Paciente con infarto agudo de cara inferior presenta bradicardia a 32 lpm, hipotensión de 70/40 mmHg y palidez. El EKG muestra bloqueo AV de tercer grado. ¿Cuál es el fármaco de primera línea de elección?",
+            answer: "Atropina 0.5 mg – 1.0 mg en bolo i.v. (repetible hasta dosis máxima de 3 mg). Si no responde, iniciar inmediatamente marcapasos transcutáneo temporal o infusión de isoprenalina/adrenalina mientras se traslada a implante de marcapasos transvenoso temporal.",
+            pearl: "En bloqueos infranodales (Mobitz II o bloqueo trifascicular), la atropina no suele ser eficaz y se requiere marcapasos."
           }
         ],
-        "explanation": "La presencia de disociación AV (aurículas despolarizándose independientemente de los ventrículos con ondas P disociadas, latidos de fusión o capturas sinusales) es patognomónica de taquicardia ventricular con una especificidad cercana al 100 %."
+        quiz: {
+          title: "Quiz: Torsades de Pointes",
+          prompt: "Mujer en tratamiento con sotalol y ciprofloxacino presenta en el EKG un intervalo QTc corregido de 560 ms y desarrolla salvas de taquicardia ventricular polimórfica helicoidal (Torsades de Pointes). ¿Cuál es el tratamiento farmacológico de primera elección?",
+          options: [
+            { text: "A) Sulfato de Magnesio 2g i.v. en inyección lenta", isCorrect: true },
+            { text: "B) Amiodarona 300 mg i.v.", isCorrect: false },
+            { text: "C) Verapamilo 5 mg i.v.", isCorrect: false },
+            { text: "D) Digoxina 0.5 mg i.v.", isCorrect: false }
+          ],
+          explanation: "El sulfato de magnesio intravenoso es el fármaco de primera elección en las Torsades de Pointes asociadas a QT largo. La amiodarona está formalmente contraindicada porque prolonga aún más el intervalo QT y puede inducir fibrilación ventricular refractaria."
+        }
+      },
+      breakdown: {
+        classThree: [
+          "Administración de Verapamilo o Diltiazem en taquicardias de QRS ancho de origen no filiado (riesgo de colapso o asistolia si se trata de TV).",
+          "Uso de fármacos bloqueadores del nodo AV (Adenosina, Verapamilo, Digoxina, Betabloqueantes) en fibrilación auricular preexcitada (WPW).",
+          "Uso de fármacos que prolongan el intervalo QT (Amiodarona, Sotalol, Macrólidos, Quinolonas) en pacientes con síndrome de QT largo congénito o Torsades de Pointes."
+        ],
+        mustKnow: [
+          "Adenosina en AVNRT: Bolo i.v. ultra-rápido seguido de lavado con 20 ml de suero fisiológico y elevación del brazo (vida media ultracorta &lt; 10 segundos).",
+          "Indicaciones de marcapasos permanente: Bradicardia sinusal sintomática, Bloqueo AV de 2.º grado Mobitz II, Bloqueo AV de 3.er grado, bloqueo bifascicular alternante.",
+          "BRI de nueva aparición + clínica isquémica = indicación de cateterismo emergente equivalente a SCACEST."
+        ]
       }
     },
-    "breakdown": {
-      "classThree": [
-        "Uso de Verapamilo o Diltiazem en taquicardias de QRS ancho de origen desconocido (riesgo de colapso en TV).",
-        "Uso de bloqueadores del nodo AV en FA preexcitada con WPW.",
-        "Masaje del seno carotídeo en pacientes con soplos carotídeos o ictus/AIT en los últimos 6 meses.",
-        "Fármacos prolongadores del QT en pacientes con QTc basal &gt; 480 ms."
+{
+      id: "chlopne",
+      number: 7,
+      title: "Valvulopatías cardíacas",
+      shortDesc: "Estenosis e insuficiencia aórtica, estenosis e insuficiencia mitral, valvulopatías tricuspídeas, TAVI vs. recambio quirúrgico.",
+      icon: "🚪",
+      badge: "Valvulopatías",
+      badgeColor: "rose",
+            guidelineLinks: [
+        { title: "2021 ESC/EACTS Guidelines for the Management of Valvular Heart Disease", url: "https://academic.oup.com/eurheartj/article/42/41/4293/6358463", year: "2021" }
       ],
-      "mustKnow": [
-        "Inestabilidad hemodinámica en taquiarritmia = ¡cardioversión eléctrica sincronizada inmediata!",
-        "Algoritmo TSVP: Valsalva modificada -> Adenosina 6-12-18 mg i.v. en bolo rápido.",
-        "QRS ancho (&ge; 120 ms) = considerar siempre TV; fármaco de elección: Amiodarona i.v.",
-        "Tormenta eléctrica: &ge; 3 episodios en 24h -> sedación + betabloqueante i.v. + amiodarona.",
-        "Torsades de Pointes: Tratamiento con Sulfato de Magnesio 2 g i.v."
-      ]
-    },
-    "guidelineLinks": [
-      {
-        "title": "2019 ESC Guidelines for the management of patients with supraventricular tachycardia",
-        "year": 2019,
-        "journal": "European Heart Journal",
-        "doi": "10.1093/eurheartj/ehz467",
-        "url": "https://academic.oup.com/eurheartj/article/41/5/655/5556821"
+theory: {
+        banner: {
+          tag: "Cardiología valvular",
+          title: "La estenosis aórtica como valvulopatía más prevalente del adulto",
+          text: "La estenosis aórtica (EA) es la valvulopatía más frecuente en países desarrollados (degenerativa calcificada senil o sobre válvula bicúspide congénita). Tríada clásica de síntomas: **Disnea, Angina de pecho, Síncope**. Tras el debut de los síntomas, la mortalidad sin cirugía se dispara (mediana de supervivencia 2–3 años)."
+        },
+        sections: [
+          {
+            title: "Estenosis Aórtica (EA) y TAVI vs SAVR",
+            color: "rose",
+            content: `
+              <div class="p-4 bg-slate-900 border border-slate-700 rounded-xl text-xs space-y-3">
+                <div class="font-bold text-rose-400">Criterios de Estenosis Aórtica Grave:</div>
+                <div class="grid sm:grid-cols-3 gap-2 text-slate-300">
+                  <div class="p-2 bg-slate-800 rounded">Área valvular aórtica (AVA): <strong>&lt; 1.0 cm²</strong> (o &lt; 0.6 cm²/m²)</div>
+                  <div class="p-2 bg-slate-800 rounded">Gradiente medio (meanPG): <strong>≥ 40 mmHg</strong></div>
+                  <div class="p-2 bg-slate-800 rounded">Velocidad máxima (Vmax): <strong>≥ 4.0 m/s</strong></div>
+                </div>
+                <div class="mt-2 text-slate-300">
+                  <strong>Elección de la intervención:</strong>
+                  <ul class="list-disc ml-5 mt-1 space-y-1">
+                    <li><strong>TAVI (Implante transcatéter):</strong> Preferido en pacientes de <strong>≥ 75 años</strong> o con riesgo quirúrgico elevado (STS/EuroSCORE).</li>
+                    <li><strong>SAVR (Recambio quirúrgico):</strong> Preferido en pacientes jóvenes <strong>&lt; 75 años</strong> con bajo riesgo o con indicación simultánea de CABG o cirugía de aorta ascendente.</li>
+                  </ul>
+                </div>
+              </div>
+            `
+          },
+          {
+            title: "Resumen de hallazgos auscultatorios en valvulopatías",
+            color: "cyan",
+            content: `
+              <div class="grid sm:grid-cols-2 gap-3 text-xs">
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <span class="font-bold text-cyan-400">Estenosis Aórtica (EA)</span>
+                  <p class="text-slate-300 mt-1">Soplo sistólico eyectivo rudo en 2.º espacio intercostal derecho con irradiación a carótidas. 2.º tono disminuido, pulso parvus et tardus.</p>
+                </div>
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <span class="font-bold text-cyan-400">Insuficiencia Aórtica (IA)</span>
+                  <p class="text-slate-300 mt-1">Soplo diastólico precoz en decrescendo en foco aórtico y punto de Erb. Presión de pulso amplia (pulso celer et magnus / signo de Corrigan).</p>
+                </div>
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <span class="font-bold text-emerald-400">Insuficiencia Mitral (IM)</span>
+                  <p class="text-slate-300 mt-1">Soplo holosistólico en ápex con irradiación a la axila izquierda. 1.er tono disminuido, frecuente 3.er tono.</p>
+                </div>
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <span class="font-bold text-emerald-400">Estenosis Mitral (EM)</span>
+                  <p class="text-slate-300 mt-1">1.er tono brillante, chasquido de apertura mitral y arrastre diastólico (retumbo) con refuerzo presistólico.</p>
+                </div>
+              </div>
+            `
+          }
+        ]
       },
-      {
-        "title": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death",
-        "year": 2022,
-        "journal": "European Heart Journal",
-        "doi": "10.1093/eurheartj/ehac262",
-        "url": "https://academic.oup.com/eurheartj/article/43/40/3997/6675633"
-      }
-    ]
-  },
-  {
-    "id": "chlopne",
-    "number": 7,
-    "title": "Valvulopatías y cardiología intervencionista",
-    "shortDesc": "Estenosis aórtica (criterios de gravedad, bajo flujo y bajo gradiente), algoritmo TAVI vs. SAVR, insuficiencia mitral (primaria vs. secundaria, TEER / MitraClip) y prótesis valvulares.",
-    "icon": "🚪",
-    "badge": "Guías ESC/EACTS",
-    "badgeColor": "rose",
-    "theory": {
-      "banner": {
-        "tag": "Manejo contemporáneo de valvulopatías",
-        "title": "Heart Team, estratificación de la EA grave y terapias percutáneas (TAVI y TEER)",
-        "text": "Las decisiones en valvulopatías las lidera el **Heart Team**. El implante percutáneo de válvula aórtica (**TAVI**) se consolida en pacientes de &ge; 75 años o alto riesgo, mientras que la reparación borde a borde (**TEER / MitraClip**) transforma el pronóstico en insuficiencia mitral secundaria grave."
-      },
-      "sections": [
-        {
-          "title": "1. Estenosis aórtica: Criterios ecocardiográficos de gravedad",
-          "color": "rose",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-slate-700 rounded-xl text-xs text-slate-300 space-y-2\">\n                                <p class=\"font-bold text-rose-400\">Triada ecocardiográfica de Estenosis Aórtica Grave:</p>\n                                <div class=\"grid sm:grid-cols-3 gap-2 text-[11px]\">\n                                    <div class=\"p-2 bg-rose-950/40 border border-rose-500/30 rounded-lg text-center\">\n                                        <div class=\"font-bold text-rose-400\">Área valvular (AVA)</div>\n                                        <div class=\"text-white font-mono mt-0.5\">&lt; 1,0 cm²</div>\n                                        <div class=\"text-slate-400 text-[10px]\">(indexada &lt; 0,6 cm²/m²)</div>\n                                    </div>\n                                    <div class=\"p-2 bg-rose-950/40 border border-rose-500/30 rounded-lg text-center\">\n                                        <div class=\"font-bold text-rose-400\">Gradiente medio</div>\n                                        <div class=\"text-white font-mono mt-0.5\">&ge; 40 mmHg</div>\n                                    </div>\n                                    <div class=\"p-2 bg-rose-950/40 border border-rose-500/30 rounded-lg text-center\">\n                                        <div class=\"font-bold text-rose-400\">Velocidad máxima</div>\n                                        <div class=\"text-white font-mono mt-0.5\">&ge; 4,0 m/s</div>\n                                    </div>\n                                </div>\n                                <p><strong>Estenosis aórtica de bajo flujo y bajo gradiente (LF-LG):</strong></p>\n                                <ul class=\"list-disc ml-5 space-y-1 text-[11px]\">\n                                    <li><em>Clásica (FEVI &lt; 50 %):</em> Requiere <strong>ecocardiograma de estrés con Dobutamina a dosis bajas</strong> para diferenciar estenosis verdadera de pseudoestenosis.</li>\n                                    <li><em>Paradójica (FEVI &ge; 50 %):</em> Confirmada mediante <strong>puntuación de calcio valvular por TC</strong> (Agatston &gt; 3000 en varones, &gt; 1600 en mujeres).</li>\n                                </ul>\n                            </div>\n                        "
-        },
-        {
-          "title": "2. Indicación de intervención en EA: TAVI vs. Cirugía (SAVR)",
-          "color": "amber",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-amber-500/30 rounded-xl text-xs text-slate-300 space-y-2\">\n                                <p><strong>Indicación:</strong> Pacientes con <strong>EA grave sintomática</strong> (angina, síncope, disnea) o asintomáticos con FEVI &lt; 50 % (Clase I).</p>\n                                <div class=\"grid sm:grid-cols-2 gap-3 mt-2\">\n                                    <div class=\"p-2.5 bg-slate-800 border border-slate-600 rounded-lg\">\n                                        <span class=\"font-bold text-cyan-400\">TAVI (Percutáneo)</span>\n                                        <ul class=\"list-disc ml-4 mt-1 text-[11px] space-y-0.5\">\n                                            <li>Edad <strong>&ge; 75 años</strong>.</li>\n                                            <li>Riesgo quirúrgico elevado (STS / EuroSCORE &gt; 8 %).</li>\n                                            <li>Aorta en porcelana o reintervención previa.</li>\n                                            <li>Acceso transfemoral favorable.</li>\n                                        </ul>\n                                    </div>\n                                    <div class=\"p-2.5 bg-slate-800 border border-slate-600 rounded-lg\">\n                                        <span class=\"font-bold text-amber-400\">SAVR (Cirugía abierta)</span>\n                                        <ul class=\"list-disc ml-4 mt-1 text-[11px] space-y-0.5\">\n                                            <li>Edad <strong>&lt; 75 años</strong> y bajo riesgo (STS &lt; 4 %).</li>\n                                            <li>Necesidad de cirugía cardíaca concomitante (CABG).</li>\n                                            <li>Válvula aórtica bicúspide con dilatación de aorta.</li>\n                                        </ul>\n                                    </div>\n                                </div>\n                            </div>\n                        "
-        },
-        {
-          "title": "3. Insuficiencia mitral y Prótesis valvulares",
-          "color": "cyan",
-          "content": "\n                            <div class=\"space-y-2.5 text-xs text-slate-300\">\n                                <div class=\"p-3 bg-slate-900 border border-slate-700 rounded-xl\">\n                                    <span class=\"font-bold text-cyan-400\">Insuficiencia mitral secundaria & TEER (MitraClip)</span>\n                                    <p class=\"mt-1\">\n                                        Tras optimizar tratamiento de IC y TRC, la <strong>reparación transcatéter borde a borde (TEER / MitraClip)</strong> según el ensayo COAPT reduce significativamente mortalidad e ingresos en insuficiencia mitral funcional grave (Clase I/IIa).\n                                    </p>\n                                </div>\n                                <div class=\"p-3 bg-rose-950/40 border border-rose-500/40 rounded-xl\">\n                                    <span class=\"font-bold text-rose-400\">Anticoagulación en prótesis mecánicas</span>\n                                    <p class=\"mt-1\">\n                                        Anticoagulación de por vida con <strong>Warfarina / Sintrom (AVK)</strong>. <strong>Los ACOD están CONTRAINDICADOS en prótesis mecánicas (Clase III)</strong> según el estudio RE-ALIGN. INR diana: 2,5–3,0 en aórtica y 3,0–3,5 en mitral.\n                                    </p>\n                                </div>\n                            </div>\n                        "
-        }
-      ]
-    },
-    "recall": {
-      "scenarios": [
-        {
-          "id": "chl-r1",
-          "title": "Caso Clínico 1: Elección de anticoagulante en prótesis mecánica",
-          "question": "Paciente de 54 años portador de prótesis mecánica mitral solicita cambiar Sintrom por Apixabán para evitar controles periódicos de INR. ¿Cuál es la respuesta correcta?",
-          "answer": "El cambio a ACOD (Apixabán, Rivaroxabán, Dabigatrán, Edoxabán) está TOTALMENTE CONTRAINDICADO en prótesis mecánicas (Guías ESC Clase III). El ensayo RE-ALIGN demostró que los ACOD causan trombosis valvulares y embolias masivas en pacientes con prótesis mecánicas. Debe mantenerse con AVK con INR objetivo entre 3,0 y 3,5.",
-          "pearl": "La warfarina/acenocumarol es la única opción de anticoagulación válida y segura para prótesis cardíacas mecánicas."
-        },
-        {
-          "id": "chl-r2",
-          "title": "Caso Clínico 2: TAVI en paciente de 78 años",
-          "question": "Varón de 78 años presenta disnea de esfuerzo y presíncopes con estenosis aórtica grave (AVA 0,7 cm², gradiente medio 48 mmHg). El angio-TC muestra arterias femorales amplias y anatomía favorable. ¿Qué opción recomendará el Heart Team?",
-          "answer": "El Heart Team recomendará TAVI por vía transfemoral (Clase I, Nivel A), ya que en pacientes de &ge; 75 años con anatomía favorable para acceso femoral la TAVI ofrece resultados equivalentes o superiores a la cirugía abierta con menor tiempo de recuperación y evitando la esternotomía.",
-          "pearl": "La TAVI transfemoral es el procedimiento de elección en mayores de 75 años con EA grave sintomática."
-        }
-      ],
-      "quiz": {
-        "title": "Miniquiz: Estenosis aórtica de bajo flujo y bajo gradiente",
-        "prompt": "En un paciente con AVA de 0,8 cm², gradiente medio de 28 mmHg y FEVI del 30 %, ¿qué prueba es clave para diferenciar estenosis grave real de pseudoestenosis?",
-        "options": [
+      recall: {
+        scenarios: [
           {
-            "text": "A) Ecocardiograma de estrés con Dobutamina a dosis bajas",
-            "isCorrect": true
+            id: "chl-r1",
+            title: "Pregunta 1: Prótesis Mecánica vs. Biológica",
+            question: "Varón de 34 años es intervenido para recambio valvular aórtico mediante prótesis mecánica. ¿Cuál es el tratamiento antitrombótico de por vida y cuál el objetivo de INR?",
+            answer: "Anticoagulación oral de por vida con Warfarina/Acenocumarol con objetivo de INR 2.0–3.0 (posición aórtica sin factores de riesgo adicionales) o 2.5–3.5 (posición mitral o con factores de riesgo). ¡Los ACOD están estrictamente contraindicados!",
+            pearl: "Una prótesis biológica no requiere anticoagulación indefinida (solo 3-6 meses tras el implante), pero tiene durabilidad limitada (10-15 años)."
           },
           {
-            "text": "B) Ergometría en tapiz rodante",
-            "isCorrect": false
-          },
-          {
-            "text": "C) Resonancia magnética cardíaca",
-            "isCorrect": false
-          },
-          {
-            "text": "D) Cateterismo derecho",
-            "isCorrect": false
+            id: "chl-r2",
+            title: "Pregunta 2: Estenosis aórtica grave asintomática",
+            question: "Varón de 68 años presenta en ecocardiograma estenosis aórtica grave (AVA 0.7 cm², gradiente medio 48 mmHg), pero asegura estar completamente asintomático. ¿Qué prueba objetiva su situación funcional e indicación quirúrgica?",
+            answer: "Ergometría / prueba de esfuerzo en tapiz o bicicleta. Si durante el esfuerzo aparecen síntomas (disnea, angina, mareo) o una caída de la presión arterial por debajo del valor basal, el paciente se reclasifica como sintomático y se indica la intervención valvular (Clase I).",
+            pearl: "La ergometría está terminantemente contraindicada si la estenosis aórtica grave ya es sintomática."
           }
         ],
-        "explanation": "La ecocardiografía con dobutamina a dosis bajas evalúa la reserva contráctil: si el gradiente medio sube a &ge; 40 mmHg manteniendo el AVA &lt; 1,0 cm², confirma estenosis aórtica grave verdadera."
-      }
-    },
-    "breakdown": {
-      "classThree": [
-        "Uso de ACOD en pacientes con prótesis valvulares mecánicas (Clase III).",
-        "Prueba de esfuerzo en pacientes con estenosis aórtica grave sintomática.",
-        "Retrasar la intervención en pacientes con estenosis aórtica grave sintomática.",
-        "DAPT rutinaria prolongada tras TAVI sin otra indicación."
-      ],
-      "mustKnow": [
-        "Criterios de EA grave: AVA &lt; 1,0 cm², Gradiente medio &ge; 40 mmHg, Vmax &ge; 4,0 m/s.",
-        "Triada de EA: Angina, síncope, disnea (aumento drástico de mortalidad al aparecer síntomas).",
-        "TAVI vs. SAVR: Edad &ge; 75 años -> TAVI; Edad &lt; 75 años y bajo riesgo -> SAVR.",
-        "Prótesis mecánicas = exclusivamente AVK (INR 2,5–3,5).",
-        "Insuficiencia mitral secundaria: FMT + TRC -> TEER (MitraClip) si persiste grave."
-      ]
-    },
-    "guidelineLinks": [
-      {
-        "title": "2021 ESC/EACTS Guidelines for the management of valvular heart disease",
-        "year": 2021,
-        "journal": "European Heart Journal",
-        "doi": "10.1093/eurheartj/ehab395",
-        "url": "https://academic.oup.com/eurheartj/article/43/7/561/6358479"
-      }
-    ]
-  },
-  {
-    "id": "kmp",
-    "number": 8,
-    "title": "Miocardiopatías y miocarditis (Guías ESC 2023)",
-    "shortDesc": "Enfoque fenotípico, Miocardiopatía hipertrófica (MCH) y Mavacamten, Dilatada (MCD), Arritmogénica (MCA), Amiloidosis cardíaca (ATTR vs. AL) y RMC en miocarditis.",
-    "icon": "🧬",
-    "badge": "Guías ESC 2023",
-    "badgeColor": "cyan",
-    "theory": {
-      "banner": {
-        "tag": "Genética y tratamiento dirigido (ESC 2023)",
-        "title": "Miocardiopatías: Del fenotipo a las terapias diana",
-        "text": "Las Guías ESC 2023 establecen la clasificación fenotípica (MCH, MCD, MNDVI, MCA y MCR) y priorizan el **estudio genético familiar**. Se consolidan tratamientos dirigidos de precisión como **Mavacamten** en MCH obstructiva y **Tafamidis** en amiloidosis por transtirretina (ATTR)."
+        quiz: {
+          title: "Quiz: Insuficiencia aórtica aguda",
+          prompt: "En un paciente con insuficiencia aórtica aguda grave (ej. por disección de aorta tipo A o endocarditis infecciosa), está formalmente CONTRAINDICADO el uso de:",
+          options: [
+            { text: "A) Balón de contrapulsación intraaórtico (BCIA / IABP)", isCorrect: true },
+            { text: "B) Vasodilatadores intravenosos (Nitroprusiato)", isCorrect: false },
+            { text: "C) Cirugía urgente de recambio valvular", isCorrect: false },
+            { text: "D) Diuréticos de asa para la congestión pulmonar", isCorrect: false }
+          ],
+          explanation: "El balón de contrapulsación intraaórtico (BCIA) se infla durante la diástole. En presencia de insuficiencia aórtica, el inflado diastólico del balón incrementa masivamente el flujo retrógrado regurgitante hacia el ventrículo izquierdo, provocando una sobrecarga diastólica fatal y edema pulmonar masivo."
+        }
       },
-      "sections": [
-        {
-          "title": "1. Miocardiopatía hipertrófica (MCH) y Tratamiento con Mavacamten",
-          "color": "cyan",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-slate-700 rounded-xl text-xs text-slate-300 space-y-2\">\n                                <p><strong>Definición de MCH:</strong> Grosor miocárdico <strong>&ge; 15 mm</strong> (o <strong>&ge; 13 mm</strong> con antecedentes familiares) no explicado por condiciones de carga. Mutaciones sarcoméricas frecuentes (MYBPC3, MYH7).</p>\n                                <p><strong>MCH obstructiva:</strong> Gradiente en tracto de salida del VI (TSVI) <strong>&ge; 30 mmHg</strong> (significativo con &ge; 50 mmHg), con movimiento sistólico anterior de la mitral (SAM).</p>\n                                <div class=\"p-2.5 bg-cyan-950/40 border border-cyan-500/30 rounded-lg\">\n                                    <span class=\"font-bold text-cyan-400\">💊 Inhibidor de miosina cardíaca: Mavacamten</span>\n                                    <p class=\"mt-1 text-[11px]\">\n                                        <strong>Mavacamten</strong> reduce la formación excesiva de puentes cruzados de actina-miosina. En los ensayos EXPLORER-HCM y VALOR-HCM demostró una drástica reducción del gradiente de TSVI y de la necesidad de miectomía/ablación septal.\n                                    </p>\n                                </div>\n                            </div>\n                        "
-        },
-        {
-          "title": "2. Amiloidosis cardíaca: ATTR vs. AL y Gammagrafía",
-          "color": "amber",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-amber-500/30 rounded-xl text-xs text-slate-300 space-y-2\">\n                                <p><strong>Amiloidosis cardíaca:</strong> Infiltración amiloide con hipertrofia concéntrica en el ecocardiograma pero con <strong>bajo voltaje en el ECG</strong>.</p>\n                                <div class=\"grid sm:grid-cols-2 gap-3 mt-1 text-[11px]\">\n                                    <div class=\"p-2.5 bg-slate-800 rounded-lg border border-slate-700\">\n                                        <span class=\"font-bold text-amber-400\">Amiloidosis ATTR (Transtirretina)</span>\n                                        <p class=\"mt-1\">Senil (wild-type) o hereditaria. Diagnóstico no bióptico: <strong>gammagrafía ósea con 99mTc-DPD/PYP</strong> (captación grado 2–3) con cadenas ligeras libres negativas. Tratamiento: <strong>Tafamidis</strong>.</p>\n                                    </div>\n                                    <div class=\"p-2.5 bg-slate-800 rounded-lg border border-slate-700\">\n                                        <span class=\"font-bold text-rose-400\">Amiloidosis AL (Cadenas ligeras)</span>\n                                        <p class=\"mt-1\">Discrasia de células plasmáticas. Detección de cadenas ligeras libres en suero/orina. Tratamiento hematológico urgente (Daratumumab + CyBorD).</p>\n                                    </div>\n                                </div>\n                            </div>\n                        "
-        },
-        {
-          "title": "3. Miocarditis aguda y Resonancia Magnética (Criterios de Lake Louise)",
-          "color": "rose",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-rose-500/30 rounded-xl text-xs text-slate-300 space-y-2\">\n                                <p><strong>Criterios de Lake Louise actualizados en RMC:</strong></p>\n                                <ul class=\"list-disc ml-5 space-y-1 text-[11px]\">\n                                    <li>Evidencia de <strong>edema miocárdico</strong> (aumento de señal en T2 o mapeo T2 elevado).</li>\n                                    <li>Evidencia de <strong>daño tisular / necrosis</strong> (mapeo T1 elevado o realce tardío de gadolinio <em>LGE subepicárdico o mesocárdico</em>).</li>\n                                </ul>\n                                <p class=\"text-[11px] text-slate-400\"><em>Deporte:</em> Prohibición estricta de ejercicio intenso o competitivo durante <strong>3 a 6 meses</strong> post-miocarditis.</p>\n                            </div>\n                        "
-        }
-      ]
+      breakdown: {
+        classThree: [
+          "Uso de ACOD en pacientes con prótesis valvulares mecánicas (aumentó la tasa de trombosis y sangrado frente a warfarina en el ensayo RE-ALIGN).",
+          "Realización de ergometría en pacientes con estenosis aórtica grave sintomática conocida.",
+          "Uso de balón de contrapulsación intraaórtico (BCIA) en insuficiencia aórtica grave."
+        ],
+        mustKnow: [
+          "Criterios de EA grave: AVA &lt; 1.0 cm², gradiente medio ≥ 40 mmHg, Vmax ≥ 4.0 m/s.",
+          "TAVI es el estándar en pacientes ≥ 75 años o alto riesgo; SAVR en jóvenes &lt; 75 años de bajo riesgo.",
+          "En prótesis mecánicas, el único anticoagulante aprobado es el antagonista de la vitamina K (AVK) con monitorización periódica de INR."
+        ]
+      }
     },
-    "recall": {
-      "scenarios": [
-        {
-          "id": "kmp-r1",
-          "title": "Caso Clínico 1: Diagnóstico de amiloidosis ATTR",
-          "question": "Varón de 76 años con antecedentes de síndrome del túnel carpiano bilateral presenta insuficiencia cardíaca. El ecocardiograma muestra engrosamiento biventricular concéntrico de 17 mm con patrón de 'apical sparing', mientras que el ECG muestra voltajes llamativamente reducidos. ¿Qué algoritmo diagnóstico no invasivo confirma la amiloidosis ATTR?",
-          "answer": "1. Descartar amiloidosis AL mediante cuantificación de cadenas ligeras libres en suero (sFLC) e inmunofijación en suero y orina (deben ser normales). 2. Gammagrafía ósea con 99mTc-DPD (o PYP). La captación cardíaca grado Perugini 2 o 3 con cadenas ligeras normales confirma definitivamente la amiloidosis ATTR sin necesidad de biopsia miocárdica.",
-          "pearl": "Disociación entre hipertrofia ecocardiográfica y bajo voltaje electrocardiográfico = sospecha directa de amiloidosis."
-        },
-        {
-          "id": "kmp-r2",
-          "title": "Caso Clínico 2: Fármacos prohibidos en MCH obstructiva",
-          "question": "Paciente con MCH obstructiva (gradiente en TSVI de 65 mmHg) consulta por empeoramiento de la disnea tras iniciar Amlodipino. ¿Por qué empeoran los vasodilatadores la obstrucción?",
-          "answer": "Los vasodilatadores arteriales puros (como Amlodipino o nitratos) reducen la poscarga y el llenado ventricular, lo que disminuye el volumen telediastólico del VI. Esto acerca aún más la valva mitral anterior al septo hipertrófico (empeora el fenómeno SAM) e incrementa masivamente el gradiente de obstrucción del TSVI.",
-          "pearl": "En MCH obstructiva se prefieren betabloqueantes, verapamilo o Mavacamten; los vasodilatadores están contraindicados."
-        }
+{
+      id: "kmp",
+      number: 8,
+      title: "Miocardiopatías (MCP)",
+      shortDesc: "Dilatada (MCD), Hipertrófica obstructiva/no obstructiva (MCH/MCHO), Restrictiva (MCR), Displasia Arritmogénica y Miocardiopatía de Takotsubo.",
+      icon: "💔",
+      badge: "Enfermedades Miocárdicas",
+      badgeColor: "purple",
+            guidelineLinks: [
+        { title: "2023 ESC Guidelines for the Management of Cardiomyopathies", url: "https://academic.oup.com/eurheartj/article/44/37/3503/7243211", year: "2023" }
       ],
-      "quiz": {
-        "title": "Miniquiz: Deporte tras miocarditis aguda",
-        "prompt": "Futbolista de 22 años tras miocarditis aguda no complicada con elevación transitoria de troponina y FEVI normal en la RMC. ¿Cuándo puede reanudar la competición profesional?",
-        "options": [
+theory: {
+        banner: {
+          tag: "Clasificación de miocardiopatías",
+          title: "Enfermedades estructurales y funcionales del músculo cardíaco",
+          text: "Las miocardiopatías son enfermedades primarias del miocardio no atribuibles a cardiopatía isquémica, hipertensión o valvulopatías. Se clasifican en: **Hipertrófica (MCH/MCHO)**, **Dilatada (MCD)**, **Restrictiva (MCR)**, **Miocardiopatía Arritmogénica del Ventrículo Derecho (MCA/DAVD)** y síndromes específicos como **Takotsubo (miocardiopatía por estrés)**."
+        },
+        sections: [
           {
-            "text": "A) Tras 3–6 meses de reposo deportivo, tras comprobar normalidad clínica, de biomarcadores, ECG, Holter y prueba de esfuerzo",
-            "isCorrect": true
+            title: "Miocardiopatía Hipertrófica (MCH / MCHO)",
+            color: "purple",
+            content: `
+              <div class="p-4 bg-slate-900 border border-slate-700 rounded-xl text-xs space-y-2 text-slate-300">
+                <p>La cardiopatía genética más frecuente (mutaciones autosómicas dominantes en proteínas sarcoméricas como MYH7 y MYBPC3). Se caracteriza por <strong>hipertrofia asimétrica del septo interventricular (grosor de pared ≥ 15 mm)</strong> en ausencia de otra causa explicativa.</p>
+                <div class="p-3 bg-purple-950/40 border border-purple-500/30 rounded-lg">
+                  <span class="font-bold text-purple-400">Fenómeno SAM (Systolic Anterior Motion):</span>
+                  <p class="mt-1">El velo anterior mitral es succionado en sístole por efecto Venturi hacia el tracto de salida del VI (TSVI) -> obstrucción dinámica al flujo (MCHO) e insuficiencia mitral secundaria.</p>
+                </div>
+                <p><strong>Tratamiento de la MCHO:</strong> Betabloqueantes no vasodilatadores, Verapamilo, o el nuevo inhibidor selectivo de la miosina cardíaca <strong>Mavacamten</strong>. Miectomía quirúrgica o ablación septal con alcohol en casos refractarios.</p>
+              </div>
+            `
           },
           {
-            "text": "B) En 1 semana al normalizarse la troponina",
-            "isCorrect": false
+            title: "Miocardiopatía de Takotsubo (Síndrome del corazón roto)",
+            color: "rose",
+            content: `
+              <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl text-xs text-slate-300 space-y-1.5">
+                <p>Disfunción miocárdica transitoria desencadenada por estrés emocional o físico intenso con liberación masiva de catecolaminas. Predomina en mujeres posmenopáusicas.</p>
+                <p><strong>Clínica:</strong> Simula un SCACEST agudo (dolor torácico, elevación del ST, troponina positiva). En la coronariografía las arterias están <strong>sin lesiones obstructivas</strong>. Ecocardiograma característico: <strong>abombamiento apical (apical ballooning)</strong> con acinesia del ápex e hipercontractilidad de la base.</p>
+                <p class="text-emerald-400 font-medium">El pronóstico suele ser favorable y la función del VI se recupera por completo en semanas o meses.</p>
+              </div>
+            `
+          }
+        ]
+      },
+      recall: {
+        scenarios: [
+          {
+            id: "kmp-r1",
+            title: "Pregunta 1: Fármacos contraindicados en MCHO",
+            question: "¿Qué fármacos cardiológicos habituales están formalmente contraindicados en pacientes con miocardiopatía hipertrófica obstructiva (MCHO) porque empeoran el gradiente dinámico del TSVI?",
+            answer: "1. Fármacos inotrópicos positivos (Digoxina, catecolaminas). 2. Nitratos y vasodilatadores (reducen el llenado ventricular y la precarga, aumentando la succión del velo mitral). 3. Calcioantagonistas dihidropiridínicos y diuréticos a dosis altas.",
+            pearl: "En la MCHO se busca un ventrículo 'lleno y pausado', por lo que los betabloqueantes y el verapamilo son los fármacos de elección."
           },
           {
-            "text": "C) En 15 días si no tiene fatiga",
-            "isCorrect": false
-          },
-          {
-            "text": "D) El deporte profesional queda contraindicado de por vida",
-            "isCorrect": false
+            id: "kmp-r2",
+            title: "Pregunta 2: Miocardiopatía arritmogénica (DAVD/MCA)",
+            question: "Atleta joven sufre síncope durante un partido. El EKG muestra ondas T negativas en V1–V3 y en V1 se observa una pequeña deflexión al final del QRS (onda épsilon). ¿Qué patología sospecha y cuál es su sustrato fisiopatológico?",
+            answer: "Miocardiopatía Arritmogénica del Ventrículo Derecho (DAVD/MCA). Sustitución progresiva fibro-adiposa del miocardio del ventrículo derecho con elevado riesgo de arritmias ventriculares malignas y muerte súbita en deportistas jóvenes.",
+            pearl: "La onda Épsilon en derivaciones precordiales derechas (V1-V2) es el signo electrocardiográfico patognomónico de la DAVD."
           }
         ],
-        "explanation": "Las guías de cardiología deportiva de la ESC exigen abstención estricta de deporte competitivo durante 3 a 6 meses tras una miocarditis aguda, reevaluando antes del alta deportiva biomarcadores, ECG, Holter y ergometría."
-      }
-    },
-    "breakdown": {
-      "classThree": [
-        "Vasodilatadores (Nitratos, DHP) y Digoxina en MCH obstructiva (aumentan la obstrucción del TSVI).",
-        "Ejercicio físico intenso durante la fase aguda de la miocarditis y en los 3–6 meses posteriores.",
-        "Uso de AINEs en la fase aguda de la miocarditis (empeoran la inflamación y aumentan la mortalidad miocárdica).",
-        "Omitir el cribado genético y ecocardiográfico a familiares de primer grado en miocardiopatías hereditarias."
-      ],
-      "mustKnow": [
-        "MCH: Grosor &ge; 15 mm. oMCH: Gradiente &ge; 30 mmHg (fármaco innovador: Mavacamten).",
-        "Amiloidosis cardíaca: 'Paredes gruesas en eco + bajo voltaje en ECG'. Diagnóstico no invasivo: Gammagrafía 99mTc-DPD (grado 2–3) + cadenas libres negativas.",
-        "Tratamiento de ATTR: Tafamidis (estabilizador de transtirretina).",
-        "RMC en miocarditis: Criterios de Lake Louise (edema T2 + realce tardío subepicárdico LGE).",
-        "Reposo deportivo post-miocarditis: 3 a 6 meses de abstención estricta."
-      ]
-    },
-    "guidelineLinks": [
-      {
-        "title": "2023 ESC Guidelines for the management of cardiomyopathies",
-        "year": 2023,
-        "journal": "European Heart Journal",
-        "doi": "10.1093/eurheartj/ehad194",
-        "url": "https://academic.oup.com/eurheartj/article/44/37/3503/7243212"
-      }
-    ]
-  },
-  {
-    "id": "zanety",
-    "number": 9,
-    "title": "Endocarditis infecciosa y pericarditis (Guías ESC 2023)",
-    "shortDesc": "Criterios de Duke-ESC modificados 2023, indicaciones de cirugía cardíaca urgente, profilaxis antibiótica, pericarditis aguda (Colquicina), taponamiento y constricción.",
-    "icon": "🛡️",
-    "badge": "Guías ESC 2023",
-    "badgeColor": "emerald",
-    "theory": {
-      "banner": {
-        "tag": "Innovación diagnóstica en infecciones cardíacas",
-        "title": "Imagen multimodal (PET/TC, Angio-TC) y profilaxis racional de la EI",
-        "text": "Las Guías ESC 2023 para endocarditis infecciosa (EI) incorporan la **18F-FDG PET/TC** y la **Angio-TC cardíaca** como criterios diagnósticos mayores. La profilaxis antibiótica queda restringida exclusivamente a pacientes de muy alto riesgo sometidos a procedimientos dentales de riesgo."
+        quiz: {
+          title: "Quiz: Miocardiopatía restrictiva y Amiloidosis",
+          prompt: "En un paciente de 72 años con insuficiencia cardíaca, bajo voltaje de QRS en el EKG y miocardio engrosado y refringente en el ecocardiograma (patrón 'sparkling' granular), la causa más frecuente es:",
+          options: [
+            { text: "A) Amiloidosis cardíaca (amiloidosis AL o por transtiretina ATTR)", isCorrect: true },
+            { text: "B) Cardiopatía isquémica", isCorrect: false },
+            { text: "C) Sarcoidosis", isCorrect: false },
+            { text: "D) Miocardiopatía dilatada", isCorrect: false }
+          ],
+          explanation: "La discrepancia entre el bajo voltaje de los complejos QRS en el EKG y el marcado engrosamiento de las paredes ventriculares en el ecocardiograma es el signo característico de la amiloidosis cardíaca por depósito extracelular de fibrillas amiloides. El diagnóstico incluye gammagrafía con 99mTc-DPD y estudio de cadenas ligeras libres en suero."
+        }
       },
-      "sections": [
-        {
-          "title": "1. Criterios de Duke-ESC modificados (2023)",
-          "color": "emerald",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-slate-700 rounded-xl text-xs text-slate-300 space-y-2\">\n                                <p><strong>Diagnóstico de EI definitiva:</strong> 2 Criterios mayores O 1 Mayor + 3 Menores O 5 Menores.</p>\n                                <div class=\"grid sm:grid-cols-2 gap-3 mt-1 text-[11px]\">\n                                    <div class=\"p-2.5 bg-slate-800 rounded-lg border border-slate-700\">\n                                        <span class=\"font-bold text-emerald-400\">⭐ Criterios Mayores (Major)</span>\n                                        <ul class=\"list-disc ml-4 mt-1 space-y-1\">\n                                            <li><strong>Hemocultivos positivos:</strong> Microorganismos típicos (<em>S. aureus, E. faecalis, Streptococci, HACEK</em>).</li>\n                                            <li><strong>Imagen positiva:</strong> Vegetación, absceso, pseudoaneurisma en <strong>ETT/ETE</strong>, O captación patológica en <strong>PET/TC</strong>, O lesiones paravalvulares en <strong>Angio-TC cardíaca</strong>.</li>\n                                        </ul>\n                                    </div>\n                                    <div class=\"p-2.5 bg-slate-800 rounded-lg border border-slate-700\">\n                                        <span class=\"font-bold text-cyan-400\">🔹 Criterios Menores (Minor)</span>\n                                        <ul class=\"list-disc ml-4 mt-1 space-y-0.5\">\n                                            <li>Cardiopatía predisponente o drogas i.v.</li>\n                                            <li>Fiebre &ge; 38,0 °C.</li>\n                                            <li><strong>Fenómenos vasculares:</strong> Embolias arteriales, lesiones de Janeway (máculas indoloras palmoplantares), infartos pulmonares sépticos.</li>\n                                            <li><strong>Fenómenos inmunológicos:</strong> Nódulos de Osler (dolorosos en pulpejos), manchas de Roth en retina, glomerulonefritis.</li>\n                                        </ul>\n                                    </div>\n                                </div>\n                            </div>\n                        "
-        },
-        {
-          "title": "2. Indicaciones de cirugía urgente en EI",
-          "color": "rose",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-rose-500/30 rounded-xl text-xs text-slate-300 space-y-2\">\n                                <p class=\"font-bold text-rose-400\">Tres indicaciones principales de cirugía cardíaca urgente:</p>\n                                <ol class=\"list-decimal ml-5 space-y-1\">\n                                    <li><strong>Insuficiencia cardíaca:</strong> Regurgitación aguda aórtica o mitral con edema pulmonar o shock (cirugía emergente &lt; 24h).</li>\n                                    <li><strong>Infección no controlada:</strong> Absceso paravalvular, fístula, o fiebre y bacteriemia persistente &gt; 7–10 días con ATB óptima.</li>\n                                    <li><strong>Prevención de embolias:</strong> Vegetación móvil <strong>&gt; 10 mm tras episodio embólico</strong> o vegetación aislada <strong>&gt; 15 mm</strong>.</li>\n                                </ol>\n                            </div>\n                        "
-        },
-        {
-          "title": "3. Pericarditis aguda y Taponamiento cardíaco",
-          "color": "amber",
-          "content": "\n                            <div class=\"space-y-2.5 text-xs text-slate-300\">\n                                <div class=\"p-3 bg-slate-900 border border-slate-700 rounded-xl\">\n                                    <span class=\"font-bold text-amber-400\">Pericarditis aguda: Diagnóstico y tratamiento</span>\n                                    <p class=\"mt-1\">\n                                        Diagnóstico con &ge; 2 de 4 criterios (dolor pleurítico que alivia al inclinarse hacia delante, roce pericárdico, elevación cóncava del ST con <strong>descenso del PR</strong>, derrame en ecocardiograma).<br>\n                                        <strong>Tratamiento de elección (Clase I):</strong> AINE (Ibuprofeno 600 mg/8h o Aspirina 750–1000 mg/8h) + <strong>Colquicina 0,5 mg/12h durante 3 meses</strong> (reduce recurrencias al 50 %).\n                                    </p>\n                                </div>\n                                <div class=\"p-3 bg-slate-900 border border-rose-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-rose-400\">🚨 Taponamiento cardíaco (Triada de Beck)</span>\n                                    <p class=\"mt-1\">\n                                        <strong>Triada de Beck:</strong> 1. Hipotensión, 2. Ingurgitación yugular, 3. Tonos apagados. Más <strong>pulso paradójico</strong> (caída de PAS &gt; 10 mmHg en inspiración). Tratamiento: <strong>pericardiocentesis urgente</strong>.\n                                    </p>\n                                </div>\n                            </div>\n                        "
-        }
-      ]
+      breakdown: {
+        classThree: [
+          "Uso de Digoxina, Nitratos y calcioantagonistas DHP en la miocardiopatía hipertrófica obstructiva (MCHO).",
+          "Recomendación de deportes competitivos o de contacto de alta intensidad en pacientes con MCH, DAVD o mutaciones de lámina A/C (LMNA).",
+          "Uso de antiinflamatorios no esteroideos y vasodilatadores a dosis altas en miocardiopatía restrictiva avanzada."
+        ],
+        mustKnow: [
+          "MCH: Grosor parietal del VI ≥ 15 mm en ausencia de otra causa. Hipertrofia septal asimétrica, fenómeno SAM.",
+          "Tratamiento de MCHO: Betabloqueantes, Mavacamten, miectomía. Digoxina y nitratos PROHIBIDOS.",
+          "Takotsubo: Balonamiento apical, coronarias normales en cateterismo, generalmente reversible tras ceder el estrés."
+        ]
+      }
     },
-    "recall": {
-      "scenarios": [
-        {
-          "id": "zan-r1",
-          "title": "Caso Clínico 1: Profilaxis antibiótica de endocarditis",
-          "question": "Paciente portador de prótesis mecánica aórtica va a someterse a una extracción dental con sangrado gingival. ¿Requiere profilaxis y qué pauta se administra?",
-          "answer": "SÍ, tiene indicación formal de profilaxis al ser portador de prótesis valvular (grupo de muy alto riesgo de EI). Se administra Amoxicilina 2 g vía oral dosis única 30–60 minutos antes de la intervención. En alérgicos a penicilina, Clindamicina 600 mg o Azitromicina 500 mg p.o.",
-          "pearl": "La profilaxis de EI ya NO se recomienda en procedimientos respiratorios, digestivos (gastroscopias) o genitourinarios no infectados."
-        },
-        {
-          "id": "zan-r2",
-          "title": "Caso Clínico 2: Tratamiento de pericarditis aguda",
-          "question": "Joven de 28 años con dolor precordial punzante que cede en flexión anterior y elevación cóncava difusa del ST con depresión del PR. Diagnóstico de pericarditis aguda viral. ¿Cuál es el tratamiento?",
-          "answer": "AINE a dosis plenas (Ibuprofeno 600 mg cada 8 horas) durante 1–2 semanas hasta resolución clínica y analítica + Colquicina 0,5 mg/12h (o 0,5 mg/d si &lt; 70 kg) durante 3 meses para prevenir recurrencias.",
-          "pearl": "Los corticoides aumentan las recidivas y se reservan para casos autoinmunes o intolerancia a AINEs."
-        }
+{
+      id: "zanety",
+      number: 9,
+      title: "Pericarditis y Endocarditis Infecciosa",
+      shortDesc: "Endocarditis infecciosa (criterios de Duke), Miocarditis, Pericarditis aguda, Taponamiento cardíaco y Pericarditis constrictiva.",
+      icon: "🔥",
+      badge: "Infección y Pericardio",
+      badgeColor: "rose",
+            guidelineLinks: [
+        { title: "2023 ESC Guidelines for the Management of Endocarditis", url: "https://academic.oup.com/eurheartj/article/44/39/3948/7243212", year: "2023" },
+        { title: "2015 ESC Guidelines for the Diagnosis and Management of Pericardial Diseases", url: "https://academic.oup.com/eurheartj/article/36/42/2921/2293385", year: "2015" }
       ],
-      "quiz": {
-        "title": "Miniquiz: ECG en pericarditis aguda vs. SCACEST",
-        "prompt": "¿Qué hallazgo electrocardiográfico orienta hacia pericarditis aguda y NO a infarto agudo transmural?",
-        "options": [
+theory: {
+        banner: {
+          tag: "Cuadros críticos",
+          title: "Endocarditis infecciosa y Taponamiento cardíaco",
+          text: "La endocarditis infecciosa (EI) es una patología séptica con alta mortalidad (20–30 %). Su diagnóstico se basa en los **criterios de Duke modificados** (hemocultivos + ecocardiografía). El taponamiento cardíaco es la compresión mecánica aguda del corazón por líquido pericárdico con la clásica **tríada de Beck**."
+        },
+        sections: [
           {
-            "text": "A) Elevación difusa y cóncava del segmento ST en casi todas las derivaciones con descenso del segmento PR",
-            "isCorrect": true
+            title: "Endocarditis Infecciosa (Criterios de Duke y Tratamiento)",
+            color: "rose",
+            content: `
+              <div class="p-4 bg-slate-900 border border-slate-700 rounded-xl text-xs space-y-2 text-slate-300">
+                <span class="font-bold text-rose-400">Criterios mayores de Duke:</span>
+                <ul class="list-disc ml-4 space-y-1">
+                  <li><strong>Hemocultivos positivos:</strong> Microorganismos típicos (S. aureus, estreptococos del grupo viridans, enterococos, grupo HACEK) en 2 tomas independientes.</li>
+                  <li><strong>Evidencia de afectación endocárdica:</strong> Vegetación, absceso, nueva dehiscencia de prótesis valvular en ETE/ETT o nueva regurgitación valvular.</li>
+                </ul>
+                <p class="mt-2"><strong>Tratamiento antibiótico:</strong> Pauta bactericida intravenosa prolongada (4–6 semanas). Empírico: Ampicilina + Cloxacilina/Gentamicina o Vancomicina + Gentamicina en infecciones nosocomiales o sobre prótesis.</p>
+              </div>
+            `
           },
           {
-            "text": "B) Elevación convexa del ST localizada en un único territorio con imágenes especulares recíprocas",
-            "isCorrect": false
+            title: "Pericarditis aguda vs. Taponamiento cardíaco",
+            color: "cyan",
+            content: `
+              <div class="grid sm:grid-cols-2 gap-3 text-xs">
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <span class="font-bold text-cyan-400">Pericarditis aguda</span>
+                  <p class="text-slate-300 mt-1">Dolor torácico pleurítico punzante que <strong>mejora al inclinarse hacia adelante</strong> y empeora en decúbito y con la inspiración. EKG: <strong>elevación difusa cóncava del segmento ST</strong> con descenso del segmento PR.</p>
+                  <p class="text-slate-400 mt-1"><strong>Tratamiento:</strong> AINEs a dosis altas (Ibuprofeno 600 mg c/8h / Aspirina) + <strong>Colchicina 0.5 mg/día durante 3 meses</strong> (¡prevención de recurrencias!).</p>
+                </div>
+                <div class="p-3 bg-slate-900 border border-rose-500/40 rounded-xl">
+                  <span class="font-bold text-rose-400">Taponamiento cardíaco</span>
+                  <p class="text-slate-300 mt-1"><strong>Tríada de Beck:</strong> 1. Hipotensión arterial, 2. Ingurgitación yugular, 3. Tonos cardíacos apagados (silencio auscultatorio). Se acompaña de <strong>pulso paradójico</strong> (caída de PAS &gt; 10 mmHg en inspiración).</p>
+                  <p class="text-emerald-400 font-bold mt-1">Tratamiento: ¡Pericardiocentesis urgente guiada por ecografía!</p>
+                </div>
+              </div>
+            `
+          }
+        ]
+      },
+      recall: {
+        scenarios: [
+          {
+            id: "zan-r1",
+            title: "Pregunta 1: Profilaxis de la Endocarditis Infecciosa",
+            question: "¿Qué pacientes y en qué tipo de procedimientos tienen indicación formal de profilaxis antibiótica frente a endocarditis infecciosa según las guías?",
+            answer: "Únicamente los pacientes de ALTO riesgo: 1. Portadores de prótesis valvulares (quirúrgicas o TAVI) o material protésico de reparación. 2. Episodio previo documentado de EI. 3. Cardiopatías congénitas cianógenas no corregidas. La profilaxis (Amoxicilina 2g v.o. 30–60 min antes) se administra EXCLUSIVAMENTE en procedimientos odontológicos que implican manipulación gingival o de la región periapical.",
+            pearl: "En gastroscopias, colonoscopias o procedimientos urogenitales ya no está indicada la profilaxis rutinaria de EI."
           },
           {
-            "text": "C) Aparición de nuevas ondas Q de necrosis",
-            "isCorrect": false
-          },
-          {
-            "text": "D) Inversión de ondas T durante la elevación máxima del ST",
-            "isCorrect": false
+            id: "zan-r2",
+            title: "Pregunta 2: Diagnóstico diferencial en EKG entre pericarditis y SCACEST",
+            question: "¿Cómo diferencia con seguridad en el EKG una pericarditis aguda de un SCACEST transmural?",
+            answer: "La pericarditis presenta elevación cóncava difusa del segmento ST en la gran mayoría de derivaciones (I, II, aVF, V2-V6), con descenso concomitante del segmento PR y sin imágenes especulares recíprocas (salvo en aVR). El SCACEST presenta elevación convexa del ST localizada en un territorio vascular coronario específico, con descensos especulares del ST recíprocos y posterior desarrollo de ondas Q de necrosis.",
+            pearl: "En la pericarditis aguda nunca se generan ondas Q patológicas de necrosis."
           }
         ],
-        "explanation": "La pericarditis aguda produce inflamación difusa del pericardio visceral, por lo que la elevación del ST es cóncava ('en barca'), generalizada y se acompaña de descenso del segmento PR por inflamación auricular, sin imágenes especulares recíprocas (salvo en aVR)."
-      }
-    },
-    "breakdown": {
-      "classThree": [
-        "Profilaxis antibiótica de EI en procedimientos no dentales sin infección activa.",
-        "Uso rutinario de corticoides como tratamiento de primera línea en pericarditis aguda vírica.",
-        "Anticoagulación en pacientes con pericarditis aguda y derrame pericárdico (riesgo de hemopericardio y taponamiento).",
-        "Retrasar la pericardiocentesis en taponamiento cardíaco evidente."
-      ],
-      "mustKnow": [
-        "Criterios de Duke-ESC: 2 mayores (hemocultivos + imagen ecocardiográfica/PET-TC/Angio-TC) o 1 mayor + 3 menores.",
-        "Cirugía urgente en EI: Insuficiencia cardíaca aguda, infección no controlada o vegetación &gt; 10 mm tras embolia.",
-        "Profilaxis de EI: Solo alto riesgo en procedimientos dentales (Amoxicilina 2 g oral 30–60 min antes).",
-        "Pericarditis: Dolor que alivia en flexión + elevación cóncava del ST y descenso del PR. Tratamiento: AINE + Colquicina 3 meses.",
-        "Taponamiento: Triada de Beck (hipotensión, ingurgitación yugular, tonos apagados) + pulso paradójico."
-      ]
-    },
-    "guidelineLinks": [
-      {
-        "title": "2023 ESC Guidelines for the management of endocarditis",
-        "year": 2023,
-        "journal": "European Heart Journal",
-        "doi": "10.1093/eurheartj/ehad193",
-        "url": "https://academic.oup.com/eurheartj/article/44/39/3948/7243211"
-      }
-    ]
-  },
-  {
-    "id": "pe",
-    "number": 10,
-    "title": "Embolia pulmonar y patología vascular (Guías ESC 2024/2022)",
-    "shortDesc": "Estratificación del riesgo en TEP según sPESI y hemodinámica, fibrinólisis vs. embolectomía percutánea, disección aórtica Stanford A/B y arteriopatía periférica (ITB, COMPASS).",
-    "icon": "🫁",
-    "badge": "Guías ESC 2024/2022",
-    "badgeColor": "amber",
-    "theory": {
-      "banner": {
-        "tag": "Manejo vascular y pulmonar",
-        "title": "Estratificación pronóstica del TEP y Guías vasculares ESC 2024 (Aorta y EAP)",
-        "text": "El tratamiento del tromboembolismo pulmonar (TEP) se rige por el riesgo: el TEP de **alto riesgo (shock / inestabilidad)** requiere **reperfusión inmediata (fibrinólisis o trombectomía percutánea)**. Las Guías ESC 2024 de arteriopatía periférica (EAP) refuerzan la doble vía antitrombótica (Aspirina + Rivaroxabán a dosis vascular)."
+        quiz: {
+          title: "Quiz: Tratamiento de la Pericarditis Aguda",
+          prompt: "¿Qué fármaco se asocia de forma estándar a los AINEs en el primer episodio de pericarditis aguda al haber demostrado reducir la tasa de recurrencias en más de un 50 %?",
+          options: [
+            { text: "A) Colchicina (0.5 mg 1–2 veces al día durante 3 meses)", isCorrect: true },
+            { text: "B) Corticoides sistémicos a dosis altas (Prednisona 1 mg/kg)", isCorrect: false },
+            { text: "C) Warfarina", isCorrect: false },
+            { text: "D) Amiodarona", isCorrect: false }
+          ],
+          explanation: "La colchicina es el fármaco de primera línea junto con AINEs o aspirina. Los corticoides sistémicos son fármacos de segunda línea cuando hay intolerancia o contraindicación a AINEs, ya que su uso inicial favorece la cronificación y recurrencia de la pericarditis."
+        }
       },
-      "sections": [
-        {
-          "title": "1. Estratificación del riesgo en el TEP agudo",
-          "color": "rose",
-          "content": "\n                            <div class=\"grid md:grid-cols-3 gap-3 my-3 text-xs\">\n                                <div class=\"p-3 bg-rose-950/40 border border-rose-500/40 rounded-xl\">\n                                    <span class=\"font-bold text-rose-400\">🚨 Alto riesgo (Shock / Inestabilidad)</span>\n                                    <p class=\"text-slate-300 mt-1 leading-relaxed\">Parada cardíaca, shock obstructivo o PAS &lt; 90 mmHg. <strong>Fibrinólisis sistémica inmediata</strong> (rtPA 100 mg / 2h) o trombectomía percutánea/quirúrgica + heparina no fraccionada (HNF).</p>\n                                </div>\n                                <div class=\"p-3 bg-amber-950/40 border border-amber-500/40 rounded-xl\">\n                                    <span class=\"font-bold text-amber-400\">⚠️ Riesgo intermedio-alto</span>\n                                    <p class=\"text-slate-300 mt-1 leading-relaxed\">Estable hemodinámicamente, <strong>sPESI &ge; 1</strong> Y <strong>disfunción del VD en imagen (ETT/TC) Y troponina elevada</strong>. Ingreso monitorizado y rescate con reperfusión si empeora.</p>\n                                </div>\n                                <div class=\"p-3 bg-emerald-950/40 border border-emerald-500/40 rounded-xl\">\n                                    <span class=\"font-bold text-emerald-400\">✅ Bajo riesgo</span>\n                                    <p class=\"text-slate-300 mt-1 leading-relaxed\">sPESI = 0, sin disfunción de VD ni troponina. Inicio de <strong>ACOD (Apixabán / Rivaroxabán)</strong> y alta precoz ambulatoria.</p>\n                                </div>\n                            </div>\n                        "
-        },
-        {
-          "title": "2. Síndromes aórticos agudos: Disección Stanford A vs. Stanford B",
-          "color": "amber",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-amber-500/30 rounded-xl text-xs text-slate-300 space-y-2\">\n                                <p><strong>Disección aórtica aguda:</strong> Dolor torácico lacerante de inicio súbito e irradiación interescapular.</p>\n                                <div class=\"grid sm:grid-cols-2 gap-3 mt-1\">\n                                    <div class=\"p-2.5 bg-rose-950/40 border border-rose-500/30 rounded-lg\">\n                                        <span class=\"font-bold text-rose-400\">Stanford Tipo A (Aorta ascendente)</span>\n                                        <p class=\"mt-1 text-[11px]\">Afecta aorta ascendente. Riesgo de taponamiento, infarto e insuficiencia aórtica masiva. <strong>¡Cirugía cardíaca urgente inmediata!</strong></p>\n                                    </div>\n                                    <div class=\"p-2.5 bg-slate-800 rounded-lg border border-slate-700\">\n                                        <span class=\"font-bold text-cyan-400\">Stanford Tipo B (Aorta descendente)</span>\n                                        <p class=\"mt-1 text-[11px]\">Distal a subclavia izquierda. Tratamiento médico intensivo: betabloqueantes i.v. (Labetalol / Esmolol, <strong>objetivo PAS 100–120 mmHg y FC &lt; 60 lpm</strong>). Si hay complicaciones (isquemia, rotura) <strong>TEVAR</strong>.</p>\n                                    </div>\n                                </div>\n                            </div>\n                        "
-        },
-        {
-          "title": "3. Enfermedad arterial periférica (EAP / ITB - Guías ESC 2024)",
-          "color": "cyan",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-cyan-500/30 rounded-xl text-xs text-slate-300 space-y-2\">\n                                <p><strong>Diagnóstico:</strong> Índice tobillo-brazo (<strong>ITB &le; 0,90</strong> confirma EAP). ITB &gt; 1,40 indica calcificación arterial no compresible.</p>\n                                <p><strong>Tratamiento antitrombótico (Ensayo COMPASS):</strong></p>\n                                <div class=\"p-2.5 bg-cyan-950/40 border border-cyan-500/30 rounded-lg text-[11px]\">\n                                    En EAP sintomática se recomienda doble vía de protección vascular: <strong>Aspirina 100 mg/d + Rivaroxabán 2,5 mg/12h</strong> (dosis vascular, reduce amputaciones y eventos cardiovasculares mayores).\n                                </div>\n                            </div>\n                        "
-        }
-      ]
+      breakdown: {
+        classThree: [
+          "Uso rutinario de corticoides como primera línea en pericarditis aguda (multiplican la tasa de recidivas).",
+          "Anticoagulación en pericarditis aguda no complicada sin otra indicación formal (riesgo de hemopericardio y taponamiento).",
+          "Profilaxis de endocarditis en pacientes de bajo riesgo o en procedimientos odontológicos superficiales no invasivos."
+        ],
+        mustKnow: [
+          "Endocarditis: ¡Extraer al menos 3 pares de hemocultivos antes de iniciar los antibióticos! ETE para documentar vegetaciones.",
+          "Taponamiento: Tríada de Beck (hipotensión, tonos apagados, ingurgitación yugular) + pulso paradójico -> pericardiocentesis evacuadora.",
+          "Pericarditis: El dolor mejora al inclinarse hacia adelante, ST cóncavo difuso + descenso del PR -> Ibuprofeno + Colchicina."
+        ]
+      }
     },
-    "recall": {
-      "scenarios": [
-        {
-          "id": "pe-r1",
-          "title": "Caso Clínico 1: TEP masivo con hipotensión grave",
-          "question": "Mujer de 56 años al 10.º día postoperatorio sufre síncope brusco con PA 70/45 mmHg, taquicardia a 130 lpm y SpO2 82 %. El ecocardiograma en cama muestra dilatación masiva del ventrículo derecho con hipocinesia de la pared libre y preservación del ápex (signo de McConnell). ¿Cuál es la terapia de reperfusión de elección?",
-          "answer": "Fibrinólisis sistémica intravenosa inmediata con rtPA (Alteplasa 100 mg en infusión de 2 horas o régimen acelerado en parada inminente) junto con bolo de heparina no fraccionada y soporte vasopresor con noradrenalina.",
-          "pearl": "Si existe contraindicación absoluta para fibrinólisis (ej. hemorragia intracraneal reciente), la alternativa es la trombectomía mecánica percutánea o embolectomía quirúrgica."
-        },
-        {
-          "id": "pe-r2",
-          "title": "Caso Clínico 2: Disección aórtica Tipo B",
-          "question": "Varón hipertenso de 60 años con dolor interescapular lancinante y PA 195/110 mmHg. El angio-TC confirma disección Stanford Tipo B no complicada. ¿Qué objetivo tensional y qué fármaco debe iniciarse en primer lugar?",
-          "answer": "El objetivo es reducir la PAS a 100–120 mmHg y la frecuencia cardíaca a &lt; 60 lpm en los primeros 10–20 minutos. El fármaco de primera línea son los betabloqueantes intravenosos (Labetalol o Esmolol i.v.). Es crítico administrar el betabloqueante ANTES de cualquier vasodilatador puro para reducir el estrés de cizallamiento (dP/dt) y evitar taquicardia refleja que propagaría la disección.",
-          "pearl": "¡Nunca administrar nitroprusiato o hidralazina sin betabloqueo previo por riesgo de rotura aórtica fulminante!"
-        }
+{
+      id: "pe",
+      number: 10,
+      title: "Embolia Pulmonar e Hipertensión Pulmonar",
+      shortDesc: "Tromboembolismo pulmonar agudo (estratificación de riesgo ESC, sPESI, fibrinólisis sistémica, ACOD), cor pulmonale y los 5 grupos de hipertensión pulmonar.",
+      icon: "🫁",
+      badge: "Circulación Pulmonar",
+      badgeColor: "cyan",
+            guidelineLinks: [
+        { title: "2019 ESC Guidelines for the Diagnosis and Management of Acute Pulmonary Embolism", url: "https://academic.oup.com/eurheartj/article/41/4/543/5556136", year: "2019" },
+        { title: "2024 ESC Guidelines for the Management of Peripheral Arterial and Aortic Diseases", url: "https://academic.oup.com/eurheartj/article/45/39/3680/7741356", year: "2024" }
       ],
-      "quiz": {
-        "title": "Miniquiz: Algoritmo de sospecha de TEP",
-        "prompt": "Mujer de 24 años consulta por dolor pleurítico leve en costado. Signos vitales normales, saturación 99 % y baja probabilidad clínica por escala de Wells (< 2 puntos). ¿Cuál es la conducta recomendada?",
-        "options": [
+theory: {
+        banner: {
+          tag: "Guías ESC para TEP",
+          title: "Estratificación de riesgo del TEP e indicación de trombólisis",
+          text: "El tromboembolismo pulmonar (TEP) se estratifica según la presencia de **inestabilidad hemodinámica (shock o hipotensión persistente)** en: **Alto riesgo (High Risk)** vs. **Intermedio (Intermediate)** vs. **Bajo riesgo (Low Risk)**. ¡Únicamente en el TEP de alto riesgo está indicada la fibrinólisis sistémica inmediata!"
+        },
+        sections: [
           {
-            "text": "A) Aplicar la regla PERC o determinar Dímero D; si es negativo, se descarta TEP sin necesidad de Angio-TC",
-            "isCorrect": true
+            title: "Estratificación pronóstica del TEP agudo",
+            color: "cyan",
+            content: `
+              <div class="space-y-3 text-xs">
+                <div class="p-3 bg-rose-950/40 border border-rose-500/30 rounded-xl">
+                  <div class="font-bold text-rose-400">🚨 Alto riesgo (High Risk / TEP Masivo)</div>
+                  <p class="text-slate-300 mt-0.5">Presencia de shock cardiogénico o hipotensión persistente (PAS &lt; 90 mmHg o caída de PAS ≥ 40 mmHg durante &gt; 15 min). <strong>Tratamiento: Fibrinólisis sistémica inmediata (Alteplasa 100 mg i.v.)</strong> + heparina no fraccionada (HNF). ¡Angio-TC de tórax solo si el paciente está hemodinámicamente estable para el traslado!</p>
+                </div>
+                <div class="p-3 bg-amber-950/40 border border-amber-500/30 rounded-xl">
+                  <div class="font-bold text-amber-400">Riesgo Intermedio-Alto:</div>
+                  <p class="text-slate-300 mt-0.5">Presión arterial normal, pero CON disfunción del ventrículo derecho en ECO/TC Y ADEMÁS troponina positiva. <strong>Tratamiento: Anticoagulación (HBPM/ACOD)</strong> + vigilancia estrecha en UCI (fibrinólisis de rescate si empeora).</p>
+                </div>
+                <div class="p-3 bg-emerald-950/40 border border-emerald-500/30 rounded-xl">
+                  <div class="font-bold text-emerald-400">Bajo riesgo (Low Risk):</div>
+                  <p class="text-slate-300 mt-0.5">sPESI = 0 puntos, sin disfunción de VD y troponinas normales. Puede valorarse alta precoz y manejo ambulatorio con ACOD (Rivaroxabán o Apixabán).</p>
+                </div>
+              </div>
+            `
           },
           {
-            "text": "B) Realizar Angio-TC pulmonar de forma urgente",
-            "isCorrect": false
+            title: "Hipertensión Pulmonar (Definición y 5 grupos clínicos)",
+            color: "blue",
+            content: `
+              <p class="text-xs text-slate-300 mb-2"><strong>Definición hemodinámica:</strong> Presión media en la arteria pulmonar (mPAP) <strong>&gt; 20 mmHg</strong> en reposo medida por cateterismo cardíaco derecho.</p>
+              <div class="grid sm:grid-cols-2 gap-2 text-xs text-slate-300">
+                <div class="p-2.5 bg-slate-900 border border-slate-700 rounded-lg"><strong>Grupo 1:</strong> Hipertensión arterial pulmonar (HAP - idiopática, hereditaria, fármacos).</div>
+                <div class="p-2.5 bg-slate-900 border border-slate-700 rounded-lg"><strong>Grupo 2:</strong> Asociada a cardiopatía izquierda (¡la más frecuente! IC-FEr, IC-FEp, valvulopatías).</div>
+                <div class="p-2.5 bg-slate-900 border border-slate-700 rounded-lg"><strong>Grupo 3:</strong> Asociada a enfermedades pulmonares / hipoxia (EPOC, fibrosis intersticial).</div>
+                <div class="p-2.5 bg-slate-900 border border-slate-700 rounded-lg"><strong>Grupo 4:</strong> Hipertensión pulmonar tromboembólica crónica (HPTEC / CTEPH) - ¡curable mediante endarterectomía!</div>
+              </div>
+            `
+          }
+        ]
+      },
+      recall: {
+        scenarios: [
+          {
+            id: "pe-r1",
+            title: "Pregunta 1: Signos de sobrecarga derecha en el EKG",
+            question: "¿Cuáles son los signos electrocardiográficos característicos del cor pulmonale agudo / TEP masivo?",
+            answer: "1. Taquicardia sinusal (el más frecuente). 2. Patrón clásico S1Q3T3 de McGinn-White (onda S profunda en I, onda Q en III, onda T negativa en III). 3. Bloqueo de rama derecha nuevo (completo o incompleto). 4. Inversión de ondas T en derivaciones precordiales derechas V1–V4. 5. P-pulmonale.",
+            pearl: "Un EKG completamente normal no excluye un tromboembolismo pulmonar."
           },
           {
-            "text": "C) Iniciar anticoagulación con HBPM",
-            "isCorrect": false
-          },
-          {
-            "text": "D) Gammagrafía V/Q inmediata",
-            "isCorrect": false
+            id: "pe-r2",
+            title: "Pregunta 2: Duración de la anticoagulación tras un TEP",
+            question: "¿Cuánto tiempo debe prolongarse la anticoagulación tras un primer episodio de TEP provocado por un factor de riesgo transitorio mayor (ej. cirugía ortopédica) frente a un TEP no provocado (idiopático)?",
+            answer: "TEP provocado por factor transitorio mayor: mínimo 3 meses de anticoagulación (y suspender tras la resolución del factor). TEP no provocado (idiopático) o recurrente: anticoagulación prolongada o indefinida (si el riesgo hemorrágico no es prohibitivo).",
+            pearl: "Los fármacos de primera elección para el tratamiento oral del TEP son los ACOD (Apixabán, Rivaroxabán, Edoxabán, Dabigatrán)."
           }
         ],
-        "explanation": "En pacientes con baja probabilidad clínica según Wells, el cumplimiento de los criterios PERC o unos Dímeros D negativos descartan la embolia pulmonar con un valor predictivo negativo &gt; 99 %, evitando la radiación y el contraste de una angio-TC innecesaria."
+        quiz: {
+          title: "Quiz: Dímero D en el diagnóstico del TEP",
+          prompt: "¿En cuál de los siguientes pacientes tiene la determinación del Dímero D su máximo valor para descartar de forma segura un TEP?",
+          options: [
+            { text: "A) Paciente con probabilidad clínica baja o intermedia según la escala de Wells o Ginebra", isCorrect: true },
+            { text: "B) Paciente con probabilidad clínica alta y shock", isCorrect: false },
+            { text: "C) Paciente oncológico pluripatológico tras politraumatismo grave", isCorrect: false },
+            { text: "D) Paciente gestante en el tercer trimestre", isCorrect: false }
+          ],
+          explanation: "El dímero D tiene una sensibilidad y un valor predictivo negativo excepcionales (> 99 %) en pacientes con probabilidad clínica BAJA o INTERMEDIA. Ante una probabilidad alta no se solicita dímero D y se procede directamente a realizar una angio-TC pulmonar."
+        }
+      },
+      breakdown: {
+        classThree: [
+          "Fibrinólisis sistémica en pacientes con TEP hemodinámicamente estables de bajo riesgo.",
+          "Confiar en un dímero D negativo para descartar TEP en un paciente con alta probabilidad clínica (debe realizarse angio-TC).",
+          "Uso de vasodilatadores pulmonares específicos de la HAP (prostaciclinas, ERA) en pacientes con hipertensión pulmonar del Grupo 2 (por cardiopatía izquierda: precipita edema de pulmón).",
+          "Uso de filtros de vena cava inferior de forma rutinaria sin contraindicación absoluta para anticoagulación."
+        ],
+        mustKnow: [
+          "TEP de alto riesgo (shock/hipotensión) = fibrinólisis sistémica inmediata (Alteplasa 100 mg i.v.).",
+          "Tratamiento del TEP estable: ACOD (Apixabán o Rivaroxabán desde el inicio sin necesidad de puente con HBPM; Dabigatrán o Edoxabán tras 5 días de HBPM).",
+          "Hipertensión pulmonar: mPAP &gt; 20 mmHg. El grupo 2 (cardiopatía izquierda) es con diferencia el más frecuente."
+        ]
       }
     },
-    "breakdown": {
-      "classThree": [
-        "Realizar Angio-TC pulmonar en un paciente inestable en shock antes de estabilizarlo y realizar ecocardiograma a pie de cama.",
-        "Administración de vasodilatadores puros (Nitroprusiato) en disección aórtica sin betabloqueo previo (aumenta dP/dt).",
-        "Fibrinólisis sistémica rutinaria en TEP de bajo riesgo.",
-        "Filtro de vena cava inferior en pacientes que pueden recibir anticoagulación estándar."
+{
+      id: "ccs",
+      number: 11,
+      title: "Síndromes Coronarios Crónicos (SCC)",
+      shortDesc: "Angina de pecho estable, probabilidad pre-test (PTP), coronariografía por TC frente a pruebas funcionales de isquemia y terapia médica.",
+      icon: "🫀",
+      badge: "Cardiopatía Isquémica",
+      badgeColor: "amber",
+            guidelineLinks: [
+        { title: "2024 ESC Guidelines for the Management of Chronic Coronary Syndromes", url: "https://academic.oup.com/eurheartj/article/45/39/3415/7741357", year: "2024" }
       ],
-      "mustKnow": [
-        "TEP de alto riesgo = shock/hipotensión -> fibrinólisis sistémica inmediata (rtPA 100 mg) + HNF.",
-        "TEP riesgo intermedio = sPESI &ge; 1 -> valorar VD en imagen y troponina.",
-        "TEP bajo riesgo = sPESI 0 -> ACOD (Apixabán/Rivaroxabán) y manejo ambulatorio.",
-        "Disección Stanford A = cirugía cardíaca urgente; Stanford B = betabloqueantes i.v. (PAS 100–120 mmHg) + TEVAR.",
-        "EAP: ITB &le; 0,90. Tratamiento antitrombótico: Aspirina 100 mg + Rivaroxabán 2,5 mg/12h (COMPASS)."
-      ]
-    },
-    "guidelineLinks": [
-      {
-        "title": "2024 ESC Guidelines for the management of peripheral arterial and aortic diseases",
-        "year": 2024,
-        "journal": "European Heart Journal",
-        "doi": "10.1093/eurheartj/ehae179",
-        "url": "https://academic.oup.com/eurheartj/article/45/38/3702/7741011"
+theory: {
+        banner: {
+          tag: "Diagnóstico moderno de la CI",
+          title: "Coronariografía por TC vs. Pruebas Funcionales",
+          text: "La ESC prioriza las pruebas diagnósticas no invasivas anatómicas y funcionales. La **angio-TC coronaria (CCTA)** es la prueba de elección en pacientes con probabilidad pre-test (PTP) baja o intermedia para descartar estenosis coronarias gracias a su altísimo valor predictivo negativo."
+        },
+        sections: [
+          {
+            title: "Algoritmo diagnóstico ante sospecha de SCC",
+            color: "amber",
+            content: `
+              <div class="space-y-2 text-xs text-slate-300">
+                <p>1. Caracterización de los síntomas (angina típica vs. atípica vs. dolor no cardíaco) y cálculo de la probabilidad pre-test (PTP) según edad, sexo y tipo de dolor.</p>
+                <div class="grid sm:grid-cols-2 gap-3 my-2">
+                  <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                    <span class="font-bold text-amber-400">Estudio anatómico (Angio-TC coronaria)</span>
+                    <p class="mt-1">De elección en PTP baja-intermedia sin cardiopatía isquémica previa conocida y ausencia de calcificaciones coronarias masivas.</p>
+                  </div>
+                  <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                    <span class="font-bold text-amber-400">Pruebas funcionales de isquemia (Eco-estrés, RMC, SPECT)</span>
+                    <p class="mt-1">Preferidas en PTP más elevada, pacientes con cardiopatía isquémica conocida o revascularización previa (stents, bypass).</p>
+                  </div>
+                </div>
+              </div>
+            `
+          },
+          {
+            title: "Tratamiento antianginoso y pronóstico",
+            color: "emerald",
+            content: `
+              <div class="grid sm:grid-cols-2 gap-3 text-xs">
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <span class="font-bold text-emerald-400">Tratamiento pronóstico (reduce eventos CV):</span>
+                  <ul class="list-disc ml-4 mt-1 text-slate-300 space-y-1">
+                    <li><strong>Aspirina 100 mg/día</strong> (o Clopidogrel si intolerancia).</li>
+                    <li><strong>Estatina de alta potencia</strong> (objetivo LDL &lt; 1.4 mmol/l) ± Ezetimiba.</li>
+                    <li><strong>IECA / ARA-II</strong> (si HTA, DM, FEVI &lt; 40 %).</li>
+                  </ul>
+                </div>
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <span class="font-bold text-emerald-400">Tratamiento sintomático antianginoso:</span>
+                  <ul class="list-disc ml-4 mt-1 text-slate-300 space-y-1">
+                    <li><strong>1.ª línea:</strong> Betabloqueantes y/o calcioantagonistas (DHP o no DHP).</li>
+                    <li><strong>2.ª línea:</strong> Nitratos de acción prolongada, Ranolazina, Ivabradina, Trimetazidina.</li>
+                    <li><strong>Alivio agudo:</strong> Nitroglicerina sublingual (spray/comprimidos).</li>
+                  </ul>
+                </div>
+              </div>
+            `
+          }
+        ]
       },
-      {
-        "title": "2022 ESC/ERS Guidelines for the diagnosis and treatment of pulmonary hypertension",
-        "year": 2022,
-        "journal": "European Heart Journal",
-        "doi": "10.1093/eurheartj/ehac237",
-        "url": "https://academic.oup.com/eurheartj/article/43/38/3618/6673946"
-      }
-    ]
-  },
-  {
-    "id": "ccs",
-    "number": 11,
-    "title": "Síndromes coronarios crónicos (Guías ESC 2024)",
-    "shortDesc": "Probabilidad pre-test (PTP) y Clinical Likelihood, Angio-TC coronaria (CCTA) como prueba de primera elección, evaluación funcional con FFR/iFR, INOCA y fármacos antianginosos.",
-    "icon": "📈",
-    "badge": "Guías ESC 2024",
-    "badgeColor": "cyan",
-    "theory": {
-      "banner": {
-        "tag": "Guías ESC 2024 de SCC",
-        "title": "Consolidación de la Angio-TC coronaria y manejo de INOCA",
-        "text": "Las Guías ESC 2024 para Síndromes Coronarios Crónicos (SCC) sitúan la **Angio-TC coronaria (CCTA)** como la prueba diagnóstica no invasiva de primera línea en pacientes sintomáticos con probabilidad intermedia-baja. Se enfatiza la evaluación fisiológica invasiva (FFR/iFR) y el abordaje de la isquemia sin enfermedad obstructiva (**INOCA / ANOCA**)."
-      },
-      "sections": [
-        {
-          "title": "1. Diagnóstico: Probabilidad clínica y Angio-TC coronaria (CCTA)",
-          "color": "cyan",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-slate-700 rounded-xl text-xs text-slate-300 space-y-2\">\n                                <p><strong>Evaluación diagnóstica:</strong> Caracterización del dolor y cálculo de la <em>Clinical Likelihood</em> con factores de riesgo y puntuación de calcio (CAC).</p>\n                                <div class=\"grid sm:grid-cols-2 gap-3 mt-1 text-[11px]\">\n                                    <div class=\"p-2.5 bg-cyan-950/40 border border-cyan-500/30 rounded-lg\">\n                                        <span class=\"font-bold text-cyan-400\">🔍 Angio-TC coronaria (CCTA) - Clase I</span>\n                                        <p class=\"mt-1\">Prueba inicial de elección con probabilidad clínica baja-intermedia (5–50 %). Excelente valor predictivo negativo; visualiza estenosis y características de placa vulnerable.</p>\n                                    </div>\n                                    <div class=\"p-2.5 bg-slate-800 rounded-lg border border-slate-700\">\n                                        <span class=\"font-bold text-amber-400\">⚡ Imagen funcional de estrés</span>\n                                        <p class=\"mt-1\"><strong>RMC de estrés, Ecocardiografía de estrés o PET/SPECT</strong> de elección si la probabilidad es &gt; 50 % o en enfermedad coronaria conocida para objetivar isquemia inducible.</p>\n                                    </div>\n                                </div>\n                            </div>\n                        "
-        },
-        {
-          "title": "2. Evaluación fisiológica intracoronaria: FFR e iFR",
-          "color": "emerald",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-emerald-500/30 rounded-xl text-xs text-slate-300 space-y-2\">\n                                <p>Para evaluar la repercusión funcional de estenosis intermedias (40–90 %) en la coronariografía:</p>\n                                <ul class=\"list-disc ml-5 space-y-1 text-[11px]\">\n                                    <li><strong>FFR (Reserva fraccional de flujo):</strong> Cociente de presiones en hiperemia máxima con adenosina. <strong>FFR &le; 0,80</strong> demuestra isquemia significativa e indica revascularización (Clase I).</li>\n                                    <li><strong>iFR (Instantaneous Wave-Free Ratio):</strong> Medición diastólica en reposo sin adenosina. <strong>iFR &le; 0,89</strong> equivale a FFR &le; 0,80.</li>\n                                </ul>\n                            </div>\n                        "
-        },
-        {
-          "title": "3. Farmacoterapia antianginosa e INOCA",
-          "color": "purple",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-purple-500/30 rounded-xl text-xs text-slate-300 space-y-2\">\n                                <p><strong>Escalones terapéuticos:</strong></p>\n                                <ul class=\"list-disc ml-5 space-y-1 text-[11px]\">\n                                    <li><strong>1.ª Línea:</strong> <em>Betabloqueante</em> y/o <em>Calcioantagonista DHP</em> (Amlodipino).</li>\n                                    <li><strong>2.ª Línea:</strong> Añadir Nitratos de acción prolongada, <em>Ranolazina</em>, <em>Trimetazidina</em> o <em>Ivabradina</em>.</li>\n                                </ul>\n                                <div class=\"p-2.5 bg-slate-800 rounded-lg border border-slate-700 text-[11px]\">\n                                    <span class=\"font-bold text-purple-400\">INOCA (Isquemia sin enfermedad coronaria obstructiva):</span>\n                                    Incluye <strong>disfunción microvascular coronaria (DMC)</strong> y <strong>angina vasoespástica (Prinzmetal)</strong> (tratamiento con calcioantagonistas y nitratos; <em>¡betabloqueantes contraindicados en vasoespasmo puro!</em>).\n                                </div>\n                            </div>\n                        "
-        }
-      ]
-    },
-    "recall": {
-      "scenarios": [
-        {
-          "id": "ccs-r1",
-          "title": "Caso Clínico 1: Prueba de elección en sospecha de SCC",
-          "question": "Varón de 52 años, no fumador con hipertensión controlada presenta opresión retroesternal al subir cuestas que cede en reposo. ECG normal. Probabilidad pre-test estimada del 18 % (baja-intermedia). ¿Qué prueba no invasiva recomiendan las Guías ESC 2024?",
-          "answer": "Angio-TC coronaria (CCTA - Clase I, Nivel A). En pacientes con probabilidad baja a intermedia, la CCTA posee la máxima precisión para descartar enfermedad coronaria aterosclerótica y evitar coronariografías invasivas innecesarias.",
-          "pearl": "La ergometría clásica en cinta o bicicleta ya no se recomienda como prueba inicial de descarte por su baja sensibilidad y especificidad."
-        },
-        {
-          "id": "ccs-r2",
-          "title": "Caso Clínico 2: Decisión de revascularización guiada por FFR",
-          "question": "En coronariografía diagnóstica por angina estable se visualiza estenosis del 60 % en descendente anterior media. La guía de presión muestra FFR = 0,86. ¿Debe implantarse un stent coronario?",
-          "answer": "NO DEBE IMPLANTARSE. Un valor de FFR &gt; 0,80 demuestra que la estenosis no produce isquemia inducible hemodinámicamente significativa. El implante de stent no mejora el pronóstico ni los síntomas y expone al paciente a riesgos innecesarios. El manejo óptimo es tratamiento médico preventivo (estatina, aspirina, cambios de estilo de vida).",
-          "pearl": "La revascularización de estenosis coronarias con FFR &gt; 0,80 no aporta beneficio de supervivencia."
-        }
-      ],
-      "quiz": {
-        "title": "Miniquiz: Angina vasoespástica (Prinzmetal)",
-        "prompt": "¿Qué grupo de fármacos está CONTRAINDICADO en la angina vasoespástica pura por riesgo de empeorar el espasmo coronario?",
-        "options": [
+      recall: {
+        scenarios: [
           {
-            "text": "A) Betabloqueantes no selectivos (bloquean receptores beta-2 dilatadores permitiendo la vasoconstricción alfa-1)",
-            "isCorrect": true
+            id: "ccs-r1",
+            title: "Pregunta 1: Los 3 criterios de la angina típica",
+            question: "¿Cuáles son las 3 características clásicas que definen la angina de pecho típica?",
+            answer: "1. Dolor u opresión retroesternal de cualidad y duración características. 2. Desencadenado por el esfuerzo físico o el estrés emocional. 3. Cede con el reposo o la administración de nitroglicerina sublingual en pocos minutos (menos de 5 min). (La angina atípica cumple 2 de estos 3 criterios).",
+            pearl: "Si el dolor es punzante en un solo punto y se modifica con la palpación o los movimientos posturales, su origen es casi con seguridad osteomuscular (no cardíaco)."
           },
           {
-            "text": "B) Calcioantagonistas (Amlodipino, Diltiazem)",
-            "isCorrect": false
-          },
-          {
-            "text": "C) Nitratos de acción prolongada",
-            "isCorrect": false
-          },
-          {
-            "text": "D) Estatinas",
-            "isCorrect": false
+            id: "ccs-r2",
+            title: "Pregunta 2: Ivabradina – mecanismo e indicación",
+            question: "¿Cuál es el mecanismo de acción de la Ivabradina y qué condición es indispensable para que sea efectiva en la angina de pecho?",
+            answer: "Inhibe selectivamente los canales If del nodo sinusal, reduciendo la frecuencia cardíaca sin deprimir la contractilidad miocárdica ni modificar la presión arterial. Es condición indispensable que el paciente esté en ritmo sinusal (es ineficaz en fibrilación auricular) y con FC basal ≥ 70 lpm.",
+            pearl: "La ivabradina es idónea en pacientes con intolerancia o contraindicación a betabloqueantes (ej. asma grave) o combinada con ellos si la FC sigue elevada."
           }
         ],
-        "explanation": "En el espasmo coronario puro, los betabloqueantes no selectivos bloquean los receptores adrenérgicos beta-2 vasodilatadores, favoreciendo el efecto vasoconstrictor alfa-1 no contrarrestado y precipitando crisis de vasoespasmo coronario grave. Los fármacos de elección son los calcioantagonistas y nitratos."
-      }
-    },
-    "breakdown": {
-      "classThree": [
-        "Revascularización sistemática (ICP) de estenosis intermedias sin prueba de isquemia (FFR &gt; 0,80 o iFR &gt; 0,89).",
-        "Uso de betabloqueantes no selectivos en angina vasoespástica pura (Prinzmetal).",
-        "Uso de ergometría clásica como prueba diagnóstica primaria para descartar SCC.",
-        "Administración simultánea de nitratos e inhibidores de la fosfodiesterasa-5 (Sildenafilo) por riesgo de colapso cardiovascular."
-      ],
-      "mustKnow": [
-        "Diagnóstico SCC: Angio-TC coronaria (CCTA) de 1.ª elección en probabilidad 5–50 %.",
-        "Fisiología coronaria: FFR &le; 0,80 o iFR &le; 0,89 indica revascularización (Clase I).",
-        "Antianginosos de 1.ª línea: Betabloqueante + Calcioantagonista DHP.",
-        "INOCA/ANOCA: Isquemia sin estenosis obstructiva (disfunción microvascular o espasmo coronario).",
-        "Estatinas de alta potencia indicadas en todo paciente con aterosclerosis coronaria (c-LDL &lt; 1,4 mmol/l)."
-      ]
-    },
-    "guidelineLinks": [
-      {
-        "title": "2024 ESC Guidelines for the management of chronic coronary syndromes",
-        "year": 2024,
-        "journal": "European Heart Journal",
-        "doi": "10.1093/eurheartj/ehae177",
-        "url": "https://academic.oup.com/eurheartj/article/45/38/3415/7741009"
-      }
-    ]
-  },
-  {
-    "id": "ekg",
-    "number": 12,
-    "title": "Electrocardiografía diagnóstica en la práctica clínica",
-    "shortDesc": "Criterios de Sgarbossa modificados en BRI y marcapasos, ondas T de de Winter, síndrome de Wellens, síndrome de Brugada, QT largo/corto y signos de TEP.",
-    "icon": "📈",
-    "badge": "Consenso ECG ESC",
-    "badgeColor": "emerald",
-    "theory": {
-      "banner": {
-        "tag": "Interpretación avanzada de ECG",
-        "title": "Equivalentes de SCACEST y canalopatías congénitas",
-        "text": "Oclusiones coronarias proximales agudas pueden manifestarse como **equivalentes de SCACEST** sin la elevación clásica del ST (patrón de de Winter, síndrome de Wellens, criterios de Smith-Sgarbossa en BRI). El reconocimiento precoz de estos patrones salva vidas."
+        quiz: {
+          title: "Quiz: Objetivos de colesterol LDL en SCC",
+          prompt: "En un paciente con cardiopatía isquémica estable establecida (muy alto riesgo cardiovascular), el objetivo terapéutico de c-LDL según las guías ESC es:",
+          options: [
+            { text: "A) LDL < 1.4 mmol/l (< 55 mg/dl) y además una reducción de al menos el 50 % respecto al valor basal", isCorrect: true },
+            { text: "B) LDL < 2.6 mmol/l (< 100 mg/dl)", isCorrect: false },
+            { text: "C) LDL < 3.0 mmol/l (< 115 mg/dl)", isCorrect: false },
+            { text: "D) LDL < 1.8 mmol/l sin requerimiento de porcentaje de descenso", isCorrect: false }
+          ],
+          explanation: "En todos los pacientes con enfermedad cardiovascular establecida (muy alto riesgo CV), el objetivo es alcanzar un c-LDL < 1.4 mmol/l (< 55 mg/dl) junto a una reducción relativa de al menos el 50 % respecto a las cifras basales previas al tratamiento."
+        }
       },
-      "sections": [
-        {
-          "title": "1. Infarto con Bloqueo de Rama Izquierda (BRI): Criterios de Smith-Sgarbossa",
-          "color": "emerald",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-emerald-500/30 rounded-xl text-xs text-slate-300 space-y-2\">\n                                <p>Criterios de Sgarbossa modificados por Smith para diagnosticar infarto en presencia de BRI o ritmo de marcapasos:</p>\n                                <div class=\"grid sm:grid-cols-3 gap-2.5 text-[11px] mt-1\">\n                                    <div class=\"p-2 bg-rose-950/40 border border-rose-500/40 rounded-lg\">\n                                        <div class=\"font-bold text-rose-400\">1. Elevación ST concordante</div>\n                                        <p class=\"mt-0.5\">Elevación del ST <strong>&ge; 1 mm</strong> en derivación con QRS positivo (5 puntos - especificidad 98 %).</p>\n                                    </div>\n                                    <div class=\"p-2 bg-amber-950/40 border border-amber-500/40 rounded-lg\">\n                                        <div class=\"font-bold text-amber-400\">2. Descenso ST concordante</div>\n                                        <p class=\"mt-0.5\">Descenso del ST <strong>&ge; 1 mm en V1, V2 o V3</strong> (3 puntos - infarto posterior/inferior).</p>\n                                    </div>\n                                    <div class=\"p-2 bg-purple-950/40 border border-purple-500/40 rounded-lg\">\n                                        <div class=\"font-bold text-purple-400\">3. Regla de Smith</div>\n                                        <p class=\"mt-0.5\">Elevación discordante del ST con relación <strong>ST / S &le; -0,25</strong> (&gt; 25 % de la profundidad de la onda S).</p>\n                                    </div>\n                                </div>\n                            </div>\n                        "
-        },
-        {
-          "title": "2. Patrones de alerta isquémica: de Winter y Wellens",
-          "color": "rose",
-          "content": "\n                            <div class=\"space-y-2.5 text-xs text-slate-300\">\n                                <div class=\"p-3 bg-slate-900 border border-rose-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-rose-400\">⚡ Patrón de de Winter (Oclusión aguda proximal de ADA)</span>\n                                    <p class=\"mt-1\">\n                                        <strong>Descenso juncional del ST de 1–3 mm en V1–V6</strong> seguido de <strong>ondas T altas, picudas y simétricas</strong> sin elevación del ST clásica. ¡Equivalente de SCACEST anterior -> ICP primaria inmediata!\n                                    </p>\n                                </div>\n                                <div class=\"p-3 bg-slate-900 border border-amber-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-amber-400\">⚠️ Síndrome de Wellens (Estenosis crítica proximal de ADA)</span>\n                                    <p class=\"mt-1\">\n                                        Se observa en periodos sin dolor: <strong>Tipo A (25 %):</strong> Ondas T bifásicas en V2–V3. <strong>Tipo B (75 %):</strong> Ondas T profunda y simétricamente invertidas en V2–V4. Alerta de infarto anterior inminente (¡prohibida la prueba de esfuerzo, requiere coronariografía precoz!).\n                                    </p>\n                                </div>\n                            </div>\n                        "
-        },
-        {
-          "title": "3. Síndromes arritmogénicos congénitos: Brugada y QT Largo",
-          "color": "cyan",
-          "content": "\n                            <div class=\"grid sm:grid-cols-2 gap-3 text-xs text-slate-300\">\n                                <div class=\"p-3 bg-slate-900 border border-cyan-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-cyan-400\">⚡ Síndrome de Brugada (Tipo 1)</span>\n                                    <p class=\"mt-1\">Canalopatía de sodio (SCN5A). ECG Tipo 1: <strong>elevación cóncava del ST &ge; 2 mm seguida de onda T negativa</strong> en V1–V2 ('en lomo de delfín'). Desencadenado por fiebre o fármacos. Riesgo de FV -> DAI.</p>\n                                </div>\n                                <div class=\"p-3 bg-slate-900 border border-purple-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-purple-400\">⏱️ Síndrome de QT Largo (SQTL)</span>\n                                    <p class=\"mt-1\"><strong>QTc &gt; 480 ms</strong>. LQT1 (natación/ejercicio), LQT2 (estímulos auditivos/emociones), LQT3 (reposo/sueño). Riesgo de Torsades de Pointes. Tratamiento: Betabloqueantes (Nadolol), DAI.</p>\n                                </div>\n                            </div>\n                        "
-        }
-      ]
+      breakdown: {
+        classThree: [
+          "Realización de angio-TC coronaria en pacientes con arritmias graves, taquicardia no controlada o calcificaciones vasculares masivas (artefactos y baja rentabilidad).",
+          "Uso de Ivabradina en pacientes sin ritmo sinusal (ej. en fibrilación auricular).",
+          "Administración de nitratos en las 24–48 horas posteriores al uso de inhibidores de la fosfodiesterasa-5 (Sildenafilo, Tadalafilo) por riesgo de hipotensión mortal refractaria."
+        ],
+        mustKnow: [
+          "Diagnóstico: La angio-TC coronaria descarta estenosis anatómicas; las pruebas de estrés (eco, RMC, SPECT) demuestran isquemia funcional.",
+          "Tratamiento pronóstico: Estatina de alta potencia (LDL &lt; 1.4 mmol/l) + Aspirina 100 mg/día + IECA/ARA-II.",
+          "Revascularización pronóstica (ICP vs. CABG): Aumenta la supervivencia en lesión de tronco común izquierdo (TCI), descendente anterior proximal (DA) o enfermedad multivaso con disfunción del VI."
+        ]
+      }
     },
-    "recall": {
-      "scenarios": [
-        {
-          "id": "ekg-r1",
-          "title": "Caso Clínico 1: Reconocimiento del patrón de de Winter",
-          "question": "Fumador de 46 años ingresa por dolor retroesternal opresivo de 45 minutos y sudoración fría. El ECG no muestra elevación del ST, pero en V2-V5 se aprecia infradesnivel del punto J de 2 mm seguido de ondas T muy altas, positivas y simétricas. ¿Cuál es el diagnóstico y la conducta?",
-          "answer": "Se trata del patrón electrocardiográfico de de Winter, un equivalente de SCACEST que indica la oclusión aguda completa de la arteria descendente anterior proximal (LAD). El paciente debe trasladarse de inmediato a la sala de hemodinámica para ICP primaria emergente sin esperar resultados analíticos de troponina.",
-          "pearl": "El patrón de de Winter aparece en el 2 % de las oclusiones agudas de la descendente anterior."
-        },
-        {
-          "id": "ekg-r2",
-          "title": "Caso Clínico 2: Síndrome de Wellens tras resolución de angina",
-          "question": "Mujer de 58 años acude tras ceder un dolor torácico intenso ocurrido hace 3 horas. El ECG en reposo muestra ondas T profundamente invertidas y simétricas de 5 mm en V2, V3 y V4, sin elevación del ST ni ondas Q. ¿Es seguro realizar una ergometría ambulatoria?",
-          "answer": "NO ES SEGURO (Está formalmente contraindicada). El ECG corresponde al Síndrome de Wellens tipo B, característico de una estenosis crítica suboclusiva de la descendente anterior proximal. Una prueba de esfuerzo puede desencadenar un infarto anterior transmural masivo o fibrilación ventricular. Requiere ingreso monitorizado y coronariografía preferente.",
-          "pearl": "El síndrome de Wellens se manifiesta típicamente en los intervalos libres de dolor tras un episodio isquémico."
-        }
+{
+      id: "ekg",
+      number: 12,
+      title: "EKG en cardiología aguda y trastornos iónicos",
+      shortDesc: "Localización de infartos, cambios especulares, bloqueos de rama, alteraciones electrolíticas (hiperpotasemia, hipopotasemia, calcio) y síndrome de QT largo.",
+      icon: "📈",
+      badge: "EKG y Diagnóstico",
+      badgeColor: "emerald",
+            guidelineLinks: [
+        { title: "2023 ESC Guidelines for the Management of Acute Coronary Syndromes (ECG Appendix)", url: "https://academic.oup.com/eurheartj/article/44/38/3720/7243210", year: "2023" }
       ],
-      "quiz": {
-        "title": "Miniquiz: Hiperpotasemia y alteraciones urgentes del ECG",
-        "prompt": "Paciente anúrico con insuficiencia renal presenta en el ECG ondas T altas, estrechas y picudas 'en tienda de campaña', ondas P aplanadas y complejos QRS ensanchados a 140 ms con potasio sérico de 7,6 mmol/l. ¿Cuál es el primer fármaco que debe administrarse de inmediato?",
-        "options": [
+theory: {
+        banner: {
+          tag: "Brújula del EKG",
+          title: "Anatomía topográfica del infarto en el EKG de 12 derivaciones",
+          text: "Según las derivaciones con elevación del segmento ST localizamos la arteria coronaria responsable: **Cara inferior (diafragmática: II, III, aVF)** -> ACD / ACx. **Cara anterior y septal (V1–V4)** -> DA. **Cara lateral (I, aVL, V5–V6)** -> ACx / DA. **Cara posterior (descensos en V1–V3)** -> ACD / ACx."
+        },
+        sections: [
           {
-            "text": "A) Gluconato cálcico al 10 % (o cloruro cálcico) i.v. para estabilización inmediata de la membrana miocárdica",
-            "isCorrect": true
+            title: "Localización electrocardiográfica del infarto agudo",
+            color: "emerald",
+            content: `
+              <div class="grid sm:grid-cols-2 gap-3 text-xs text-slate-300">
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <span class="font-bold text-rose-400">Cara inferior (II, III, aVF)</span>
+                  <p class="mt-1">Territorio de arteria coronaria derecha (ACD en el 85 %) o ACx. Frecuente bradicardia y bloqueos AV. ¡Descenso especular del ST en aVL!</p>
+                </div>
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <span class="font-bold text-rose-400">Cara anterior (V1–V4) / Anteroseptal</span>
+                  <p class="mt-1">Territorio de arteria descendente anterior (DA/LAD). Gran extensión de miocardio en riesgo, peligro de shock cardiogénico y rotura septal.</p>
+                </div>
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <span class="font-bold text-rose-400">Cara lateral (I, aVL, V5–V6)</span>
+                  <p class="mt-1">Territorio de arteria circunfleja (ACx) o ramas diagonales de la DA. Descenso especular en cara inferior (III, aVF).</p>
+                </div>
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <span class="font-bold text-rose-400">Cara posterior (posterobasal)</span>
+                  <p class="mt-1">Descenso horizontal del ST y ondas R altas y prominentes en V1–V3. ¡Colocar derivaciones posteriores V7–V9 (elevación ≥ 0.5 mm confirma SCACEST posterior)!</p>
+                </div>
+              </div>
+            `
           },
           {
-            "text": "B) Resinas de intercambio iónico oral (Resonio)",
-            "isCorrect": false
+            title: "Trastornos electrolíticos en el EKG",
+            color: "amber",
+            content: `
+              <div class="grid sm:grid-cols-2 gap-3 text-xs text-slate-300">
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <span class="font-bold text-amber-400">Hiperpotasemia (K+ &gt; 5.5 mmol/l)</span>
+                  <p class="mt-1">1. Ondas T altas, picudas y simétricas ('en tienda de campaña'). 2. Aplanamiento y desaparición de la onda P con prolongación del PR. 3. Ensanchamiento extremo del QRS (onda sinusoidal -> fibrilación ventricular o asistolia). <strong>¡Gluconato cálcico i.v. inmediato para estabilizar membrana!</strong></p>
+                </div>
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <span class="font-bold text-cyan-400">Hipopotasemia (K+ &lt; 3.5 mmol/l)</span>
+                  <p class="mt-1">Aplanamiento o inversión de ondas T, descenso del ST, aparición de una prominente <strong>onda U</strong> y aparente prolongación del intervalo QT (intervalo QU). ¡Alto riesgo de arritmias ventriculares malignas!</p>
+                </div>
+              </div>
+            `
+          }
+        ]
+      },
+      recall: {
+        scenarios: [
+          {
+            id: "ekg-r1",
+            title: "Pregunta 1: Infarto de ventrículo derecho",
+            question: "En un paciente con SCACEST de cara inferior (elevación en II, III, aVF) se constata una hipotensión grave brusca tras la toma de 1 comprimido de nitroglicerina sublingual. ¿Qué complicación debe sospechar inmediatamente, qué derivaciones debe registrar y cuál es el manejo?",
+            answer: "Sospechar infarto asociado de ventrículo derecho (ocurre en un 30–40 % de los infartos inferiores). Registrar derivaciones precordiales derechas V3R–V6R (elevación del ST ≥ 0.5–1.0 mm en V4R confirma infarto de VD). Manejo: fluidoterapia intravenosa inmediata con cristaloides para mantener la precarga del VD. Los nitratos y diuréticos están formalmente prohibidos.",
+            pearl: "El ventrículo derecho es extraordinariamente dependiente de la precarga; los vasodilatadores provocan un colapso catastrófico del gasto cardíaco."
           },
           {
-            "text": "C) Salbutamol inhalado",
-            "isCorrect": false
-          },
-          {
-            "text": "D) Perfusión de glucosa con insulina",
-            "isCorrect": false
+            id: "ekg-r2",
+            title: "Pregunta 2: Criterios de Sgarbossa",
+            question: "¿Para qué se utilizan los criterios de Sgarbossa (o criterios modificados de Smith-Sgarbossa) en el EKG?",
+            answer: "Sirven para diagnosticar SCACEST agudo en presencia de bloqueo completo de rama izquierda (BRI) o ritmo estimulado por marcapasos en ventrículo derecho (VVI), situaciones que normalmente distorsionan e impiden la visualización de la elevación del ST isquémica habitual.",
+            pearl: "El criterio más específico es la elevación concordante del ST ≥ 1 mm en derivaciones con QRS predominantemente positivo."
           }
         ],
-        "explanation": "El calcio intravenoso no reduce la cifra plasmática de potasio, pero antagoniza en 1–3 minutos el efecto tóxico de la hiperpotasemia sobre el potencial de membrana de los cardiomiocitos, protegiendo al miocardio de una fibrilación ventricular o asistolia inminente. Tras el calcio se administran sueros glucosados con insulina y se prepara la hemodiálisis."
+        quiz: {
+          title: "Quiz: Hiperpotasemia y Gluconato Cálcico",
+          prompt: "Paciente con anuria presenta en el EKG ondas T picudas 'en tienda de campaña' y ensanchamiento difuso del QRS (K+ 7.8 mmol/l). ¿Cuál es la medida farmacológica más urgente para evitar la parada cardíaca inminente?",
+          options: [
+            { text: "A) Gluconato Cálcico al 10 % (o Cloruro Cálcico) i.v. para estabilización inmediata de la membrana miocárdica", isCorrect: true },
+            { text: "B) Administración de resinas de intercambio iónico oral", isCorrect: false },
+            { text: "C) Inhalación de salbutamol", isCorrect: false },
+            { text: "D) Infusión de glucosa con insulina", isCorrect: false }
+          ],
+          explanation: "El calcio intravenoso no reduce los niveles de potasio en suero, pero antagoniza el efecto tóxico de la hiperpotasemia sobre el potencial de membrana de los miocardiocitos y estabiliza el miocardio en 1–3 minutos frente a la fibrilación ventricular o asistolia. Posteriormente se pauta insulina con glucosa, salbutamol o diálisis para descender el potasio."
+        }
+      },
+      breakdown: {
+        classThree: [
+          "Administración de nitratos y diuréticos en SCACEST de cara inferior con afectación de ventrículo derecho (elevación en V4R).",
+          "Uso de calcio i.v. en intoxicación digitálica (puede inducir parada cardíaca irreversible en sístole - corazón de piedra).",
+          "Demorar la ICP primaria en un paciente con dolor isquémico típico y BRI nuevo."
+        ],
+        mustKnow: [
+          "Cara inferior: II, III, aVF (ACD). Cara anterior: V1–V4 (DA). Cara lateral: I, aVL, V5–V6 (ACx).",
+          "Infarto posterior: Descensos especulares en V1–V3 -> registrar V7–V9.",
+          "Infarto de VD: Elevación en V4R -> tratamiento con sueros, ¡prohibidos nitratos!",
+          "Hiperpotasemia: T picuda -> QRS ancho -> parada. ¡Gluconato cálcico i.v. urgente!"
+        ]
       }
-    },
-    "breakdown": {
-      "classThree": [
-        "Realizar pruebas de esfuerzo en pacientes con patrón ECG de Síndrome de Wellens (riesgo de infarto masivo).",
-        "Administración de calcio i.v. en sospecha de intoxicación digitálica (riesgo de parada cardíaca en sístole).",
-        "Retrasar la ICP primaria en pacientes con patrón de de Winter por ausencia de elevación del ST convencional.",
-        "Uso de nitratos en infarto inferior con sospecha de extensión a ventrículo derecho (V4R)."
-      ],
-      "mustKnow": [
-        "Criterios de Smith-Sgarbossa en BRI: 1. STE concordante &ge; 1 mm, 2. STD concordante &ge; 1 mm en V1–V3, 3. Relación ST/S &le; -0,25.",
-        "de Winter: STD juncional en V1–V6 + ondas T altas picudas = oclusión aguda de ADA proximal.",
-        "Wellens: Ondas T invertidas profundas (tipo B) o bifásicas (tipo A) en V2–V4 = estenosis crítica de ADA.",
-        "Síndrome de Brugada: STE &ge; 2 mm cóncava en V1–V2.",
-        "Hiperpotasemia: T picudas -> ensanchamiento QRS -> ritmo sinusoidal -> parada. Tratamiento: ¡Calcio i.v.!"
-      ]
-    },
-    "guidelineLinks": [
-      {
-        "title": "Clinical recommendations for the interpretation of the 12-lead electrocardiogram",
-        "year": 2024,
-        "journal": "European Heart Journal",
-        "doi": "10.1093/eurheartj/ehae200",
-        "url": "https://academic.oup.com/eurheartj/article/45/38/3314/7740997"
-      }
-    ]
-  }
-],
-
-  flashcards: [
+    }
+  ],
+flashcards: [
     // --- SCA y Síndromes Coronarios (1-15) ---
     {
       id: "fc-1",
@@ -2261,7 +2204,7 @@ const CARDIOLOGY_DATA_ES = {
   ]
 };
 
-// Exportación para uso global o modular
+// Exportación global y modular
 if (typeof window !== "undefined") {
   window.CARDIOLOGY_DATA_ES = CARDIOLOGY_DATA_ES;
 }

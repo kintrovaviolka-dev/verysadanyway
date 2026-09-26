@@ -4,1328 +4,1265 @@
 
 const CARDIOLOGY_DATA = {
   modules: [
-  {
-    "id": "aks",
-    "number": 1,
-    "title": "Akutní koronární syndromy (AKS)",
-    "shortDesc": "STEMI, NSTEMI a nestabilní AP. 2023 ESC Guidelines, 0h/1h hs-cTn algoritmus, načasování SKG, DAPT strategie, pre-treatment a sekundární prevence.",
-    "icon": "🫀",
-    "badge": "2023 ESC Guidelines",
-    "badgeColor": "rose",
-    "theory": {
-      "banner": {
-        "tag": "Hlavní změna paradigmatu (2023 ESC Guidelines)",
-        "title": "AKS jako jedno integrované spektrum onemocnění",
-        "text": "Poprvé ESC spojila doporučení pro STEMI i NSTEMI do jednoho společného dokumentu (ESC 2023 ACS Guidelines). Akutní koronární syndrom představuje kontinuum od nestabilní anginy pectoris přes NSTEMI až po transmurální STEMI, sdílející společný patofyziologický podklad (ruptura či eroze aterosklerotického plátu s nasedající intraluminální trombózou)."
-      },
-      "sections": [
-        {
-          "title": "1. Patofyziologie & Triáž: STEMI vs. NSTE-AKS",
-          "color": "rose",
-          "content": "\n                            <p class=\"mb-3 text-slate-300 leading-relaxed\">\n                                Patofyziologicky rozlišujeme <strong>rupturu plátu</strong> (častější u mužů s tenkou fibrózní čepičkou a velkým lipidovým jádrem), <strong>erozi plátu</strong> (častější u žen a mladších kuřáků s intaktní fibrózní čepičkou) a <strong>kalcifikovaný uzlík</strong>.\n                            </p>\n                            <div class=\"grid md:grid-cols-2 gap-3 my-3 text-xs\">\n                                <div class=\"p-3.5 bg-rose-950/40 border border-rose-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-rose-400 text-sm\">🚨 STEMI (ST-Elevation MI)</span>\n                                    <p class=\"text-slate-300 mt-1 leading-relaxed\">Úplný transmurální uzávěr epikardiální koronární tepny červeným trombem bohatým na fibrin. Okamžitá indikace k reperfuzi (primární PCI do 90 min od diagnózy, resp. 60 min v PCI centru).</p>\n                                </div>\n                                <div class=\"p-3.5 bg-amber-950/40 border border-amber-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-amber-400 text-sm\">⚠️ NSTE-AKS (NSTEMI & Nestabilní AP)</span>\n                                    <p class=\"text-slate-300 mt-1 leading-relaxed\">Subtotální okluze tepny bílým destičkovým trombem nebo distální mikroembolizace. Rozlišení NSTEMI vs. NAP závisí na pozitivitě vysoce senzitivního troponinu (hs-cTn).</p>\n                                </div>\n                            </div>\n                        "
-        },
-        {
-          "title": "2. Rychlá diagnostika: 0h / 1h a 0h / 2h hs-cTn algoritmus",
-          "color": "emerald",
-          "content": "\n                            <p class=\"mb-3 text-slate-300 text-xs leading-relaxed\">\n                                Základem rychlé diagnostiky u NSTE-AKS je stanovení <strong>vysoce senzitivního srdečního troponinu (hs-cTnI / hs-cTnT)</strong>. ESC doporučuje prioritně <strong>0h / 1h algoritmus</strong> (případně 0h / 2h):\n                            </p>\n                            <div class=\"grid md:grid-cols-3 gap-3 my-3\">\n                                <div class=\"bg-emerald-950/40 border border-emerald-500/30 p-3.5 rounded-xl\">\n                                    <div class=\"text-emerald-400 font-bold mb-1 text-xs\">📉 RULE-OUT (Vyloučení)</div>\n                                    <p class=\"text-[11px] text-slate-300 leading-relaxed\">Vstupní hs-cTn je <strong>extrémně nízký</strong> (např. hs-cTnT &lt; 5 ng/l) <strong>NEBO</strong> vstupní hs-cTn je nízký a po 1h nedošlo k žádnému nárůstu (Δ1h pod cut-off mezí). Pacient může být po vyloučení jiné patologie bezpečně propuštěn k ambulantnímu došetření.</p>\n                                </div>\n                                <div class=\"bg-amber-950/40 border border-amber-500/30 p-3.5 rounded-xl\">\n                                    <div class=\"text-amber-400 font-bold mb-1 text-xs\">👀 OBSERVE (Pozorování)</div>\n                                    <p class=\"text-[11px] text-slate-300 leading-relaxed\">Pacienti nesplňující kritéria pro rule-out ani rule-in. Vyžadují <strong>třetí odběr hs-cTn za 3 hodiny</strong> a urgentní echokardiografii (TTE) k posouzení kinetiky levé komory.</p>\n                                </div>\n                                <div class=\"bg-rose-950/40 border border-rose-500/30 p-3.5 rounded-xl\">\n                                    <div class=\"text-rose-400 font-bold mb-1 text-xs\">📈 RULE-IN (Potvrzení)</div>\n                                    <p class=\"text-[11px] text-slate-300 leading-relaxed\">Vstupní hodnota hs-cTn je <strong>výrazně zvýšená</strong> (např. hs-cTnT &ge; 52 ng/l) <strong>NEBO</strong> je přítomen signifikantní vzestup za 1 hodinu (Δ1h &ge; 5 ng/l). Okamžitá indikace k hospitalizaci na koronární jednotce a invazivní SKG.</p>\n                                </div>\n                            </div>\n                        "
-        },
-        {
-          "title": "3. Načasování invazivní koronarografie (SKG) & Reperfuze",
-          "color": "amber",
-          "content": "\n                            <div class=\"space-y-3 text-xs\">\n                                <div class=\"p-3.5 rounded-xl bg-rose-950/40 border border-rose-500/40\">\n                                    <div class=\"font-bold text-rose-400 mb-1\">🚨 Okamžitá invazivní strategie (&lt; 2 hodiny - Emergency)</div>\n                                    <p class=\"text-slate-300 mb-2\"><strong>Všichni pacienti se STEMI</strong> a <strong>NSTE-AKS s velmi vysokým rizikem</strong>:</p>\n                                    <ul class=\"list-disc ml-5 text-slate-300 space-y-1\">\n                                        <li>Kardiogenní šok nebo hemodynamická nestabilita.</li>\n                                        <li>Refrakterní či rekurentní klidová stenokardie vzdorující farmakoterapii.</li>\n                                        <li>Život ohrožující arytmie (fibrilace komor, setrvalá komorová tachykardie) nebo oběhová zástava.</li>\n                                        <li>Mechanické komplikace infarktu (ruptura papilárního svalu, defekt septa).</li>\n                                        <li>Akutní srdeční selhání způsobené probíhající ischémií.</li>\n                                        <li>Dynamické změny úseku ST-T (zejména intermitentní ST elevace).</li>\n                                    </ul>\n                                </div>\n                                <div class=\"p-3.5 rounded-xl bg-amber-950/40 border border-amber-500/40\">\n                                    <div class=\"font-bold text-amber-400 mb-1\">⏱️ Včasná invazivní strategie (&lt; 24 hodin)</div>\n                                    <p class=\"text-slate-300 mb-2\"><strong>NSTE-AKS s vysokým rizikem (Třída IIa):</strong></p>\n                                    <ul class=\"list-disc ml-5 text-slate-300 space-y-1\">\n                                        <li>Potvrzená diagnóza NSTEMI dle 0h/1h algoritmu hs-cTn.</li>\n                                        <li>GRACE rizikové skóre &gt; 140 bodů.</li>\n                                        <li>Dynamické ischemické změny ST-T (deprese ST &ge; 1 mm nebo inverze T).</li>\n                                    </ul>\n                                </div>\n                                <div class=\"p-3.5 rounded-xl bg-slate-900 border border-slate-700\">\n                                    <div class=\"font-bold text-cyan-400 mb-1\">💉 Fibrinolýza u STEMI: Kdy a jak?</div>\n                                    <p class=\"text-slate-300\">\n                                        Pokud odhadovaný čas od diagnózy STEMI do zavedení vodiče (FMC-to-wire) <strong>přesahuje 120 minut</strong>, je indikována okamžitá <strong>systémová fibrinolýza</strong> (Tenektepláza i.v. bolus dle hmotnosti) do <strong>10 minut</strong> od diagnózy, následovaná okamžitým transportem do PCI centra k provedení SKG za 2–24 hodin (farmakoinvazivní strategie).\n                                    </p>\n                                </div>\n                            </div>\n                        "
-        },
-        {
-          "title": "4. Antiagregace, Antikoagulace & Zákaz Pre-treatmentu",
-          "color": "cyan",
-          "content": "\n                            <div class=\"space-y-3 text-xs\">\n                                <div class=\"p-3.5 bg-slate-900 border border-rose-500/40 rounded-xl\">\n                                    <h5 class=\"font-bold text-rose-400 mb-1.5 text-xs\">❌ Zákaz rutinního pre-treatmentu u NSTE-AKS (Třída III)</h5>\n                                    <p class=\"text-slate-300 leading-relaxed\">\n                                        Rutinní podání P2Y12 inhibitoru (prasugrel, ticagrelor, clopidogrel) <em>před znalostí koronární anatomie</em> se u NSTE-AKS plánovaných k časné SKG <strong>nedoporučuje (Třída III)</strong>. Zvyšuje krvácení, neprokazuje ischemický benefit a blokuje možnost akutního kardiochirurgického bypassu (CABG). Lék se podává až on-table na katetrizačním sále po verifikaci stenózy vhodné k PCI!\n                                    </p>\n                                </div>\n                                <div class=\"p-3.5 bg-slate-900 border border-slate-700 rounded-xl\">\n                                    <h5 class=\"font-bold text-cyan-400 mb-1.5 text-xs\">💊 DAPT Strategie (Prasugrel vs. Ticagrelor)</h5>\n                                    <p class=\"text-slate-300 leading-relaxed\">\n                                        Při PCI pro AKS má přednost <strong>Prasugrel</strong> (nasycovací dávka 60 mg, dále 10 mg/d; redukce na 5 mg při věku &ge; 75 let nebo hmotnosti &lt; 60 kg) před <strong>Ticagrelorem</strong> (180 mg nasycovací, dále 90 mg 2× denně) na základě studie ISAR-REACT 5. <em>Pozor: Prasugrel je kontraindikován u pacientů po CMP/TIA!</em>\n                                    </p>\n                                </div>\n                                <div class=\"p-3.5 bg-slate-900 border border-cyan-500/30 rounded-xl\">\n                                    <h5 class=\"font-bold text-cyan-400 mb-1.5 text-xs\">🩸 Fibrilace síní + AKS podstupující PCI</h5>\n                                    <p class=\"text-slate-300 leading-relaxed\">\n                                        Trojitá antitrombotická terapie (<strong>TAT: NOAC v plné dávce + Aspirin + Clopidogrel 75 mg</strong>) je omezena pouze na <strong>dobu hospitalizace (&le; 1 týden)</strong>. Následuje Duální terapie (<strong>DAT: NOAC + Clopidogrel</strong>) do 12 měsíců. Od 12. měsíce zůstává pouze monoterapie NOAC. Nikdy nepodávejte Prasugrel ani Ticagrelor v TAT (Třída III)!\n                                    </p>\n                                </div>\n                            </div>\n                        "
-        },
-        {
-          "title": "5. Sekundární prevence & 'The Big 5' po AKS",
-          "color": "purple",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-purple-500/30 rounded-xl text-xs text-slate-300 space-y-2\">\n                                <p><strong>Agresivní hypolipidemická léčba:</strong> Cíl LDL cholesterolu u všech pacientů po AKS je <strong>&lt; 1,4 mmol/l A SOUČASNĚ pokles o &ge; 50 %</strong> z výchozí hodnoty. Krok 1: Vysokointenzivní statin (Atorvastatin 40–80 mg / Rosuvastatin 20–40 mg). Krok 2: Přidání Ezetimibu 10 mg. Krok 3: Přidání inhibitoru PCSK9 (Evolocumab / Alirocumab) nebo Kyseliny bempedové / Inclisiranu.</p>\n                                <div class=\"p-2.5 bg-slate-800 rounded-lg border border-slate-700\">\n                                    <span class=\"font-bold text-purple-400\">Pilíře sekundární prevence ('The Big 5'):</span>\n                                    <ol class=\"list-decimal ml-5 mt-1 space-y-0.5 text-[11px]\">\n                                        <li><strong>DAPT:</strong> Aspirin + Prasugrel/Ticagrelor po dobu 12 měsíců.</li>\n                                        <li><strong>Statin vysoké intenzity + Ezetimib:</strong> LDL &lt; 1,4 mmol/l.</li>\n                                        <li><strong>Betablokátor:</strong> Zejména u LVEF &le; 40 % nebo po transmurálním STEMI.</li>\n                                        <li><strong>ACE inhibitor / ARB:</strong> U LVEF &le; 40 %, srdečního selhání, DM nebo hypertenze.</li>\n                                        <li><strong>MRA (Spironolakton/Eplerenon):</strong> U LVEF &le; 40 % a přítomnosti symptomů srdečního selhání.</li>\n                                    </ol>\n                                </div>\n                            </div>\n                        "
-        }
-      ]
-    },
-    "recall": {
-      "scenarios": [
-        {
-          "id": "aks-r1",
-          "title": "Kazuistika 1: Pre-treatment u NSTE-AKS",
-          "question": "68letý muž je přijat na interní ambulanci pro 2 hodiny trvající tlakovou bolest za sternem. EKG: deprese ST ve svodech V4-V6 o 1,5 mm bez ST elevací. Vstupní hs-cTnI je pozitivní (95 ng/l). Koronarografii plánujete na zítra ráno (za 14 hodin). Máte pacientovi na lůžku podat nasycovací dávku Prasugrelu 60 mg?",
-          "answer": "NEMÁTE. Rutinní pre-treatment P2Y12 inhibitorem u NSTE-AKS před znalostí koronární anatomie se dle ESC 2023 Guidelines nedoporučuje (Třída III), pokud je plánována invazivní strategie do 24 hodin. Nasycovací dávka se podá až on-table na katetrizačním sále po zobrazení koronárního řečiště a rozhodnutí o PCI.",
-          "pearl": "Pre-treatment zvyšuje riziko závažného krvácení bez snížení ischemických příhod a komplikuje případný akutní kardiochirurgický bypass (CABG)."
-        },
-        {
-          "id": "aks-r2",
-          "title": "Kazuistika 2: Fibrilace síní + AKS po PCI (Trojkombinace)",
-          "question": "72letý pacient po úspěšné PCI s implantací DES pro NSTEMI má chronickou fibrilaci síní a užívá Apixaban 5 mg 2× denně (CHA2DS2-VASc = 4). Jaká je doporučená standardní kombinace antitrombotik při dimisi?",
-          "answer": "Trojitá terapie (TAT: Apixaban v plné dávce + Aspirin 100 mg + Clopidogrel 75 mg) pouze po dobu hospitalizace / maximálně do 1 týdne od PCI. Při dimisi pokračuje Duální terapie (DAT: Apixaban 5 mg bid + Clopidogrel 75 mg) do 12 měsíců. Od 12. měsíce zůstává pouze samotný Apixaban v monoterapii.",
-          "pearl": "Nikdy nekombinujte NOAC s Prasugrelem nebo Ticagrelorem v rámci trojité kombinace (Třída III) kvůli extrémnímu riziku fatálního krvácení!"
-        },
-        {
-          "id": "aks-r3",
-          "title": "Kazuistika 3: De-eskalace protidestičkové léčby po STEMI",
-          "question": "Pacient 14 dní po STEMI léčený DAPT (Aspirin + Prasugrel) si stěžuje na drobné sufúze na předloktích po lehké manuální práci. Je indikován okamžitý přechod z Prasugrelu na Clopidogrel?",
-          "answer": "NENÍ. De-eskalace protidestičkové léčby (přechod z Prasugrelu/Ticagreloru na Clopidogrel) se během prvních 30 dnů po AKS nedoporučuje (Třída III). Riziko akutní trombózy stentu a fatálního reinfarktu je v prvních 30 dnech nejvyšší. Drobné kožní sufúze bez slizničního či orgánového krvácení nejsou důvodem ke změně.",
-          "pearl": "V prvním měsíci po AKS je trombogenní aktivita plátu a stentu maximální; de-eskalace je možná až po 30 dnech (ideálně po 3–6 měsících u stabilních pacientů)."
-        }
+{
+      id: "aks",
+      number: 1,
+      title: "Akutní koronární syndromy (AKS)",
+      shortDesc: "STEMI, NSTEMI a nestabilní AP. 2023 ESC Guidelines, 0h/1h hs-cTn algoritmus, načasování SKG, DAPT strategie a pre-treatment.",
+      icon: "🫀",
+      badge: "2023 ESC Guidelines",
+      badgeColor: "rose",
+            guidelineLinks: [
+        { title: "2023 ESC Guidelines for the Management of Acute Coronary Syndromes", url: "https://academic.oup.com/eurheartj/article/44/38/3720/7243210", year: "2023" }
       ],
-      "quiz": {
-        "title": "Rozhodovací kvíz: Kardiogenní šok a mechanické komplikace",
-        "prompt": "62letý pacient 4. den po STEMI spodní stěny náhle upadá do kardiogenního šoku (TK 75/40 mmHg, tachypnoe, chrůpky nad plícemi). Poslechově je přítomen nově vzniklý drsný holosystolický šelest s maximem na hrotu a propagací do axily. Jaká je nejpravděpodobnější diagnóza a okamžitý krok?",
-        "options": [
+theory: {
+        banner: {
+          tag: "Hlavní změna paradigmatu (2023 ESC)",
+          title: "AKS jako jedno integrované spektrum onemocnění",
+          text: "Poprvé ESC spojila doporučení pro STEMI i NSTEMI do jednoho společného dokumentu. Zdůrazňuje se, že akutní koronární syndrom je kontinuum od nestabilní anginy pectoris přes NSTEMI až po transmurální STEMI, sdílející společnou patofyziologii (ruptura nebo eroze aterosklerotického plátu s nasedající trombózou)."
+        },
+        sections: [
           {
-            "text": "A) Ruptura posteromediálního papilárního svalu s akutní masivní mitrální regurgitací -> okamžité emergentní ECHO a urgentní kardiochirurgická operace",
-            "isCorrect": true
+            title: "Rychlá diagnostika: hs-cTn (0h / 1h nebo 0h / 2h algoritmus)",
+            color: "rose",
+            content: `
+              <p class="mb-4 text-slate-300">Základem diagnostiky u NSTE-AKS je stanovení <strong>vysoce senzitivního srdečního troponinu (hs-cTnI / hs-cTnT)</strong>. Odběry se provádějí v čase 0 h a 1 h (případně 2 h).</p>
+              <div class="grid md:grid-cols-3 gap-4 my-4">
+                <div class="bg-emerald-950/40 border border-emerald-500/30 p-4 rounded-xl">
+                  <div class="text-emerald-400 font-bold mb-1">📉 RULE-OUT (Vyloučení)</div>
+                  <p class="text-xs text-slate-300 leading-relaxed">Velmi nízká vstupní hodnota hs-cTn (0h) <strong>NEBO</strong> nízká vstupní hodnota a žádný nárůst za 1h (Δ1h pod mezí). Nízké riziko, zvažte propuštění a ambulantní došetření.</p>
+                </div>
+                <div class="bg-amber-950/40 border border-amber-500/30 p-4 rounded-xl">
+                  <div class="text-amber-400 font-bold mb-1">👀 OBSERVE (Pozorování)</div>
+                  <p class="text-xs text-slate-300 leading-relaxed">Pacienti nesplňující kritéria pro rule-out ani rule-in. Zde je nutný <strong>třetí odběr za 3 hodiny</strong> a provedení urgentní echokardiografie.</p>
+                </div>
+                <div class="bg-rose-950/40 border border-rose-500/30 p-4 rounded-xl">
+                  <div class="text-rose-400 font-bold mb-1">📈 RULE-IN (Potvrzení)</div>
+                  <p class="text-xs text-slate-300 leading-relaxed">Výrazně zvýšený hs-cTn při přijetí <strong>NEBO</strong> signifikantní absolutní vzestup za 1h/2h. Indikace k hospitalizaci na koronární jednotce a invazivní koronarografii.</p>
+                </div>
+              </div>
+            `
           },
           {
-            "text": "B) Ruptura volné stěny levé komory -> okamžitá perikardiocentéza na lůžku",
-            "isCorrect": false
+            title: "Načasování invazivní strategie (Selektivní koronarografie - SKG)",
+            color: "amber",
+            content: `
+              <div class="space-y-3">
+                <div class="p-4 rounded-xl bg-rose-950/30 border border-rose-500/30">
+                  <div class="font-bold text-rose-400 text-sm mb-1">🚨 Okamžitá invazivní strategie (&lt; 2 hodiny - Emergency)</div>
+                  <p class="text-xs text-slate-300 mb-2"><strong>Všichni STEMI</strong> (cíl FMC-to-wire &lt; 90 min) a <strong>NSTE-AKS s velmi vysokým rizikem</strong>:</p>
+                  <ul class="list-disc ml-5 text-xs text-slate-300 space-y-1">
+                    <li>Kardiogenní šok nebo hemodynamická nestabilita.</li>
+                    <li>Refrakterní či rekurentní klidová bolest na hrudi vzdorující medikaci.</li>
+                    <li>Život ohrožující arytmie (maligní KT/FK) nebo poreanimační stav.</li>
+                    <li>Akutní srdeční selhání jasně v důsledku probíhající ischémie.</li>
+                    <li>Dynamické změny ST-T úseku (zvláště intermitentní ST elevace).</li>
+                  </ul>
+                </div>
+                <div class="p-4 rounded-xl bg-amber-950/30 border border-amber-500/30">
+                  <div class="font-bold text-amber-400 text-sm mb-1">⏱️ Včasná invazivní strategie (&lt; 24 hodin)</div>
+                  <p class="text-xs text-slate-300 mb-2"><strong>NSTE-AKS s vysokým rizikem</strong> (doporučení Třídy IIa - během hospitalizace):</p>
+                  <ul class="list-disc ml-5 text-xs text-slate-300 space-y-1">
+                    <li>Potvrzený NSTEMI (dle hs-cTn algoritmu).</li>
+                    <li>GRACE rizikové skóre &gt; 140 bodů.</li>
+                    <li>Dynamické změny úseku ST nebo vln T (symptomatické či němé).</li>
+                  </ul>
+                </div>
+              </div>
+            `
           },
           {
-            "text": "C) Infarkt pravé komory -> agresivní volumoterapie krystaloidy",
-            "isCorrect": false
+            title: "Antiagregační a antikoagulační léčba (DAPT a Pre-treatment pravidla)",
+            color: "cyan",
+            content: `
+              <div class="grid md:grid-cols-2 gap-4">
+                <div class="p-4 rounded-xl bg-slate-900 border border-slate-700">
+                  <h4 class="font-bold text-cyan-400 mb-2 text-sm">❌ Zákaz pre-treatmentu u NSTE-AKS</h4>
+                  <p class="text-xs text-slate-300 leading-relaxed">
+                    Rutinní podávání P2Y12 inhibitoru (prasugrel / ticagrelor / clopidogrel) před znalostí koronární anatomie se u NSTE-AKS <strong>nedoporučuje (Třída III)</strong>, pokud se plánuje časná SKG do 24h. Zvyšuje krvácení a blokuje možnost urgentního CABG. Lék se podává až na sále (on-table) po potvrzení PCI.
+                  </p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-900 border border-slate-700">
+                  <h4 class="font-bold text-cyan-400 mb-2 text-sm">💊 Výběr P2Y12 inhibitoru a DAPT</h4>
+                  <p class="text-xs text-slate-300 leading-relaxed">
+                    Při PCI pro AKS má přednost <strong>Prasugrel</strong> (60 mg load, 10 mg/d) před Ticagrelorem (na základě studie ISAR-REACT 5). Standardní DAPT = <strong>12 měsíců</strong> (ASA + silný P2Y12). U stabilních pacientů bez příhody lze po 3–6 měsících zvážit monoterapii P2Y12 inhibitorem.
+                  </p>
+                </div>
+              </div>
+            `
+          }
+        ]
+      },
+      recall: {
+        scenarios: [
+          {
+            id: "aks-r1",
+            title: "Otázka 1: Pre-treatment u NSTE-AKS",
+            question: "68letý muž je přijat na interní ambulanci pro tlakovou bolest za sternem. EKG: deprese ST ve svodech V4-V6 o 1,5 mm bez ST elevací. Odběr hs-cTnI je pozitivní. Koronarografii plánujete na zítra ráno (do 16 hodin). Máte pacientovi na lůžku podat nasycovací dávku Prasugrelu?",
+            answer: "NEMÁTE. Rutinní pre-treatment P2Y12 inhibitorem u NSTE-AKS před znalostí koronární anatomie se nedoporučuje (ESC Třída III), pokud je plánována invazivní strategie do 24 hodin. Nasycovací dávka se podá až na katetrizačním sále po zobrazení koronárního řečiště a rozhodnutí o PCI.",
+            pearl: "Pre-treatment zvyšuje riziko krvácení bez redukce ischemických příhod a komplikuje případný akutní aortokoronární bypass (CABG)."
           },
           {
-            "text": "D) Poléková hypotenze po ACE inhibitorech -> vysazení léků a observace",
-            "isCorrect": false
+            id: "aks-r2",
+            title: "Otázka 2: Fibrilace síní + AKS (Antitrombotická strategie)",
+            question: "72letý pacient po úspěšné PCI s implantací DES pro NSTEMI má chronickou fibrilaci síní a bere Apixaban (CHA2DS2-VASc = 4). Jaká je doporučená standardní kombinace antitrombotik při propuštění?",
+            answer: "Trojitá terapie (TAT: NOAC + Aspirin + Clopidogrel) pouze po dobu hospitalizace / do 1 týdne, následovaná Duální terapií (DAT: NOAC v plné dávce + Clopidogrel 75 mg) po dobu do 12 měsíců. Od 12. měsíce zůstává pouze monoterapie NOAC.",
+            pearl: "Nikdy nekombinujte NOAC s Prasugrelem nebo Ticagrelorem v rámci trojité kombinace (Třída III) kvůli extrémnímu riziku fatálního krvácení."
+          },
+          {
+            id: "aks-r3",
+            title: "Otázka 3: De-eskalace protidestičkové léčby",
+            question: "Pacient 14 dní po STEMI léčený DAPT (Aspirin + Prasugrel) si stěžuje na drobné hematomy na předloktích. Doporučíte okamžitý přechod z Prasugrelu na Clopidogrel?",
+            answer: "NEDOPORUČÍTE. De-eskalace protidestičkové léčby (z Prasugrelu/Ticagreloru na Clopidogrel) se během prvních 30 dnů po AKS nedoporučuje (Třída III). Riziko akutní trombózy stentu a reinfarktu je v prvním měsíci nejvyšší.",
+            pearl: "Při běžných kožních hematomech bez známek závažného krvácení pacienta uklidníme a medikaci v prvních 30 dnech neměníme."
           }
         ],
-        "explanation": "Nový holosystolický šelest na hrotu s plicním edémem a šokem u infarktu spodní stěny (povodí ACD) značí rupturu posteromediálního papilárního svalu (který má solitární cévní zásobení) a akutní mitrální regurgitaci. Vyžaduje emergentní TTE a urgentní kardiochirurgický výkon."
-      }
-    },
-    "breakdown": {
-      "classThree": [
-        "Rutinní podávání kyslíku pacientům s AKS, pokud je saturace SpO2 &ge; 90 % (hyperoxie způsobuje koronární vazokonstrikci a zvyšuje tvorbu volných radikálů).",
-        "Rutinní pre-treatment P2Y12 inhibitorem u NSTE-AKS před znalostí koronární anatomie při včasné invazivní strategii &lt; 24h.",
-        "De-eskalace protidestičkové léčby z potentních inhibitorů (Prasugrel/Ticagrelor) na Clopidogrel v prvních 30 dnech po AKS.",
-        "Kombinace Prasugrelu nebo Ticagreloru s perorálním antikoagulanciem (NOAC/VKA) v rámci trojité kombinace (TAT).",
-        "Rutinní manuální tromboaspirace během primární PCI u STEMI (studie TOTAL neprokázala benefit a ukázala vyšší riziko CMP).",
-        "Podávání NSAID (vyjma ASA) u pacientů po AKS (zvyšují riziko reinfarktu, srdečního selhání a ruptury myokardu)."
-      ],
-      "mustKnow": [
-        "EKG kritéria STEMI: ST elevace v bodě J ve 2 sousedních svodech (muži &lt; 40 let: &ge; 2,5 mm ve V2–V3; muži &ge; 40 let: &ge; 2,0 mm; ženy: &ge; 1,5 mm; ostatní svody &ge; 1,0 mm) nebo nový LBBB/RBBB s klinickou ischémií.",
-        "Časová okna reperfuze: FMC-to-wire &lt; 90 min (v PCI centru &lt; 60 min). Pokud odhadovaný dojezd &gt; 120 min -> fibrinolýza do 10 min.",
-        "Potence P2Y12 inhibitorů: Prasugrel &gt; Ticagrelor &gt; Clopidogrel. Prasugrel je kontraindikován při anamnéze CMP/TIA.",
-        "Lipidový cíl ESC 2023: LDL-C &lt; 1,4 mmol/l a pokles o &ge; 50 % od bazální hodnoty.",
-        "The Big 5 po AKS: DAPT (12M) + Statin vysoké intenzity + Betablokátor + ACEi/ARB + MRA."
-      ]
-    },
-    "guidelineLinks": [
-      {
-        "title": "2023 ESC Guidelines for the management of acute coronary syndromes",
-        "year": 2023,
-        "journal": "European Heart Journal",
-        "doi": "10.1093/eurheartj/ehad191",
-        "url": "https://academic.oup.com/eurheartj/article/44/38/3720/7243210"
-      }
-    ]
-  },
-    {
-    "id": "midef",
-    "number": 2,
-    "title": "5. Univerzální definice infarktu myokardu (2026)",
-    "shortDesc": "Pátá definice nahrazuje starou 5-číselnou klasifikaci 3 klinickými typy IM (Primární, Sekundární, Vázaný na výkon). Myokardiální poškození vs. infarkt a MINOCA.",
-    "icon": "🔬",
-    "badge": "2026 Nová definice",
-    "badgeColor": "emerald",
-    "theory": {
-      "banner": {
-        "tag": "Zásadní změna v 5. definici (2026 Konsenzus)",
-        "title": "3 Klinické typy infarktu myokardu & Poškození (Injury) vs. Infarkt (Infarction)",
-        "text": "Pátá univerzální definice infarktu myokardu (UDMI 2026) nahrazuje starou numerickou klasifikaci (Typ 1–5) **3 klinickými typy IM**: **1. Primární IM**, **2. Sekundární IM** a **3. IM související s výkonem**. Zvýšená hodnota srdečního troponinu (cTn) nad pohlavně specifický 99. percentil definuje **poškození myokardu (Myocardial Injury)**. Aby byl stav klasifikován jako **infarkt myokardu (Myocardial Infarction)**, musí být přítomna dynamika troponinu (vzestup a/nebo pokles) A SOUČASNĚ alespoň jeden klinický průkaz akutní ischémie myokardu!"
+        quiz: {
+          title: "Rozhodovací minikvíz: Kardiogenní šok a mechanické komplikace",
+          prompt: "62letý pacient se STEMI spodní stěny náhle 4. den po příjezdu prudce hypotenzní (TK 75/40 mmHg), tachypnoický, poslechově nový drsný holosystolický šelest s maximem na hrotu a v axile s propagací, na plicích oboustranně vlhké chrůpky. Jaká je nejpravděpodobnější diagnóza a okamžitý krok?",
+          options: [
+            { text: "A) Ruptura papilárního svalu s akutní mitrální regurgitací -> okamžité emergentní ECHO a kardiochirurgická revize", isCorrect: true },
+            { text: "B) Ruptura volné stěny levé komory -> okamžitá perikardiocentéza na lůžku", isCorrect: false },
+            { text: "C) Progrese infarktu pravé komory -> volumoterapie 2 litry krystaloidů", isCorrect: false },
+            { text: "D) Poléková hypotenze po ACE inhibitorech -> vysazení léků a monitorace", isCorrect: false }
+          ],
+          explanation: "Nový holosystolický šelest s plicním edémem a kardiogenním šokem u IM spodní stěny (často v povodí ACD zásobující posteromediální papilární sval jediným cévním přítokem) značí rupturu papilárního svalu a masivní akutní mitrální regurgitaci. Vyžaduje urgentní echokardiografii a urgentní kardiochirurgickou operaci."
+        }
       },
-      "sections": [
-        {
-          "title": "1. Diagnostická kritéria infarktu & Pohlavně specifické prahy troponinu",
-          "color": "emerald",
-          "content": "
-                            <div class="p-3.5 bg-slate-900 border border-slate-700 rounded-xl text-xs text-slate-300 leading-relaxed">
-                                <p class="mb-2 font-bold text-emerald-400">Definice infarktu myokardu vyžaduje:</p>
-                                <p class="mb-2">Detekci vzestupu a/nebo poklesu hodnot srdečního troponinu (hs-cTnI / hs-cTnT) s alespoň jednou hodnotou nad <strong>pohlavně specifickým 99. percentilem URL</strong> (horní referenční mez k zamezení poddiagnostikování u žen) a <strong>současnou přítomnost alespoň 1 z následujících ischemických kritérií:</strong></p>
-                                <ul class="list-disc ml-5 space-y-1 text-slate-300">
-                                    <li>Symptomy akutní myokardiální ischémie (typická stenokardie, ekvivalenty dušnosti).</li>
-                                    <li>Nové ischemické EKG změny (nové ST elevace/deprese, nová inverze T vln, nový LBBB).</li>
-                                    <li>Vznik nových patologických kmitů Q na EKG.</li>
-                                    <li>Zobrazovací průkaz nové ztráty viabilního myokardu nebo nové regionální poruchy kinetiky stěny (RWMA) v ischemickém vzorci (Echo/CMR).</li>
-                                    <li>Identifikace intrakoronární trombózy angiograficky nebo při pitvě.</li>
-                                </ul>
-                            </div>
-                        "
-        },
-        {
-          "title": "2. Pátá univerzální definice (2026): 3 Klinické typy IM",
-          "color": "amber",
-          "content": "
-                            <div class="space-y-2.5 text-xs">
-                                <div class="p-3 bg-slate-900 border-l-4 border-rose-500 rounded-r-xl">
-                                    <span class="font-bold text-rose-400 text-sm">1. Primární infarkt myokardu (Primary MI)</span>
-                                    <p class="text-slate-300 mt-1 leading-relaxed">Vzniká spontánně v důsledku <strong>primární akutní koronární patologie</strong>: akutní aterotrombóza s rupturou či erozí plátu, spontánní disekce koronární tepny (SCAD), koronární embolie nebo těžký vazospasmus. Léčba: DAPT + emergentní revaskularizace (primární PCI / fibrinolýza).</p>
-                                </div>
-                                <div class="p-3 bg-slate-900 border-l-4 border-amber-500 rounded-r-xl">
-                                    <span class="font-bold text-amber-400 text-sm">2. Sekundární infarkt myokardu (Secondary MI)</span>
-                                    <p class="text-slate-300 mt-1 leading-relaxed">Vzniká v důsledku <strong>nepoměru mezi nabídkou a poptávkou kyslíku (supply-demand mismatch)</strong> způsobeného jiným akutním stavem (sepse, tachyarytmie, těžká anémie, hypotenze/šok, těžká hypertenze) bez primární akutní koronární léze plátu.<br><strong>3 diagnostické fáze dle 5. definice:</strong><br>• <em>Podezření (Considered):</em> Akutní troponinové poškození + vyvolávající stav + známka ischémie.<br>• <em>Pravděpodobný (Likely):</em> Splněno podezření + známá ICHS v anamnéze.<br>• <em>Potvrzený (Confirmed):</em> Stenóza &ge; 70 % na SKG nebo nová RWMA na Echo/CMR.<br><em>Léčba: Kauzální terapie vyvolávající příčiny (sepse, tekutiny, kontrola frekvence), nikoliv rutinní PCI a DAPT!</em></p>
-                                </div>
-                                <div class="p-3 bg-slate-900 border-l-4 border-cyan-500 rounded-r-xl">
-                                    <span class="font-bold text-cyan-400 text-sm">3. Infarkt myokardu související s výkonem (Procedure-related MI)</span>
-                                    <p class="text-slate-300 mt-1 leading-relaxed">Vzniká jako komplikace jakéhokoli srdečního výkonu (perkutánního - PCI, nebo chirurgického - CABG/chlopenní operace) do 30 dnů. Vyžaduje akutní poškození myokardu (vzestup cTn) + známky ischémie + <strong>průkaz koronární komplikace výkonu</strong> (disekce, perforace, trombóza stentu, slow-flow) a/nebo <strong>novou regionální poruchu kinetiky stěny či ztrátu viability</strong>.</p>
-                                </div>
-                            </div>
-                        "
-        },
-        {
-          "title": "3. Akutní a chronické poškození myokardu & MINOCA",
-          "color": "cyan",
-          "content": "
-                            <div class="p-3.5 bg-cyan-950/30 border border-cyan-500/30 rounded-xl text-xs text-slate-300 leading-relaxed space-y-2">
-                                <p><strong>Akutní poškození myokardu (Acute Myocardial Injury):</strong> Vzestup a/nebo pokles srdečního troponinu nad 99. percentil URL bez přítomnosti ischemických projevů (např. myokarditida, plicní embolie, sepse bez ischémie).</p>
-                                <p><strong>Chronické poškození myokardu (Chronic Myocardial Injury):</strong> Trvale a stabilně zvýšené hodnoty troponinu bez významné dynamiky (chronická renální insuficience, amyloidóza, chronické srdeční selhání).</p>
-                                <p><strong>MINOCA (Poškození myokardu s neobstrukčními koronárními tepnami):</strong> Pracovní diagnóza u pacientů splňujících kritéria infarktu myokardu, kteří mají na koronarografii <strong>normální nález nebo stenózy &lt; 50 %</strong>. Vyžaduje urgentní provedení <strong>TTE</strong> a <strong>Magnetické rezonance srdce (CMR)</strong> k odlišení skutečného infarktu (subendokardiální LGE), akutní myokarditidy (až 40 % případů) a Takotsubo kardiomyopatie!</p>
-                            </div>
-                        "
-        }
-      ]
+      breakdown: {
+        classThree: [
+          "Rutinní podávání kyslíku pacientům s AKS, pokud je saturace SpO2 ≥ 90 %.",
+          "Rutinní pre-treatment P2Y12 inhibitorem u NSTE-AKS před koronarografií při invazivní strategii &lt; 24h.",
+          "De-eskalace protidestičkové léčby v prvních 30 dnech po prodělaném AKS.",
+          "Použití Prasugrelu nebo Ticagreloru v trojité kombinaci (TAT) s perorálním antikoagulanciem (NOAC / VKA).",
+          "Rutinní manuální tromboaspirace během primární PCI u STEMI."
+        ],
+        mustKnow: [
+          "Definice STEMI: ST elevace v bodě J ve 2 sousedních svodech (muži &lt; 40 let: ≥ 2.5 mm ve V2-V3; muži ≥ 40 let: ≥ 2.0 mm; ženy: ≥ 1.5 mm; ostatní svody ≥ 1.0 mm) nebo nový LBBB/RBBB s ischemickými příznaky.",
+          "Zlaté časové okno: FMC-to-wire &lt; 90 min (přímo v PCI centru &lt; 60 min). Pokud odhadovaný dojezd do PCI centra přesahuje 120 minut, indikuje se systémová fibrinolýza do 10 minut.",
+          "Sekundární prevence AKS: 'The Big 5' = DAPT (12M), Statin vysoké intenzity (LDL cíl &lt; 1,4 mmol/l a pokles o ≥ 50 %), ACEi/ARB (při EF &lt; 40 %, DM nebo HTN), Betablokátor (při EF &lt; 40 %), MRA (spironolakton/eplerenon při EF &lt; 40 % a srdečním selhání)."
+        ]
+      }
     },
-    "recall": {
-      "scenarios": [
-        {
-          "id": "midef-r1",
-          "title": "Kazuistika 1: Sepse vs. Sekundární infarkt myokardu",
-          "question": "80letá polymorbidní pacientka je hospitalizována pro těžkou urosepsi s febriliemi, hypotenzí (TK 80/50 mmHg) a sinusovou tachykardií 145/min. EKG vykazuje horizontální deprese ST 1,5 mm ve svodech V4-V6. Vstupní hs-cTnI je 60 ng/l, za 3 hodiny 220 ng/l. Na urgentní koronarografii jsou tepny difuzně sklerotické se stabilní stenózou 75 % na RIA bez akutního trombu a bez uzávěru. O jaký typ IM se jedná dle 5. definice a jaký je léčebný postup?",
-          "answer": "Jedná se o Sekundární infarkt myokardu (Secondary MI dle 5. univerzální definice 2026). Je způsoben nepoměrem mezi nabídkou a poptávkou kyslíku při těžké sepsi, hypotenzi a tachykardii v terénu chronické stenózy. Léčba nespočívá v akutní PCI, ale v kauzální terapii vyvolávající příčiny: agresivní léčba sepse antibiotiky, volumoterapie krystaloidy k obnovení perfuzního tlaku a zpomalení srdeční frekvence.",
-          "pearl": "U sekundárního IM nepodáváme rutinně plnou DAPT ani antikoagulaci, pokud není přítomna jiná kardiovaskulární indikace."
-        },
-        {
-          "id": "midef-r2",
-          "title": "Kazuistika 2: Emoční stres a MINOCA",
-          "question": "52letá žena po náhlém úmrtí partnera přijata pro prudkou retrosternální bolest a dušnost. EKG: elevace ST 2 mm ve V2-V5. Troponin hs-cTnI stoupá na 1200 ng/l. Na urgentní SKG jsou koronární tepny zcela hladké bez stenóz (< 50 %). ECHO ukazuje akinézu hrotu a středních segmentů LK s hyperkontrakcí báze (EF LK 35 %). Jaká je pracovní diagnóza a jaké vyšetření ji definitivně potvrdí?",
-          "answer": "Pracovní diagnóza je MINOCA, klinicky vysoce suspektní pro Takotsubo syndrom (stresová kardiomyopatie). Zlatým standardem k definitivnímu potvrzení je Magnetická rezonance srdce (CMR), která prokáže transmurální edém myokardu v oblasti hrotu bez přítomnosti pozdního sycení gadoliniem (LGE) a vyloučí akutní myokarditidu.",
-          "pearl": "Takotsubo syndrom se léčí podpůrně jako srdeční selhání (ACEi, betablokátory, diuretika) a funkce LK se typicky plně zotaví během 4–8 týdnů."
-        }
+{
+      id: "midef",
+      number: 2,
+      title: "5. Univerzální definice infarktu myokardu (2026)",
+      shortDesc: "Myokardiální poškození vs. infarkt myokardu, typy 1–5 IM, MINOCA a klinická interpretace dynamiky troponinu.",
+      icon: "🔬",
+      badge: "2026 Nová definice",
+      badgeColor: "emerald",
+                  guidelineLinks: [
+        { title: "Fifth Universal Definition of Myocardial Infarction Consensus Document", url: "https://academic.oup.com/eurheartj/article-lookup/doi/10.1093/eurheartj/ehae555", year: "2026" }
       ],
-      "quiz": {
-        "title": "Rozhodovací kvíz: Myocardial Injury vs. Myocardial Infarction",
-        "prompt": "Který z následujících pacientů má POUZE chronické poškození myokardu (Chronic Myocardial Injury) a NEMÁ infarkt myokardu?",
-        "options": [
+theory: {
+        banner: {
+          tag: "Zásadní změna v 5. definici (2026 Konsenzus)",
+          title: "3 Klinické typy infarktu myokardu & Poškození (Injury) vs. Infarkt (Infarction)",
+          text: "Pátá univerzální definice infarktu myokardu (UDMI 2026) nahrazuje starou klasifikaci 3 klinickými typy IM: 1. Primární IM (aterotrombotická ruptura/eroze), 2. Sekundární IM (nepoměr mezi nabídkou a poptávkou kyslíku bez ruptury plátu) a 3. IM související s výkonem (periprocedurální nekróza u PCI/CABG). Zvýšení troponinu bez ischémie definuje poškození myokardu (Myocardial Injury); infarkt vyžaduje dynamiku troponinu A SOUČASNĚ klinické známky akutní ischémie myokardu."
+        },
+        sections: [
           {
-            "text": "A) 65letý pacient s chronickým onemocněním ledvin (eGFR 25 ml/min) se stabilní hodnotou hs-cTnT 48 ng/l při opakovaných odběrech s odstupem 3 měsíců, bez stenokardií a bez EKG dynamiky",
-            "isCorrect": true
+            title: "3 Klinické typy infarktu myokardu (2026 UDMI)",
+            color: "emerald",
+            content: `
+              <div class="space-y-3">
+                <div class="p-3 bg-slate-900 border-l-4 border-rose-500 rounded-r-xl">
+                  <span class="font-bold text-rose-400 text-sm">Typ 1 IM (Aterotrombotický)</span>
+                  <p class="text-xs text-slate-300 mt-1">Spuštěn rupturou, fisurou, erozí nebo disekcí aterosklerotického plátu s intraluminálním trombem ve věnčité tepně.</p>
+                </div>
+                <div class="p-3 bg-slate-900 border-l-4 border-amber-500 rounded-r-xl">
+                  <span class="font-bold text-amber-400 text-sm">Typ 2 IM (Nepoměr nabídky a poptávky O2)</span>
+                  <p class="text-xs text-slate-300 mt-1">Ischémie způsobená nepoměrem mezi dodávkou a spotřebou kyslíku bez akutní aterotrombózy (např. těžká anémie, sepse, tachykardie, hypotenze, vazospasmus, SCAD).</p>
+                </div>
+                <div class="p-3 bg-slate-900 border-l-4 border-purple-500 rounded-r-xl">
+                  <span class="font-bold text-purple-400 text-sm">Typ 3 IM (Náhlá srdeční smrt)</span>
+                  <p class="text-xs text-slate-300 mt-1">Srdeční smrt s ischemickými symptomy a EKG změnami, kdy pacient zemře dříve, než bylo možné odebrat krev na troponiny.</p>
+                </div>
+                <div class="p-3 bg-slate-900 border-l-4 border-cyan-500 rounded-r-xl">
+                  <span class="font-bold text-cyan-400 text-sm">Typ 4 IM (Vázaný na PCI)</span>
+                  <p class="text-xs text-slate-300 mt-1"><strong>4a:</strong> Periprocedurální IM při PCI (vzestup cTn &gt; 5× nad 99. percentil u normální baze). <strong>4b:</strong> Trombóza stentu prokázaná angiograficky či autopticky. <strong>4c:</strong> Restenóza ve stentu.</p>
+                </div>
+                <div class="p-3 bg-slate-900 border-l-4 border-blue-500 rounded-r-xl">
+                  <span class="font-bold text-blue-400 text-sm">Typ 5 IM (Vázaný na CABG)</span>
+                  <p class="text-xs text-slate-300 mt-1">Perioperační IM po aortokoronárním bypassu (vzestup cTn &gt; 10× nad 99. percentil u normální baze s novým patologickým Q či novou okluzí štěpu).</p>
+                </div>
+              </div>
+            `
           },
           {
-            "text": "B) Pacient s tlakem na hrudi, inverzí T vln ve V4-V6 a vzestupem hs-cTnI z 12 na 180 ng/l",
-            "isCorrect": false
+            title: "MINOCA (Myocardial Infarction with Non-Obstructive Coronary Arteries)",
+            color: "cyan",
+            content: `
+              <p class="text-xs text-slate-300 leading-relaxed mb-3">
+                Diagnóza MINOCA je pracovní diagnóza u pacientů s jasným infarktem myokardu (troponinová dynamika + ischemické známky), kteří mají na koronarografii <strong>normální nález nebo stenózy &lt; 50 %</strong>.
+              </p>
+              <div class="p-3 bg-cyan-950/40 border border-cyan-500/30 rounded-xl text-xs text-slate-200">
+                <strong>Zlatý standard vyšetření:</strong> Magnetická rezonance srdce (CMR) je <strong>doporučena u všech pacientů s MINOCA (Třída I)</strong> k odlišení skutečného infarktu (subendokardiální LGE), myokarditidy (subepikardiální/mid-myokardiální LGE) a Takotsubo syndromu (typická balonovitá dyskineze bez LGE).
+              </div>
+            `
+          }
+        ]
+      },
+      recall: {
+        scenarios: [
+          {
+            id: "midef-r1",
+            title: "Otázka 1: Rozlišení typu IM",
+            question: "82letá polymorbidní pacientka přijata pro urosepsi s febriliemi, hypotenzí (TK 80/50) a sinusovou tachykardií 140/min. EKG: difuzní horizontální deprese ST 1 mm. Kontrolní hs-cTnI stoupá z 45 na 180 ng/l. Koronární anatomie je chronicky sklerotická bez čerstvého trombu. O jaký typ IM se jedná?",
+            answer: "Infarkt myokardu Typu 2. Ischémie myokardu vznikla nepoměrem mezi dodávkou kyslíku (hypotenze, tachykardie zkracující diastolické plnění koronárek) a zvýšenou poptávkou myokardu při sepsi, bez akutní ruptury plátu.",
+            pearl: "Léčba IM typu 2 nespočívá v urgentní PCI, ale v kauzální korekci vyvolávající příčiny (léčba sepse, hydratace, úprava tlaku a frekvence)."
           },
           {
-            "text": "C) Pacient po úspěšné KPR pro komorovou fibrilaci s novým patologickým kmitem Q ve svodech II, III, aVF",
-            "isCorrect": false
-          },
-          {
-            "text": "D) Pacient se sepsí, dušností, novou akinézou spodní stěny na ECHO a vzestupem hs-cTn",
-            "isCorrect": false
+            id: "midef-r2",
+            title: "Otázka 2: Diagnostický postup u MINOCA",
+            question: "48letá žena bez KV rizikových faktorů po těžkém emočním stresu přijata pro typickou bolest na hrudi, elevace ST ve V2-V4 a troponin 850 ng/l. Na urgentní SKG jsou koronární tepny hladké bez obstrukce (&lt; 20 %). Jaké vyšetření je nezbytně indikováno k dořešení diagnózy?",
+            answer: "Magnetická rezonance srdce (CMR - kardio MR). Dokáže s vysokou specificitou rozlišit Takotsubo kardiomyopatii, akutní myokarditidu nebo drobný embolizační infarkt.",
+            pearl: "Až 30-40 % původně označených MINOCA jsou ve skutečnosti myokarditidy."
           }
         ],
-        "explanation": "Chronicky zvýšená hodnota troponinu bez akutního vzestupu či poklesu (bez dynamiky) a bez jakýchkoli klinických či zobrazovacích známek akutní ischémie myokardu splňuje definici chronického poškození myokardu (Chronic Myocardial Injury), typicky přítomného u pokročilé renální insuficience, chronického srdečního selhání či amyloidózy."
-      }
-    },
-    "breakdown": {
-      "classThree": [
-        "Považovat každou izolovanou elevaci troponinu za akutní primární infarkt myokardu a automaticky indikovat emergentní invazivní koronarografii s DAPT.",
-        "Podávat agresivní protidestičkovou (DAPT) a antikoagulační léčbu pacientům s izolovaným poškozením myokardu (Myocardial Injury) bez průkazu koronární ischémie.",
-        "Opomenout vyšetření magnetickou rezonancí srdce (CMR) u pacientů s pracovní diagnózou MINOCA (vede k chybnému přehlédnutí myokarditidy)."
-      ],
-      "mustKnow": [
-        "5. definice 2026 rozlišuje 3 klinické typy IM: 1. Primární IM (akutní koronární patologie), 2. Sekundární IM (supply-demand mismatch), 3. IM související s výkonem (PCI/CABG).",
-        "Myocardial Injury = cTn > pohlavně specifický 99. percentil URL bez ischemických projevů.",
-        "Myocardial Infarction = cTn > 99. percentil s dynamikou (vzestup/pokles) + klinický průkaz akutní ischémie.",
-        "Sekundární IM vyžaduje kauzální léčbu vyvolávajícího stavu, nikoli rutinní PCI a DAPT.",
-        "MINOCA: IM s angiograficky normálními tepnami (< 50 % stenóza) -> vyžaduje TTE + CMR k odlišení myokarditidy, Takotsubo a infarktu."
-      ]
-    },
-    "guidelineLinks": [
-      {
-        "title": "Fifth Universal Definition of Myocardial Infarction (2026)",
-        "year": 2026,
-        "journal": "European Heart Journal",
-        "doi": "10.1093/eurheartj/ehag200",
-        "url": "https://academic.oup.com/eurheartj/article/47/3/237/8766400"
-      }
-    ]
-  },
-    {
-    "id": "hf",
-    "number": 3,
-    "title": "Srdeční selhání (2026 ESC Guidelines)",
-    "shortDesc": "Nová klasifikace 2 fenotypů (HFrEF <50% vs. HFpEF ≥50%), zrušení HFmrEF, 4 pilíře FMT pro HFrEF, SGLT2i a MRA napříč spektrem, i.v. železo a CRT/ICD.",
-    "icon": "🫁",
-    "badge": "2026 ESC Guidelines",
-    "badgeColor": "cyan",
-    "theory": {
-      "banner": {
-        "tag": "Zásadní změna v ESC Guidelines 2026",
-        "title": "Eliminace fenotypu HFmrEF & Nová binární klasifikace (HFrEF < 50 % vs. HFpEF ≥ 50 %)",
-        "text": "Pracovní skupina 2026 ESC Guidelines pro management srdečního selhání **eliminovala dřívější fenotyp HFmrEF** (mírně snížená EF) a zavedla novou patofyziologickou binární klasifikaci na **2 fenotypy**: **1. HFrEF (EF < 50 %)** – charakterizováno systolickou dysfunkcí a sníženou kontraktilitou LK, kde je plně indikována 4-kombinace léků FMT (ARNI/ACEi, BB, MRA, SGLT2i); **2. HFpEF (EF ≥ 50 %)** – charakterizováno zvýšenou tuhostí a diastolickou dysfunkcí, kde základem terapie jsou SGLT2 inhibitory, MRA, ARNI a dekongesční diuretika."
+        quiz: {
+          title: "Kvíz: Myocardial Injury vs Infarkt",
+          prompt: "Který z následujících pacientů má POUZE poškození myokardu (Myocardial Injury) a NEMÁ infarkt myokardu dle 5. univerzální definice?",
+          options: [
+            { text: "A) Pacient s chronickou renální insuficiencí s dlouhodobě stabilně zvýšeným hs-cTn 60 ng/l bez symptomů, bez EKG změn a bez dynamiky troponinu.", isCorrect: true },
+            { text: "B) Pacient s tlakem na hrudi, inverzí T vln a vzestupem hs-cTn z 15 na 150 ng/l.", isCorrect: false },
+            { text: "C) Pacient po KPR s novým patologickým kmitém Q ve svodech II, III, aVF a vzestupem hs-cTn.", isCorrect: false },
+            { text: "D) Pacient se sepsí, novou poruchou kinetiky spodní stěny na ECHO a vzestupem hs-cTn.", isCorrect: false }
+          ],
+          explanation: "Chronicky zvýšený troponin bez akutního vzestupu/poklesu a bez jakýchkoli ischemických projevů (bolest, nové EKG změny, nová porucha kinetiky) splňuje pouze definici chronického poškození myokardu (chronic myocardial injury)."
+        }
       },
-      "sections": [
-        {
-          "title": "1. Nová klasifikace 2 fenotypů dle EF LK (ESC 2026) & Stadia A–D",
-          "color": "cyan",
-          "content": "
-                            <div class="grid md:grid-cols-2 gap-3 my-3 text-xs">
-                                <div class="p-3.5 bg-slate-900 border border-rose-500/40 rounded-xl">
-                                    <span class="font-bold text-rose-400 text-sm">🔴 HFrEF (Reduced Ejection Fraction)</span>
-                                    <p class="text-slate-300 mt-1 leading-relaxed">LVEF <strong>&lt; 50 %</strong> (sjednocuje dřívější kategorie &le; 40 % i 41–49 %) + symptomy a/nebo známky srdečního selhání. Přítomna systolická dysfunkce a porucha kontraktility. Jednoznačný průkaz redukce mortality pro <strong>4 pilíře FMT</strong>, ICD a CRT.</p>
-                                </div>
-                                <div class="p-3.5 bg-slate-900 border border-emerald-500/40 rounded-xl">
-                                    <span class="font-bold text-emerald-400 text-sm">🟢 HFpEF (Preserved Ejection Fraction)</span>
-                                    <p class="text-slate-300 mt-1 leading-relaxed">LVEF <strong>&ge; 50 %</strong> + symptomy a/nebo známky srdečního selhání + objektivní průkaz strukturální a/nebo funkční abnormality LK (diastolická dysfunkce, zvýšené plnicí tlaky E/e' &ge; 13, hypertrofie LK, dilatace LS, zvýšené BNP/NT-proBNP). Základem léčby jsou SGLT2i a MRA.</p>
-                                </div>
-                            </div>
-                            <div class="p-3.5 bg-slate-900 border border-slate-700 rounded-xl text-xs text-slate-300">
-                                <span class="font-bold text-cyan-400">Klasifikace stadií srdečního selhání (A -> D):</span>
-                                <ul class="list-disc ml-5 mt-1.5 space-y-1">
-                                    <li><strong>Stádium A (V riziku):</strong> Přítomny rizikové faktory (hypertenze, DM, obezita, KVS nemoc), bez symptomů a bez strukturální vady.</li>
-                                    <li><strong>Stádium B (Pre-heart failure):</strong> Asymptomatický pacient, ale MÁ strukturální vadu (hypertrofie LK, porucha kinetiky) nebo zvýšené natriuretické peptidy.</li>
-                                    <li><strong>Stádium C (Symptomatické HF):</strong> Aktuální nebo předchozí symptomy srdečního selhání spojené se strukturálním a/nebo funkčním postižením srdce.</li>
-                                    <li><strong>Stádium D (Pokročilé / Advanced HF):</strong> Těžké refrakterní symptomy v klidu (NYHA IV) vzdorující maximální terapii -> indikace k mechanické podpoře (LVAD) či transplantaci srdce.</li>
-                                </ul>
-                            </div>
-                        "
-        },
-        {
-          "title": "2. Čtyři pilíře bazální farmakoterapie (FMT) pro HFrEF (LVEF < 50 %)",
-          "color": "emerald",
-          "content": "
-                            <p class="mb-3 text-xs text-slate-300 leading-relaxed">U každého pacienta s HFrEF (LVEF &lt; 50 %) musí být co nejrychleji nasazena a vytitrována <strong>čtyřkombinace léků základní terapie (Třída I, Level A)</strong>, která redukuje mortalitu o více než 60 %:</p>
-                            <div class="grid sm:grid-cols-2 gap-3 text-xs">
-                                <div class="p-3 bg-emerald-950/30 border border-emerald-500/30 rounded-xl">
-                                    <div class="font-bold text-emerald-400">1. ARNI (Sacubitril/Valsartan) / ACEi</div>
-                                    <p class="text-slate-300 mt-1">Sacubitril/valsartan má přednost před ACEi (studie PARADIGM-HF). Při převodu z ACEi nutná <strong>wash-out perioda 36 hodin!</strong></p>
-                                </div>
-                                <div class="p-3 bg-emerald-950/30 border border-emerald-500/30 rounded-xl">
-                                    <div class="font-bold text-emerald-400">2. Betablokátory (Evidence-based)</div>
-                                    <p class="text-slate-300 mt-1">Pouze 4 molekuly s průkazem redukce mortality: <strong>Bisoprolol, Metoprolol sukcinát, Karvedilol, Nebivolol</strong>. Nasazovat v kompenzovaném stavu!</p>
-                                </div>
-                                <div class="p-3 bg-emerald-950/30 border border-emerald-500/30 rounded-xl">
-                                    <div class="font-bold text-emerald-400">3. MRA (Antagonisté mineralokortikoidních rec.)</div>
-                                    <p class="text-slate-300 mt-1"><strong>Spironolakton</strong> (25–50 mg) nebo <strong>Eplerenon</strong>. Snižují fibrózu myokardu. Nutná kontrola kalémie a kreatininu.</p>
-                                </div>
-                                <div class="p-3 bg-emerald-950/30 border border-emerald-500/30 rounded-xl">
-                                    <div class="font-bold text-emerald-400">4. SGLT2 inhibitory (Glifloziny)</div>
-                                    <p class="text-slate-300 mt-1"><strong>Dapagliflozin</strong> 10 mg 1×d nebo <strong>Empagliflozin</strong> 10 mg 1×d. Bez nutnosti titrace, účinné nezávisle na přítomnosti diabetu!</p>
-                                </div>
-                            </div>
-                        "
-        },
-        {
-          "title": "3. Farmakoterapie HFpEF (LVEF ≥ 50 %) & Specifická doplňková léčba",
-          "color": "amber",
-          "content": "
-                            <div class="space-y-2.5 text-xs">
-                                <div class="p-3 bg-slate-900 border border-emerald-500/30 rounded-xl">
-                                    <span class="font-bold text-emerald-400">✨ Terapie HFpEF (LVEF &ge; 50 %)</span>
-                                    <p class="text-slate-300 mt-1"><strong>SGLT2 inhibitory (Dapagliflozin/Empagliflozin):</strong> Třída I pro všechny pacienty s HFpEF k redukci KV mortality a hospitalizací.<br><strong>MRA (Spironolakton/Eplerenon/Finerenon):</strong> Třída I/IIa pro snížení hospitalizací (studie TOPCAT a FINEARTS-HF).<br><strong>ARNI (Sacubitril/Valsartan):</strong> Třída IIa/IIb, zejména u pacientů s EF v dolním pásmu a u žen.<br><strong>Kličková diuretika (Furosemid/Torasemid):</strong> K dekongesci a udržení euvolemie.</p>
-                                </div>
-                                <div class="p-3 bg-slate-900 border border-amber-500/30 rounded-xl">
-                                    <span class="font-bold text-amber-400">💉 Intravenózní suplementace železa (Třída I/IIa)</span>
-                                    <p class="text-slate-300 mt-1">Deficit železa (feritin &lt; 100 &mu;g/l NEBO feritin 100–299 &mu;g/l s nasycením transferinu TSAT &lt; 20 %) je přítomen u &gt; 50 % pacientů se srdečním selháním. Podání <strong>karboxymaltózy železité (FCM)</strong> nebo <strong>derizomaltózy železité i.v.</strong> významně zlepšuje symptomy, kvalitu života a snižuje hospitalizace pro HF. <em>Perorální železo je neúčinné!</em></p>
-                                </div>
-                                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
-                                    <span class="font-bold text-cyan-400">💊 Vericiguat & Vazače draslíku</span>
-                                    <p class="text-slate-300 mt-1"><strong>Vericiguat:</strong> Stimulátor sGC indikovaný u pacientů s HFrEF po nedávné dekompenzaci navzdory FMT.<br><strong>Patiromer / Cyklosilikát zirkonia (ZS-9):</strong> Vazače draslíku umožňují udržet plné dávky RAASi a MRA bez nutnosti jejich vysazení při hyperkalémii.</p>
-                                </div>
-                            </div>
-                        "
-        },
-        {
-          "title": "4. Přístrojová léčba: ICD a Biventrikulární stimulace (CRT)",
-          "color": "purple",
-          "content": "
-                            <div class="grid md:grid-cols-2 gap-3 text-xs">
-                                <div class="p-3 bg-slate-900 border border-purple-500/30 rounded-xl">
-                                    <span class="font-bold text-purple-400">⚡ ICD (Kardioverter-defibrilátor)</span>
-                                    <p class="text-slate-300 mt-1"><strong>Primární prevence náhlé smrti:</strong> Indikován u symptomatických pacientů (NYHA II–III) s <strong>LVEF &le; 35 %</strong> navzdory &ge; 3 měsícům optimální farmakoterapie (FMT), s očekávaným přežitím &gt; 1 rok (u ischemické etiologie Třída I, u neischemické Třída IIa).</p>
-                                </div>
-                                <div class="p-3 bg-slate-900 border border-purple-500/30 rounded-xl">
-                                    <span class="font-bold text-purple-400">🔋 CRT (Srdeční resynchronizační léčba)</span>
-                                    <p class="text-slate-300 mt-1">Indikována u pacientů v sinusovém rytmu s LVEF &le; 35 %, symptomy NYHA II–IV navzdory FMT a <strong>blokádou levého raménka (LBBB)</strong> s šíří <strong>QRS &ge; 130–150 ms</strong> (Třída I). Resynchronizuje mechanický stah pravé a levé komory.</p>
-                                </div>
-                            </div>
-                        "
-        }
-      ]
+      breakdown: {
+        classThree: [
+          "Nepovažovat každé izolované zvýšení troponinu automaticky za akutní koronární trombózu (Typ 1 IM) indikovanou k urgentní katetrizaci.",
+          "Neprovádět rutinní invazivní léčbu (heparin, DAPT) u pacientů s chronickým stabilním poškozením myokardu bez ischémie."
+        ],
+        mustKnow: [
+          "Kritéria IM: Vzestup nebo pokles hs-cTn nad 99. percentil + alespoň 1 z: ischemické symptomy, nové ischemické EKG změny (ST-T nebo nový Q kmit), průkaz nové ztráty viabilního myokardu / nové poruchy kinetiky na zobrazovacích metodách, nebo průkaz intrakoronárního trombu při angiografii.",
+          "5 typů: 1 = aterotrombóza plátu; 2 = mismatch O2; 3 = náhlá smrt; 4 = PCI-related; 5 = CABG-related."
+        ]
+      }
     },
-    "recall": {
-      "scenarios": [
-        {
-          "id": "hf-r1",
-          "title": "Kazuistika 1: Bezpečný přechod z ACEi na ARNI",
-          "question": "64letý pacient s ischemickou kardiomyopatií a LVEF 32 % (HFrEF) užívá Ramipril 10 mg denně. Pro přetrvávající námahovou dušnost NYHA II chcete zahájit léčbu Sacubitril/Valsartanem (ARNI). Jak musíte postupovat ohledně časování první dávky?",
-          "answer": "Musíte Ramipril vysadit a dodržet striktní wash-out periodu minimálně 36 hodin před podáním první dávky Sacubitril/Valsartanu. Důvodem je prevence masivní akumulace bradykininu a vzniku potenciálně fatálního angioedému.",
-          "pearl": "Při převodu ze sartanů (ARB) na ARNI wash-out perioda není nutná, lék lze nasadit následující den."
-        },
-        {
-          "id": "hf-r2",
-          "title": "Kazuistika 2: Terapie HFpEF se zachovanou ejekční frakcí (LVEF ≥ 50 %)",
-          "question": "72letá obézní diabetička s hypertenzí je vyšetřována pro námahovou dušnost NYHA III a otoky kotníků. Na ECHO je LVEF 56 %, hypertrofie LK s E/e' 14 (zvýšené plnící tlaky), NT-proBNP 1650 pg/ml. Který lék má jednoznačné doporučení Třídy I pro redukci KV úmrtí a hospitalizací u HFpEF dle ESC 2026?",
-          "answer": "SGLT2 inhibitor (Dapagliflozin 10 mg nebo Empagliflozin 10 mg denně). Na základě randomizovaných studií DELIVER a EMPEROR-Preserved jsou glifloziny základním lékem volby s doporučením Třídy I u HFpEF. Dále se přidává MRA (Spironolakton/Eplerenon) a kličkové diuretikum.",
-          "pearl": "Kličková diuretika (Furosemid) se přidávají symptomaticky k dosažení a udržení euvolemie."
-        }
+{
+      id: "hf",
+      number: 3,
+      title: "Srdeční selhání (2026 ESC Guidelines)",
+      shortDesc: "Nová klasifikace stadií A–D, zánik HFmrEF, 4 pilíře Foundational Medical Therapy (FMT), akutní selhání a kardiogenní šok.",
+      icon: "🫁",
+      badge: "2026 ESC Guidelines",
+      badgeColor: "cyan",
+            guidelineLinks: [
+        { title: "2026 ESC Guidelines for the Diagnosis and Treatment of Acute and Chronic Heart Failure", url: "https://academic.oup.com/eurheartj/article/42/36/3599/6358045", year: "2026" }
       ],
-      "quiz": {
-        "title": "Rozhodovací kvíz: Akutní srdeční selhání",
-        "prompt": "Pacient je přijat pro akutní dekompenzaci srdečního selhání s plicním edémem. Je teplý a vlhký ('warm and wet'): TK 185/105 mmHg, TF 115/min, tachypnoický, poslechově oboustranně chrůpky, SpO2 86 % na vzduchu. Jaký je prioritní farmakoterapeutický krok?",
-        "options": [
+theory: {
+        banner: {
+          tag: "2026 Revoluce v Guidelines",
+          title: "Zjednodušená klasifikace a nová nomenklatura léčby",
+          text: "Guidelines 2026 sjednocují klasifikaci: ruší se kategorie HFmrEF (mírně snížená EF) a pacienti se dělí binárně na **HFrEF (EF ≤ 40 %)** a **HFpEF (EF > 40 %)**. Zavádí se americký model **stadií A–D** s obrovským důrazem na prevenci a starý termín GDMT je nahrazen dělením na **FMT (Foundational Medical Therapy)** a **AMT (Additional Medical Therapy)**."
+        },
+        sections: [
           {
-            "text": "A) Oxygenoterapie / NIV, i.v. bolus kličkového diuretika (Furosemid) a i.v. vazodilatancia (Nitráty) ke snížení afterloadu a plnících tlaků",
-            "isCorrect": true
+            title: "Stadia srdečního selhání (A -> D)",
+            color: "cyan",
+            content: `
+              <div class="grid sm:grid-cols-2 gap-3 text-xs">
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <div class="font-bold text-slate-200">Stádium A: V riziku (At Risk)</div>
+                  <p class="text-slate-400 mt-1">Pacienti s hypertenzí, DM, obezitou, KVS onemocněním, ale BEZ strukturálního postižení srdce a BEZ biomarkerů/symptomů.</p>
+                </div>
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <div class="font-bold text-cyan-400">Stádium B: Pre-heart failure</div>
+                  <p class="text-slate-400 mt-1">Asymptomatičtí pacienti, ale MAJÍ strukturální vadu (hypertrofie LK, porucha kinetiky) NEBO zvýšené natriuretické peptidy (BNP/NT-proBNP).</p>
+                </div>
+                <div class="p-3 bg-slate-900 border border-amber-500/50 rounded-xl">
+                  <div class="font-bold text-amber-400">Stádium C: Symptomatické selhání</div>
+                  <p class="text-slate-400 mt-1">Pacienti s aktuálními nebo předchozími symptomy srdečního selhání (dušnost, otoky, únava) a strukturálním postižením.</p>
+                </div>
+                <div class="p-3 bg-slate-900 border border-rose-500/50 rounded-xl">
+                  <div class="font-bold text-rose-400">Stádium D: Pokročilé (Advanced HF)</div>
+                  <p class="text-slate-400 mt-1">Těžké refrakterní symptomy v klidu navzdory maximální terapii. Indikace k mechanické srdeční podpoře (LVAD) či transplantaci srdce.</p>
+                </div>
+              </div>
+            `
           },
           {
-            "text": "B) Okamžitá infuze inotropika (Dobutamin) a vazopresoru (Noradrenalin)",
-            "isCorrect": false
+            title: "4 Pilíře bazální léčby HFrEF (Foundational Medical Therapy - FMT)",
+            color: "emerald",
+            content: `
+              <p class="text-xs text-slate-300 mb-3">U každého pacienta s HFrEF (EF ≤ 40 %) musí být co nejrychleji nasazena **čtyřkombinace (FMT)**, která snižuje mortalitu o více než 60 %:</p>
+              <div class="grid sm:grid-cols-2 gap-3">
+                <div class="p-3 bg-emerald-950/30 border border-emerald-500/30 rounded-xl">
+                  <div class="font-bold text-emerald-400 text-xs">1. ARNI (Sacubitril/Valsartan)</div>
+                  <p class="text-[11px] text-slate-300 mt-0.5">Nebo ACEi/ARB při nesnášenlivosti. ARNI má přednost jako lék první volby.</p>
+                </div>
+                <div class="p-3 bg-emerald-950/30 border border-emerald-500/30 rounded-xl">
+                  <div class="font-bold text-emerald-400 text-xs">2. Betablokátory</div>
+                  <p class="text-[11px] text-slate-300 mt-0.5">Pouze 4 s průkazem mortality: Bisoprolol, Metoprolol sukcinát, Karvedilol, Nebivolol.</p>
+                </div>
+                <div class="p-3 bg-emerald-950/30 border border-emerald-500/30 rounded-xl">
+                  <div class="font-bold text-emerald-400 text-xs">3. MRA (Antagonisté mineralokortikoidních rec.)</div>
+                  <p class="text-[11px] text-slate-300 mt-0.5">Spironolakton nebo Eplerenon. Kontrola kalémie a renálních funkcí!</p>
+                </div>
+                <div class="p-3 bg-emerald-950/30 border border-emerald-500/30 rounded-xl">
+                  <div class="font-bold text-emerald-400 text-xs">4. SGLT2 inhibitory (Glifloziny)</div>
+                  <p class="text-[11px] text-slate-300 mt-0.5">Dapagliflozin nebo Empagliflozin. Účinné u HFrEF i HFpEF, s diabetem i bez něj!</p>
+                </div>
+              </div>
+            `
+          }
+        ]
+      },
+      recall: {
+        scenarios: [
+          {
+            id: "hf-r1",
+            title: "Otázka 1: Záměna ACE inhibitoru za ARNI",
+            question: "Pacient s HFrEF stabilně užívá Ramipril 10 mg denně. Rozhodli jste se pro indikovaný přechod na Sacubitril/Valsartan (ARNI). Jak dlouhé musí být bezlékové okno (wash-out perioda) mezi poslední dávkou Ramiprilu a první tabletou ARNI?",
+            answer: "Alespoň 36 hodin. Současné či bezprostřední podání ACEi a ARNI vede k masivní akumulaci bradykininu a způsobuje život ohrožující angioedém.",
+            pearl: "U přechodu ze sartanů (ARB) na ARNI wash-out perioda není nutná, lék lze podat rovnou následující den."
           },
           {
-            "text": "C) Rychlý převod 1000 ml fyziologického roztoku k podpoře preloadu",
-            "isCorrect": false
-          },
-          {
-            "text": "D) Okamžité podání vysoké dávky i.v. betablokátoru k redukci tachykardie",
-            "isCorrect": false
+            id: "hf-r2",
+            title: "Otázka 2: Léčba HFpEF (Zachovaná ejekční frakce)",
+            question: "74letá pacientka s hypertenzí a obezitou má námahovou dušnost NYHA III, NT-proBNP 1400 pg/ml, na ECHO je EF LK 55 % a známky diastolické dysfunkce (HFpEF). Která léková skupina má dnes jednoznačný průkaz snížení KV mortality a hospitalizací pro HFpEF (Třída I)?",
+            answer: "SGLT2 inhibitory (Empagliflozin nebo Dapagliflozin). Na základě studií EMPEROR-Preserved a DELIVER jsou glifloziny základním lékem volby pro HFpEF.",
+            pearl: "Smyčková diuretika (furosemid) se přidávají symptomaticky k dosažení euvolemie."
           }
         ],
-        "explanation": "U hypertenzního plicního edému s teplou periférií je hlavní příčinou redistribuce tekutin do plic vlivem vysokého afterloadu. Léčbou volby je kombinace oxygenoterapie (při SpO2 < 90 %), i.v. vazodilatancií (nitroglycerin/izosorbid dinitrát) a i.v. kličkového diuretika (furosemid)."
-      }
-    },
-    "breakdown": {
-      "classThree": [
-        "Podání Sacubitril/Valsartanu (ARNI) dříve než 36 hodin po poslední dávce ACE inhibitoru (riziko život ohrožujícího angioedému).",
-        "Nasazování nebo navyšování dávky betablokátoru u pacientů v akutním těžce dekompenzovaném srdečním selhání.",
-        "Podávání nesteroidních antirevmatik (NSAID) a glitazonů (způsobují retenci sodíku a vody a dekompenzaci HF).",
-        "Podávání nondihydropyridinových BKK (Verapamil, Diltiazem) u HFrEF (mají negativně inotropní účinek a zhoršují prognózu).",
-        "Rutinní podávání perorálního železa při sideropenii u srdečního selhání (je neúčinné z důvodu hepcidinové blokády vstřebávání)."
-      ],
-      "mustKnow": [
-        "2026 ESC HF rozlišuje pouze 2 fenotypy: HFrEF (LVEF < 50 %) a HFpEF (LVEF ≥ 50 %). Fenotyp HFmrEF byl zrušen!",
-        "4 pilíře FMT pro HFrEF (LVEF < 50 %): ARNI/ACEi + Betablokátor (Bisoprolol/Metoprolol suc/Carvedilol/Nebivolol) + MRA (Spironolakton/Eplerenon) + SGLT2i (Dapagliflozin/Empagliflozin).",
-        "SGLT2 inhibitory a MRA jsou základem farmakoterapie pro obě skupiny (HFrEF i HFpEF).",
-        "i.v. železo (karboxymaltóza / derizomaltóza) je indikováno při feritinu < 100 μg/l nebo 100–299 s TSAT < 20 %.",
-        "ICD: Primární prevence při EF ≤ 35 % navzdory ≥ 3 měsícům FMT. CRT: LBBB + QRS ≥ 130–150 ms + EF ≤ 35 %."
-      ]
-    },
-    "guidelineLinks": [
-      {
-        "title": "2026 ESC Guidelines for the management of heart failure",
-        "year": 2026,
-        "journal": "European Heart Journal",
-        "doi": "10.1093/eurheartj/ehag100",
-        "url": "https://academic.oup.com/eurheartj/advance-article/doi/10.1093/eurheartj/ehag100/8766302"
-      }
-    ]
-  },
-  {
-    "id": "htn",
-    "number": 4,
-    "title": "Arteriální hypertenze (2024 ESC Guidelines)",
-    "shortDesc": "Nová kategorie zvýšeného TK (Elevated BP), přísnější cílové hodnoty 120–129 mmHg, fixní dvoj- a trojkombinace v 1 tabletě, renální denervace a sekundární hypertenze.",
-    "icon": "🩺",
-    "badge": "2024 ESC Guidelines",
-    "badgeColor": "amber",
-    "theory": {
-      "banner": {
-        "tag": "Zásadní změny v ESC 2024 Guidelines",
-        "title": "Kategorie 'Zvýšený TK' a sjednocený cílový systolický tlak 120–129 mmHg",
-        "text": "ESC 2024 nově zavádí 3 kategorie krevního tlaku: 1. **Nezvýšený TK (< 120/70 mmHg)**, 2. **Zvýšený TK (Elevated BP: 120–139 / 70–89 mmHg)** a 3. **Hypertenze (&ge; 140/90 mmHg)**. Cílový systolický tlak při léčbě je sjednocen na **120–129 mmHg** u naprosté většiny dospělých pacientů, pokud je léčba dobře tolerována."
+        quiz: {
+          title: "Kvíz: Léčba akutního srdečního selhání",
+          prompt: "U pacienta přijatého pro akutní plicní edém (vlhký a teplý profil: TK 175/100, tachypnoe, chrůpky do 1/2 plic, SpO2 88 %) je prioritním krokem v urgentní farmakoterapii:",
+          options: [
+            { text: "A) Kyslík (při SpO2 < 90 %), i.v. Furosemid v bolusu a i.v. Nitráty (vazodilatancia) ke snížení afterloadu a preloadu", isCorrect: true },
+            { text: "B) Okamžitá infuze Dobutaminu a Noradrenalinu", isCorrect: false },
+            { text: "C) Rychlý převod 1000 ml fyziologického roztoku", isCorrect: false },
+            { text: "D) Okamžité nasazení vysoké dávky beta-blokátoru i.v.", isCorrect: false }
+          ],
+          explanation: "U hypertenzního plicního edému ('warm and wet') je klíčové snížení plnících tlaků a afterloadu kombinací i.v. nitrátů (izosorbid dinitrát / nitroglycerin) a i.v. kličkového diuretika (furosemid) spolu s oxygenoterapií/NIV."
+        }
       },
-      "sections": [
-        {
-          "title": "1. Nová klasifikace TK dle ESC 2024",
-          "color": "amber",
-          "content": "\n                            <div class=\"grid md:grid-cols-3 gap-3 my-3 text-xs\">\n                                <div class=\"p-3 bg-emerald-950/30 border border-emerald-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-emerald-400\">1. Nezvýšený TK (Non-elevated)</span>\n                                    <p class=\"text-slate-300 mt-1\">TK <strong>&lt; 120/70 mmHg</strong>. Optimální hodnota s nejnižším kardiovaskulárním rizikem.</p>\n                                </div>\n                                <div class=\"p-3 bg-amber-950/30 border border-amber-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-amber-400\">2. Zvýšený TK (Elevated BP)</span>\n                                    <p class=\"text-slate-300 mt-1\">STK <strong>120–139 mmHg</strong> a/nebo DTK <strong>70–89 mmHg</strong>. Intervence životního stylu; farmakoterapie při vysokém KV riziku.</p>\n                                </div>\n                                <div class=\"p-3 bg-rose-950/30 border border-rose-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-rose-400\">3. Hypertenze (Hypertension)</span>\n                                    <p class=\"text-slate-300 mt-1\">STK <strong>&ge; 140 mmHg</strong> a/nebo DTK <strong>&ge; 90 mmHg</strong> v ordinaci (při ABPM ve dne &ge; 135/85 mmHg, v noci &ge; 120/70 mmHg).</p>\n                                </div>\n                            </div>\n                        "
-        },
-        {
-          "title": "2. Léčebný algoritmus: Fixní kombinace (Single-Pill Combination - SPC)",
-          "color": "emerald",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-slate-700 rounded-xl text-xs text-slate-300 leading-relaxed space-y-2.5\">\n                                <p><strong>Základní pravidlo ESC 2024:</strong> Zahájení léčby <strong>fixní dvojkombinací v jedné tabletě (SPC)</strong> je doporučeno pro naprostou většinu pacientů (Třída I).</p>\n                                <div class=\"grid sm:grid-cols-3 gap-3\">\n                                    <div class=\"p-2.5 bg-slate-800 rounded-lg border border-slate-600\">\n                                        <span class=\"font-bold text-amber-400\">Krok 1: Dvojkombinace (SPC)</span>\n                                        <p class=\"text-[11px] mt-1 text-slate-300\"><strong>ACEi nebo ARB + BKK</strong> (dihydropyridin) NEBO <strong>thiazidové/thiazid-like diuretikum</strong> (Indapamid/Chlortalidon).</p>\n                                    </div>\n                                    <div class=\"p-2.5 bg-slate-800 rounded-lg border border-slate-600\">\n                                        <span class=\"font-bold text-amber-400\">Krok 2: Trojkombinace (SPC)</span>\n                                        <p class=\"text-[11px] mt-1 text-slate-300\"><strong>ACEi/ARB + BKK + Thiazid/thiazid-like diuretikum</strong> v 1 tabletě (A + C + D).</p>\n                                    </div>\n                                    <div class=\"p-2.5 bg-slate-800 rounded-lg border border-slate-600\">\n                                        <span class=\"font-bold text-amber-400\">Krok 3: Rezistentní hypertenze</span>\n                                        <p class=\"text-[11px] mt-1 text-slate-300\">Trojkombinace + <strong>Spironolakton</strong> (25–50 mg) nebo Eplerenon / Amilorid / Betablokátor.</p>\n                                    </div>\n                                </div>\n                                <p class=\"text-slate-400 text-[11px]\"><em>Renální denervace (RDN):</em> ESC 2024 přiznává katetrové renální denervaci doporučení Třídy IIa/IIb jako doplňkové metodě u ověřené rezistentní hypertenze.</p>\n                            </div>\n                        "
-        },
-        {
-          "title": "3. Sekundární arteriální hypertenze (Screening & Diagnostika)",
-          "color": "rose",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-rose-500/30 rounded-xl text-xs text-slate-300 space-y-2\">\n                                <p class=\"font-bold text-rose-400\">Kdy aktivně pátrat po sekundární hypertenzi?</p>\n                                <ul class=\"list-disc ml-5 space-y-1\">\n                                    <li><strong>Mladý věk (&lt; 35 let)</strong> nebo náhlý nástup těžké hypertenze.</li>\n                                    <li><strong>Rezistentní hypertenze:</strong> Nekontrolovaný TK navzdory trojkombinaci antihypertenziv v maximálních tolerovaných dávkách včetně diuretika.</li>\n                                    <li><strong>Primární hyperaldosteronismus (Connův syndrom):</strong> Hypokalémie (spontánní či po nízké dávce diuretika). Screening: <strong>poměr aldosteron/renin (ARR)</strong> nalačno po vysazení MRA na 4–6 týdnů.</li>\n                                    <li><strong>Renovaskulární hypertenze:</strong> Aterosklerotická stenóza renální tepny u starších kuřáků nebo <em>fibromuskulární dysplazie (FMD)</em> u mladých žen. Diagnostika: Duplexní sono, CT/MR angiografie renálních tepen.</li>\n                                    <li><strong>Feochromocytom:</strong> Paroxysmální hypertenze s klasickou triádou (bolesti hlavy, profúzní pocení, palpitace). Screening: plazmatické nebo močové <em>volné frakcionované metanefriny</em>.</li>\n                                    <li><strong>Syndrom obstrukční spánkové apnoe (OSAS):</strong> Chrápání, denní spavost, non-dipper profil na ABPM. Nejčastější sekundární příčina!</li>\n                                </ul>\n                            </div>\n                        "
-        }
-      ]
+      breakdown: {
+        classThree: [
+          "Podání ARNI do 36 hodin od poslední dávky ACE inhibitoru (riziko angioedému).",
+          "Zahajování nebo navyšování betablokátoru během akutní těžké dekompenzace srdečního selhání.",
+          "Podávání nesteroidních antiflogistik (NSAID) a glitazonů (zhoršují retenci tekutin a dekompenzují HF).",
+          "Podávání nondihydropyridinových BKK (verapamil, diltiazem) u HFrEF (negativně inotropní efekt)."
+        ],
+        mustKnow: [
+          "FMT 4 pilíře: ARNI/ACEi + Betablokátor + MRA + SGLT2i. Každý pacient s HFrEF má mít všechny čtyři.",
+          "Diuretika nemají vliv na dlouhodobou mortalitu, ale jsou nezbytná k udržení euvolemie.",
+          "ICD (implantabilní kardioverter-defibrilátor) je indikován v primární prevenci u symptomatických pacientů (NYHA II–III) s EF ≤ 35 % navzdory ≥ 3 měsícům optimální farmakoterapie."
+        ]
+      }
     },
-    "recall": {
-      "scenarios": [
-        {
-          "id": "htn-r1",
-          "title": "Kazuistika 1: Podezření na Connův syndrom",
-          "question": "44letý muž s rezistentní hypertenzí (TK 168/104 mmHg na kombinaci Perindopril + Amlodipin + Indapamid) má při laboratorním screeningu kalémii 3,0 mmol/l. Jaký je iniciální screeningový test pro primární hyperaldosteronismus a jakou medikaci musíte před testem s předstihem vysadit?",
-          "answer": "Screeningovým testem volby je stanovení poměru plazmatického aldosteronu k plazmatické reninovové aktivitě/koncentraci (ARR = Aldosterone-to-Renin Ratio). Alespoň 4 týdny před odběrem je nutné vysadit antagonisty mineralokortikoidních receptorů (Spironolakton, Eplerenon) a kalium-šetřící diuretika, které falešně modulují osu RAAS.",
-          "pearl": "Normokalémie nevylučuje primární hyperaldosteronismus; až 50 % pacientů s Conn syndromem má normální hladinu draslíku."
-        },
-        {
-          "id": "htn-r2",
-          "title": "Kazuistika 2: Hypertenzní emergence vs. Urgence",
-          "question": "58letý muž přichází s TK 210/125 mmHg, silnou bolestí hlavy a rozostřeným viděním. Na očním pozadí jsou přítomny čerstvé plaménkovité hemoragie a edém papily. Jaký je rozdíl mezi hypertenzní emergencí a urgencí a jaký je cíl úvodního poklesu TK?",
-          "answer": "Jedná se o hypertenzní emergenci (maligní hypertenzi s akutním poškozením cílových orgánů - retinopatie/encefalopatie). Vyžaduje přijetí na JIP a kontinuální i.v. léčbu (např. Urapidil, Labetalol, Nitroprusid). Cílem je kontrolovaný pokles středního arteriálního tlaku (MAP) o maximálně 20–25 % během první hodiny, aby nedošlo k ischémii mozku, myokardu či ledvin.",
-          "pearl": "Jedinou výjimkou s nutností okamžitého radikálního poklesu STK pod 120 mmHg během 10–20 minut je akutní disekce aorty."
-        }
+{
+      id: "htn",
+      number: 4,
+      title: "Arteriální hypertenze (2024 ESC Guidelines)",
+      shortDesc: "Nová kategorie zvýšeného TK, cílové hodnoty 120–129 mmHg, fixní dvojkombinace v 1 tabletě a diagnostika sekundární hypertenze.",
+      icon: "🩺",
+      badge: "2024 ESC Guidelines",
+      badgeColor: "amber",
+            guidelineLinks: [
+        { title: "2024 ESC Guidelines for the Management of Elevated Blood Pressure and Hypertension", url: "https://academic.oup.com/eurheartj/article/45/39/3912/7741355", year: "2024" }
       ],
-      "quiz": {
-        "title": "Rozhodovací kvíz: Kontraindikované kombinace antihypertenziv",
-        "prompt": "Která z následujících kombinací léků je v guidelines ESC přísně ZAKÁZÁNA (kontraindikována - Třída III)?",
-        "options": [
+theory: {
+        banner: {
+          tag: "Nová klasifikace (2024 ESC)",
+          title: "Nová kategorie Zvýšeného TK (120–139 mmHg) & Cílový STK 120–129 mmHg 'Zvýšený krevní tlak'",
+          text: "ESC 2024 zavádí 3 kategorie krevního tlaku: 1. **Neklasifikovaný / Normální TK (< 120/70 mmHg)**, 2. **Zvýšený TK (Elevated BP: 120–139 / 70–89 mmHg)** a 3. **Hypertenze (≥ 140/90 mmHg)**. Cílový systolický tlak pro většinu dospělých léčených pacientů je nově sjednocen na **120–129 mmHg** (pokud je dobře tolerován)."
+        },
+        sections: [
           {
-            "text": "A) Současné podávání ACE inhibitoru (např. Ramipril) a Sartanu (např. Telmisartan) nebo inhibitoru reninu",
-            "isCorrect": true
+            title: "Strategie zahájení léčby: Fixní kombinace (Single-Pill Combination)",
+            color: "amber",
+            content: `
+              <div class="p-4 bg-slate-900 border border-slate-700 rounded-xl text-xs text-slate-300 leading-relaxed">
+                <p class="mb-2"><strong>Základní pravidlo 2024:</strong> Zahájení léčby hypertenze <strong>dvojkombinací v jedné tabletě (SPC)</strong> je doporučeno pro naprostou většinu pacientů (Třída I).</p>
+                <div class="grid sm:grid-cols-3 gap-3 my-3">
+                  <div class="p-2.5 bg-slate-800 rounded-lg border border-slate-600">
+                    <span class="font-bold text-amber-400">Krok 1: Dvojkombinace (SPC)</span>
+                    <p class="text-[11px] mt-1 text-slate-300">ACEi nebo ARB + BKK (dihydropyridin) NEBO thiazidové/thiazid-like diuretikum.</p>
+                  </div>
+                  <div class="p-2.5 bg-slate-800 rounded-lg border border-slate-600">
+                    <span class="font-bold text-amber-400">Krok 2: Trojkombinace (SPC)</span>
+                    <p class="text-[11px] mt-1 text-slate-300">ACEi/ARB + BKK + Thiazidové/thiazid-like diuretikum v 1 tabletě.</p>
+                  </div>
+                  <div class="p-2.5 bg-slate-800 rounded-lg border border-slate-600">
+                    <span class="font-bold text-amber-400">Krok 3: Rezistentní HT</span>
+                    <p class="text-[11px] mt-1 text-slate-300">Trojkombinace + Spironolakton (25–50 mg) nebo betablokátor/centrální látka.</p>
+                  </div>
+                </div>
+                <p class="text-slate-400">Monoterapie je vyhrazena pouze pro křehké geriatrické pacienty nebo nízkorizikovou mírnou hypertenzi (TK &lt; 150/95 mmHg).</p>
+              </div>
+            `
           },
           {
-            "text": "B) ACE inhibitor + Blokátor vápníkových kanálů (Amlodipin)",
-            "isCorrect": false
+            title: "Sekundární arteriální hypertenze (Kdy pátrat?)",
+            color: "rose",
+            content: `
+              <ul class="list-disc ml-5 text-xs text-slate-300 space-y-1.5">
+                <li><strong>Mladý věk (&lt; 35 let)</strong> nebo náhlý vznik těžké hypertenze.</li>
+                <li><strong>Rezistentní hypertenze</strong> (neuspokojivý TK navzdory trojkombinaci v plných dávkách vč. diuretika).</li>
+                <li><strong>Hypokalémie</strong> (spontánní nebo po nízkých dávkách diuretik) -> podezření na <em>primární hyperaldosteronismus (Connův syndrom)</em> -> vyšetření poměru aldosteron/renin (ARR).</li>
+                <li><strong>Asymetrie ledvin / šelest nad renálními tepnami</strong> -> <em>renovaskulární hypertenze</em> (ateroskleróza u starších, fibromuskulární dysplazie u mladých žen).</li>
+                <li><strong>Záchvatovitá hypertenze s triádou (bolest hlavy, pocení, palpitace)</strong> -> <em>feochromocytom</em> (plazmatické/močové metanefriny).</li>
+                <li><strong>Syndrom spánkové apnoe (OSAS)</strong> – nejčastější sekundární příčina!</li>
+              </ul>
+            `
+          }
+        ]
+      },
+      recall: {
+        scenarios: [
+          {
+            id: "htn-r1",
+            title: "Otázka 1: Diagnostika primárního hyperaldosteronismu",
+            question: "42letý pacient s refrakterní hypertenzí (TK 165/105 na trojkombinaci) má v krevním obraze kalémii 3,1 mmol/l. Jaký je iniciální screeningový test pro podezření na Connův syndrom a jaké léky musíte před testem vysadit?",
+            answer: "Stanovení poměru plazmatického aldosteronu k plazmatické reninovové aktivitě / koncentraci (ARR = Aldosterone-to-Renin Ratio). Alespoň 4 týdny předem je nutné vysadit antagonisty mineralokortikoidních receptorů (Spironolakton, Eplerenon).",
+            pearl: "Pokud je ARR pozitivní, následuje konfirmační test (např. zátěžový test fyziologickým roztokem) a CT nadledvin."
           },
           {
-            "text": "C) Sartan + Thiazid-like diuretikum (Indapamid)",
-            "isCorrect": false
-          },
-          {
-            "text": "D) Trojkombinace ACEi + BKK + Spironolakton",
-            "isCorrect": false
+            id: "htn-r2",
+            title: "Otázka 2: Hypertenzní krize – Emergence vs Urgence",
+            question: "Jaký je zásadní rozdíl mezi hypertenzní emergencí (emergency) a hypertenzní urgencí (urgency) a jak se liší jejich léčba?",
+            answer: "Hypertenzní emergence je těžká elevace TK (obvykle > 180/120 mmHg) PROVÁZENÁ akutním progredujícím poškozením cílových orgánů (např. akutní plicní edém, aortální disekce, eklampsie, encefalopatie). Vyžaduje hospitalizaci na JIP a parenterální (i.v.) léčbu s řízeným poklesem TK. Hypertenzní urgence orgánové poškození nemá a léčí se perorálně v ambulantním režimu.",
+            pearl: "Při hypertenzní emergenci (vyjma aortální disekce) nesmí tlak v první hodině klesnout o více než 25 %, aby nedošlo k ischémii mozku či ledvin."
           }
         ],
-        "explanation": "Duální blokáda RAAS (kombinace ACEi + ARB nebo přímého inhibitoru reninu aliskirenu) je v ESC guidelines striktně kontraindikována (Třída III). Velké studie (ONTARGET, ALTITUDE) prokázaly, že duální blokáda nepřináší žádný KV benefit, ale dramaticky zvyšuje riziko těžké hypotenze, hyperkalémie a akutního renálního selhání."
-      }
-    },
-    "breakdown": {
-      "classThree": [
-        "Současná kombinace dvou různých blokátorů systému RAAS (ACE inhibitor + sartan / přímý inhibitor reninu).",
-        "Předepisování betablokátorů jako rutinní lék 1. volby pro nekomplikovanou esenciální hypertenzi (s výjimkou specifických indikací jako ICHS, arytmie, HF či těhotenství).",
-        "Příliš prudký pokles krevního tlaku u akutního ischemického iktu, pokud pacient není indikován k systémové trombolýze.",
-        "Podávání krátkodobě působícího nifedipinu pod jazyk při hypertenzní krizi (nekontrolovaný prudký pokles TK s rizikem infarktu a CMP)."
-      ],
-      "mustKnow": [
-        "Nové kategorie 2024: Nezvýšený (&lt; 120/70), Zvýšený TK (120–139 / 70–89), Hypertenze (&ge; 140/90 mmHg).",
-        "Cílový TK při léčbě: Systolický TK 120–129 mmHg a diastolický 70–79 mmHg pro většinu pacientů.",
-        "Základ terapie: Fixní dvojkombinace (Single-Pill Combination: ACEi/ARB + BKK nebo diuretikum).",
-        "Rezistentní hypertenze: Trojkombinace v plných dávkách vč. diuretika + přidání Spironolaktonu 25–50 mg.",
-        "Hypertenzní emergence: i.v. titrovaná léčba (Urapidil, Labetalol) s poklesem MAP o max. 25 % v 1. hodině."
-      ]
-    },
-    "guidelineLinks": [
-      {
-        "title": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension",
-        "year": 2024,
-        "journal": "European Heart Journal",
-        "doi": "10.1093/eurheartj/ehae178",
-        "url": "https://academic.oup.com/eurheartj/article/45/38/3912/7741010"
-      }
-    ]
-  },
-  {
-    "id": "afib",
-    "number": 5,
-    "title": "Fibrilace a flutter síní (2024 ESC Guidelines)",
-    "shortDesc": "Nový AF-CARE management rámec, CHA2DS2-VA skóre, indikace NOAC, časná kontrola rytmu vs. frekvence a katetrová ablace plicních žil (PVI).",
-    "icon": "⚡",
-    "badge": "2024 ESC Guidelines",
-    "badgeColor": "purple",
-    "theory": {
-      "banner": {
-        "tag": "Nový integrovaný rámec (2024 ESC)",
-        "title": "AF-CARE: Komplexní péče o pacienta s fibrilací síní",
-        "text": "ESC 2024 nahrazuje starší schémata integrovaným přístupem **AF-CARE**: **C** (Comorbidity management - léčba komorbidit a rizikových faktorů), **A** (Avoid stroke - antikoagulace dle skóre CHA2DS2-VA), **R** (Rate & Rhythm control - časná rytmizace a katetrová ablace) a **E** (Evaluation - dynamické přehodnocování). Zvýrazněn je význam časné katetrové ablace jako metody 1. volby!"
+        quiz: {
+          title: "Kvíz: Volba antihypertenziv",
+          prompt: "Která z následujících kombinací antihypertenziv je ZAKÁZANÁ (kontraindikovaná) kvůli vysokému riziku hyperkalémie, hypotenze a renálního selhání?",
+          options: [
+            { text: "A) Současné podávání ACE inhibitoru (např. Perindopril) a Sartanu (např. Telmisartan)", isCorrect: true },
+            { text: "B) ACE inhibitor + Blokátor kalciových kanálů", isCorrect: false },
+            { text: "C) Sartan + Indapamid", isCorrect: false },
+            { text: "D) Trojkombinace ACEi + BKK + Spironolakton", isCorrect: false }
+          ],
+          explanation: "Duální blokáda RAAS (kombinace ACEi + ARB nebo inhibitoru reninu) je v guidelines přísně kontraindikována (Třída III) na základě studií ONTARGET a ALTITUDE, protože signifikantně zvyšuje výskyt renálního selhání a hyperkalémie bez kardiovaskulárního benefitu."
+        }
       },
-      "sections": [
-        {
-          "title": "1. AF-CARE Rámec krok za krokem",
-          "color": "purple",
-          "content": "\n                            <div class=\"grid sm:grid-cols-2 gap-3 my-3 text-xs\">\n                                <div class=\"p-3 bg-slate-900 border border-purple-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-purple-400\">C: Comorbidities & Risk Factors</span>\n                                    <p class=\"text-slate-300 mt-1\">Léčba hypertenze, redukce hmotnosti při obezitě (cíl &ge; 10 % úbytek), kompenzace diabetu, léčba spánkové apnoe (CPAP) a eliminace alkoholu.</p>\n                                </div>\n                                <div class=\"p-3 bg-slate-900 border border-purple-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-purple-400\">A: Avoid stroke / Anticoagulation</span>\n                                    <p class=\"text-slate-300 mt-1\">Prevence CMP pomocí <strong>CHA2DS2-VA skóre</strong>. Preference přímých perorálních antikoagulancií (NOAC: Apixaban, Rivaroxaban, Dabigatran, Edoxaban) před Warfarinem.</p>\n                                </div>\n                                <div class=\"p-3 bg-slate-900 border border-purple-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-purple-400\">R: Rate and Rhythm Control</span>\n                                    <p class=\"text-slate-300 mt-1\">Kontrola frekvence (betablokátory, verapamil/diltiazem, digoxin) a <strong>časná kontrola rytmu</strong> (katetrizační ablace PVI, kardioverze, antiarytmika) pro zachování sinusového rytmu.</p>\n                                </div>\n                                <div class=\"p-3 bg-slate-900 border border-purple-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-purple-400\">E: Evaluation & Re-assessment</span>\n                                    <p class=\"text-slate-300 mt-1\">Pravidelné přehodnocování symptomů, kvality života, progrese arytmie a renálních/jaterních funkcí pro bezpečné dávkování NOAC.</p>\n                                </div>\n                            </div>\n                        "
-        },
-        {
-          "title": "2. Stratifikace rizika CMP: CHA2DS2-VA a Indikace NOAC",
-          "color": "cyan",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-cyan-500/30 rounded-xl text-xs text-slate-300 space-y-2\">\n                                <p><strong>CHA2DS2-VA skóre:</strong> C (Srdeční selhání = 1), H (Hypertenze = 1), A2 (Věk &ge; 75 let = <strong>2 body</strong>), D (Diabetes = 1), S2 (Předchozí CMP/TIA/tromboembolie = <strong>2 body</strong>), V (Vaskulární onemocnění = 1), A (Věk 65–74 let = 1).</p>\n                                <div class=\"p-2.5 bg-cyan-950/40 border border-cyan-500/30 rounded-lg\">\n                                    <span class=\"font-bold text-cyan-400\">Indikační pravidla pro perorální antikoagulaci (NOAC):</span>\n                                    <ul class=\"list-disc ml-5 mt-1 space-y-0.5 text-[11px]\">\n                                        <li><strong>Skóre &ge; 2 body:</strong> Antikoagulace jednoznačně <strong>DOPORUČENA (Třída I, Level A)</strong>.</li>\n                                        <li><strong>Skóre = 1 bod:</strong> Antikoagulace by měla být <strong>ZVAŽOVÁNA (Třída IIa, Level B)</strong>.</li>\n                                        <li><strong>Skóre = 0 bodů:</strong> Antikoagulace ani protidestičková léčba se <strong>NEDOPORUČUJE (Třída III)</strong>.</li>\n                                    </ul>\n                                </div>\n                                <p class=\"text-[11px] text-slate-400\"><em>Krvácivé riziko (HAS-BLED skóre):</em> Slouží k identifikaci a ovlivnění modifikovatelných rizikových faktorů krvácení, <strong>nikdy ne jako důvod k nepodání antikoagulace</strong>!</p>\n                            </div>\n                        "
-        },
-        {
-          "title": "3. Kontrola rytmu: Kardioverze, Ablace & Farmakoterapie",
-          "color": "rose",
-          "content": "\n                            <div class=\"space-y-2.5 text-xs text-slate-300\">\n                                <div class=\"p-3 bg-slate-900 border border-slate-700 rounded-xl\">\n                                    <span class=\"font-bold text-rose-400\">⚡ Elektrická vs. Farmakologická kardioverze</span>\n                                    <p class=\"mt-1\">\n                                        Při trvání FS &gt; 48 hodin (nebo neznámé délce) je kardioverze bezpečná pouze po <strong>&ge; 3 týdnech účinné antikoagulace (NOAC)</strong> NEBO po <strong>jícnové echokardiografii (TEE)</strong> vylučující trombus v oušku levé síně. Po kardioverzi musí antikoagulace pokračovat &ge; 4 týdny (při CHA2DS2-VA &ge; 1 trvale).\n                                    </p>\n                                </div>\n                                <div class=\"p-3 bg-slate-900 border border-emerald-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-emerald-400\">🔥 Katetrová ablace izolace plicních žil (PVI)</span>\n                                    <p class=\"mt-1\">\n                                        Dle ESC 2024 je katetrizační PVI ablace <strong>doporučena jako terapie 1. volby (Třída I)</strong> u symptomatické paroxysmální i perzistentní FS k redukci recidiv arytmie a zlepšení funkce LK, a u pacientů s FS a srdečním selháním se sníženou EF (studie CASTLE-AF).\n                                    </p>\n                                </div>\n                            </div>\n                        "
-        }
-      ]
+      breakdown: {
+        classThree: [
+          "Současná kombinace dvou blokátorů RAAS (ACE inhibitor + sartan / přímý inhibitor reninu).",
+          "Předepisování betablokátorů jako rutinní lék 1. volby pro nekomplikovanou esenciální hypertenzi (výjimkou je ICHS, arytmie, srdeční selhání).",
+          "Příliš prudký pokles TK u ischemické cévní mozkové příhody (pokud není indikována trombolýza)."
+        ],
+        mustKnow: [
+          "Cílový TK: 120–129 / 70–79 mmHg pro většinu pacientů.",
+          "Základní pilíř: Fixní dvojkombinace v 1 tabletě (Single-Pill Combination) již od začátku léčby.",
+          "Hypertenzní emergence: i.v. terapie (Urapidil, Labetalol, Nitroglycerin, Nitroprusid)."
+        ]
+      }
     },
-    "recall": {
-      "scenarios": [
-        {
-          "id": "af-r1",
-          "title": "Kazuistika 1: Antikoagulace po úspěšné ablaci",
-          "question": "66letý muž s hypertenzí a diabetem podstoupil úspěšnou radiofrekvenční ablaci plicních žil (PVI) pro paroxysmální fibrilaci síní. Při kontrole po 6 měsících je na 7denním EKG Holteru trvalý sinusový rytmus bez jediné epizody FS. Pacient žádá o vysazení Apixabanu. Jak rozhodnete?",
-          "answer": "Apixaban NEVYSADÍTE. Indikace dlouhodobé antikoagulace závisí výhradně na pacientově tromboembolickém riziku (CHA2DS2-VA = 3 body: věk 66 = 1, hypertenze = 1, DM = 1), nikoli na zdánlivém vymizení arytmie po ablaci. Až u 30 % pacientů se po ablaci vyskytují asymptomatické mikropavoučky FS, které nesou plné riziko kardioembolické CMP.",
-          "pearl": "Úspěšná ablace ani kardioverze neopravňuje k vysazení antikoagulace u pacientů s CHA2DS2-VA skóre &ge; 2 (muži) resp. &ge; 3 (ženy)."
-        },
-        {
-          "id": "af-r2",
-          "title": "Kazuistika 2: Fibrilace síní u syndromu WPW (FBI Tachykardie)",
-          "question": "26letý mladík je přivezen pro bušení srdce a synkopu. EKG: nepravidelná tachykardie se širokými bizarními QRS komplexy a frekvencí 240/min (Fast, Broad, Irregular - FBI pattern). O jakou arytmii jde a jaký lék je přísně kontraindikován?",
-          "answer": "Jedná se o preexcitovanou fibrilaci síní s antegrádním převodem přídatnou drahou (Kentovým svazkem) u WPW syndromu. Přísně kontraindikovány jsou léky blokující AV uzel (Adenosin, Verapamil, Diltiazem, Betablokátory, Digoxin)! Zablokování AV uzlu způsobí, že všechny vzruchy projdou nekontrolovaně přídatnou drahou přímo na komory s okamžitým přechodem do fibrilace komor. Lékem volby je urgentní elektrická kardioverze nebo i.v. Ibutilid.",
-          "pearl": "Mnemotechnika FBI = Fast, Broad, Irregular -> podezření na AF + WPW -> zákaz blokátorů AV uzlu, okamžitý výboj!"
-        }
+{
+      id: "afib",
+      number: 5,
+      title: "Fibrilace a flutter síní (2024 ESC Guidelines)",
+      shortDesc: "CARE strategie, CHA2DS2-VA skóre (odstranění ženského pohlaví), indikace NOAC, kontrola rytmu vs. frekvence a katetrizační ablace.",
+      icon: "⚡",
+      badge: "2024 ESC Guidelines",
+      badgeColor: "purple",
+            guidelineLinks: [
+        { title: "2024 ESC Guidelines for the Management of Atrial Fibrillation", url: "https://academic.oup.com/eurheartj/article/45/39/3314/7741354", year: "2024" }
       ],
-      "quiz": {
-        "title": "Rozhodovací kvíz: Farmakologická kardioverze",
-        "prompt": "60letý pacient s paroxysmální fibrilací síní trvající 6 hodin a známou těžkou ischemickou chorobou srdeční (po infarktu myokardu, LVEF 35 %) má být medikamentózně kardiovertován na sinusový rytmus. Který z léků je vhodný?",
-        "options": [
+theory: {
+        banner: {
+          tag: "2024 ESC Změna skórování",
+          title: "CARE strategie a zánik 'Sc' v CHA2DS2-VASc skóre",
+          text: "Guidelines 2024 zavádějí komplexní **CARE přístup** (Comorbidity management, Avoid stroke, Reduce symptoms, Evaluate). Klíčovou novinkou je úprava tromboembolického skóre na **CHA2DS2-VA** – ženské pohlaví (Sc) již není samostatným bodem, protože samotné pohlaví bez dalších KV rizikových faktorů nezvyšuje riziko CMP!"
+        },
+        sections: [
           {
-            "text": "A) Amiodaron i.v. infuze",
-            "isCorrect": true
+            title: "Indikace antikoagulační léčby (CHA2DS2-VA)",
+            color: "purple",
+            content: `
+              <div class="p-4 bg-slate-900 border border-slate-700 rounded-xl text-xs space-y-3">
+                <p class="text-slate-300"><strong>Kdy nasadit NOAC (Apixaban, Edoxaban, Rivaroxaban, Dabigatran):</strong></p>
+                <div class="grid sm:grid-cols-3 gap-3">
+                  <div class="p-3 bg-rose-950/40 border border-rose-500/30 rounded-lg">
+                    <span class="font-bold text-rose-400 text-sm">Skóre ≥ 2 body</span>
+                    <p class="text-slate-300 mt-1">Antikoagulace je <strong>JASNĚ INDIKOVÁNA (Třída I)</strong>.</p>
+                  </div>
+                  <div class="p-3 bg-amber-950/40 border border-amber-500/30 rounded-lg">
+                    <span class="font-bold text-amber-400 text-sm">Skóre = 1 bod</span>
+                    <p class="text-slate-300 mt-1">Antikoagulace <strong>MÁ BÝT ZVÁŽENA (Třída IIa)</strong>.</p>
+                  </div>
+                  <div class="p-3 bg-emerald-950/40 border border-emerald-500/30 rounded-lg">
+                    <span class="font-bold text-emerald-400 text-sm">Skóre = 0 bodů</span>
+                    <p class="text-slate-300 mt-1">Antikoagulace <strong>NENÍ INDIKOVÁNA (Třída III)</strong>.</p>
+                  </div>
+                </div>
+                <p class="text-slate-400">NOAC mají jednoznačnou přednost před Warfarinem (VKA) u všech non-valvulárních fibrilací síní.</p>
+              </div>
+            `
           },
           {
-            "text": "B) Flecainid i.v. bolus",
-            "isCorrect": false
+            title: "Kontrola rytmu vs. Kontrola frekvence & Katetrizační ablace",
+            color: "cyan",
+            content: `
+              <div class="grid md:grid-cols-2 gap-4 text-xs">
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <h4 class="font-bold text-cyan-400 mb-1">Kontrola frekvence (Rate Control)</h4>
+                  <p class="text-slate-300 leading-relaxed">
+                    Cílová klidová TF &lt; 100–110/min. Léky 1. volby: <strong>Betablokátory</strong> nebo nondihydropyridinové BKK (Verapamil/Diltiazem – pouze při zachované EF &gt; 40 %!). U srdečního selhání Digoxin.
+                  </p>
+                </div>
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <h4 class="font-bold text-cyan-400 mb-1">Katetrizační ablace (PVI)</h4>
+                  <p class="text-slate-300 leading-relaxed">
+                    Izolace plicních žil (PVI) je v roce 2024 doporučena jako <strong>léčba první volby (Třída I)</strong> u symptomatické paroxyzmální FS i před selháním antiarytmik, a zvláště u pacientů s FS a srdečním selháním (HFrEF)!
+                  </p>
+                </div>
+              </div>
+            `
+          }
+        ]
+      },
+      recall: {
+        scenarios: [
+          {
+            id: "af-r1",
+            title: "Otázka 1: Kdy je Warfarin stále nenahraditelný?",
+            question: "U kterých dvou specifických skupin pacientů s fibrilací síní jsou NOAC (přímá orální antikoagulancia) přísně kontraindikována a lékem volby zůstává Warfarin s cílovým INR?",
+            answer: "1. Pacienti s mechanickou srdeční chlopní. 2. Pacienti se středně těžkou až těžkou mitrální stenózou (typicky poreumatickou).",
+            pearl: "U biologických chlopní nebo po plastice chlopně jsou NOAC po počátečním hojení bezpečná."
           },
           {
-            "text": "C) Propafenon perorálně ('Pill in the pocket')",
-            "isCorrect": false
-          },
-          {
-            "text": "D) Verapamil i.v.",
-            "isCorrect": false
+            id: "af-r2",
+            title: "Otázka 2: Elektrická kardioverze a jícnová echokardiografie",
+            question: "Pacient přichází s palpitacemi trvajícími 4 dny. EKG potvrzuje fibrilaci síní s rychlou komorovou odpovědí. Antikoagulancia dosud neužíval. Chcete provést plánovanou elektrickou kardioverzi. Jaký je postup?",
+            answer: "Pokud arytmie trvá > 48 hodin a pacient nebyl řádně antikoagulován alespoň 3 týdny, je nutné PŘED kardioverzí provést transezofageální echokardiografii (TEE / TEECHO) k vyloučení trombu v oušku levé síně. Následně musí antikoagulace pokračovat minimálně 4 týdny po výkonu.",
+            pearl: "Při hemodynamické nestabilitě (šok, plicní edém) se provádí okamžitá emergentní kardioverze s bolusem heparinu bez čekání na TEE."
           }
         ],
-        "explanation": "U pacientů se strukturálním postižením srdce (ICHS, po prodělaném IM, hypertrofie LK či srdeční selhání s redukovanou EF) jsou antiarytmika třídy Ic (Flecainid, Propafenon) přísně kontraindikována pro vysoké riziko proarytmie a náhlé smrti (studie CAST). Lékem volby pro farmakologickou kardioverzi u strukturálního onemocnění srdce je Amiodaron i.v."
-      }
-    },
-    "breakdown": {
-      "classThree": [
-        "Podávání antiarytmik třídy Ic (Flecainid, Propafenon) pacientům se strukturálním postižením srdce, po IM nebo se srdečním selháním.",
-        "Podávání blokátorů AV uzlu (Adenosin, Verapamil, Diltiazem, Betablokátory, Digoxin) u preexcitované fibrilace síní s WPW syndromem (riziko fibrilace komor).",
-        "Podávání kyseliny acetylsalicylové (aspirinu) nebo duální protidestičkové léčby jako náhrady za NOAC pro prevenci CMP u fibrilace síní.",
-        "Vysazení antikoagulace po úspěšné katetrizační ablaci u pacientů s vysokým CHA2DS2-VA skóre.",
-        "Kardioverze fibrilace síní trvající &gt; 48 hodin bez předchozí &ge; 3týdenní účinné antikoagulace nebo bez vyloučení trombu jícnovou echokardiografií (TEE)."
-      ],
-      "mustKnow": [
-        "AF-CARE rámec: Comorbidities, Avoid stroke, Rate/Rhythm control, Evaluation.",
-        "CHA2DS2-VA skóre: &ge; 2 body indikace NOAC (Třída I), 1 bod zvážit NOAC (Třída IIa), 0 bodů bez OAC.",
-        "NOAC (Apixaban, Rivaroxaban, Dabigatran, Edoxaban) mají přednost před Warfarinem.",
-        "PVI katetrizační ablace je Třída I pro symptomatickou FS a FS se srdečním selháním.",
-        "FBI tachykardie (Fast, Broad, Irregular) = AF + WPW -> urgentní elektroimpulzoterapie (DC výboj)!"
-      ]
-    },
-    "guidelineLinks": [
-      {
-        "title": "2024 ESC Guidelines for the management of atrial fibrillation",
-        "year": 2024,
-        "journal": "European Heart Journal",
-        "doi": "10.1093/eurheartj/ehae176",
-        "url": "https://academic.oup.com/eurheartj/article/45/38/3314/7740997"
-      }
-    ]
-  },
-  {
-    "id": "arytmie",
-    "number": 6,
-    "title": "Supraventrikulární a komorové arytmie",
-    "shortDesc": "Diferenciální diagnostika úzkokomorových a širokokomorových tachykardií, AVNRT, AVRT/WPW, elektrická bouře, antiarytmika a katetrové ablace.",
-    "icon": "⚡",
-    "badge": "ESC Guidelines",
-    "badgeColor": "amber",
-    "theory": {
-      "banner": {
-        "tag": "Diferenciální diagnostika tachyarytmií",
-        "title": "Úzkokomorové (QRS < 120 ms) vs. Širokokomorové (QRS &ge; 120 ms) tachykardie",
-        "text": "Základním klinickým krokem je posouzení hemodynamické stability (hypotenze, synkopa, šok, plicní edém = okamžitá synchronizovaná elektrická kardioverze) a šíře komplexu QRS. Každá širokokomorová tachykardie musí být až do vyvrácení považována za **komorovou tachykardii (KT)**, neboť podání blokátorů AV uzlu u KT může způsobit fatální kolaps!"
+        quiz: {
+          title: "Kvíz: Antiarytmika u fibrilace síní",
+          prompt: "Které z následujících antiarytmik je BEZPEČNÉ k udržení sinusového rytmu u pacienta s fibrilací síní a těžkou dysfunkcí levé komory (EF LK 28 %)?",
+          options: [
+            { text: "A) Amiodaron", isCorrect: true },
+            { text: "B) Propafenon (Třída Ic)", isCorrect: false },
+            { text: "C) Flekainid (Třída Ic)", isCorrect: false },
+            { text: "D) Dronedaron", isCorrect: false }
+          ],
+          explanation: "Antiarytmika třídy Ic (Propafenon, Flekainid) i Dronedaron jsou u strukturálního postižení srdce a snížené EF LK přísně kontraindikována pro vysoké riziko proarytmie a úmrtí (studie CAST). U HFrEF je jediným bezpečným antiarytmicem Amiodaron."
+        }
       },
-      "sections": [
-        {
-          "title": "1. Paroxysmální SVT: AVNRT vs. AVRT vs. Síňová tachykardie",
-          "color": "amber",
-          "content": "\n                            <div class=\"grid md:grid-cols-3 gap-3 my-3 text-xs\">\n                                <div class=\"p-3 bg-slate-900 border border-slate-700 rounded-xl\">\n                                    <span class=\"font-bold text-amber-400\">1. AVNRT (Nodální re-entry)</span>\n                                    <p class=\"text-slate-300 mt-1\">Nejčastější SVT (60 %). Reentry v AV uzlu (rychlá a pomalá dráha). Na EKG: chybějící nebo retrográdní P schovaná v QRS (pseudo r' ve V1, pseudo s ve spodních svodech). RP interval &lt; 70 ms.</p>\n                                </div>\n                                <div class=\"p-3 bg-slate-900 border border-slate-700 rounded-xl\">\n                                    <span class=\"font-bold text-cyan-400\">2. AVRT (Ortodromní / WPW)</span>\n                                    <p class=\"text-slate-300 mt-1\">30 % SVT. Reentry přes přídatný Kentův svazek (antegrádně AV uzlem, retrográdně drahou). Úzký QRS, retrográdní vlna P je viditelná za QRS (v segmentu ST). RP &gt; 70 ms.</p>\n                                </div>\n                                <div class=\"p-3 bg-slate-900 border border-slate-700 rounded-xl\">\n                                    <span class=\"font-bold text-purple-400\">3. Síňová tachykardie (AT)</span>\n                                    <p class=\"text-slate-300 mt-1\">Ektopické ložisko v síni. EKG: abnormální morfologie vlny P s frekvencí 130–240/min, RP &gt; PR (tzv. long-RP tachykardie). Vagus ani adenosin ji obvykle nezruší, pouze odhalí P vlny.</p>\n                                </div>\n                            </div>\n                        "
-        },
-        {
-          "title": "2. Akutní management SVT: Vagus a Adenosin",
-          "color": "emerald",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-emerald-500/30 rounded-xl text-xs text-slate-300 space-y-2\">\n                                <p><strong>Krok 1: Vagové manévry (Modifikovaný Valsalva manévr dle studie REVERT):</strong> Pacient provádí usilovný výdech do stříkačky (tlak 40 mmHg) vsedě po dobu 15 s, následně je položen na záda s pasivním zvednutím dolních končetin o 45° na 15 s. Úspěšnost terminace stoupá ze 17 % na <strong>43 %</strong>!</p>\n                                <p><strong>Krok 2: Adenosin i.v. bolus:</strong> Rychlý i.v. bolus <strong>6 mg</strong> do velké kubitální žíly s okamžitým proplachem 20 ml fyziologického roztoku. Při neúspěchu eskalace na <strong>12 mg</strong>, případně <strong>18 mg</strong>. <em>Kontraindikace: těžké astma bronchiale!</em></p>\n                                <p><strong>Krok 3: Nondihydropyridinové BKK / Betablokátory:</strong> Verapamil 5–10 mg i.v. pomalu nebo Metoprolol 5 mg i.v.</p>\n                            </div>\n                        "
-        },
-        {
-          "title": "3. Komorové arytmie, Elektrická bouře & ICD",
-          "color": "rose",
-          "content": "\n                            <div class=\"space-y-2.5 text-xs text-slate-300\">\n                                <div class=\"p-3 bg-slate-900 border border-rose-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-rose-400\">🚨 Elektrická bouře (Electrical Storm)</span>\n                                    <p class=\"mt-1\">\n                                        Definována jako <strong>&ge; 3 samostatné epizody setrvalé KT/FK během 24 hodin</strong> vyžadující kardioverzi/defibrilaci. Urgentní protokol: hluboká sedace/analgosedace, i.v. neslektivní betablokátor (Esmolol / Propranolol) + i.v. Amiodaron, korekce kalémie/magnezémie, urgentní SKG k vyloučení ischémie a urgentní katetrová ablace KT či blokáda ganglion stellatum.\n                                    </p>\n                                </div>\n                                <div class=\"p-3 bg-slate-900 border border-slate-700 rounded-xl\">\n                                    <span class=\"font-bold text-cyan-400\">🛡️ Indikace ICD v sekundární prevenci</span>\n                                    <p class=\"mt-1\">\n                                        Implantace ICD je jednoznačně indikována (Třída I) u pacientů po přežité zástavě oběhu pro fibrilaci komor (FK) nebo po hemodynamicky nestabilní komorové tachykardii (KT), pokud nebyla vyvolána plně reverzibilní příčinou (např. akutní IM během prvních 48 hodin).\n                                    </p>\n                                </div>\n                            </div>\n                        "
-        }
-      ]
+      breakdown: {
+        classThree: [
+          "Podávání NOAC pacientům s mechanickou srdeční chlopní nebo významnou mitrální stenózou.",
+          "Podávání antiarytmik třídy Ic (Propafenon, Flekainid) pacientům po infarktu myokardu nebo s HFrEF.",
+          "Podávání Verapamilu nebo Diltiazemu pacientům s HFrEF (EF ≤ 40 %).",
+          "Podávání antiagregační monoterapie (Aspirin) k prevenci CMP u fibrilace síní (neúčinné a krvácivé)."
+        ],
+        mustKnow: [
+          "CHA2DS2-VA skóre: C (selhání 1b), H (hypertenze 1b), A2 (věk ≥75 2b), D (diabetes 1b), S2 (CMP/TIA 2b), V (vaskulární onemocnění 1b), A (věk 65–74 1b).",
+          "Pill-in-the-pocket strategie: Jednorázové užití Propafenonu (450–600 mg) u vybraných pacientů bez strukturálního onemocnění srdce.",
+          "Katetrizační ablace (PVI) má Třídu I doporučení u symptomatické FS i u FS se srdečním selháním."
+        ]
+      }
     },
-    "recall": {
-      "scenarios": [
-        {
-          "id": "ary-r1",
-          "title": "Kazuistika 1: Širokokomorová tachykardie nejasného původu",
-          "question": "62letý muž s anamnézou infarktu myokardu před 4 lety přichází na urgentní příjem s palpitacemi a TK 105/70 mmHg. EKG: pravidelná tachykardie s frekvencí 165/min, šíře QRS 150 ms s morfologií LBBB. Lékař zvažuje podat Verapamil i.v. k ověření, zda nejde o SVT s aberací. Je tento postup správný?",
-          "answer": "POSTUP JE CHYBNÝ A ŽIVOT OHROŽUJÍCÍ. U každé širokokomorové tachykardie u pacienta s anamnézou infarktu myokardu či strukturálního onemocnění srdce je pravděpodobnost komorové tachykardie (KT) vyšší než 90 %. Podání verapamilu u KT vede k vazodilataci, těžkému negativně inotropnímu účinku a okamžitému kardiogennímu kolapsu či fibrilaci komor. Lékem volby je Amiodaron i.v. nebo synchronizovaná elektrická kardioverze.",
-          "pearl": "Zlaté pravidlo urgentní kardiologie: Širokokomorová tachykardie je KT, dokud se neprokáže opak. Verapamil a diltiazem jsou u širokých QRS přísně zakázány!"
-        },
-        {
-          "id": "ary-r2",
-          "title": "Kazuistika 2: Torsades de Pointes a dlouhý QT interval",
-          "question": "55letá žena léčená sotalolem a ciprofloxacinem pro močovou infekci náhle opakovaně kolabuje. Monitor ukazuje polymorfní komorovou tachykardii s vřetenovitým stáčením osy QRS kolem izoelektrické linie (Torsades de Pointes) s výchozím QTc 560 ms. Jaká je okamžitá medikamentózní léčba volby?",
-          "answer": "Intravenózní podání síranu hořečnatého (Magnesium sulfuricum 2 g i.v. pomalým bolusem během 1–2 minut, případně s následnou kontinuální infuzí), okamžité vysazení všech léků prodlužujících QT interval, normalizace kalémie (k horní hranici 4,5–5,0 mmol/l) a zrychlení srdeční frekvence (temporary pacing nebo izoprenalin) k zabránění bradykardických spouštěčů.",
-          "pearl": "Magnezium i.v. je lékem první volby u Torsades de Pointes i při normální hladině hořčíku v séru!"
-        }
+{
+      id: "arytmie",
+      number: 6,
+      title: "Ostatní arytmie a převodní poruchy",
+      shortDesc: "Supraventrikulární tachykardie (AVNRT, AVRT/WPW), komorové tachykardie, AV blokády I.–III. stupně a raménkové blokády.",
+      icon: "⚡",
+      badge: "Kardiologie & EKG",
+      badgeColor: "blue",
+            guidelineLinks: [
+        { title: "2022 ESC Guidelines for the Management of Ventricular Arrhythmias and Prevention of SCD", url: "https://academic.oup.com/eurheartj/article/43/40/3997/6675633", year: "2022" },
+        { title: "2019 ESC Guidelines for the Management of Supraventricular Tachycardia", url: "https://academic.oup.com/eurheartj/article/41/7/655/5556821", year: "2019" }
       ],
-      "quiz": {
-        "title": "Rozhodovací kvíz: Brugada kritéria pro širokokomorové tachykardie",
-        "prompt": "Který z následujících EKG znaků jednoznačně POTVRZUJE diagnózu komorové tachykardie (KT) s téměř 100% specificitou?",
-        "options": [
+theory: {
+        banner: {
+          tag: "Diferenciální diagnostika",
+          title: "Tachykardie s úzkým vs. širokým QRS komplexem",
+          text: "Úzký QRS (&lt; 120 ms) = původ supraventrikulární (AVNRT, AVRT, fibrilace/flutter síní, sinusová tachykardie). Široký QRS (≥ 120 ms) = **v 80 % komorová tachykardie (KT)**, dokud se neprokáže opak! Nikdy nepodávejte verapamil na nejasnou tachykardii se širokým QRS!"
+        },
+        sections: [
           {
-            "text": "A) Přítomnost AV disociace (nezávislé vlny P disociované od širokých QRS komplexů) nebo fúzní/splynulé stahy (Fusion beats)",
-            "isCorrect": true
+            title: "Supraventrikulární tachykardie (SVT)",
+            color: "blue",
+            content: `
+              <div class="space-y-3 text-xs text-slate-300">
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <span class="font-bold text-blue-400">AVNRT (AV nodální reentry tachykardie)</span>
+                  <p class="mt-1">Nejčastější pravidelná SVT. Náhlý vznik a zánik (palpitace v krku - 'frog sign'). EKG: štíhlé QRS, vlna P skryta v QRS nebo těsně za ním (pseudo r' ve V1).</p>
+                  <p class="mt-1 text-slate-400"><strong>Léčba:</strong> Vagové manévry (modifikovaný Valsalva manévr), při neúspěchu <strong>i.v. Adenosin</strong> v rychlém bolusu (6 mg -> 12 mg). Kurativní: radiofrekvenční ablace pomalé dráhy.</p>
+                </div>
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <span class="font-bold text-blue-400">WPW syndrom (Wolff-Parkinson-White / AVRT)</span>
+                  <p class="mt-1">Přídatná Kentova dráha. EKG v klidu: krátký PQ (&lt; 120 ms), <strong>delta vlna</strong>, rozšířený QRS.</p>
+                  <p class="mt-1 text-rose-300"><strong>Pozor na fibrilaci síní u WPW (FBI tachykardie - Fast, Broad, Irregular):</strong> Převod přes přídatnou dráhu může dosáhnout frekvence &gt; 250–300/min a přejít do fibrilace komor! Blokátory AV uzlu (verapamil, digoxin, adenosin) jsou ZAKÁZÁNY! Lék volby: elektrická kardioverze nebo i.v. Ibutilid / prokainamid.</p>
+                </div>
+              </div>
+            `
           },
           {
-            "text": "B) Pravidelná frekvence 150/min",
-            "isCorrect": false
+            title: "Převodní poruchy (AV blokády & Raménková ramínka)",
+            color: "amber",
+            content: `
+              <div class="grid sm:grid-cols-2 gap-3 text-xs">
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <span class="font-bold text-amber-400">AV blokády</span>
+                  <ul class="list-disc ml-4 mt-1 text-slate-300 space-y-1">
+                    <li><strong>1. stupeň:</strong> PQ &gt; 200 ms, každé P je převedeno.</li>
+                    <li><strong>2. stupeň Mobitz I (Wenckebach):</strong> postupné prodlužování PQ až do vypadnutí QRS. Obvykle benigní v AV uzlu.</li>
+                    <li><strong>2. stupeň Mobitz II:</strong> konstantní PQ a náhlé vypadnutí QRS. Vysoce rizikové (pod AV uzlem) -> indikace ke kardiostimulátoru (PM)!</li>
+                    <li><strong>3. stupeň (kompletní):</strong> disociace síní a komor (PP pravidelné, RR pravidelné, nesouvisí). Indikace k trvalé kardiostimulaci!</li>
+                  </ul>
+                </div>
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <span class="font-bold text-amber-400">Raménkové blokády (LBBB vs RBBB)</span>
+                  <ul class="list-disc ml-4 mt-1 text-slate-300 space-y-1">
+                    <li><strong>LBBB (Blokáda levého raménka):</strong> QRS ≥ 120 ms, hluboké široké S ve V1–V2, široké vroubkované R (tvar M) ve V5–V6 a I, aVL. Maskuje infarktové změny! Nový LBBB při bolesti na hrudi = ekvivalent STEMI!</li>
+                    <li><strong>RBBB (Blokáda pravého raménka):</strong> QRS ≥ 120 ms, tvar rsR' (králičí ouška) ve V1–V2, široké S ve V5–V6. Často i u zdravých či při plicní embolii.</li>
+                  </ul>
+                </div>
+              </div>
+            `
+          }
+        ]
+      },
+      recall: {
+        scenarios: [
+          {
+            id: "ary-r1",
+            title: "Otázka 1: Zástava srdce a rytmy",
+            question: "Které 2 srdeční rytmy při srdeční zástavě jsou defibrilovatelné a které 2 jsou nedefibrilovatelné?",
+            answer: "Defibrilovatelné: 1. Fibrilace komor (FK), 2. Bezpulzová komorová tachykardie (pVT). Nedefibrilovatelné: 1. Asystolie, 2. Bezpulzová elektrická aktivita (PEA).",
+            pearl: "U defibrilovatelných rytmů se podává Adrenalin 1 mg i.v. až po 3. výboji (a dále po každém druhém cyklu) spolu s Amiodaronem 300 mg i.v."
           },
           {
-            "text": "C) Šíře QRS komplexu 125 ms",
-            "isCorrect": false
-          },
-          {
-            "text": "D) Pozitivní odpověď na masáž karotického sinu",
-            "isCorrect": false
+            id: "ary-r2",
+            title: "Otázka 2: Léčba akutní bradykardie",
+            question: "Pacient s akutním infarktem spodní stěny má bradykardii s TF 32/min, hypotenzi 70/40 mmHg a bledost. EKG ukazuje AV blokádu III. stupně. Jaký je okamžitý farmakologický krok první volby?",
+            answer: "Atropin 0,5 mg – 1,0 mg i.v. bolus (lze opakovat do max. dávky 3 mg). Pokud pacient nereaguje, okamžitě zahájit dočasnou transkutánní kardiostimulaci nebo infuzi isoprenalinu/adrenalinu a transportovat k zavedení dočasné transvenózní elektrostimulace.",
+            pearl: "U blokád v Hisově svazku (Mobitz II nebo infra-nodální bloky) Atropin často nepomůže a je nutná kardiostimulace."
           }
         ],
-        "explanation": "Průkaz atrioventrikulární (AV) disociace (kdy síně depolarizují nezávisle na komorách, což se projeví náhodnými P vlnami, splynulými stahy 'fusion beats' nebo zachycenými sinusovými stahy 'capture beats') je patognomickým znakem komorové tachykardie se specificitou blížící se 100 %."
+        quiz: {
+          title: "Kvíz: Torsades de Pointes",
+          prompt: "Pacientka užívající sotalol a ciprofloxacin má na EKG prodloužený korigovaný interval QTc = 560 ms a rozvíjí záchvat polymorfní komorové tachykardie typu Torsades de Pointes. Co je lékem první volby?",
+          options: [
+            { text: "A) Magnesium sulfát (Síran hořečnatý) 2g i.v. v pomalé injekci", isCorrect: true },
+            { text: "B) Amiodaron 300 mg i.v.", isCorrect: false },
+            { text: "C) Verapamil 5 mg i.v.", isCorrect: false },
+            { text: "D) Digoxin 0,5 mg i.v.", isCorrect: false }
+          ],
+          explanation: "Magnesium sulfát i.v. je lékem volby pro Torsades de Pointes asociované s dlouhým QT intervalem. Amiodaron je v této situaci přísně kontraindikován, protože sám dále prodlužuje interval QT a mohl by vyvolat fatální zástavu."
+        }
+      },
+      breakdown: {
+        classThree: [
+          "Podávání Verapamilu nebo Diltiazemu u nejasné tachykardie se širokým QRS komplexem (hrozí asystolie či kolaps při KT).",
+          "Podávání AV nodálních blokátorů (Adenosin, Verapamil, Digoxin, Betablokátory) při fibrilaci síní s preexcitací (WPW syndrom).",
+          "Podávání léků prodlužujících QT interval (Amiodaron, Sotalol, Makrolidy, Chinolony) při známém syndromu dlouhého QT (LQTS) nebo Torsades de Pointes."
+        ],
+        mustKnow: [
+          "Adenosin u AVNRT: Rychlý i.v. bolus s následným proplachem 20 ml fyziologického roztoku a zvednutím končetiny (krátký poločas &lt; 10 sekund).",
+          "Indikace k trvalému kardiostimulátoru: Symptomatická sinusová bradykardie, AV blokáda II. stupně typu Mobitz II, AV blokáda III. stupně, alternující raménková blokáda.",
+          "Nově vzniklý LBBB + klinika ischemické bolesti = indikace k okamžité katetrizaci jako STEMI."
+        ]
       }
     },
-    "breakdown": {
-      "classThree": [
-        "Podávání Verapamilu nebo Diltiazemu u širokokomorových tachykardií nejasného původu (riziko kardiogenního šoku a asystolie u KT).",
-        "Podávání blokátorů AV uzlu (Adenosin, Betablokátory, Verapamil, Digoxin) u preexcitované fibrilace síní (WPW).",
-        "Aplikace masáže karotického sinu u pacientů se šelestem nad karotidami nebo anamnézou TIA/CMP v posledních 6 měsících.",
-        "Podávání antiarytmik prodlužujících QT interval (např. Sotalol, Dronedaron) u pacientů s bazálním QTc &gt; 480 ms."
+{
+      id: "chlopne",
+      number: 7,
+      title: "Chlopenní vady",
+      shortDesc: "Aortální stenóza a regurgitace, mitrální stenóza a regurgitace, trikuspidální vady, TAVI vs. chirurgická náhrada.",
+      icon: "🚪",
+      badge: "Valvulární vady",
+      badgeColor: "rose",
+            guidelineLinks: [
+        { title: "2021 ESC/EACTS Guidelines for the Management of Valvular Heart Disease", url: "https://academic.oup.com/eurheartj/article/42/41/4293/6358463", year: "2021" }
       ],
-      "mustKnow": [
-        "Hemodynamická nestabilita při tachyarytmii = okamžitá synchronizovaná elektrická kardioverze!",
-        "SVT algoritmus: Modifikovaný Valsalva manévr -> Adenosin 6-12-18 mg i.v. rapid bolus.",
-        "Širokokomorová tachykardie (QRS &ge; 120 ms) = považuj vždy za KT, lékem volby je Amiodaron i.v.",
-        "Elektrická bouře: &ge; 3 epizody KT/FK za 24h -> sedace + i.v. betablokátor + i.v. amiodaron.",
-        "Torsades de Pointes (dlouhé QT): Lékem volby je Magnesium sulfuricum 2 g i.v."
-      ]
-    },
-    "guidelineLinks": [
-      {
-        "title": "2019 ESC Guidelines for the management of patients with supraventricular tachycardia",
-        "year": 2019,
-        "journal": "European Heart Journal",
-        "doi": "10.1093/eurheartj/ehz467",
-        "url": "https://academic.oup.com/eurheartj/article/41/5/655/5556821"
+theory: {
+        banner: {
+          tag: "Chlopenní kardiologie",
+          title: "Aortální stenóza jako nejčastější vada dospělých",
+          text: "Aortální stenóza (AS) je nejčastější chlopenní vadou v rozvinutých zemích (senilní kalcifikující nebo na vrozeně bikuspidální chlopni). Klasická triáda symptomů: **Dušnost, Angina pectoris, Synkopa**. Po nástupu symptomů bez operace prudce stoupá mortalita (medián přežití 2–3 roky)!"
+        },
+        sections: [
+          {
+            title: "Aortální stenóza (AS) & TAVI vs SAVR",
+            color: "rose",
+            content: `
+              <div class="p-4 bg-slate-900 border border-slate-700 rounded-xl text-xs space-y-3">
+                <div class="font-bold text-rose-400">Kritéria těžké aortální stenózy:</div>
+                <div class="grid sm:grid-cols-3 gap-2 text-slate-300">
+                  <div class="p-2 bg-slate-800 rounded">Plocha ústí (AVA): <strong>&lt; 1,0 cm²</strong> (nebo &lt; 0,6 cm²/m²)</div>
+                  <div class="p-2 bg-slate-800 rounded">Střední tlakový gradient (meanPG): <strong>≥ 40 mmHg</strong></div>
+                  <div class="p-2 bg-slate-800 rounded">Maximální rychlost (Vmax): <strong>≥ 4,0 m/s</strong></div>
+                </div>
+                <div class="mt-2 text-slate-300">
+                  <strong>Volba intervence:</strong>
+                  <ul class="list-disc ml-5 mt-1 space-y-1">
+                    <li><strong>TAVI (Transkatétrová implantace):</strong> Preferována u pacientů <strong>≥ 75 let</strong> nebo při vysokém chirurgickém riziku (STS/EuroSCORE).</li>
+                    <li><strong>SAVR (Chirurgická náhrada):</strong> Preferována u mladších pacientů <strong>&lt; 75 let</strong> s nízkým rizikem nebo při nutnosti současného CABG či operace aorty.</li>
+                  </ul>
+                </div>
+              </div>
+            `
+          },
+          {
+            title: "Přehled poslechových nálezů chlopenních vad",
+            color: "cyan",
+            content: `
+              <div class="grid sm:grid-cols-2 gap-3 text-xs">
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <span class="font-bold text-cyan-400">Aortální stenóza (AS)</span>
+                  <p class="text-slate-300 mt-1">Drsný ejekční systolický šelest v 2. mezižebří vpravo u sterna s propagací do karotid. Oslabená 2. ozva, pulsus tardus et parvus.</p>
+                </div>
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <span class="font-bold text-cyan-400">Aortální regurgitace (AR)</span>
+                  <p class="text-slate-300 mt-1">Časný diastolický decrescendo šelest ve 2. mezižebří vpravo a v Erbově bodě. Vysoký systolický a nízký diastolický tlak (velká tlaková amplituda, Corriganův mrštný puls).</p>
+                </div>
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <span class="font-bold text-emerald-400">Mitrální regurgitace (MR)</span>
+                  <p class="text-slate-300 mt-1">Holosystolický foukavý šelest na hrotu s propagací do levé axily. Zeslabená 1. ozva, často 3. ozva.</p>
+                </div>
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <span class="font-bold text-emerald-400">Mitrální stenóza (MS)</span>
+                  <p class="text-slate-300 mt-1">Akcentovaná 1. ozva na hrotu, opening snap (otevírací lupnutí mitrální chlopně) a nízkofrekvenční diastolický vír (rumble) s presystolickým zesílením.</p>
+                </div>
+              </div>
+            `
+          }
+        ]
       },
-      {
-        "title": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death",
-        "year": 2022,
-        "journal": "European Heart Journal",
-        "doi": "10.1093/eurheartj/ehac262",
-        "url": "https://academic.oup.com/eurheartj/article/43/40/3997/6675633"
-      }
-    ]
-  },
-  {
-    "id": "chlopne",
-    "number": 7,
-    "title": "Chlopenní vady a intervenční kardiologie",
-    "shortDesc": "Aortální stenóza (kritéria těžké AS, low-flow low-gradient), TAVI vs. SAVR rozhodovací algoritmus, mitrální regurgitace (primární vs. sekundární, TEER / MitraClip) a chlopenní protézy.",
-    "icon": "🚪",
-    "badge": "ESC/EACTS Guidelines",
-    "badgeColor": "rose",
-    "theory": {
-      "banner": {
-        "tag": "Moderní management chlopenních vad",
-        "title": "Heart Team, stratifikace těžké AS a miniinvazivní intervence (TAVI & TEER)",
-        "text": "Rozhodování o intervenci chlopenních vad dnes řídí multidisciplinární **Heart Team**. Katetrizační implantace aortální chlopně (**TAVI**) se stala dominantní metodou u pacientů ve věku &ge; 75 let nebo s vysokým operačním rizikem, zatímco transkatétrová 'edge-to-edge' plastika (**TEER / MitraClip**) přináší průlom v léčbě těžké sekundární mitrální regurgitace."
-      },
-      "sections": [
-        {
-          "title": "1. Aortální stenóza: Diagnostická kritéria & Klasifikace",
-          "color": "rose",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-slate-700 rounded-xl text-xs text-slate-300 space-y-2\">\n                                <p class=\"font-bold text-rose-400\">Echokardiografická triáda těžké aortální stenózy (High-Gradient AS):</p>\n                                <div class=\"grid sm:grid-cols-3 gap-2 text-[11px]\">\n                                    <div class=\"p-2 bg-rose-950/40 border border-rose-500/30 rounded-lg text-center\">\n                                        <div class=\"font-bold text-rose-400\">Plocha ústí (AVA)</div>\n                                        <div class=\"text-white font-mono mt-0.5\">&lt; 1,0 cm²</div>\n                                        <div class=\"text-slate-400 text-[10px]\">(index AVAi &lt; 0,6 cm²/m²)</div>\n                                    </div>\n                                    <div class=\"p-2 bg-rose-950/40 border border-rose-500/30 rounded-lg text-center\">\n                                        <div class=\"font-bold text-rose-400\">Střední gradient (Mean ΔP)</div>\n                                        <div class=\"text-white font-mono mt-0.5\">&ge; 40 mmHg</div>\n                                    </div>\n                                    <div class=\"p-2 bg-rose-950/40 border border-rose-500/30 rounded-lg text-center\">\n                                        <div class=\"font-bold text-rose-400\">Maximální rychlost (Vmax)</div>\n                                        <div class=\"text-white font-mono mt-0.5\">&ge; 4,0 m/s</div>\n                                    </div>\n                                </div>\n                                <p><strong>Low-Flow, Low-Gradient AS (Nízkoprůtoková AS s nízkým gradientem):</strong></p>\n                                <ul class=\"list-disc ml-5 space-y-1 text-[11px]\">\n                                    <li><em>Klasická (s redukovanou EF LK &lt; 50 %):</em> Vyžaduje <strong>nízkodávkový Dobutaminový zátěžový test (DSE)</strong> k odlišení skutečně těžké AS od 'pseudostenózy' a ověření kontraktilní rezervy.</li>\n                                    <li><em>Paradoxní (se zachovanou EF LK &ge; 50 %):</em> Typicky u starších hypertoniček s malou hypertrofickou komorou. Diagnózu potvrdí <strong>CT kalciové skóre aortální chlopně</strong> (Agatston skóre &gt; 3000 u mužů, &gt; 1600 u žen = těžká AS).</li>\n                                </ul>\n                            </div>\n                        "
-        },
-        {
-          "title": "2. Indikace intervence u AS: TAVI vs. Chirurgická náhrada (SAVR)",
-          "color": "amber",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-amber-500/30 rounded-xl text-xs text-slate-300 space-y-2\">\n                                <p><strong>Základní indikace:</strong> Všichni <strong>symptomatičtí pacienti s těžkou AS</strong> (triáda: angina, synkopa, dušnost) a asymptomatičtí pacienti s poklesem LVEF &lt; 50 % nebo patologickým zátěžovým testem (Třída I).</p>\n                                <div class=\"grid sm:grid-cols-2 gap-3 mt-2\">\n                                    <div class=\"p-2.5 bg-slate-800 border border-slate-600 rounded-lg\">\n                                        <span class=\"font-bold text-cyan-400\">TAVI (Katetrová implantace)</span>\n                                        <ul class=\"list-disc ml-4 mt-1 text-[11px] space-y-0.5\">\n                                            <li>Věk <strong>&ge; 75 let</strong>.</li>\n                                            <li>Vysoké chirurgické riziko (STS skóre / EuroSCORE II &gt; 8 %).</li>\n                                            <li>Přítomnost 'porcelánové aorty' nebo předchozí sternotomie.</li>\n                                            <li>Vhodný transfemorální cévní přístup.</li>\n                                        </ul>\n                                    </div>\n                                    <div class=\"p-2.5 bg-slate-800 border border-slate-600 rounded-lg\">\n                                        <span class=\"font-bold text-amber-400\">SAVR (Chirurgická náhrada)</span>\n                                        <ul class=\"list-disc ml-4 mt-1 text-[11px] space-y-0.5\">\n                                            <li>Věk <strong>&lt; 75 let</strong> a nízké riziko (STS &lt; 4 %).</li>\n                                            <li>Nutnost současného kardiochirurgického výkonu (CABG, operace aorty).</li>\n                                            <li>Bikuspidální aortální chlopně s rizikem dilatace ascendentní aorty.</li>\n                                        </ul>\n                                    </div>\n                                </div>\n                            </div>\n                        "
-        },
-        {
-          "title": "3. Mitrální regurgitace: Primární vs. Sekundární & TEER (MitraClip)",
-          "color": "cyan",
-          "content": "\n                            <div class=\"space-y-2.5 text-xs text-slate-300\">\n                                <div class=\"p-3 bg-slate-900 border border-slate-700 rounded-xl\">\n                                    <span class=\"font-bold text-cyan-400\">1. Primární (Degenerativní) Mitrální Regurgitace</span>\n                                    <p class=\"mt-1\">Postižení samotného aparátu chlopně (prolaps cípu, ruptura šlašinky, myxomatózní degenerace). <strong>Léčbou volby je kardiochirurgická plastika chlopně (Mitral Valve Repair)</strong>, která má přednost před náhradou.</p>\n                                </div>\n                                <div class=\"p-3 bg-slate-900 border border-emerald-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-emerald-400\">2. Sekundární (Funkční) Mitrální Regurgitace & TEER</span>\n                                    <p class=\"mt-1\">\n                                        Chlopenní cípy jsou strukturálně normální; regurgitace vzniká dilatací prstence a tetheringem cípů v důsledku remodelace LK při kardiomyopatii nebo po infarktu. Krok 1: Maximální optimalizace farmakoterapie HF (FMT) a CRT. Pokud těžká regurgitace přetrvává: <strong>Transkatétrová 'edge-to-edge' oprava (TEER / MitraClip)</strong> dle studie COAPT přináší dramatické snížení mortality a hospitalizací (Třída I/IIa).\n                                    </p>\n                                </div>\n                            </div>\n                        "
-        },
-        {
-          "title": "4. Antitrombotická léčba po náhradách chlopní",
-          "color": "purple",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-purple-500/30 rounded-xl text-xs text-slate-300 space-y-2\">\n                                <div class=\"p-2 bg-rose-950/40 border border-rose-500/40 rounded-lg\">\n                                    <span class=\"font-bold text-rose-400\">⚙️ Mechanická chlopenní protéza</span>\n                                    <p class=\"mt-0.5\">Doživotní antikoagulace <strong>Warfarinem (VKA)</strong>. <strong>NOAC jsou u mechanických chlopní přísně ZAKÁZÁNY (Třída III)</strong> dle studie RE-ALIGN! Cílové INR: <strong>2,5–3,0</strong> pro mechanickou aortální chlopně bez rizika; <strong>3,0–3,5</strong> pro mitrální mechanickou protézu nebo při rizikových faktorech.</p>\n                                </div>\n                                <div class=\"p-2 bg-slate-800 rounded-lg border border-slate-700\">\n                                    <span class=\"font-bold text-cyan-400\">🌿 Biologická chlopenní protéza / TAVI</span>\n                                    <p class=\"mt-0.5\">Po chirurgické bio-protéze VKA nebo NOAC po dobu prvních 3 měsíců, dále Aspirin 100 mg denně. Po TAVI bez jiné indikace k OAC: celoživotní <strong>monoterapie Aspirinem</strong> (DAPT po TAVI zvyšuje krvácení bez benefitu).</p>\n                                </div>\n                            </div>\n                        "
-        }
-      ]
-    },
-    "recall": {
-      "scenarios": [
-        {
-          "id": "chl-r1",
-          "title": "Kazuistika 1: Volba antikoagulace u mechanické chlopně",
-          "question": "54letý pacient s implantovanou mechanickou mitrální protézou přichází s žádostí o převedení z Warfarinu na moderní Apixaban (Eliquis) pro obtížné hlídání INR a časté odběry krve. Jaká je správná odpověď lékaře?",
-          "answer": "Převedení na NOAC (Apixaban, Rivaroxaban, Dabigatran, Edoxaban) je u mechanických chlopenních protéz PŘÍSNĚ ZAKÁZÁNO (ESC Třída III). Randomizovaná studie RE-ALIGN prokázala, že NOAC u mechanických chlopní selhávají a vedou k dramatickému vzestupu fatálních trombóz chlopně a embolických mozkových příhod ve srovnání s Warfarinem. Pacient musí trvale pokračovat ve Warfarinu s cílovým INR 3,0–3,5.",
-          "pearl": "Jedinou schválenou a účinnou antikoagulací pro mechanické chlopenní protézy je Warfarin (VKA)."
-        },
-        {
-          "id": "chl-r2",
-          "title": "Kazuistika 2: TAVI vs. SAVR u 78letého pacienta",
-          "question": "78letý aktivní senior je vyšetřován pro nově vzniklou námahovou dušnost a presynkopy. Na ECHO je plocha aortálního ústí AVA 0,7 cm², střední gradient 48 mmHg, Vmax 4,4 m/s (těžká AS), LVEF 55 %. CT angiografie prokazuje prostupné femorální tepny a příznivou anatomii aortálního kořene. Kterou intervenční metodu doporučí Heart Team?",
-          "answer": "Heart Team doporučí Transkatétrovou implantaci aortální chlopně transfemorálním přístupem (TAVI). Dle platných ESC/EACTS Guidelines je u pacientů ve věku &ge; 75 let s příznivou anatomií transfemorálního přístupu TAVI preferovanou metodou volby (Třída I, Level A) před klasickou chirurgickou operací (SAVR).",
-          "pearl": "TAVI nabízí srovnatelnou až nižší perioperační mortalitu, výrazně kratší dobu rekonvalescence a vyhnutí se mimotělnímu oběhu a sternotomii."
-        }
-      ],
-      "quiz": {
-        "title": "Rozhodovací kvíz: Klasická vs. Paradoxní Low-Flow Low-Gradient AS",
-        "prompt": "U pacienta s podezřením na těžkou aortální stenózu naměříte plochu ústí AVA 0,8 cm², ale střední gradient je pouze 28 mmHg a ejekční frakce LK je 30 %. Které vyšetření je klíčové k rozlišení skutečně těžké AS od pseudostenózy?",
-        "options": [
+      recall: {
+        scenarios: [
           {
-            "text": "A) Nízkodávková dobutaminová zátěžová echokardiografie (DSE)",
-            "isCorrect": true
+            id: "chl-r1",
+            title: "Otázka 1: Mechanická vs. Biologická chlopeň",
+            question: "Mladý 34letý muž podstupuje náhradu aortální chlopně. Byla mu implantována mechanická protéza. Jaká je celoživotní antitrombotická terapie a jaké je cílové INR?",
+            answer: "Celoživotní antikoagulace Warfarinem s cílovým INR 2,0–3,0 (pro aortální pozici bez dalších rizik) nebo 2,5–3,5 (pro mitrální pozici nebo při rizikových faktorech). NOAC jsou přísně kontraindikována!",
+            pearl: "Biologická chlopeň nevyžaduje celoživotní antikoagulaci (pouze 3–6 měsíců po operaci), ale má omezenou životnost (10–15 let)."
           },
           {
-            "text": "B) Zátěžové EKG na bicyklovém ergometru",
-            "isCorrect": false
-          },
-          {
-            "text": "C) Magnetická rezonance srdce",
-            "isCorrect": false
-          },
-          {
-            "text": "D) Okamžitá pravostranná srdeční katetrizace",
-            "isCorrect": false
+            id: "chl-r2",
+            title: "Otázka 2: Těžká asymptomatická aortální stenóza",
+            question: "68letý muž má na echokardiografii těžkou aortální stenózu (AVA 0,7 cm², meanPG 48 mmHg), ale tvrdí, že nemá žádné potíže. Jakým vyšetřením objektivizujete jeho asymptomatičnost a indikaci k operaci?",
+            answer: "Bicyklová ergometrie / zátěžový test. Pokud se při zátěži objeví symptomy (dušnost, bolest na hrudi, závrať) nebo pokles krevního tlaku pod výchozí hodnotu, pacient je považován za symptomatického a je indikován k náhradě chlopně (Třída I).",
+            pearl: "Zátěžový test je u již symptomatické těžké AS přísně kontraindikován!"
           }
         ],
-        "explanation": "Při klasické Low-Flow Low-Gradient aortální stenóze (redukovaná EF LK < 50 %, indexovaný tepový objem SVi < 35 ml/m²) slabé srdce nedokáže vygenerovat dostatečný tlakový gradient. Nízkodávkový Dobutaminový test (DSE) zvýší kontraktilitu LK: pokud plocha AVA zůstane < 1,0 cm² a gradient stoupne > 40 mmHg, jde o skutečně těžkou AS. Pokud se plocha AVA rozšíří > 1,0 cm², šlo o pseudostenózu."
-      }
-    },
-    "breakdown": {
-      "classThree": [
-        "Podávání NOAC (přímých perorálních antikoagulancií) pacientům s mechanickou chlopenní protézou (Třída III).",
-        "Provádění zátěžového testu (ergometrie) u symptomatických pacientů s těžkou aortální stenózou (riziko synkopy a zástavy srdce).",
-        "Odkládání chirurgické či katetrové intervence u pacientů se symptomatickou těžkou aortální stenózou (roční mortalita neléčené symptomatické AS přesahuje 50 %).",
-        "Rutinní podávání duální protidestičkové léčby (DAPT) po TAVI bez jiné indikace (zvyšuje krvácení bez redukce ischemie)."
-      ],
-      "mustKnow": [
-        "Kritéria těžké AS: AVA &lt; 1,0 cm² (AVAi &lt; 0,6 cm²/m²), Mean gradient &ge; 40 mmHg, Vmax &ge; 4,0 m/s.",
-        "Symptomatická triáda AS: Stenokardie, synkopa, dušnost (při vzniku symptomů prudký nárůst mortality).",
-        "TAVI vs. SAVR: Věk &ge; 75 let a transfemorální přístup -> TAVI; Věk &lt; 75 let a nízké riziko -> SAVR.",
-        "Mechanická protéza = pouze Warfarin (INR 2,5–3,5 dle pozice chlopně). NOAC jsou kontraindikovány!",
-        "Sekundární mitrální regurgitace: FMT + CRT -> při refrakteritě TEER (MitraClip dle studie COAPT)."
-      ]
-    },
-    "guidelineLinks": [
-      {
-        "title": "2021 ESC/EACTS Guidelines for the management of valvular heart disease",
-        "year": 2021,
-        "journal": "European Heart Journal",
-        "doi": "10.1093/eurheartj/ehab395",
-        "url": "https://academic.oup.com/eurheartj/article/43/7/561/6358479"
-      }
-    ]
-  },
-  {
-    "id": "kmp",
-    "number": 8,
-    "title": "Kardiomyopatie a myokarditidy (2023 ESC Guidelines)",
-    "shortDesc": "Fenotypový přístup, Hypertrofická kardiomyopatie (HCM) a léčba Mavacamtenem, Dilatační (DCM), Arytmogenní (ARVC), Srdeční amyloidóza (ATTR vs. AL) a Kardio MR u myokarditid.",
-    "icon": "🧬",
-    "badge": "2023 ESC Guidelines",
-    "badgeColor": "cyan",
-    "theory": {
-      "banner": {
-        "tag": "Nový fenotypový a genetický přístup (2023 ESC)",
-        "title": "Kardiomyopatie: Od morfologie k cílené molekulární léčbě",
-        "text": "Guidelines ESC 2023 zavádějí fenotypovou klasifikaci: HCM, DCM, NDLVC (Non-dilated LV cardiomyopathy), ARVC a RCM. Klíčovým pilířem je časné **genetické testování a kaskádový rodinný screening**, spolu s nasazením revolučních cílených léků: **Mavacamten** pro obstrukční HCM a **Tafamidis** pro transthyretinovou amyloidózu srdce (ATTR)."
+        quiz: {
+          title: "Kvíz: Akutní aortální regurgitace",
+          prompt: "U pacienta s akutní těžkou aortální regurgitací (např. při disekci aorty typu A nebo infekční endokarditidě) je přísně KONTRAINDIKOVÁNO použití:",
+          options: [
+            { text: "A) Intraaortální balonkové kontrapulzace (IABP)", isCorrect: true },
+            { text: "B) Vazodilatancií (Nitroprusid)", isCorrect: false },
+            { text: "C) Chirurgické náhrady chlopně", isCorrect: false },
+            { text: "D) Diuretik při plicním městnání", isCorrect: false }
+          ],
+          explanation: "Intraaortální balonková kontrapulpace (IABP) se nafukuje v diastole. Při nedomykavosti aortální chlopně by nafouknutí balonku v diastole dramaticky zhoršilo regurgitační proud zpět do levé komory a způsobilo fatální přetížení LK a plicní edém."
+        }
       },
-      "sections": [
-        {
-          "title": "1. Hypertrofická kardiomyopatie (HCM) & Obstrukce výtokového traktu (LVOT)",
-          "color": "cyan",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-slate-700 rounded-xl text-xs text-slate-300 space-y-2\">\n                                <p><strong>Definice HCM:</strong> Tloušťka stěny levé komory v kterémkoli segmentu <strong>&ge; 15 mm</strong> (nebo <strong>&ge; 13 mm</strong> při pozitivní rodinné anamnéze), kterou nelze vysvětlit pouze abnormálními podmínkami plnění (hypertenze, aortální stenóza). Nejčastěji mutace genů sarkomery (MYBPC3, MYH7).</p>\n                                <p><strong>Obstrukční HCM (oHCM):</strong> Gradient ve výtokovém traktu levé komory (LVOT) v klidu nebo při provokaci (Valsalva) <strong>&ge; 30 mmHg</strong> (hemodynamicky významný při &ge; 50 mmHg). Způsoben asymetrickou hypertrofií septa a systolickým dopředným pohybem mitrální chlopně (SAM fenomén).</p>\n                                <div class=\"p-2.5 bg-cyan-950/40 border border-cyan-500/30 rounded-lg\">\n                                    <span class=\"font-bold text-cyan-400\">💊 Průlom v farmakoterapii: Mavacamten</span>\n                                    <p class=\"mt-1 text-[11px]\">\n                                        <strong>Mavacamten</strong> je první selektivní alosterický inhibitor srdečního myosinu (snižuje nadměrnou tvorbu aktin-myosinových můstků). Ve studiích EXPLORER-HCM a VALOR-HCM dramaticky snížil LVOT gradient, symptomy NYHA a potřebu invazivní septální redukce! Dále se používají neselektivní betablokátory a Verapamil.\n                                    </p>\n                                </div>\n                            </div>\n                        "
-        },
-        {
-          "title": "2. Srdeční amyloidóza: ATTR vs. AL & Scintigrafie",
-          "color": "amber",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-amber-500/30 rounded-xl text-xs text-slate-300 space-y-2\">\n                                <p><strong>Srdeční amyloidóza:</strong> Infiltrace extracelulárního prostoru myokardu nerozpustnými fibrilami amyloidu, vedoucí k těžké restrikci a pseudohypertrofii (tlusté stěny, ale <strong>nízká voltáž na EKG!</strong>).</p>\n                                <div class=\"grid sm:grid-cols-2 gap-3 mt-1 text-[11px]\">\n                                    <div class=\"p-2.5 bg-slate-800 rounded-lg border border-slate-700\">\n                                        <span class=\"font-bold text-amber-400\">ATTR Amyloidóza (Transthyretinová)</span>\n                                        <p class=\"mt-1\">Divoký typ (senilní wtATTR, &gt; 70 let) nebo hereditární (hATTR). Diagnostika: <strong>Kostní scintigrafie (99mTc-DPD/PYP)</strong> s nálezem Perugini grade 2–3 při negativních lehkých řetězcích umožňuje <em>nebioptickou diagnózu</em>! Léčba: <strong>Tafamidis</strong> (stabilizátor tetrameru transthyretinu).</p>\n                                    </div>\n                                    <div class=\"p-2.5 bg-slate-800 rounded-lg border border-slate-700\">\n                                        <span class=\"font-bold text-rose-400\">AL Amyloidóza (Z lehkých řetězců)</span>\n                                        <p class=\"mt-1\">Monoklonální gamapatie plazmatických buněk. Detekce: volné lehké řetězce v séru (sFLC) a imunofixace moči/séra. Vyžaduje urgentní hematologickou léčbu (Daratumumab + CyBorD chemoterapie).</p>\n                                    </div>\n                                </div>\n                            </div>\n                        "
-        },
-        {
-          "title": "3. Akutní myokarditida: Kardio MR a Lake Louise kritéria",
-          "color": "rose",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-rose-500/30 rounded-xl text-xs text-slate-300 space-y-2\">\n                                <p><strong>Magnetická rezonance srdce (CMR)</strong> je neinvazivní metodou volby. Diagnostika se opírá o <strong>aktualizovaná Lake Louise kritéria</strong>:</p>\n                                <ul class=\"list-disc ml-5 space-y-1 text-[11px]\">\n                                    <li>Průkaz <strong>edému myokardu</strong> (zvýšený signál v T2 vážení nebo zvýšený T2 mapping).</li>\n                                    <li>Průkaz <strong>nekrózy / fibrózy myokardu</strong> (zvýšený nativní T1 mapping, extracelulární objem ECV, nebo pozdní sycení gadoliniem <em>LGE v subepikardiální/mid-myokardiální distribuci</em>).</li>\n                                </ul>\n                                <p class=\"text-[11px] text-slate-400\"><em>Režimová opatření:</em> Striktní zákaz těžké fyzické a sportovní zátěže po dobu <strong>3–6 měsíců</strong> od ataky myokarditidy (sport v akutní fázi drasticky zvyšuje riziko fatálních komorových arytmií!).</p>\n                            </div>\n                        "
-        }
-      ]
+      breakdown: {
+        classThree: [
+          "Použití NOAC u pacientů s mechanickou srdeční chlopní (vedlo k vyššímu počtu trombóz a krvácení než Warfarin).",
+          "Provádění zátěžového testu (ergometrie) u pacientů se známou symptomatickou těžkou aortální stenózou.",
+          "Použití intraaortální balonkové kontrapulzace (IABP) u těžké aortální regurgitace."
+        ],
+        mustKnow: [
+          "Těžká AS = AVA &lt; 1,0 cm², mean gradient ≥ 40 mmHg, Vmax ≥ 4,0 m/s.",
+          "TAVI je standardem u pacientů ≥ 75 let, SAVR u mladších &lt; 75 let.",
+          "Při mechanické chlopni je jediným schváleným lékem Warfarin s pravidelnou kontrolou INR."
+        ]
+      }
     },
-    "recall": {
-      "scenarios": [
-        {
-          "id": "kmp-r1",
-          "title": "Kazuistika 1: Diagnostika srdeční amyloidózy",
-          "question": "76letý muž s anamnézou operace karpálního tunelu oboustranně před 5 lety je vyšetřován pro nově vzniklé srdeční selhání. Na ECHO je symetrická hypertrofie stěn LK 17 mm se zrnitým vzhledem myokardu (sparkling appearance) a apikálním šetřením (apical sparing). EKG však vykazuje nízkou voltáž QRS v končetinových svodech. Jaká je nejpravděpodobnější diagnóza a jaký nebioptický diagnostický algoritmus zvolíte?",
-          "answer": "Klinický obraz (hypertrofie na ECHO + nízká voltáž na EKG + operace karpálních tunelů) je typický pro transthyretinovou srdeční amyloidózu (ATTR). Nebioptický diagnostický algoritmus ESC vyžaduje: 1. Vyloučení AL amyloidózy (volné lehké řetězce kappa/lambda v séru a imunofixace séra a moči - musí být negativní), 2. Scintigrafii skeletu pomocí 99mTc-DPD (nebo PYP). Záchyt radiofarmaka v myokardu stupně Perugini 2 nebo 3 při negativních lehkých řetězcích definitivně potvrzuje diagnózu ATTR amyloidózy bez nutnosti endomyokardiální biopsie.",
-          "pearl": "Kombinace tlustých stěn na ECHO a mikrvoltáže na EKG je patognomickým znakem amyloidózy srdce!"
-        },
-        {
-          "id": "kmp-r2",
-          "title": "Kazuistika 2: Farmakoterapie obstrukční HCM",
-          "question": "38letý muž s obstrukční hypertrofickou kardiomyopatií (tloušťka septa 22 mm, klidový LVOT gradient 65 mmHg) trpí námahovou dušností a stenokardiemi. Který z léků je u obstrukční HCM přísně kontraindikován (Třída III) a proč?",
-          "answer": "Kontraindikovány jsou periferní vazodilatancia (dihydropyridinové BKK jako Amlodipin, Nitráty) a pozitivně inotropní látky (Digoxin). Vazodilatancia snižují afterload a plnění levé komory, což vede k ještě těsnějšímu zúžení výtokového traktu LK, zhoršení SAM fenoménu mitrální chlopně a prudkému nárůstu LVOT obstrukce až k synkopě.",
-          "pearl": "Lékem volby u oHCM jsou neselektivní betablokátory, verapamil, nebo specifický inhibitor srdečního myosinu Mavacamten."
-        }
+{
+      id: "kmp",
+      number: 8,
+      title: "Kardiomyopatie (KMP)",
+      shortDesc: "Dilatační (DCMP), Hypertrofická obstrukční/neobstrukční (HOCM/HCM), Restrikční (RCMP), ARVD a Takotsubo kardiomyopatie.",
+      icon: "💔",
+      badge: "Myokardiální nemoci",
+      badgeColor: "purple",
+            guidelineLinks: [
+        { title: "2023 ESC Guidelines for the Management of Cardiomyopathies", url: "https://academic.oup.com/eurheartj/article/44/37/3503/7243211", year: "2023" }
       ],
-      "quiz": {
-        "title": "Rozhodovací kvíz: Sport po akutní myokarditidě",
-        "prompt": "22letý vrcholový fotbalista prodělal nekomplikovanou akutní myokarditidu s lehkou elevací troponinu, normální EF LK a LGE na kardio MR. Kdy se může bezpečně vrátit k plnému tréninku a soutěžním zápasům?",
-        "options": [
+theory: {
+        banner: {
+          tag: "Dělení kardiomyopatií",
+          title: "Strukturální a funkční onemocnění srdečního svalu",
+          text: "Kardiomyopatie jsou primární onemocnění myokardu neadekvátní ischemickému původu či chlopenním vadám. Dělí se na: **Hypertrofické (HCM/HOCM)**, **Dilatační (DCMP)**, **Restrikční (RCMP)**, **Arytmogenní kardiomyopatie pravé komory (ARVC/ARVD)** a specifické syndromy jako **Takotsubo (stresová KMP)**."
+        },
+        sections: [
           {
-            "text": "A) Až po 3–6 měsících klidového režimu, po kompletní normalizaci biomarkerů, EKG, Holterova monitorování a zátěžového testu",
-            "isCorrect": true
+            title: "Hypertrofická kardiomyopatie (HCM / HOCM)",
+            color: "purple",
+            content: `
+              <div class="p-4 bg-slate-900 border border-slate-700 rounded-xl text-xs space-y-2 text-slate-300">
+                <p>Nejčastější genetické srdeční onemocnění (autozomálně dominantní mutace sarkomerických proteinů - MYH7, MYBPC3). Typická je **asymetrická hypertrofie mezikomorového septa (tloušťka stěny ≥ 15 mm)** bez jiné zjevné příčiny.</p>
+                <div class="p-3 bg-purple-950/40 border border-purple-500/30 rounded-lg">
+                  <span class="font-bold text-purple-400">SAM fenomén (Systolic Anterior Motion):</span>
+                  <p class="mt-1">Přední cíp mitrální chlopně je v systole nasáván Venturiho efektem do výtokového traktu LK (LVOT) -> dynamická obstrukce výtoku (HOCM) a sekundární mitrální regurgitace.</p>
+                </div>
+                <p><strong>Léčba HOCM:</strong> Neselektivní betablokátory, Verapamil, nebo nový selektivní inhibitor srdečního myozinu <strong>Mavacamten</strong>. Chirurgická myektomie či alkoholová ablace septa při refrakterní obstrukci.</p>
+              </div>
+            `
           },
           {
-            "text": "B) Ihned po poklesu troponinu do normy (cca za 1 týden)",
-            "isCorrect": false
+            title: "Takotsubo kardiomyopatie (Syndrom zlomeného srdce)",
+            color: "rose",
+            content: `
+              <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl text-xs text-slate-300 space-y-1.5">
+                <p>Přechodná dysfunkce myokardu spuštěná extrémním emočním či fyzickým stresem a masivním vyplavením katecholaminů. Nejčastěji u postmenopauzálních žen.</p>
+                <p><strong>Klinika:</strong> Imituje akutní STEMI (bolest na hrudi, ST elevace, pozitivní troponin). Na SKG jsou věnčité tepny <strong>bez obstrukce</strong>. Typický echokardiografický obraz: <strong>apikální balonování</strong> (akineze hrotu LK s hyperkinezí baze).</p>
+                <p class="text-emerald-400 font-medium">Prognóza je obvykle příznivá, funkce LK se během týdnů až měsíců plně upraví.</p>
+              </div>
+            `
+          }
+        ]
+      },
+      recall: {
+        scenarios: [
+          {
+            id: "kmp-r1",
+            title: "Otázka 1: Léky kontraindikované u HOCM",
+            question: "Které běžné kardiologické léky jsou přísně kontraindikovány u pacientů s hypertrofickou obstrukční kardiomyopatií (HOCM), protože zhoršují obstrukci výtokového traktu levé komory (LVOT gradient)?",
+            answer: "1. Pozitivně inotropní látky (Digoxin, katecholaminy). 2. Nitráty a vazodilatancia (snižují plnění LK a preload, což zhorší nasávání cípu chlopně do LVOT). 3. Dihydropyridinové blokátory kalciových kanálů a vysoké dávky diuretik.",
+            pearl: "U HOCM chceme komoru 'plnou a klidnou' – proto jsou lékem volby betablokátory a Verapamil."
           },
           {
-            "text": "C) Za 14 dní při subjektivním vymizení únavy",
-            "isCorrect": false
-          },
-          {
-            "text": "D) Vrcholový sport je již doživotně zakázán",
-            "isCorrect": false
+            id: "kmp-r2",
+            title: "Otázka 2: Arytmogenní kardiomyopatie (ARVD/ARVC)",
+            question: "Mladý sportovec kolabuje při fotbalovém zápase. EKG ukazuje negativní T vlny ve V1–V3 a ve svodu V1 je na konci QRS přítomna drobná vlna epsilon. Na jaké onemocnění pomyslíte a jaká je jeho patofyziologie?",
+            answer: "Arytmogenní kardiomyopatie pravé komory (ARVC/ARVD). Dochází k postupné fibroticko-tukové degeneraci myokardu pravé komory s vysokým rizikem maligních komorových arytmií a náhlé srdeční smrti u mladých sportovců.",
+            pearl: "Vlna Epsilon ve svodech V1-V2 je patognomickým EKG znakem ARVD."
           }
         ],
-        "explanation": "Dle ESC doporučení pro sportovní kardiologii musí být po akutní myokarditidě striktně přerušen soutěžní sport i intenzivní trénink na dobu 3 až 6 měsíců. Fyzická zátěž v rekonvalescenci dramaticky akceleruje virovou replikaci, zánět a zvyšuje riziko maligních komorových arytmií a náhlé srdeční smrti."
-      }
-    },
-    "breakdown": {
-      "classThree": [
-        "Podávání vazodilatancií (Nitráty, Dihydropyridinové BKK) a Digoxinu u pacientů s obstrukční formou HCM (zvyšují LVOT obstrukci).",
-        "Provozování intenzivního a soutěžního sportu během akutní fáze myokarditidy a po dobu 3–6 měsíců rekonvalescence.",
-        "Podávání nesteroidních antirevmatik (NSAID) v akutní fázi myokarditidy (zhoršují hojení myokardu a zvyšují mortalitu v experimentálních modelech).",
-        "Opomenutí genetického testování a rodinného screeningu u příbuzných 1. stupně u pacientů s potvrzenou hereditární kardiomyopatií."
-      ],
-      "mustKnow": [
-        "HCM: Tloušťka stěny &ge; 15 mm (nebo &ge; 13 mm při FA). oHCM: LVOT gradient &ge; 30 mmHg (léčba: Mavacamten, betablokátory).",
-        "Amyloidóza srdce: 'Tlusté stěny na ECHO + nízká voltáž na EKG'. Diagnóza ATTR: 99mTc-DPD scintigrafie (grade 2–3) + negativní sFLC.",
-        "Léčba ATTR amyloidózy: Tafamidis (stabilizátor transthyretinu, snižuje mortalitu a hospitalizace).",
-        "Kardio MR u myokarditidy: Lake Louise kritéria (T2 edém + subepikardiální/mid-myokardiální LGE).",
-        "Režim po myokarditidě: Zákaz sportu po dobu 3–6 měsíců."
-      ]
-    },
-    "guidelineLinks": [
-      {
-        "title": "2023 ESC Guidelines for the management of cardiomyopathies",
-        "year": 2023,
-        "journal": "European Heart Journal",
-        "doi": "10.1093/eurheartj/ehad194",
-        "url": "https://academic.oup.com/eurheartj/article/44/37/3503/7243212"
-      }
-    ]
-  },
-  {
-    "id": "zanety",
-    "number": 9,
-    "title": "Infekční endokarditida a onemocnění perikardu (2023 ESC)",
-    "shortDesc": "2023 Modifikovaná Duke-ESC kritéria, indikace urgentní kardiochirurgie, profylaxe IE, akutní perikarditida (Kolchicin), tamponáda a konstriktivní perikarditida.",
-    "icon": "🛡️",
-    "badge": "2023 ESC Guidelines",
-    "badgeColor": "emerald",
-    "theory": {
-      "banner": {
-        "tag": "Inovace v diagnostice zánětů srdce (ESC 2023)",
-        "title": "Multimodální zobrazování (PET/CT, CTA) a racionální profylaxe IE",
-        "text": "Nová doporučení ESC 2023 pro infekční endokarditidu (IE) integrují pokročilé zobrazovací metody (**18F-FDG PET/CT** a **CT angiografii srdce**) přímo mezi **hlavní diagnostická kritéria**. Antibiotická profylaxe zůstává striktně vyhrazena pouze pro pacienty s nejvyšším rizikem podstupující rizikové stomatologické výkony."
+        quiz: {
+          title: "Kvíz: Restrikční kardiomyopatie a Amyloidóza",
+          prompt: "U 72letého pacienta se srdečním selháním s nízkou voltáží na EKG, ale masivně ztluštělými stěnami levé komory na ECHO (tzv. zářící 'sparkling' myokard) je nejčastější příčinou:",
+          options: [
+            { text: "A) Srdeční amyloidóza (AL nebo transthyretinová ATTR amyloidóza)", isCorrect: true },
+            { text: "B) Ischemická choroba srdeční", isCorrect: false },
+            { text: "C) Sarkoidóza", isCorrect: false },
+            { text: "D) Dilatační kardiomyopatie", isCorrect: false }
+          ],
+          explanation: "Kombinace nízké voltáže QRS komplexů na EKG a současně těžké hypertrofie stěn LK na echokardiografii je klasickým diskrepantním znakem srdeční amyloidózy (depozice amyloidových fibril). Diagnostika zahrnuje scintigrafii skeletu (99mTc-DPD) a stanovení volných lehkých řetězců."
+        }
       },
-      "sections": [
-        {
-          "title": "1. Modifikovaná Duke-ESC kritéria pro diagnostiku IE (2023)",
-          "color": "emerald",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-slate-700 rounded-xl text-xs text-slate-300 space-y-2\">\n                                <p><strong>Diagnóza jisté IE:</strong> 2 Hlavní kritéria NEBO 1 Hlavní + 3 Vedlejší NEBO 5 Vedlejších kritérií.</p>\n                                <div class=\"grid sm:grid-cols-2 gap-3 mt-1 text-[11px]\">\n                                    <div class=\"p-2.5 bg-slate-800 rounded-lg border border-slate-700\">\n                                        <span class=\"font-bold text-emerald-400\">⭐ Hlavní kritéria (Major Criteria)</span>\n                                        <ul class=\"list-disc ml-4 mt-1 space-y-1\">\n                                            <li><strong>Pozitivní hemokultury:</strong> Typické mikroorganismy (<em>Staphylococcus aureus, Enterococcus faecalis, Viridující streptokoky, Streptococcus bovis, HACEK</em>) ze 2 samostatných odběrů.</li>\n                                            <li><strong>Pozitivní zobrazovací nález:</strong> Vegetace, absces, pseudoaneurysma, nová dehiscence chlopně na <strong>TTE/TEE</strong>, NEBO průkaz patologického metabolismu na <strong>18F-FDG PET/CT</strong>, NEBO paravalvulární léze na <strong>CT angiografii srdce</strong>.</li>\n                                        </ul>\n                                    </div>\n                                    <div class=\"p-2.5 bg-slate-800 rounded-lg border border-slate-700\">\n                                        <span class=\"font-bold text-cyan-400\">🔹 Vedlejší kritéria (Minor Criteria)</span>\n                                        <ul class=\"list-disc ml-4 mt-1 space-y-0.5\">\n                                            <li>Predispozice (chlopenní vada, i.v. drogy).</li>\n                                            <li>Horečka &ge; 38,0 °C.</li>\n                                            <li><strong>Vaskulární léze:</strong> Embolie do tepen, septické plicní infarkty, Janewayovy léze (nebolestivé makuly na dlaních/ploskách), intrakraniální krvácení.</li>\n                                            <li><strong>Imunologické léze:</strong> Glomerulonefritida, Oslerovy uzlíky (bolestivé uzlíky na bříškách prstů), Rothovy skvrny na sítnici, revmatoidní faktor.</li>\n                                        </ul>\n                                    </div>\n                                </div>\n                            </div>\n                        "
-        },
-        {
-          "title": "2. Indikace urgentní kardiochirurgické operace u IE",
-          "color": "rose",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-rose-500/30 rounded-xl text-xs text-slate-300 space-y-2\">\n                                <p class=\"font-bold text-rose-400\">Tři hlavní indikace k časné kardiochirurgické operaci (během hospitalizace / do 24–72 h):</p>\n                                <ol class=\"list-decimal ml-5 space-y-1\">\n                                    <li><strong>Srdeční selhání:</strong> Akutní těžká regurgitace aortální nebo mitrální chlopně s plicním edémem či kardiogenním šokem (emergentní operace do 24 h).</li>\n                                    <li><strong>Nekontrolovaná infekce:</strong> Tvorba paravalvulárního abscesu, pseudoaneurysmatu, píštěle, nebo perzistující febrilie a pozitivní hemokultury &gt; 7–10 dní navzdory adekvátní ATB terapii.</li>\n                                    <li><strong>Prevence embolizace:</strong> Velká pohyblivá vegetace <strong>&gt; 10 mm po prodělané embolické příhodě</strong> nebo izolovaná velká vegetace <strong>&gt; 15 mm</strong> (u aortální či mitrální chlopně).</li>\n                                </ol>\n                            </div>\n                        "
-        },
-        {
-          "title": "3. Akutní perikarditida & Srdeční tamponáda",
-          "color": "amber",
-          "content": "\n                            <div class=\"space-y-2.5 text-xs text-slate-300\">\n                                <div class=\"p-3 bg-slate-900 border border-slate-700 rounded-xl\">\n                                    <span class=\"font-bold text-amber-400\">Akutní perikarditida: Diagnostika a léčba</span>\n                                    <p class=\"mt-1\">\n                                        Diagnóza vyžaduje alespoň <strong>2 ze 4 kritérií:</strong> 1. Pleurální bolest na hrudi (zhoršuje se nádechem a vleže, ulevuje v předklonu), 2. Perikardiální třecí šelest, 3. EKG: konkávní elevace ST s <strong>depresemi úseku PR</strong> ve většině svodů, 4. Nový perikardiální výpotek na ECHO.<br>\n                                        <strong>Léčba 1. volby (Třída I):</strong> NSAID (Ibuprofen 600 mg 3×d nebo Aspirin 750–1000 mg 3×d) + <strong>Kolchicin 0,5 mg 1–2× denně po dobu 3 měsíců</strong> (kolchicin snižuje recidivy perikarditidy o 50 %!).\n                                    </p>\n                                </div>\n                                <div class=\"p-3 bg-slate-900 border border-rose-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-rose-400\">🚨 Srdeční tamponáda (Beckova triáda)</span>\n                                    <p class=\"mt-1\">\n                                        Útlak srdečních oddílů tekutinou v perikardu. <strong>Beckova triáda:</strong> 1. Hypotenze, 2. Zvýšená náplň krčních žil (městnání), 3. Tiché/vzdálené srdeční ozvy. Dále <strong>pulsus paradoxus</strong> (pokles STK &gt; 10 mmHg při nádechu). Urgentní léčba: <strong>perikardiocentéza</strong> pod echokardiografickou kontrolou.\n                                    </p>\n                                </div>\n                            </div>\n                        "
-        }
-      ]
+      breakdown: {
+        classThree: [
+          "Podávání Digoxinu, Nitrátů a dihydropyridinových BKK u hypertrofické obstrukční kardiomyopatie (HOCM).",
+          "Doporučování intenzivního vrcholového a kontaktního sportu pacientům s HCM, ARVC nebo prokázaným laminovým defektem (LMNA mutace).",
+          "Podávání nesteroidních antiflogistik a vysokých dávek vazodilatancií u těžké restrikční kardiomyopatie."
+        ],
+        mustKnow: [
+          "HCM: Tloušťka stěny LK ≥ 15 mm bez jiné příčiny. Asymetrická hypertrofie septa, SAM fenomén.",
+          "Léčba HOCM: Betablokátory, Mavacamten, myektomie. Digoxin a nitráty jsou ZAKÁZÁNY.",
+          "Takotsubo: Apikální balonování, čisté koronárky, obvykle reverzibilní po odeznění stresu."
+        ]
+      }
     },
-    "recall": {
-      "scenarios": [
-        {
-          "id": "zan-r1",
-          "title": "Kazuistika 1: Antibiotická profylaxe infekční endokarditidy",
-          "question": "62letý pacient po chirurgické náhradě aortální chlopně mechanickou protézou jde zítra na extrakci zubu moudrosti a dentální hygienu se zásahem do dásní. Má indikovanou ATB profylaxi? Jaký lék a kdy podáte?",
-          "answer": "ANO, má jednoznačnou indikaci k ATB profylaxi. Pacienti s chlopenními protézami (mechanickými i biologickými) a po TAVI patří do skupiny nejvyššího rizika IE. Při výkonech na gingivě a dentálních extrakcích se podává Amoxicilin 2 g perorálně (u dětí 50 mg/kg) jednorázově 30–60 minut před výkonem. Při alergii na peniciliny se volí Clindamycin 600 mg nebo Azithromycin 500 mg p.o.",
-          "pearl": "Profylaxe IE se dnes již NEDOPORUČUJE u středně rizikových vad (izolovaný prolaps mitrální chlopně, bikuspidální chlopeň bez náhrady) ani u gastroskopie/kolonoskopie bez probíhající infekce."
-        },
-        {
-          "id": "zan-r2",
-          "title": "Kazuistika 2: Terapie první ataky akutní perikarditidy",
-          "question": "28letý muž má 3 dny ostrou bolest za sternem ulevující v předklonu, na EKG difuzní konkávní ST elevace a PR deprese. Diagnostikována nekomplikovaná virová perikarditida. Jaká je doporučená kombinace léků a jak dlouho trvá léčba?",
-          "answer": "Léčbou volby je kombinace vysokodávkovaného NSAID (Ibuprofen 600 mg po 8 hodinách nebo Aspirin 750–1000 mg po 8 hodinách s gastroprotekcí PPI) po dobu 1–2 týdnů do vymizení symptomů a normalizace CRP + Kolchicin 0,5 mg 1× denně (při hmotnosti < 70 kg) nebo 0,5 mg 2× denně po dobu 3 měsíců.",
-          "pearl": "Kortikoidy (prednison) nejsou lékem 1. volby; zvyšují riziko chronických recidiv perikarditidy a jsou vyhrazeny pouze pro autoimunitní etiologie nebo nesnášenlivost NSAID."
-        }
+{
+      id: "zanety",
+      number: 9,
+      title: "Zánětlivá a perikardiální onemocnění",
+      shortDesc: "Infekční endokarditida (Duke kritéria), Myokarditida, Akutní perikarditida, Srdeční tamponáda a Konstriktivní perikarditida.",
+      icon: "🔥",
+      badge: "Infekce & Perikard",
+      badgeColor: "rose",
+            guidelineLinks: [
+        { title: "2023 ESC Guidelines for the Management of Endocarditis", url: "https://academic.oup.com/eurheartj/article/44/39/3948/7243212", year: "2023" },
+        { title: "2015 ESC Guidelines for the Diagnosis and Management of Pericardial Diseases", url: "https://academic.oup.com/eurheartj/article/36/42/2921/2293385", year: "2015" }
       ],
-      "quiz": {
-        "title": "Rozhodovací kvíz: EKG diferenciální diagnostika perikarditidy vs. STEMI",
-        "prompt": "Který z následujících EKG nálezů svědčí jednoznačně pro akutní perikarditidu a NIKOLI pro akutní infarkt myokardu (STEMI)?",
-        "options": [
+theory: {
+        banner: {
+          tag: "Život ohrožující stavy",
+          title: "Infekční endokarditida a Srdeční tamponáda",
+          text: "Infekční endokarditida (IE) je septické onemocnění s vysokou mortalitou (až 20–30 %). Diagnostika staví na modifikovaných **Duke kritériích** (hemokultury + TEECHO). Srdeční tamponáda je mechanická obstrukce plnění srdce tekutinou v perikardu s klasickou **Beckovou triádou**."
+        },
+        sections: [
           {
-            "text": "A) Difuzní konkávní elevace ST ve většině svodů s depresí úseku PR (a zrcadlovou ST depresí a PR elevací pouze v aVR)",
-            "isCorrect": true
+            title: "Infekční endokarditida (Duke kritéria & Terapie)",
+            color: "rose",
+            content: `
+              <div class="p-4 bg-slate-900 border border-slate-700 rounded-xl text-xs space-y-2 text-slate-300">
+                <span class="font-bold text-rose-400">Hlavní Dukeova kritéria:</span>
+                <ul class="list-disc ml-4 space-y-1">
+                  <li><strong>Pozitivní hemokultury:</strong> Typické mikroorganismy (S. aureus, Viridující streptokoky, Enterokoky, HACEK) ze 2 samostatných odběrů.</li>
+                  <li><strong>Průkaz postižení endokardu:</strong> Vegetace, absces, nová dehiscence chlopenní protézy na TEE/TTE nebo nová chlopenní regurgitace.</li>
+                </ul>
+                <p class="mt-2"><strong>ATB léčba:</strong> Dlouhodobá baktericidní i.v. terapie (4–6 týdnů). Empiricky např. Ampicilin + Oxacilin/Gentamicin nebo Vankomycin + Gentamicin u nozokomiálních/protetických infekcí.</p>
+              </div>
+            `
           },
           {
-            "text": "B) Konvexní elevace ST ('tombstone') lokalizované v anatomickém povodí (např. V1–V4) se zrcadlovými depresemi ST ve spodních svodech",
-            "isCorrect": false
+            title: "Akutní perikarditida vs. Srdeční tamponáda",
+            color: "cyan",
+            content: `
+              <div class="grid sm:grid-cols-2 gap-3 text-xs">
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <span class="font-bold text-cyan-400">Akutní perikarditida</span>
+                  <p class="text-slate-300 mt-1">Ostrá pleuritická bolest na hrudi, která <strong>polevuje v předklonu</strong> a zhoršuje se vleže a při nádechu. EKG: <strong>konkávní difuzní ST elevace</strong> s depresemi úseku PR.</p>
+                  <p class="text-slate-400 mt-1"><strong>Léčba:</strong> Vysoké dávky NSAID (Ibuprofen 600 mg á 8h / Aspirin) + <strong>Kolchicin 0,5 mg denně na 3 měsíce</strong> (prevence recidivy!).</p>
+                </div>
+                <div class="p-3 bg-slate-900 border border-rose-500/40 rounded-xl">
+                  <span class="font-bold text-rose-400">Srdeční tamponáda</span>
+                  <p class="text-slate-300 mt-1"><strong>Beckova triáda:</strong> 1. Hypotenze, 2. Zvýšená náplň krčních žil, 3. Oslabené srdeční ozvy (tiché srdce). Přítomen <strong>pulsus paradoxus</strong> (pokles TKs o &gt; 10 mmHg při nádechu).</p>
+                  <p class="text-emerald-400 font-bold mt-1">Léčba: Urgentní perikardiocentéza pod UZ kontrolou!</p>
+                </div>
+              </div>
+            `
+          }
+        ]
+      },
+      recall: {
+        scenarios: [
+          {
+            id: "zan-r1",
+            title: "Otázka 1: Profylaxe infekční endokarditidy",
+            question: "Kteří pacienti a při jakých výkonech mají dnes podle guidelines indikovanou antibiotickou profylaxi infekční endokarditidy?",
+            answer: "Pouze pacienti s VYSOKÝM rizikem: 1. Pacienti s chlopenní protézou (SAVR/TAVI) nebo po plastice chlopně s cizím materiálem. 2. Pacienti s prodělanou epizodou IE v minulosti. 3. Pacienti s vrozenou cyanotickou srdeční vadou. Profylaxe (Amoxicilin 2g p.o. 30–60 min před výkonem) se podává POUZE při stomatologických výkonech narušujících gingivu či periapikální oblast zubu.",
+            pearl: "Při gastroskopii, kolonoskopii či gynekologických zákrocích se rutinní profylaxe IE již nepodává."
           },
           {
-            "text": "C) Přítomnost patologických kmitů Q a vymizení kmitů R",
-            "isCorrect": false
-          },
-          {
-            "text": "D) Negativní terminální vlny T při přetrvávajících ST elevacích",
-            "isCorrect": false
+            id: "zan-r2",
+            title: "Otázka 2: EKG diferenciální diagnóza perikarditidy a STEMI",
+            question: "Jak bezpečně odlišíte na EKG akutní perikarditidu od akutního STEMI?",
+            answer: "Perikarditida má difuzní konkávní ST elevace napříč svody (I, II, aVF, V2-V6) s typickou depresí PQ/PR úseku a bez zrcadlových ST depresí (vyjma svodu aVR). STEMI má lokalizované konvexní ST elevace v anatomickém povodí koronární tepny s typickými recipročními (zrcadlovými) depresemi ST a postupným vývojem Q kmitu.",
+            pearl: "Při perikarditidě se nikdy nevytváří patologický kmit Q."
           }
         ],
-        "explanation": "Akutní perikarditida způsobuje zánět epikardu na celém povrchu srdce, proto jsou ST elevace difuzní (neodpovídají jedné koronární tepně), mají miskovitý/konkávní tvar a jsou provázeny typickou depresí úseku PR (v důsledku zánětu síní). Zrcadlové deprese ST perikarditida NEMÁ (vyjma svodu aVR a V1)."
-      }
-    },
-    "breakdown": {
-      "classThree": [
-        "Podávání antibiotické profylaxe IE u nízko a středně rizikových pacientů nebo při nekontaminovaných výkonech mimo stomatologii (gastroskopie, kolonoskopie, porod).",
-        "Rutinní podávání kortikosteroidů jako léku 1. volby u akutní virové perikarditidy (zvyšují riziko relapsů a chronicity).",
-        "Podávání antikoagulancií pacientům s akutní perikarditidou a perikardiálním výpotkem (riziko přechodu do hemoperikardu a tamponády).",
-        "Odkládání emergentní perikardiocentézy u pacienta s manifestní srdeční tamponádou."
-      ],
-      "mustKnow": [
-        "Diagnóza IE (2023 ESC-Duke): 2 hlavní kritéria (hemokultury + TTE/TEE/PET-CT) nebo 1 hlavní + 3 vedlejší.",
-        "Indikace kardiochirurgie u IE: 1. Srdeční selhání s akutní vadou, 2. Nekontrolovaná infekce/absces, 3. Vegetace &gt; 10 mm po embolii nebo &gt; 15 mm.",
-        "Profylaxe IE: Pouze vysokorizikoví (chlopenní protézy, prodělaná IE) u stomatologických výkonů (Amoxicilin 2 g p.o. 30–60 min před).",
-        "Perikarditida triáda: Bolest ulevující v předklonu + třecí šelest + konkávní ST a PR deprese. Léčba: NSAID + Kolchicin (3 měsíce).",
-        "Srdeční tamponáda: Beckova triáda (hypotenze, tiché ozvy, městnání na krku) + pulsus paradoxus -> perikardiocentéza."
-      ]
-    },
-    "guidelineLinks": [
-      {
-        "title": "2023 ESC Guidelines for the management of endocarditis",
-        "year": 2023,
-        "journal": "European Heart Journal",
-        "doi": "10.1093/eurheartj/ehad193",
-        "url": "https://academic.oup.com/eurheartj/article/44/39/3948/7243211"
-      }
-    ]
-  },
-  {
-    "id": "pe",
-    "number": 10,
-    "title": "Plicní embolie a onemocnění cév (2024/2022 ESC)",
-    "shortDesc": "Stratifikace rizika PE dle sPESI a hemodynamiky, systémová trombolýza vs. katetrová trombektomie, aortální disekce Stanford A/B a PAOD (ischemická choroba DK).",
-    "icon": "🫁",
-    "badge": "2024/2022 ESC Guidelines",
-    "badgeColor": "amber",
-    "theory": {
-      "banner": {
-        "tag": "Moderní vaskulární a plicní management",
-        "title": "Riziková stratifikace PE a cévní guidelines 2024 (PAOD & Aorta)",
-        "text": "Léčba plicní embolie se striktně řídí **stratifikací časného rizika**: vysoce riziková PE (šok/hypotenze) vyžaduje okamžitou **reperfuzi (systémová trombolýza nebo katetrová intervence)**, zatímco intermediální a nízkoriziková PE se léčí antikoagulací (NOAC). Nová doporučení ESC 2024 pro periferní tepny (PAOD) kladou důraz na kombinovanou antitrombotickou léčbu (Aspirin + nízko-dávkovaný Rivaroxaban)."
+        quiz: {
+          title: "Kvíz: Léčba perikarditidy",
+          prompt: "Který lék je standardně přidáván k NSAID u první epizody akutní perikarditidy, protože prokazatelně snižuje riziko recidivy o více než 50 %?",
+          options: [
+            { text: "A) Kolchicin (0,5 mg 1–2× denně po dobu 3 měsíců)", isCorrect: true },
+            { text: "B) Systémové kortikoidy ve vysoké dávce (Prednison 1 mg/kg)", isCorrect: false },
+            { text: "C) Warfarin", isCorrect: false },
+            { text: "D) Amiodaron", isCorrect: false }
+          ],
+          explanation: "Kolchicin je lékem 1. volby v kombinaci s NSAID/Aspirinem. Kortikoidy jsou u neinfekční perikarditidy vyhrazeny až jako druhá volba při nesnášenlivosti NSAID, protože samy o sobě zvyšují riziko chronické recidivy perikarditidy."
+        }
       },
-      "sections": [
-        {
-          "title": "1. Stratifikace rizika akutní plicní embolie",
-          "color": "rose",
-          "content": "\n                            <div class=\"grid md:grid-cols-3 gap-3 my-3 text-xs\">\n                                <div class=\"p-3 bg-rose-950/40 border border-rose-500/40 rounded-xl\">\n                                    <span class=\"font-bold text-rose-400\">🚨 Vysoké riziko (High Risk)</span>\n                                    <p class=\"text-slate-300 mt-1 leading-relaxed\">\n                                        <strong>Hemodynamická nestabilita:</strong> Zástava oběhu, obstrukční šok nebo perzistentní hypotenze (STK &lt; 90 mmHg / pokles o &ge; 40 mmHg trvající &gt; 15 min). Okamžitá <strong>systémová trombolýza</strong> (rtPA 100 mg i.v. / 2h) nebo katetrová trombektomie + nefrakcionovaný heparin (UFH).\n                                    </p>\n                                </div>\n                                <div class=\"p-3 bg-amber-950/40 border border-amber-500/40 rounded-xl\">\n                                    <span class=\"font-bold text-amber-400\">⚠️ Středně vysoké riziko (Interm-High)</span>\n                                    <p class=\"text-slate-300 mt-1 leading-relaxed\">\n                                        Hemodynamicky stabilní, ale <strong>sPESI &ge; 1</strong> A SOUČASNĚ přítomna <strong>dysfunkce pravé komory (ECHO/CT) A pozitivní troponin (cTn)</strong>. Hospitalizace na monitorovaném lůžku, LMWH/NOAC, záchranná reperfuze při zhoršení.\n                                    </p>\n                                </div>\n                                <div class=\"p-3 bg-emerald-950/40 border border-emerald-500/40 rounded-xl\">\n                                    <span class=\"font-bold text-emerald-400\">✅ Nízké riziko (Low Risk)</span>\n                                    <p class=\"text-slate-300 mt-1 leading-relaxed\">\n                                        Stabilní, sPESI = 0, bez dysfunkce PK a s negativním troponinem. Zahájení léčby perorálním antikoagulanciem (<strong>NOAC: Apixaban, Rivaroxaban</strong>) a možnost časného propuštění do domácí péče.\n                                    </p>\n                                </div>\n                            </div>\n                        "
-        },
-        {
-          "title": "2. Akutní aortální syndromy: Disekce Stanford A vs. Stanford B",
-          "color": "amber",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-amber-500/30 rounded-xl text-xs text-slate-300 space-y-2\">\n                                <p><strong>Akutní disekce aorty:</strong> Prudká, nesnesitelná 'trhavá' bolest na hrudi či mezi lopatkami, propagující se podél aorty.</p>\n                                <div class=\"grid sm:grid-cols-2 gap-3 mt-1\">\n                                    <div class=\"p-2.5 bg-rose-950/40 border border-rose-500/30 rounded-lg\">\n                                        <span class=\"font-bold text-rose-400\">Stanford Typ A (Vzestupná aorta)</span>\n                                        <p class=\"mt-1 text-[11px]\">Postihuje ascendentní aortu. Riziko ruptury do perikardu (tamponáda), okluze koronárek (infarkt) a aortální regurgitace. <strong>Jednoznačná indikace k emergentní kardiochirurgické operaci!</strong></p>\n                                    </div>\n                                    <div class=\"p-2.5 bg-slate-800 rounded-lg border border-slate-700\">\n                                        <span class=\"font-bold text-cyan-400\">Stanford Typ B (Sestupná aorta)</span>\n                                        <p class=\"mt-1 text-[11px]\">Začíná distálně od odstupu levé a. subclavia. Nekardiální léčba: intenzivní kontrola TK a TF pomocí i.v. betablokátorů (Labetalol / Esmolol, <strong>cíl STK 100–120 mmHg a TF &lt; 60/min</strong>). Při komplikacích (malperfuze, ruptura) <strong>TEVAR</strong>.</p>\n                                    </div>\n                                </div>\n                            </div>\n                        "
-        },
-        {
-          "title": "3. Ischemická choroba dolních končetin (PAOD / PAD - 2024 ESC)",
-          "color": "cyan",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-cyan-500/30 rounded-xl text-xs text-slate-300 space-y-2\">\n                                <p><strong>Diagnostika:</strong> Index kotník-paže (<strong>ABI = Ankle-Brachial Index</strong>). Hodnota <strong>ABI &le; 0,90</strong> je diagnostická pro PAOD; ABI &gt; 1,40 značí mediokalcinózu (tuhé nestlačitelné tepny u diabetiků/CKD).</p>\n                                <p><strong>Antitrombotická léčba dle ESC 2024 (Studie COMPASS):</strong></p>\n                                <div class=\"p-2.5 bg-cyan-950/40 border border-cyan-500/30 rounded-lg text-[11px]\">\n                                    U symptomatické PAOD nebo po revaskularizaci končetin je doporučena duální vaskulární protekce: <strong>Aspirin 100 mg 1× denně + vaskulární dávka Rivaroxabanu 2,5 mg 2× denně</strong> (snižuje závažné končetinové příhody MALE i celkovou mortalitu).\n                                </div>\n                            </div>\n                        "
-        }
-      ]
+      breakdown: {
+        classThree: [
+          "Rutinní podávání kortikoidů jako léčba 1. volby u akutní perikarditidy (zvyšují riziko relapsu).",
+          "Podávání antikoagulancií u akutní perikarditidy bez jiné jasné indikace (riziko hemoperikardu a tamponády).",
+          "Podávání profylaxe endokarditidy u nízkorizikových pacientů nebo při běžných nekrvavých zákrocích."
+        ],
+        mustKnow: [
+          "Endokarditida: Odběr alespoň 3 párů hemokultur před nasazením ATB! TEECHO k průkazu vegetací.",
+          "Tamponáda: Beckova triáda (hypotenze, tiché srdce, náplň krčních žil) + pulsus paradoxus -> perikardiocentéza.",
+          "Perikarditida: Bolest v předklonu ustupuje, konkávní ST elevace + PR deprese -> Ibuprofen + Kolchicin."
+        ]
+      }
     },
-    "recall": {
-      "scenarios": [
-        {
-          "id": "pe-r1",
-          "title": "Kazuistika 1: Masivní plicní embolie s hypotenzí",
-          "question": "56letá obézní žena 10 dní po ortopedické operaci náhle kolabuje na lůžku. Je bledá, opocená, TK 70/45 mmHg, TF 130/min, SpO2 82 % na masce. Urgentní bed-side ECHO ukazuje dilatovanou pravou komoru s paradoxním pohybem septa (McConnellovo znamení) a trikuspidální regurgitaci. Jaký je okamžitý reperfúzní postup?",
-          "answer": "Jedná se o vysoce rizikovou (masivní) plicní embolii s obstrukčním šokem. Okamžitým postupem volby je systémová trombolýza (rekombinantní tkáňový aktivátor plazminogenu rtPA / Altepláza 100 mg i.v. během 2 hodin, případně zrychlený režim 50 mg během 15 minut při hrozící zástavě) společně s bolusem nefrakcionovaného heparinu (UFH) a kyslíkovou/vazopresorickou podporou (Noradrenalin).",
-          "pearl": "Při absolutní kontraindikaci trombolýzy (nedávné intrakraniální krvácení) je alternativou emergentní katetrová mechanická embolektomie nebo chirurgická embolektomie v mimotělním oběhu."
-        },
-        {
-          "id": "pe-r2",
-          "title": "Kazuistika 2: Akutní disekce aorty a kontrola tlaku",
-          "question": "60letý hypertonik přichází s krutou trhavou bolestí mezi lopatkami a TK 195/110 mmHg. Urgentní CT angiografie prokazuje disekci hrudní aorty typu Stanford B (bez postižení ascendentní aorty a bez malperfuze orgánů). Jaké jsou cílové hodnoty tlaku a tepové frekvence a jaké léky nasadíte jako první?",
-          "answer": "Cílem je urgentní snížení systolického tlaku na 100–120 mmHg a tepové frekvence pod 60/min během 10–20 minut. Lékem první volby jsou intravenózní betablokátory (Labetalol kontinuálně nebo Esmolol i.v.). Důvodem podání betablokátoru PŘED případnými přímými vazodilatancii (nitroprusid) je snížení strmosti pulzní vlny (dP/dt) a prevence reflexní tachykardie, která by disekci dále propagovala.",
-          "pearl": "Nikdy nepodávejte samotný nitroprusid či hydralazin bez předchozí plné betablokády (riziko rychlé ruptury aorty zvýšením smykového napětí dP/dt)!"
-        }
+{
+      id: "pe",
+      number: 10,
+      title: "Plicní embolie & Plicní hypertenze",
+      shortDesc: "Akutní plicní embolie (ESC stratifikace rizika, sPESI, systémová trombolýza, NOAC), cor pulmonale a 5 skupin plicní hypertenze.",
+      icon: "🫁",
+      badge: "Plicní cirkulace",
+      badgeColor: "cyan",
+            guidelineLinks: [
+        { title: "2019 ESC Guidelines for the Diagnosis and Management of Acute Pulmonary Embolism", url: "https://academic.oup.com/eurheartj/article/41/4/543/5556136", year: "2019" },
+        { title: "2024 ESC Guidelines for the Management of Peripheral Arterial and Aortic Diseases", url: "https://academic.oup.com/eurheartj/article/45/39/3680/7741356", year: "2024" }
       ],
-      "quiz": {
-        "title": "Rozhodovací kvíz: Indikace CT plicní angiografie (CTPA)",
-        "prompt": "Mladá 24letá žena bez předchozích onemocnění přichází pro mírnou píchavou bolest na hrudi vázanou na pohyb. Má normální TK i TF, bez otoků končetin, saturace 99 %. Dle Wellsova skóre má nízkou klinickou pravděpodobnost PE (< 2 body). Jaký je správný postup?",
-        "options": [
+theory: {
+        banner: {
+          tag: "ESC Guidelines pro PE",
+          title: "Stratifikace rizika plicní embolie a indikace trombolýzy",
+          text: "Plicní embolie se stratifikuje podle přítomnosti **hemodynamické nestability (šok, těžká hypotenze)** na: **Vysoké riziko (High Risk)** vs. **Střední (Intermediate)** vs. **Nízké riziko (Low Risk)**. Pouze u vysokého rizika je indikována okamžitá systémová trombolýza!"
+        },
+        sections: [
           {
-            "text": "A) Aplikovat PERC pravidlo (nebo vyšetřit D-dimery); pokud jsou negativní, plicní embolie je bezpečně vyloučena bez nutnosti CT angiografie",
-            "isCorrect": true
+            title: "Riziková stratifikace plicní embolie",
+            color: "cyan",
+            content: `
+              <div class="space-y-3 text-xs">
+                <div class="p-3 bg-rose-950/40 border border-rose-500/30 rounded-xl">
+                  <div class="font-bold text-rose-400">🚨 Vysoké riziko (High Risk / Masivní PE)</div>
+                  <p class="text-slate-300 mt-0.5">Přítomnost kardiogenního šoku nebo perzistující hypotenze (TKs &lt; 90 mmHg nebo pokles o ≥ 40 mmHg po dobu &gt; 15 min). <strong>Léčba: Okamžitá systémová trombolýza (Altepláza 100 mg i.v.)</strong> + nefrakcionovaný heparin (UFH). CT angiografie pouze pokud je pacient schopen transportu!</p>
+                </div>
+                <div class="p-3 bg-amber-950/40 border border-amber-500/30 rounded-xl">
+                  <div class="font-bold text-amber-400">Intermediate-High riziko:</div>
+                  <p class="text-slate-300 mt-0.5">Normální TK, ale přítomna dysfunkce pravé komory na ECHO/CT A ZÁROVEŇ pozitivní troponin. <strong>Léčba: Antikoagulace (LMWH/NOAC)</strong> + monitorace na JIP (při zhoršení záchranná trombolýza).</p>
+                </div>
+                <div class="p-3 bg-emerald-950/40 border border-emerald-500/30 rounded-xl">
+                  <div class="font-bold text-emerald-400">Nízké riziko (Low Risk):</div>
+                  <p class="text-slate-300 mt-0.5">sPESI = 0 bodů, bez dysfunkce PK a negativní troponin. Lze zvážit časné propuštění a domácí léčbu NOAC (Rivaroxaban / Apixaban).</p>
+                </div>
+              </div>
+            `
           },
           {
-            "text": "B) Okamžitě provést urgentní CT plicní angiografii (CTPA)",
-            "isCorrect": false
+            title: "Plicní hypertenze (Definice a 5 klinických skupin)",
+            color: "blue",
+            content: `
+              <p class="text-xs text-slate-300 mb-2"><strong>Hemodynamická definice:</strong> Střední tlak v plicnici (mPAP) <strong>&gt; 20 mmHg</strong> v klidu při pravostranné srdeční katetrizaci.</p>
+              <div class="grid sm:grid-cols-2 gap-2 text-xs text-slate-300">
+                <div class="p-2.5 bg-slate-900 border border-slate-700 rounded-lg"><strong>Skupina 1:</strong> Plicní arteriální hypertenze (PAH - idiopatická, hereditární, léky).</div>
+                <div class="p-2.5 bg-slate-900 border border-slate-700 rounded-lg"><strong>Skupina 2:</strong> Plicní hypertenze při onemocnění levého srdce (nejčastější! HFrEF, HFpEF, chlopenní vady).</div>
+                <div class="p-2.5 bg-slate-900 border border-slate-700 rounded-lg"><strong>Skupina 3:</strong> Plicní hypertenze při plicních onemocněních a hypoxii (CHOPN, fibrózy).</div>
+                <div class="p-2.5 bg-slate-900 border border-slate-700 rounded-lg"><strong>Skupina 4:</strong> Chronická tromboembolická plicní hypertenze (CTEPH) - potenciálně kurabilní endarterektomií!</div>
+              </div>
+            `
+          }
+        ]
+      },
+      recall: {
+        scenarios: [
+          {
+            id: "pe-r1",
+            title: "Otázka 1: EKG známky přetížení pravé komory",
+            question: "Jaké jsou typické EKG známky akutního cor pulmonale / masivní plicní embolie?",
+            answer: "1. Sinusová tachykardie (nejčastější!). 2. Klasický vzorec S1Q3T3 (hluboké S ve svodu I, kmit Q ve svodu III, negativní T ve svodu III). 3. Nový inkompletní nebo kompletní blok pravého raménka (RBBB). 4. Inverze vln T v pravostranných prekordiálních svodech V1–V4. 5. P-pulmonale.",
+            pearl: "Normální EKG však plicní embolii nikdy nevylučuje!"
           },
           {
-            "text": "C) Zahájit plnou antikoagulační léčbu LMWH",
-            "isCorrect": false
-          },
-          {
-            "text": "D) Provést ventilačně-perfuzní scintigrafii plic",
-            "isCorrect": false
+            id: "pe-r2",
+            title: "Otázka 2: Délka antikoagulační léčby po PE",
+            question: "Jak dlouho má být léčen pacient po první atace plicní embolie, která byla vyvolána velkým přechodným rizikovým faktorem (např. polytrauma a ortopedická operace) vs. pacient s nevyvolanou (idiopatickou) embolií?",
+            answer: "Vyvolaná embolie známým přechodným faktorem: terapie trvá minimálně 3 měsíce (a po odstranění faktoru lze ukončit). Nevyvolaná (idiopatická) embolie nebo recidiva: doporučena dlouhodobá až celoživotní antikoagulace (pokud pacient nemá vysoké riziko krvácení).",
+            pearl: "Léky 1. volby pro perorální léčbu PE jsou NOAC (Apixaban, Rivaroxaban, Edoxaban, Dabigatran)."
           }
         ],
-        "explanation": "U pacientů s nízkou klinickou pravděpodobností PE (dle Wellsova skóre nebo Geneva skóre) aplikujeme pravidlo PERC (Pulmonary Embolism Rule-out Criteria) nebo stanovíme vysoce senzitivní D-dimery. Pokud jsou negativní, PE je s 99% spolehlivostí vyloučena a pacientka není zbytečně vystavena radiační a kontrastní zátěži z CT angiografie."
+        quiz: {
+          title: "Kvíz: D-dimery v diagnostice PE",
+          prompt: "U kterého z následujících pacientů má stanovení hladiny D-dimerů nejvyšší diagnostickou hodnotu pro bezpečné vyloučení plicní embolie?",
+          options: [
+            { text: "A) U pacienta s nízkou nebo střední klinickou pravděpodobností dle Wellsova/Ženevského skóre", isCorrect: true },
+            { text: "B) U pacienta s vysokou klinickou pravděpodobností a šokem", isCorrect: false },
+            { text: "C) U polymorbidního onkologického pacienta po těžkém traumatu", isCorrect: false },
+            { text: "D) U těhotné pacientky ve 3. trimestru", isCorrect: false }
+          ],
+          explanation: "D-dimery mají vynikající senzitivitu a negativní prediktivní hodnotu (> 99 %) u pacientů s NÍZKOU nebo STŘEDNÍ pravděpodobností. U vysoké pravděpodobnosti se D-dimery nenabírají a jde se rovnou na CT angiografii."
+        }
+      },
+      breakdown: {
+        classThree: [
+          "Podávání systémové trombolýzy u hemodynamicky stabilních pacientů s PE s nízkým rizikem.",
+          "Spoléhání se na negativitu D-dimerů u pacienta s vysokou klinickou pravděpodobností PE (nutno provést CT plicní angiografii).",
+          "Podávání specifické léčby plicní arteriální hypertenze (prostacykliny, ERA) u pacientů s plicní hypertenzí 2. skupiny (při onemocnění levého srdce - zhorší plicní edém)."
+        ],
+        mustKnow: [
+          "Vysoké riziko PE (šok/hypotenze) = okamžitá systémová trombolýza (Altepláza 100 mg i.v.).",
+          "Léčba stabilní PE: NOAC (Apixaban, Rivaroxaban bez nutnosti LMWH přemostění; Dabigatran/Edoxaban po 5 dnech LMWH).",
+          "Plicní hypertenze: mPAP &gt; 20 mmHg. Nejčastější je 2. skupina (levé srdce)."
+        ]
       }
     },
-    "breakdown": {
-      "classThree": [
-        "Provádění CT plicní angiografie (CTPA) u hemodynamicky nestabilního pacienta v šoku před zahájením resuscitace a bedside echokardiografie.",
-        "Podávání přímých vazodilatancií (Nitroprusid sodný) u akutní aortální disekce bez předchozího podání betablokátoru (riziko progrese disekce zvýšením dP/dt).",
-        "Rutinní podávání systémové trombolýzy u hemodynamicky stabilních pacientů s nízkorizikovou plicní embolií.",
-        "Implantace kaválního filtru (IVC filter) u pacientů s PE bez absolutní kontraindikace antikoagulace."
+{
+      id: "ccs",
+      number: 11,
+      title: "Chronické koronární syndromy (CCS)",
+      shortDesc: "Stabilní angina pectoris, předtestová pravděpodobnost (PTP), CT koronarografie vs. funkční zátěžové testy, antianginózní léčba.",
+      icon: "🫀",
+      badge: "Ischemická choroba",
+      badgeColor: "amber",
+            guidelineLinks: [
+        { title: "2024 ESC Guidelines for the Management of Chronic Coronary Syndromes", url: "https://academic.oup.com/eurheartj/article/45/39/3415/7741357", year: "2024" }
       ],
-      "mustKnow": [
-        "Vysokoriziková PE = hypotenze/šok -> okamžitá systémová trombolýza (rtPA 100 mg) + UFH.",
-        "Intermediální PE = sPESI &ge; 1 -> TTE/CT (pravá komora) + cTn (troponin).",
-        "Nízkoriziková PE = sPESI 0 -> NOAC (Apixaban / Rivaroxaban) a časné propuštění.",
-        "Aortální disekce Stanford A (ascendentní) = urgentní operace; Stanford B = betablokátory i.v. (cíl STK 100–120 mmHg) + TEVAR.",
-        "PAOD diagnostika: ABI &le; 0,90. Antitrombotická léčba: Aspirin 100 mg + Rivaroxaban 2,5 mg bid (COMPASS)."
-      ]
-    },
-    "guidelineLinks": [
-      {
-        "title": "2024 ESC Guidelines for the management of peripheral arterial and aortic diseases",
-        "year": 2024,
-        "journal": "European Heart Journal",
-        "doi": "10.1093/eurheartj/ehae179",
-        "url": "https://academic.oup.com/eurheartj/article/45/38/3702/7741011"
+theory: {
+        banner: {
+          tag: "Moderní diagnostika ICHS",
+          title: "CT koronarografie vs. Zátěžové testy",
+          text: "ESC klade důraz na neinvazivní anatomické i funkční testování. **CT koronarografie (CCTA)** je preferovaným testem u pacientů s nízkou až střední předtestovou pravděpodobností (PTP) k vyloučení stenóz věnčitých tepen díky své vysoké negativní prediktivní hodnotě."
+        },
+        sections: [
+          {
+            title: "Diagnostický algoritmus u podezření na CCS",
+            color: "amber",
+            content: `
+              <div class="space-y-2 text-xs text-slate-300">
+                <p>1. Zhodnocení symptomů (typická vs. atypická AP vs. nekardiální bolest) a stanovení předtestové pravděpodobnosti (PTP) na základě věku, pohlaví a charakteru bolesti.</p>
+                <div class="grid sm:grid-cols-2 gap-3 my-2">
+                  <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                    <span class="font-bold text-amber-400">Anatomické vyšetření (CT koronarografie)</span>
+                    <p class="mt-1">Lék volby u nižší/střední PTP bez známé ICHS, dobré přehlednosti a absence těžkých kalcifikací.</p>
+                  </div>
+                  <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                    <span class="font-bold text-amber-400">Funkční ischemické testy (Zátěžové ECHO, CMR, SPECT)</span>
+                    <p class="mt-1">Preferovány u vyšší PTP, u pacientů se známou ICHS nebo po předchozí revaskularizaci (stenty, CABG).</p>
+                  </div>
+                </div>
+              </div>
+            `
+          },
+          {
+            title: "Antianginózní a prognostická farmakoterapie",
+            color: "emerald",
+            content: `
+              <div class="grid sm:grid-cols-2 gap-3 text-xs">
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <span class="font-bold text-emerald-400">Prognostická léčba (snižuje KV riziko):</span>
+                  <ul class="list-disc ml-4 mt-1 text-slate-300 space-y-1">
+                    <li><strong>Aspirin 100 mg/d</strong> (nebo Clopidogrel při intoleranci).</li>
+                    <li><strong>Statin vysoké intenzity</strong> (cíl LDL &lt; 1,4 mmol/l) ± Ezetimib.</li>
+                    <li><strong>ACE inhibitor / ARB</strong> (při hypertenzi, DM, EF &lt; 40 %).</li>
+                  </ul>
+                </div>
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <span class="font-bold text-emerald-400">Symptomatická antianginózní léčba:</span>
+                  <ul class="list-disc ml-4 mt-1 text-slate-300 space-y-1">
+                    <li><strong>1. volba:</strong> Betablokátory a/nebo blokátory kalciových kanálů (BKK).</li>
+                    <li><strong>2. volba:</strong> Dlouhodobě působící nitráty, Ranolazin, Ivabradin, Trimetazidin.</li>
+                    <li><strong>Akutní úleva:</strong> Sublingvální nitroglycerin (sprej/tablety).</li>
+                  </ul>
+                </div>
+              </div>
+            `
+          }
+        ]
       },
-      {
-        "title": "2022 ESC/ERS Guidelines for the diagnosis and treatment of pulmonary hypertension",
-        "year": 2022,
-        "journal": "European Heart Journal",
-        "doi": "10.1093/eurheartj/ehac237",
-        "url": "https://academic.oup.com/eurheartj/article/43/38/3618/6673946"
-      }
-    ]
-  },
-  {
-    "id": "ccs",
-    "number": 11,
-    "title": "Chronické koronární syndromy (2024 ESC Guidelines)",
-    "shortDesc": "Předtestová pravděpodobnost (PTP) a Clinical Likelihood, CCTA jako metoda 1. volby, funkční hodnocení FFR/iFR, ANOCA/INOCA a antianginózní medikace.",
-    "icon": "📈",
-    "badge": "2024 ESC Guidelines",
-    "badgeColor": "cyan",
-    "theory": {
-      "banner": {
-        "tag": "Nová doporučení (2024 ESC Guidelines)",
-        "title": "Dominance CCTA a koncept ischemie bez obstrukce (INOCA)",
-        "text": "Doporučení ESC 2024 pro Chronické koronární syndromy (CCS) definitivně potvrzují **Koronární CT angiografii (CCTA)** jako neinvazivní vyšetření 1. volby u symptomatických pacientů s nízkou až střední pravděpodobností ICHS. Velký důraz je kladen na funkční intrakoronární měření (FFR/iFR) a management mikrovaskulární anginy (**INOCA / ANOCA**)."
-      },
-      "sections": [
-        {
-          "title": "1. Diagnostický postup: PTP, Clinical Likelihood & CCTA",
-          "color": "cyan",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-slate-700 rounded-xl text-xs text-slate-300 space-y-2\">\n                                <p><strong>Krok 1: Posouzení symptomů a Clinical Likelihood:</strong> Hodnocení charakteru bolesti (typická vs. atypická vs. nekardiální), věku, pohlaví a rizikových faktorů (kouření, DM, dyslipidémie, rodinná anamnéza, kalciové skóre CAC).</p>\n                                <div class=\"grid sm:grid-cols-2 gap-3 mt-1 text-[11px]\">\n                                    <div class=\"p-2.5 bg-cyan-950/40 border border-cyan-500/30 rounded-lg\">\n                                        <span class=\"font-bold text-cyan-400\">🔍 CCTA (Koronární CT angiografie) - Třída I</span>\n                                        <p class=\"mt-1\">Doporučena jako <strong>iniciální vyšetření volby</strong> u pacientů s nízkou až střední klinickou pravděpodobností (5–50 %). Vynikající negativní prediktivní hodnota; zobrazí nejen lumenní stenózu, ale i charakter plátu (vysokorizikové pláty s tenkou čepičkou).</p>\n                                    </div>\n                                    <div class=\"p-2.5 bg-slate-800 rounded-lg border border-slate-700\">\n                                        <span class=\"font-bold text-amber-400\">⚡ Neinvazivní funkční zátěžové zobrazování</span>\n                                        <p class=\"mt-1\"><strong>Zátěžová magnetická rezonance (Stress CMR), Zátěžové ECHO (DSE) nebo PET/SPECT</strong> jsou preferovány u pacientů s vysokou pravděpodobností (&gt; 50 %), známou ICHS či předchozí revaskularizací k průkazu funkční ischémie.</p>\n                                    </div>\n                                </div>\n                            </div>\n                        "
-        },
-        {
-          "title": "2. Invazivní funkční hodnocení stenóz: FFR a iFR",
-          "color": "emerald",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-emerald-500/30 rounded-xl text-xs text-slate-300 space-y-2\">\n                                <p>Při selektivní koronarografii (SKG) nelze vizuálně přesně stanovit hemodynamický význam hraničních stenóz (40–90 %). Indikováno je <strong>intrakoronární funkční měření tlakovým vodičem:</strong></p>\n                                <ul class=\"list-disc ml-5 space-y-1 text-[11px]\">\n                                    <li><strong>FFR (Frakční průtoková rezerva):</strong> Měření poměru tlaků za stenózou a v aortě při maximální hyperémii (navozené i.v. adenosinem). Hodnota <strong>FFR &le; 0,80</strong> prokazuje hemodynamicky významnou ischémii a indikuje PCI/CABG (Třída I).</li>\n                                    <li><strong>iFR (Instantaneous Wave-Free Ratio):</strong> Měření v klidové fázi diastoly (bez nutnosti podání adenosinu). Hodnota <strong>iFR &le; 0,89</strong> je ekvivalentem FFR &le; 0,80.</li>\n                                </ul>\n                            </div>\n                        "
-        },
-        {
-          "title": "3. Antianginózní farmakoterapie & INOCA / ANOCA",
-          "color": "purple",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-purple-500/30 rounded-xl text-xs text-slate-300 space-y-2\">\n                                <p><strong>Stupňovitá antiischemická léčba:</strong></p>\n                                <ul class=\"list-disc ml-5 space-y-1 text-[11px]\">\n                                    <li><strong>1. Linie:</strong> <em>Betablokátor</em> (snižuje TF a spotřebu O2) a/nebo <em>Dihydropyridinový blokátor vápníkových kanálů</em> (Amlodipin, Felodipin - vazodilatace).</li>\n                                    <li><strong>2. Linie:</strong> Přidání dlouhodobě působících nitrátů, <em>Ranolazinu</em> (inhibitor pozdního sodíkového proudu), <em>Trimetazidinu</em> (modulátor metabolismu myokardu) nebo <em>Ivabradinu</em> (inhibitor If kanálu v SA uzlu při sinusovém rytmu).</li>\n                                </ul>\n                                <div class=\"p-2.5 bg-slate-800 rounded-lg border border-slate-700 text-[11px]\">\n                                    <span class=\"font-bold text-purple-400\">INOCA (Ischemia with Non-Obstructive Coronary Arteries):</span>\n                                    Ischémie myokardu při angiograficky normálních tepnách. Zahrnuje <strong>koronární mikrovaskulární dysfunkci (CMD)</strong> (léčba: ACEi, statiny, betablokátory) a <strong>vazospastickou anginu (Prinzmetalova angina)</strong> (léčba: BKK + nitráty, <em>betablokátory jsou u čistého spazmu kontraindikovány!</em>).\n                                </div>\n                            </div>\n                        "
-        }
-      ]
-    },
-    "recall": {
-      "scenarios": [
-        {
-          "id": "ccs-r1",
-          "title": "Kazuistika 1: Výběr iniciálního diagnostického testu u CCS",
-          "question": "52letý nekuřák s mírnou hypertenzí si stěžuje na občasné nepříjemné tlaky na hrudi při chůzi do schodů, které v klidu do 5 minut odezní. Klidové EKG je normální. Dle kalkulátoru ESC 2024 je jeho předtestová pravděpodobnost ICHS 18 % (středně nízká). Které neinvazivní vyšetření je dle ESC 2024 metodou první volby?",
-          "answer": "Metodou první volby je Koronární CT angiografie (CCTA - Třída I, Level A). U pacientů s nízkou až střední klinickou pravděpodobností má CCTA nejvyšší diagnostickou přesnost, dokáže vyloučit přítomnost aterosklerózy s vysokou negativní prediktivní hodnotou a bezpečně odvrátit zbytečnou invazivní katetrizaci.",
-          "pearl": "Klasické zátěžové EKG na bicyklu má nízkou senzitivitu i specificitu a ESC jej již nedoporučuje jako primární diagnostický test."
-        },
-        {
-          "id": "ccs-r2",
-          "title": "Kazuistika 2: Indikace PCI na základě FFR",
-          "question": "Při plánované koronarografii pro stabilní anginu pectoris je na střední RIA nalezena izolovaná 60% stenóza. Následně provedené intrakoronární měření frakční průtokové rezervy ukazuje FFR = 0,86. Je indikována implantace stentu (PCI)?",
-          "answer": "NENÍ. Hodnota FFR &gt; 0,80 prokazuje, že stenóza není hemodynamicky významná a nepůsobí myokardiální ischémii (studie FAME a DEFER). Implantace stentu by pacientovi nepřinesla prognostický ani symptomatický benefit a vystavila by ho zbytečnému riziku trombózy a restenózy stentu. Pacient má být léčen konzervativně optimální farmakoterapií (statin, antiagregační léčba, úprava životosprávy).",
-          "pearl": "PCI stenóz s FFR &gt; 0,80 nezlepšuje přežití a zvyšuje riziko periprocedurálního infarktu."
-        }
-      ],
-      "quiz": {
-        "title": "Rozhodovací kvíz: Vazospastická (Prinzmetalova) angina pectoris",
-        "prompt": "Která léková skupina je u čisté vazospastické anginy pectoris (způsobené spazmy epikardiálních tepen) KONTRAINDIKOVÁNA, protože může zhoršit vazokonstrikci?",
-        "options": [
+      recall: {
+        scenarios: [
           {
-            "text": "A) Neselektivní betablokátory (blokují vazodilatační beta-2 receptory a umožňují převahu vazokonstrikčních alfa-1 receptorů)",
-            "isCorrect": true
+            id: "ccs-r1",
+            title: "Otázka 1: 3 znaky typické anginy pectoris",
+            question: "Která 3 klasická kritéria definují typickou anginu pectoris?",
+            answer: "1. Retrosternální tlaková/pálivá bolest či nepohodlí charakteristické kvality a trvání. 2. Vyvolaná fyzickou námahou nebo emočním stresem. 3. Ustoupí v klidu nebo po podání sublingválního nitroglycerinu během několika minut (do 5 min). (Atypická AP splňuje 2 z těchto 3 kritérií).",
+            pearl: "Pokud bolest píchá u jednoho bodu a zhoršuje se polohou těla či pohmatem, jedná se téměř jistě o nekardiální (muskuloskeletální) původ."
           },
           {
-            "text": "B) Blokátory kalciových kanálů (Amlodipin, Diltiazem)",
-            "isCorrect": false
-          },
-          {
-            "text": "C) Dlouhodobě působící nitráty",
-            "isCorrect": false
-          },
-          {
-            "text": "D) Statiny",
-            "isCorrect": false
+            id: "ccs-r2",
+            title: "Otázka 2: Ivabradin – mechanismus a indikace",
+            question: "Jaký je mechanismus účinku Ivabradinu a jaká je podmínka pro jeho účinnost u pacienta s anginou pectoris?",
+            answer: "Ivabradin selektivně blokuje If kanály v sinoatriálním (SA) uzlu, čímž snižuje tepovou frekvenci bez ovlivnění kontraktility myokardu a krevního tlaku. Podmínkou účinnosti je přítomnost sinusového rytmu (u fibrilace síní je neúčinný) a klidová TF ≥ 70/min.",
+            pearl: "Ivabradin je ideální u pacientů s kontraindikací betablokátorů (např. těžké astma) nebo v kombinaci s BB při nedostatečné kontrole tepu."
           }
         ],
-        "explanation": "U vazospastické (Prinzmetalovy) anginy pectoris vedou neselektivní betablokátory (např. Propranolol, Sotalol) k blokádě beta-2 adrenergních receptorů hladké svaloviny koronárních cév. Tím dochází k neoponované stimulaci alfa-1 receptorů noradrenalinem a k provokaci těžkého koronárního spazmu. Lékem volby jsou blokátory vápníkových kanálů a nitráty."
-      }
-    },
-    "breakdown": {
-      "classThree": [
-        "Rutinní provádění invazivní revaskularizace (PCI) u angiografických stenóz bez průkazu ischémie (FFR &gt; 0,80 nebo iFR &gt; 0,89).",
-        "Podávání neselektivních betablokátorů u pacientů s vazospastickou (Prinzmetalovou) anginou pectoris.",
-        "Používání klasického zátěžového EKG (bicyklová ergometrie) jako primárního testu k vyloučení ICHS.",
-        "Současné podávání nitrátů a inhibitorů fosfodiesterázy-5 (Sildenafil, Tadalafil) - riziko těžké refrakterní hypotenze a smrti!"
-      ],
-      "mustKnow": [
-        "Diagnostika CCS: CCTA je metoda 1. volby u nízké/střední pravděpodobnosti (PTP 5–50 %).",
-        "Funkční intrakoronární vyšetření: FFR &le; 0,80 nebo iFR &le; 0,89 indikuje revaskularizaci (Třída I).",
-        "1. linie antianginózní medikace: Betablokátor + Dihydropyridinový BKK (Amlodipin).",
-        "INOCA/ANOCA: Ischémie bez obstrukce -> mikrovaskulární dysfunkce nebo koronární spazmy.",
-        "Statiny vysoké intenzity jsou indikovány u všech pacientů s prokázanou koronární aterosklerózou (LDL &lt; 1,4 mmol/l)."
-      ]
-    },
-    "guidelineLinks": [
-      {
-        "title": "2024 ESC Guidelines for the management of chronic coronary syndromes",
-        "year": 2024,
-        "journal": "European Heart Journal",
-        "doi": "10.1093/eurheartj/ehae177",
-        "url": "https://academic.oup.com/eurheartj/article/45/38/3415/7741009"
-      }
-    ]
-  },
-  {
-    "id": "ekg",
-    "number": 12,
-    "title": "EKG diferenciální diagnostika v praxi",
-    "shortDesc": "Modifikovaná Sgarbossa kritéria u LBBB a stimulace, de Winter T vlny, Wellensův syndrom, Brugada syndrom, syndromy dlouhého a krátkého QT a EKG známky plicní embolie.",
-    "icon": "📈",
-    "badge": "ESC EKG Consensus",
-    "badgeColor": "emerald",
-    "theory": {
-      "banner": {
-        "tag": "Pokročilá interpretace EKG",
-        "title": "Ischemické ekvivalenty a vrozené arytmické syndromy",
-        "text": "Řada život ohrožujících koronárních uzávěrů se neprojeví klasickou ST elevací, ale **STEMI ekvivalenty** (de Winterovy T vlny, Wellensův syndrom, pozitivní Smith-Sgarbossa kritéria při LBBB). Rozpoznání těchto vzorců a vrozených syndromů (Brugada, Long QT) je klíčovou kompetencí moderního lékaře."
+        quiz: {
+          title: "Kvíz: Cíle léčby LDL cholesterolu u CCS",
+          prompt: "U pacienta s prokázanou stabilní ICHS (velmi vysoké KV riziko) je podle ESC guidelines cílová hodnota LDL cholesterolu:",
+          options: [
+            { text: "A) LDL < 1,4 mmol/l a současně pokles o ≥ 50 % oproti výchozí hodnotě", isCorrect: true },
+            { text: "B) LDL < 2,6 mmol/l", isCorrect: false },
+            { text: "C) LDL < 3,0 mmol/l", isCorrect: false },
+            { text: "D) LDL < 1,8 mmol/l bez nutnosti procentuálního poklesu", isCorrect: false }
+          ],
+          explanation: "U všech pacientů s manifestním kardiovaskulárním onemocněním (velmi vysoké riziko) je cílem pokles LDL-C o alespoň 50 % z výchozí hodnoty a dosažení absolutní hodnoty < 1,4 mmol/l (< 55 mg/dl)."
+        }
       },
-      "sections": [
-        {
-          "title": "1. Infarkt myokardu při blokádě levého raménka (LBBB): Modifikovaná Sgarbossa kritéria",
-          "color": "emerald",
-          "content": "\n                            <div class=\"p-3.5 bg-slate-900 border border-emerald-500/30 rounded-xl text-xs text-slate-300 space-y-2\">\n                                <p>Běžný LBBB maskuje klasické ST elevace. <strong>Modifikovaná Sgarbossa kritéria (Smith-Sgarbossa):</strong></p>\n                                <div class=\"grid sm:grid-cols-3 gap-2.5 text-[11px] mt-1\">\n                                    <div class=\"p-2 bg-rose-950/40 border border-rose-500/40 rounded-lg\">\n                                        <div class=\"font-bold text-rose-400\">1. Konkordantní ST elevace</div>\n                                        <p class=\"mt-0.5\">ST elevace <strong>&ge; 1 mm</strong> ve svodu s pozitivním QRS (5 bodů - vysoká specificita 98 %).</p>\n                                    </div>\n                                    <div class=\"p-2 bg-amber-950/40 border border-amber-500/40 rounded-lg\">\n                                        <div class=\"font-bold text-amber-400\">2. Konkordantní ST deprese</div>\n                                        <p class=\"mt-0.5\">ST deprese <strong>&ge; 1 mm ve svodech V1, V2 nebo V3</strong> (3 body - svědčí pro zadní infarkt).</p>\n                                    </div>\n                                    <div class=\"p-2 bg-purple-950/40 border border-purple-500/40 rounded-lg\">\n                                        <div class=\"font-bold text-purple-400\">3. Smithovo pravidlo diskordance</div>\n                                        <p class=\"mt-0.5\">Diskordantní ST elevace s poměrem <strong>ST / S &le; -0,25</strong> (ST elevace dosahuje &gt; 25 % hloubky kmitu S).</p>\n                                    </div>\n                                </div>\n                            </div>\n                        "
-        },
-        {
-          "title": "2. Ischemické STEMI ekvivalenty: de Winter & Wellens",
-          "color": "rose",
-          "content": "\n                            <div class=\"space-y-2.5 text-xs text-slate-300\">\n                                <div class=\"p-3 bg-slate-900 border border-rose-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-rose-400\">⚡ de Winter T-vlnový vzorec (Akutní proximální uzávěr RIA/LAD)</span>\n                                    <p class=\"mt-1\">\n                                        Přítomen u cca 2 % infarktů přední stěny: <strong>Junkční deprese ST 1–3 mm ve svodech V1–V6</strong> přecházející do <strong>vysokých, symetrických, špičatých vln T</strong> bez klasických ST elevací. Ekvivalent akutního STEMI -> indikace k okamžité primární PCI!\n                                    </p>\n                                </div>\n                                <div class=\"p-3 bg-slate-900 border border-amber-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-amber-400\">⚠️ Wellensův syndrom (Kritická stenóza proximální RIA)</span>\n                                    <p class=\"mt-1\">\n                                        Vyskytuje se v bezbolestném období po atace stenokardie: <strong>Typ A (25 %):</strong> Bifázické vlny T ve V2–V3. <strong>Typ B (75 %):</strong> Hluboce a symetricky invertované vlny T ve V2–V4. Varuje před hrozícím masivním transmurálním infarktem přední stěny (zákaz zátěžových testů, nutná včasná SKG!).\n                                    </p>\n                                </div>\n                            </div>\n                        "
-        },
-        {
-          "title": "3. Vrozené syndromy: Brugada & Long QT (LQTS)",
-          "color": "cyan",
-          "content": "\n                            <div class=\"grid sm:grid-cols-2 gap-3 text-xs text-slate-300\">\n                                <div class=\"p-3 bg-slate-900 border border-cyan-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-cyan-400\">⚡ Brugada syndrom (Typ 1)</span>\n                                    <p class=\"mt-1\">Kanálopatie sodíkového kanálu (SCN5A). EKG Typ 1 ('coved-type'): <strong>ST elevace &ge; 2 mm následovaná negativní vlnou T</strong> v pravostranných hrudních svodech (V1, V2). Odmaskován horečkou či blokátory Na kanálu (Ajmalin). Riziko fibrilace komor -> indikace ICD.</p>\n                                </div>\n                                <div class=\"p-3 bg-slate-900 border border-purple-500/30 rounded-xl\">\n                                    <span class=\"font-bold text-purple-400\">⏱️ Syndrom dlouhého QT (LQTS)</span>\n                                    <p class=\"mt-1\">Korigovaný interval <strong>QTc &gt; 480 ms</strong> (Bazettův vzorec: QTc = QT / &radic;RR). LQT1 (plavání/námaha), LQT2 (akustické podněty/emoce), LQT3 (spánek/klid). Riziko Torsades de Pointes. Léčba: Betablokátory (Nadolol/Propranolol), ICD.</p>\n                                </div>\n                            </div>\n                        "
-        }
-      ]
+      breakdown: {
+        classThree: [
+          "Provádění CT koronarografie u pacientů s těžkou arytmií, vysokou nekontrolovanou TF nebo masivními kalcifikacemi (nízká výtěžnost a artefakty).",
+          "Podávání Ivabradinu pacientům bez sinusového rytmu (např. u fibrilace síní).",
+          "Podávání nitrátů současně s inhibitory fosfodiesterázy-5 (Sildenafil, Tadalafil) do 24–48 hodin (hrozí fatální refrakterní hypotenze)."
+        ],
+        mustKnow: [
+          "Diagnostika: CT koronarografie vylučuje anatomickou stenózu; zátěžové testy (ECHO/CMR/SPECT) prokazují ischémii.",
+          "Prognostická léčba: Statin (LDL &lt; 1,4) + Aspirin 100 mg/d + ACEi/ARB.",
+          "Revaskularizace (PCI vs. CABG): Zlepšuje prognózu u postižení kmene levé věnčité tepny (LM), proximální RIA nebo třítepenného postižení s dysfunkcí LK."
+        ]
+      }
     },
-    "recall": {
-      "scenarios": [
-        {
-          "id": "ekg-r1",
-          "title": "Kazuistika 1: Rozpoznání de Winterova vzorce",
-          "question": "46letý kuřák je přivezen pro 45 minut trvající silnou retrosternální pálivou bolest a opocení. Na EKG není přítomna žádná ST elevace, ale ve svodech V2-V5 je patrná junkční deprese ST o 2 mm pokračující do nápadně vysokých, pozitivních a symetrických vln T. Jaká je diagnóza a jaký je další postup?",
-          "answer": "Jedná se o de Winterův EKG vzorec, který je ekvivalentem akutního STEMI přední stěny a značí akutní totální uzávěr proximální ramus interventricularis anterior (RIA/LAD). Pacient musí být okamžitě transportován na katetrizační sál k provedení primární PCI bez čekání na výsledky laboratorních troponinů!",
-          "pearl": "De Winterovy T vlny se vyskytují u 2 % pacientů s akutním uzávěrem LAD a jejich přehlédnutí mívá fatální následky."
-        },
-        {
-          "id": "ekg-r2",
-          "title": "Kazuistika 2: Wellensův syndrom po odeznění stenokardie",
-          "question": "58letá žena měla před 3 hodinami epizodu kruté bolesti na hrudi, která spontánně odezněla. Nyní je zcela bez potíží. EKG v klidu ukazuje symetrické hluboké inverze T vln o hloubce 5 mm ve svodech V2, V3 a V4, bez ST elevací a bez patologických Q kmitů. Je bezpečné pacientku odeslat na bicyklovou ergometrii?",
-          "answer": "NENÍ TO BEZPEČNÉ (Je to přísně kontraindikováno!). EKG obraz odpovídá Wellensovu syndromu typu B, který signalizuje kritickou proximální stenózu RIA (LAD). Provedení zátěžového testu (ergometrie) může vyvolat masivní transmurální infarkt přední stěny nebo fibrilaci komor. Pacientka vyžaduje hospitalizaci na monitorovaném lůžku a urgentní koronarografii.",
-          "pearl": "Wellensův syndrom se projevuje právě v bezbolestném intervalu po proběhlé ischémii."
-        }
+{
+      id: "ekg",
+      number: 12,
+      title: "EKG diagnostický kompas v kardiologii",
+      shortDesc: "Lokalizace infarktů, zrcadlové změny, raménkové bloky, iontové dysbalance (hyperkalémie, hypokalémie, kalcémie) a syndrom dlouhého QT.",
+      icon: "📈",
+      badge: "EKG & Diagnostika",
+      badgeColor: "emerald",
+            guidelineLinks: [
+        { title: "2023 ESC Guidelines for the Management of Acute Coronary Syndromes (ECG Appendix)", url: "https://academic.oup.com/eurheartj/article/44/38/3720/7243210", year: "2023" }
       ],
-      "quiz": {
-        "title": "Rozhodovací kvíz: Hyperkalémie a urgentní EKG změny",
-        "prompt": "Pacient s anurií a chronickým selháním ledvin má na EKG vysoké, úzké, symetrické 'stanovité' vlny T, oploštělé vlny P a široké QRS komplexy (140 ms). V krevním obraze je kalémie 7,6 mmol/l. Co je nejurgentnějším prvním krokem léčby?",
-        "options": [
+theory: {
+        banner: {
+          tag: "Rychlý přehled EKG",
+          title: "Topografická anatomie infarktů na 12svodovém EKG",
+          text: "Podle svodů s elevacemi ST spolehlivě lokalizujeme postiženou koronární tepnu: **Spodní (diafragmální) stěna (II, III, aVF)** -> ACD / RCx. **Přední stěna a septum (V1–V4)** -> RIA. **Laterální stěna (I, aVL, V5–V6)** -> RCx / RIA. **Zadní stěna (deprese V1–V3)** -> ACD / RCx."
+        },
+        sections: [
           {
-            "text": "A) Okamžité podání Calcium gluconicum 10% (nebo Calcium chloratum) i.v. pro okamžitou stabilizaci myokardiální membrány",
-            "isCorrect": true
+            title: "Přehled EKG lokalizací infarktu myokardu",
+            color: "emerald",
+            content: `
+              <div class="grid sm:grid-cols-2 gap-3 text-xs text-slate-300">
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <span class="font-bold text-rose-400">Spodní stěna (II, III, aVF)</span>
+                  <p class="mt-1">Povodí arteria coronaria dextra (ACD) v 85 % nebo RCx. Často provázeno bradykardií a AV blokádami. Zrcadlové ST deprese ve svodu aVL!</p>
+                </div>
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <span class="font-bold text-rose-400">Přední stěna (V1–V4) / Anteroseptální</span>
+                  <p class="mt-1">Povodí ramus interventricularis anterior (RIA/LAD). Velký rozsah ohroženého myokardu levé komory, riziko kardiogenního šoku a ruptury mezikomorového septa.</p>
+                </div>
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <span class="font-bold text-rose-400">Laterální stěna (I, aVL, V5–V6)</span>
+                  <p class="mt-1">Povodí ramus circumflexus (RCx) nebo diagonálních větví RIA. Zrcadlové ST deprese ve spodních svodech (III, aVF).</p>
+                </div>
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <span class="font-bold text-rose-400">Zadní (posterio-bazální) stěna</span>
+                  <p class="mt-1">Horizontální ST deprese a vysoké štíhlé R ve V1–V3. Nutno dotočit zadní svody V7–V9 (zde ST elevace ≥ 0,5 mm potvrzují STEMI zadní stěny)!</p>
+                </div>
+              </div>
+            `
           },
           {
-            "text": "B) Perorální podání pryskyřice vázající draslík (Resonium)",
-            "isCorrect": false
+            title: "Iontové dysbalance na EKG",
+            color: "amber",
+            content: `
+              <div class="grid sm:grid-cols-2 gap-3 text-xs text-slate-300">
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <span class="font-bold text-amber-400">Hyperkalémie (K+ &gt; 5,5 mmol/l)</span>
+                  <p class="mt-1">1. Vysoké, hrotnaté, symetrické vlny T (tzv. stanové T). 2. Oploštění a vymizení vlny P, prodloužení PQ. 3. Široký bizardní QRS komplex (sinusoidální křivka -> hrozí asystolie či komorová fibrilace). <strong>Léčba: Calcium gluconicum i.v. k membránové stabilizaci!</strong></p>
+                </div>
+                <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
+                  <span class="font-bold text-cyan-400">Hypokalémie (K+ &lt; 3,5 mmol/l)</span>
+                  <p class="mt-1">Oploštění či inverze vln T, deprese úseku ST, vznik prominentní <strong>vlny U</strong> a zdánlivé prodloužení intervalu QT (QU interval). Vysoké riziko komorových arytmií!</p>
+                </div>
+              </div>
+            `
+          }
+        ]
+      },
+      recall: {
+        scenarios: [
+          {
+            id: "ekg-r1",
+            title: "Otázka 1: Infarkt pravé komory",
+            question: "U pacienta s akutním STEMI spodní stěny (elevace ve II, III, aVF) naměříte těžkou hypotenzi po podání 1 vstřiku nitroglycerinu pod jazyk. Na co musíte okamžitě pomyslet, jaké EKG svody dotočit a jaká je léčba?",
+            answer: "Pomyslet na současný infarkt pravé komory (cca 30–40 % spodních infarktů). Dotočit pravostranné prekordiální svody V3R–V6R (ST elevace ≥ 0,5–1,0 mm ve V4R potvrzuje infarkt PK). Léčba: Okamžitá volumoterapie (i.v. krystaloidy) k udržení plnícího tlaku PK! Nitráty a diuretika jsou přísně zakázány.",
+            pearl: "Pravá komora je závislá na preloadu – vazodilatancia vedou k prudkému kolapsu minutového výdeje."
           },
           {
-            "text": "C) Inhalace beta-2 mimetika (Salbutamol)",
-            "isCorrect": false
-          },
-          {
-            "text": "D) Infuze inzulinu s glukózou",
-            "isCorrect": false
+            id: "ekg-r2",
+            title: "Otázka 2: Sgarbossina kritéria",
+            question: "K čemu slouží Sgarbossina (nebo modifikovaná Smith-Sgarbossina) kritéria na EKG?",
+            answer: "Slouží k diagnostice akutního STEMI u pacientů s přítomnou blokádou levého raménka Tawarova (LBBB) nebo komorovou stimulací kardiostimulátorem (VVI), které za normálních okolností zakrývají klasické ischemické ST elevace.",
+            pearl: "Klíčové je kritérium konkordantní ST elevace ≥ 1 mm ve svodech s pozitivním QRS."
           }
         ],
-        "explanation": "Kalcium podané nitrožilně nesnižuje samotnou hladinu draslíku v plazmě, ale během 1–3 minut antagonizuje toxický vliv hyperkalémie na membránový akční potenciál kardiomyocytů a chrání myokard před bezprostředním vznikem fibrilace komor či asystolie. Teprve po aplikaci vápníku podáváme léky přesunující draslík do buněk (inzulin + glukóza, bikarbonát, salbutamol) a zahajujeme dialýzu."
+        quiz: {
+          title: "Kvíz: Hyperkalémie a Calcium gluconicum",
+          prompt: "Pacient s anurií má na EKG stanové vysoké vlny T a rozšířené QRS komplexy (K+ 7,8 mmol/l). Co je nejurgentnějším krokem k zabránění bezprostřední zástavy srdce?",
+          options: [
+            { text: "A) Aplikace Calcium gluconicum 10% (nebo Calcium chloratum) i.v. pro okamžitou stabilizaci myokardiální membrány", isCorrect: true },
+            { text: "B) Okamžité podání perorálního iontoměniče (Resonium)", isCorrect: false },
+            { text: "C) Inhalace Salbutamolu", isCorrect: false },
+            { text: "D) Infuze inzulinu s glukózou", isCorrect: false }
+          ],
+          explanation: "Kalcium i.v. nesnižuje hladinu draslíku v séru, ale antagonizuje toxický účinek hyperkalémie na membránový potenciál kardiomyocytů a během 1–3 minut stabilizuje myokard před vznikem komorové fibrilace/asystolie. Teprve poté podáváme inzulin s glukózou či dialyzujeme."
+        }
+      },
+      breakdown: {
+        classThree: [
+          "Podávání nitrátů a diuretik u STEMI spodní stěny se současným infarktem pravé komory (V4R elevace).",
+          "Podávání vápníku i.v. pacientům s intoxikací digitalisem (může vyvolat ireverzibilní srdeční zástavu v systole - stone heart).",
+          "Zpoždění primární PCI u pacienta s typickou ischemickou bolestí a novým LBBB."
+        ],
+        mustKnow: [
+          "Spodní stěna: II, III, aVF (ACD). Přední stěna: V1–V4 (RIA). Laterální: I, aVL, V5–V6 (RCx).",
+          "Zadní infarkt: Zrcadlové deprese ve V1–V3 -> dotoč V7–V9.",
+          "Infarkt pravé komory: V4R elevace -> lékem jsou tekutiny, zákaz nitrátů!",
+          "Hyperkalémie: Stanové T -> rozšíření QRS -> zástava. Okamžitě Calcium i.v.!"
+        ]
       }
-    },
-    "breakdown": {
-      "classThree": [
-        "Provádění zátěžových testů (ergometrie) u pacientů s EKG obrazem Wellensova syndromu (riziko infarktu a zástavy).",
-        "Podávání vápníku i.v. pacientům s podezřením na intoxikaci digitalisem (může vyvolat ireverzibilní zástavu v systole - 'stone heart').",
-        "Zpoždění primární PCI u pacienta s de Winterovými T vlnami kvůli absenci klasických ST elevací.",
-        "Podávání nitrátů a diuretik u infarktu spodní stěny s extenzí na pravou komoru (svod V4R)."
-      ],
-      "mustKnow": [
-        "Smith-Sgarbossa kritéria u LBBB: 1. Konkordantní STE &ge; 1 mm, 2. Konkordantní STD &ge; 1 mm ve V1–V3, 3. Diskordance ST/S &le; -0,25.",
-        "de Winter: Junkční STD ve V1–V6 + vysoké špičaté T vlny = akutní uzávěr proximální RIA.",
-        "Wellens: Hluboce invertované (typ B) nebo bifázické (typ A) T vlny ve V2–V4 = kritická stenóza RIA.",
-        "Brugada syndrom: STE &ge; 2 mm typu 'coved' ve V1–V2.",
-        "Hyperkalémie: Stanovité T -&gt; rozšíření QRS -&gt; sinusoida -&gt; zástava srdce. Okamžitě Calcium i.v.!"
-      ]
-    },
-    "guidelineLinks": [
-      {
-        "title": "Clinical recommendations for the interpretation of the 12-lead electrocardiogram",
-        "year": 2024,
-        "journal": "European Heart Journal",
-        "doi": "10.1093/eurheartj/ehae200",
-        "url": "https://academic.oup.com/eurheartj/article/45/38/3314/7740997"
-      }
-    ]
-  }
-],
-
-  flashcards: [
+    }
+  ],
+flashcards: [
     // --- AKS & Koronární syndromy (1-15) ---
     {
       id: "fc-1",
@@ -1445,9 +1382,9 @@ const CARDIOLOGY_DATA = {
       id: "fc-15",
       moduleId: "midef",
       category: "Definice IM & MINOCA",
-      question: "Jaké jsou 3 klinické typy infarktu myokardu dle 5. univerzální definice (2026)?",
-      answer: "1. Primární IM (akutní koronární patologie / aterotrombóza), 2. Sekundární IM (mismatch nabídky a poptávky O2 bez akutní koronární léze), 3. IM související s výkonem (komplikace PCI nebo kardiochirurgie do 30 dnů).",
-      highYield: "5. UDMI 2026: 1. Primární IM, 2. Sekundární IM, 3. IM související s výkonem."
+      question: "Jak je definován Infarkt myokardu Typu 4a a 4b?",
+      answer: "Typ 4a je periprocedurální infarkt vázaný na PCI (vzestup cTn > 5× nad 99. percentil s ischémií). Typ 4b je trombóza stentu prokázaná angiograficky či autopticky.",
+      highYield: "4a = periprocedurální PCI; 4b = trombóza stentu."
     },
 
     // --- Srdeční selhání (21-35) ---
@@ -1456,8 +1393,8 @@ const CARDIOLOGY_DATA = {
       moduleId: "hf",
       category: "Srdeční selhání",
       question: "Jak se v guidelines 2026 dělí srdeční selhání podle ejekční frakce?",
-      answer: "Na 2 fenotypy: HFrEF (LVEF < 50 %, se sníženou EF zahrnující i dřívější mírně sníženou) a HFpEF (LVEF ≥ 50 %, se zachovanou EF). Fenotyp HFmrEF byl v roce 2026 zrušen!",
-      highYield: "2026 ESC: HFrEF (LVEF < 50 %) vs. HFpEF (LVEF ≥ 50 %)."
+      answer: "Binárně na dvě kategorie: HFrEF (EF LK ≤ 40 %, snížená) a HFpEF (EF LK > 40 %, zachovaná). Šedá zóna HFmrEF byla zrušena.",
+      highYield: "2026: HFrEF (EF ≤ 40 %) vs. HFpEF (EF > 40 %)."
     },
     {
       id: "fc-17",
@@ -2270,6 +2207,7 @@ const CARDIOLOGY_DATA = {
 // ==========================================
 // EKG MASTERCLASS - DATOVÝ MODUL
 // ==========================================
+
 const EKG_MASTERCLASS_DATA = {
   desatero: [
     {
@@ -2751,6 +2689,7 @@ const EKG_MASTERCLASS_DATA = {
 // ==========================================
 // EKG MASTERCLASS - VERSIÓN EN ESPAÑOL (ES)
 // ==========================================
+
 const EKG_MASTERCLASS_DATA_ES = {
   desatero: [
     {
@@ -3230,6 +3169,8 @@ const EKG_MASTERCLASS_DATA_ES = {
 };
 
 // Export pro globální i modulární použití
+
+// Export pro globální i modulární použití
 if (typeof window !== "undefined") {
   window.CARDIOLOGY_DATA = CARDIOLOGY_DATA;
   window.EKG_MASTERCLASS_DATA = EKG_MASTERCLASS_DATA;
@@ -3238,6 +3179,3 @@ if (typeof window !== "undefined") {
 if (typeof module !== "undefined" && module.exports) {
   module.exports = { CARDIOLOGY_DATA, EKG_MASTERCLASS_DATA, EKG_MASTERCLASS_DATA_ES };
 }
-
-
-
