@@ -872,12 +872,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const key = chatbotApiKeyInput.value.trim();
     if (key) {
       localStorage.setItem("gemini_chat_local_key", key);
-      alert("API klíč byl uložen do vašeho prohlížeče.");
-      chatbotSettingsOverlay.classList.remove("open");
-      chatbotSettingsBtn.setAttribute("aria-expanded", "false");
-      chatbotSettingsBtn.focus();
+      const originalText = chatbotSaveKeyBtn.textContent;
+      chatbotSaveKeyBtn.textContent = "Uloženo ✓";
+      chatbotSaveKeyBtn.style.background = "#10b981"; // success green
+      chatbotSaveKeyBtn.style.color = "#fff";
+      setTimeout(() => {
+        chatbotSaveKeyBtn.textContent = originalText;
+        chatbotSaveKeyBtn.style.background = "";
+        chatbotSaveKeyBtn.style.color = "";
+        chatbotSettingsOverlay.classList.remove("open");
+        chatbotSettingsBtn.setAttribute("aria-expanded", "false");
+        chatbotSettingsBtn.focus();
+      }, 800);
     } else {
-      alert("Prosím zadejte platný klíč.");
+      chatbotApiKeyInput.classList.add("shake");
+      setTimeout(() => chatbotApiKeyInput.classList.remove("shake"), 500);
       chatbotApiKeyInput.focus();
     }
   });
@@ -885,8 +894,16 @@ document.addEventListener("DOMContentLoaded", () => {
   chatbotClearKeyBtn.addEventListener("click", () => {
     localStorage.removeItem("gemini_chat_local_key");
     chatbotApiKeyInput.value = "";
-    alert("API klíč byl vymazán. Nyní se dotazy posílají přes proxy server.");
-    chatbotApiKeyInput.focus();
+    const originalText = chatbotClearKeyBtn.textContent;
+    chatbotClearKeyBtn.textContent = "Vymazáno ✓";
+    chatbotClearKeyBtn.style.background = "#10b981";
+    chatbotClearKeyBtn.style.color = "#fff";
+    setTimeout(() => {
+        chatbotClearKeyBtn.textContent = originalText;
+        chatbotClearKeyBtn.style.background = "";
+        chatbotClearKeyBtn.style.color = "";
+        chatbotApiKeyInput.focus();
+    }, 1500);
   });
 
   // Simple Markdown Parser for UI Bubble rendering
