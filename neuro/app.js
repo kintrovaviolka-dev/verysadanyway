@@ -126,12 +126,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const tabButtons = document.querySelectorAll(".tab-btn");
   const tabViews = {
     theory: getEl("view-theory"),
+    topical: getEl("view-topical"),
+    calculators: getEl("view-calculators"),
+    algorithms: getEl("view-algorithms"),
+    atlas: getEl("view-atlas"),
     recall: getEl("view-recall"),
     flashcards: getEl("view-flashcards"),
     quiz: getEl("view-quiz"),
     cheatsheet: getEl("view-cheatsheet")
   };
   const tabTheoryLabel = getEl("tab-theory-label");
+  const controlsBar = getEl("controls-bar");
 
   // Filtry & Hledání
   const searchInput = getEl("search-input");
@@ -220,9 +225,13 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
+    if (controlsBar) {
+      controlsBar.style.display = (tabName === "theory" || tabName === "recall" || tabName === "cheatsheet") ? "block" : "none";
+    }
+
     if (tabName === "flashcards") {
       initFlashcardDrill(false);
-    } else {
+    } else if (tabName !== "topical" && tabName !== "calculators" && tabName !== "algorithms" && tabName !== "atlas") {
       renderCurrentView();
     }
   };

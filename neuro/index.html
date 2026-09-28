@@ -158,6 +158,22 @@
           <span>📖</span>
           <span id="tab-theory-label">67 Okruhů & Teorie</span>
         </button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-tab="topical" id="tab-topical">
+          <span>🧭</span>
+          <span>Topická diagnostika</span>
+        </button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-tab="calculators" id="tab-calculators">
+          <span>📊</span>
+          <span>Kalkulátory & Likvor</span>
+        </button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-tab="algorithms" id="tab-algorithms">
+          <span>🚨</span>
+          <span>Akutní algoritmy</span>
+        </button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-tab="atlas" id="tab-atlas">
+          <span>🩺</span>
+          <span>Atlas vyšetření</span>
+        </button>
         <button class="tab-btn" role="tab" aria-selected="false" data-tab="recall" id="tab-recall">
           <span>🎯</span>
           <span>Active Recall (Kazuistiky)</span>
@@ -214,6 +230,26 @@
         <div class="modules-grid" id="modules-grid">
           <!-- Dynamicky renderované karty modulů -->
         </div>
+      </section>
+
+      <!-- TAB 2: Topická diagnostika -->
+      <section id="view-topical" class="tab-view" style="display: none;">
+        <!-- Dynamicky renderovaný Topický diagnostický trenažér -->
+      </section>
+
+      <!-- TAB 3: Klinické kalkulátory & Likvor -->
+      <section id="view-calculators" class="tab-view" style="display: none;">
+        <!-- Dynamicky renderované kalkulátory a likvorový interpretátor -->
+      </section>
+
+      <!-- TAB 4: Akutní algoritmy & Rozhodovací stromy -->
+      <section id="view-algorithms" class="tab-view" style="display: none;">
+        <!-- Dynamicky renderované urgentní algoritmy a protokoly -->
+      </section>
+
+      <!-- TAB 5: Multimediální atlas vyšetření -->
+      <section id="view-atlas" class="tab-view" style="display: none;">
+        <!-- Dynamicky renderovaný atlas neurologického vyšetření -->
       </section>
 
       <!-- TAB 2: Active Recall -->
@@ -284,6 +320,14 @@
 
   <!-- Skripty -->
   <script src="data.js"></script>
+  <script src="topical_data.js"></script>
+  <script src="topical.js"></script>
+  <script src="calculators_data.js"></script>
+  <script src="calculators.js"></script>
+  <script src="algorithms_data.js"></script>
+  <script src="algorithms.js"></script>
+  <script src="atlas_data.js"></script>
+  <script src="atlas.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
