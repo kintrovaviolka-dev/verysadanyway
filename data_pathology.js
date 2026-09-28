@@ -149,7 +149,7 @@ const PATHOLOGY_QUESTIONS = [
     category: "Speciální patologie",
     title: "Ateroskleróza – patogeneze (teorie poškození endotelu), stadia (lipidový proužek, plát), komplikace.",
     organSystem: "Kardiovaskulární systém",
-    keyTerms: ["Endoteliální dysfunkce", "Foam cells (pěnové buňky)", "Vazivový plát", "Ruptura plátu", "Thrombóza"],
+    keyTerms: ["Endoteliální dysfunkce", "Foam cells (pěnové buňky)", "Vazivový plát", "Ruptura plátu", "Trombóza"],
     quiz: [
       {
         question: "Jak vznikají tzv. pěnové buňky (foam cells) v časném stadiu patogeneze aterosklerózy?",
