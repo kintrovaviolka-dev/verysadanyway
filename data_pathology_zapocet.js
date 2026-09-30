@@ -1566,7 +1566,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
     "question": "Biopsie svalu ukázala typové seskupení vláken. Může se jednat o:",
     "options": [
       "Dermatomyositis",
-      "Amyotrofickou laterílní sklerózu",
+      "Amyotrofickou laterální sklerózu",
       "Myastenia gravis",
       "Svalovou dystrofii Duchenne",
       "Atrofii z nečinnosti"
