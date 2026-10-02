@@ -635,21 +635,21 @@ body.light-theme .moon-icon { display: block; }
 
 /* DIALOG DETAIL OTÁZKY */
 .detail-dialog {
-  border: none;
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  max-width: 900px;
-  width: 90%;
-  height: 85vh;
+  max-width: 1020px;
+  width: 95%;
+  height: 90vh;
   margin: auto;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.7);
   overflow: hidden;
 }
 
 .detail-dialog::backdrop {
-  background-color: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(4px);
+  background-color: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(6px);
 }
 
 .dialog-content {
@@ -661,30 +661,72 @@ body.light-theme .moon-icon { display: block; }
 .dialog-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  padding: 1.5rem 2rem 1rem 2rem;
+  align-items: center;
+  padding: 1.25rem 2rem;
   border-bottom: 1px solid var(--border);
-  background-color: var(--bg-secondary);
+  background: linear-gradient(180deg, var(--bg-secondary) 0%, rgba(19, 27, 46, 0.85) 100%);
+  gap: 1rem;
 }
 
 .dialog-title-area {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.35rem;
+  flex: 1;
+}
+
+.dialog-meta-line {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
 }
 
 .dialog-section {
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
-  color: var(--primary);
-  letter-spacing: 0.05em;
+  color: #00f0ff;
+  letter-spacing: 0.06em;
+}
+
+.dialog-modality-tags {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
 }
 
 .dialog-title {
-  font-size: 1.4rem;
+  font-size: 1.45rem;
   font-weight: 700;
-  line-height: 1.25;
+  line-height: 1.3;
+  color: var(--text-primary);
+}
+
+.dialog-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.dialog-header-atlas-btn {
+  background: rgba(0, 240, 255, 0.12);
+  color: #00f0ff;
+  border: 1px solid rgba(0, 240, 255, 0.35);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.9rem;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.dialog-header-atlas-btn:hover {
+  background: rgba(0, 240, 255, 0.25);
+  border-color: #00f0ff;
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.3);
 }
 
 .dialog-close-btn {
@@ -692,14 +734,18 @@ body.light-theme .moon-icon { display: block; }
   border: none;
   color: var(--text-secondary);
   cursor: pointer;
-  padding: 0.25rem;
+  padding: 0.35rem;
   border-radius: 50%;
   transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .dialog-close-btn:hover {
-  background-color: var(--border);
-  color: var(--text-primary);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  transform: rotate(90deg);
 }
 
 /* Záložky */
@@ -715,11 +761,11 @@ body.light-theme .moon-icon { display: block; }
   border: none;
   border-bottom: 3px solid transparent;
   color: var(--text-secondary);
-  padding: 1rem 1.5rem;
+  padding: 0.9rem 1.5rem;
   cursor: pointer;
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 0.95rem;
+  font-weight: 700;
+  font-size: 0.92rem;
   transition: var(--transition);
   display: flex;
   align-items: center;
@@ -731,15 +777,15 @@ body.light-theme .moon-icon { display: block; }
 }
 
 .tab-btn.active {
-  color: var(--primary);
-  border-bottom-color: var(--primary);
+  color: #00f0ff;
+  border-bottom-color: #00f0ff;
 }
 
 /* Tělo dialogu */
 .dialog-body {
   flex: 1;
   overflow-y: auto;
-  padding: 2rem;
+  padding: 1.75rem 2rem;
 }
 
 .tab-panel {
@@ -754,24 +800,183 @@ body.light-theme .moon-icon { display: block; }
 .study-content {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.25rem;
 }
 
+/* Vizuální galerie k otázce */
+.study-gallery-card {
+  background: linear-gradient(145deg, rgba(0, 240, 255, 0.04) 0%, rgba(124, 58, 237, 0.04) 100%);
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+}
+
+.gallery-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.gallery-header h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #00f0ff;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.gallery-hint {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.gallery-items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1rem;
+}
+
+.gallery-thumb-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-thumb-card:hover {
+  transform: translateY(-3px);
+  border-color: #00f0ff;
+  box-shadow: 0 8px 20px rgba(0, 240, 255, 0.15);
+}
+
+.gallery-thumb-wrapper {
+  position: relative;
+  width: 100%;
+  height: 140px;
+  background: #000;
+  overflow: hidden;
+}
+
+.gallery-thumb-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.gallery-thumb-card:hover .gallery-thumb-wrapper img {
+  transform: scale(1.05);
+}
+
+.gallery-thumb-modality {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #00f0ff;
+  border: 1px solid rgba(0, 240, 255, 0.4);
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
+}
+
+.gallery-thumb-info {
+  padding: 0.75rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.gallery-thumb-info h4 {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.gallery-thumb-info p {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Strukturované karty */
 .study-card {
   background-color: var(--bg-secondary);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  padding: 1.25rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transition: var(--transition);
 }
 
-.study-card h3 {
+.card-section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.card-section-title h3 {
   font-size: 1.05rem;
   font-weight: 700;
-  margin-bottom: 0.75rem;
   color: var(--text-primary);
-  border-left: 3px solid var(--primary);
-  padding-left: 0.75rem;
+  border-left: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.section-icon {
+  font-size: 1.15rem;
+}
+
+.card-content-body {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--text-primary);
+}
+
+.card-content-body ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.card-content-body li {
+  position: relative;
+  padding-left: 1.4rem;
+  margin-bottom: 0.6rem;
+}
+
+.card-content-body li::before {
+  content: "•";
+  position: absolute;
+  left: 0.35rem;
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.card-content-body strong {
+  color: #38bdf8;
+  font-weight: 600;
 }
 
 .study-two-cols {
@@ -786,37 +991,415 @@ body.light-theme .moon-icon { display: block; }
   }
 }
 
-/* Specifické karty patologického nálezu */
-.highlight-macro {
-  border-left: 4px solid var(--primary);
-  background-color: var(--primary-light);
+/* Zvýrazněné karty */
+.card-principle {
+  border-left: 4px solid #38bdf8;
 }
 
-.highlight-micro {
-  border-left: 4px solid #a855f7;
-  background-color: rgba(168, 85, 247, 0.05);
+.card-methodology {
+  border-left: 4px solid #c084fc;
 }
 
-.card-subtitle {
+.card-normal {
+  border-left: 4px solid #34d399;
+}
+
+.highlight-pathology {
+  border-left: 4px solid #f43f5e;
+  background: rgba(244, 63, 94, 0.03);
+}
+
+.highlight-pathology .card-section-title h3 {
+  color: #fb7185;
+}
+
+.highlight-pathology .card-content-body li::before {
+  color: #fb7185;
+}
+
+.highlight-clinical {
+  border-left: 4px solid #10b981;
+  background: rgba(16, 185, 129, 0.03);
+}
+
+.highlight-clinical .card-section-title h3 {
+  color: #34d399;
+}
+
+.highlight-clinical .card-content-body li::before {
+  color: #34d399;
+}
+
+.highlight-keypoints {
+  border-left: 4px solid #eab308;
+  background: rgba(234, 179, 8, 0.04);
+}
+
+.highlight-keypoints .card-section-title h3 {
+  color: #facc15;
+}
+
+.highlight-keypoints .card-content-body li::before {
+  color: #facc15;
+}
+
+/* MODÁLNÍ DIALOG - RADIOLOGICKÝ OBRAZOVÝ ATLAS */
+.atlas-dialog {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  max-width: 1120px;
+  width: 95%;
+  height: 90vh;
+  margin: auto;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+}
+
+.atlas-dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(6px);
+}
+
+.atlas-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.atlas-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.5rem 2rem 1.25rem 2rem;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--bg-secondary) 0%, rgba(19, 27, 46, 0.9) 100%);
+}
+
+.atlas-badge {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #00f0ff;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.25rem;
+}
+
+.atlas-header-text h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.25;
+}
+
+.atlas-header-text p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+}
+
+.atlas-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.35rem;
+  border-radius: 50%;
+  transition: var(--transition);
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+
+.atlas-close-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  transform: rotate(90deg);
+}
+
+.atlas-filter-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+}
+
+.atlas-search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.atlas-search-wrapper svg {
+  position: absolute;
+  left: 12px;
+  color: var(--text-muted);
+}
+
+.atlas-search-wrapper input {
+  width: 100%;
+  padding: 0.65rem 1rem 0.65rem 2.5rem;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  transition: var(--transition);
+}
+
+.atlas-search-wrapper input:focus {
+  outline: none;
+  border-color: #00f0ff;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.25);
+}
+
+.atlas-modality-filters {
+  display: flex;
   gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.atlas-mod-btn {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 0.4rem 0.85rem;
+  border-radius: 20px;
   font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.atlas-mod-btn:hover {
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.atlas-mod-btn.active {
+  background: rgba(0, 240, 255, 0.15);
+  color: #00f0ff;
+  border-color: #00f0ff;
+}
+
+.atlas-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.75rem 2rem;
+}
+
+.atlas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.35rem;
+}
+
+.atlas-card {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.1, 0.8, 0.25, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.atlas-card:hover {
+  transform: translateY(-4px);
+  border-color: #00f0ff;
+  box-shadow: 0 12px 30px rgba(0, 240, 255, 0.18);
+}
+
+.atlas-card-image-box {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  background: #000;
+  overflow: hidden;
+}
+
+.atlas-card-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.35s ease;
+}
+
+.atlas-card:hover .atlas-card-image-box img {
+  transform: scale(1.06);
+}
+
+.atlas-modality-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
+}
+
+.atlas-card-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+}
+
+.atlas-card-category {
+  font-size: 0.72rem;
   font-weight: 700;
-  font-size: 1.05rem;
-  margin-bottom: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.atlas-card-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.atlas-card-desc {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.atlas-footer {
+  padding: 1rem 2rem;
+  border-top: 1px solid var(--border);
+  background-color: var(--bg-secondary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.atlas-stats {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* LIGHTBOX PRO DETAIL SNÍMKU */
+.lightbox-dialog {
+  border: none;
+  background: transparent;
+  padding: 0;
+  max-width: 960px;
+  width: 92%;
+  margin: auto;
+  overflow: visible;
+}
+
+.lightbox-dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(8px);
+}
+
+.lightbox-wrapper {
+  background: #090d16;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+}
+
+.lightbox-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: var(--transition);
+}
+
+.lightbox-close-btn:hover {
+  background: rgba(239, 68, 68, 0.8);
+  border-color: #ef4444;
+  transform: rotate(90deg);
+}
+
+.lightbox-img-box {
+  width: 100%;
+  max-height: 65vh;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.lightbox-img-box img {
+  max-width: 100%;
+  max-height: 65vh;
+  object-fit: contain;
+}
+
+.lightbox-info {
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.lightbox-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.lightbox-modality {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.lightbox-title {
+  font-size: 1.2rem;
+  font-weight: 700;
   color: var(--text-primary);
 }
 
-.highlight-macro .card-subtitle { color: var(--primary); }
-.highlight-micro .card-subtitle { color: #a855f7; }
-
-.clinical-significance {
-  border-left: 4px solid #10b981;
-  background-color: rgba(16, 185, 129, 0.05);
+.lightbox-caption {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
 }
-.clinical-significance h3 {
-  border-left-color: #10b981;
+
+/* Modality badge has image indicator */
+.modality-chip.mod-has-img {
+  background: rgba(168, 85, 247, 0.18);
+  color: #d8b4fe;
+  border: 1px solid rgba(168, 85, 247, 0.4);
 }
 
 /* Ovládací prvky pro Leitnerův systém v detailu */
@@ -1787,3 +2370,18 @@ body.light-theme .moon-icon { display: block; }
   }
 }
 
+
+
+/* Unified Author Link */
+.author-link {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.35);
+  text-underline-offset: 3px;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+.author-link:hover {
+  color: var(--primary, #00f0ff);
+  text-decoration-color: currentColor;
+}

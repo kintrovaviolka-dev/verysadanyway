@@ -281,6 +281,10 @@ export default function App() {
           />
         )}
       </main>
+
+      <footer className="mt-auto border-t border-[#1f293d] bg-[#0c0f17]/80 py-4 px-6 text-center text-xs text-[#8e90a6]">
+        <p>© 2026 <a href="https://kintrovav.vercel.app" target="_blank" rel="noopener noreferrer" className="author-link text-[#c4c6d0] hover:text-white underline underline-offset-2 font-medium">Viola Kintrová</a> • Urgentní příjem – Klinický simulační trenažér.</p>
+      </footer>
     </div>
   );
 }

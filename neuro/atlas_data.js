@@ -63,7 +63,7 @@ const ATLAS_DATA = {
       normalFinding: "Izokorie (zornice stejně široké 2–4 mm), rychlá a symetrická mióza obou zornic na světlo (přímá i nepřímá) a zúžení při pohledu na blízko.",
       pathologicalFinding: "Anizokorie (asymetrie šíře zornic), jednostranná mydriáza s areflexií (útlak n. III při temporálním kónusu), amaurotická areflexie (léze n. II – oko nereaguje na přímé světlo, ale reaguje konsenzuálně z druhého oka), Argyll-Robertsonova zornice (mióza nereaguje na světlo, ale reaguje na akomodaci – neurosyfilis).",
       clinicalSignificance: "Topika mozkového kmene, intrakraniální hypertenze s herniací uncus gyri hippocampi, léze optiku a okulomotoriky.",
-      pearl: "Jednostranně široká nereagující zornice (mydriáza) u pacienta s traumatem hlavy a poruchou vědomí = Hrozící zástava oběhu z unkální herniace (únikový kužel tlačí na n. III v tentoriu) $\\to$ STATIM dekomprese / Manitol!"
+      pearl: "Jednostranně široká nereagující zornice (mydriáza) u pacienta s traumatem hlavy a poruchou vědomí = Hrozící zástava oběhu z unkální herniace (únikový kužel tlačí na n. III v tentoriu) → STATIM dekomprese / Manitol!"
     },
     {
       id: "cn_facial",
@@ -75,7 +75,7 @@ const ATLAS_DATA = {
       normalFinding: "Symetrické vrásky na čele, víčka nelze překonat tahem, symetrické koutky úst a nasolabiální rýhy.",
       pathologicalFinding: "• PERIFERNÍ PARÉZA (Bellova obrna): Postižena celá polovina obličeje – vyhlazené čelo (nelze svraštit), lagoftalmus (nelze dovřít oko, Bellův fenomén – stočení bulbu vzhůru), pokleslý koutek úst.<br>• CENTRÁLNÍ PARÉZA (Kortikální/kapsulární iktus): Postižen POUZE DOLNÍ KVADRANT (pokles koutku úst), ČELO A OKO LZE SVRAŠTIT A ZAVŘÍT (díky oboustranné kortikonukleární inervaci horní větve n. VII)!",
       clinicalSignificance: "Rozlišení cévní mozkové příhody (centrální léze) od periferní parézy lícního nervu (borrelióza, zánět, chlad).",
-      pearl: "Zlaté pravidlo: Pokud pacient s ochrnutým koutkem úst DOKÁŽE svraštit čelo $\\to$ jde o CMP (centrální lézi)! Pokud čelo svraštit NEDOKÁŽE $\\to$ jde o periferní obrnu n. VII."
+      pearl: "Zlaté pravidlo: Pokud pacient s ochrnutým koutkem úst DOKÁŽE svraštit čelo → jde o CMP (centrální lézi)! Pokud čelo svraštit NEDOKÁŽE → jde o periferní obrnu n. VII."
     },
     {
       id: "cn_oculomotor",
@@ -225,7 +225,7 @@ const ATLAS_DATA = {
       icon: "🎯",
       technique: "Pacient v maximálním upažení pomalu a plynule přibližuje ukazovák ke špičce svého nosu, nejprve s otevřenýma a poté se zavřenýma očima. Test opakujeme na obou stranách.",
       normalFinding: "Plynulý, hladký pohyb přesně zacílený na špičku nosu bez třesu.",
-      pathologicalFinding: "• Intenční třes: Kinetický třes zhoršující se těsně před dosažením cíle.<br>• Dysmetrie / Hypermetrie: Přestřelování cíle (prstMine nos a narazí do tváře).<br>• Asinergie / Rozpad pohybu.",
+      pathologicalFinding: "• Intenční třes: Kinetický třes zhoršující se těsně před dosažením cíle.<br>• Dysmetrie / Hypermetrie: Přestřelování cíle (prst mine nos a narazí do tváře).<br>• Asinergie / Rozpad pohybu.",
       clinicalSignificance: "Léze ipsilaterální mozečkové hemisféry (neocerebellum).",
       pearl: "Při mozečkové lézi je třes a přestřelování přítomno už při OTEVŘENÝCH očích. Při zadněprovazcové senzorické ataxii je pohyb s otevřenýma očima dobrý a zhorší se až po ZAVŘENÍ očí!"
     },
@@ -263,7 +263,7 @@ const ATLAS_DATA = {
       normalFinding: "Stabilní stoj bez výrazných výchylek těla.",
       pathologicalFinding: "• MOZEČKOVÁ ATAXIE (Vermis): Nestabilita a titubace trupu již při OTEVŘENÝCH očích, zavření očí stav výrazně nezhorší (Romberg negativní / mozečkový).<br>• SENZORICKÁ / TABICKÁ ATAXIE (Zadní provazce): S otevřenýma očima stojí dobře, po ZAVŘENÍ očí dojde k okamžitému pádu do jakéhokoliv směru (Romberg pozitivní!).<br>• VESTIBULÁRNÍ ATAXIE: Pád s latencí k nemocné straně (ke straně hypofunkčního labyrintu).",
       clinicalSignificance: "Diferenciální diagnostika ataxie: Mozeček vs. Mícha (zadní provazce) vs. Vnitřní ucho (vestibulární aparát).",
-      pearl: "Klíčový státnicový chyták: 'Rombergův příznak' hodnotí vliv zrakové kontroly na rovnováhu. Pozitivní Romberg znamená pád AŽ PO ZAVŘENÍ OČÍ $\\to$ je typický pro zadní provazce míšní (funikulární myelóza, deficit B12, neurosyfilis), NIKOLIV pro mozeček!"
+      pearl: "Klíčový státnicový chyták: 'Rombergův příznak' hodnotí vliv zrakové kontroly na rovnováhu. Pozitivní Romberg znamená pád AŽ PO ZAVŘENÍ OČÍ → je typický pro zadní provazce míšní (funikulární myelóza, deficit B12, neurosyfilis), NIKOLIV pro mozeček!"
     }
   ]
 };

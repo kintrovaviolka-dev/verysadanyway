@@ -446,7 +446,7 @@
             Byl přítomen alespoň jeden varovný příznak (${lpCheckedFlags.size} označeno). Před provedením LP je nutné vyloučit intrakraniální expanzi, posun středočárových struktur a edém mozku pro riziko tentoriální/okcipitální herniace.
           </p>
           <div class="decision-action-box">
-            <strong>Klinický postup:</strong> Odebrat hemokultury $\\rightarrow$ Podat i.v. Dexamethason 10 mg + Ceftriaxon 2 g i.v. $\\rightarrow$ Provést CT mozku $\\rightarrow$ Pokud CT vyloučí expanzi, provést lumbální punkci.
+            <strong>Klinický postup:</strong> Odebrat hemokultury → Podat i.v. Dexamethason 10 mg + Ceftriaxon 2 g i.v. → Provést CT mozku → Pokud CT vyloučí expanzi, provést lumbální punkci.
           </div>
         </div>
       `;

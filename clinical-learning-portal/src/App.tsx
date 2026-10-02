@@ -422,7 +422,7 @@ function AppContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex flex-col gap-2.5 max-w-2xl text-center md:text-left">
             <p className="leading-relaxed">
-              {t('academicFooter')}
+              © 2026 <a href="https://kintrovav.vercel.app" target="_blank" rel="noopener noreferrer" className="author-link underline text-slate-300 hover:text-white font-medium">Viola Kintrová</a> • {t('academicFooter')}
             </p>
             <div className="flex justify-center md:justify-start gap-4">
               <span className="hover:text-white transition-colors cursor-pointer">{t('privacyAndTerms')}</span>

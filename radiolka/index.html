@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Radiologie - Portál Efektivního Učení</title>
-  <meta name="description" content="Interaktivní studijní portál radiologie a zobrazovacích metod pro studenty všeobecného lékařství. Procvičování s kartičkami, Leitnerovým opakováním a kontrolními kvízy.">
+  <title>Radiologie & Zobrazovací Metody - Portál Efektivního Učení</title>
+  <meta name="description" content="Interaktivní studijní portál radiologie a zobrazovacích metod pro studenty medicíny. 50 zkouškových otázek, bohatý obrazový atlas CT, MR, RTG, UZ, Leitnerovo opakování a kvízy.">
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="style.css">
   <!-- Google Fonts -->
@@ -25,7 +25,7 @@
         </div>
         <div class="brand-text">
           <h1>Radiologie & Zobrazovací Metody</h1>
-          <span>Chytrý portál pro studium (<span id="total-questions-count">50</span> zkouškových otázek)</span>
+          <span>Chytrý portál pro studium (<span id="total-questions-count">50</span> zkouškových otázek & vizuální atlas)</span>
         </div>
       </div>
       
@@ -35,14 +35,20 @@
           ← Rozcestník
         </button>
 
+        <!-- Obrazový atlas radiologie -->
+        <button id="atlas-open-btn" class="btn btn-primary btn-atlas" title="Otevřít obrazový atlas radiologických snímků a nálezů">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 5px;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+          Obrazový Atlas
+        </button>
+
         <button id="algo-btn" class="btn btn-secondary" title="Otevřít indikační algoritmy zobrazovacích metod">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px;"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
           Indikační Algoritmy
         </button>
 
-        <button id="matching-game-open-btn" class="btn btn-primary btn-game">
+        <button id="matching-game-open-btn" class="btn btn-secondary btn-game">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
-          Spustit přiřazovačku
+          Přiřazovačka
         </button>
         
         <!-- Přepínač motivu -->
@@ -77,7 +83,7 @@
           <div class="progress-bar-container">
             <div class="progress-bar" id="stat-progress-bar" style="width: 0%"></div>
           </div>
-          <span class="stat-desc" id="stat-progress-ratio">Zvládnuté: 0 z 50 otázek</span>
+          <span class="stat-desc" id="stat-progress-ratio">Zvládnuté: 0 z 50 témat</span>
         </div>
 
         <!-- Leitnerovy krabičky -->
@@ -123,25 +129,27 @@
     <section class="filter-bar">
       <div class="search-wrapper">
         <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        <input type="text" id="search-input" class="search-input" placeholder="Vyhledat téma, metodu (RTG, CT, MR), symptom, cévu...">
+        <input type="text" id="search-input" class="search-input" placeholder="Vyhledat téma, metodu (RTG, CT, MR, UZ), symptom, diagnózu...">
       </div>
       
       <div class="filter-groups">
         <div class="filter-group">
-          <label for="category-filter">Obor:</label>
+          <label for="category-filter">Kapitola / Obor:</label>
           <select id="category-filter" class="select-custom">
-            <option value="all">Všechny obory</option>
-            <option value="Základy">Základy zobrazování</option>
-            <option value="Hrudník">Zobrazování hrudníku a srdce</option>
-            <option value="Břicho">Zobrazování trávicí trubice a břicha</option>
-            <option value="Urogenitál & Prs">Zobrazování urogenitálu a prsu</option>
-            <option value="Kostra">Zobrazování pohybového aparátu</option>
-            <option value="Nervová soustava">Neuroradiologie a páteř</option>
-            <option value="Intervence & Cévy">Intervenční a cévní radiologie</option>
+            <option value="all">Všechny kapitoly</option>
+            <option value="Základy">⚛️ Základy & Fyzika zobrazování</option>
+            <option value="Hrudník">🫁 Zobrazování hrudníku & plic</option>
+            <option value="Kardio">❤️ Kardiovaskulární radiologie & srdce</option>
+            <option value="Břicho">🍏 Břicho & Trávicí trakt</option>
+            <option value="Urogenitál">🚻 Urogenitální systém & Prs</option>
+            <option value="Skelet">🦴 Muskuloskeletální systém & Kosti</option>
+            <option value="Neuroradiologie">🧠 Neuroradiologie & Mozek</option>
+            <option value="Páteř">🏛️ Páteř & Mícha</option>
+            <option value="Intervence & Cévy">💉 Angiografie & Intervenční radiologie</option>
           </select>
         </div>
         
-        <!-- Skrytý select pro kompatibilitu se stávajícím JS kódem -->
+        <!-- Skrytý select pro kompatibilitu -->
         <select id="section-filter" style="display:none;"><option value="all">all</option></select>
         
         <div class="filter-group">
@@ -171,19 +179,27 @@
     <div class="dialog-content">
       <header class="dialog-header">
         <div class="dialog-title-area">
-          <span class="dialog-section" id="dialog-section">KAPITOLA</span>
+          <div class="dialog-meta-line">
+            <span class="dialog-section" id="dialog-section">KAPITOLA</span>
+            <div class="dialog-modality-tags" id="dialog-modality-tags"></div>
+          </div>
           <h2 class="dialog-title" id="dialog-title">Název otázky</h2>
         </div>
-        <button class="dialog-close-btn" id="dialog-close" aria-label="Zavřít panel">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-        </button>
+        <div class="dialog-header-actions">
+          <button class="dialog-header-atlas-btn" id="dialog-jump-atlas-btn" title="Otevřít obrazový materiál v plném atlasu">
+            🖼️ Otevřít v Atlasu
+          </button>
+          <button class="dialog-close-btn" id="dialog-close" aria-label="Zavřít panel">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
       </header>
       
       <!-- Záložky detailu -->
       <nav class="dialog-tabs">
         <button class="tab-btn active" data-tab="tab-study">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-          Výklad & souvislosti
+          Výklad & Obrazová dokumentace
         </button>
         <button class="tab-btn" data-tab="tab-quiz" id="tab-quiz-btn">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
@@ -197,71 +213,94 @@
         <div class="tab-panel active" id="tab-study">
           <div class="study-content">
             
-            <!-- Volitelné schéma modality (Zobrazí se pouze u témat 1, 3, 4, 5) -->
-            <div id="modal-image-container" class="study-card modal-image-card" style="display: none; width: 100%;">
-              <h3>Fyzikální schéma modality</h3>
-              <div class="image-wrapper" style="text-align: center; margin: 12px 0;">
-                <img id="study-image" src="" alt="Fyzikální schéma" style="max-width: 100%; max-height: 400px; border-radius: 8px; border: 1px solid var(--border-color);">
+            <!-- Vizuální galerie / Obrazová demonstrace k otázce -->
+            <div id="modal-gallery-container" class="study-gallery-card" style="display: none;">
+              <div class="gallery-header">
+                <h3><span aria-hidden="true">📸</span> Vizuální obrazová demonstrace</h3>
+                <span class="gallery-hint">Kliknutím na snímek otevřete detail ve vysokém rozlišení</span>
+              </div>
+              <div class="gallery-items-grid" id="modal-gallery-grid">
+                <!-- Dynamicky generované snímky -->
               </div>
             </div>
 
-            <!-- Fyzikální & technické principy -->
-            <div class="study-card main-definition">
-              <h3>Fyzikální & technické principy</h3>
-              <p id="study-definition"></p>
+            <!-- 1. Fyzikální & technické principy -->
+            <div class="study-card card-principle">
+              <div class="card-section-title">
+                <span class="section-icon">⚛️</span>
+                <h3>Fyzikální a technické principy</h3>
+              </div>
+              <div class="card-content-body" id="study-principle"></div>
             </div>
             
+            <!-- Dvousloupcové uspořádání pro metodiku a normální anatomii -->
             <div class="study-two-cols">
-              <!-- Přístroj & radiační zátěž -->
-              <div class="study-card">
-                <h3>Přístroj & radiační zátěž</h3>
-                <p id="study-etiology"></p>
+              <!-- 2. Metodika & provedení vyšetření -->
+              <div class="study-card card-methodology">
+                <div class="card-section-title">
+                  <span class="section-icon">📋</span>
+                  <h3>Metodika & provedení vyšetření</h3>
+                </div>
+                <div class="card-content-body" id="study-methodology"></div>
               </div>
               
-              <!-- Metodika & provedení vyšetření -->
-              <div class="study-card">
-                <h3>Metodika & provedení vyšetření</h3>
-                <p id="study-pathogenesis"></p>
+              <!-- 3. Normální obraz & radioanatomie -->
+              <div class="study-card card-normal">
+                <div class="card-section-title">
+                  <span class="section-icon">👁️</span>
+                  <h3>Normální obraz & radioanatomie</h3>
+                </div>
+                <div class="card-content-body" id="study-normal"></div>
               </div>
             </div>
 
-            <!-- Nálezy / Obraz -->
-            <div class="study-two-cols">
-              <!-- Normální obraz & anatomie -->
-              <div class="study-card highlight-macro">
-                <div class="card-subtitle">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle></svg>
-                  Normální obraz & anatomie
-                </div>
-                <p id="study-macroscopy"></p>
+            <!-- 4. Patologické nálezy & radiologické znaky -->
+            <div class="study-card card-pathology highlight-pathology">
+              <div class="card-section-title">
+                <span class="section-icon">🚨</span>
+                <h3>Patologické nálezy & radiologická semiologie</h3>
               </div>
-              
-              <!-- Patologické nálezy & symptomatologie -->
-              <div class="study-card highlight-micro">
-                <div class="card-subtitle">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22a10 10 0 0 1 20 0H2z"></path><circle cx="12" cy="8" r="4"></circle></svg>
-                  Patologické nálezy & symptomatologie
-                </div>
-                <p id="study-microscopy"></p>
-              </div>
+              <div class="card-content-body" id="study-pathology"></div>
             </div>
 
-            <!-- Indikace, KI & klinické souvislosti -->
-            <div class="study-card clinical-significance">
-              <h3>Indikace, KI & klinické souvislosti</h3>
-              <p id="study-clinical"></p>
+            <!-- 5. Indikace, vyšetřovací algoritmy & klinický management -->
+            <div class="study-card card-clinical highlight-clinical">
+              <div class="card-section-title">
+                <span class="section-icon">🏥</span>
+                <h3>Indikace, algoritmy vyšetření & klinické souvislosti</h3>
+              </div>
+              <div class="card-content-body" id="study-clinical"></div>
+            </div>
+
+            <!-- 6. High-Yield zkušební body -->
+            <div class="study-card card-keypoints highlight-keypoints">
+              <div class="card-section-title">
+                <span class="section-icon">💡</span>
+                <h3>High-Yield zkušební perly & Klíčová fakta</h3>
+              </div>
+              <div class="card-content-body" id="study-keypoints"></div>
+            </div>
+
+            <!-- Skryté elementy pro zpětnou kompatibilitu -->
+            <div style="display:none;">
+              <p id="study-definition"></p>
+              <p id="study-etiology"></p>
+              <p id="study-pathogenesis"></p>
+              <p id="study-macroscopy"></p>
+              <p id="study-microscopy"></p>
+              <div id="modal-image-container"><img id="study-image" src="" alt="" /></div>
             </div>
             
           </div>
           
           <!-- Spaced Repetition Hodnocení -->
           <div class="spaced-repetition-controls">
-            <h4>Ohodnoť své znalosti po přečtení:</h4>
+            <h4>Ohodnoť své znalosti po prostudování:</h4>
             <div class="leitner-btn-group">
               <button class="leitner-btn l-btn-wrong" data-grade="wrong" title="Přesunout zpět do Boxu 1">
                 <span class="btn-icon">❌</span>
                 <span class="btn-text">Ztěžka</span>
-                <span class="btn-sub">Bude brzy</span>
+                <span class="btn-sub">Opakovat brzy</span>
               </button>
               <button class="leitner-btn l-btn-good" data-grade="good" title="Posunout do dalšího Boxu">
                 <span class="btn-icon">⚠️</span>
@@ -284,6 +323,70 @@
           </div>
         </div>
 
+      </div>
+    </div>
+  </dialog>
+
+  <!-- MODÁLNÍ DIALOG - RADIOLOGICKÝ OBRAZOVÝ ATLAS -->
+  <dialog id="atlas-dialog" class="atlas-dialog">
+    <div class="atlas-content">
+      <header class="atlas-header">
+        <div class="atlas-header-text">
+          <div class="atlas-badge">RADIOLOGICKÝ VIZUÁLNÍ ATLAS</div>
+          <h2>Autentická Obrazová Knihovna Zobrazovacích Metod</h2>
+          <p>Klinické RTG, CT, MR, UZ a angiografické nálezy s patologickými známkami a popisy.</p>
+        </div>
+        <button class="atlas-close-btn" id="atlas-close" aria-label="Zavřít atlas">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </header>
+
+      <div class="atlas-filter-bar">
+        <div class="atlas-search-wrapper">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="atlas-search-input" placeholder="Hledat v atlasu (např. hematom, pneumotorax, fraktura, ileus)...">
+        </div>
+        
+        <div class="atlas-modality-filters" id="atlas-modality-filters">
+          <button class="atlas-mod-btn active" data-mod="all">Všechny metody</button>
+          <button class="atlas-mod-btn" data-mod="RTG">RTG</button>
+          <button class="atlas-mod-btn" data-mod="CT">CT</button>
+          <button class="atlas-mod-btn" data-mod="MR">MR</button>
+          <button class="atlas-mod-btn" data-mod="UZ">UZ</button>
+          <button class="atlas-mod-btn" data-mod="Intervence">Intervence / Angio</button>
+        </div>
+      </div>
+
+      <div class="atlas-body">
+        <div class="atlas-grid" id="atlas-grid">
+          <!-- Dynamicky vygenerované položky atlasu -->
+        </div>
+      </div>
+
+      <div class="atlas-footer">
+        <span class="atlas-stats">Zobrazeno <strong id="atlas-items-count">0</strong> radiologických snímků</span>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- LIGHTBOX PRO CELOOBRAZOVÉ ZOBRAZENÍ SNÍMKU -->
+  <dialog id="lightbox-dialog" class="lightbox-dialog">
+    <div class="lightbox-wrapper">
+      <button class="lightbox-close-btn" id="lightbox-close" aria-label="Zavřít obrázek">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div class="lightbox-img-box">
+        <img id="lightbox-img" src="" alt="Radiologický snímek">
+      </div>
+      <div class="lightbox-info">
+        <div class="lightbox-meta">
+          <span class="lightbox-modality" id="lightbox-modality">CT</span>
+          <h3 class="lightbox-title" id="lightbox-title">Název nálezu</h3>
+        </div>
+        <p class="lightbox-caption" id="lightbox-caption">Podrobný popis nálezu</p>
+        <button id="lightbox-open-topic-btn" class="btn btn-primary btn-sm" style="margin-top: 8px;">
+          📖 Otevřít příslušné studijní téma
+        </button>
       </div>
     </div>
   </dialog>
@@ -425,8 +528,24 @@
     </div>
   </dialog>
 
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>© 2026 <a href="https://kintrovav.vercel.app" target="_blank" rel="noopener noreferrer" class="author-link">Viola Kintrová</a> • Developed because I can. Vytvořeno pro studenty 3., 4. a 5. ročníku Všeobecného lékařství.</p>
+      <a href="https://ko-fi.com/violkadev" target="_blank" rel="noopener noreferrer" class="support-btn">
+        <svg class="support-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <path d="M7 5c0.8 3.5 -0.4 10 0.8 14" stroke="currentColor" />
+          <path d="M12 2c1 4.5 -0.5 13 1 20" stroke="currentColor" />
+          <path d="M17 5c0.5 3 -0.5 9.5 0.8 14" stroke="currentColor" />
+        </svg>
+        <span>Pomohl ti můj portál? Buy me a Monster! (please) </span>
+      </a>
+    </div>
+  </footer>
+
   <!-- Skripty databází -->
   <script src="data.js"></script>
+  <script src="atlas_data.js"></script>
   <!-- Aplikační skript -->
   <script src="app.js"></script>
   <script src="../feedback.js"></script>

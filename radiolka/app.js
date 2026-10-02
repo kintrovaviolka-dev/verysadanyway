@@ -1,13 +1,17 @@
 // app.js - Aplikační logika studijního portálu Radiologie & Zobrazovací Metody
 
 document.addEventListener("DOMContentLoaded", () => {
-  // 1. Načtení databáze otázek
+  // 1. Načtení databáze otázek a atlasu
   const QUESTIONS = (window.DATA_RADIOLOGIE || []).map(q => {
     return {
       ...q,
-      category: q.category || "Základy"
+      category: q.category || "Základy",
+      modalities: q.modalities || ["RTG"],
+      images: q.images || []
     };
   });
+
+  const ATLAS_ITEMS = window.RADIOLKA_ATLAS || [];
 
   // Ověření, zda se data načetla
   if (QUESTIONS.length === 0) {
@@ -33,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
       userProgress[q.id] = {
         box: 1,
         lastReviewed: null,
-        nextReview: null, // null znamená, že nebyla nikdy testována
+        nextReview: null,
         testedCount: 0,
         correctCount: 0
       };
@@ -48,6 +52,11 @@ document.addEventListener("DOMContentLoaded", () => {
   let activeFilterStatus = "all";
   let activeSearchQuery = "";
   
+  // Atlas stav
+  let activeAtlasModality = "all";
+  let activeAtlasSearch = "";
+  let activeLightboxItem = null;
+
   // Herní stav pro přiřazovačku
   let gameSelectedTerm = null;
   let gameSelectedDesc = null;
@@ -61,12 +70,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const statusFilter = document.getElementById("status-filter");
   const totalQuestionsCountEl = document.getElementById("total-questions-count");
 
-  // Dynamická inicializace celkového počtu otázek
   if (totalQuestionsCountEl) {
     totalQuestionsCountEl.textContent = QUESTIONS.length;
   }
   
-  // Dom elementů statistik
+  // DOM elementů statistik
   const statProgressPct = document.getElementById("stat-progress-pct");
   const statProgressBar = document.getElementById("stat-progress-bar");
   const statProgressRatio = document.getElementById("stat-progress-ratio");
@@ -78,80 +86,125 @@ document.addEventListener("DOMContentLoaded", () => {
   const statDueDescEl = document.getElementById("stat-due-desc");
   const studyDueBtn = document.getElementById("study-due-btn");
   
-  // Dialogové okno
+  // Dialogové okno detailu
   const detailDialog = document.getElementById("detail-dialog");
   const dialogCloseBtn = document.getElementById("dialog-close");
   const dialogTitle = document.getElementById("dialog-title");
   const dialogSection = document.getElementById("dialog-section");
+  const dialogModalityTags = document.getElementById("dialog-modality-tags");
+  const dialogJumpAtlasBtn = document.getElementById("dialog-jump-atlas-btn");
   const tabBtns = document.querySelectorAll(".tab-btn");
   const tabPanels = document.querySelectorAll(".tab-panel");
   
   // Výkladové elementy
-  const studyDefinition = document.getElementById("study-definition");
-  const studyEtiology = document.getElementById("study-etiology");
-  const studyPathogenesis = document.getElementById("study-pathogenesis");
-  const studyMacroscopy = document.getElementById("study-macroscopy");
-  const studyMicroscopy = document.getElementById("study-microscopy");
+  const modalGalleryContainer = document.getElementById("modal-gallery-container");
+  const modalGalleryGrid = document.getElementById("modal-gallery-grid");
+  const studyPrinciple = document.getElementById("study-principle");
+  const studyMethodology = document.getElementById("study-methodology");
+  const studyNormal = document.getElementById("study-normal");
+  const studyPathology = document.getElementById("study-pathology");
   const studyClinical = document.getElementById("study-clinical");
-  const modalImageContainer = document.getElementById("modal-image-container");
-  const studyImage = document.getElementById("study-image");
+  const studyKeypoints = document.getElementById("study-keypoints");
+  const quizContainer = document.getElementById("quiz-container");
+  const leitnerBtns = document.querySelectorAll(".leitner-btn");
+
+  // Atlas elementy
+  const atlasDialog = document.getElementById("atlas-dialog");
+  const atlasOpenBtn = document.getElementById("atlas-open-btn");
+  const atlasCloseBtn = document.getElementById("atlas-close");
+  const atlasSearchInput = document.getElementById("atlas-search-input");
+  const atlasGrid = document.getElementById("atlas-grid");
+  const atlasItemsCountEl = document.getElementById("atlas-items-count");
+  const atlasModBtns = document.querySelectorAll(".atlas-mod-btn");
+
+  // Lightbox elementy
+  const lightboxDialog = document.getElementById("lightbox-dialog");
+  const lightboxCloseBtn = document.getElementById("lightbox-close");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const lightboxTitle = document.getElementById("lightbox-title");
+  const lightboxModality = document.getElementById("lightbox-modality");
+  const lightboxCaption = document.getElementById("lightbox-caption");
+  const lightboxOpenTopicBtn = document.getElementById("lightbox-open-topic-btn");
   
   // Hra elementy
   const gameDialog = document.getElementById("game-dialog");
+  const matchingGameOpenBtn = document.getElementById("matching-game-open-btn");
   const gameCloseBtn = document.getElementById("game-close");
+  const gameResetBtn = document.getElementById("game-reset-btn");
   const gameColLeft = document.getElementById("game-column-left");
   const gameColRight = document.getElementById("game-column-right");
   const gameLeftCountEl = document.getElementById("game-left-count");
   const gameErrorsEl = document.getElementById("game-errors");
-  const gameResetBtn = document.getElementById("game-reset-btn");
-  const matchingGameOpenBtn = document.getElementById("matching-game-open-btn");
 
-  // Spaced Repetition tlačítka
-  const leitnerBtns = document.querySelectorAll(".leitner-btn");
+  // Algoritmy elementy
+  const algoBtn = document.getElementById("algo-btn");
+  const algoDialog = document.getElementById("algo-dialog");
+  const algoCloseBtn = document.getElementById("algo-close");
+  const algoMatrixGrid = document.getElementById("algo-matrix-grid");
 
-  // Kvíz kontejner
-  const quizContainer = document.getElementById("quiz-container");
-
-  // --- POMOCNÉ FUNKCE ---
-
-  function saveProgress() {
-    try {
-      localStorage.setItem("radiologie_progress", JSON.stringify(userProgress));
-    } catch (e) {
-      console.error("Nelze uložit pokrok do localStorage", e);
-    }
+  // Tlačítko zpět
+  const backHubBtn = document.getElementById("back-hub-btn");
+  if (backHubBtn) {
+    backHubBtn.addEventListener("click", () => {
+      window.location.href = "../index.html";
+    });
   }
 
-  // Výpočet statistik pro dashboard
+  // Přepínač motivu
+  const themeToggleBtn = document.getElementById("theme-toggle");
+  if (themeToggleBtn) {
+    const savedTheme = localStorage.getItem("radiologie_theme") || "dark";
+    if (savedTheme === "light") {
+      document.body.classList.remove("dark-theme");
+      document.body.classList.add("light-theme");
+    }
+    themeToggleBtn.addEventListener("click", () => {
+      if (document.body.classList.contains("dark-theme")) {
+        document.body.classList.remove("dark-theme");
+        document.body.classList.add("light-theme");
+        localStorage.setItem("radiologie_theme", "light");
+      } else {
+        document.body.classList.remove("light-theme");
+        document.body.classList.add("dark-theme");
+        localStorage.setItem("radiologie_theme", "dark");
+      }
+    });
+  }
+
+  // --- STATISTIKY & DASHBOARD ---
+
+  function saveProgress() {
+    localStorage.setItem("radiologie_progress", JSON.stringify(userProgress));
+  }
+
   function updateDashboardStats() {
-    const now = Date.now();
     let box1 = 0, box2 = 0, box3 = 0, box4 = 0;
     let dueCount = 0;
     let mastered = 0;
+    const now = Date.now();
 
     QUESTIONS.forEach(q => {
-      const prog = userProgress[q.id];
-      if (prog.box === 1) box1++;
-      else if (prog.box === 2) box2++;
-      else if (prog.box === 3) box3++;
-      else if (prog.box === 4) {
+      const p = userProgress[q.id];
+      if (!p) return;
+
+      if (p.box === 1) box1++;
+      else if (p.box === 2) box2++;
+      else if (p.box === 3) box3++;
+      else if (p.box === 4) {
         box4++;
         mastered++;
       }
 
-      // Karta je 'due' (k opakování) pokud má nastavený nextReview a ten je v minulosti
-      if (prog.nextReview && prog.nextReview <= now && prog.box < 4) {
+      if (p.nextReview && p.nextReview <= now && p.box < 4) {
         dueCount++;
       }
     });
 
-    // Aktualizace čísel boxů
     if (box1CountEl) box1CountEl.textContent = box1;
     if (box2CountEl) box2CountEl.textContent = box2;
     if (box3CountEl) box3CountEl.textContent = box3;
     if (box4CountEl) box4CountEl.textContent = box4;
 
-    // Celkový pokrok (procento zvládnutých karet v Boxu 4)
     const total = QUESTIONS.length;
     const progressPct = Math.round((mastered / total) * 100);
     
@@ -159,7 +212,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (statProgressBar) statProgressBar.style.width = `${progressPct}%`;
     if (statProgressRatio) statProgressRatio.textContent = `Zvládnuté: ${mastered} z ${total} témat`;
 
-    // K opakování dnes
     if (statDueCountEl) statDueCountEl.textContent = dueCount;
     if (statDueDescEl) {
       if (dueCount > 0) {
@@ -183,14 +235,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const filtered = QUESTIONS.filter(q => {
       const prog = userProgress[q.id];
       
-      // 1. Vyhledávání
-      const matchesSearch = q.title.toLowerCase().includes(activeSearchQuery) || 
-                            q.keywords.some(k => k.toLowerCase().includes(activeSearchQuery));
+      const query = activeSearchQuery.toLowerCase();
+      const matchesSearch = !query || 
+                            q.title.toLowerCase().includes(query) || 
+                            q.section.toLowerCase().includes(query) ||
+                            q.keywords.some(k => k.toLowerCase().includes(query)) ||
+                            q.modalities.some(m => m.toLowerCase().includes(query));
       
-      // 2. Kategorie (Obor)
-      const matchesCategory = activeFilterCategory === "all" || q.category === activeFilterCategory;
+      let matchesCategory = true;
+      if (activeFilterCategory !== "all") {
+        matchesCategory = (q.category === activeFilterCategory) || 
+                          (q.section && q.section.toLowerCase().includes(activeFilterCategory.toLowerCase()));
+      }
       
-      // 3. Stav studia
       let matchesStatus = true;
       if (activeFilterStatus === "due") {
         matchesStatus = prog.nextReview && prog.nextReview <= now && prog.box < 4;
@@ -227,20 +284,25 @@ document.addEventListener("DOMContentLoaded", () => {
       const card = document.createElement("div");
       card.className = "question-card";
 
-      // Karta k opakování dostane pulzující tečku/badge
       const isDue = prog.nextReview && prog.nextReview <= now && prog.box < 4;
       const isUnstudied = prog.lastReviewed === null;
 
-      // Detekce zobrazovacích metod
-      const fullText = (q.title + " " + q.section + " " + q.keywords.join(" ")).toUpperCase();
-      const modalities = [];
-      if (fullText.includes("CT") || fullText.includes("TOMOGRAF")) modalities.push('<span class="modality-chip mod-ct">CT</span>');
-      if (fullText.includes("MR") || fullText.includes("MAGNET")) modalities.push('<span class="modality-chip mod-mr">MR</span>');
-      if (fullText.includes("RTG") || fullText.includes("RENTGEN") || fullText.includes("SNÍMEK")) modalities.push('<span class="modality-chip mod-rtg">RTG</span>');
-      if (fullText.includes("UZ") || fullText.includes("ULZ") || fullText.includes("SONO") || fullText.includes("ECHOKAR")) modalities.push('<span class="modality-chip mod-uz">UZ</span>');
-      if (fullText.includes("INTERVEN") || fullText.includes("ANGIO") || fullText.includes("EMBOL")) modalities.push('<span class="modality-chip mod-intervence">INTERVENCE</span>');
-
-      const modalityHTML = modalities.length > 0 ? `<div class="modality-tags">${modalities.join('')}</div>` : '';
+      // Zobrazení modality chips
+      const modalities = q.modalities || [];
+      const modalityHTML = modalities.length > 0 ? `
+        <div class="modality-tags">
+          ${modalities.slice(0, 3).map(m => {
+            const mLow = m.toLowerCase();
+            let chipClass = "mod-rtg";
+            if (mLow.includes("ct")) chipClass = "mod-ct";
+            else if (mLow.includes("mr")) chipClass = "mod-mr";
+            else if (mLow.includes("uz") || mLow.includes("doppler")) chipClass = "mod-uz";
+            else if (mLow.includes("interv") || mLow.includes("dsa") || mLow.includes("angio") || mLow.includes("pta")) chipClass = "mod-intervence";
+            return `<span class="modality-chip ${chipClass}">${escapeHTML(m)}</span>`;
+          }).join('')}
+          ${q.images && q.images.length > 0 ? `<span class="modality-chip mod-has-img" title="Obsahuje ${q.images.length} obrazových materiálů">📷 ${q.images.length}</span>` : ''}
+        </div>
+      ` : '';
 
       card.innerHTML = `
         <div class="card-top">
@@ -271,21 +333,59 @@ document.addEventListener("DOMContentLoaded", () => {
     dialogTitle.textContent = question.title;
     dialogSection.textContent = question.section;
 
-    // Vykreslení obsahu do panelu studia
-    studyDefinition.innerHTML = question.content.definition || "";
-    studyEtiology.innerHTML = question.content.etiology || "";
-    studyPathogenesis.innerHTML = question.content.pathogenesis || "";
-    studyMacroscopy.innerHTML = question.content.macroscopy || "";
-    studyMicroscopy.innerHTML = question.content.microscopy || "";
-    studyClinical.innerHTML = question.content.clinical || "";
-
-    // Vykreslení schématu modality
-    if (question.image && modalImageContainer && studyImage) {
-      studyImage.src = question.image;
-      modalImageContainer.style.display = "block";
-    } else if (modalImageContainer) {
-      modalImageContainer.style.display = "none";
+    // Vykreslení modalit v hlavičce
+    if (dialogModalityTags) {
+      dialogModalityTags.innerHTML = (question.modalities || []).map(m => {
+        const mLow = m.toLowerCase();
+        let chipClass = "mod-rtg";
+        if (mLow.includes("ct")) chipClass = "mod-ct";
+        else if (mLow.includes("mr")) chipClass = "mod-mr";
+        else if (mLow.includes("uz") || mLow.includes("doppler")) chipClass = "mod-uz";
+        else if (mLow.includes("interv") || mLow.includes("dsa") || mLow.includes("angio") || mLow.includes("pta")) chipClass = "mod-intervence";
+        return `<span class="modality-chip ${chipClass}">${m}</span>`;
+      }).join('');
     }
+
+    // Vykreslení obrazové galerie
+    if (question.images && question.images.length > 0 && modalGalleryContainer && modalGalleryGrid) {
+      modalGalleryGrid.innerHTML = "";
+      question.images.forEach(img => {
+        const item = document.createElement("div");
+        item.className = "gallery-thumb-card";
+        item.innerHTML = `
+          <div class="gallery-thumb-wrapper">
+            <img src="${img.src}" alt="${img.title}" loading="lazy" />
+            <span class="gallery-thumb-modality">${img.modality || "Snímek"}</span>
+          </div>
+          <div class="gallery-thumb-info">
+            <h4>${img.title}</h4>
+            <p>${img.caption}</p>
+          </div>
+        `;
+        item.addEventListener("click", () => {
+          openLightbox({
+            src: img.src,
+            title: img.title,
+            modality: img.modality || "Snímek",
+            caption: img.caption,
+            questionId: question.id
+          });
+        });
+        modalGalleryGrid.appendChild(item);
+      });
+      modalGalleryContainer.style.display = "block";
+    } else if (modalGalleryContainer) {
+      modalGalleryContainer.style.display = "none";
+    }
+
+    // Vykreslení obsahu do strukturovaných karet
+    const c = question.content || {};
+    if (studyPrinciple) studyPrinciple.innerHTML = c.principle || c.definition || "<p>Informace nejsou dostupné.</p>";
+    if (studyMethodology) studyMethodology.innerHTML = c.methodology || c.etiology || "<p>Informace nejsou dostupné.</p>";
+    if (studyNormal) studyNormal.innerHTML = c.normal_anatomy || c.pathogenesis || "<p>Informace nejsou dostupné.</p>";
+    if (studyPathology) studyPathology.innerHTML = c.pathology || c.macroscopy || "<p>Informace nejsou dostupné.</p>";
+    if (studyClinical) studyClinical.innerHTML = c.clinical || c.clinical_legacy || "<p>Informace nejsou dostupné.</p>";
+    if (studyKeypoints) studyKeypoints.innerHTML = c.key_points || "<p>Informace nejsou dostupné.</p>";
 
     // Reset záložek
     switchTab("tab-study");
@@ -326,21 +426,17 @@ document.addEventListener("DOMContentLoaded", () => {
     prog.testedCount++;
 
     if (grade === "wrong") {
-      // Ztěžka - propad do Boxu 1
       prog.box = 1;
     } else if (grade === "good") {
-      // Slibné - posun o jeden box výše (max Box 4)
       if (prog.box < 4) prog.box++;
       prog.correctCount++;
     } else if (grade === "perfect") {
-      // Skvěle - skok přímo do Boxu 4
       prog.box = 4;
       prog.correctCount++;
     }
 
-    // Nastavení dalšího opakování
     if (prog.box === 4) {
-      prog.nextReview = null; // Zvládnuté téma, neplánuje se automaticky
+      prog.nextReview = null;
     } else {
       prog.nextReview = now + LEITNER_INTERVALS[prog.box];
     }
@@ -380,23 +476,19 @@ document.addEventListener("DOMContentLoaded", () => {
             <button class="quiz-option" data-correct="${optIndex === q.correct}" data-index="${optIndex}">
               ${opt}
             </button>
-          `).join("")}
+          `).join('')}
         </div>
-        <div class="quiz-explanation" id="explanation-${question.id}-${qIndex}" style="display:none;">
+        <div class="quiz-explanation" id="exp-${question.id}-${qIndex}" style="display: none;">
           <strong>Vysvětlení:</strong> ${q.explanation}
         </div>
       `;
 
-      // Event listenery pro tlačítka možností
-      const optionsContainer = qDiv.querySelector(`#options-${question.id}-${qIndex}`);
-      const optionBtns = optionsContainer.querySelectorAll(".quiz-option");
-      const explanationBox = qDiv.querySelector(`#explanation-${question.id}-${qIndex}`);
+      const optionBtns = qDiv.querySelectorAll(".quiz-option");
+      const explanationBox = qDiv.querySelector(".quiz-explanation");
 
       optionBtns.forEach(btn => {
         btn.addEventListener("click", () => {
-          // Zabránit vícenásobnému klikání
-          if (optionsContainer.classList.contains("answered")) return;
-          optionsContainer.classList.add("answered");
+          if (btn.classList.contains("correct") || btn.classList.contains("incorrect")) return;
 
           const isCorrect = btn.getAttribute("data-correct") === "true";
           
@@ -410,7 +502,6 @@ document.addEventListener("DOMContentLoaded", () => {
             b.disabled = true;
           });
 
-          // Zobrazit vysvětlení
           if (explanationBox) {
             explanationBox.style.display = "block";
           }
@@ -423,42 +514,233 @@ document.addEventListener("DOMContentLoaded", () => {
     quizContainer.appendChild(quizWrapper);
   }
 
-  // --- LOGIKA PŘIŘAZOVACÍ HRY (MATCHING GAME) ---
+  // --- RADIOLOGICKÝ OBRAZOVÝ ATLAS ---
 
-  function openMatchingGame() {
-    const pairs = window.RADIOLOGY_MATCHING_PAIRS || [];
-    if (pairs.length < 4) {
-      alert("Nedostatek dat pro přiřazovačku.");
+  function openAtlas(filterQuery = "") {
+    if (filterQuery) {
+      activeAtlasSearch = filterQuery;
+      if (atlasSearchInput) atlasSearchInput.value = filterQuery;
+    }
+    renderAtlasGrid();
+    atlasDialog.showModal();
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeAtlas() {
+    atlasDialog.close();
+    document.body.style.overflow = "auto";
+  }
+
+  function renderAtlasGrid() {
+    if (!atlasGrid) return;
+    atlasGrid.innerHTML = "";
+
+    const query = activeAtlasSearch.toLowerCase().trim();
+    const filtered = ATLAS_ITEMS.filter(item => {
+      const matchesSearch = !query || 
+                            item.title.toLowerCase().includes(query) ||
+                            item.caption.toLowerCase().includes(query) ||
+                            item.topicTitle.toLowerCase().includes(query) ||
+                            item.section.toLowerCase().includes(query) ||
+                            item.modality.toLowerCase().includes(query);
+
+      let matchesModality = true;
+      if (activeAtlasModality !== "all") {
+        matchesModality = item.modality.toLowerCase().includes(activeAtlasModality.toLowerCase());
+      }
+
+      return matchesSearch && matchesModality;
+    });
+
+    if (atlasItemsCountEl) atlasItemsCountEl.textContent = filtered.length;
+
+    if (filtered.length === 0) {
+      atlasGrid.innerHTML = `<div class="no-cards-placeholder" style="grid-column: 1 / -1;">Žádné snímky nevyhovují zvoleným filtrům.</div>`;
       return;
     }
 
-    // Náhodně vybrat 4 páry
-    const shuffledPairs = [...pairs].sort(() => 0.5 - Math.random()).slice(0, 4);
+    filtered.forEach(item => {
+      const card = document.createElement("div");
+      card.className = "atlas-card";
+
+      const mLow = item.modality.toLowerCase();
+      let chipClass = "mod-rtg";
+      if (mLow.includes("ct")) chipClass = "mod-ct";
+      else if (mLow.includes("mr")) chipClass = "mod-mr";
+      else if (mLow.includes("uz") || mLow.includes("doppler")) chipClass = "mod-uz";
+      else if (mLow.includes("interv") || mLow.includes("dsa") || mLow.includes("angio") || mLow.includes("pta")) chipClass = "mod-intervence";
+
+      card.innerHTML = `
+        <div class="atlas-card-image-box">
+          <img src="${item.src}" alt="${item.title}" loading="lazy" />
+          <span class="atlas-modality-badge ${chipClass}">${item.modality}</span>
+        </div>
+        <div class="atlas-card-body">
+          <span class="atlas-card-category">${item.section}</span>
+          <h4 class="atlas-card-title">${item.title}</h4>
+          <p class="atlas-card-desc">${item.caption}</p>
+        </div>
+      `;
+
+      card.addEventListener("click", () => {
+        openLightbox(item);
+      });
+
+      atlasGrid.appendChild(card);
+    });
+  }
+
+  // --- LIGHTBOX (DETAIL SNÍMKU) ---
+
+  function openLightbox(item) {
+    activeLightboxItem = item;
+    if (lightboxImg) lightboxImg.src = item.src;
+    if (lightboxTitle) lightboxTitle.textContent = item.title;
+    if (lightboxModality) {
+      lightboxModality.textContent = item.modality;
+      const mLow = item.modality.toLowerCase();
+      lightboxModality.className = "lightbox-modality " + (
+        mLow.includes("ct") ? "mod-ct" :
+        mLow.includes("mr") ? "mod-mr" :
+        mLow.includes("uz") ? "mod-uz" :
+        mLow.includes("interv") ? "mod-intervence" : "mod-rtg"
+      );
+    }
+    if (lightboxCaption) lightboxCaption.textContent = item.caption;
+
+    if (lightboxOpenTopicBtn) {
+      if (item.questionId) {
+        lightboxOpenTopicBtn.style.display = "inline-flex";
+        lightboxOpenTopicBtn.onclick = () => {
+          closeLightbox();
+          closeAtlas();
+          const targetQ = QUESTIONS.find(q => q.id === item.questionId);
+          if (targetQ) openCardDetail(targetQ);
+        };
+      } else {
+        lightboxOpenTopicBtn.style.display = "none";
+      }
+    }
+
+    lightboxDialog.showModal();
+  }
+
+  function closeLightbox() {
+    lightboxDialog.close();
+    activeLightboxItem = null;
+  }
+
+  // --- INDIKAČNÍ ALGORITMY ---
+
+  function openAlgoDialog() {
+    renderAlgoMatrix();
+    algoDialog.showModal();
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeAlgoDialog() {
+    algoDialog.close();
+    document.body.style.overflow = "auto";
+  }
+
+  function renderAlgoMatrix() {
+    if (!algoMatrixGrid) return;
+    
+    const ALGO_DATA = [
+      {
+        clinicalState: "Akutní CMP (podezření na ischemii / krvácení)",
+        modality1st: "Nativní CT mozku + CTA + CTP",
+        notes: "Vyloučení krvácení pro i.v. trombolýzu, CTA pro trombektomii do 6-24 h",
+        goldStandard: "CT iktový protokol / DWI MRI"
+      },
+      {
+        clinicalState: "Akutní trauma hlavy a krku (GCS < 15, ztráta vědomí)",
+        modality1st: "Nativní CT mozku + kostní okno + CT krční páteře",
+        notes: "Rychlá detekce epidurálního/subdurálního hematomu a fraktur",
+        goldStandard: "Multidetektorové CT"
+      },
+      {
+        clinicalState: "Podezření na plicní embolii (PE)",
+        modality1st: "CT angiografie plicnice (CTA)",
+        notes: "Při KI kontrastní látky ventilačně-perfuzní scintigrafie plic (V/Q)",
+        goldStandard: "CTA plicnice"
+      },
+      {
+        clinicalState: "Bolest v pravém podžebří (suspektní cholecystitida)",
+        modality1st: "Ultrasonografie (UZ) břicha",
+        notes: "Detekce konkrementů, ztluštění stěny > 3 mm, sonografický Murphyho znak",
+        goldStandard: "UZ břicha / MRCP"
+      },
+      {
+        clinicalState: "Bolest v pravém podbřišku (suspektní apendicitida)",
+        modality1st: "UZ břicha (děti, mladí) / Kontrastní CT (dospělí)",
+        notes: "Aperistaltická tubulární struktura > 6 mm se stěnou bez kompresibility",
+        goldStandard: "Kontrastní CT břicha"
+      },
+      {
+        clinicalState: "Akutní renální kolika (suspektní urolitiáza)",
+        modality1st: "Nízkodávkové nekontrastní CT (Low-Dose NCCT)",
+        notes: "100% senzitivita i pro rtg nekontrastní urátové konkrementy",
+        goldStandard: "Low-Dose NCCT břicha a pánve"
+      },
+      {
+        clinicalState: "Perforace dutého orgánu (akutní břicho)",
+        modality1st: "Nativní RTG hrudníku/břicha vestoje + CT s i.v. KL",
+        notes: "Srpkovitý volný plyn pod bránicí; CT odhalí přesné místo perforace",
+        goldStandard: "Kontrastní CT břicha"
+      },
+      {
+        clinicalState: "Hluboká žilní trombóza (HŽT) DKK",
+        modality1st: "Kompresní duplexní ultrasonografie (CUS)",
+        notes: "Nemožnost stlačení žilního lumen sondou, chybění toku na Doppleru",
+        goldStandard: "Kompresní duplexní UZ"
+      }
+    ];
+
+    algoMatrixGrid.innerHTML = ALGO_DATA.map(item => `
+      <div class="algo-card" style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.25rem;">
+        <h4 style="color: var(--primary); font-size: 1rem; margin-bottom: 0.5rem;">${item.clinicalState}</h4>
+        <div style="font-size: 0.85rem; margin-bottom: 0.4rem;"><strong>1. volba:</strong> <span class="text-amber">${item.modality1st}</span></div>
+        <div style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 0.4rem;">${item.notes}</div>
+        <div style="font-size: 0.78rem; color: var(--text-muted); border-top: 1px solid var(--border); padding-top: 0.4rem;"><strong>Standard:</strong> ${item.goldStandard}</div>
+      </div>
+    `).join('');
+  }
+
+  // --- LOGIKA PŘIŘAZOVACÍ HRY (MATCHING GAME) ---
+
+  const RADIOLOGY_MATCHING_PAIRS = [
+    { term: "Hounsfieldova jednotka (HU)", desc: "Kvantitativní škála denzity na CT: voda = 0, vzduch = -1000, kost = +1000 HU." },
+    { term: "T1 vážený obraz na MR", desc: "Tuk je hyperintenzní (světlý), tekutina/likvor je hypointenzní (tmavá)." },
+    { term: "T2 vážený obraz na MR", desc: "Tekutina a edém jsou hyperintenzní (jasně světlé), tuk je středně šedý." },
+    { term: "FLAIR sekvence na MR", desc: "T2 zobrazení s potlačením volné tekutiny (likvoru) pro vyniknutí periventrikulárních lézí a edému." },
+    { term: "DWI sekvence na MR", desc: "Zobrazení difuze molekul vody – klíčové pro hyperakutní záchyt cytotoxického edému při ischémii." },
+    { term: "Piezoelektrický jev", desc: "Přeměna elektrické energie na vysokofrekvenční akustické vlnění v ultrazvukové sondě a naopak." },
+    { term: "Dopplerův jev", desc: "Frekvenční posun odraženého ultrazvuku od pohybujících se erytrocytů pro měření rychlosti a směru toku krve." },
+    { term: "Riglerův příznak (Double wall)", desc: "Vizualizace vnitřního i vnějšího obrysu střevní stěny na RTG břicha vleže při pneumoperitoneu." },
+    { term: "Golden S sign", desc: "S-tvarované zakřivení zvednuté horizontální fisury při atelektáze horního laloku způsobené centrálním nádorem." },
+    { term: "Epidurální hematom", desc: "Bikonvexní (čočkovitý) hyperdenzní útvar na CT po ruptuře a. meningea media, nepřekračuje lebeční švy." },
+    { term: "Subdurální hematom", desc: "Srpkovitý hyperdenzní/hypodenzní útvar po ruptuře přemosťujících žil volně překračující lebeční švy." },
+    { term: "Perkutánní transluminální angioplastika (PTA)", desc: "Mechanické rozšíření zúžené či uzavřené tepny pomocí balónkového katetru s možností implantace stentu." }
+  ];
+
+  function openMatchingGame() {
+    const shuffledPairs = [...RADIOLOGY_MATCHING_PAIRS].sort(() => 0.5 - Math.random()).slice(0, 4);
 
     gameSelectedTerm = null;
     gameSelectedDesc = null;
     gameErrorsCount = 0;
     gamePairsLeft = 4;
 
-    gameErrorsEl.textContent = "0";
-    gameLeftCountEl.textContent = "4";
+    if (gameErrorsEl) gameErrorsEl.textContent = "0";
+    if (gameLeftCountEl) gameLeftCountEl.textContent = "4";
 
-    // Vytvoření seznamu termínů a popisů s ID jako index
-    const terms = shuffledPairs.map((p, idx) => ({
-      id: `pair-${idx}`,
-      text: p.term
-    }));
+    const terms = shuffledPairs.map((p, idx) => ({ id: `pair-${idx}`, text: p.term }));
+    const descriptions = shuffledPairs.map((p, idx) => ({ id: `pair-${idx}`, text: p.desc }));
 
-    const descriptions = shuffledPairs.map((p, idx) => ({
-      id: `pair-${idx}`,
-      text: p.desc
-    }));
-
-    // Náhodně promíchat sloupce nezávisle na sobě
     const shuffledTerms = [...terms].sort(() => 0.5 - Math.random());
     const shuffledDescs = [...descriptions].sort(() => 0.5 - Math.random());
 
-    // Vykreslení do UI
     gameColLeft.innerHTML = "";
     gameColRight.innerHTML = "";
 
@@ -486,27 +768,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function selectTerm(card) {
     if (card.classList.contains("matched")) return;
-
-    // Pokud už je něco vybráno, zrušit zvýraznění
     const alreadySelected = gameColLeft.querySelector(".game-card.selected");
     if (alreadySelected) alreadySelected.classList.remove("selected");
-
     gameSelectedTerm = card;
     card.classList.add("selected");
-
     checkGameMatch();
   }
 
   function selectDesc(card) {
     if (card.classList.contains("matched")) return;
-
-    // Pokud už je něco vybráno, zrušit zvýraznění
     const alreadySelected = gameColRight.querySelector(".game-card.selected");
     if (alreadySelected) alreadySelected.classList.remove("selected");
-
     gameSelectedDesc = card;
     card.classList.add("selected");
-
     checkGameMatch();
   }
 
@@ -517,35 +791,31 @@ document.addEventListener("DOMContentLoaded", () => {
     const descId = gameSelectedDesc.getAttribute("data-id");
 
     if (termId === descId) {
-      // SPRÁVNÁ DVOJICE
       gameSelectedTerm.classList.remove("selected");
       gameSelectedDesc.classList.remove("selected");
-      
       gameSelectedTerm.classList.add("matched");
       gameSelectedDesc.classList.add("matched");
 
       gamePairsLeft--;
-      gameLeftCountEl.textContent = gamePairsLeft;
+      if (gameLeftCountEl) gameLeftCountEl.textContent = gamePairsLeft;
 
       gameSelectedTerm = null;
       gameSelectedDesc = null;
 
       if (gamePairsLeft === 0) {
         setTimeout(() => {
-          alert(`Gratulujeme! Úspěšně jsi spojil(a) všechny pojmy. Počet chyb: ${gameErrorsCount}`);
+          alert(`Výborně! Úspěšně jsi spojil(a) všechny radiologické pojmy. Počet chyb: ${gameErrorsCount}`);
           closeMatchingGame();
         }, 300);
       }
     } else {
-      // NESPRÁVNÁ DVOJICE
       const tCard = gameSelectedTerm;
       const dCard = gameSelectedDesc;
-      
       tCard.classList.add("wrong");
       dCard.classList.add("wrong");
 
       gameErrorsCount++;
-      gameErrorsEl.textContent = gameErrorsCount;
+      if (gameErrorsEl) gameErrorsEl.textContent = gameErrorsCount;
 
       gameSelectedTerm = null;
       gameSelectedDesc = null;
@@ -562,9 +832,8 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.style.overflow = "auto";
   }
 
-  // --- TLAČÍTKA A EVENT LISTENERY ---
+  // --- EVENT LISTENERY ---
 
-  // Filtry
   if (searchInput) {
     searchInput.addEventListener("input", (e) => {
       activeSearchQuery = e.target.value.toLowerCase().trim();
@@ -586,7 +855,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Spaced Repetition hodnocení
   leitnerBtns.forEach(btn => {
     btn.addEventListener("click", () => {
       const grade = btn.getAttribute("data-grade");
@@ -594,18 +862,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Učení dnešních karet z dashboardu
   if (studyDueBtn) {
     studyDueBtn.addEventListener("click", () => {
       activeFilterStatus = "due";
       if (statusFilter) statusFilter.value = "due";
       renderCards();
+      cardsGrid.scrollIntoView({ behavior: "smooth" });
     });
-  }
-
-  // Klávesové zkratky a zavírání dialogů
-  if (dialogCloseBtn) {
-    dialogCloseBtn.addEventListener("click", closeCardDetail);
   }
 
   tabBtns.forEach(btn => {
@@ -615,424 +878,249 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Matching game tlačítka
-  if (matchingGameOpenBtn) {
-    matchingGameOpenBtn.addEventListener("click", openMatchingGame);
-  }
-  if (gameCloseBtn) {
-    gameCloseBtn.addEventListener("click", closeMatchingGame);
-  }
-  if (gameResetBtn) {
-    gameResetBtn.addEventListener("click", openMatchingGame);
+  if (dialogCloseBtn) dialogCloseBtn.addEventListener("click", closeCardDetail);
+  if (detailDialog) {
+    detailDialog.addEventListener("click", (e) => {
+      if (e.target === detailDialog) closeCardDetail();
+    });
   }
 
-  // Přepínání motivu (dark/light)
-  const themeToggleBtn = document.getElementById("theme-toggle");
-  if (themeToggleBtn) {
-    // Inicializace podle uloženého motivu
-    const savedTheme = localStorage.getItem("theme") || "dark";
-    if (savedTheme === "light") {
-      document.body.classList.remove("dark-theme");
-      document.body.classList.add("light-theme");
+  if (dialogJumpAtlasBtn) {
+    dialogJumpAtlasBtn.addEventListener("click", () => {
+      if (activeQuestion) {
+        closeCardDetail();
+        openAtlas(activeQuestion.title);
+      }
+    });
+  }
+
+  // Atlas listenery
+  if (atlasOpenBtn) atlasOpenBtn.addEventListener("click", () => openAtlas());
+  if (atlasCloseBtn) atlasCloseBtn.addEventListener("click", closeAtlas);
+  if (atlasDialog) {
+    atlasDialog.addEventListener("click", (e) => {
+      if (e.target === atlasDialog) closeAtlas();
+    });
+  }
+
+  if (atlasSearchInput) {
+    atlasSearchInput.addEventListener("input", (e) => {
+      activeAtlasSearch = e.target.value;
+      renderAtlasGrid();
+    });
+  }
+
+  atlasModBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      atlasModBtns.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      activeAtlasModality = btn.getAttribute("data-mod");
+      renderAtlasGrid();
+    });
+  });
+
+  // Lightbox listenery
+  if (lightboxCloseBtn) lightboxCloseBtn.addEventListener("click", closeLightbox);
+  if (lightboxDialog) {
+    lightboxDialog.addEventListener("click", (e) => {
+      if (e.target === lightboxDialog) closeLightbox();
+    });
+  }
+
+  // Matching game listenery
+  if (matchingGameOpenBtn) matchingGameOpenBtn.addEventListener("click", openMatchingGame);
+  if (gameCloseBtn) gameCloseBtn.addEventListener("click", closeMatchingGame);
+  if (gameResetBtn) gameResetBtn.addEventListener("click", openMatchingGame);
+  if (gameDialog) {
+    gameDialog.addEventListener("click", (e) => {
+      if (e.target === gameDialog) closeMatchingGame();
+    });
+  }
+
+  // Algoritmy listenery
+  if (algoBtn) algoBtn.addEventListener("click", openAlgoDialog);
+  if (algoCloseBtn) algoCloseBtn.addEventListener("click", closeAlgoDialog);
+  if (algoDialog) {
+    algoDialog.addEventListener("click", (e) => {
+      if (e.target === algoDialog) closeAlgoDialog();
+    });
+  }
+
+  // Klávesové zkratky (ESC)
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      if (lightboxDialog && lightboxDialog.open) closeLightbox();
+      else if (detailDialog && detailDialog.open) closeCardDetail();
+      else if (atlasDialog && atlasDialog.open) closeAtlas();
+      else if (gameDialog && gameDialog.open) closeMatchingGame();
+      else if (algoDialog && algoDialog.open) closeAlgoDialog();
     }
+  });
 
-    themeToggleBtn.addEventListener("click", () => {
-      const isLight = document.body.classList.toggle("light-theme");
-      document.body.classList.toggle("dark-theme", !isLight);
-      localStorage.setItem("theme", isLight ? "light" : "dark");
-    });
-  }
+  // Chatbot integrace
+  initChatbot();
 
-  // --- LOGIKA TLAČÍTKA ZPĚT NA ROZCESTNÍK ---
-  const backHubBtn = document.getElementById("back-hub-btn");
-  if (backHubBtn) {
-    backHubBtn.addEventListener("click", () => {
-      if (window.location.protocol === 'file:') {
-        window.location.href = '../index.html';
-      } else {
-        window.location.href = 'https://verysadanyway.vercel.app/';
-      }
-    });
-  }
-
-  // --- LOGIKA GEMINI CHATBOTA ---
-  // ==========================================
-  const chatbotContainer = document.getElementById("gemini-chatbot-container");
-  const chatbotFab = document.getElementById("chatbot-fab");
-  const chatbotPanel = document.getElementById("chatbot-panel");
-  const chatbotMessages = document.getElementById("chatbot-messages");
-  const chatbotInput = document.getElementById("chatbot-input");
-  const chatbotInputForm = document.getElementById("chatbot-input-form");
-  const chatbotTypingIndicator = document.getElementById("chatbot-typing-indicator");
-  const chatbotApiKeyInput = document.getElementById("chatbot-api-key-input");
-  const chatbotSaveKeyBtn = document.getElementById("chatbot-save-key-btn");
-  const chatbotClearKeyBtn = document.getElementById("chatbot-clear-key-btn");
-  const chatbotSettingsCloseBtn = document.getElementById("chatbot-settings-close-btn");
-  const chatbotSettingsBtn = document.getElementById("chatbot-settings-btn");
-  const chatbotSettingsOverlay = document.getElementById("chatbot-settings-overlay");
-  const chatbotBadge = document.getElementById("chatbot-badge");
-  const chatbotSuggestions = document.getElementById("chatbot-suggestions");
-
-  let chatHistory = [
-    { role: "assistant", text: "Ahoj! Jsem tvůj radiologický asistent. Pomůžu ti se studiem fyzikálních principů RTG, CT, MR, UZ, intervenční radiologie, radiační ochrany a indikací vyšetření. S čím dnes začneme?" }
-  ];
-
-  const systemInstructionText = "Jste odborník na radiologii a zobrazovací metody. Pomáháte studentům lékařství s fyzikálními principy RTG, CT, MR, UZ, intervenční radiologie, radiační ochranou, indikacemi vyšetření a popisem patologií v obrazech. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost.";
-
-  const getSavedKey = () => localStorage.getItem("gemini_chat_local_key") || "";
-  if (chatbotApiKeyInput) chatbotApiKeyInput.value = getSavedKey();
-
-  let lastMessageTime = 0;
-  const CLIENT_MIN_INTERVAL = 3000;
-
-  if (chatbotFab) {
-    chatbotFab.addEventListener("click", () => {
-      const isOpen = chatbotPanel.classList.toggle("open");
-      chatbotFab.classList.toggle("open");
-      if (isOpen) {
-        if (chatbotBadge) chatbotBadge.style.display = "none";
-        if (chatbotInput) chatbotInput.focus();
-        scrollToBottom();
-      }
-    });
-  }
-
-  const closeBtn = document.getElementById("chatbot-close-btn");
-  if (closeBtn) {
-    closeBtn.addEventListener("click", () => {
-      chatbotPanel.classList.remove("open");
-      chatbotFab.classList.remove("open");
-    });
-  }
-
-  if (chatbotSettingsBtn) {
-    chatbotSettingsBtn.addEventListener("click", () => {
-      chatbotSettingsOverlay.classList.add("open");
-    });
-  }
-
-  if (chatbotSettingsCloseBtn) {
-    chatbotSettingsCloseBtn.addEventListener("click", () => {
-      chatbotSettingsOverlay.classList.remove("open");
-    });
-  }
-
-  if (chatbotSaveKeyBtn) {
-    chatbotSaveKeyBtn.addEventListener("click", () => {
-      const key = chatbotApiKeyInput.value.trim();
-      if (key) {
-        localStorage.setItem("gemini_chat_local_key", key);
-        alert("API klíč byl uložen do vašeho prohlížeče.");
-        chatbotSettingsOverlay.classList.remove("open");
-      } else {
-        alert("Prosím zadejte platný klíč.");
-      }
-    });
-  }
-
-  if (chatbotClearKeyBtn) {
-    chatbotClearKeyBtn.addEventListener("click", () => {
-      localStorage.removeItem("gemini_chat_local_key");
-      chatbotApiKeyInput.value = "";
-      alert("API klíč byl vymazán. Nyní se dotazy posílají přes proxy server.");
-    });
-  }
-
-  const parseMarkdown = (text) => {
-    let html = text
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;");
-
-    html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-    html = html.replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>');
-    html = html.replace(/`(.*?)`/g, '<code>$1</code>');
-    
-    const lines = html.split('\n');
-    let inList = false;
-    const processedLines = lines.map(line => {
-      const trimmed = line.trim();
-      if (trimmed.startsWith('- ') || trimmed.startsWith('* ')) {
-        const content = trimmed.substring(2);
-        if (!inList) {
-          inList = true;
-          return '<ul><li>' + content + '</li>';
-        }
-        return '<li>' + content + '</li>';
-      } else {
-        if (inList) {
-          inList = false;
-          return '</ul><p>' + line + '</p>';
-        }
-        return trimmed ? '<p>' + line + '</p>' : '';
-      }
-    });
-    
-    html = processedLines.join('');
-    if (inList) html += '</ul>';
-    return html;
-  };
-
-  const scrollToBottom = () => {
-    if (chatbotMessages) chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-  };
-
-  const addMessage = (role, text) => {
-    chatHistory.push({ role, text });
-    if (chatHistory.length > 15) chatHistory.shift();
-
-    const messageDiv = document.createElement("div");
-    messageDiv.className = `message ${role}`;
-    
-    const contentDiv = document.createElement("div");
-    contentDiv.className = "message-content";
-    contentDiv.innerHTML = role === "assistant" ? parseMarkdown(text) : text;
-    
-    messageDiv.appendChild(contentDiv);
-    if (chatbotMessages) chatbotMessages.appendChild(messageDiv);
-    scrollToBottom();
-
-    if (chatbotBadge && !chatbotPanel.classList.contains("open") && role === "assistant") {
-      chatbotBadge.style.display = "block";
-    }
-  };
-
-  const callProxyServerStream = async (messages, onChunk, onStart) => {
-    const response = await fetch("/api/chat", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ messages, subject: "radiologie" })
-    });
-
-    if (!response.ok) {
-      const errData = await response.json().catch(() => ({}));
-      throw new Error(errData.error || `Server vrátil chybu ${response.status}.`);
-    }
-
-    onStart();
-
-    const reader = response.body.getReader();
-    const decoder = new TextDecoder();
-    let buffer = "";
-
-    while (true) {
-      const { done, value } = await reader.read();
-      if (done) break;
-
-      buffer += decoder.decode(value, { stream: true });
-      const lines = buffer.split("\n");
-      buffer = lines.pop();
-
-      for (const line of lines) {
-        const trimmed = line.trim();
-        if (!trimmed.startsWith("data: ")) continue;
-        const jsonStr = trimmed.substring(6);
-        try {
-          const parsed = JSON.parse(jsonStr);
-          if (parsed.text) onChunk(parsed.text);
-        } catch (e) {}
-      }
-    }
-
-    if (buffer.length > 0) {
-      const trimmed = buffer.trim();
-      if (trimmed.startsWith("data: ")) {
-        try {
-          const parsed = JSON.parse(trimmed.substring(6));
-          if (parsed.text) onChunk(parsed.text);
-        } catch (e) {}
-      }
-    }
-  };
-
-  const callGeminiDirectlyStream = async (key, messages, onChunk, onStart) => {
-    const contents = [];
-    for (const msg of messages) {
-      const role = msg.role === "assistant" || msg.role === "model" ? "model" : "user";
-      if (contents.length > 0 && contents[contents.length - 1].role === role) {
-        contents[contents.length - 1].parts.push({ text: msg.text });
-      } else {
-        contents.push({ role, parts: [{ text: msg.text }] });
-      }
-    }
-    if (contents.length > 0 && contents[0].role !== "user") contents.shift();
-    if (contents.length === 0) throw new Error("Žádné platné zprávy.");
-
-    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:streamGenerateContent?alt=sse&key=${key}`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        contents,
-        systemInstruction: { parts: [{ text: systemInstructionText }] },
-        generationConfig: { temperature: 0.7, maxOutputTokens: 1500 }
-      })
-    });
-
-    if (!response.ok) {
-      const err = await response.json().catch(() => ({}));
-      throw new Error(err.error?.message || `API vrátilo chybu ${response.status}`);
-    }
-
-    onStart();
-
-    const reader = response.body.getReader();
-    const decoder = new TextDecoder();
-    let buffer = "";
-
-    while (true) {
-      const { done, value } = await reader.read();
-      if (done) break;
-
-      buffer += decoder.decode(value, { stream: true });
-      const lines = buffer.split("\n");
-      buffer = lines.pop();
-
-      for (const line of lines) {
-        const trimmed = line.trim();
-        if (!trimmed.startsWith("data: ")) continue;
-        const jsonStr = trimmed.substring(6);
-        try {
-          const parsed = JSON.parse(jsonStr);
-          const chunkText = parsed.candidates?.[0]?.content?.parts?.[0]?.text;
-          if (chunkText) onChunk(chunkText);
-        } catch (e) {}
-      }
-    }
-  };
-
-  if (chatbotInputForm) {
-    chatbotInputForm.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const query = chatbotInput.value.trim();
-      if (!query) return;
-
-      const now = Date.now();
-      if (now - lastMessageTime < CLIENT_MIN_INTERVAL) {
-        alert("Prosím, počkejte chvíli před dalším dotazem.");
-        return;
-      }
-      lastMessageTime = now;
-
-      chatbotInput.value = "";
-      addMessage("user", query);
-
-      const assistantMessageDiv = document.createElement("div");
-      assistantMessageDiv.className = "message assistant streaming";
-      const contentDiv = document.createElement("div");
-      contentDiv.className = "message-content";
-      assistantMessageDiv.appendChild(contentDiv);
-      chatbotMessages.appendChild(assistantMessageDiv);
-      scrollToBottom();
-
-      if (chatbotTypingIndicator) chatbotTypingIndicator.classList.add("active");
-
-      let fullResponseText = "";
-      const onStart = () => {
-        if (chatbotTypingIndicator) chatbotTypingIndicator.classList.remove("active");
-        assistantMessageDiv.classList.remove("streaming");
-      };
-      const onChunk = (text) => {
-        fullResponseText += text;
-        contentDiv.innerHTML = parseMarkdown(fullResponseText);
-        scrollToBottom();
-      };
-
-      try {
-        const localKey = getSavedKey();
-        const formattedHistory = chatHistory.slice(0, -1).map(h => ({
-          role: h.role,
-          text: h.text
-        }));
-        formattedHistory.push({ role: "user", text: query });
-
-        if (localKey) {
-          await callGeminiDirectlyStream(localKey, formattedHistory, onChunk, onStart);
-        } else {
-          await callProxyServerStream(formattedHistory, onChunk, onStart);
-        }
-
-        // Uložit do historie
-        chatHistory.push({ role: "assistant", text: fullResponseText });
-        if (chatHistory.length > 15) chatHistory.shift();
-      } catch (err) {
-        if (chatbotTypingIndicator) chatbotTypingIndicator.classList.remove("active");
-        assistantMessageDiv.classList.remove("streaming");
-        contentDiv.innerHTML = `<span class="text-rose">Chyba: ${err.message}</span>`;
-        scrollToBottom();
-      }
-    });
-  }
-
-  // Event listenery pro suggestion chips
-  if (chatbotSuggestions) {
-    const chips = chatbotSuggestions.querySelectorAll(".suggestion-chip");
-    chips.forEach(chip => {
-      chip.addEventListener("click", () => {
-        const query = chip.getAttribute("data-query");
-        if (query && chatbotInput) {
-          chatbotInput.value = query;
-          chatbotInputForm.dispatchEvent(new Event("submit"));
-        }
-      });
-    });
-  }
-
-  // --- LOGIKA TLAČÍTKA ZPĚT NA ROZCESTNÍK ---
-  {
-    const backHubBtn = document.getElementById("back-hub-btn");
-    if (backHubBtn) {
-      backHubBtn.addEventListener("click", () => {
-        if (window.location.protocol === 'file:') {
-          window.location.href = '../index.html';
-        } else {
-          window.location.href = 'https://verysadanyway.vercel.app/';
-        }
-      });
-    }
-  }
-
-  // --- INDIKAČNÍ ALGORITMY LOGIKA ---
-  const RADIOLOGY_ALGORITHMS = [
-    { title: "Náhlá cévní mozková příhoda (CMP)", line1: "Nativní CT mozku (vyloučení hemoragie)", line2: "CT angiografie (CTA) + CT perfuze", gold: "MRI mozku (DWI sekvence pro hyperakutní ischemii)" },
-    { title: "Plicní embolie (PE)", line1: "RTG hrudníku (vyloučení pneumothoraxu/edému)", line2: "CT angiografie plicnice (CTAG)", gold: "Perfuzní/Ventilační scintigrafie plic (u alergie na JKL / selhání ledvin)" },
-    { title: "Náhlá příhoda břišní (NPB) - Ileus", line1: "Nativní nefritický snímek břicha ve stoje", line2: "Ultrazvuk (UZ) břicha", gold: "CT břicha a malé pánve s kapačkou (i.v. kontrast)" },
-    { title: "Akutní pankreatitida", line1: "UZ břicha (posouzení žlučníku a žlučovodů)", line2: "CT břicha s i.v. kontrastem (po 72 hod pro rozsah nekrózy)", gold: "MRCP (posouzení choledocholitiázy)" },
-    { title: "Ledvinná kolika (Urolitiáza)", line1: "Nativní UZ ledvin a měchýře", line2: "Nativní low-dose CT (přímo vizualizuje konkrementy)", gold: "Low-dose CT bez kontrastu" },
-    { title: "Trauma krční páteře", line1: "CT krční páteře (1. linie u polytraumatu)", line2: "RTG krční páteře v 3 projekcích", gold: "MRI krční páteře (posouzení míchy a vazů)" }
-  ];
-
-  const algoBtn = document.getElementById("algo-btn");
-  const algoDialog = document.getElementById("algo-dialog");
-  const algoCloseBtn = document.getElementById("algo-close");
-  const algoGrid = document.getElementById("algo-matrix-grid");
-
-  if (algoBtn && algoDialog) {
-    algoBtn.addEventListener("click", () => {
-      if (algoGrid) {
-        algoGrid.innerHTML = RADIOLOGY_ALGORITHMS.map(item => `
-          <div class="algo-card" style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.25rem; box-shadow: 0 4px 15px var(--shadow);">
-            <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--primary); margin-bottom: 0.75rem;">${item.title}</h3>
-            <div style="font-size: 0.85rem; margin-bottom: 0.5rem;"><strong style="color: #34d399;">1. linie:</strong> ${item.line1}</div>
-            <div style="font-size: 0.85rem; margin-bottom: 0.5rem;"><strong style="color: #f59e0b;">2. linie:</strong> ${item.line2}</div>
-            <div style="font-size: 0.85rem; padding-top: 0.5rem; border-top: 1px solid var(--border); color: var(--text-secondary);"><strong style="color: #60a5fa;">Zlatý standard:</strong> ${item.gold}</div>
-          </div>
-        `).join("");
-      }
-      if (typeof algoDialog.showModal === "function") algoDialog.showModal();
-      else algoDialog.setAttribute("open", "true");
-    });
-  }
-
-  if (algoCloseBtn && algoDialog) {
-    algoCloseBtn.addEventListener("click", () => {
-      if (typeof algoDialog.close === "function") algoDialog.close();
-      else algoDialog.removeAttribute("open");
-    });
-  }
-
-  // --- INICIALIZACE ---
+  // Prvotní vykreslení
   updateDashboardStats();
   renderCards();
 });
+
+// --- FLOATING GEMINI CHATBOT LOGIC ---
+
+function initChatbot() {
+  const fab = document.getElementById("chatbot-fab");
+  const panel = document.getElementById("chatbot-panel");
+  const closeBtn = document.getElementById("chatbot-close-btn");
+  const form = document.getElementById("chatbot-input-form");
+  const input = document.getElementById("chatbot-input");
+  const messages = document.getElementById("chatbot-messages");
+  const settingsBtn = document.getElementById("chatbot-settings-btn");
+  const settingsOverlay = document.getElementById("chatbot-settings-overlay");
+  const settingsCloseBtn = document.getElementById("chatbot-settings-close-btn");
+  const apiKeyInput = document.getElementById("chatbot-api-key-input");
+  const saveKeyBtn = document.getElementById("chatbot-save-key-btn");
+  const clearKeyBtn = document.getElementById("chatbot-clear-key-btn");
+  const typingIndicator = document.getElementById("chatbot-typing-indicator");
+  const suggestionChips = document.querySelectorAll(".suggestion-chip");
+
+  if (!fab || !panel) return;
+
+  let apiKey = localStorage.getItem("radiologie_gemini_api_key") || "";
+  let conversationHistory = [];
+
+  const togglePanel = (open) => {
+    const isOpen = open !== undefined ? open : !panel.classList.contains("open");
+    panel.classList.toggle("open", isOpen);
+    fab.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    if (isOpen) {
+      input.focus();
+      const badge = document.getElementById("chatbot-badge");
+      if (badge) badge.style.display = "none";
+    }
+  };
+
+  fab.addEventListener("click", () => togglePanel());
+  closeBtn.addEventListener("click", () => togglePanel(false));
+
+  settingsBtn.addEventListener("click", () => {
+    if (apiKeyInput) apiKeyInput.value = apiKey;
+    settingsOverlay.classList.add("open");
+  });
+
+  settingsCloseBtn.addEventListener("click", () => {
+    settingsOverlay.classList.remove("open");
+  });
+
+  saveKeyBtn.addEventListener("click", () => {
+    const val = apiKeyInput.value.trim();
+    if (val) {
+      apiKey = val;
+      localStorage.setItem("radiologie_gemini_api_key", apiKey);
+      alert("API klíč byl úspěšně uložen do vašeho prohlížeče.");
+      settingsOverlay.classList.remove("open");
+    }
+  });
+
+  clearKeyBtn.addEventListener("click", () => {
+    apiKey = "";
+    localStorage.removeItem("radiologie_gemini_api_key");
+    if (apiKeyInput) apiKeyInput.value = "";
+    alert("Uložený API klíč byl smazán.");
+    settingsOverlay.classList.remove("open");
+  });
+
+  suggestionChips.forEach(chip => {
+    chip.addEventListener("click", () => {
+      const q = chip.getAttribute("data-query");
+      if (q) {
+        input.value = q;
+        form.dispatchEvent(new Event("submit"));
+      }
+    });
+  });
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const userText = input.value.trim();
+    if (!userText) return;
+
+    appendMessage("user", userText);
+    input.value = "";
+    conversationHistory.push({ role: "user", text: userText });
+
+    if (typingIndicator) typingIndicator.classList.add("active");
+    messages.scrollTop = messages.scrollHeight;
+
+    try {
+      let responseText = "";
+      if (apiKey) {
+        responseText = await callDirectGemini(userText, conversationHistory, apiKey);
+      } else {
+        responseText = await callServerProxy(userText, conversationHistory);
+      }
+      appendMessage("assistant", responseText);
+      conversationHistory.push({ role: "model", text: responseText });
+    } catch (err) {
+      console.error(err);
+      appendMessage("assistant", "Omlouvám se, došlo k chybě při komunikaci s AI asistentem. Zkontrolujte prosím připojení k internetu nebo zadejte svůj Gemini API klíč v nastavení.");
+    } finally {
+      if (typingIndicator) typingIndicator.classList.remove("active");
+      messages.scrollTop = messages.scrollHeight;
+    }
+  });
+
+  function appendMessage(sender, text) {
+    const msgDiv = document.createElement("div");
+    msgDiv.className = `message ${sender}`;
+    msgDiv.innerHTML = `<div class="message-content">${formatMessageText(text)}</div>`;
+    messages.appendChild(msgDiv);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function formatMessageText(text) {
+    return text
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*(.*?)\*/g, '<em>$1</em>')
+      .replace(/`([^`]+)`/g, '<code>$1</code>')
+      .replace(/\n/g, '<br>');
+  }
+
+  async function callDirectGemini(query, history, key) {
+    const systemPrompt = "Jsi vysoce odborný lékařský asistent pro výuku radiologie a zobrazovacích metod pro studenty všeobecného lékařství. Odpovídej věcně, srozumitelně, v českém jazyce s důrazem na klinickou semiologii, fyzikální principy RTG, CT, MR, UZ, intervenční radiologie a indikační kritéria.";
+    
+    const contents = history.map(h => ({
+      role: h.role === "assistant" || h.role === "model" ? "model" : "user",
+      parts: [{ text: h.text }]
+    }));
+
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`;
+    const res = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        system_instruction: { parts: [{ text: systemPrompt }] },
+        contents: contents,
+        generationConfig: { temperature: 0.3, maxOutputTokens: 1000 }
+      })
+    });
+
+    if (!res.ok) throw new Error("Chyba Gemini API");
+    const data = await res.json();
+    return data.candidates[0].content.parts[0].text;
+  }
+
+  async function callServerProxy(query, history) {
+    const res = await fetch("/api/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        message: query,
+        subject: "radiologie",
+        history: history
+      })
+    });
+    if (!res.ok) throw new Error("Proxy failed");
+    const data = await res.json();
+    return data.reply || data.response;
+  }
+}

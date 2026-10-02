@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1479" height="1577">
+ <!-- Created with Image Occlusion Enhanced -->
+ <g>
+  <title>Labels</title>
+ </g>
+ <g>
+  <title>Masks</title>
+  <text xml:space="preserve" text-anchor="middle" font-family="'Arial', 'Helvetica LT Std', Arial, sans-serif" font-size="43" id="a5fbfa8ec1b54454968992ec931254fa-ao-1" y="1457.86326" x="506.44924" stroke-width="0" fill="#000000">Gastric Bubbble</text>
+  <text xml:space="preserve" text-anchor="middle" font-family="'Arial', 'Helvetica LT Std', Arial, sans-serif" font-size="43" id="a5fbfa8ec1b54454968992ec931254fa-ao-2" y="1515.87108" x="978.4219" stroke-width="0" fill="#000000">Costophrenic Angle</text>
+  <text xml:space="preserve" text-anchor="middle" font-family="'Arial', 'Helvetica LT Std', Arial, sans-serif" font-size="43" id="a5fbfa8ec1b54454968992ec931254fa-ao-3" y="471.73044" x="1160.3555" stroke-width="0" fill="#000000">Aortic Knob</text>
+  <text xml:space="preserve" text-anchor="middle" font-family="'Arial', 'Helvetica LT Std', Arial, sans-serif" font-size="43" id="a5fbfa8ec1b54454968992ec931254fa-ao-4" y="595.65622" x="1194.63284" stroke-width="0" fill="#000000">Carina</text>
+  <text xml:space="preserve" text-anchor="middle" font-family="'Arial', 'Helvetica LT Std', Arial, sans-serif" font-size="43" id="a5fbfa8ec1b54454968992ec931254fa-ao-5" y="516.55466" x="208.50002" stroke-width="0" fill="#000000">SVC</text>
+  <text xml:space="preserve" text-anchor="middle" font-family="'Arial', 'Helvetica LT Std', Arial, sans-serif" font-size="43" id="a5fbfa8ec1b54454968992ec931254fa-ao-6" y="366.26169" x="216.41017" stroke-width="0" fill="#000000">Trachea</text>
+  <text xml:space="preserve" text-anchor="middle" font-family="'Arial', 'Helvetica LT Std', Arial, sans-serif" font-size="43" id="a5fbfa8ec1b54454968992ec931254fa-ao-7" y="996.43748" x="139.94533" stroke-width="0" fill="#000000">R. Atrium</text>
+  <text xml:space="preserve" text-anchor="middle" font-family="'Arial', 'Helvetica LT Std', Arial, sans-serif" font-size="35" id="a5fbfa8ec1b54454968992ec931254fa-ao-8" y="740.67576" x="234.8672" stroke-width="0" fill="#000000">R. Main Pulmonary Artery</text>
+  <text xml:space="preserve" text-anchor="middle" font-family="'Arial', 'Helvetica LT Std', Arial, sans-serif" font-size="43" id="a5fbfa8ec1b54454968992ec931254fa-ao-9" y="1093.99607" x="1339.65237" stroke-width="0" fill="#000000">Ventricles</text>
+  <text xml:space="preserve" text-anchor="middle" font-family="'Arial', 'Helvetica LT Std', Arial, sans-serif" font-size="43" id="a5fbfa8ec1b54454968992ec931254fa-ao-10" y="912.06248" x="1366.01956" stroke-width="0" fill="#000000">Rib</text>
+  <text xml:space="preserve" text-anchor="middle" font-family="'Arial', 'Helvetica LT Std', Arial, sans-serif" font-size="39" id="a5fbfa8ec1b54454968992ec931254fa-ao-11" y="761.76951" x="1284.28128" stroke-width="0" fill="#000000">Descending Aorta</text>
+  <rect id="a5fbfa8ec1b54454968992ec931254fa-ao-12" height="87.01172" width="229.39453" y="308.25388" x="103.03127" stroke="#2D2D2D" fill="#FFEBA2"/>
+  <line id="a5fbfa8ec1b54454968992ec931254fa-ao-13" y2="363.62497" x2="709.47659" y1="353.0781" x1="332.4258" stroke-width="3" stroke="#2D2D2D" fill="#FFEBA2"/>
+  <rect id="a5fbfa8ec1b54454968992ec931254fa-ao-14" height="87.01172" width="168.75" y="455.91013" x="134.67189" stroke="#2D2D2D" fill="#FFEBA2"/>
+  <line id="a5fbfa8ec1b54454968992ec931254fa-ao-15" y2="506.00779" x2="625.10158" y1="500.73435" x1="303.42189" stroke-width="3" stroke="#2D2D2D" fill="#FFEBA2"/>
+  <rect id="a5fbfa8ec1b54454968992ec931254fa-ao-16" height="63.28125" width="427.14844" y="701.12498" x="18.65627" stroke="#2D2D2D" fill="#FFEBA2"/>
+  <line id="a5fbfa8ec1b54454968992ec931254fa-ao-17" y2="698.48826" x2="588.18752" y1="732.7656" x1="445.80471" stroke-width="3" stroke="#2D2D2D" fill="#FFEBA2"/>
+  <rect id="a5fbfa8ec1b54454968992ec931254fa-ao-18" height="76.46484" width="224.1211" y="948.97654" x="31.83986" stroke="#2D2D2D" fill="#FFEBA2"/>
+  <line id="a5fbfa8ec1b54454968992ec931254fa-ao-19" y2="996.43748" x2="575.00393" y1="985.8906" x1="255.96096" stroke-width="3" stroke="#2D2D2D" fill="#FFEBA2"/>
+  <text xml:space="preserve" text-anchor="middle" font-family="'Arial', 'Helvetica LT Std', Arial, sans-serif" font-size="35" id="a5fbfa8ec1b54454968992ec931254fa-ao-20" y="1347.12108" x="324.51564" stroke-width="0" fill="#000000">R. Hemidiaphram</text>
+  
+  <rect id="a5fbfa8ec1b54454968992ec931254fa-ao-22" height="63.28125" width="342.77344" y="1413.03905" x="327.15236" stroke="#2D2D2D" fill="#FFEBA2"/>
+  <rect id="a5fbfa8ec1b54454968992ec931254fa-ao-23" height="73.82813" width="406.05469" y="1465.77342" x="778.03127" stroke="#2D2D2D" fill="#FFEBA2"/>
+  <line id="a5fbfa8ec1b54454968992ec931254fa-ao-24" y2="1144.09373" x2="316.60549" y1="1291.74998" x1="335.06252" stroke-width="3" stroke="#2D2D2D" fill="#FFEBA2"/>
+  <line id="a5fbfa8ec1b54454968992ec931254fa-ao-25" y2="1362.94139" x2="959.96487" y1="1415.67576" x1="669.9258" stroke-width="3" stroke="#2D2D2D" fill="#FFEBA2"/>
+  <line id="a5fbfa8ec1b54454968992ec931254fa-ao-26" y2="1413.03905" x2="1300.10159" y1="1465.77342" x1="1178.81253" stroke-width="3" stroke="#2D2D2D" fill="#FFEBA2"/>
+  <rect id="a5fbfa8ec1b54454968992ec931254fa-ao-27" height="73.82813" width="221.48438" y="1038.62498" x="1242.09378" stroke="#2D2D2D" fill="#FFEBA2"/>
+  <line id="a5fbfa8ec1b54454968992ec931254fa-ao-28" y2="1093.99607" x2="983.69534" y1="1075.53904" x1="1242.09378" stroke-width="3" stroke="#2D2D2D" fill="#FFEBA2"/>
+  <rect id="a5fbfa8ec1b54454968992ec931254fa-ao-29" height="79.10156" width="174.02344" y="859.3281" x="1286.918" stroke="#2D2D2D" fill="#FFEBA2"/>
+  <line id="a5fbfa8ec1b54454968992ec931254fa-ao-30" y2="848.78123" x2="1152.44534" y1="906.78904" x1="1289.55472" stroke-width="3" stroke="#2D2D2D" fill="#FFEBA2"/>
+  <rect id="a5fbfa8ec1b54454968992ec931254fa-ao-31" height="73.82813" width="340.13672" y="709.03513" x="1118.168" stroke="#2D2D2D" fill="#FFEBA2"/>
+  <line id="a5fbfa8ec1b54454968992ec931254fa-ao-32" y2="798.68357" x2="865.04299" y1="743.31248" x1="1120.80472" stroke-width="3" stroke="#2D2D2D" fill="#FFEBA2"/>
+  <rect id="a5fbfa8ec1b54454968992ec931254fa-ao-33" height="60.64453" width="258.39844" y="426.90622" x="1041.70315" stroke="#2D2D2D" fill="#FFEBA2"/>
+  <rect id="a5fbfa8ec1b54454968992ec931254fa-ao-34" height="76.46484" width="210.9375" y="542.92185" x="1104.9844" stroke="#2D2D2D" fill="#FFEBA2"/>
+  <line id="a5fbfa8ec1b54454968992ec931254fa-ao-35" y2="590.38279" x2="701.56643" y1="590.38279" x1="1104.9844" stroke-width="3" stroke="#2D2D2D" fill="#FFEBA2"/>
+  <line id="a5fbfa8ec1b54454968992ec931254fa-ao-36" y2="527.10154" x2="851.8594" y1="453.27341" x1="1041.70315" stroke-width="3" stroke="#2D2D2D" fill="#FFEBA2"/>
+ </g>
+</svg>

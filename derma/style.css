@@ -1139,3 +1139,18 @@ body.light-theme .moon-icon { display: block; }
   border: 1px solid var(--color-box1);
   color: var(--color-box1);
 }
+
+
+/* Unified Author Link */
+.author-link {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.35);
+  text-underline-offset: 3px;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+.author-link:hover {
+  color: var(--primary, #00f0ff);
+  text-decoration-color: currentColor;
+}

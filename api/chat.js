@@ -17,29 +17,29 @@ function getClientIp(req) {
   return req.headers['x-vercel-forwarded-for'] || req.socket?.remoteAddress || 'unknown';
 }
 
+function checkDomain(source) {
+  if (!source) return true;
+  try {
+    const url = new URL(source);
+    const hostname = url.hostname;
+    
+    const allowedExact = ['localhost', '127.0.0.1', '::1', 'kintrovav.vercel.app', 'kintrovav.github.io'];
+    if (allowedExact.includes(hostname)) return true;
+    if (hostname.endsWith('.localhost')) return true;
+    if (hostname.endsWith('.vercel.app')) return true;
+    if (hostname.endsWith('.github.io')) return true;
+    
+    return false;
+  } catch (e) {
+    return false;
+  }
+}
+
 function checkReferer(req) {
   const referer = req.headers.referer || req.headers.referrer;
   const origin = req.headers.origin;
   
-  if (!referer && !origin) return false;
-  
-  const checkDomain = (source) => {
-    if (!source) return true;
-    try {
-      const url = new URL(source);
-      const hostname = url.hostname;
-      
-      const allowed = ['localhost', '127.0.0.1', '::1'];
-      const isLocal = allowed.some(domain => hostname === domain);
-      const allowedVercel = ['patfyz.vercel.app', 'patfyza.vercel.app', 'patolka.vercel.app', 'verysadanyway.vercel.app'];
-      const isVercel = allowedVercel.includes(hostname);
-      
-      return isLocal || isVercel;
-    } catch (e) {
-      return false;
-    }
-  };
-  
+  if (!referer && !origin) return true;
   if (referer && !checkDomain(referer)) return false;
   if (origin && !checkDomain(origin)) return false;
   
@@ -52,9 +52,24 @@ const systemInstructions = {
   patola: "Jste odborník na patologii (morfologickou patologii). Pomáháte studentům lékařství s makroskopickým a mikroskopickým popisem tkání, nekropsii, biopsii, klasifikací nádorů a patologickou anatomií. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost.",
   farmakologie: "Jste odborník na farmakologii. Pomáháte studentům lékařství s mechanismy účinku léčiv, farmakokinetikou, nežádoucími účinky, indikacemi a interakcemi. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost.",
   dermatologie: "Jste odborník na dermatovenerologii. Pomáháte studentům lékařství s chorobami kůže a pohlavními chorobami, diagnostikou, eflorescencemi a léčbou. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost.",
+  derma: "Jste odborník na dermatovenerologii. Pomáháte studentům lékařství s chorobami kůže a pohlavními chorobami, diagnostikou, eflorescencemi a léčbou. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost.",
   oset: "Jste odborník na ošetřovatelství a ošetřovatelskou péči. Pomáháte studentům lékařství a ošetřovatelství s ošetřovatelskými postupy, diagnózami a péčí o pacienta. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost.",
   radiologie: "Jste odborník na radiologii a zobrazovací metody. Pomáháte studentům lékařství s fyzikálními principy RTG, CT, MR, UZ, intervenční radiologie, radiační ochranou, indikacemi vyšetření a popisem patologií v obrazech. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost.",
-  mikra: "Jste odborník na mikrobiologii. Pomáháte studentům lékařství s bakteriologií, virologií, mykologií, parazitologií a diagnostickými metodami. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost."
+  radio: "Jste odborník na radiologii a zobrazovací metody. Pomáháte studentům lékařství s fyzikálními principy RTG, CT, MR, UZ, intervenční radiologie, radiační ochranou, indikacemi vyšetření a popisem patologií v obrazech. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost.",
+  mikra: "Jste odborník na mikrobiologii. Pomáháte studentům lékařství s bakteriologií, virologií, mykologií, parazitologií a diagnostickými metodami. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost.",
+  mikrobiologie: "Jste odborník na mikrobiologii. Pomáháte studentům lékařství s bakteriologií, virologií, mykologií, parazitologií a diagnostickými metodami. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost.",
+  kardio: "Jste odborník na kardiologii a kardiovaskulární medicínu. Pomáháte studentům lékařství s diagnostikou, EKG, ESC guidelines pro srdeční selhání, hypertenzi, AKS, arytmie a chlopenní vady. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost.",
+  kardiologie: "Jste odborník na kardiologii a kardiovaskulární medicínu. Pomáháte studentům lékařství s diagnostikou, EKG, ESC guidelines pro srdeční selhání, hypertenzi, AKS, arytmie a chlopenní vady. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost.",
+  neuro: "Jste odborník na neurologii. Pomáháte studentům lékařství s topickou diagnostikou nervového systému, cévními mozkovými příhodami, neurodegenerativními chorobami, epilepsií a neurologickým vyšetřením. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost.",
+  neurologie: "Jste odborník na neurologii. Pomáháte studentům lékařství s topickou diagnostikou nervového systému, cévními mozkovými příhodami, neurodegenerativními chorobami, epilepsií a neurologickým vyšetřením. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost.",
+  psych: "Jste odborník na psychiatrii a duševní zdraví. Pomáháte studentům lékařství s obecnou i speciální psychopatologií, afektivními a psychotickými poruchami, psychofarmakologií a diferenciální diagnostikou. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost.",
+  psychiatrie: "Jste odborník na psychiatrii a duševní zdraví. Pomáháte studentům lékařství s obecnou i speciální psychopatologií, afektivními a psychotickými poruchami, psychofarmakologií a diferenciální diagnostikou. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost.",
+  imunologie: "Jste odborník na lékařskou imunologii. Pomáháte studentům lékařství s vrozenou a adaptivní imunitou, hypersenzitivními reakcemi, autoimunitou, imunodeficiencemi a diagnostickými testy. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost.",
+  urgent: "Jste odborník na urgentní medicínu a intenzivní péči. Pomáháte studentům lékařství s postupy resuscitace (ALS/BLS), triáží, šokovými stavy, polytraumaty a akutním managementem kriticky nemocných. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost.",
+  'urgentni-prijem': "Jste odborník na urgentní medicínu a intenzivní péči. Pomáháte studentům lékařství s postupy resuscitace (ALS/BLS), triáží, šokovými stavy, polytraumaty a akutním managementem kriticky nemocných. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost.",
+  upv: "Jste odborník na umělou plicní ventilaci a respirační péči. Pomáháte studentům lékařství s ventilačními režimy (VCV, PCV, PSV), nastavením PEEP/FiO2, monitorací krevních plynů (Astrup) a řešením ventilačních asynchronií. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost.",
+  clinical: "Jste zkušený klinický lektor. Pomáháte studentům medicíny s klinickou rozvahou, diferenciální diagnostikou kazuistik a interpretací vyšetřovacích metod. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost.",
+  'clinical-portal': "Jste zkušený klinický lektor. Pomáháte studentům medicíny s klinickou rozvahou, diferenciální diagnostikou kazuistik a interpretací vyšetřovacích metod. Odpovídejte věcně, stručně a odborně česky. Používejte markdown pro přehlednost."
 };
 
 module.exports = async (req, res) => {
@@ -71,14 +86,7 @@ module.exports = async (req, res) => {
   if (source) {
     try {
       const url = new URL(source);
-      const hostname = url.hostname;
-      
-      const allowed = ['localhost', '127.0.0.1', '::1'];
-      const isLocal = allowed.some(domain => hostname === domain);
-      const allowedVercel = ['patfyz.vercel.app', 'patfyza.vercel.app', 'patolka.vercel.app', 'verysadanyway.vercel.app'];
-      const isVercel = allowedVercel.includes(hostname);
-      
-      if (isLocal || isVercel) {
+      if (checkDomain(source)) {
         allowedOrigin = url.origin;
       }
     } catch (e) {}
@@ -88,6 +96,8 @@ module.exports = async (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', allowedOrigin);
     res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
+  } else if (!origin) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
   }
 
   // Handle preflight OPTIONS request

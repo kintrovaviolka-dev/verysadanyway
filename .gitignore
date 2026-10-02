@@ -9,6 +9,7 @@ mikra/skripta_2.md
 # Ostatní samostatné repozitáře (spravované zvlášť)
 patolka-main/
 patfyza-main/
+ai_assistant/
 
 # Psychiatrie - referenční zdrojové materiály (pouze portál do gitu)
 psych/*.pdf
@@ -24,4 +25,5 @@ neuro/*.pptx
 neuro/*.zip
 neuro/raw/
 
-
+# Radiologie - referenční zdrojové materiály (pouze portál a extrahované snímky do gitu)
+radiolka/img_src/

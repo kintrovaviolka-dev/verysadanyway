@@ -462,6 +462,10 @@ function App() {
           </div>
         )}
       </div>
+
+      <footer className="mt-12 py-6 text-center text-xs text-text-muted border-t border-white/5">
+        <p>© 2026 <a href="https://kintrovav.vercel.app" target="_blank" rel="noopener noreferrer" className="author-link text-text-secondary hover:text-white underline underline-offset-2">Viola Kintrová</a> • Imunologický testovací trenažér LF OU.</p>
+      </footer>
     </div>
   );
 }

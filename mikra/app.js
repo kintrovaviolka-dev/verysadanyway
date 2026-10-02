@@ -821,26 +821,19 @@ function initChatbot() {
     }
   };
 
-  let clientToken = "";
-  const loadClientToken = async () => {
-    try {
-      const res = await fetch("/api/config");
-      if (res.ok) {
-        const data = await res.json();
-        clientToken = data.clientToken;
-      }
-    } catch (e) {
-      console.error("Failed to load client token", e);
+  // Resilient API endpoint resolver for subportals
+  const getChatApiUrl = () => {
+    if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.hostname === "verysadanyway.vercel.app") {
+      return "/api/chat";
     }
+    return "https://verysadanyway.vercel.app/api/chat";
   };
-  loadClientToken();
 
   const callProxyServerStream = async (messages, subject, onChunk, onStart) => {
-    const response = await fetch("/api/chat", {
+    const response = await fetch(getChatApiUrl(), {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${clientToken}`
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({ messages, subject })
     });
@@ -910,10 +903,11 @@ function initChatbot() {
       throw new Error("Žádné platné zprávy k odeslání.");
     }
 
-    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:streamGenerateContent?alt=sse&key=${key}`, {
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:streamGenerateContent?alt=sse&key=${encodeURIComponent(key)}`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "x-goog-api-key": key
       },
       body: JSON.stringify({
         contents,
