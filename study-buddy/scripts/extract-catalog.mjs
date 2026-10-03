@@ -17,6 +17,7 @@ function toTopics(subject, sourcePath, entries) {
     id: `${subject}:${item.id}`,
     subject,
     title: item.title,
+    section: item.section ?? null,
     sourcePath,
     // První průchod je o jedné dobře ohraničené otázce/okruhu, ne o perfektním naučení celé kapitoly.
     // Pět minut znamená: otevřít, aktivně si vybavit odpověď a krátce zkontrolovat.
@@ -33,6 +34,7 @@ function toQuestions(subject, sourcePath, entries) {
       subject,
       topicId: `${subject}:${entry.id}`,
       topicTitle: entry.title,
+      section: entry.section ?? null,
       sourcePath,
       caseContext: quiz.caseContext ?? null,
       question: quiz.question,

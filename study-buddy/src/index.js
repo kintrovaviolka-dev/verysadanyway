@@ -2,6 +2,7 @@ import { TOPIC_CATALOG, URGENT_TOPICS } from './catalog.generated.js';
 import { QUESTION_CATALOG } from './questions.generated.js';
 import webpush from 'web-push';
 import { gradeBearMinimum, pickBearMinimum } from './bear-minimum.js';
+import { isActiveThisSemester } from './curriculum.js';
 import {
   addDays,
   datesBetween,
@@ -92,17 +93,18 @@ async function getSettings(db) {
 
 async function seedTopics(db) {
   const catalog = [...TOPIC_CATALOG, ...URGENT_TOPICS.map((topic) => ({
-    id: topic.id, subject: 'urgent', title: topic.title, sourcePath: '/clinical-portal/', estimatedMinutes: topic.minutes
+    id: topic.id, subject: 'urgent', title: topic.title, sourcePath: '/clinical-portal/', estimatedMinutes: topic.minutes, section: null
   }))];
   if (!catalog.length) throw new Error('Katalog témat není vygenerovaný. Spusť nejdřív npm run catalog.');
   await db.batch(catalog.map((topic) => db.prepare(`
     INSERT INTO topics (id, subject, title, source_path, estimated_minutes)
-    VALUES (?, ?, ?, ?, ?)
+    VALUES (?, ?, ?, ?, ?, ?)
     ON CONFLICT(id) DO UPDATE SET
       title = excluded.title,
       source_path = excluded.source_path,
-      estimated_minutes = excluded.estimated_minutes
-  `).bind(topic.id, topic.subject, topic.title, topic.sourcePath, topic.estimatedMinutes)));
+      estimated_minutes = excluded.estimated_minutes,
+      is_active = excluded.is_active
+  `).bind(topic.id, topic.subject, topic.title, topic.sourcePath, topic.estimatedMinutes, isActiveThisSemester(topic) ? 1 : 0)));
 }
 
 function makeBlocks(events) {
@@ -290,7 +292,7 @@ async function handleApi(request, env) {
   if (request.method === 'GET' && url.pathname === '/api/status') return json(await appStatus(env.DB));
   if (request.method === 'GET' && url.pathname === '/api/today') return json(await todayPayload(env.DB, date));
   if (request.method === 'GET' && url.pathname === '/api/bear-minimum') {
-    return json({ questions: pickBearMinimum(QUESTION_CATALOG) });
+    return json({ questions: pickBearMinimum(QUESTION_CATALOG.filter(isActiveThisSemester)) });
   }
   if (request.method === 'GET' && url.pathname === '/api/push/public-key') {
     if (!hasPushSecrets(env)) return json({ error: 'Push notifikace ještě nejsou na serveru nastavené.' }, { status: 503 });
