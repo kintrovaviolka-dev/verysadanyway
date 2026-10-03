@@ -2,3 +2,5 @@
 .dev.vars.*
 .wrangler/
 node_modules/
+.study-buddy-secrets.env
+STUDY_BUDDY_ACCESS_CODE.txt

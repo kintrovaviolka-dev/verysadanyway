@@ -27,6 +27,15 @@
         <p id="setup-status" class="muted"></p>
       </section>
 
+      <section id="unlock" class="card hidden">
+        <p class="eyebrow">Soukromý plán</p>
+        <h2>Odemkni medvídka</h2>
+        <p>Vlož svůj jednorázově vytvořený přístupový kód. Uloží se jen do tohoto prohlížeče.</p>
+        <label class="code-label">Přístupový kód <input id="access-code" autocomplete="off" spellcheck="false" /></label>
+        <button id="unlock-button" class="primary">Odemknout můj plán</button>
+        <p id="unlock-status" class="muted"></p>
+      </section>
+
       <section id="today" class="card hidden">
         <div class="section-heading">
           <div><p class="eyebrow">Dnes</p><h2 id="date-label"></h2></div>
@@ -42,8 +51,19 @@
         <p id="checkin-status" class="muted"></p>
       </section>
 
+      <section id="notifications" class="card hidden notification-card">
+        <p class="eyebrow">Připomínky</p>
+        <h2>Nech medvídka připomenout se</h2>
+        <p id="notification-description">Ráno dostaneš dnešní plán, večer jemný check-in a ve 23:40 poslední nenápadné připomenutí.</p>
+        <div class="actions">
+          <button id="enable-notifications" class="secondary">Zapnout notifikace</button>
+          <button id="test-notification" class="quiet hidden">Poslat zkušební notifikaci</button>
+        </div>
+        <p id="notification-status" class="muted"></p>
+      </section>
+
       <section class="small-print">
-        Ranní, večerní a noční připomínka jsou už připravené ve Workeru. Push/e-mail a kartičky napojíme jako další krok.
+        Na iPhonu si stránku nejdřív přidej na plochu; pak může přijímat push notifikace i bez otevřeného prohlížeče.
       </section>
     </main>
     <script type="module" src="/app.js"></script>

@@ -1,4 +1,5 @@
 import { TOPIC_CATALOG, URGENT_TOPICS } from './catalog.generated.js';
+import webpush from 'web-push';
 import {
   addDays,
   datesBetween,
@@ -6,6 +7,7 @@ import {
   parseIcsEvents,
   studyCapacity
 } from './planner.js';
+import { notificationFor } from './reminders.js';
 
 const json = (body, init = {}) => Response.json(body, {
   headers: { 'Cache-Control': 'no-store', ...init.headers }, ...init
@@ -33,6 +35,51 @@ function localDurationMinutes(startsAt, endsAt) {
 
 async function readJson(request) {
   try { return await request.json(); } catch { return null; }
+}
+
+function isAuthorized(request, env) {
+  // Lokální vývoj bez secretu zůstává pohodlný; nasazená aplikace vyžaduje osobní kód.
+  if (!env.APP_SETUP_TOKEN) return true;
+  const token = request.headers.get('X-Study-Buddy-Token');
+  return Boolean(token && token.length === env.APP_SETUP_TOKEN.length && token === env.APP_SETUP_TOKEN);
+}
+
+function hasPushSecrets(env) {
+  return Boolean(env.VAPID_PUBLIC_KEY && env.VAPID_PRIVATE_KEY && env.VAPID_SUBJECT);
+}
+
+function isValidSubscription(subscription) {
+  try {
+    const endpoint = new URL(subscription?.endpoint);
+    return endpoint.protocol === 'https:' && typeof subscription?.keys?.p256dh === 'string' && typeof subscription?.keys?.auth === 'string';
+  } catch { return false; }
+}
+
+async function sendPush(env, payload, endpoint = null) {
+  if (!hasPushSecrets(env)) return { sent: 0, skipped: 'missing-vapid-secrets' };
+  const statement = endpoint
+    ? env.DB.prepare('SELECT endpoint, subscription_json FROM push_subscriptions WHERE endpoint = ?').bind(endpoint)
+    : env.DB.prepare('SELECT endpoint, subscription_json FROM push_subscriptions');
+  const { results } = await statement.all();
+  if (!results.length) return { sent: 0, skipped: 'no-subscriptions' };
+  webpush.setVapidDetails(env.VAPID_SUBJECT, env.VAPID_PUBLIC_KEY, env.VAPID_PRIVATE_KEY);
+  const expired = [];
+  let sent = 0;
+  for (const row of results) {
+    try {
+      await webpush.sendNotification(JSON.parse(row.subscription_json), JSON.stringify({ ...payload, data: { url: '/' } }), {
+        TTL: 60 * 60 * 6,
+        urgency: 'normal',
+        topic: payload.tag.slice(0, 32)
+      });
+      sent += 1;
+    } catch (error) {
+      if (error?.statusCode === 404 || error?.statusCode === 410) expired.push(row.endpoint);
+      else console.error('Push notification failed', error?.statusCode ?? error?.message);
+    }
+  }
+  if (expired.length) await env.DB.batch(expired.map((deadEndpoint) => env.DB.prepare('DELETE FROM push_subscriptions WHERE endpoint = ?').bind(deadEndpoint)));
+  return { sent, expired: expired.length };
 }
 
 async function getSettings(db) {
@@ -214,19 +261,47 @@ async function todayPayload(db, date = czechDate()) {
 }
 
 async function appStatus(db) {
-  const [events, topics, blocks] = await Promise.all([
+  const [events, topics, blocks, subscriptions] = await Promise.all([
     db.prepare('SELECT COUNT(*) AS total FROM calendar_events').first(),
     db.prepare('SELECT COUNT(*) AS total FROM topics').first(),
-    db.prepare('SELECT COUNT(*) AS total FROM course_blocks').first()
+    db.prepare('SELECT COUNT(*) AS total FROM course_blocks').first(),
+    db.prepare('SELECT COUNT(*) AS total FROM push_subscriptions').first()
   ]);
-  return { events: events.total, topics: topics.total, blocks: blocks.total, catalogReady: TOPIC_CATALOG.length > 0 };
+  return { events: events.total, topics: topics.total, blocks: blocks.total, subscriptions: subscriptions.total, catalogReady: TOPIC_CATALOG.length > 0 };
 }
 
 async function handleApi(request, env) {
   const url = new URL(request.url);
   const date = url.searchParams.get('date') ?? czechDate();
+  if (!isAuthorized(request, env)) return json({ error: 'Zadej přístupový kód medvídka.' }, { status: 401 });
   if (request.method === 'GET' && url.pathname === '/api/status') return json(await appStatus(env.DB));
   if (request.method === 'GET' && url.pathname === '/api/today') return json(await todayPayload(env.DB, date));
+  if (request.method === 'GET' && url.pathname === '/api/push/public-key') {
+    if (!hasPushSecrets(env)) return json({ error: 'Push notifikace ještě nejsou na serveru nastavené.' }, { status: 503 });
+    return json({ publicKey: env.VAPID_PUBLIC_KEY });
+  }
+
+  if (request.method === 'POST' && url.pathname === '/api/push/subscribe') {
+    const body = await readJson(request);
+    if (!isValidSubscription(body?.subscription)) return json({ error: 'Neplatné push předplatné.' }, { status: 400 });
+    const now = new Date().toISOString();
+    await env.DB.prepare(`
+      INSERT INTO push_subscriptions (endpoint, subscription_json, created_at, updated_at) VALUES (?, ?, ?, ?)
+      ON CONFLICT(endpoint) DO UPDATE SET subscription_json = excluded.subscription_json, updated_at = excluded.updated_at
+    `).bind(body.subscription.endpoint, JSON.stringify(body.subscription), now, now).run();
+    return json({ ok: true });
+  }
+
+  if (request.method === 'POST' && url.pathname === '/api/push/test') {
+    const body = await readJson(request);
+    if (typeof body?.endpoint !== 'string') return json({ error: 'Chybí cílové zařízení.' }, { status: 400 });
+    const result = await sendPush(env, {
+      title: '🐻‍❄️ Medvídek je vzhůru!',
+      body: 'Zkušební notifikace funguje. Až bude čas, ozvu se jemně a bez výčitek.',
+      tag: `test-${czechDate()}`
+    }, body.endpoint);
+    return json({ ok: true, ...result });
+  }
 
   if (request.method === 'POST' && url.pathname === '/api/setup') {
     const body = await readJson(request);
@@ -266,18 +341,20 @@ export default {
     if (pathname.startsWith('/api/')) return handleApi(request, env);
     return env.ASSETS.fetch(request);
   },
-  async scheduled(_controller, env, ctx) {
+  async scheduled(controller, env, ctx) {
     ctx.waitUntil((async () => {
       const settings = await getSettings(env.DB);
-      const time = czechTime();
-      const date = czechDate();
+      const scheduledAt = new Date(controller.scheduledTime || Date.now());
+      const time = czechTime(scheduledAt);
+      const date = czechDate(scheduledAt);
       const jobType = time === settings.morning_time ? 'morning-plan' : time === settings.evening_time ? 'evening-check-in' : time === settings.late_time ? 'late-check-in' : null;
       if (!jobType) return;
       const id = `${jobType}:${date}`;
       const exists = await env.DB.prepare('SELECT id FROM job_runs WHERE id = ?').bind(id).first();
       if (exists) return;
-      if (jobType === 'morning-plan') await todayPayload(env.DB, date);
-      await env.DB.prepare('INSERT INTO job_runs (id, job_type, ran_at, result) VALUES (?, ?, ?, ?)').bind(id, jobType, new Date().toISOString(), 'prepared').run();
+      const plan = await todayPayload(env.DB, date);
+      const delivery = await sendPush(env, notificationFor(jobType, plan));
+      await env.DB.prepare('INSERT INTO job_runs (id, job_type, ran_at, result) VALUES (?, ?, ?, ?)').bind(id, jobType, new Date().toISOString(), JSON.stringify(delivery)).run();
     })());
   }
 };

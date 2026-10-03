@@ -1,5 +1,6 @@
 let calendarIcs = null;
 let today = null;
+let pushSubscription = null;
 
 const $ = (selector) => document.querySelector(selector);
 const message = $('#message');
@@ -8,6 +9,17 @@ const todayPanel = $('#today');
 const setupButton = $('#setup-button');
 const setupStatus = $('#setup-status');
 const checkinStatus = $('#checkin-status');
+const unlockPanel = $('#unlock');
+const notificationPanel = $('#notifications');
+const notificationStatus = $('#notification-status');
+
+const accessToken = () => localStorage.getItem('study-buddy-access-token') || '';
+
+async function apiFetch(path, options = {}) {
+  const headers = new Headers(options.headers || {});
+  if (accessToken()) headers.set('X-Study-Buddy-Token', accessToken());
+  return fetch(path, { ...options, headers });
+}
 
 function kindLabel(kind) {
   return ({ urgent: 'Urgent / anestezie', topic: 'Téma bloku', cards: 'Kartičky' })[kind] ?? 'Učení';
@@ -30,19 +42,33 @@ function renderToday(payload) {
 }
 
 async function fetchToday() {
-  const response = await fetch('/api/today');
+  const response = await apiFetch('/api/today');
   if (!response.ok) throw new Error('Dnešní plán se nepodařilo načíst.');
   return response.json();
 }
 
 async function refresh() {
-  const status = await (await fetch('/api/status')).json();
+  const response = await apiFetch('/api/status');
+  if (response.status === 401) {
+    unlockPanel.classList.remove('hidden');
+    setup.classList.add('hidden');
+    todayPanel.classList.add('hidden');
+    notificationPanel.classList.add('hidden');
+    message.textContent = 'Tvůj plán je soukromý. Nejdřív ho prosím odemkni.';
+    return false;
+  }
+  if (!response.ok) throw new Error('Plán se nepodařilo načíst.');
+  const status = await response.json();
+  unlockPanel.classList.add('hidden');
   if (!status.events) {
     setup.classList.remove('hidden');
     message.textContent = 'Začneme jedním malým krokem: načteme rozvrh.';
-    return;
+    return true;
   }
   renderToday(await fetchToday());
+  notificationPanel.classList.remove('hidden');
+  await refreshPushStatus();
+  return true;
 }
 
 $('#calendar-file').addEventListener('change', async (event) => {
@@ -54,7 +80,7 @@ $('#calendar-file').addEventListener('change', async (event) => {
 setupButton.addEventListener('click', async () => {
   setupButton.disabled = true;
   setupStatus.textContent = 'Třídím rozvrh a rozkládám témata do klidných dnů…';
-  const response = await fetch('/api/setup', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ calendarIcs }) });
+  const response = await apiFetch('/api/setup', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ calendarIcs }) });
   const result = await response.json();
   if (!response.ok) {
     setupStatus.textContent = result.error ?? 'Nastavení neproběhlo.';
@@ -70,7 +96,7 @@ setupButton.addEventListener('click', async () => {
 async function checkIn(result) {
   const completedItemIds = [...document.querySelectorAll('[data-item-id]:checked')].map((input) => input.dataset.itemId);
   checkinStatus.textContent = 'Medvídek přepočítává zbytek týdne…';
-  const response = await fetch('/api/check-in', {
+  const response = await apiFetch('/api/check-in', {
     method: 'POST', headers: { 'content-type': 'application/json' },
     body: JSON.stringify({ result, date: today.date, completedItemIds })
   });
@@ -83,5 +109,85 @@ async function checkIn(result) {
 $('#all-done').addEventListener('click', () => checkIn('all'));
 $('#partial-done').addEventListener('click', () => checkIn('partial'));
 $('#nothing-done').addEventListener('click', () => checkIn('none'));
+
+function base64urlToUint8Array(base64url) {
+  const padded = base64url + '='.repeat((4 - (base64url.length % 4)) % 4);
+  const binary = atob(padded.replace(/-/g, '+').replace(/_/g, '/'));
+  return Uint8Array.from(binary, (character) => character.charCodeAt(0));
+}
+
+async function registerServiceWorker() {
+  if (!('serviceWorker' in navigator) || !('PushManager' in window) || !('Notification' in window)) return null;
+  return navigator.serviceWorker.register('/sw.js');
+}
+
+async function refreshPushStatus() {
+  const supported = 'serviceWorker' in navigator && 'PushManager' in window && 'Notification' in window;
+  if (!supported) {
+    $('#enable-notifications').classList.add('hidden');
+    notificationStatus.textContent = 'Tento prohlížeč nepodporuje push. Na iPhonu otevři aplikaci přidanou na plochu.';
+    return;
+  }
+  const registration = await registerServiceWorker();
+  pushSubscription = await registration.pushManager.getSubscription();
+  if (Notification.permission === 'granted' && pushSubscription) {
+    $('#enable-notifications').classList.add('hidden');
+    $('#test-notification').classList.remove('hidden');
+    notificationStatus.textContent = 'Notifikace jsou zapnuté pro toto zařízení.';
+    return;
+  }
+  $('#enable-notifications').classList.remove('hidden');
+  $('#test-notification').classList.add('hidden');
+  notificationStatus.textContent = 'Zapni je jedním kliknutím. Na iPhonu musí být aplikace nejdřív přidaná na plochu.';
+}
+
+$('#unlock-button').addEventListener('click', async () => {
+  const code = $('#access-code').value.trim();
+  if (!code) return;
+  localStorage.setItem('study-buddy-access-token', code);
+  $('#unlock-status').textContent = 'Ověřuji kód…';
+  try {
+    const authorized = await refresh();
+    if (!authorized) throw new Error('Tenhle přístupový kód neznám. Zkus prosím kód ze souboru STUDY_BUDDY_ACCESS_CODE.txt.');
+    $('#unlock-status').textContent = '';
+  } catch (error) {
+    localStorage.removeItem('study-buddy-access-token');
+    $('#unlock-status').textContent = error.message;
+  }
+});
+
+$('#enable-notifications').addEventListener('click', async () => {
+  try {
+    notificationStatus.textContent = 'Připravuji spojení s medvídkem…';
+    const keyResponse = await apiFetch('/api/push/public-key');
+    const keyPayload = await keyResponse.json();
+    if (!keyResponse.ok) throw new Error(keyPayload.error || 'Chybí nastavení push notifikací.');
+    const permission = await Notification.requestPermission();
+    if (permission !== 'granted') throw new Error('Notifikace nejsou povolené. Můžeš je kdykoli povolit v nastavení zařízení.');
+    const registration = await registerServiceWorker();
+    pushSubscription = await registration.pushManager.subscribe({
+      userVisibleOnly: true,
+      applicationServerKey: base64urlToUint8Array(keyPayload.publicKey)
+    });
+    const response = await apiFetch('/api/push/subscribe', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ subscription: pushSubscription.toJSON() }) });
+    const result = await response.json();
+    if (!response.ok) throw new Error(result.error || 'Předplatné se neuložilo.');
+    await refreshPushStatus();
+  } catch (error) {
+    notificationStatus.textContent = error.message;
+  }
+});
+
+$('#test-notification').addEventListener('click', async () => {
+  try {
+    notificationStatus.textContent = 'Posílám zkušební pípnutí…';
+    const response = await apiFetch('/api/push/test', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ endpoint: pushSubscription?.endpoint }) });
+    const result = await response.json();
+    if (!response.ok || !result.sent) throw new Error(result.error || 'Notifikace se zatím nedoručila.');
+    notificationStatus.textContent = 'Odesláno — notifikace by měla za chvilku vyskočit.';
+  } catch (error) {
+    notificationStatus.textContent = error.message;
+  }
+});
 
 refresh().catch((error) => { message.textContent = error.message; });
