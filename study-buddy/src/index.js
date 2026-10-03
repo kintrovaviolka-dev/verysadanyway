@@ -17,6 +17,9 @@ const json = (body, init = {}) => Response.json(body, {
   headers: { 'Cache-Control': 'no-store', ...init.headers }, ...init
 });
 const KEY_REVIEW_MINUTES = 3;
+const BEAR_MINIMUM_QUESTION_COUNT = 10;
+// Radiologické otázky jsou dočasně mimo, dokud je uživatelka nedokončí upravovat.
+const BEAR_MINIMUM_CATALOG = QUESTION_CATALOG.filter((question) => isActiveThisSemester(question) && question.subject !== 'radiology');
 
 function czechDate(date = new Date()) {
   const fields = new Intl.DateTimeFormat('en-CA', {
@@ -372,7 +375,9 @@ async function handleApi(request, env) {
     return json({ ok: true, planning, today: await todayPayload(env.DB) });
   }
   if (request.method === 'GET' && url.pathname === '/api/bear-minimum') {
-    return json({ questions: pickBearMinimum(QUESTION_CATALOG.filter(isActiveThisSemester)) });
+    const questions = pickBearMinimum(BEAR_MINIMUM_CATALOG, BEAR_MINIMUM_QUESTION_COUNT);
+    if (questions.length !== BEAR_MINIMUM_QUESTION_COUNT) return json({ error: 'Zatím nemám dost různých ověřených témat pro Bear minimum.' }, { status: 503 });
+    return json({ questions });
   }
   if (request.method === 'GET' && url.pathname === '/api/push/public-key') {
     if (!hasPushSecrets(env)) return json({ error: 'Push notifikace ještě nejsou na serveru nastavené.' }, { status: 503 });
@@ -403,8 +408,8 @@ async function handleApi(request, env) {
 
   if (request.method === 'POST' && url.pathname === '/api/bear-minimum/complete') {
     const body = await readJson(request);
-    const score = gradeBearMinimum(QUESTION_CATALOG, body?.answers);
-    if (score.total !== 5) return json({ error: 'Pošli prosím všech pět odpovědí najednou.' }, { status: 400 });
+    const score = gradeBearMinimum(BEAR_MINIMUM_CATALOG, body?.answers);
+    if (score.total !== BEAR_MINIMUM_QUESTION_COUNT) return json({ error: 'Pošli prosím všech deset odpovědí najednou.' }, { status: 400 });
     const studyDate = czechDate();
     await env.DB.prepare(`
       INSERT INTO bear_minimum_sessions (study_date, total_questions, correct_answers, completed_at)

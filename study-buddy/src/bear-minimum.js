@@ -9,7 +9,7 @@ function shuffled(items, random = Math.random) {
   return copy;
 }
 
-export function pickBearMinimum(catalog, count = 5, random = Math.random) {
+export function pickBearMinimum(catalog, count = 10, random = Math.random) {
   const chosen = [];
   const usedTopics = new Set();
   for (const question of shuffled(catalog, random)) {

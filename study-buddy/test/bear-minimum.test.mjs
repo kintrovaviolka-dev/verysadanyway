@@ -16,6 +16,13 @@ test('Bear minimum neposílá správné odpovědi do prohlížeče a neopakuje t
   assert.equal('explanation' in picked[0], false);
 });
 
+test('Bear minimum má jako výchozí krátkou desetici otázek', () => {
+  const tenTopics = Array.from({ length: 10 }, (_, index) => ({
+    id: `id-${index}`, topicId: `topic-${index}`, question: '?', options: ['a', 'b'], correctIndex: 0, explanation: ''
+  }));
+  assert.equal(pickBearMinimum(tenTopics).length, 10);
+});
+
 test('Bear minimum vyhodnocuje odpovědi pouze na serveru', () => {
   assert.deepEqual(gradeBearMinimum(catalog, [{ id: 'a', answerIndex: 1 }, { id: 'c', answerIndex: 1 }]), {
     total: 2,

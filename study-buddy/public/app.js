@@ -43,7 +43,7 @@ function renderToday(payload) {
   bearTodayComplete = Boolean(payload.bear?.today);
   if (payload.bear?.today) {
     $('#bear-intro').textContent = `Dnešní medvědí minimum už je hotové (${payload.bear.today.correctAnswers}/${payload.bear.today.totalQuestions}). Můžeš se zastavit — nebo si dát dalších pět jen pro radost.`;
-    $('#start-bear-minimum').textContent = 'Dát si jiných 5 otázek';
+    $('#start-bear-minimum').textContent = 'Dát si jiných 10 otázek';
   }
   message.textContent = payload.items.length ? 'Dnešek je naplánovaný tak, aby byl proveditelný.' : 'Dnešek má být volnější. Odpočiň si bez výčitek.';
   $('#items').replaceChildren(...payload.items.map((item) => {
@@ -198,7 +198,7 @@ async function completeBearMinimum() {
   }
   bearQuiz.classList.add('hidden');
   $('#start-bear-minimum').classList.remove('hidden');
-  $('#start-bear-minimum').textContent = 'Dát si jiných 5 otázek';
+  $('#start-bear-minimum').textContent = 'Dát si jiných 10 otázek';
   $('#bear-intro').textContent = `✨ Hotovo: ${result.correct}/${result.total}. Medvídek ti přidal sněhovou vločku — i krátký krok se počítá.`;
   if (!bearTodayComplete) $('#snowflake-count').textContent = String(Number($('#snowflake-count').textContent || 0) + 1);
   bearTodayComplete = true;
@@ -210,7 +210,7 @@ $('#start-bear-minimum').addEventListener('click', async () => {
     $('#bear-status').textContent = 'Vybírám pět otázek…';
     const response = await apiFetch('/api/bear-minimum');
     const payload = await response.json();
-    if (!response.ok || payload.questions?.length !== 5) throw new Error(payload.error ?? 'Otázky se zatím nepodařilo připravit.');
+    if (!response.ok || payload.questions?.length !== 10) throw new Error(payload.error ?? 'Otázky se zatím nepodařilo připravit.');
     bearQuestions = payload.questions;
     bearAnswers = [];
     $('#start-bear-minimum').classList.add('hidden');
