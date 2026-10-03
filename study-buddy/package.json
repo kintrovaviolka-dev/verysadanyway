@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "catalog": "node scripts/extract-catalog.mjs",
+    "curate": "npm run catalog && node scripts/curate-key-topics.mjs",
     "push-secrets": "node scripts/create-push-secrets.mjs",
     "test": "node --test test/*.test.mjs",
     "dev": "npx wrangler dev",

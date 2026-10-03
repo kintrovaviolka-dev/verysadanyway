@@ -13,6 +13,7 @@ const unlockPanel = $('#unlock');
 const notificationPanel = $('#notifications');
 const notificationStatus = $('#notification-status');
 const bearMinimumPanel = $('#bear-minimum');
+const keyTopicsPanel = $('#key-topics');
 const bearQuiz = $('#bear-quiz');
 let bearQuestions = [];
 let bearAnswers = [];
@@ -26,8 +27,9 @@ async function apiFetch(path, options = {}) {
   return fetch(path, { ...options, headers });
 }
 
-function kindLabel(kind) {
-  return ({ urgent: 'Urgent / anestezie', topic: 'Téma bloku', cards: 'Kartičky' })[kind] ?? 'Učení';
+function kindLabel(item) {
+  if (item.passNumber === 2) return 'Klíčové opakování';
+  return ({ urgent: 'Urgent / anestezie', topic: 'Téma bloku', cards: 'Kartičky' })[item.kind] ?? 'Učení';
 }
 
 function renderToday(payload) {
@@ -47,7 +49,7 @@ function renderToday(payload) {
   $('#items').replaceChildren(...payload.items.map((item) => {
     const label = document.createElement('label');
     label.className = `item ${item.kind}`;
-    label.innerHTML = `<input type="checkbox" data-item-id="${item.id}" /><span><small>${kindLabel(item.kind)} · ${item.minutes} min</small><strong>${item.label}</strong></span>`;
+    label.innerHTML = `<input type="checkbox" data-item-id="${item.id}" /><span><small>${kindLabel(item)} · ${item.minutes} min</small><strong>${item.label}</strong></span>`;
     return label;
   }));
 }
@@ -56,6 +58,41 @@ async function fetchToday() {
   const response = await apiFetch('/api/today');
   if (!response.ok) throw new Error('Dnešní plán se nepodařilo načíst.');
   return response.json();
+}
+
+function subjectLabel(subject) {
+  return ({ radiology: 'Radiologie', dermatology: 'Dermatologie', neurology: 'Neurologie' })[subject] ?? subject;
+}
+
+async function renderKeyTopics() {
+  const response = await apiFetch('/api/key-topics');
+  if (!response.ok) return;
+  const { topics } = await response.json();
+  if (!topics?.length) return;
+  const groups = Object.groupBy(topics, ({ subject }) => subject);
+  $('#key-topic-list').replaceChildren(...Object.entries(groups).map(([subject, entries]) => {
+    const group = document.createElement('details');
+    group.open = false;
+    const summary = document.createElement('summary');
+    summary.append(document.createTextNode(subjectLabel(subject)));
+    const count = document.createElement('span');
+    count.textContent = entries.length;
+    summary.append(count);
+    group.append(summary);
+    const list = document.createElement('ul');
+    entries.forEach((topic) => {
+      const item = document.createElement('li');
+      const title = document.createElement('strong');
+      title.textContent = topic.title;
+      const reason = document.createElement('small');
+      reason.textContent = topic.reason;
+      item.append(title, reason);
+      list.append(item);
+    });
+    group.append(list);
+    return group;
+  }));
+  keyTopicsPanel.classList.remove('hidden');
 }
 
 async function refresh() {
@@ -78,6 +115,7 @@ async function refresh() {
   }
   renderToday(await fetchToday());
   bearMinimumPanel.classList.remove('hidden');
+  await renderKeyTopics();
   notificationPanel.classList.remove('hidden');
   await refreshPushStatus();
   return true;

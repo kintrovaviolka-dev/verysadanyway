@@ -1,5 +1,6 @@
 import { TOPIC_CATALOG, URGENT_TOPICS } from './catalog.generated.js';
 import { QUESTION_CATALOG } from './questions.generated.js';
+import { KEY_TOPICS } from './key-topics.generated.js';
 import webpush from 'web-push';
 import { gradeBearMinimum, pickBearMinimum } from './bear-minimum.js';
 import { isActiveThisSemester } from './curriculum.js';
@@ -15,6 +16,7 @@ import { notificationFor } from './reminders.js';
 const json = (body, init = {}) => Response.json(body, {
   headers: { 'Cache-Control': 'no-store', ...init.headers }, ...init
 });
+const KEY_REVIEW_MINUTES = 3;
 
 function czechDate(date = new Date()) {
   const fields = new Intl.DateTimeFormat('en-CA', {
@@ -97,14 +99,15 @@ async function seedTopics(db) {
   }))];
   if (!catalog.length) throw new Error('Katalog témat není vygenerovaný. Spusť nejdřív npm run catalog.');
   await db.batch(catalog.map((topic) => db.prepare(`
-    INSERT INTO topics (id, subject, title, source_path, estimated_minutes)
-    VALUES (?, ?, ?, ?, ?, ?)
+    INSERT INTO topics (id, subject, title, source_path, estimated_minutes, is_active, is_key)
+    VALUES (?, ?, ?, ?, ?, ?, ?)
     ON CONFLICT(id) DO UPDATE SET
       title = excluded.title,
       source_path = excluded.source_path,
       estimated_minutes = excluded.estimated_minutes,
-      is_active = excluded.is_active
-  `).bind(topic.id, topic.subject, topic.title, topic.sourcePath, topic.estimatedMinutes, isActiveThisSemester(topic) ? 1 : 0)));
+      is_active = excluded.is_active,
+      is_key = excluded.is_key
+  `).bind(topic.id, topic.subject, topic.title, topic.sourcePath, topic.estimatedMinutes, isActiveThisSemester(topic) ? 1 : 0, KEY_TOPICS.some(({ topicId }) => topicId === topic.id) ? 1 : 0)));
 }
 
 function makeBlocks(events) {
@@ -154,11 +157,46 @@ async function createPlanItem(db, item) {
   `).bind(crypto.randomUUID(), item.planDate, item.kind, item.topicId ?? null, item.label, item.minutes, item.passNumber ?? 1, item.originDate ?? item.planDate, new Date().toISOString()).run();
 }
 
+async function freeLaterBlockSlot(db, { currentBlock, blocksBySubject, usedByDate, capacityByDate }) {
+  const { results: candidates } = await db.prepare(`
+    SELECT p.*, t.subject
+    FROM plan_items p JOIN topics t ON t.id = p.topic_id
+    WHERE p.status = 'pending'
+      AND p.kind = 'topic'
+      AND p.pass_number = 1
+      AND p.plan_date BETWEEN ? AND ?
+    ORDER BY p.plan_date DESC, p.rowid DESC
+  `).bind(currentBlock.starts_on, currentBlock.ends_on).all();
+  for (const candidate of candidates) {
+    const laterBlock = (blocksBySubject.get(candidate.subject) ?? [])
+      .filter((block) => block.ends_on > currentBlock.ends_on)
+      .sort((a, b) => a.ends_on.localeCompare(b.ends_on))[0];
+    if (!laterBlock) continue;
+    const afterCurrent = addDays(currentBlock.ends_on, 1);
+    const startDate = laterBlock.starts_on > afterCurrent ? laterBlock.starts_on : afterCurrent;
+    const targetDate = findFirstFittingDate({
+      startDate, endDate: laterBlock.ends_on, minutes: candidate.estimated_minutes, usedByDate, capacityByDate
+    });
+    if (!targetDate) continue;
+    await db.prepare("UPDATE plan_items SET status = 'moved' WHERE id = ?").bind(candidate.id).run();
+    await createPlanItem(db, {
+      planDate: targetDate, kind: candidate.kind, topicId: candidate.topic_id, label: candidate.label,
+      minutes: candidate.estimated_minutes, passNumber: candidate.pass_number, originDate: candidate.origin_date
+    });
+    usedByDate.set(candidate.plan_date, (usedByDate.get(candidate.plan_date) ?? 0) - candidate.estimated_minutes);
+    usedByDate.set(targetDate, (usedByDate.get(targetDate) ?? 0) + candidate.estimated_minutes);
+    return true;
+  }
+  return false;
+}
+
 async function scheduleSemester(db, today) {
   const settings = await getSettings(db);
   const { results: rawBlocks } = await db.prepare('SELECT * FROM course_blocks').all();
   // Blok, který skončí dříve, nemá být vytlačen dlouhým semestrovým předmětem.
   const blocks = rawBlocks.sort((a, b) => a.ends_on.localeCompare(b.ends_on));
+  const blocksBySubject = new Map();
+  for (const block of blocks) blocksBySubject.set(block.subject, [...(blocksBySubject.get(block.subject) ?? []), block]);
   const managedBlocks = blocks.filter((block) => ['radiology', 'dermatology', 'neurology'].includes(block.subject) && block.ends_on >= today);
   if (!managedBlocks.length) return { scheduled: 0, unplanned: [] };
   const latestEnd = managedBlocks.reduce((latest, block) => latest > block.ends_on ? latest : block.ends_on, today);
@@ -180,6 +218,7 @@ async function scheduleSemester(db, today) {
   }
 
   let scheduled = 0;
+  const keyUnplanned = [];
   for (const block of managedBlocks) {
     if (!['radiology', 'dermatology', 'neurology'].includes(block.subject)) continue;
     const start = block.starts_on > today ? block.starts_on : today;
@@ -199,6 +238,36 @@ async function scheduleSemester(db, today) {
       planned.add(key);
       scheduled += 1;
     }
+    const keyTopics = KEY_TOPICS.filter((topic) => topic.subject === block.subject);
+    for (const keyTopic of keyTopics) {
+      const key = `${keyTopic.topicId}:2`;
+      if (planned.has(key)) continue;
+      const firstPass = await db.prepare(`
+        SELECT plan_date, estimated_minutes FROM plan_items
+        WHERE topic_id = ? AND kind = 'topic' AND pass_number = 1 AND status != 'moved'
+        ORDER BY plan_date LIMIT 1
+      `).bind(keyTopic.topicId).first();
+      if (!firstPass) { keyUnplanned.push(keyTopic); continue; }
+      let date = findFirstFittingDate({
+        startDate: addDays(firstPass.plan_date, 1), endDate: block.ends_on,
+        minutes: Math.min(KEY_REVIEW_MINUTES, firstPass.estimated_minutes), usedByDate, capacityByDate
+      });
+      while (!date && await freeLaterBlockSlot(db, { currentBlock: block, blocksBySubject, usedByDate, capacityByDate })) {
+        date = findFirstFittingDate({
+          startDate: addDays(firstPass.plan_date, 1), endDate: block.ends_on,
+          minutes: Math.min(KEY_REVIEW_MINUTES, firstPass.estimated_minutes), usedByDate, capacityByDate
+        });
+      }
+      if (!date) { keyUnplanned.push(keyTopic); continue; }
+      await createPlanItem(db, {
+        planDate: date, kind: 'topic', topicId: keyTopic.topicId,
+        label: `↺ ${keyTopic.title} — klíčové opakování`, minutes: Math.min(KEY_REVIEW_MINUTES, firstPass.estimated_minutes),
+        passNumber: 2
+      });
+      usedByDate.set(date, (usedByDate.get(date) ?? 0) + firstPass.estimated_minutes);
+      planned.add(key);
+      scheduled += 1;
+    }
   }
   const { results: unplanned } = await db.prepare(`
     SELECT t.subject, t.title FROM topics t
@@ -207,7 +276,7 @@ async function scheduleSemester(db, today) {
       AND NOT EXISTS (SELECT 1 FROM plan_items p WHERE p.topic_id = t.id AND p.kind = 'topic' AND p.pass_number = 1 AND p.status != 'moved')
     ORDER BY t.subject, t.id
   `).all();
-  return { scheduled, unplanned };
+  return { scheduled, unplanned, keyUnplanned };
 }
 
 async function ensureDailySupport(db, date) {
@@ -282,7 +351,7 @@ async function appStatus(db) {
     db.prepare('SELECT COUNT(*) AS total FROM course_blocks').first(),
     db.prepare('SELECT COUNT(*) AS total FROM push_subscriptions').first()
   ]);
-  return { events: events.total, topics: topics.total, blocks: blocks.total, subscriptions: subscriptions.total, catalogReady: TOPIC_CATALOG.length > 0, questionCatalogReady: QUESTION_CATALOG.length > 0 };
+  return { events: events.total, topics: topics.total, blocks: blocks.total, subscriptions: subscriptions.total, catalogReady: TOPIC_CATALOG.length > 0, questionCatalogReady: QUESTION_CATALOG.length > 0, keyTopicsReady: KEY_TOPICS.length > 0 };
 }
 
 async function handleApi(request, env) {
@@ -291,6 +360,17 @@ async function handleApi(request, env) {
   if (!isAuthorized(request, env)) return json({ error: 'Zadej přístupový kód medvídka.' }, { status: 401 });
   if (request.method === 'GET' && url.pathname === '/api/status') return json(await appStatus(env.DB));
   if (request.method === 'GET' && url.pathname === '/api/today') return json(await todayPayload(env.DB, date));
+  if (request.method === 'GET' && url.pathname === '/api/key-topics') return json({ topics: KEY_TOPICS });
+  if (request.method === 'POST' && url.pathname === '/api/replan') {
+    // Přepočítáváme jen dosud nedokončené druhé průchody; hotové opakování je historie, ne práce navíc.
+    if (KEY_TOPICS.length) await env.DB.batch(KEY_TOPICS.map(({ topicId }) => env.DB.prepare(`
+      UPDATE plan_items SET status = 'moved'
+      WHERE topic_id = ? AND pass_number = 2 AND status = 'pending'
+    `).bind(topicId)));
+    await seedTopics(env.DB);
+    const planning = await scheduleSemester(env.DB, czechDate());
+    return json({ ok: true, planning, today: await todayPayload(env.DB) });
+  }
   if (request.method === 'GET' && url.pathname === '/api/bear-minimum') {
     return json({ questions: pickBearMinimum(QUESTION_CATALOG.filter(isActiveThisSemester)) });
   }
