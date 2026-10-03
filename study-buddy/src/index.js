@@ -1,5 +1,7 @@
 import { TOPIC_CATALOG, URGENT_TOPICS } from './catalog.generated.js';
+import { QUESTION_CATALOG } from './questions.generated.js';
 import webpush from 'web-push';
+import { gradeBearMinimum, pickBearMinimum } from './bear-minimum.js';
 import {
   addDays,
   datesBetween,
@@ -267,7 +269,7 @@ async function appStatus(db) {
     db.prepare('SELECT COUNT(*) AS total FROM course_blocks').first(),
     db.prepare('SELECT COUNT(*) AS total FROM push_subscriptions').first()
   ]);
-  return { events: events.total, topics: topics.total, blocks: blocks.total, subscriptions: subscriptions.total, catalogReady: TOPIC_CATALOG.length > 0 };
+  return { events: events.total, topics: topics.total, blocks: blocks.total, subscriptions: subscriptions.total, catalogReady: TOPIC_CATALOG.length > 0, questionCatalogReady: QUESTION_CATALOG.length > 0 };
 }
 
 async function handleApi(request, env) {
@@ -276,6 +278,9 @@ async function handleApi(request, env) {
   if (!isAuthorized(request, env)) return json({ error: 'Zadej přístupový kód medvídka.' }, { status: 401 });
   if (request.method === 'GET' && url.pathname === '/api/status') return json(await appStatus(env.DB));
   if (request.method === 'GET' && url.pathname === '/api/today') return json(await todayPayload(env.DB, date));
+  if (request.method === 'GET' && url.pathname === '/api/bear-minimum') {
+    return json({ questions: pickBearMinimum(QUESTION_CATALOG) });
+  }
   if (request.method === 'GET' && url.pathname === '/api/push/public-key') {
     if (!hasPushSecrets(env)) return json({ error: 'Push notifikace ještě nejsou na serveru nastavené.' }, { status: 503 });
     return json({ publicKey: env.VAPID_PUBLIC_KEY });
@@ -301,6 +306,22 @@ async function handleApi(request, env) {
       tag: `test-${czechDate()}`
     }, body.endpoint);
     return json({ ok: true, ...result });
+  }
+
+  if (request.method === 'POST' && url.pathname === '/api/bear-minimum/complete') {
+    const body = await readJson(request);
+    const score = gradeBearMinimum(QUESTION_CATALOG, body?.answers);
+    if (score.total !== 5) return json({ error: 'Pošli prosím všech pět odpovědí najednou.' }, { status: 400 });
+    const studyDate = czechDate();
+    await env.DB.prepare(`
+      INSERT INTO bear_minimum_sessions (study_date, total_questions, correct_answers, completed_at)
+      VALUES (?, ?, ?, ?)
+      ON CONFLICT(study_date) DO UPDATE SET
+        total_questions = excluded.total_questions,
+        correct_answers = excluded.correct_answers,
+        completed_at = excluded.completed_at
+    `).bind(studyDate, score.total, score.correct, new Date().toISOString()).run();
+    return json({ ok: true, ...score });
   }
 
   if (request.method === 'POST' && url.pathname === '/api/setup') {

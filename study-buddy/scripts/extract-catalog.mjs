@@ -24,13 +24,45 @@ function toTopics(subject, sourcePath, entries) {
   }));
 }
 
+function toQuestions(subject, sourcePath, entries) {
+  return entries.flatMap((entry) => (entry.quiz ?? []).map((quiz, index) => {
+    const correctIndex = quiz.correct ?? quiz.correctIndex ?? quiz.correctAnswerIndex;
+    if (!Array.isArray(quiz.options) || !Number.isInteger(correctIndex)) return null;
+    return {
+      id: `${subject}:${entry.id}:${quiz.id ?? index + 1}`,
+      subject,
+      topicId: `${subject}:${entry.id}`,
+      topicTitle: entry.title,
+      sourcePath,
+      caseContext: quiz.caseContext ?? null,
+      question: quiz.question,
+      options: quiz.options,
+      correctIndex,
+      explanation: quiz.explanation ?? ''
+    };
+  }).filter(Boolean));
+}
+
 const radiology = evaluate('radiolka/data.js', 'window.DATA_RADIOLOGIE');
 const dermatology = evaluate('derma/data.js', 'DATA_DERMATOLOGIE');
 const neurology = evaluate('neuro/data.js', 'NEUROLOGY_DATA.modules');
+const anesthesiaSource = readFileSync(resolve(root, 'clinical-learning-portal/src/data/quizzes.ts'), 'utf8')
+  .replace(/^import[^\n]+\n/, '')
+  .replace(/export const ANESTHESIA_QUIZ\s*:\s*QuizQuestion\[\]\s*=/, 'globalThis.ANESTHESIA_QUIZ =');
+const anesthesiaContext = { globalThis: {} };
+vm.createContext(anesthesiaContext);
+vm.runInContext(anesthesiaSource, anesthesiaContext, { timeout: 5_000 });
+const anesthesia = anesthesiaContext.globalThis.ANESTHESIA_QUIZ;
 const catalog = [
   ...toTopics('radiology', '/radiolka/', radiology),
   ...toTopics('dermatology', '/derma/', dermatology),
   ...toTopics('neurology', '/neuro/', neurology)
+];
+const questions = [
+  ...toQuestions('radiology', '/radiolka/', radiology),
+  ...toQuestions('dermatology', '/derma/', dermatology),
+  ...toQuestions('neurology', '/neuro/', neurology),
+  ...toQuestions('urgent', '/clinical-portal/', [{ id: 'anesthesia', title: 'Urgentní medicína a anesteziologie', quiz: anesthesia }])
 ];
 
 const destination = resolve(root, 'study-buddy/src/catalog.generated.js');
@@ -44,4 +76,6 @@ writeFileSync(destination, `// Generated from the local study modules; do not ha
   { id: 'urgent-bradycardia', title: 'Symptomatická bradykardie', minutes: 10 },
   { id: 'urgent-hyperk', title: 'Hyperkalémie s EKG změnami', minutes: 10 }
 ], null, 2)};\n`);
-console.log(`Vytvořen katalog: ${catalog.length} témat.`);
+const questionDestination = resolve(root, 'study-buddy/src/questions.generated.js');
+writeFileSync(questionDestination, `// Generated from existing verified quizzes; do not hand-edit.\nexport const QUESTION_CATALOG = ${JSON.stringify(questions, null, 2)};\n`);
+console.log(`Vytvořen katalog: ${catalog.length} témat a ${questions.length} otázek.`);

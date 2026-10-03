@@ -12,6 +12,10 @@ const checkinStatus = $('#checkin-status');
 const unlockPanel = $('#unlock');
 const notificationPanel = $('#notifications');
 const notificationStatus = $('#notification-status');
+const bearMinimumPanel = $('#bear-minimum');
+const bearQuiz = $('#bear-quiz');
+let bearQuestions = [];
+let bearAnswers = [];
 
 const accessToken = () => localStorage.getItem('study-buddy-access-token') || '';
 
@@ -66,6 +70,7 @@ async function refresh() {
     return true;
   }
   renderToday(await fetchToday());
+  bearMinimumPanel.classList.remove('hidden');
   notificationPanel.classList.remove('hidden');
   await refreshPushStatus();
   return true;
@@ -109,6 +114,66 @@ async function checkIn(result) {
 $('#all-done').addEventListener('click', () => checkIn('all'));
 $('#partial-done').addEventListener('click', () => checkIn('partial'));
 $('#nothing-done').addEventListener('click', () => checkIn('none'));
+
+function renderBearQuestion() {
+  const index = bearAnswers.length;
+  const question = bearQuestions[index];
+  if (!question) return;
+  $('#bear-intro').textContent = `Otázka ${index + 1} z ${bearQuestions.length} · ${question.topicTitle}`;
+  bearQuiz.replaceChildren();
+  const prompt = document.createElement('p');
+  prompt.className = 'question-prompt';
+  prompt.textContent = question.question;
+  bearQuiz.append(prompt);
+  const options = document.createElement('div');
+  options.className = 'quiz-options';
+  question.options.forEach((option, answerIndex) => {
+    const button = document.createElement('button');
+    button.className = 'quiz-option';
+    button.textContent = option;
+    button.addEventListener('click', () => {
+      bearAnswers.push({ id: question.id, answerIndex });
+      if (bearAnswers.length < bearQuestions.length) renderBearQuestion();
+      else completeBearMinimum();
+    });
+    options.append(button);
+  });
+  bearQuiz.append(options);
+}
+
+async function completeBearMinimum() {
+  $('#bear-status').textContent = 'Medvídek kontroluje odpovědi…';
+  const response = await apiFetch('/api/bear-minimum/complete', {
+    method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ answers: bearAnswers })
+  });
+  const result = await response.json();
+  if (!response.ok) {
+    $('#bear-status').textContent = result.error ?? 'Vyhodnocení se nepodařilo.';
+    return;
+  }
+  bearQuiz.classList.add('hidden');
+  $('#start-bear-minimum').classList.remove('hidden');
+  $('#start-bear-minimum').textContent = 'Dát si jiných 5 otázek';
+  $('#bear-intro').textContent = `✨ Hotovo: ${result.correct}/${result.total}. Medvídek ti přidal sněhovou vločku — i krátký krok se počítá.`;
+  $('#bear-status').textContent = result.correct === result.total ? 'Nádhera. Teď už můžeš klidně skončit.' : 'Bez výčitek: tohle je mapa, ne známkování.';
+}
+
+$('#start-bear-minimum').addEventListener('click', async () => {
+  try {
+    $('#bear-status').textContent = 'Vybírám pět otázek…';
+    const response = await apiFetch('/api/bear-minimum');
+    const payload = await response.json();
+    if (!response.ok || payload.questions?.length !== 5) throw new Error(payload.error ?? 'Otázky se zatím nepodařilo připravit.');
+    bearQuestions = payload.questions;
+    bearAnswers = [];
+    $('#start-bear-minimum').classList.add('hidden');
+    bearQuiz.classList.remove('hidden');
+    $('#bear-status').textContent = '';
+    renderBearQuestion();
+  } catch (error) {
+    $('#bear-status').textContent = error.message;
+  }
+});
 
 function base64urlToUint8Array(base64url) {
   const padded = base64url + '='.repeat((4 - (base64url.length % 4)) % 4);
