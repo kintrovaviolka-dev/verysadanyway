@@ -352,6 +352,13 @@ export default {
       const id = `${jobType}:${date}`;
       const exists = await env.DB.prepare('SELECT id FROM job_runs WHERE id = ?').bind(id).first();
       if (exists) return;
+      if (jobType === 'late-check-in') {
+        const checkIn = await env.DB.prepare('SELECT id FROM check_ins WHERE study_date = ? ORDER BY created_at DESC LIMIT 1').bind(date).first();
+        if (checkIn) {
+          await env.DB.prepare('INSERT INTO job_runs (id, job_type, ran_at, result) VALUES (?, ?, ?, ?)').bind(id, jobType, new Date().toISOString(), 'skipped-check-in-recorded').run();
+          return;
+        }
+      }
       const plan = await todayPayload(env.DB, date);
       const delivery = await sendPush(env, notificationFor(jobType, plan));
       await env.DB.prepare('INSERT INTO job_runs (id, job_type, ran_at, result) VALUES (?, ?, ?, ?)').bind(id, jobType, new Date().toISOString(), JSON.stringify(delivery)).run();
