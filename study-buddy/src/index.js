@@ -91,7 +91,8 @@ async function sendPush(env, payload, endpoint = null) {
 
 async function getSettings(db) {
   return await db.prepare('SELECT * FROM settings WHERE id = 1').first() ?? {
-    timezone: 'Europe/Prague', morning_time: '07:30', evening_time: '20:00', late_time: '23:40', weekday_minutes: 40, weekend_minutes: 90
+    timezone: 'Europe/Prague', morning_time: '07:30', evening_time: '20:00', late_time: '23:40',
+    morning_enabled: 1, evening_enabled: 1, late_enabled: 1, weekday_minutes: 40, weekend_minutes: 90
   };
 }
 
@@ -326,15 +327,20 @@ async function rescheduleItems(db, items, fromDate) {
 
 async function todayPayload(db, date = czechDate()) {
   await ensureDailySupport(db, date);
-  const [{ results: items }, settings, blocks, todayBear, allBears] = await Promise.all([
+  const [{ results: items }, settings, blocks, todayBear, allBears, allDoneItems] = await Promise.all([
     db.prepare(`
-    SELECT id, kind, topic_id AS topicId, label, estimated_minutes AS minutes, pass_number AS passNumber, status
-    FROM plan_items WHERE plan_date = ? AND status = 'pending' ORDER BY CASE kind WHEN 'urgent' THEN 0 WHEN 'topic' THEN 1 ELSE 2 END, rowid
+    SELECT p.id, p.kind, p.topic_id AS topicId, p.label, p.estimated_minutes AS minutes,
+           p.pass_number AS passNumber, p.status, t.source_path AS sourcePath
+    FROM plan_items p
+    LEFT JOIN topics t ON t.id = p.topic_id
+    WHERE p.plan_date = ? AND p.status = 'pending'
+    ORDER BY CASE p.kind WHEN 'urgent' THEN 0 WHEN 'topic' THEN 1 ELSE 2 END, p.rowid
     `).bind(date).all(),
     getSettings(db),
     db.prepare('SELECT subject, label, starts_on, ends_on FROM course_blocks ORDER BY starts_on').all(),
     db.prepare('SELECT correct_answers AS correctAnswers, total_questions AS totalQuestions FROM bear_minimum_sessions WHERE study_date = ?').bind(date).first(),
-    db.prepare('SELECT COUNT(*) AS total FROM bear_minimum_sessions').first()
+    db.prepare('SELECT COUNT(*) AS total FROM bear_minimum_sessions').first(),
+    db.prepare("SELECT COUNT(*) AS total FROM plan_items WHERE status = 'done'").first()
   ]);
   return {
     date,
@@ -342,7 +348,11 @@ async function todayPayload(db, date = czechDate()) {
     totalMinutes: items.reduce((sum, item) => sum + item.minutes, 0),
     settings,
     blocks: blocks.results,
-    bear: { today: todayBear ?? null, snowflakes: Number(allBears.total ?? 0) }
+    bear: {
+      today: todayBear ?? null,
+      snowflakes: Number(allBears.total ?? 0),
+      flowers: Number(allDoneItems?.total ?? 0)
+    }
   };
 }
 
@@ -361,6 +371,38 @@ async function handleApi(request, env) {
   const date = url.searchParams.get('date') ?? czechDate();
   if (!isAuthorized(request, env)) return json({ error: 'Zadej přístupový kód medvídka.' }, { status: 401 });
   if (request.method === 'GET' && url.pathname === '/api/status') return json(await appStatus(env.DB));
+  if (request.method === 'GET' && url.pathname === '/api/settings') return json(await getSettings(env.DB));
+  if (request.method === 'POST' && url.pathname === '/api/settings') {
+    const body = await readJson(request);
+    if (!body) return json({ error: 'Neplatná data nastavení.' }, { status: 400 });
+    const current = await getSettings(env.DB);
+    const timePattern = /^([01]\d|2[0-3]):[0-5]\d$/;
+    const morning_time = typeof body.morning_time === 'string' && timePattern.test(body.morning_time) ? body.morning_time : current.morning_time;
+    const evening_time = typeof body.evening_time === 'string' && timePattern.test(body.evening_time) ? body.evening_time : current.evening_time;
+    const late_time = typeof body.late_time === 'string' && timePattern.test(body.late_time) ? body.late_time : current.late_time;
+    const morning_enabled = typeof body.morning_enabled === 'boolean' ? (body.morning_enabled ? 1 : 0) : (body.morning_enabled === 0 || body.morning_enabled === 1 ? body.morning_enabled : (current.morning_enabled ?? 1));
+    const evening_enabled = typeof body.evening_enabled === 'boolean' ? (body.evening_enabled ? 1 : 0) : (body.evening_enabled === 0 || body.evening_enabled === 1 ? body.evening_enabled : (current.evening_enabled ?? 1));
+    const late_enabled = typeof body.late_enabled === 'boolean' ? (body.late_enabled ? 1 : 0) : (body.late_enabled === 0 || body.late_enabled === 1 ? body.late_enabled : (current.late_enabled ?? 1));
+    const weekday_minutes = Number.isInteger(body.weekday_minutes) && body.weekday_minutes >= 5 && body.weekday_minutes <= 180 ? body.weekday_minutes : current.weekday_minutes;
+    const weekend_minutes = Number.isInteger(body.weekend_minutes) && body.weekend_minutes >= 10 && body.weekend_minutes <= 360 ? body.weekend_minutes : current.weekend_minutes;
+
+    await env.DB.prepare(`
+      INSERT INTO settings (id, morning_time, evening_time, late_time, morning_enabled, evening_enabled, late_enabled, weekday_minutes, weekend_minutes)
+      VALUES (1, ?, ?, ?, ?, ?, ?, ?, ?)
+      ON CONFLICT(id) DO UPDATE SET
+        morning_time = excluded.morning_time,
+        evening_time = excluded.evening_time,
+        late_time = excluded.late_time,
+        morning_enabled = excluded.morning_enabled,
+        evening_enabled = excluded.evening_enabled,
+        late_enabled = excluded.late_enabled,
+        weekday_minutes = excluded.weekday_minutes,
+        weekend_minutes = excluded.weekend_minutes
+    `).bind(morning_time, evening_time, late_time, morning_enabled, evening_enabled, late_enabled, weekday_minutes, weekend_minutes).run();
+
+    const updated = await getSettings(env.DB);
+    return json({ ok: true, settings: updated });
+  }
   if (request.method === 'GET' && url.pathname === '/api/today') return json(await todayPayload(env.DB, date));
   if (request.method === 'GET' && url.pathname === '/api/key-topics') return json({ topics: KEY_TOPICS });
   if (request.method === 'POST' && url.pathname === '/api/replan') {
@@ -465,7 +507,10 @@ export default {
       const scheduledAt = new Date(controller.scheduledTime || Date.now());
       const time = czechTime(scheduledAt);
       const date = czechDate(scheduledAt);
-      const jobType = time === settings.morning_time ? 'morning-plan' : time === settings.evening_time ? 'evening-check-in' : time === settings.late_time ? 'late-check-in' : null;
+      const jobType = (time === settings.morning_time && (settings.morning_enabled ?? 1)) ? 'morning-plan'
+        : (time === settings.evening_time && (settings.evening_enabled ?? 1)) ? 'evening-check-in'
+        : (time === settings.late_time && (settings.late_enabled ?? 1)) ? 'late-check-in'
+        : null;
       if (!jobType) return;
       const id = `${jobType}:${date}`;
       const exists = await env.DB.prepare('SELECT id FROM job_runs WHERE id = ?').bind(id).first();

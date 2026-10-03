@@ -14,12 +14,54 @@ const notificationPanel = $('#notifications');
 const notificationStatus = $('#notification-status');
 const bearMinimumPanel = $('#bear-minimum');
 const keyTopicsPanel = $('#key-topics');
+const settingsPanel = $('#settings');
+const settingsForm = $('#settings-form');
+const settingsStatus = $('#settings-status');
+const saveSettingsButton = $('#save-settings-button');
+const replanButton = $('#replan-button');
 const bearQuiz = $('#bear-quiz');
+const heroBear = $('#hero-bear');
+const bearBubble = $('#bear-bubble');
+
 let bearQuestions = [];
 let bearAnswers = [];
 let bearTodayComplete = false;
+let bubbleTimer = null;
 
 const accessToken = () => localStorage.getItem('study-buddy-access-token') || '';
+
+const BEAR_CHEERS = [
+  'Věřím ti! Každý malý krok se počítá. 💕',
+  'I pět minut má dnes obrovský smysl. 🌸',
+  'Medicína je maraton, ne sprint. Dýchej. 🏃‍♀️',
+  'Nezapomeň se napít čaje nebo vody a protáhnout ramena. ☕',
+  'Odpočinek není odměna za výkon, ale nutná součást učení. 🌿',
+  'I když dnes dáš jen Bear minimum, jsi skvělá! 🐻‍❄️',
+  'Žádný stres. Tvůj budoucí pacient ti jednou poděkuje. 🩺',
+  'Laskavost k sobě samé je nejlepší studijní strategie. ✨'
+];
+
+function cheerFromBear() {
+  if (!heroBear || !bearBubble) return;
+  heroBear.classList.remove('bear-happy');
+  void heroBear.offsetWidth; // trigger reflow
+  heroBear.classList.add('bear-happy');
+  const quote = BEAR_CHEERS[Math.floor(Math.random() * BEAR_CHEERS.length)];
+  bearBubble.textContent = quote;
+  bearBubble.classList.remove('hidden');
+  clearTimeout(bubbleTimer);
+  bubbleTimer = setTimeout(() => {
+    bearBubble.classList.add('hidden');
+  }, 4000);
+}
+
+heroBear?.addEventListener('click', cheerFromBear);
+heroBear?.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault();
+    cheerFromBear();
+  }
+});
 
 async function apiFetch(path, options = {}) {
   const headers = new Headers(options.headers || {});
@@ -32,6 +74,37 @@ function kindLabel(item) {
   return ({ urgent: 'Urgent / anestezie', topic: 'Téma bloku', cards: 'Kartičky' })[item.kind] ?? 'Učení';
 }
 
+function getLearnUrl(item) {
+  if (item.kind === 'cards') return null;
+  if (item.kind === 'urgent') return '/clinical-portal/';
+  if (item.sourcePath) {
+    const rawId = item.topicId ? (item.topicId.includes(':') ? item.topicId.split(':')[1] : item.topicId) : '';
+    return rawId ? `${item.sourcePath}#${rawId}` : item.sourcePath;
+  }
+  return null;
+}
+
+function populateSettings(settings) {
+  if (!settings) return;
+  const morningTime = $('#setting-morning-time');
+  const morningEnabled = $('#setting-morning-enabled');
+  const eveningTime = $('#setting-evening-time');
+  const eveningEnabled = $('#setting-evening-enabled');
+  const lateTime = $('#setting-late-time');
+  const lateEnabled = $('#setting-late-enabled');
+  const weekdayMinutes = $('#setting-weekday-minutes');
+  const weekendMinutes = $('#setting-weekend-minutes');
+
+  if (morningTime) morningTime.value = settings.morning_time || '07:30';
+  if (morningEnabled) morningEnabled.checked = settings.morning_enabled !== 0;
+  if (eveningTime) eveningTime.value = settings.evening_time || '20:00';
+  if (eveningEnabled) eveningEnabled.checked = settings.evening_enabled !== 0;
+  if (lateTime) lateTime.value = settings.late_time || '23:40';
+  if (lateEnabled) lateEnabled.checked = settings.late_enabled !== 0;
+  if (weekdayMinutes) weekdayMinutes.value = settings.weekday_minutes || 40;
+  if (weekendMinutes) weekendMinutes.value = settings.weekend_minutes || 90;
+}
+
 function renderToday(payload) {
   today = payload;
   setup.classList.add('hidden');
@@ -40,17 +113,65 @@ function renderToday(payload) {
   $('#date-label').textContent = date;
   $('#minute-count').textContent = `${payload.totalMinutes} min`;
   $('#snowflake-count').textContent = payload.bear?.snowflakes ?? 0;
+  const flowerEl = $('#flower-count');
+  if (flowerEl) flowerEl.textContent = payload.bear?.flowers ?? 0;
   bearTodayComplete = Boolean(payload.bear?.today);
   if (payload.bear?.today) {
-    $('#bear-intro').textContent = `Dnešní medvědí minimum už je hotové (${payload.bear.today.correctAnswers}/${payload.bear.today.totalQuestions}). Můžeš se zastavit — nebo si dát dalších pět jen pro radost.`;
+    $('#bear-intro').textContent = `Dnešní Bear minimum už je hotové (${payload.bear.today.correctAnswers}/${payload.bear.today.totalQuestions}). Můžeš se zastavit — nebo si dát dalších 10 otázek jen pro radost.`;
     $('#start-bear-minimum').textContent = 'Dát si jiných 10 otázek';
+  } else {
+    $('#bear-intro').textContent = 'Deset ověřených otázek. I minuta se počítá.';
+    $('#start-bear-minimum').textContent = '🐻‍❄️ Dát si Bear minimum (10 otázek)';
   }
   message.textContent = payload.items.length ? 'Dnešek je naplánovaný tak, aby byl proveditelný.' : 'Dnešek má být volnější. Odpočiň si bez výčitek.';
+  if (payload.settings) populateSettings(payload.settings);
+
   $('#items').replaceChildren(...payload.items.map((item) => {
+    const row = document.createElement('div');
+    row.className = `item-row ${item.kind}`;
+
     const label = document.createElement('label');
     label.className = `item ${item.kind}`;
-    label.innerHTML = `<input type="checkbox" data-item-id="${item.id}" /><span><small>${kindLabel(item)} · ${item.minutes} min</small><strong>${item.label}</strong></span>`;
-    return label;
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.dataset.itemId = item.id;
+
+    const text = document.createElement('span');
+    text.innerHTML = `<small>${kindLabel(item)} · ${item.minutes} min</small><strong>${item.label}</strong>`;
+    label.append(checkbox, text);
+
+    const actionWrap = document.createElement('div');
+    actionWrap.className = 'item-actions';
+
+    const learnUrl = getLearnUrl(item);
+    if (learnUrl) {
+      const link = document.createElement('a');
+      link.className = 'learn-btn';
+      link.href = learnUrl;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.innerHTML = 'Otevřít a učit se <span aria-hidden="true">↗</span>';
+      link.addEventListener('click', () => {
+        row.classList.add('item-highlight');
+      });
+      actionWrap.append(link);
+    } else if (item.kind === 'cards') {
+      const cardsBtn = document.createElement('button');
+      cardsBtn.type = 'button';
+      cardsBtn.className = 'learn-btn cards-action-btn';
+      cardsBtn.innerHTML = '🐻 Spustit kartičky';
+      cardsBtn.addEventListener('click', (event) => {
+        event.preventDefault();
+        $('#bear-minimum').scrollIntoView({ behavior: 'smooth' });
+        if (!$('#start-bear-minimum').classList.contains('hidden')) {
+          $('#start-bear-minimum').click();
+        }
+      });
+      actionWrap.append(cardsBtn);
+    }
+
+    row.append(label, actionWrap);
+    return row;
   }));
 }
 
@@ -101,6 +222,7 @@ async function refresh() {
     unlockPanel.classList.remove('hidden');
     setup.classList.add('hidden');
     todayPanel.classList.add('hidden');
+    settingsPanel.classList.add('hidden');
     notificationPanel.classList.add('hidden');
     message.textContent = 'Tvůj plán je soukromý. Nejdřív ho prosím odemkni.';
     return false;
@@ -116,6 +238,7 @@ async function refresh() {
   renderToday(await fetchToday());
   bearMinimumPanel.classList.remove('hidden');
   await renderKeyTopics();
+  settingsPanel.classList.remove('hidden');
   notificationPanel.classList.remove('hidden');
   await refreshPushStatus();
   return true;
@@ -145,14 +268,14 @@ setupButton.addEventListener('click', async () => {
 
 async function checkIn(result) {
   const completedItemIds = [...document.querySelectorAll('[data-item-id]:checked')].map((input) => input.dataset.itemId);
-  checkinStatus.textContent = 'Medvídek přepočítává zbytek týdne…';
+  checkinStatus.textContent = 'Méďa přepočítává zbytek týdne…';
   const response = await apiFetch('/api/check-in', {
     method: 'POST', headers: { 'content-type': 'application/json' },
     body: JSON.stringify({ result, date: today.date, completedItemIds })
   });
   const payload = await response.json();
   if (!response.ok) { checkinStatus.textContent = payload.error ?? 'Nepodařilo se to uložit.'; return; }
-  checkinStatus.textContent = payload.moved ? `${payload.moved} věcí jsem laskavě přesunul na vhodnější den.` : 'Zapsáno. Dobrá práce.';
+  checkinStatus.textContent = payload.moved ? `${payload.moved} věcí jsem laskavě přesunul na vhodnější den.` : 'Zapsáno. Skvělá práce!';
   renderToday(payload.today);
 }
 
@@ -187,7 +310,7 @@ function renderBearQuestion() {
 }
 
 async function completeBearMinimum() {
-  $('#bear-status').textContent = 'Medvídek kontroluje odpovědi…';
+  $('#bear-status').textContent = 'Méďa kontroluje odpovědi…';
   const response = await apiFetch('/api/bear-minimum/complete', {
     method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ answers: bearAnswers })
   });
@@ -199,15 +322,17 @@ async function completeBearMinimum() {
   bearQuiz.classList.add('hidden');
   $('#start-bear-minimum').classList.remove('hidden');
   $('#start-bear-minimum').textContent = 'Dát si jiných 10 otázek';
-  $('#bear-intro').textContent = `✨ Hotovo: ${result.correct}/${result.total}. Medvídek ti přidal sněhovou vločku — i krátký krok se počítá.`;
-  if (!bearTodayComplete) $('#snowflake-count').textContent = String(Number($('#snowflake-count').textContent || 0) + 1);
+  $('#bear-intro').textContent = `✨ Hotovo: ${result.correct}/${result.total}. Přibyla ti sněhová vločka do sbírky — i krátký krok se počítá!`;
+  if (!bearTodayComplete) {
+    $('#snowflake-count').textContent = String(Number($('#snowflake-count').textContent || 0) + 1);
+  }
   bearTodayComplete = true;
-  $('#bear-status').textContent = result.correct === result.total ? 'Nádhera. Teď už můžeš klidně skončit.' : 'Bez výčitek: tohle je mapa, ne známkování.';
+  $('#bear-status').textContent = result.correct === result.total ? 'Nádhera! Teď už můžeš klidně odpočívat.' : 'Bez výčitek: tohle je mapa pro tebe, ne známkování.';
 }
 
 $('#start-bear-minimum').addEventListener('click', async () => {
   try {
-    $('#bear-status').textContent = 'Vybírám pět otázek…';
+    $('#bear-status').textContent = 'Vybírám deset otázek…';
     const response = await apiFetch('/api/bear-minimum');
     const payload = await response.json();
     if (!response.ok || payload.questions?.length !== 10) throw new Error(payload.error ?? 'Otázky se zatím nepodařilo připravit.');
@@ -270,7 +395,7 @@ $('#unlock-button').addEventListener('click', async () => {
 
 $('#enable-notifications').addEventListener('click', async () => {
   try {
-    notificationStatus.textContent = 'Připravuji spojení s medvídkem…';
+    notificationStatus.textContent = 'Připravuji spojení s méďou…';
     const keyResponse = await apiFetch('/api/push/public-key');
     const keyPayload = await keyResponse.json();
     if (!keyResponse.ok) throw new Error(keyPayload.error || 'Chybí nastavení push notifikací.');
@@ -299,6 +424,69 @@ $('#test-notification').addEventListener('click', async () => {
     notificationStatus.textContent = 'Odesláno — notifikace by měla za chvilku vyskočit.';
   } catch (error) {
     notificationStatus.textContent = error.message;
+  }
+});
+
+settingsForm?.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  saveSettingsButton.disabled = true;
+  settingsStatus.textContent = 'Ukládám nastavení…';
+  try {
+    const body = {
+      morning_time: $('#setting-morning-time').value,
+      morning_enabled: $('#setting-morning-enabled').checked ? 1 : 0,
+      evening_time: $('#setting-evening-time').value,
+      evening_enabled: $('#setting-evening-enabled').checked ? 1 : 0,
+      late_time: $('#setting-late-time').value,
+      late_enabled: $('#setting-late-enabled').checked ? 1 : 0,
+      weekday_minutes: parseInt($('#setting-weekday-minutes').value, 10),
+      weekend_minutes: parseInt($('#setting-weekend-minutes').value, 10)
+    };
+    const response = await apiFetch('/api/settings', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(body)
+    });
+    const result = await response.json();
+    if (!response.ok) throw new Error(result.error || 'Nepodařilo se uložit nastavení.');
+    populateSettings(result.settings);
+    settingsStatus.textContent = '✨ Nastavení bylo uloženo. Méďa se přizpůsobil.';
+  } catch (error) {
+    settingsStatus.textContent = error.message;
+  } finally {
+    saveSettingsButton.disabled = false;
+  }
+});
+
+replanButton?.addEventListener('click', async () => {
+  replanButton.disabled = true;
+  settingsStatus.textContent = 'Ukládám nastavení a přepočítávám plán…';
+  try {
+    const body = {
+      morning_time: $('#setting-morning-time').value,
+      morning_enabled: $('#setting-morning-enabled').checked ? 1 : 0,
+      evening_time: $('#setting-evening-time').value,
+      evening_enabled: $('#setting-evening-enabled').checked ? 1 : 0,
+      late_time: $('#setting-late-time').value,
+      late_enabled: $('#setting-late-enabled').checked ? 1 : 0,
+      weekday_minutes: parseInt($('#setting-weekday-minutes').value, 10),
+      weekend_minutes: parseInt($('#setting-weekend-minutes').value, 10)
+    };
+    await apiFetch('/api/settings', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(body)
+    });
+    const response = await apiFetch('/api/replan', { method: 'POST' });
+    const result = await response.json();
+    if (!response.ok) throw new Error(result.error || 'Přeplánování selhalo.');
+    renderToday(result.today);
+    await renderKeyTopics();
+    settingsStatus.textContent = `🌱 Plán byl přepočítán (naplánováno ${result.planning.scheduled} kroků).`;
+  } catch (error) {
+    settingsStatus.textContent = error.message;
+  } finally {
+    replanButton.disabled = false;
   }
 });
 

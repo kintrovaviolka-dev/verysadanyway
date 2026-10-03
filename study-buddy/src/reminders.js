@@ -8,14 +8,14 @@ export function notificationFor(jobType, plan) {
     if (urgent) pieces.push('1 urgentní téma');
     if (cards) pieces.push('kartičky');
     return {
-      title: '🐻‍❄️ Dobré ráno od medvídka',
-      body: pieces.length ? `Dnes tě čeká ${pieces.join(', ')}. Stačí začít prvním malým krokem.` : 'Dnes je plán volnější. Užij si ho bez výčitek.',
+      title: '🐻‍❄️ Dobré ráno od médi',
+      body: pieces.length ? `Dnes tě čeká ${pieces.join(', ')}. Stačí začít prvním malým krokem.` : 'Dnes je plán volnější. I Bear minimum dnes stačí.',
       tag: `morning-${plan.date}`
     };
   }
   if (jobType === 'evening-check-in') return {
     title: '🐻‍❄️ Jemný večerní check-in',
-    body: 'Jak to dnes šlo? Označ hotovo, část nebo dnes ne — medvídek zbytek přesune laskavě.',
+    body: 'Jak to dnes šlo? Označ hotovo, část nebo dnes ne — méďa zbytek přesune laskavě.',
     tag: `evening-${plan.date}`
   };
   return {

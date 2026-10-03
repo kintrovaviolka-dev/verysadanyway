@@ -7,24 +7,37 @@
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
     <link rel="stylesheet" href="/style.css" />
-    <title>Medvědí minimum</title>
+    <title>Bear minimum</title>
   </head>
   <body>
     <main class="shell">
       <section class="hero">
-        <div class="bear" aria-label="Malý medvídek anesteziolog">
-          <span class="bear-ear left"></span><span class="bear-ear right"></span><span class="bear-face"><span class="bear-eye left"></span><span class="bear-eye right"></span><span class="bear-muzzle"></span></span><span class="bear-arm">👋</span>
+        <div class="bear-wrap">
+          <div class="bear" id="hero-bear" role="button" tabindex="0" aria-label="Laskavý méďa — klikni pro povzbuzení" title="Klikni na mě pro povzbuzení!">
+            <span class="bear-ear left"><span class="ear-inner"></span></span>
+            <span class="bear-ear right"><span class="ear-inner"></span></span>
+            <span class="bear-face">
+              <span class="bear-eye left"><span class="eye-sparkle"></span></span>
+              <span class="bear-eye right"><span class="eye-sparkle"></span></span>
+              <span class="bear-blush left"></span>
+              <span class="bear-blush right"></span>
+              <span class="bear-muzzle"><span class="nose"></span><span class="smile"></span></span>
+            </span>
+            <span class="bear-stethoscope" aria-hidden="true">🩺</span>
+            <span class="bear-arm">👋</span>
+          </div>
+          <div id="bear-bubble" class="bear-bubble hidden" aria-live="polite"></div>
         </div>
         <div>
-          <p class="eyebrow">Studijní kamarád</p>
-          <h1>Medvědí minimum</h1>
+          <p class="eyebrow">Laskavý studijní kamarád</p>
+          <h1>Bear minimum</h1>
           <p id="message">Načítám dnešní klidný plán…</p>
         </div>
       </section>
 
       <section id="setup" class="card hidden">
         <h2>První nastavení</h2>
-        <p>Nahraj jednou svůj iCal. Rozvrh zůstane v tvojí Cloudflare databázi a medvídek z něj spočítá méně a více náročné dny.</p>
+        <p>Nahraj jednou svůj iCal. Rozvrh zůstane v tvojí Cloudflare databázi a méďa z něj spočítá méně a více náročné dny.</p>
         <label class="upload">Vybrat .ics soubor <input id="calendar-file" type="file" accept=".ics,text/calendar" /></label>
         <button id="setup-button" class="primary" disabled>Vytvořit můj plán</button>
         <p id="setup-status" class="muted"></p>
@@ -32,7 +45,7 @@
 
       <section id="unlock" class="card hidden">
         <p class="eyebrow">Soukromý plán</p>
-        <h2>Odemkni medvídka</h2>
+        <h2>Odemkni aplikaci</h2>
         <p>Vlož svůj jednorázově vytvořený přístupový kód. Uloží se jen do tohoto prohlížeče.</p>
         <label class="code-label">Přístupový kód <input id="access-code" autocomplete="off" spellcheck="false" /></label>
         <button id="unlock-button" class="primary">Odemknout můj plán</button>
@@ -44,7 +57,7 @@
           <div><p class="eyebrow">Dnes</p><h2 id="date-label"></h2></div>
           <strong id="minute-count" class="minutes"></strong>
         </div>
-        <p class="gentle">Stačí udělat další malý krok. Nic se nerozbije, když dnes bude jen medvědí minimum.</p>
+        <p class="gentle">Stačí udělat další malý krok. Nic se nerozbije, když dnes bude jen Bear minimum.</p>
         <p class="scope-note">🌿 Dermatologie tento semestr: jen obecná část. Specka a venero už odpočívají na příští semestr.</p>
         <div id="items" class="items"></div>
         <div class="actions">
@@ -57,26 +70,98 @@
 
       <section id="bear-minimum" class="card bear-minimum hidden">
         <div class="section-heading">
-          <div><p class="eyebrow">Když je energie nízko</p><h2>Medvědí minimum</h2></div>
+          <div><p class="eyebrow">Když je energie na bodu mrazu</p><h2>Bear minimum</h2></div>
           <span class="snowflake" aria-hidden="true">❄︎</span>
         </div>
         <p id="bear-intro" class="gentle">Deset ověřených otázek. I minuta se počítá.</p>
-        <div class="snow-trail" aria-live="polite"><span aria-hidden="true">❄︎</span><strong id="snowflake-count">0</strong><span>malých kroků zůstává v tvé stopě</span></div>
-        <button id="start-bear-minimum" class="secondary">🐻‍❄️ Dát si 10 otázek</button>
+        <div class="snow-trail" aria-live="polite">
+          <span class="trail-item"><span aria-hidden="true">❄️</span> <strong id="snowflake-count">0</strong> <span>Bear minimum kroků</span></span>
+          <span class="trail-divider" aria-hidden="true">·</span>
+          <span class="trail-item"><span aria-hidden="true">🌸</span> <strong id="flower-count">0</strong> <span>splněných témat</span></span>
+        </div>
+        <button id="start-bear-minimum" class="secondary">🐻‍❄️ Dát si Bear minimum (10 otázek)</button>
         <div id="bear-quiz" class="bear-quiz hidden"></div>
         <p id="bear-status" class="muted"></p>
       </section>
 
       <section id="key-topics" class="card key-topics hidden">
         <p class="eyebrow">Druhý průchod</p>
-        <h2>Co medvídek považuje za klíčové</h2>
+        <h2>Co méďa považuje za klíčové</h2>
         <p class="gentle">Nejde o další povinnost: tato témata dostanou do konce svého bloku ještě jedno krátké opakování.</p>
         <div id="key-topic-list" class="key-topic-list"></div>
       </section>
 
+      <section id="settings" class="card hidden settings-card">
+        <div class="section-heading">
+          <div><p class="eyebrow">Nastavení bez kódu</p><h2>Časy a kapacita</h2></div>
+          <span class="settings-badge" aria-hidden="true">⚙️</span>
+        </div>
+        <p class="gentle">Přizpůsob si aplikaci svým návykům. Všechny časy jsou v českém čase.</p>
+
+        <form id="settings-form" class="settings-form">
+          <div class="settings-group">
+            <h3 class="settings-group-title">Připomínky</h3>
+            <div class="setting-row">
+              <label class="toggle-control" for="setting-morning-enabled">
+                <input type="checkbox" id="setting-morning-enabled" />
+                <span class="toggle-label">Ranní shrnutí plánu</span>
+              </label>
+              <input type="time" id="setting-morning-time" class="time-input" />
+            </div>
+
+            <div class="setting-row">
+              <label class="toggle-control" for="setting-evening-enabled">
+                <input type="checkbox" id="setting-evening-enabled" />
+                <span class="toggle-label">Večerní check-in</span>
+              </label>
+              <input type="time" id="setting-evening-time" class="time-input" />
+            </div>
+
+            <div class="setting-row">
+              <label class="toggle-control" for="setting-late-enabled">
+                <input type="checkbox" id="setting-late-enabled" />
+                <span class="toggle-label">Noční připomenutí (před spaním)</span>
+              </label>
+              <input type="time" id="setting-late-time" class="time-input" />
+            </div>
+          </div>
+
+          <div class="settings-group">
+            <h3 class="settings-group-title">Studijní kapacita</h3>
+            <div class="setting-row">
+              <label for="setting-weekday-minutes" class="setting-text-label">
+                <strong>Všední den (základ)</strong>
+                <small>Běžný den bez celodenní výuky</small>
+              </label>
+              <div class="input-unit">
+                <input type="number" id="setting-weekday-minutes" min="5" max="180" step="5" class="number-input" />
+                <span>min</span>
+              </div>
+            </div>
+
+            <div class="setting-row">
+              <label for="setting-weekend-minutes" class="setting-text-label">
+                <strong>Víkendový den</strong>
+                <small>Klidnější dny s větším prostorem</small>
+              </label>
+              <div class="input-unit">
+                <input type="number" id="setting-weekend-minutes" min="10" max="360" step="5" class="number-input" />
+                <span>min</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button type="submit" id="save-settings-button" class="primary">Uložit nastavení</button>
+            <button type="button" id="replan-button" class="secondary">Přepočítat budoucí plán</button>
+          </div>
+          <p id="settings-status" class="muted"></p>
+        </form>
+      </section>
+
       <section id="notifications" class="card hidden notification-card">
         <p class="eyebrow">Připomínky</p>
-        <h2>Nech medvídka připomenout se</h2>
+        <h2>Nech méďu připomenout se</h2>
         <p id="notification-description">Ráno dostaneš dnešní plán, večer jemný check-in a ve 23:40 poslední nenápadné připomenutí.</p>
         <div class="actions">
           <button id="enable-notifications" class="secondary">Zapnout notifikace</button>
