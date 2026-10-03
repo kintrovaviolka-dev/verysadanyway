@@ -1,0 +1,9 @@
+{
+  "name": "Medvědí minimum",
+  "short_name": "Medvědík",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f8f3",
+  "theme_color": "#193c36",
+  "description": "Laskavý studijní plán pro medicínu."
+}

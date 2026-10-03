@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#193c36" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Medvědí minimum</title>
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div class="bear" aria-hidden="true">🐻‍❄️</div>
+        <div>
+          <p class="eyebrow">Studijní kamarád</p>
+          <h1>Medvědí minimum</h1>
+          <p id="message">Načítám dnešní klidný plán…</p>
+        </div>
+      </section>
+
+      <section id="setup" class="card hidden">
+        <h2>První nastavení</h2>
+        <p>Nahraj jednou svůj iCal. Rozvrh zůstane v tvojí Cloudflare databázi a medvídek z něj spočítá méně a více náročné dny.</p>
+        <label class="upload">Vybrat .ics soubor <input id="calendar-file" type="file" accept=".ics,text/calendar" /></label>
+        <button id="setup-button" class="primary" disabled>Vytvořit můj plán</button>
+        <p id="setup-status" class="muted"></p>
+      </section>
+
+      <section id="today" class="card hidden">
+        <div class="section-heading">
+          <div><p class="eyebrow">Dnes</p><h2 id="date-label"></h2></div>
+          <strong id="minute-count" class="minutes"></strong>
+        </div>
+        <p class="gentle">Stačí udělat další malý krok. Nic se nerozbije, když dnes bude jen medvědí minimum.</p>
+        <div id="items" class="items"></div>
+        <div class="actions">
+          <button id="all-done" class="primary">Dnes hotovo</button>
+          <button id="partial-done" class="secondary">Uložit, co jsem stihla</button>
+          <button id="nothing-done" class="quiet">Dnes ne — přesuň to laskavě</button>
+        </div>
+        <p id="checkin-status" class="muted"></p>
+      </section>
+
+      <section class="small-print">
+        Ranní, večerní a noční připomínka jsou už připravené ve Workeru. Push/e-mail a kartičky napojíme jako další krok.
+      </section>
+    </main>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
