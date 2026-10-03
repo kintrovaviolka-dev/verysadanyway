@@ -16,6 +16,7 @@ const bearMinimumPanel = $('#bear-minimum');
 const bearQuiz = $('#bear-quiz');
 let bearQuestions = [];
 let bearAnswers = [];
+let bearTodayComplete = false;
 
 const accessToken = () => localStorage.getItem('study-buddy-access-token') || '';
 
@@ -36,6 +37,12 @@ function renderToday(payload) {
   const date = new Date(`${payload.date}T12:00:00`).toLocaleDateString('cs-CZ', { weekday: 'long', day: 'numeric', month: 'long' });
   $('#date-label').textContent = date;
   $('#minute-count').textContent = `${payload.totalMinutes} min`;
+  $('#snowflake-count').textContent = payload.bear?.snowflakes ?? 0;
+  bearTodayComplete = Boolean(payload.bear?.today);
+  if (payload.bear?.today) {
+    $('#bear-intro').textContent = `Dnešní medvědí minimum už je hotové (${payload.bear.today.correctAnswers}/${payload.bear.today.totalQuestions}). Můžeš se zastavit — nebo si dát dalších pět jen pro radost.`;
+    $('#start-bear-minimum').textContent = 'Dát si jiných 5 otázek';
+  }
   message.textContent = payload.items.length ? 'Dnešek je naplánovaný tak, aby byl proveditelný.' : 'Dnešek má být volnější. Odpočiň si bez výčitek.';
   $('#items').replaceChildren(...payload.items.map((item) => {
     const label = document.createElement('label');
@@ -155,6 +162,8 @@ async function completeBearMinimum() {
   $('#start-bear-minimum').classList.remove('hidden');
   $('#start-bear-minimum').textContent = 'Dát si jiných 5 otázek';
   $('#bear-intro').textContent = `✨ Hotovo: ${result.correct}/${result.total}. Medvídek ti přidal sněhovou vločku — i krátký krok se počítá.`;
+  if (!bearTodayComplete) $('#snowflake-count').textContent = String(Number($('#snowflake-count').textContent || 0) + 1);
+  bearTodayComplete = true;
   $('#bear-status').textContent = result.correct === result.total ? 'Nádhera. Teď už můžeš klidně skončit.' : 'Bez výčitek: tohle je mapa, ne známkování.';
 }
 

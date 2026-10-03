@@ -253,13 +253,24 @@ async function rescheduleItems(db, items, fromDate) {
 
 async function todayPayload(db, date = czechDate()) {
   await ensureDailySupport(db, date);
-  const { results: items } = await db.prepare(`
+  const [{ results: items }, settings, blocks, todayBear, allBears] = await Promise.all([
+    db.prepare(`
     SELECT id, kind, topic_id AS topicId, label, estimated_minutes AS minutes, pass_number AS passNumber, status
     FROM plan_items WHERE plan_date = ? AND status = 'pending' ORDER BY CASE kind WHEN 'urgent' THEN 0 WHEN 'topic' THEN 1 ELSE 2 END, rowid
-  `).bind(date).all();
-  const settings = await getSettings(db);
-  const blocks = await db.prepare('SELECT subject, label, starts_on, ends_on FROM course_blocks ORDER BY starts_on').all();
-  return { date, items, totalMinutes: items.reduce((sum, item) => sum + item.minutes, 0), settings, blocks: blocks.results };
+    `).bind(date).all(),
+    getSettings(db),
+    db.prepare('SELECT subject, label, starts_on, ends_on FROM course_blocks ORDER BY starts_on').all(),
+    db.prepare('SELECT correct_answers AS correctAnswers, total_questions AS totalQuestions FROM bear_minimum_sessions WHERE study_date = ?').bind(date).first(),
+    db.prepare('SELECT COUNT(*) AS total FROM bear_minimum_sessions').first()
+  ]);
+  return {
+    date,
+    items,
+    totalMinutes: items.reduce((sum, item) => sum + item.minutes, 0),
+    settings,
+    blocks: blocks.results,
+    bear: { today: todayBear ?? null, snowflakes: Number(allBears.total ?? 0) }
+  };
 }
 
 async function appStatus(db) {
