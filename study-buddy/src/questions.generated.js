@@ -8,15 +8,15 @@ export const QUESTION_CATALOG = [
     "section": "Obecná část a fyzika",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Princip rentgenky a RTG vyšetření?",
+    "question": "Rentgenové záření vzniká v rentgence jako:",
     "options": [
-      "Obvykle začínáme metodami jako RTG podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Brzdné záření (bremsstrahlung) + charakteristické záření při dopadu urychlených elektronů na anodu",
+      "Luminiscence fluorescenčního stínítka ozářeného světlem",
+      "Nukleární přeměna jader wolframu na jiný prvek",
+      "Piezoelektrický jev na krystalové desce anody"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Princip rentgenky a RTG vyšetření' volíme modalitu 'RTG' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "RTG záření vzniká při dopadu urychlených elektronů na wolframovou anodu: brzdné záření (Bremsstrahlung) se spojitým spektrem a charakteristické záření závislé na materiálu anody. Světlo ani piezoelektrický jev RTG záření netvoří."
   },
   {
     "id": "radiology:radio-1:2",
@@ -26,15 +26,15 @@ export const QUESTION_CATALOG = [
     "section": "Obecná část a fyzika",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Princip rentgenky a RTG vyšetření?",
+    "question": "Co znamená termín 'skiaskopie' a jak se liší od 'skiagrafie'?",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Skiaskopie = dynamické RTG vyšetření v reálném čase (vyšší dávka); skiagrafie = statický snímek (nižší dávka)",
+      "Skiaskopie = zobrazení ultrazvukem; skiagrafie = rentgenový snímek",
+      "Jsou synonyma pro totéž vyšetření, liší se pouze polohou pacienta",
+      "Skiaskopie = CT sken; skiagrafie = RTG snímek"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Princip rentgenky a RTG vyšetření' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "Skiaskopie je dynamické RTG zobrazování v reálném čase (průsvitování) – indikována např. při pasáži GIT, katetrizaci; nevýhoda: vyšší radiační zátěž. Skiagrafie = statický snímek, nižší dávka, vyšší rozlišení."
   },
   {
     "id": "radiology:radio-2:1",
@@ -44,15 +44,15 @@ export const QUESTION_CATALOG = [
     "section": "Obecná část a fyzika",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Negativní biologické účinky ionizujícího záření a radiační ochrana?",
+    "question": "Jaký je rozdíl mezi stochastickými a deterministickými účinky ionizujícího záření?",
     "options": [
-      "Obvykle začínáme metodami jako Radiační ochrana podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Stochastické (nádory, mutace) nemají prahovou dávku; deterministické (radiační syndrom, katarakta) mají prahovou dávku",
+      "Stochastické jsou okamžité; deterministické nastupují s latencí desítek let",
+      "Deterministické jsou způsobeny alfa zářením; stochastické beta zářením",
+      "Rozdíl je pouze ve věku pacienta při ozáření, ne v dávce"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Negativní biologické účinky ionizujícího záření a radiační ochrana' volíme modalitu 'Radiační ochrana' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "Stochastické účinky (karcinom, dědičné mutace) jsou náhodné, bez prahové dávky – pravděpodobnost roste s dávkou. Deterministické (akutní radiační syndrom, katarakta oční čočky) mají prahovou dávku, nad níž jsou jisté."
   },
   {
     "id": "radiology:radio-2:2",
@@ -62,15 +62,15 @@ export const QUESTION_CATALOG = [
     "section": "Obecná část a fyzika",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Negativní biologické účinky ionizujícího záření a radiační ochrana?",
+    "question": "Princip ALARA v radiační ochraně znamená:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "As Low As Reasonably Achievable – minimalizovat dávku při zachování diagnostické kvality",
+      "Always Large Area Radiographic Acquisition – maximální pokrytí pole",
+      "Automated Linear Attenuation Ratio Algorithm – algoritmus CT rekonstrukce",
+      "Accelerated Low-Amplitude Radiation Adjustment – způsob kalibrace přístroje"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Negativní biologické účinky ionizujícího záření a radiační ochrana' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "ALARA (As Low As Reasonably Achievable) je základní princip radiační ochrany: dávku pacientovi i personálu minimalizujeme na nejnižší rozumně dosažitelnou úroveň bez kompromisu diagnostické výtěžnosti."
   },
   {
     "id": "radiology:radio-3:1",
@@ -80,15 +80,15 @@ export const QUESTION_CATALOG = [
     "section": "Obecná část a fyzika",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Princip ultrasonografického vyšetření (UZ)?",
+    "question": "Piezoelektrický jev v UZ sondě zajišťuje:",
     "options": [
-      "Obvykle začínáme metodami jako UZ podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Přeměnu elektrického pulzu na mechanické ultrazvukové vlny a zpět (echo → elektrický signál)",
+      "Zesílení RTG záření před dopadem na detektor",
+      "Generaci magnetického pole pro excitaci protonů v MR",
+      "Fokusaci RTG svazku pomocí wolframových lamel"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Princip ultrasonografického vyšetření (UZ)' volíme modalitu 'UZ' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "Piezoelektrický krystal v sondě při elektrickém pulzu vibruje a vysílá US vlny. Odražené echo způsobí vibraci krystalu → elektrický signál → obraz. Tento jev je fyzikálním základem ultrasonografie."
   },
   {
     "id": "radiology:radio-3:2",
@@ -98,15 +98,15 @@ export const QUESTION_CATALOG = [
     "section": "Obecná část a fyzika",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Princip ultrasonografického vyšetření (UZ)?",
+    "question": "Dopplerovský princip v ultrasonografii zobrazuje:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Rychlost a směr pohybu krve (erytrocytů) jako frekvenční posun odraženého signálu",
+      "Tloušťku cévní stěny měřením doby návratu echa",
+      "Vaskularizaci tkáně pomocí radioizotopu",
+      "Průtok kontrastu v CTA rekonstrukci"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Princip ultrasonografického vyšetření (UZ)' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "Dopplerův efekt: pohybující se erytrocyty mění frekvenci odraženého US signálu. Barevný Doppler kóduje směr průtoku barvou (červená = k sondě, modrá = od sondy), PWD měří rychlost."
   },
   {
     "id": "radiology:radio-4:1",
@@ -116,15 +116,15 @@ export const QUESTION_CATALOG = [
     "section": "Obecná část a fyzika",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Princip výpočetní tomografie (CT)?",
+    "question": "Hounsfieldova jednotka (HU) na CT vyjadřuje:",
     "options": [
-      "Obvykle začínáme metodami jako CT podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Lineární atenuační koeficient tkáně vztažený k vodě (HU vody = 0, vzduchu = −1000)",
+      "Sílu magnetického pole potřebnou k excitaci protonů v dané tkáni",
+      "Amplitudu odraženého ultrazvukového echa",
+      "Počet gama fotonů zachycených scintilátorem za sekundu"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Princip výpočetní tomografie (CT)' volíme modalitu 'CT' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "HU (Hounsfieldovy jednotky) vyjadřují míru absorpce RTG záření: vzduch = −1000 HU, voda = 0 HU, krev cca 55 HU, kost >400 HU. Jsou základem pro 'okénkování' (window/level) CT obrazu."
   },
   {
     "id": "radiology:radio-4:2",
@@ -134,15 +134,15 @@ export const QUESTION_CATALOG = [
     "section": "Obecná část a fyzika",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Princip výpočetní tomografie (CT)?",
+    "question": "Spirální (helikální) CT s více detektorovými řadami (MDCT) oproti klasickému CT umožňuje:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Akvizici celého objemu během jednoho nádechu s možností multiplanární rekonstrukce (MPR, 3D)",
+      "Vyšetření bez ionizujícího záření za cenu nižšího rozlišení",
+      "Přímé zobrazení spinových relaxačních časů T1 a T2",
+      "Zobrazení průtoku bez nutnosti kontrastní látky"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Princip výpočetní tomografie (CT)' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "MDCT snímá izotropní volumetrická data v průběhu jednoho nádechu. Z nich lze rekonstruovat axiální, koronální, sagitální řezy i 3D/VRT zobrazení. Výhoda: rychlost, eliminace pohybových artefaktů, CTA."
   },
   {
     "id": "radiology:radio-5:1",
@@ -152,15 +152,15 @@ export const QUESTION_CATALOG = [
     "section": "Obecná část a fyzika",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Princip magnetické rezonance (MR)?",
+    "question": "Co jsou sekvence T1 a T2 na MR a jaká tkáň je hyperintenzní (světlá) na T2?",
     "options": [
-      "Obvykle začínáme metodami jako MR podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "T1 a T2 jsou relaxační časy; na T2 jsou hyperintenzní tekutiny (CSF, edém, výpotek)",
+      "T1 a T2 jsou různé roviny řezu; na T2 jsou hyperintenzní kosti",
+      "T1 zobrazuje průtok krve; T2 zobrazuje metabolismus glukózy",
+      "T2 je zkrácená verze T1 pro urgentní pacienty, intenzita je totožná"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Princip magnetické rezonance (MR)' volíme modalitu 'MR' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "T1 a T2 jsou fyzikální relaxační časy protonů. Na T2-vážených obrazech jsou hyperintenzní (světlé) struktury s vysokým obsahem vody: CSF, edém, výpotek, většina patologií. Na T1 je světlý tuk a krev (krátký T1)."
   },
   {
     "id": "radiology:radio-5:2",
@@ -170,15 +170,15 @@ export const QUESTION_CATALOG = [
     "section": "Obecná část a fyzika",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Princip magnetické rezonance (MR)?",
+    "question": "Absolutní kontraindikace MR vyšetření je:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Kovový feromagnetický těleso (kardiostimulátor, ferromagnetický aneurysmatický klip, kochleární implantát)",
+      "Implantovaný titanový šroub z ortopedie (neferomagnetický)",
+      "Klaustrofobie (relativní kontraindikace, lze řešit sedací nebo otevřeným MR)",
+      "Gravidita ve 2. trimestru (relativní, 1. trimestr opatrnější)"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Princip magnetické rezonance (MR)' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "Absolutní KI MR: feromagnetická cizí tělesa, starší typy kardiostimulátorů, ferromagnetické aneurysmatické klipy (riziko posunutí ve statickém poli), kochleární implantáty. Titanové implantáty jsou MR-bezpečné (diamagnetické)."
   },
   {
     "id": "radiology:radio-6:1",
@@ -188,15 +188,15 @@ export const QUESTION_CATALOG = [
     "section": "Obecná část a fyzika",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Kontrastní látky – rozdělení, nežádoucí reakce, jejich prevence a léčba?",
+    "question": "Jodová kontrastní látka pro CT je kontraindikována (nebo vyžaduje opatření) při:",
     "options": [
-      "Obvykle začínáme metodami jako Kontrastní látky podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Renální insuficienci (kontrast nefropatie), hypertyreóze, anamnéze závažné alergie na jód/KL",
+      "Anamnéze sluneční alergie nebo laktózové intolerance",
+      "Věku nad 70 let bez dalších komorbidit",
+      "Graviditě ve 3. trimestru (absolutní KI pro jodové KL)"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Kontrastní látky – rozdělení, nežádoucí reakce, jejich prevence a léčba' volíme modalitu 'Kontrastní látky' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "Jodové KL jsou kontraindikovány/opatrně při: renální insuficienci (GFR < 30 ml/min – riziko kontrast-nefropatie), hypertyreóze (jod stimuluje tyreoid), těžké alergii na KL (premedikace kortikoidy). Gravidita není absolutní KI, ale indikace musí být zvážena."
   },
   {
     "id": "radiology:radio-6:2",
@@ -206,15 +206,15 @@ export const QUESTION_CATALOG = [
     "section": "Obecná část a fyzika",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Kontrastní látky – rozdělení, nežádoucí reakce, jejich prevence a léčba?",
+    "question": "Gadoliniová kontrastní látka pro MR je riziková hlavně kvůli:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Nefrogenní systémové fibróze (NSF) u pacientů s těžkou renální insuficiencí (GFR < 30 ml/min)",
+      "Radiační zátěži, protože gadolinium emituje gama záření",
+      "Riziku vzdušné embolie při intravenózní aplikaci",
+      "Toxicitě pro játra při biliárním vylučování"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Kontrastní látky – rozdělení, nežádoucí reakce, jejich prevence a léčba' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "Gadolinium je u zdravých ledvin bezpečné. Při těžké CKD (GFR < 30) hrozí NSF – vzácná, ale závažná fibrotizující systémová nemoc. Gadolinium není radioaktivní, jen paramagnetické."
   },
   {
     "id": "radiology:radio-7:1",
@@ -224,15 +224,15 @@ export const QUESTION_CATALOG = [
     "section": "Hrudník a srdce",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Metody zobrazování hrudníku?",
+    "question": "Na zadopředním (PA) skiagramu hrudníku je normální kardiotorakální index (CTI) u dospělého:",
     "options": [
-      "Obvykle začínáme metodami jako RTG podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "≤ 0,5 (maximální příčný průměr srdce / maximální příčný průměr hrudníku)",
+      "≤ 0,3 – větší hodnota je vždy patologická",
+      "≥ 0,7 – větší srdce je projevem atletického srdce",
+      "CTI se hodnotí výhradně na CT, ne na prostém RTG"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Metody zobrazování hrudníku' volíme modalitu 'RTG' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "CTI (kardiotorakální index) = max příčný průměr srdce / max příčný průměr hrudníku. Norma ≤ 0,5. CTI > 0,5 svědčí pro kardiomegalii. Na AP projekci (vleže) je srdce umělě zvětšené – hodnotit jen PA projekci ve stoje."
   },
   {
     "id": "radiology:radio-7:2",
@@ -242,15 +242,15 @@ export const QUESTION_CATALOG = [
     "section": "Hrudník a srdce",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Metody zobrazování hrudníku?",
+    "question": "Rozlišení na PA skiagramu hrudníku se hodnotí dle viditelnosti:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Zadního úseku 6. nebo předního úseku 8. žebra nad bránicí (norma: 5–6 zadních žeber)",
+      "Tvaru srdce a šíře mediastina v centimetrech",
+      "Počtu viditelných meziobratlových plotének",
+      "Průměru průdušnice v mm (norma 20–22 mm)"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Metody zobrazování hrudníku' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "Optimální inspirační nádech na PA skiagramu = viditelnost zadního oblouku 5.–6. žebra (nebo předního 8. žebra) nad membránou. Nedostatečný nádech vede ke zdánlivé kardiomegalii a zastření bazálních plicních polí."
   },
   {
     "id": "radiology:radio-8:1",
@@ -260,15 +260,15 @@ export const QUESTION_CATALOG = [
     "section": "Hrudník a srdce",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Obecná RTG symptomatologie onemocnění plic?",
+    "question": "Vzdušný bronchogram (air bronchogram) na RTG/CT hrudníku svědčí pro:",
     "options": [
-      "Obvykle začínáme metodami jako RTG podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Alveolární konsolidaci (vzduch v průduškách zůstal, alveoly jsou vyplněny tekutinou/exsudátem/zánětem)",
+      "Endobronchiální tumor zcela uzavírající průdušku",
+      "Emfyzém se zvýšenou vzdušností plicní tkáně",
+      "Pleurální výpotek komprimující plicní parenchym"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Obecná RTG symptomatologie onemocnění plic' volíme modalitu 'RTG' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "Air bronchogram = průsvitné bronchy v neprůsvitné konsolidaci. Alveoly jsou vyplněny (pneumonie, edém, atelektáza absorption), průdušky nikoli. Bez vzdušného bronchogramu → spíše endobronchiální obstrukce nebo pleurální příčina."
   },
   {
     "id": "radiology:radio-8:2",
@@ -278,15 +278,15 @@ export const QUESTION_CATALOG = [
     "section": "Hrudník a srdce",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Obecná RTG symptomatologie onemocnění plic?",
+    "question": "Linie B (B-lines) na plicním ultrazvuku svědčí pro:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Plicní edém nebo intersticiální syndrom (interlobulární septa vyplněná tekutinou – syndrom „zvonkohry\")",
+      "Normální vzdušnou plíci (A-lines = normální)",
+      "Pneumotorax (absence klouzavého pohybu pleury)",
+      "Pneumonii pouze bakteriálního původu"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Obecná RTG symptomatologie onemocnění plic' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "B-linie (comet tail artifacts) jsou hyperechoické vertikální artefakty sahající ke spodnímu okraji obrazu. Odpovídají intersticiálnímu syndromu (plicní edém, IPF). Norma = A-linie (horizontální reverberační artefakty). Absence klouzání + A-linie = pneumotorax."
   },
   {
     "id": "radiology:radio-9:1",
@@ -296,15 +296,15 @@ export const QUESTION_CATALOG = [
     "section": "Hrudník a srdce",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Nádory plic a bronchogenní karcinom?",
+    "question": "Centrální bronchogenní karcinom se typicky projevuje na RTG jako:",
     "options": [
-      "Obvykle začínáme metodami jako RTG podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Hilová masa s atelektázou nebo obstrukční pneumonií distálně (Golden S sign u pravého horního laloku)",
+      "Solitární perifení uzel se kalcifikacemi a popcorn kreseb",
+      "Difuzní oboustranné miliarní opacity",
+      "Pleurální výpotek bez parenchymatózní léze"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Nádory plic a bronchogenní karcinom' volíme modalitu 'RTG' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "Centrální karcinom (dlaždicobuněčný, malobuněčný) roste do lumina bronchu → obstrukce → atelektáza nebo post-obstrukční pneumonie. Golden S sign = atelectáza pravého horního laloku s konkávní horní hranicí (konvexní masa + konkávní atelektáza)."
   },
   {
     "id": "radiology:radio-9:2",
@@ -314,15 +314,15 @@ export const QUESTION_CATALOG = [
     "section": "Hrudník a srdce",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Nádory plic a bronchogenní karcinom?",
+    "question": "Periferní solitární plicní uzel (SPN) je statisticky maligní, pokud:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Je > 8 mm, spiculovaný, v horním laloku, u kuřáka ≥ 45 let bez kalcifikací",
+      "Je < 4 mm, hladce ohraničený a stabilní na dvou po sobě jdoucích CT po 2 letech",
+      "Má popcorn kalcifikace (typické pro hamartom)",
+      "Je přítomen bilaterálně symetricky (spíše svědčí pro metastázy)"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Nádory plic a bronchogenní karcinom' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "Malignitu SPN zvyšuje: velikost > 8 mm, spiculace (jehličkovitý okraj), lokalizace v S1/S2 horního laloku, věk > 45, kuřák, bez kalcifikací. Kalcifikace popcorn pattern → hamartom. Noduly < 4 mm stabilní 2 roky jsou benigní."
   },
   {
     "id": "radiology:radio-10:1",
@@ -332,15 +332,15 @@ export const QUESTION_CATALOG = [
     "section": "Hrudník a srdce",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Nádory a expanze mediastina?",
+    "question": "Tumor předního mediastina ('4T') zahrnuje:",
     "options": [
-      "Obvykle začínáme metodami jako RTG podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Thymom, Teratom/germinální nádor, Thyreoidea (substernální struma), Terrible lymphoma",
+      "Tracheální tumor, Tracheomalácie, Thorakální neurinom, Toxické plicní léze",
+      "Tumor aorty, Trombóza VCS, Tortuous bronchus, Tuberkulózní adentida",
+      "Jsou to vždy metastatické adenopatie ze 4 různých primárních tumorů"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Nádory a expanze mediastina' volíme modalitu 'RTG' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "Přední mediastinum: 4T = Thymom (nejčastější nádor předního mediastina u dospělých), Teratom/Germinální nádor, Thyreoidea (substernální struma), Terrible lymphoma (Hodgkin/non-Hodgkin). Každý tumor má svoji charakteristickou lokalizaci v 3 kompartmentech mediastina."
   },
   {
     "id": "radiology:radio-10:2",
@@ -350,15 +350,15 @@ export const QUESTION_CATALOG = [
     "section": "Hrudník a srdce",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Nádory a expanze mediastina?",
+    "question": "Neurogenní nádory (neurofibrom, schwannom, ganglioneurom) jsou nejčastěji lokalizovány v:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Zadním mediastinu (paravertebrálně, podél sympatiku a mezižeberních nervů)",
+      "Předním mediastinu u thymické žlázy",
+      "Středním mediastinu v perikardu",
+      "Difuzně v celém mediastinu bez preferované lokalizace"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Nádory a expanze mediastina' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "Zadní mediastinum (paravertebrální sulcus): neurogenní tumory – schwannom, neurofibrom, ganglioneurom, neuroblastom. Střední mediastinum: lymfomy, bronchogenní cysty, perikardiální cysty. Přední: thymom, germinální, struma."
   },
   {
     "id": "radiology:radio-11:1",
@@ -368,15 +368,15 @@ export const QUESTION_CATALOG = [
     "section": "Hrudník a srdce",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Onemocnění pleurálních prostorů (výpotek, pneumotorax, mezoteliom)?",
+    "question": "Meniskusové znamení (Damoiseau-Ellisova křivka) na RTG hrudníku vstoje označuje:",
     "options": [
-      "Obvykle začínáme metodami jako RTG podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Homogenní zastínění s konkávní horní hranicí = pleurální výpotek (> 200 ml pro viditelnost vstoje)",
+      "Vzdušný obraz v pleurální dutině při pneumotoraxu",
+      "Lineární atelektázu při dráždění bránice",
+      "Projasnění v pleurální dutině při empyemu"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Onemocnění pleurálních prostorů (výpotek, pneumotorax, mezoteliom)' volíme modalitu 'RTG' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "Meniskusové znamení = homogenní zastínění s konkávní, laterálně nahoru jdoucí hranicí (tekutina se distribuuje podél pleurální dutiny). Pro průkaz na PA RTG je třeba > 200–300 ml výpotku. Malé výpotky zachytí CT nebo UZ."
   },
   {
     "id": "radiology:radio-11:2",
@@ -386,15 +386,15 @@ export const QUESTION_CATALOG = [
     "section": "Hrudník a srdce",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Onemocnění pleurálních prostorů (výpotek, pneumotorax, mezoteliom)?",
+    "question": "Pneumotorax se na RTG hrudníku diagnostikuje jako:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Projasnění bez plicní kresby na periferii s viditelnou viscerální pleurou jako ostrou linií",
+      "Homogenní zastínění hemitoraxu s deviacemi trachey",
+      "Bilaterální hilová lymfadenopatie s peribronchiální infiltrací",
+      "Miliární opacity v obou plicních polích"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Onemocnění pleurálních prostorů (výpotek, pneumotorax, mezoteliom)' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "Pneumotorax = vzduch v pleurální dutině → kolaps plíce. RTG: projasnění bez plicní kresby (vzduch bez cév) s viditelnou viscerální pleurou. Tenzní pneumotorax: deviacee mediastina kontralaterálně, pokles bránice – urgentní."
   },
   {
     "id": "radiology:radio-12:1",
@@ -404,15 +404,15 @@ export const QUESTION_CATALOG = [
     "section": "Hrudník a srdce",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Analýza srdečního stínu na RTG a metody kardiální radiologie?",
+    "question": "Kardiomegalie je na RTG definována kardiotorakálním indexem > 0,5. Které chlopenní vady ji způsobují dílčí zvětšení levé síně?",
     "options": [
-      "Obvykle začínáme metodami jako RTG podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Mitrální stenóza a mitrální regurgitace (obě způsobují dilataci levé síně – mitrální konfigurace srdce)",
+      "Aortální stenóza (způsobuje izolovanou hypertrofii a dilataci levé komory)",
+      "Pulmonální stenóza (způsobuje dilataci pravé komory a pravé síně)",
+      "Defekt septa síní (způsobuje dilataci pravých oddílů, ne levé síně)"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Analýza srdečního stínu na RTG a metody kardiální radiologie' volíme modalitu 'RTG' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "Mitrální stenóza → dilatace LA (obstrukce výtoku z LA). Mitrální regurgitace → dilatace LA i LV (zpětný tok). Mitrální konfigurace: rovný levý okraj, vymizení pasu srdce, elevace levého bronchu. Aortální vady → aortální konfigurace (prodloužená levá kontura, prominující aortální knob)."
   },
   {
     "id": "radiology:radio-12:2",
@@ -422,15 +422,15 @@ export const QUESTION_CATALOG = [
     "section": "Hrudník a srdce",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Analýza srdečního stínu na RTG a metody kardiální radiologie?",
+    "question": "Metoda hodnocení srdce a perikardu s nejlepším prostorovým a kontrastním rozlišením je:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Srdeční MR (CMR) – zlatý standard pro hodnocení funkce, viability myokardu, perikarditidy",
+      "Prostý RTG hrudníku – primárně detekuje velikost srdce",
+      "Kostní scintigrafie (vhodná pro ischemii myokardu)",
+      "Plicní perfuzní scintigrafie (hodnotí perfuzi plic, ne myokard)"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Analýza srdečního stínu na RTG a metody kardiální radiologie' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "Srdeční MR (CMR) je zlatý standard pro: funkci komor (EF), hodnocení myokardiální viability (LGE – pozdní sycení gadoliniem), diagnostiku kardiomyopatií, perikarditidy. Echokardiografie je první volba (rychlá, dostupná), CT používáme pro koronární CTA."
   },
   {
     "id": "radiology:radio-13:1",
@@ -440,15 +440,15 @@ export const QUESTION_CATALOG = [
     "section": "Hrudník a srdce",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Proměny srdečního stínu při chlopenních vadách a srdečním selhání?",
+    "question": "Kerleyovy B-linie na RTG hrudníku jsou příznakem:",
     "options": [
-      "Obvykle začínáme metodami jako RTG podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Intersticiálního plicního edému (dilatace intersticia a lymfatik při tlaku v plicním kapilárním řečišti > 18–22 mmHg)",
+      "Endobronchiální šíření karcinomu plic (lymfangiosis carcinomatosa)",
+      "Fyziologického plicního žilního vzorce v dolních lalocích",
+      "Tukové embolizace plicního kapilárního řečiště"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Proměny srdečního stínu při chlopenních vadách a srdečním selhání' volíme modalitu 'RTG' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "Kerleyovy B-linie = horizontální, 1–2 cm, na periferii dolního laloku, kolmé na pleuru. Odpovídají dilatovaným interlobulárním lymfatikám při intersticiálním edému (PCWP > 18 mmHg). Bilaterální motýlí edém (butterfly pattern) = těžký alveolární edém (> 25 mmHg)."
   },
   {
     "id": "radiology:radio-13:2",
@@ -458,15 +458,15 @@ export const QUESTION_CATALOG = [
     "section": "Hrudník a srdce",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Proměny srdečního stínu při chlopenních vadách a srdečním selhání?",
+    "question": "CT angiografie (CTA) plic je metodou první volby u suspektní plicní embolie. Pozitivní nález je:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Filling defect (výplňkový defekt) v kontrastně napl­něné plicní tepně = trombus",
+      "Hampton's hump (klínovité zastínění) = přímý příznak PE na prostém RTG",
+      "Westermarkův příznak = prořídlá plicní kresba distálně od embolu na RTG",
+      "Obě předchozí možnosti (B a C) jsou přímé příznaky PE na prostém RTG, ne CTA"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Proměny srdečního stínu při chlopenních vadách a srdečním selhání' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "CTA plic = zlatý standard PE: přímý nález = filling defect (trombus) v plicní tepně. Hampton's hump (klínovité periferal zastínění – plicní infarkt) a Westermarkův příznak (oligemie) jsou nepřímé RTG příznaky PE – málo senzitivní."
   },
   {
     "id": "radiology:radio-14:1",
@@ -476,15 +476,15 @@ export const QUESTION_CATALOG = [
     "section": "Hrudník a srdce",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Normální a patologická plicní vaskularizace (plicní edém, embolie, hypertenze)?",
+    "question": "Pasáž báriem (polknutí barya) je zobrazovací metodou první volby pro:",
     "options": [
-      "Obvykle začínáme metodami jako RTG podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Funkční vyšetření polykacího aktu, diagnostiku hernie hiatu a refluxu (skiaskopie v reálném čase)",
+      "Zobrazení sliznice tlustého střeva pro polypy (CT kolografie nebo kolonoskopie výhodnější)",
+      "Akutní perforaci GIT (absolutní KI pro baryo – použít jodová KL nebo CT)",
+      "Přesné určení stagingu karcinomu žaludku (CT vyšší přesnost)"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Normální a patologická plicní vaskularizace (plicní edém, embolie, hypertenze)' volíme modalitu 'RTG' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "Pasáž Ba: dynamické skiaskopické vyšetření jícnu, žaludku, duodena. Vhodná pro: hiátová hernie, reflux, achalázie, divertikly jícnu. KI: suspektní perforace (→ jodová KL nebo CT). Pro staging malignit → CT/endoskopie."
   },
   {
     "id": "radiology:radio-14:2",
@@ -494,15 +494,15 @@ export const QUESTION_CATALOG = [
     "section": "Hrudník a srdce",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Normální a patologická plicní vaskularizace (plicní edém, embolie, hypertenze)?",
+    "question": "MRCP (MR cholangiopankreatografie) je metodou volby pro:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Neinvazivní zobrazení žlučovodů a pankreatického vývodu (bez záření, bez KL, bez endoskopie)",
+      "Urgentní zobrazení perforace žaludku na urgentním příjmu",
+      "Hodnocení peristaltiky a pasáže kontrastu ve střevech",
+      "Detekci kalcifikací v pankreatu (CT má vyšší senzitivitu pro kalcifikace)"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Normální a patologická plicní vaskularizace (plicní edém, embolie, hypertenze)' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "MRCP využívá silně T2-vážené sekvence: tekutina v žlučovodech a pankreatickém vývodu je hyperintenzní. Neinvazivní alternativa ERCP pro diagnostiku cholelitiázy, stenóz, PSC, anatomie vývodů. ERCP rezervujeme pro terapeutické výkony."
   },
   {
     "id": "radiology:radio-15:1",
@@ -512,15 +512,15 @@ export const QUESTION_CATALOG = [
     "section": "Břicho a trávicí trakt",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Metody zobrazování trávicí trubice (jícen, žaludek, střevo)?",
+    "question": "Pneumoperitoneum (volný vzduch pod bránicí) na RTG hrudníku/břicha vstoje svědčí pro:",
     "options": [
-      "Obvykle začínáme metodami jako RTG podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Perforaci dutého orgánu (nejčastěji perforovaný vřed duodena nebo žaludku) – chirurgická urgence",
+      "Akutní pankreatitidu s paralytickým ileem",
+      "Mezenterický infarkt bez perforace střeva",
+      "Normální pooperační nález po laparoskopii (do 1 týdne – pak nutno vyloučit perforaci)"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Metody zobrazování trávicí trubice (jícen, žaludek, střevo)' volíme modalitu 'RTG' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "Volný vzduch pod bránicí = pneumoperitoneum → perforace dutého orgánu. Nejčastěji: perforovaný peptický vřed, perforace kolon (divertikulitida, maligní). RTG vstoje: srpkovité projasnění pod bránicí. Po laparoskopii vzduch do 3 dnů fyziologicky."
   },
   {
     "id": "radiology:radio-15:2",
@@ -530,15 +530,15 @@ export const QUESTION_CATALOG = [
     "section": "Břicho a trávicí trakt",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Metody zobrazování trávicí trubice (jícen, žaludek, střevo)?",
+    "question": "Riglerovo znamení (double wall sign) při NPB na RTG břicha vleže označuje:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Zobrazení obou stran střevní stěny (viditelná i zevní plocha díky vzduch v luminu i peritoneálně = perforace)",
+      "Zdvojení stěny žlučníku při akutní cholecystitidě",
+      "Dvojitou konturu ledviny při perirenální kolekci",
+      "Paralelní linie v tračníku při pneumatosis coli"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Metody zobrazování trávicí trubice (jícen, žaludek, střevo)' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "Riglerovo znamení: vzduch v peritoneu i ve střevním lumenu → viditelná OBĚ strany střevní stěny (normálně vidíme jen vnitřní, vzduch nestačí k zobrazení zevní). Přímý příznak pneumoperitonea na snímku vleže."
   },
   {
     "id": "radiology:radio-16:1",
@@ -548,15 +548,15 @@ export const QUESTION_CATALOG = [
     "section": "Břicho a trávicí trakt",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: RTG obrazy patologických stavů trávicí trubice (záněty, vředy, divertikly, nádory)?",
+    "question": "Hepatocelulární karcinom (HCC) má na dynamickém CT typický vzorek sycení:",
     "options": [
-      "Obvykle začínáme metodami jako RTG podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Arterial washout pattern: silné sycení v arteriální fázi + vymývání v portální/venózní fázi",
+      "Hypovaskularní léze bez sycení v arteriální fázi (jako metastázy kolorektálního Ca)",
+      "Perifokální sycení jako prsten (ring enhancement) s centrální nekrózou = charakteristické",
+      "Difuzní homogenní sycení v celé venózní fázi (jako hemangiom)"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'RTG obrazy patologických stavů trávicí trubice (záněty, vředy, divertikly, nádory)' volíme modalitu 'RTG' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "HCC = hepatoarteriální výživa. Dynamické CT/MR: 1) arteriální fáze – výrazné sycení (HCC hypervaskularní), 2) portálně-venózní fáze – washout (HCC tmavší než okolní jaterní parenchym). Tento vzor je diagnostický bez biopsie (LI-RADS 5). Hemangiom = nodulární perifokální sycení."
   },
   {
     "id": "radiology:radio-16:2",
@@ -566,15 +566,15 @@ export const QUESTION_CATALOG = [
     "section": "Břicho a trávicí trakt",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: RTG obrazy patologických stavů trávicí trubice (záněty, vředy, divertikly, nádory)?",
+    "question": "Klasifikace Bosniakova (I–IV) se týká:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Renálních cyst (I = jednoduchá cystа bez maligního potenciálu; IV = multilokulární s enhancementem = chirurgicky)",
+      "Jaterních lézí (FNH, HCC, hemangiom, metastázy)",
+      "Plicních nodulů (Fleischner, Lung-RADS)",
+      "Ovariálních cyst a tumorů (IOTA klasifikace)"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'RTG obrazy patologických stavů trávicí trubice (záněty, vředy, divertikly, nádory)' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "Bosniakova klasifikace na CT/MR hodnotí renální cysty: I = jednoduchá (benigní), II = minimálně komplexní (benigní), IIF = sledovat, III = chirurgie nebo biopsie (40% maligní), IV = chirurgie (maligní). Nezaměňovat s LI-RADS (játra) nebo Lung-RADS (plíce)."
   },
   {
     "id": "radiology:radio-17:1",
@@ -584,15 +584,15 @@ export const QUESTION_CATALOG = [
     "section": "Břicho a trávicí trakt",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Zobrazování náhlých příhod břišních (NPB)?",
+    "question": "Portální hypertenze je na UZ diagnostikována nálezem:",
     "options": [
-      "Obvykle začínáme metodami jako RTG nativ podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Průměr portální žíly > 13 mm + redukce nebo reverze průtoku v PW doppleru + splenomegalie + ascites",
+      "Zúžení portální žíly < 5 mm s turbulentním průtokem",
+      "Izolovaná hepatomegalie bez změny průtoku v Doppleru",
+      "Hyperechogenní jaterní parenchym bez změny průtoku v portální žíle"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Zobrazování náhlých příhod břišních (NPB)' volíme modalitu 'RTG nativ' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "UZ portální hypertenze: průměr v. portae > 13 mm, pokles nebo reverze průtoku (hepatofugální), splenomegalie, ascites, portosystémové kolaterály (paraumbilicální žíla, koronární žíla). Zlatý standard = jaterní venózní tlakový gradient (HVPG) > 5 mmHg."
   },
   {
     "id": "radiology:radio-17:2",
@@ -602,15 +602,15 @@ export const QUESTION_CATALOG = [
     "section": "Břicho a trávicí trakt",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Zobrazování náhlých příhod břišních (NPB)?",
+    "question": "TIPS (Transjugular Intrahepatic Portosystemic Shunt) je intervenční výkon indikovaný u:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Refrakterního ascitu nebo recidivujícího varikózního krvácení při portální hypertenzi",
+      "Hepatocelulárního karcinomu jako kurativní léčba",
+      "Akutní cholecystitidy jako alternativa cholecystektomie",
+      "Renální arteriální stenózy jako alternativa chirurgie"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Zobrazování náhlých příhod břišních (NPB)' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "TIPS = perkutánní intrahepatický portosystémový zkrat mezi v. portae a jaterní žílou (zaveden přes vena jugularis). Snižuje portální tlak. Indikace: refrakterní ascit, recidivující varikózní krvácení po farmakologickém/endoskopickém selhání."
   },
   {
     "id": "radiology:radio-18:1",
@@ -620,15 +620,15 @@ export const QUESTION_CATALOG = [
     "section": "Břicho a trávicí trakt",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Zobrazování onemocnění jater (cysty, hemangiom, FNH, adenom, HCC, metastázy)?",
+    "question": "Murphy's sign na UZ cholecystografie je:",
     "options": [
-      "Obvykle začínáme metodami jako UZ podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Maximální citlivost žlučníku přímo pod sondou při kompresi (UZ-Murphy → akutní cholecystitida)",
+      "Zvukový reflex za echogenním kamenem v žlučníku (akustický stín)",
+      "Peristaltická vlna sledovaná při skiaskopii v žlučníku",
+      "Fistula mezi žlučníkem a tenkým střevem na CT"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Zobrazování onemocnění jater (cysty, hemangiom, FNH, adenom, HCC, metastázy)' volíme modalitu 'UZ' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "UZ Murphy sign = maximální bolestivost přesně pod sondou v místě ultrazvukové projekce žlučníku. Vysoce specifický pro akutní cholecystitidu v kombinaci s nálezem ztluštělé stěny (> 3 mm) a perikolecystické tekutiny."
   },
   {
     "id": "radiology:radio-18:2",
@@ -638,15 +638,15 @@ export const QUESTION_CATALOG = [
     "section": "Břicho a trávicí trakt",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Zobrazování onemocnění jater (cysty, hemangiom, FNH, adenom, HCC, metastázy)?",
+    "question": "Cholelitiáza na UZ se projevuje:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Hyperechogenní ložisko v žlučníku s akustickým stínem distálně a mobilitou při změně polohy",
+      "Hypoechogenní ložisko bez akustického stínu (může jít o polypus nebo tumor)",
+      "Difuzním ztluštěním stěny žlučníku bez ložiskové léze",
+      "Dilatovanými intrahepatálními žlučovody bez ložiska v žlučníku"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Zobrazování onemocnění jater (cysty, hemangiom, FNH, adenom, HCC, metastázy)' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "Cholelitiáza na UZ: echogenní odraz (hyperechogenní obraz kamene) + akustický stín distálně (nejdůležitější příznak) + pohyblivost (při změně polohy kamen padá ke dnu). Polyp: nehybný, bez stínu. Adenomyomatóza: ztlustlá stěna s artefakty."
   },
   {
     "id": "radiology:radio-19:1",
@@ -656,15 +656,15 @@ export const QUESTION_CATALOG = [
     "section": "Břicho a trávicí trakt",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Zobrazování onemocnění portálního řečiště a portální hypertenze?",
+    "question": "CT kritérium těžké akutní pankreatitidy (Balthazar E / CTSI) zahrnuje:",
     "options": [
-      "Obvykle začínáme metodami jako Doppler UZ podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Nekrotická nekontrastně se sytící ložiska v pankreatu + peripankreatické kolekce (CTSI 7–10 = závažná)",
+      "Zvětšení pankreatu > 5 cm v největším rozměru bez nekrózy",
+      "Kalcifikace v pankreatu svědčící pro chronickou pankreatitidu",
+      "Dilatace ductus pancreaticus > 3 mm bez nekrózy (svědčí pro obstrukci)"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Zobrazování onemocnění portálního řečiště a portální hypertenze' volíme modalitu 'Doppler UZ' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "CTSI (CT Severity Index) = Balthazar skóre (A–E) + % nekrózy. Balthazar E: peripankreatické kolekce ≥ 2. Nekróza > 30% pankreatu = závažná (mortalita ~ 15%). CT indikováno při pochybách (Ranson ≥ 3, APACHE > 8) nebo po 72 h k průkazu nekrózy."
   },
   {
     "id": "radiology:radio-19:2",
@@ -674,15 +674,15 @@ export const QUESTION_CATALOG = [
     "section": "Břicho a trávicí trakt",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Zobrazování onemocnění portálního řečiště a portální hypertenze?",
+    "question": "Adenokarcinom pankreatu se nejčastěji zobrazuje jako:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Hypovaskularní hypodenzní ložisko v hlavě pankreatu s dilatací žlučovodu a ductus pancreaticus (double duct sign)",
+      "Hypervaskularní léze s výrazným sycením v arteriální fázi (jako HCC nebo NET)",
+      "Kalcifikované ložisko s pomalým růstem (charakteristické pro NET)",
+      "Cystická léze s septy bez pevné složky (= IPMN, ne adenokarcinom)"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Zobrazování onemocnění portálního řečiště a portální hypertenze' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "Pankreatický adenokarcinom: 70% v hlavě pankreatu → obstrukce choledochu + ductus pancreaticus = double duct sign. CT: hypodenzní, špatně ohraničená léze, bez kontrastu. Staging: resekabilita = žádný kontakt s v. mesenterica sup./portou nebo s arteriemi."
   },
   {
     "id": "radiology:radio-20:1",
@@ -692,15 +692,15 @@ export const QUESTION_CATALOG = [
     "section": "Břicho a trávicí trakt",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Zobrazování onemocnění žlučníku a žlučových cest (cholelitiáza, cholecystitida, ikterus)?",
+    "question": "Urografie (IVU) byla nahrazena nativním CT – proč je CT urologie (CT urografie) vhodné pro urolitiázu?",
     "options": [
-      "Obvykle začínáme metodami jako UZ podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Nativní low-dose CT detekuje kameny > 1 mm (i urátové, nepřítomné na RTG), lokalizuje, hodnotí obstrukci (hydronefróza)",
+      "CT zobrazuje funkci ledviny (GFR) přesněji než izotopová nefrografie",
+      "CT nevyžaduje žádnou kontrastní látku a neprovozuje ionizující záření",
+      "CT je méně přesné než RTG ledviny (KUB) pro průkaz urátových kamenů"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Zobrazování onemocnění žlučníku a žlučových cest (cholelitiáza, cholecystitida, ikterus)' volíme modalitu 'UZ' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "Nativní CT (low-dose) = zlatý standard pro urolitiázu: senzitivita > 95%, detekuje všechny typy kamenů (urátové kameny jsou invisible na RTG, ale hyperdenzní na CT). Hodnotí obstrukci (hydronefróza), alternativy (UZ u těhotných, dětí). IVU nyní téměř opuštěna."
   },
   {
     "id": "radiology:radio-20:2",
@@ -710,15 +710,15 @@ export const QUESTION_CATALOG = [
     "section": "Břicho a trávicí trakt",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Zobrazování onemocnění žlučníku a žlučových cest (cholelitiáza, cholecystitida, ikterus)?",
+    "question": "Staging renálního karcinomu (RCC) dle TNM využívá CT. T3a na CT označuje:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Invazi tuku perireálního prostoru nebo trombus v renální žíle nebo v. cava inferior pod bránicí",
+      "Tumor limitovaný na ledvinu, průměr 4–7 cm (T1b = ≤ 4 cm, T2a = 7–10 cm)",
+      "Přímou invazi nadledviny nebo fascie Geroty (= T4)",
+      "Vzdálené metastázy (= M1, ne T3a)"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Zobrazování onemocnění žlučníku a žlučových cest (cholelitiáza, cholecystitida, ikterus)' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "RCC staging T: T1a ≤ 4 cm, T1b 4–7 cm, T2a 7–10 cm, T2b > 10 cm (vše v ledvině). T3a = invaze tuku perireálního prostoru NEBO trombus renální žíly. T3b = trombus VCI pod bránicí. T4 = fascia Geroty nebo nadledvina. CT s KL = standardní staging."
   },
   {
     "id": "radiology:radio-21:1",
@@ -728,15 +728,15 @@ export const QUESTION_CATALOG = [
     "section": "Břicho a trávicí trakt",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Zobrazování onemocnění pankreatu (akutní a chronická pankreatitida, adenokarcinom, NET)?",
+    "question": "Urolitiáza – jaký typ kamenů NENÍ viditelný na prostém RTG ledvin (KUB)?",
     "options": [
-      "Obvykle začínáme metodami jako UZ podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Urátové kameny (radiolucent – neobsahují vápník)",
+      "Kalcium-oxalátové kameny (nejčastější, vysoce radiodenzní)",
+      "Struvitové kameny (infekční, staghorn kalkulóza, radiodenzní)",
+      "Kalcium-fosfátové kameny (hydroxyapatit, radiodenzní)"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Zobrazování onemocnění pankreatu (akutní a chronická pankreatitida, adenokarcinom, NET)' volíme modalitu 'UZ' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "Urátové kameny tvoří ~ 10% urolitiázy, neobsahují vápník → rentgennegativní (invisible na KUB). CT nativní: hyperdenzní (400–500 HU). Ostatní typy (oxalát, fosfát, struvit) jsou na RTG viditelné jako kalcifikace. Cystinové kameny slabě radiodenzní."
   },
   {
     "id": "radiology:radio-21:2",
@@ -746,15 +746,15 @@ export const QUESTION_CATALOG = [
     "section": "Břicho a trávicí trakt",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Zobrazování onemocnění pankreatu (akutní a chronická pankreatitida, adenokarcinom, NET)?",
+    "question": "UZ ledviny s hydronefrotickou dilatací kalichopánvičkového systému bez klinické urolitiázy (u těhotné ženy) indikuje:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Fyziologická hydronefróza gravidity (komprese ureterů dělohou), vzácněji obstrukce ureterolitiázou",
+      "Akutní pyelonefritida jako příčina hydronefrózy (UZ nezobrazí záněty, jen bakteriuria)",
+      "Renální arteriální stenóza způsobující renomegaly",
+      "Příčina je vždy obstrukce kamenem – indikovat nativní CT"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Zobrazování onemocnění pankreatu (akutní a chronická pankreatitida, adenokarcinom, NET)' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "Hydronefróza v graviditě: fyziologická komprese ureterů rostoucí dělohou (pravý ureter více). UZ první volba (bez záření). Pro urolitiázu v graviditě → low-dose CT nebo MR urografie (bez ionizace). Nativní CT se u těhotných zvažuje individuálně."
   },
   {
     "id": "radiology:radio-22:1",
@@ -764,15 +764,15 @@ export const QUESTION_CATALOG = [
     "section": "Urogenitální trakt",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Metody zobrazování ledvin a odvodných močových cest?",
+    "question": "PI-RADS klasifikace (v2.1) při multiparametrické MR prostaty (mpMRI) hodnotí:",
     "options": [
-      "Obvykle začínáme metodami jako UZ podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Pravděpodobnost klinicky signifikantního karcinomu prostaty (PI-RADS 4–5 = biopsie; 1–2 = sledování)",
+      "Stupeň benigní hyperplazie prostaty (BPH) pro indikaci TURP",
+      "Odpověď na hormonální terapii metastatického karcinomu prostaty",
+      "Přítomnost zánětu (prostatitidy) na základě T2 signálu"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Metody zobrazování ledvin a odvodných močových cest' volíme modalitu 'UZ' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "PI-RADS (Prostate Imaging Reporting and Data System): skóre 1–5 integruje T2WI, DWI a DCE sekvence. PI-RADS 4–5 → klinicky signifikantní karcinom (Gleason ≥ 7) pravděpodobný → cílená biopsie. PI-RADS 1–2 → nesledovat biopsií."
   },
   {
     "id": "radiology:radio-22:2",
@@ -782,15 +782,15 @@ export const QUESTION_CATALOG = [
     "section": "Urogenitální trakt",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Metody zobrazování ledvin a odvodných močových cest?",
+    "question": "Ultrasonografie skrota je metodou první volby u podezření na torzi varlete. Klíčový nález svědčící pro torzi je:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Absence průtoku v Doppleru varlete ipsilaterálně (avaskularní varle) + bolest + edém",
+      "Přítomnost hyperechogenního ložiska s kalcifikacemi varlete",
+      "Bilaterální hypoechogenní varixy v horním polu varlete",
+      "Hypervaskulární tvarle s otokem kůže skrota (= orchiepididymitida)"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Metody zobrazování ledvin a odvodných močových cest' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "Torze varlete = chirurgická urgence! UZ Doppler: absence nebo výrazná redukce průtoku. Orchiepididymitida: naopak hypervaskulární (zvýšený průtok). Čas je kritický – detorze do 6 h = záchrana ve > 90%, po 24 h < 10%."
   },
   {
     "id": "radiology:radio-23:1",
@@ -800,15 +800,15 @@ export const QUESTION_CATALOG = [
     "section": "Urogenitální trakt",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Zobrazování ložiskových a difuzních onemocnění ledvin?",
+    "question": "Ektopická gravidita se nejlépe diagnostikuje kombinací:",
     "options": [
-      "Obvykle začínáme metodami jako UZ podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "UZ transvaginální (mimomateřní embryo nebo hematosalpinx) + sérum β-hCG (> 1500–2000 mIU/ml bez intrauterinního vaku = suspektní EG)",
+      "MR pánve (zlatý standard pro EG bez záření)",
+      "CT pánve s KL (nejrychlejší diagnostika EG v urgentním nastavení)",
+      "Doppler abdominální (průkaz průtoku v mimoděložním vaku)"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Zobrazování ložiskových a difuzních onemocnění ledvin' volíme modalitu 'UZ' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "EG diagnostika: TVS UZ + β-hCG. Diskriminační hodnota β-hCG ~ 1500–2000 mIU/ml: pokud není viditelný intrauterinní vak na TVS, je EG vysoce pravděpodobná. Přímý UZ nález: extrauterinní gestační vak, hematosalpinx, hemoperitoneum (Douglasův prostor)."
   },
   {
     "id": "radiology:radio-23:2",
@@ -818,15 +818,15 @@ export const QUESTION_CATALOG = [
     "section": "Urogenitální trakt",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Zobrazování ložiskových a difuzních onemocnění ledvin?",
+    "question": "Mamografie detekuje karcinom prsu nejlépe jako:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Mikrokalcifikace (seskupené, plymorfní, lineární) nebo spiculovanou masu s nepravidelnými okraji",
+      "Kulatou hladkou masu s echogenním halo (= typický benigní fibroadenom)",
+      "Hypoechogenní ložisko s zadním posílením echa (= typická cysta)",
+      "Hypervaskularní lézi s výrazným sycením po KL (= hemangiom jater, ne prsu)"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Zobrazování ložiskových a difuzních onemocnění ledvin' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "Maligní kalcifikace mamografie: seskupené, pleomorfní, casting type (lineární = DCIS). Spiculovaná masa = infiltrující karcinom. Benigní: hrubé kalcifikace (fibroadenom), hladce ohraničená kulatá masa. BI-RADS 4–5 → biopsie."
   },
   {
     "id": "radiology:radio-24:1",
@@ -836,15 +836,15 @@ export const QUESTION_CATALOG = [
     "section": "Urogenitální trakt",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Zobrazování onemocnění odvodných močových cest (urolitiáza, uoteliální nádory)?",
+    "question": "BI-RADS klasifikace 0 u mamografie nebo UZ prsu znamená:",
     "options": [
-      "Obvykle začínáme metodami jako Nativní nízkodávkové CT podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Neúplné hodnocení – nutné doplnit o další snímky nebo UZ pro konečný závěr",
+      "Normální nález bez patologie",
+      "Suspektní maligní léze, indikace k biopsii",
+      "Potvrzená malignita, okamžitá chirurgie"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Zobrazování onemocnění odvodných močových cest (urolitiáza, uoteliální nádory)' volíme modalitu 'Nativní nízkodávkové CT' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "BI-RADS (Breast Imaging Reporting and Data System): 0 = neúplné (recall), 1 = negativní, 2 = benigní, 3 = pravděpodobně benigní (6 měsíční kontrola), 4 = suspektní (biopsie), 5 = vysoce maligní (biopsie), 6 = histologicky potvrzena malignita (léčba)."
   },
   {
     "id": "radiology:radio-24:2",
@@ -854,15 +854,15 @@ export const QUESTION_CATALOG = [
     "section": "Urogenitální trakt",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Zobrazování onemocnění odvodných močových cest (urolitiáza, uoteliální nádory)?",
+    "question": "MR prsu je indikována jako screeningová metoda u:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Žen s vysokým rizikem karcinomu prsu (BRCA1/2 mutace, celoživotní riziko > 20%) jako doplněk mamografie",
+      "Všech žen nad 40 let místo mamografie (vyšší senzitivita, nižší specificita)",
+      "Žen s kochleárním implantátem jako alternativa UZ",
+      "Hodnocení odpovědi na neoadjuvantní chemoterapii (CT je výhodnější)"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Zobrazování onemocnění odvodných močových cest (urolitiáza, uoteliální nádory)' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "MR prsu: high-risk screening (BRCA+, ≥ 20% celoživotní riziko) + mamografie. Senzitivita > 90% pro invazivní karcinom, ale nízká specificita → více biopsií benigních lézí. Zlatý standard pro: staging po diagnóze, hodnocení prsních implantátů, neoadjuvantní terapie."
   },
   {
     "id": "radiology:radio-25:1",
@@ -872,15 +872,15 @@ export const QUESTION_CATALOG = [
     "section": "Urogenitální trakt",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Zobrazování onemocnění mužských pohlavních orgánů (prostata, varlata, skrotum)?",
+    "question": "Zóna přechodu ('zone of transition') u kostní léze na RTG vyjadřuje:",
     "options": [
-      "Obvykle začínáme metodami jako Multiparametrická MR (mpMRI) podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Ostrost hranice léze s okolní kostí – úzká zóna = benigní (osteoklastom); široká geografická = agresivní/maligní",
+      "Přechod kortikalis na spongiózní kost v místě léze",
+      "Velikost léze přesahující epifýzu a metafýzu",
+      "Hloubku periosteální reakce v milimetrech"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Zobrazování onemocnění mužských pohlavních orgánů (prostata, varlata, skrotum)' volíme modalitu 'Multiparametrická MR (mpMRI)' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "Zóna přechodu je nejdůležitější RTG parametr kostní léze: Ia (geografická, sklerotická hranice = benigní, pomalý růst), Ib (bez sklerózy), Ic (difuzní, neostřá = agresivní). Permeativní (III) pattern = maligní (Ewing, myelom)."
   },
   {
     "id": "radiology:radio-25:2",
@@ -890,15 +890,15 @@ export const QUESTION_CATALOG = [
     "section": "Urogenitální trakt",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Zobrazování onemocnění mužských pohlavních orgánů (prostata, varlata, skrotum)?",
+    "question": "Codmanův trojúhelník (Codman triangle) na RTG je příznakem:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Agresivní periosteální reakce při maligním tumoru (periost odliftován od kosti tumorem, na okraji tvoří trojúhelník)",
+      "Benigního osteomu s hladkou kostní kapslí",
+      "Stresové fraktury tibiae u mladých sportovců",
+      "Enchondromu s endosteálními kalcifikacemi"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Zobrazování onemocnění mužských pohlavních orgánů (prostata, varlata, skrotum)' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "Codmanův trojúhelník = elevace periostu na okraji agresivní léze (osteosarkom, Ewingův sarkom). Tvoří se, protože tumor roste rychleji, než periost stíhá reagovat. Spolu s 'sunburst pattern' svědčí pro osteosarkom."
   },
   {
     "id": "radiology:radio-26:1",
@@ -908,15 +908,15 @@ export const QUESTION_CATALOG = [
     "section": "Urogenitální trakt",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Zobrazování onemocnění ženských pohlavních orgánů a zobrazování v těhotenství?",
+    "question": "Osteomyelitida na RTG je viditelná nejdříve za:",
     "options": [
-      "Obvykle začínáme metodami jako UZ (transabdominální, transvaginální) podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "7–14 dní od začátku infekce (RTG zpočátku normální, MR nebo scintigrafie detekuje dříve)",
+      "24–48 hodin od začátku infekce",
+      "6 týdnů (teprve po chronifikaci)",
+      "Je okamžitě viditelná jako periostální reakce a destrukce kortikalis"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Zobrazování onemocnění ženských pohlavních orgánů a zobrazování v těhotenství' volíme modalitu 'UZ (transabdominální, transvaginální)' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "RTG osteomyelitida: zpočátku normální (10–14 dní). Pak: lytická destrukce spongiózní kosti, destrukce kortikalis, periosteální reakce. MR: okamžitý průkaz (edém dřeně = ↓ T1, ↑ T2/STIR, Gd enhancement). MR/scintigrafie = raná diagnostika."
   },
   {
     "id": "radiology:radio-26:2",
@@ -926,15 +926,15 @@ export const QUESTION_CATALOG = [
     "section": "Urogenitální trakt",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Zobrazování onemocnění ženských pohlavních orgánů a zobrazování v těhotenství?",
+    "question": "Spondylodiscitida na MR se projevuje:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Snížením signálu obratlů na T1, zvýšením na T2/STIR + sycením obratlového těla a disku po Gd, destrukce ploténky",
+      "Zvýšením signálu obratlů na T1 bez sycení (= tuková degenerace = Modic typ II, benigní)",
+      "Izolovanou destrukcí příčných výběžků obratlů bez postižení disku",
+      "Stenózou páteřního kanálu bez postižení obratlových těl"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Zobrazování onemocnění ženských pohlavních orgánů a zobrazování v těhotenství' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "Spondylodiscitida MR: ↓ T1 + ↑ T2 postižených obratlových těl a disku → enhancement po Gd. Destrukce meziobratlové ploténky je klíčový příznak (TB i pyogenní). Epidurální absces = urgentní (komprese míchy). CT: destrukce kostí, plánování biopsie."
   },
   {
     "id": "radiology:radio-27:1",
@@ -944,15 +944,15 @@ export const QUESTION_CATALOG = [
     "section": "Urogenitální trakt",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Zobrazování onemocnění prsu (mamografie, UZ, MR prsů)?",
+    "question": "Osteosarkom se nejčastěji vyskytuje v:",
     "options": [
-      "Obvykle začínáme metodami jako Mamografie (MG) podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Metafýze dlouhých kostí u adolescentů (distální femur > proximální tibia > proximální humerus)",
+      "Epifýze krátkých kostí u dospělých nad 50 let",
+      "Diafýze obratlů u starších pacientů",
+      "Lebečních kostech u dětí do 5 let"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Zobrazování onemocnění prsu (mamografie, UZ, MR prsů)' volíme modalitu 'Mamografie (MG)' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "Osteosarkom: nejčastější primární maligní kostní tumor u adolescentů (10–20 let). Predilekce: metafýza distálního femuru (~ 40%), proximální tibia, proximální humerus. RTG: osteolytická nebo smíšená léze, Codmanův trojúhelník, sunburst pattern, prolomení kortikalis."
   },
   {
     "id": "radiology:radio-27:2",
@@ -962,15 +962,15 @@ export const QUESTION_CATALOG = [
     "section": "Urogenitální trakt",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Zobrazování onemocnění prsu (mamografie, UZ, MR prsů)?",
+    "question": "Mnohočetný myelom se na RTG skeletu projevuje jako:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Difuzní punched-out lytická ložiska bez sklerotického lemu (lebka, páteř, pánev, žebra)",
+      "Smíšená osteolytická i osteoblastická ložiska (typické pro metastázy prostaty)",
+      "Difuzní zvýšená denzita skeletu (osteosklerotický myelom – vzácný POEMS syndrom)",
+      "Periostální reakce s expanzí kortikalis (typické pro sarkomy, ne myelom)"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Zobrazování onemocnění prsu (mamografie, UZ, MR prsů)' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "Myelom RTG: diskrétní punched-out lytická ložiska bez sklerotického okraje (na rozdíl od metastáz). Lebka – dutiny kulkového průstřelu. PET/CT nebo celotělová MR: staging a sledování léčby (senzitivnější než RTG). Scintigrafie kosti má nízkou senzitivitu u myelomu!"
   },
   {
     "id": "radiology:radio-28:1",
@@ -980,15 +980,15 @@ export const QUESTION_CATALOG = [
     "section": "Muskuloskeletální systém",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Obecné projevy kostních onemocnění v RTG obraze?",
+    "question": "Artróza (osteoartróza) na RTG se projevuje klasickou triádou:",
     "options": [
-      "Obvykle začínáme metodami jako RTG podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Zúžení kloubní štěrbiny + subchondrální skleróza + osteofyty (okrajové kostní přírůstky)",
+      "Periartrikulární osteoporóza + subchondrální eroze + ankylóza (typické pro RA)",
+      "Kalcifikace periartikulárních tkání + tophi + destrukce epifýzy (typické pro dnu)",
+      "Zúžení kloubní štěrbiny + osteoporóza + bambusová páteř (ankylozující spondylitida)"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Obecné projevy kostních onemocnění v RTG obraze' volíme modalitu 'RTG' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "Artróza RTG triáda: (1) nerovnoměrné zúžení kloubní štěrbiny (ztráta chrupavky), (2) subchondrální skleróza (eburnace), (3) osteofyty (spondylofyty u páteře). Subchondrální cysty = Geröderovy cysty. RA: periartrikulární osteoporóza, eroze, bez osteofytů."
   },
   {
     "id": "radiology:radio-28:2",
@@ -998,15 +998,15 @@ export const QUESTION_CATALOG = [
     "section": "Muskuloskeletální systém",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Obecné projevy kostních onemocnění v RTG obraze?",
+    "question": "Revmatoidní artritida (RA) na RTG rukou – nejčasnější příznak:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Periartrikulární osteoporóza + zúžení MCP/PIP kloubů + okrajové eroze (zejm. 2.–3. MCP)",
+      "Subchondrální skleróza a osteofyty (typické pro artrózu, ne RA)",
+      "Destrukce DIP kloubů s pencil-in-cup deformitou (typické pro psoriatickou artritidu)",
+      "Kalcifikace šlach a burs (typické pro CPPD nebo dnu)"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Obecné projevy kostních onemocnění v RTG obraze' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "RA RTG progrese: 1) periartikulární osteoporóza (nejčasněji), 2) zúžení kloubní štěrbiny, 3) okrajové eroze (subchondrálně), 4) mutilující artritida (arthritis mutilans). DIP nezasaženy (narozdíl od psoriatické artritidy). MR: průkaz synovitidy i před RTG změnami."
   },
   {
     "id": "radiology:radio-29:1",
@@ -1016,15 +1016,15 @@ export const QUESTION_CATALOG = [
     "section": "Muskuloskeletální systém",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Zobrazování kostních a kloubních zánětů (osteomyelitida, artritida, spondylodiscitida)?",
+    "question": "Salter-Harris klasifikace dětských epifyzárních fraktur – typ II (nejčastější) zahrnuje:",
     "options": [
-      "Obvykle začínáme metodami jako RTG podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Frakturu přes růstovou ploténku (fyzu) + fragment metafýzy (Thurston-Holland fragment) – prognóza dobrá",
+      "Izolovanou frakturu přes fyzu bez kostního fragmentu (typ I – riziko poruchy růstu)",
+      "Frakturu procházející fyzou a epifýzou do kloubní plochy (typ III – riziko poruchy růstu)",
+      "Kompresivní frakturu fyzy (typ V – nejhorší prognóza, riziko předčasného uzávěru)"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Zobrazování kostních a kloubních zánětů (osteomyelitida, artritida, spondylodiscitida)' volíme modalitu 'RTG' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "Salter-Harris: I = přes fyzu; II = fyza + metafýza (nejčastější, ~ 75%, dobrá prognóza); III = fyza + epifýza (zasahuje kloub); IV = fyza + metafýza + epifýza; V = komprese fyzy (SALTER: S=I, A=II, L=III, T=IV, E=V, R=common). Typy III–V mají riziko poruchy růstu."
   },
   {
     "id": "radiology:radio-29:2",
@@ -1034,15 +1034,15 @@ export const QUESTION_CATALOG = [
     "section": "Muskuloskeletální systém",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Zobrazování kostních a kloubních zánětů (osteomyelitida, artritida, spondylodiscitida)?",
+    "question": "NEXUS kritéria pro CT krční páteře po traumatu indikují CT, pokud:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Pacient nesplňuje VŠECHNA nízká-riziková kritéria (bez fokálního deficitu, bez bolesti páteře, bez poruch vědomí, bez intoxikace, bez rozptylující bolesti)",
+      "Pacient je zcela asymptomatický s GCS 15 a bez bolesti krku",
+      "Je přítomna pouze boční bolest krku bez poruchy vědomí nebo intoxikace",
+      "Věk pacienta je nad 65 let bez dalšího klinického hodnocení"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Zobrazování kostních a kloubních zánětů (osteomyelitida, artritida, spondylodiscitida)' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "NEXUS: Pokud pacient splňuje VŠECH 5 low-risk kritérií → CT není nutné. KT = abnormal alertness, focal neurologic deficit, tenderness midline, intoxication, painful distracting injury. Kanadská pravidla C-spine jsou alternativou."
   },
   {
     "id": "radiology:radio-30:1",
@@ -1052,15 +1052,15 @@ export const QUESTION_CATALOG = [
     "section": "Muskuloskeletální systém",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Zobrazování kostních nádorů (benigní, maligní a metastázy)?",
+    "question": "CT mozku bez KL je metodou první volby v jakém urgentním neurologickém případě a proč?",
     "options": [
-      "Obvykle začínáme metodami jako RTG podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Suspektní subarachnoidální krvácení (SAK) – rychlá detekce akutní krve v bazálních cisternách (hyperintenzita na CT bez KL)",
+      "Suspektní demyelinizační plaky (RS) – MR je výrazně senzitivnější",
+      "Diagnostika nitrokranialních nádorů – MR s KL je zlatý standard",
+      "Ischemická CMP v prvních hodinách – DWI sekvence MR je senzitivnější pro akutní ischemii"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Zobrazování kostních nádorů (benigní, maligní a metastázy)' volíme modalitu 'RTG' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "CT mozku bez KL: urgentní = krvácení (hyperdenzita). SAK: krev v bazálních cisternách (hyperintenzní v prvních 12–24 h). ICH: hyperdenzní hematom. Ischemická CMP v prvních hodinách → CT normální nebo subtilní změny; DWI-MR senzitivnější (ale pomalejší/méně dostupné)."
   },
   {
     "id": "radiology:radio-30:2",
@@ -1070,15 +1070,15 @@ export const QUESTION_CATALOG = [
     "section": "Muskuloskeletální systém",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Zobrazování kostních nádorů (benigní, maligní a metastázy)?",
+    "question": "DWI (Diffusion Weighted Imaging) sekvence MR zobrazuje akutní ischemii mozku jako:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Hyperintenzní oblast (světlá) v DWI + hypointenzní na ADC mapě (restrikce difuze vody) = časná ischemie do minut",
+      "Hypointenzní lézi v DWI s hyperintenzitou na T2 = chronická ischemie",
+      "Rovnoměrně hyperintenzní oblast ve všech sekvencích bez omezení difuze",
+      "Normální DWI signál, ischemie je viditelná pouze na FLAIR sekvenci"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Zobrazování kostních nádorů (benigní, maligní a metastázy)' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "Akutní ischemie: cytotoxický edém → restrikce difuze vody → DWI hyperintenzní + ADC hypointenzní. Viditelné do minut. FLAIR pozitivní po ~ 6–12 h (DWI+/FLAIR- = ischemie < 4,5 h = okno pro trombolýzu). Chronická ischemie: T2 hyperintenzní, DWI normální."
   },
   {
     "id": "radiology:radio-31:1",
@@ -1088,15 +1088,15 @@ export const QUESTION_CATALOG = [
     "section": "Muskuloskeletální systém",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Obecné projevy kloubních onemocnění v RTG obraze?",
+    "question": "Subarachnoidální krvácení (SAK) – nejčastější příčina spontánního SAK je:",
     "options": [
-      "Obvykle začínáme metodami jako RTG podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Ruptura intrakraniálního aneuryzmatu (80–85% spontánních SAK)",
+      "Arteriální hypertenze (hypertenzní krvácení = typicky do bazálních ganglií, ne SAK)",
+      "Arteriovenózní malformace (AVM) – vzácnější příčina SAK",
+      "Koagulopatie nebo antikoagulační terapie"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Obecné projevy kloubních onemocnění v RTG obraze' volíme modalitu 'RTG' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "SAK: hladina distribuce krve závisí na lokalizaci aneuryzmatu. Detekce: nativní CT (první 12–24 h), LP (xanthochromie, pokud CT negativní). CTA/DSA: lokalizace aneuryzmatu. Komplikace: re-krvácení, vazospasmus (3.–14. den), hydrocefalus."
   },
   {
     "id": "radiology:radio-31:2",
@@ -1106,15 +1106,15 @@ export const QUESTION_CATALOG = [
     "section": "Muskuloskeletální systém",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Obecné projevy kloubních onemocnění v RTG obraze?",
+    "question": "CT angiografie mozku (CTA) nebo MR angiografie (MRA) jsou indikovány u:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Detekce intrakraniálních aneuryzmat, AVM, vaskulárních malformací a posouzení kolaterálního průtoku při CMP",
+      "Hodnocení myelin­izace mozku u dětí (MR T2 = zlatý standard)",
+      "Primárního stagingu mozkových nádorů (MR s KL výhodnější než CTA)",
+      "Měření intrakraniálního tlaku (ICP) – to vyžaduje přímé invazivní monitorování"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Obecné projevy kloubních onemocnění v RTG obraze' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "CTA mozku: rychlá (dostupná 24/7), detekce aneuryzmat > 3 mm, zobrazení Willisova okruhu. MRA (bez záření): Flow TOF nebo kontrastní MRA. CTA = zlatý standard urgentní angiografie. DSA: zlatý standard pro přesné zobrazení a terapii (coiling, clipping)."
   },
   {
     "id": "radiology:radio-32:1",
@@ -1124,15 +1124,15 @@ export const QUESTION_CATALOG = [
     "section": "Muskuloskeletální systém",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Zobrazování degenerativních a zánětlivých onemocnění kloubů (artróza, revmatoidní artritida, dna)?",
+    "question": "Epidurální hematom (EDH) se na CT projevuje jako:",
     "options": [
-      "Obvykle začínáme metodami jako RTG podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Bikonvexní (čočkovitá) hyperintenzní kolekce mezi kostí a durou – nepřekračuje suturní linie, typicky arteriální (a. meningea media)",
+      "Srpkovitá (konkávní) hyperdenzní kolekce kopírující povrch hemisféry = subdurální hematom",
+      "Přímá lacerace mozkové tkáně = mozková kontuze (hyperdenzní fokusy)",
+      "Difuzní axonální poranění (DAI) = typicky mikrohemoragie na rozhraní šedi a bílé hmoty"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Zobrazování degenerativních a zánětlivých onemocnění kloubů (artróza, revmatoidní artritida, dna)' volíme modalitu 'RTG' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "EDH: bikonvexní (lenticular) hyperintenzní kolekce, nepřesahuje sutury (periost = vnitřní vrstva dury na švech). Zdroj: a. meningea media (temporálně). Lucid interval → deteriorace. SDH: srpkovitý, překračuje sutury, kopíruje povrch mozku."
   },
   {
     "id": "radiology:radio-32:2",
@@ -1142,15 +1142,15 @@ export const QUESTION_CATALOG = [
     "section": "Muskuloskeletální systém",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Zobrazování degenerativních a zánětlivých onemocnění kloubů (artróza, revmatoidní artritida, dna)?",
+    "question": "Subdurální hematom (SDH) na CT – akutní vs. chronický:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Akutní SDH: hyperintenzní (krev > 60 HU); chronický SDH: hypodenzní (< 35 HU, izodenzní v subakutní fázi – obtížná diagnóza)",
+      "Akutní SDH: hypodenzní (krev je čerstvá a světlá); chronický: hyperintenzní (krev se sráží)",
+      "Na CT nelze odlišit akutní od chronického SDH bez kontrastní látky",
+      "Akutní i chronický SDH jsou vždy izodenzní s mozkem"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Zobrazování degenerativních a zánětlivých onemocnění kloubů (artróza, revmatoidní artritida, dna)' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "Denzita SDH závisí na stáří krve: Akutní (< 7 dní): hyperdenzní (55–85 HU). Subakutní (7–21 dní): izodenzní (obtížná diagnóza, nutno hledat mediální shift). Chronický (> 3 týdny): hypodenzní (< 35 HU). MR: průkaz izodenzního subakutního SDH."
   },
   {
     "id": "radiology:radio-33:1",
@@ -1160,15 +1160,15 @@ export const QUESTION_CATALOG = [
     "section": "Muskuloskeletální systém",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Zobrazování traumat kostí a kloubů (zlomeniny, dislokace, luxace, hojení)?",
+    "question": "Glioblastom (GBM, WHO grade 4) na MR s KL se typicky zobrazuje jako:",
     "options": [
-      "Obvykle začínáme metodami jako RTG podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Heterogenní masa s prstencovitým sycením (ring enhancement) + centrální nekróza + perifokální edém + mass effect",
+      "Homogenně sytící se extra-axiální masa adherentní k dura mater (= meningeom)",
+      "Kulatá, dobře ohraničená, homogenně sytící se extra-axiální masa v mostomozečkovém koutu (= vestibulární schwannom)",
+      "Malá tečkovitá ložiska hyperdenzity na DWI bez perifokálního edému (= metastázy)"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Zobrazování traumat kostí a kloubů (zlomeniny, dislokace, luxace, hojení)' volíme modalitu 'RTG' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "GBM: infiltrující intra-axiální tumor, central nekróza, periferní ring enhancement (nekrotický nádor), masivní perifokální edém, mass effect s herniací. DWI: variabilní. MRS: snížení NAA, zvýšení Cho/kreatin. Meningeom: extra-axiální, homogenní, dural tail."
   },
   {
     "id": "radiology:radio-33:2",
@@ -1178,15 +1178,15 @@ export const QUESTION_CATALOG = [
     "section": "Muskuloskeletální systém",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Zobrazování traumat kostí a kloubů (zlomeniny, dislokace, luxace, hojení)?",
+    "question": "Vestibulární schwannom (akustický neurinoma) – MR nález:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Kulatý dobře ohraničený extra-axiální tumor v mostomozečkovém koutu (CP angle), sytí se Gd, rozšiřuje vnitřní sluchový kanál",
+      "Intra-axiální infiltrativní léze mozečku bez ohraničení",
+      "Kalcifikovaná extra-axiální léze bez sycení (= meningeom s kalcifikacemi)",
+      "Bilaterální symetrická ložiska mostomozečkového koutku = normální nález"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Zobrazování traumat kostí a kloubů (zlomeniny, dislokace, luxace, hojení)' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "Schwannom n. VIII (vestibulárního): CP angle, rozšíření ipsilaterálního IAC (vnitřní sluchový kanál), ice cream cone shape (rozšíření do IAC), homogenní/heterogenní sycení Gd. NF2: bilaterální schwannomy = patognomický nález. Léčba: sledování, operace, SRS (Gamma Knife)."
   },
   {
     "id": "radiology:radio-34:1",
@@ -1196,15 +1196,15 @@ export const QUESTION_CATALOG = [
     "section": "Neuroradiologie a páteř",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Zobrazovací metody v neuroradiologii (CT, MR mozku, sekvence)?",
+    "question": "Roztroušená skleróza (RS) – typické MR příznaky zahrnují:",
     "options": [
-      "Obvykle začínáme metodami jako Nativní CT mozku podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Periventrikulární ovoidní T2/FLAIR hyperintenzní léze (Dawsonovy prsty), orientované kolmo na komory + infratentoriální + spinální léze",
+      "Difuzní symetrická T2 hyperintenzita bílé hmoty bez periventrikulárního predilekčního postižení",
+      "Lobulárně ohraničené kortikální léze s výrazným edémem (= metastázy nebo absces)",
+      "Izolované postižení šedé hmoty bez lézí bílé hmoty"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Zobrazovací metody v neuroradiologii (CT, MR mozku, sekvence)' volíme modalitu 'Nativní CT mozku' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "RS (McDonald criteria): léze v čase a prostoru. MR T2/FLAIR: periventrikulární (Dawsonovy prsty = kolmo na komory), juxtakortikální, infratentoriální, spinální. Aktivní léze = Gd enhancement (T1). Primárně progresivní RS: spinální forma bez zánětlivých ložisek."
   },
   {
     "id": "radiology:radio-34:2",
@@ -1214,15 +1214,15 @@ export const QUESTION_CATALOG = [
     "section": "Neuroradiologie a páteř",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Zobrazovací metody v neuroradiologii (CT, MR mozku, sekvence)?",
+    "question": "Při podezření na encefalitidu je zobrazovací metodou první volby:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "MR mozku s KL (T2/FLAIR + DWI) – detekuje edém a nekrózu časněji a přesněji než CT",
+      "Nativní CT (rychlejší, ale méně senzitivní pro časné změny edému)",
+      "PET mozku s FDG (zlatý standard pro encefalitidu)",
+      "DSA mozkových tepen (pro průkaz vaskulitidy)"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Zobrazovací metody v neuroradiologii (CT, MR mozku, sekvence)' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "Encefalitida (HSV herpetická): T2/FLAIR hyperintenzita temporálních lalků + limbické struktury, DWI restrikce při nekróze. CT zpočátku normální nebo diskrétní. MR s Gd: meningeální enhancement. HSV encefalitida léčit acyklovirem PŘED MR výsledky při klinické suspekci."
   },
   {
     "id": "radiology:radio-35:1",
@@ -1232,15 +1232,15 @@ export const QUESTION_CATALOG = [
     "section": "Neuroradiologie a páteř",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Zobrazování ischemických cévních mozkových příhod a možnosti léčby?",
+    "question": "Indikace pro CT páteře po úrazu dle kritérií NEXUS / Canadian C-Spine rule – co je high-risk příznak vyžadující CT?",
     "options": [
-      "Obvykle začínáme metodami jako Nativní CT podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Věk > 65 let, nebezpečný mechanismus úrazu (pád > 1 m, vysokorychlostní), parestezie v končetinách, GCS < 15",
+      "Izolovaná bolestivost paravertebrálních svalů bez neurologického deficitu a GCS 15",
+      "Bolest hlavy bez krční bolesti po malém traumatu",
+      "Pohyblivost krční páteře > 45° bez bolesti (nízké riziko)"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Zobrazování ischemických cévních mozkových příhod a možnosti léčby' volíme modalitu 'Nativní CT' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "High-risk faktory pro CT páteře: věk > 65 let, nebezpečný mechanismus (pád z výšky > 1 m, skoky do vody, dopravní nehody > 100 km/h), parestezie. Pokud přítomny → CT nutné bez dalšího klinického hodnocení. Low-risk: jednoduchý náraz, oddálená bolest."
   },
   {
     "id": "radiology:radio-35:2",
@@ -1250,15 +1250,15 @@ export const QUESTION_CATALOG = [
     "section": "Neuroradiologie a páteř",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Zobrazování ischemických cévních mozkových příhod a možnosti léčby?",
+    "question": "MR páteře je preferována nad CT pro zobrazení:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Míšních lézí, epidurálního abscesu, herniací disku, myelopatie, spondylodiscitidy (MR = zlatý standard pro měkké tkáně)",
+      "Akutních zlomenin obratlů (CT lépe zobrazí fragmenty a soudržnost kortikalis)",
+      "Kalcifikací disku a osteofytů (CT senzitivnější pro kalcifikace)",
+      "Cévní zásobení míchy (MRA míchy = druhá volba po DSA)"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Zobrazování ischemických cévních mozkových příhod a možnosti léčby' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "MR páteře = zlatý standard pro měkké tkáně páteřního kanálu: mícha, kořeny, disky, epidurální prostor. T2: herniace disku (hypointenzní disk), myelopatie (T2 hyperintenzita míchy), EDH/EAH. CT: kostní fragmenty, spondylolistéza, kalcifikace, plánování chirurgie."
   },
   {
     "id": "radiology:radio-36:1",
@@ -1268,15 +1268,15 @@ export const QUESTION_CATALOG = [
     "section": "Neuroradiologie a páteř",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Zobrazování hemoragických cévních mozkových příhod (intracerebrální krvácení, SAK, aneurysmata)?",
+    "question": "Herniace meziobratlového disku (HNP) na MR se projevuje:",
     "options": [
-      "Obvykle začínáme metodami jako Nativní CT podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Posterolaterálním nebo centrálním výhřezem hypointenzního diskového materiálu na T2 do páteřního kanálu s kompresí nervového kořene nebo míchy",
+      "Difuzním sycením ploténky po Gd (= spondylodiscitida, ne herniace)",
+      "Hyperintenzitou ploténky na T1 s expanzivním charakterem (= lipom)",
+      "Kalcifikací ploténky na T2 (= CPPD depozita, lépe viditelná na CT)"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Zobrazování hemoragických cévních mozkových příhod (intracerebrální krvácení, SAK, aneurysmata)' volíme modalitu 'Nativní CT' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "HNP MR: T2 hypointenzní disk (dehydratace), výhřez do páteřního kanálu nebo foramen. Terminologie: protrúze (< 50% obvodu), extruze (> 50%), sekvestr (odloučeno). Komprese S1: bolest radiující do paty. L4: patelární reflex. Kauda equina syndrom = urgentní MR."
   },
   {
     "id": "radiology:radio-36:2",
@@ -1286,15 +1286,15 @@ export const QUESTION_CATALOG = [
     "section": "Neuroradiologie a páteř",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Zobrazování hemoragických cévních mozkových příhod (intracerebrální krvácení, SAK, aneurysmata)?",
+    "question": "Spinální stenóza na MR je hodnocena dle průměru páteřního kanálu a:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Komprese míchy / nervového kořene (myelomalacie = T2 hyperintenzita míchy), neurogenní klaudikace = stenóza",
+      "Délky ploténky (delší ploténka = větší riziko stenózy)",
+      "Výšky obratlového těla (nižší obratel = stenóza)",
+      "Přítomnosti kalcifikací v zadním podélném vazu (DISH – spondylosis hyperostotica)"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Zobrazování hemoragických cévních mozkových příhod (intracerebrální krvácení, SAK, aneurysmata)' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "Spinální stenóza L4/L5: zúžení páteřního kanálu (osteofyty, hypertrofie lig. flavum, HNP). Klinicky: neurogenní klaudikace (bolest DK při chůzi, úleva v předklonu). MR: průměr kanálu, komprese nervů, myelomalacie (T2 signál = ireverzibilní poškození míchy)."
   },
   {
     "id": "radiology:radio-37:1",
@@ -1304,15 +1304,15 @@ export const QUESTION_CATALOG = [
     "section": "Neuroradiologie a páteř",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Zobrazování kraniocerebrálních poranění (epidurální a subdurální hematom, kontuze, edém)?",
+    "question": "Vertebroplastika / kyfoplastika je indikována při:",
     "options": [
-      "Obvykle začínáme metodami jako Nativní CT mozku podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Patologické nebo osteoporotické kompresivní fraktuře obratle s bolestí refrakterní na konzervativní terapii",
+      "Herniaci meziobratlového disku způsobující radikulopatii",
+      "Spondylodiscitidě (absolutní KI pro vertebroplastiku při aktivní infekci)",
+      "Metastatickém postižení bez bolesti jako profylaktická fixace"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Zobrazování kraniocerebrálních poranění (epidurální a subdurální hematom, kontuze, edém)' volíme modalitu 'Nativní CT mozku' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "Vertebroplastika = perkutánní injekce kostního cementu (PMMA) pod skiaskopií/CT do kompresivní fraktury. Kyfoplastika = balon-asistovaná (obnovuje výšku obratle). Indikace: osteoporotické nebo metastatické kompresivní fraktury s bolestí. KI: infekce, koagulopatie, nespolupracující pacient."
   },
   {
     "id": "radiology:radio-37:2",
@@ -1322,15 +1322,15 @@ export const QUESTION_CATALOG = [
     "section": "Neuroradiologie a páteř",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Zobrazování kraniocerebrálních poranění (epidurální a subdurální hematom, kontuze, edém)?",
+    "question": "Páteřní nádory – který nádor je nejčastější příčinou epidurální komprese míchy?",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Metastázy (karcinom prsu, plic, prostaty, ledviny) >> primární spinální tumory (ependymom, astrocytom, meningeom)",
+      "Primární spinální meningeom (nejčastější spinální tumor dospělých)",
+      "Ependymom míchy (nejčastější intramedullární tumor dospělých)",
+      "Dermoidní cysta (nejčastější u dětí v lumbální oblasti)"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Zobrazování kraniocerebrálních poranění (epidurální a subdurální hematom, kontuze, edém)' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "Epidurální komprese: metastázy >> primární tumory. Nejčastěji: karcinom plic, prsu, prostaty, ledviny. MR: epidurální masa komprimující míchu, T1 snížení v obratlích, Gd enhancement. Urgentní terapie: kortikosteroidy + radioterapie ± chirurgie."
   },
   {
     "id": "radiology:radio-38:1",
@@ -1340,15 +1340,15 @@ export const QUESTION_CATALOG = [
     "section": "Neuroradiologie a páteř",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Zobrazování intrakraniálních nádorů (gliomy, meningeomy, vestibulární schwannom, metastázy)?",
+    "question": "DSA (Digitální Subtrakční Angiografie) je zlatým standardem pro zobrazení cév, protože:",
     "options": [
-      "Obvykle začínáme metodami jako MR s gadoliniem podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Umožňuje dynamické zobrazení průtoku kontrastem v reálném čase s nejvyšším prostorovým rozlišením a přímou terapii (PTA, stenting, embolizace)",
+      "Je to neinvazivní metoda bez nutnosti arteriálního přístupu",
+      "Je výhradně diagnostická bez terapeutického potenciálu",
+      "Nepotřebuje kontrastní látku – jen fyzikální magnetické pole"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Zobrazování intrakraniálních nádorů (gliomy, meningeomy, vestibulární schwannom, metastázy)' volíme modalitu 'MR s gadoliniem' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "DSA: invazivní (arteriální přístup, nejčastěji a. femoralis/radialis), selektivní katetrizace tepen, aplikace KL, digitální subtrakce pozadí → čistá angiografie. Zlatý standard pro přesné zobrazení i terapii (PTA, stenting, embolizace, trombektomie)."
   },
   {
     "id": "radiology:radio-38:2",
@@ -1358,15 +1358,15 @@ export const QUESTION_CATALOG = [
     "section": "Neuroradiologie a páteř",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Zobrazování intrakraniálních nádorů (gliomy, meningeomy, vestibulární schwannom, metastázy)?",
+    "question": "CTA (CT angiografie) vs. MRA (MR angiografie) – hlavní výhoda MRA bez kontrastní látky (TOF metoda) je:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Absence ionizujícího záření a jodové KL – vhodné pro těhotné, děti, pacienty s alergií na jód",
+      "Lepší prostorové rozlišení než CTA pro periferní cévní řečiště",
+      "Kratší doba vyšetření než CTA (MRA trvá méně než 1 minuta)",
+      "Zobrazení kalcifikací cévní stěny (CT výhodnější pro kalcifikace)"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Zobrazování intrakraniálních nádorů (gliomy, meningeomy, vestibulární schwannom, metastázy)' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "MRA TOF (Time of Flight) = průtok krve do slicí přináší magnetizaci → hyperintenzní cévy bez KL. Výhoda: bez záření, bez jodové KL. Nevýhoda: artefakty v turbulentním toku, delší akvizice. CTA: rychlejší, lepší PVR pro periferní cévy, lépe zobrazí kalcifikace."
   },
   {
     "id": "radiology:radio-39:1",
@@ -1376,15 +1376,15 @@ export const QUESTION_CATALOG = [
     "section": "Neuroradiologie a páteř",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Zobrazování zánětů CNS a demyelinizačních onemocnění (roztroušená skleróza, encefalitida, absces)?",
+    "question": "Příprava pacienta před angiografickým výkonem zahrnuje povinně:",
     "options": [
-      "Obvykle začínáme metodami jako MR mozku a míchy (FLAIR, DWI, T1+KL) podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Renální parametry (kreatinin, GFR), koagulace (INR, APTT, trombocyty), souhlas pacienta, lačnění 4–6 h, hydratace u CKD",
+      "Pouze zjištění krevní skupiny a křížovou zkoušku",
+      "EKG a kardiologická konzultace vždy bez ohledu na riziko",
+      "Vysazení metforminu 48 h před výkonem není nutné (doporučení z roku 2020 toto upustilo)"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Zobrazování zánětů CNS a demyelinizačních onemocnění (roztroušená skleróza, encefalitida, absces)' volíme modalitu 'MR mozku a míchy (FLAIR, DWI, T1+KL)' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "Příprava pre-angiografie: anamnéza alergií (KL, jód), renální funkce (GFR), koagulace (INR < 1,5, TP > 50), souhlas pacienta, lačnění, hydratace (kontrastnefropatie prevence). Metformin: vysadit 48 h před (riziko laktátové acidózy). Antikoagulancia dle protokolu."
   },
   {
     "id": "radiology:radio-39:2",
@@ -1394,15 +1394,15 @@ export const QUESTION_CATALOG = [
     "section": "Neuroradiologie a páteř",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Zobrazování zánětů CNS a demyelinizačních onemocnění (roztroušená skleróza, encefalitida, absces)?",
+    "question": "Hematom v třísle po angiografii z arterie femoralis se řeší:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Manuální kompresí (nebo mechanická komprese) 10–20 minut, uzavírací systémy (Angio-Seal, Perclose); pseudoaneurysma → US-komprese nebo trombin injekce",
+      "Okamžitou chirurgickou revizí pro každý palpovatelný hematom",
+      "Antikoagulační terapií k prevenci trombózy hematom",
+      "Je vždy benigní a nevyžaduje žádnou intervenci"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Zobrazování zánětů CNS a demyelinizačních onemocnění (roztroušená skleróza, encefalitida, absces)' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "Po angiografii: hematom v třísle – komprese arterie min. 10–15 min. Uzavírací systémy (Angio-Seal, Perclose ProGlide) zkracují dobu komprese. Pseudoaneurysma = komplikace: US-komprese trombu nebo US-navigovaná injekce trombinu. Velký hematom = chirurgie."
   },
   {
     "id": "radiology:radio-40:1",
@@ -1412,15 +1412,15 @@ export const QUESTION_CATALOG = [
     "section": "Neuroradiologie a páteř",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Zobrazování úrazů páteře a míchy?",
+    "question": "Kritická stenóza arterie femoralis superficialis (AFS) na DSA je hemodynamicky signifikantní, pokud:",
     "options": [
-      "Obvykle začínáme metodami jako CT páteře podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Průsvit cévy je zúžen o > 70% průměru (nebo > 50% plochy průřezu) s poklesem tlakového gradientu",
+      "Je viditelný výplňkový defekt menší než 30% průsvitu cévy (hemodynamicky nevýznamná)",
+      "Jakákoliv stenóza bez ohledu na procento je chirurgická indikace",
+      "Stenóza je označena jako kritická pouze u symptomatických pacientů bez ohledu na procento"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Zobrazování úrazů páteře a míchy' volíme modalitu 'CT páteře' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "Hemodynamicky signifikantní stenóza: > 50% průměru (= > 75% plochy průřezu) nebo pokles ABI (ankle-brachial index) < 0,9. Kritická ischémie dolní končetiny: ABI < 0,4, klidové bolesti, trofické léze. Léčba: PTA ± stent (AFS), bypass chirurgicky."
   },
   {
     "id": "radiology:radio-40:2",
@@ -1430,15 +1430,15 @@ export const QUESTION_CATALOG = [
     "section": "Neuroradiologie a páteř",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Zobrazování úrazů páteře a míchy?",
+    "question": "Disekce aorty na CT s KL se zobrazí jako:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Intimální flap oddělující pravé (se zásobením tepen) a falešné lumen v aortě, s různou denzitou kontrastu",
+      "Aneuryzmální dilatace aorty bez membránového oddělení lumen",
+      "Vrstevnaté ztluštění aortální stěny (= intimální hematom, ale bez intimálního flapu)",
+      "Sycení trombu v aneuryzmatu aorty po aplikaci KL"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Zobrazování úrazů páteře a míchy' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "Disekce aorty: intimální flap = klíčový CT nález (odloučená intima). Stanford A: ascendentní aorta (urgentní chirurgie). Stanford B: descendentní (konzervativní nebo TEVAR). Falešné lumen: větší, pomalejší průtok, může trombovat. TEVAR = endovaskulární stentgraft."
   },
   {
     "id": "radiology:radio-41:1",
@@ -1448,15 +1448,15 @@ export const QUESTION_CATALOG = [
     "section": "Neuroradiologie a páteř",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Degenerativní onemocnění páteře (herniace disku, spinální stenóza, spondylóza)?",
+    "question": "PTA (perkutánní transluminální angioplastika) spočívá v:",
     "options": [
-      "Obvykle začínáme metodami jako MR páteře podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Balónovém rozdilatování stenózy nebo uzávěru cévy po přístupu drátkem přes arteriální sheath",
+      "Chirurgickém přemostění stenózy pomocí žilního nebo syntetického bypass štěpu",
+      "Farmakologickém rozpuštění trombu systemickou trombolýzou bez katetrizace",
+      "Laserovém ablaci aterosklerotického plátu endovaskulárně"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Degenerativní onemocnění páteře (herniace disku, spinální stenóza, spondylóza)' volíme modalitu 'MR páteře' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "PTA: katetrizace cévy → balónek průnik přes stenózu → inflace balónku (ATM tlak) → rozdilatování plátu. Stenting: implantace kovové výztuže. Drug-eluting stenty/balónky: antiproliferativní léčivo snižuje restenózu. Indikace: claudicatio, kritická ischemie, renovaskulární HT."
   },
   {
     "id": "radiology:radio-41:2",
@@ -1466,15 +1466,15 @@ export const QUESTION_CATALOG = [
     "section": "Neuroradiologie a páteř",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Degenerativní onemocnění páteře (herniace disku, spinální stenóza, spondylóza)?",
+    "question": "Mechanická trombektomie (MT) v léčbě ischemické CMP je indikována do:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "24 hodin od začátku příznaků u pacientů s okluzí velké cévy (LVO) a malým infarktem na DWI (dobré kolaterály, NIHSS ≥ 6)",
+      "48 hodin od začátku příznaků bez omezení na typ okluze nebo rozsah infarktu",
+      "Pouze do 6 hodin od začátku příznaků bez výjimky (extended window neplatí)",
+      "Výhradně u pacientů starších 65 let s kardioembolickým mechanismem"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Degenerativní onemocnění páteře (herniace disku, spinální stenóza, spondylóza)' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "MT indikace (ESO guidelines): okluze velké cévy (ICA, M1/M2 MCA, basilaris), do 24 h od začátku příznaků (extended window: DAWN, DEFUSE-3 studie), malý jádrový infarkt (DWI-ASPECTS > 6), NIHSS ≥ 6. Kombinace s i.v. alteplázou (pokud do 4,5 h od začátku)."
   },
   {
     "id": "radiology:radio-42:1",
@@ -1484,15 +1484,15 @@ export const QUESTION_CATALOG = [
     "section": "Neuroradiologie a páteř",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Zobrazování nádorů páteře a míchy?",
+    "question": "Embolizace hepatocelulárního karcinomu (TACE – transarteriální chemoembolizace) využívá:",
     "options": [
-      "Obvykle začínáme metodami jako MR páteře s kontrastem podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Selektivní katetrizaci hepatické arterie zásobující tumor + depozice chemoterapeutika (doxorubicin) v embolizačním médiu → ischemie + lokální chemoterapie",
+      "Systemickou chemoterapii bez katetrizace pro neoperabilní HCC",
+      "Embolizaci portální žíly (portal vein embolization) před resekcí jater",
+      "Ablaci tumoru radiofrekvenčními vlnami (RFA) přes perkutánní přístup"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Zobrazování nádorů páteře a míchy' volíme modalitu 'MR páteře s kontrastem' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "TACE: hepatická arterie zásobuje nádor (70% HCC z arterie, ne z portální žíly). Superselektivní katetrizace → chemoterapeutikum + lipiodol/mikrosféry → embolizace → lokální ischemie + cytotoxicita. Standard pro střední stadium (BCLC-B). SIRT (radioembolizace) = alternativa."
   },
   {
     "id": "radiology:radio-42:2",
@@ -1502,15 +1502,15 @@ export const QUESTION_CATALOG = [
     "section": "Neuroradiologie a páteř",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Zobrazování nádorů páteře a míchy?",
+    "question": "Embolizace při krvácení z bronchiálních arterií (hemoptýza) se indikuje:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "U masivní hemoptýzy (> 300 ml/24 h) ohrožující život, po identifikaci zdrojové arterie na CT-angiografii, jako bridging nebo definitvní terapie",
+      "U každé hemoptýzy bez CT předvyšetření jako primera terapie",
+      "Výhradně po chirurgické resekci plicního ložiska jako profylaxe",
+      "U plicní embolie se symptomem hemoptýzy (ta pochází z plicních, ne bronchiálních arterií)"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Zobrazování nádorů páteře a míchy' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "Bronchiální arteriální embolizace (BAE): masivní hemoptýza (tuberkulóza, bronchiektázie, karcinom). Předchůdce: CTA k mapování zdroje (bronchiální arterie obvykle z aorty Th5–Th6). Výslednost > 90% okamžité zástavy, recidiva u 30–50%."
   },
   {
     "id": "radiology:radio-43:1",
@@ -1520,15 +1520,15 @@ export const QUESTION_CATALOG = [
     "section": "Angiografie a intervence",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Možnosti invazivního a neinvazivního zobrazování cév (UZ, CTA, MRA, DSA)?",
+    "question": "Radiofrekvenční ablace (RFA) a mikrovlnná ablace (MWA) jsou indikovány pro:",
     "options": [
-      "Obvykle začínáme metodami jako Doppler UZ podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Perkutánní termální ablaci jaterních metastáz nebo HCC (≤ 3–4 cm), ledvinových karcinomů, plicních ložisek neresekabilních chirurgicky",
+      "Léčbu ložisek > 10 cm (velká ložiska jsou výhradně chirurgická indikace)",
+      "Ablaci pouze kostních lézí (vertebroplastika je preferována pro měkké tkáně)",
+      "Jako primární terapii multicentrického HCC bez ohledu na rozsah"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Možnosti invazivního a neinvazivního zobrazování cév (UZ, CTA, MRA, DSA)' volíme modalitu 'Doppler UZ' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "RFA/MWA: perkutánní jehla do ložiska (CT/UZ navigace) → termální nekróza > 60°C. HCC ≤ 3 cm: ablace = srovnatelná s chirurgií. Renální karcinom T1a: ablace alternativa k nefrektomii. Výhoda: bez otevřené operace, opakování možné."
   },
   {
     "id": "radiology:radio-43:2",
@@ -1538,15 +1538,15 @@ export const QUESTION_CATALOG = [
     "section": "Angiografie a intervence",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Možnosti invazivního a neinvazivního zobrazování cév (UZ, CTA, MRA, DSA)?",
+    "question": "Perkutánní drenáž abscesu (UZ nebo CT navigovaná) oproti chirurgické drenáži má výhody:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Minimálně invazivní (lokální anestézie), kratší hospitalizace, možnost u rizikových pacientů (antikoagulace, komoribidity)",
+      "Je vždy absolutně preferována před chirurgií bez ohledu na složitost abscesu",
+      "Nevyžaduje žádný drén – stačí jednorázová aspirace jehlou",
+      "Perkutánní drenáž nelze kombinovat s antibiotickou terapií"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Možnosti invazivního a neinvazivního zobrazování cév (UZ, CTA, MRA, DSA)' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "Perkutánní drenáž abscesů (jater, pankreatu, retroperitonea, plic): UZ nebo CT navigace → Seldinger technika (vodič → dilatace → drén). Výtěžnost > 80% pro jednokomorové abscesy. Nevhodné pro: multilokulárně komorové abscesy, nekrotické kolekce (→ chirurgie)."
   },
   {
     "id": "radiology:radio-44:1",
@@ -1556,15 +1556,15 @@ export const QUESTION_CATALOG = [
     "section": "Angiografie a intervence",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Příprava nemocného před angiografií a péče po výkonu?",
+    "question": "Hluboká žilní trombóza (DVT) – diagnostická metoda první volby je:",
     "options": [
-      "Obvykle začínáme metodami jako Příprava pacienta podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Kompresní UZ (duplex) – nekompribilita žíly + absence průtoku v Doppleru = DVT; senzitivita > 95% pro proximální DVT",
+      "CT venografie (CTV) jako primární metoda u všech pacientů s podezřením DVT",
+      "Flebografie kontrastní (zlatý standard historicky, nyní nahrazena UZ)",
+      "D-dimery (negativní D-dimer vylučuje DVT, ale pozitivní nepotvrzuje)"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Příprava nemocného před angiografií a péče po výkonu' volíme modalitu 'Příprava pacienta' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "DVT diagnostika: Pre-test pravděpodobnost (Wells skóre) + D-dimery + UZ. Kompresní UZ: nekompribilita žíly pod sondou = trombus. Senzitivita pro proximální DVT (femorální, popliteální) > 95%. Distální (lýtkové) DVT: nižší senzitivita. CTV/MRV: alternativa při nejasném UZ."
   },
   {
     "id": "radiology:radio-44:2",
@@ -1574,15 +1574,15 @@ export const QUESTION_CATALOG = [
     "section": "Angiografie a intervence",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Příprava nemocného před angiografií a péče po výkonu?",
+    "question": "Syndrom horní duté žíly (HDŽ) se na CT zobrazí jako:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Obstrukce/komprese HDŽ (tumor mediastina, trombóza) s kolaterálním průtokem přes v. azygos, v. mammaria interna, žíly hrudní stěny",
+      "Výplňkový defekt v plicní tepně (= PE, ne syndrom HDŽ)",
+      "Dilatace portální žíly s kolaterálami (= portální hypertenze, ne HDŽ)",
+      "Rozšíření bronchů s tekutinou (= bronchiektázie, nesouvisí s HDŽ)"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Příprava nemocného před angiografií a péče po výkonu' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "Syndrom HDŽ: komprese nebo trombóza VCS → obstrukce návratu krve z horní poloviny těla. Příčiny: 80% malignity (malobuněčný SCLC, lymfomy), 20% trombóza (CVC, kardiostimulátor). CT: obstrukce VCS + kolaterály (azygos, mammaria). Klinicky: edém obličeje, krku, HK."
   },
   {
     "id": "radiology:radio-45:1",
@@ -1592,15 +1592,15 @@ export const QUESTION_CATALOG = [
     "section": "Angiografie a intervence",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Základní patologické nálezy při angiografii (stenózy, uzávěry, aneuryzmata, disekce)?",
+    "question": "Lymfom na PET/CT s FDG se projevuje:",
     "options": [
-      "Obvykle začínáme metodami jako DSA podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "FDG-avídní lymfadenopatie (zvýšená metabolická aktivita, SUV > 2,5) umožňující přesný staging a hodnocení odpovědi na léčbu (Lugano kritéria)",
+      "Hypoperfuzí lymfatických uzlin bez FDG akumulace (lymfomy nejsou FDG-avídní)",
+      "Pouze kostními lézemi bez mediastinálního postižení",
+      "Difuzní plicní intersticiální pattern bez uzlinového postižení"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Základní patologické nálezy při angiografii (stenózy, uzávěry, aneuryzmata, disekce)' volíme modalitu 'DSA' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "PET/CT zlatý standard pro staging lymfomů (Hodgkin, DLBCL): FDG-avídní uzliny, extranodální postižení, kostní dřeň. Lugano response criteria: kompletní metabolická remise (CMR) vs. parciální. MALT/marginal zone lymfomy: variabilní FDG uptake."
   },
   {
     "id": "radiology:radio-45:2",
@@ -1610,15 +1610,15 @@ export const QUESTION_CATALOG = [
     "section": "Angiografie a intervence",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Základní patologické nálezy při angiografii (stenózy, uzávěry, aneuryzmata, disekce)?",
+    "question": "Lymfedém dolní končetiny lze zobrazit pomocí:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Lymfoscintigrafie (radioizotopová lymfografie) nebo MR lymfangiografie k průkazu porušeného lymfatického transportu a lokalizace bloku",
+      "Kompresní UZ (zlatý standard pro DVT, ale necitlivý pro lymfedém)",
+      "Flebografie (zobrazuje venózní systém, ne lymfatický)",
+      "CT nativní (může zobrazit kůži a podkožní edém, ale nerozliší příčinu od venózní insuficience)"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Základní patologické nálezy při angiografii (stenózy, uzávěry, aneuryzmata, disekce)' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "Lymfedém diagnostika: lymfoscintigrafie (radioizotop subkutánně → průkaz bloku a kolaterál). MR lymfangiografie: intranodální nebo intersticiální Gd → přímé zobrazení lymfatik (pro chirurgické plánování LVA anastomózy). ICGL fluorescenční lymfangiografie pro superficiální lymfedém."
   },
   {
     "id": "radiology:radio-46:1",
@@ -1628,15 +1628,15 @@ export const QUESTION_CATALOG = [
     "section": "Angiografie a intervence",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Transluminální remodelace cév (PTA, stentování, trombektomie)?",
+    "question": "Jaká je diagnostická metoda volby při podezření na karcinoid (NET) slinivky nebo tenkého střeva?",
     "options": [
-      "Obvykle začínáme metodami jako Perkutánní transluminální angioplastika (PTA) podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Somatostatinová receptorová scintigrafie (68Ga-DOTATATE PET/CT) – zlatý standard pro NET s vysokou expresí somatostatinových receptorů",
+      "Kolonoskopie s biopsií (pro léze v rektu nebo colon, ne tenké střevo)",
+      "Nativní CT bez KL (NETs jsou hypo- nebo isodenzní bez KL)",
+      "Sérum NSE a chromogranin A jako zobrazovací metoda"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Transluminální remodelace cév (PTA, stentování, trombektomie)' volíme modalitu 'Perkutánní transluminální angioplastika (PTA)' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "NETs (neuroendokrinní tumory): 68Ga-DOTATATE PET/CT (nebo oktreoscan/99mTc-HYNIC-TOC) = zlatý standard. Somatostatinové receptory (SSTR2) exprimovány v > 80% NET. Funkční zobrazení pro staging, hledání primáru, hodnocení odpovědi na terapii (PRRT)."
   },
   {
     "id": "radiology:radio-46:2",
@@ -1646,15 +1646,15 @@ export const QUESTION_CATALOG = [
     "section": "Angiografie a intervence",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Transluminální remodelace cév (PTA, stentování, trombektomie)?",
+    "question": "Kontrastní látky na bázi gadobenátu (Gd-BOPTA, MultiHance) nebo gadoxetátu (Gd-EOB-DTPA, Primovist) při MR jater se liší od standardních Gd chelátů:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Mají hepatobiliární fázi sycení (jaterní buňky je vychytávají přes transportéry OATP) → lepší detekce HCC vs. FNH",
+      "Jsou určeny výhradně pro MR ledvin (renální exkrece)",
+      "Mají nižší nefrogenní systémovou fibrózu riziko než jiné Gd chelátory",
+      "Jsou pouze lineární chelátory (vyšší riziko Gd deposice)"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Transluminální remodelace cév (PTA, stentování, trombektomie)' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "Hepatospecifické kontrastní látky (Primovist/Eovist): hepatocyty vychytávají Gd přes OATP1B3 → hepatobiliární fáze (20 min). HCC bez funkčních transportérů = hypointenzní v HBF (washout). FNH = hyperintenzní. Cena: vyšší, čas: delší protokol."
   },
   {
     "id": "radiology:radio-47:1",
@@ -1664,15 +1664,15 @@ export const QUESTION_CATALOG = [
     "section": "Angiografie a intervence",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Endovaskulární embolizace (materiály, indikace, krvácení, tumory)?",
+    "question": "Screeningová mamografie snižuje mortalitu na karcinom prsu. BI-RADS kategorie 3 ('pravděpodobně benigní') vyžaduje:",
     "options": [
-      "Obvykle začínáme metodami jako Transkatétrová embolizace (TAE) podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Krátkodobé sledování (kontrola za 6 měsíců) – malignita < 2%; pokud stabilní 2–3 roky → BI-RADS 2",
+      "Okamžitou core-cut biopsii (malignita > 20%)",
+      "Excizní biopsii bez sledování",
+      "Ukončení mammografického screeningu (benigní nález)"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Endovaskulární embolizace (materiály, indikace, krvácení, tumory)' volíme modalitu 'Transkatétrová embolizace (TAE)' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "BI-RADS 3: pravděpodobně benigní (< 2% malignita). Doporučení: 6-měsíční UZ/mamografie kontrola. Pokud stabilní × 2–3 léta → BI-RADS 2. Indikace k biopsii při BI-RADS 3: pacientka chce, špatný follow-up, gravidita. BI-RADS 4: 2–95% malignita → biopsie."
   },
   {
     "id": "radiology:radio-47:2",
@@ -1682,15 +1682,15 @@ export const QUESTION_CATALOG = [
     "section": "Angiografie a intervence",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Endovaskulární embolizace (materiály, indikace, krvácení, tumory)?",
+    "question": "UZ-navigovaná core-cut biopsie prsu (nebo vakuová biopsie) je preferována před excizní biopsií protože:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Minimálně invazivní (lokální anestézie, ambulantně), histologická verifikace bez chirurgie, mapování tumoru před operací",
+      "Zajistí vždy negativní okraje resekce (R0) jako chirurgie",
+      "Je přesnější než MR-navigovaná biopsie pro všechny léze",
+      "Nevyžaduje žádnou anestézii a je bezbolestná bez lokálního anestetika"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Endovaskulární embolizace (materiály, indikace, krvácení, tumory)' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "Core-cut biopsie (14G jehla nebo vakuová): histologický vzorek (nie jen cytologie). UZ-navigace pro palpovatelné i nepalpovatelné léze. Stereotaktická biopsie (mamografická navigace): pro mikrokalcifikace. MR-navigovaná biopsie: léze viditelné pouze na MR."
   },
   {
     "id": "radiology:radio-48:1",
@@ -1700,15 +1700,15 @@ export const QUESTION_CATALOG = [
     "section": "Angiografie a intervence",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Nevaskulární intervenční metody (drenáže, biopsie, vertebroplastika, RFA)?",
+    "question": "Gonartróza (artróza kolenního kloubu) na RTG – standardní projekce a hodnocení:",
     "options": [
-      "Obvykle začínáme metodami jako Perkutánní drenáž podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "AP projekce ve stoji (Weight-bearing) > vleže – zatížený kloub lépe demonstruje zúžení kloubní štěrbiny; hodnotí medial vs. lateral kompartment",
+      "Pouze bočná projekce (sagitální) – dostatečná pro hodnocení gonartrózy",
+      "MR je povinná pro každou gonartrózu bez ohledu na klinické příznaky",
+      "RTG je zastaralá – UZ nahrazuje RTG pro hodnocení chrupavky"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Nevaskulární intervenční metody (drenáže, biopsie, vertebroplastika, RFA)' volíme modalitu 'Perkutánní drenáž' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "Gonartróza RTG: AP vestoje (weight-bearing) odhalí skutečné zúžení štěrbiny (na AP vleže se jeví štěrbina širší). Hodnocenídle Kellgren-Lawrence (I–IV). Patella se hodnotí na axiální projekci (sunrise). MR: průkaz lézí chrupavky, menisků, subchondrálního edému."
   },
   {
     "id": "radiology:radio-48:2",
@@ -1718,15 +1718,15 @@ export const QUESTION_CATALOG = [
     "section": "Angiografie a intervence",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Nevaskulární intervenční metody (drenáže, biopsie, vertebroplastika, RFA)?",
+    "question": "Dna (hyperurikémie) na RTG kloubů se projevuje:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Velké juxta-artrikulární erozivní léze se zachovalou kloubní štěrbinou, tophi (uratové depozity jako kalcifikace měkkých tkání), overhanging edge příznak",
+      "Periartikularní osteoporóza bez erozí (typické pro RA)",
+      "Difuzní chondrocalcinóza (CPPD, ne dna)",
+      "Subchondrální skleróza bez erozí (typické pro artrózu)"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Nevaskulární intervenční metody (drenáže, biopsie, vertebroplastika, RFA)' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "Dna RTG: pozdní stadium – eroze ve tvaru děrovačky (punched-out) s overhanging edge (přesah kortikálu přes erózi). Tophi = uratové depozity (kalcifikace). Kloubní štěrbina zachována déle než u RA. Nejčastěji MTP1 palce (podagra). CPPD: chondrocalcinóza menisku, menisci, fibrokartilago."
   },
   {
     "id": "radiology:radio-49:1",
@@ -1736,15 +1736,15 @@ export const QUESTION_CATALOG = [
     "section": "Angiografie a intervence",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Zobrazování onemocnění žilního systému (hluboká žilní trombóza, varixy, syndrom HDŽ)?",
+    "question": "Nejčastější supratentoriální intrakraniální tumor v dospělosti je:",
     "options": [
-      "Obvykle začínáme metodami jako Kompresní Doppler UZ podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "Metastázy (> 50% všech intrakranialních nádorů dospělých); primárních nádorů nejčastější = glioblastom (GBM)",
+      "Meningeom (nejčastější benigní intrakraniální tumor dospělých, extra-axiální)",
+      "Vestibulární schwannom (mostomozečkový koutek, benigní, extrakraniální)",
+      "Oligodendrogliom grade 2 (nejčastější v frontálním laloku dospělých)"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Zobrazování onemocnění žilního systému (hluboká žilní trombóza, varixy, syndrom HDŽ)' volíme modalitu 'Kompresní Doppler UZ' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "Intrakraniální tumory: metastázy > 50% (nejčastěji plicní, prsní, renální, melanom). Ze primárních: GBM nejčastější maligní. Meningeom nejčastější benigní (WHO 1, extra-axiální, sytí se Gd, dural tail). Gliomy: GBM (IV), anaplastický astrocytom (III), astrocytom (II), pilocytický (I – dětský)."
   },
   {
     "id": "radiology:radio-49:2",
@@ -1754,15 +1754,15 @@ export const QUESTION_CATALOG = [
     "section": "Angiografie a intervence",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Zobrazování onemocnění žilního systému (hluboká žilní trombóza, varixy, syndrom HDŽ)?",
+    "question": "PET/CT s FDG je standardní metodou pro staging nádorů. Který typ nádoru je typicky FDG-negativní (falešně negativní)?",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "Mucinózní adenokarcinom, prostatický karcinom (PSA-negativní), bronchioloalveolární karcinom, karcinoidní NETs s nízkým grade",
+      "Malobuněčný karcinom plic (SCLC) – vysoce FDG-avídní",
+      "Hodgkinův lymfom – vždy silně FDG-avídní",
+      "Melanom metastatický – silně FDG-avídní"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Zobrazování onemocnění žilního systému (hluboká žilní trombóza, varixy, syndrom HDŽ)' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "FDG-negativní/slabě pozitivní tumory: low-grade NETs (karcinoidy), mucinózní adenokarcinomy, karcinom prostaty (PSA-negativní), bronchioloalveolární karcinom, renální karcinom (variabilní). Pro NETs → DOTATATE PET/CT. Karcinom prostaty → PSMA PET/CT."
   },
   {
     "id": "radiology:radio-50:1",
@@ -1772,15 +1772,15 @@ export const QUESTION_CATALOG = [
     "section": "Angiografie a intervence",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Jaká je primární diagnostická metoda první volby pro vyšetření tématu: Zobrazování onemocnění lymfatického systému (lymfadenopatie, lymfomy, lymfedém)?",
+    "question": "Lymfom Hodgkinův (HL) versus non-Hodgkinův (NHL) – radiologické odlišení na CT/PET:",
     "options": [
-      "Obvykle začínáme metodami jako UZ uzlin podle klinické indikace a dostupnosti",
-      "Vždy bez výjimky invazivní digitální subtrakční angiografie (DSA)",
-      "Pouze pozitivní emisní tomografie (PET)",
-      "Termovize celého těla a scintigrafie"
+      "HL: typicky mediastinální postižení + kontinuální šíření uzlinami + mladí dospělí + RS buňky; NHL: extranodální postižení, nesouvislé šíření, starší pacienti, heterogenní skupina",
+      "NHL je vždy FDG-negativní; HL je FDG-avídní",
+      "HL postihuje výhradně dolní část těla (iliakální uzliny); NHL výhradně mediastinum",
+      "CT bez KL dostatečně odliší HL od NHL bez biopsie"
     ],
     "correctIndex": 0,
-    "explanation": "Při vyšetřování tématu 'Zobrazování onemocnění lymfatického systému (lymfadenopatie, lymfomy, lymfedém)' volíme modalitu 'UZ uzlin' na základě klinických indikačních kritérií a zásady ALARA."
+    "explanation": "HL: mediastinum (přední), bulky disease, kontinuální šíření, B-příznaky, RS buňky. NHL: heterogenní – DLBCL (nejčastější agresivní), folliculární lymfom (indolentní), MALT. Extranodální postižení (GIT, CNS, kůže) typičtější pro NHL. Biopsie + histologie = diagnóza. PET/CT staging i response assessment."
   },
   {
     "id": "radiology:radio-50:2",
@@ -1790,15 +1790,15 @@ export const QUESTION_CATALOG = [
     "section": "Angiografie a intervence",
     "sourcePath": "/radiolka/",
     "caseContext": null,
-    "question": "Které tvrzení nejlépe vystihuje hlavní radiologický cíl u tématu: Zobrazování onemocnění lymfatického systému (lymfadenopatie, lymfomy, lymfedém)?",
+    "question": "Rentgenová densitometrie (DXA) měří kostní denzitu a vyjadřuje výsledek jako T-skóre. Osteoporóza je definována T-skóre:",
     "options": [
-      "Poskytuje klíčové morfologické a funkční informace pro stanovení přesné diagnózy a plánování léčby",
-      "Nahrazuje kompletně jakékoliv laboratorní a histopatologické vyšetření",
-      "Slouží výhradně k administrativním účelům pojišťovny",
-      "Vždy vyžaduje celkovou anestezii pacienta"
+      "T ≤ −2,5 SD pod průměrem mladých dospělých; osteopenie: T = −1,0 až −2,5; norma: T > −1,0",
+      "T ≤ −1,0 SD (nižší práh definuje osteoporózu dříve)",
+      "T ≥ +2,5 SD (vyšší hustota kosti = osteoporóza sclerosans)",
+      "DXA T-skóre je vyjádřeno v Hounsfieldových jednotkách (HU), ne v SD"
     ],
     "correctIndex": 0,
-    "explanation": "Zobrazovací metody v radiologii u tématu 'Zobrazování onemocnění lymfatického systému (lymfadenopatie, lymfomy, lymfedém)' přinášejí zásadní informace o anatomii, lokalizaci a rozsahu patologického procesu nezbytné pro správné klinické vedení pacienta."
+    "explanation": "DXA (Dual-energy X-ray Absorptiometry): T-skóre = SD od průměru mladé ženy. WHO klasifikace: norma > −1, osteopenie −1 až −2,5, osteoporóza ≤ −2,5. Z-skóre = srovnání s věkovou skupinou (pro sekundární osteoporózu). Nejčastěji LS páteř a krček femuru."
   },
   {
     "id": "dermatology:derma-1:1",

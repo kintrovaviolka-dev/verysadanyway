@@ -18,8 +18,7 @@ const json = (body, init = {}) => Response.json(body, {
 });
 const KEY_REVIEW_MINUTES = 3;
 const BEAR_MINIMUM_QUESTION_COUNT = 10;
-// Radiologické otázky jsou dočasně mimo, dokud je uživatelka nedokončí upravovat.
-const BEAR_MINIMUM_CATALOG = QUESTION_CATALOG.filter((question) => isActiveThisSemester(question) && question.subject !== 'radiology');
+const BEAR_MINIMUM_CATALOG = QUESTION_CATALOG.filter(isActiveThisSemester);
 
 function czechDate(date = new Date()) {
   const fields = new Intl.DateTimeFormat('en-CA', {
