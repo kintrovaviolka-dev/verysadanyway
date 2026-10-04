@@ -42,6 +42,33 @@ body { margin: 0; min-height: 100vh; background: radial-gradient(circle at 80% 0
   background: #eaa894;
   opacity: .85;
 }
+.bear-cap {
+  position: absolute;
+  top: -13px;
+  left: 17px;
+  width: 49px;
+  height: 26px;
+  border: 2px solid #e9fff6;
+  border-radius: 28px 28px 12px 12px;
+  background: linear-gradient(150deg, #8fcdbf, #438e7c);
+  box-shadow: 0 4px 8px rgba(26, 74, 62, .22);
+  color: #effff9;
+  display: grid;
+  font-size: .72rem;
+  font-weight: 900;
+  place-items: center;
+  z-index: 3;
+}
+.bear-cap::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 7px;
+  width: 31px;
+  height: 7px;
+  border-radius: 999px;
+  background: #4b9985;
+}
 
 .bear-face {
   position: absolute;
@@ -49,6 +76,7 @@ body { margin: 0; min-height: 100vh; background: radial-gradient(circle at 80% 0
   border-radius: 44% 44% 48% 48%;
   background: #dc9f77;
   overflow: visible;
+  z-index: 2;
 }
 
 .bear-eye {
@@ -113,12 +141,81 @@ body { margin: 0; min-height: 100vh; background: radial-gradient(circle at 80% 0
 }
 .bear-muzzle .smile::after { content: '⌣'; }
 
+.bear-scrubs {
+  position: absolute;
+  bottom: -9px;
+  left: 10px;
+  width: 62px;
+  height: 31px;
+  border: 2px solid #c4eee1;
+  border-radius: 15px 15px 22px 22px;
+  background: linear-gradient(145deg, #81c8b5, #397b6c);
+  box-shadow: 0 5px 10px rgba(26, 74, 62, .18);
+  z-index: 1;
+}
+.bear-badge {
+  position: absolute;
+  right: 7px;
+  bottom: 6px;
+  padding: 1px 3px;
+  border-radius: 4px;
+  background: #f5fff9;
+  color: #286151;
+  font-size: 6px;
+  font-weight: 900;
+  letter-spacing: .06em;
+}
 .bear-stethoscope {
   position: absolute;
-  bottom: 0px;
-  left: 5px;
-  font-size: 17px;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,.15));
+  bottom: -10px;
+  left: 4px;
+  width: 43px;
+  height: 37px;
+  z-index: 4;
+}
+.stetho-tube {
+  position: absolute;
+  inset: 0 1px auto auto;
+  width: 27px;
+  height: 30px;
+  border: 3px solid #d9f0ee;
+  border-top: 0;
+  border-radius: 0 0 16px 16px;
+  filter: drop-shadow(0 1px 1px rgba(21, 58, 52, .25));
+}
+.stetho-chestpiece {
+  position: absolute;
+  right: 0;
+  bottom: 2px;
+  width: 10px;
+  height: 10px;
+  border: 2px solid #5d9f95;
+  border-radius: 50%;
+  background: #eef9f7;
+}
+.bear-monitor {
+  position: absolute;
+  top: 53px;
+  right: 3px;
+  width: 47px;
+  padding: 2px 3px;
+  border: 2px solid #8fcdbf;
+  border-radius: 7px;
+  background: #173d36;
+  box-shadow: 0 3px 8px rgba(22, 62, 54, .22);
+  color: #bfffe6;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 5px;
+  line-height: 1.1;
+  text-align: center;
+  white-space: nowrap;
+  z-index: 5;
+  transition: color .2s ease, transform .2s ease;
+}
+.bear.bear-happy .bear-monitor {
+  color: #ffffff;
+  transform: translateY(-2px) scale(1.04);
+  animation: monitor-pulse .6s ease;
 }
 .bear-arm {
   position: absolute;
@@ -127,14 +224,15 @@ body { margin: 0; min-height: 100vh; background: radial-gradient(circle at 80% 0
   font-size: 22px;
   transform-origin: 15% 85%;
   animation: bear-wave 3.8s ease-in-out infinite;
+  z-index: 6;
 }
 
 /* Interactive speech bubble */
 .bear-bubble {
   position: absolute;
-  top: -46px;
-  left: 50%;
-  transform: translateX(-50%);
+  top: -28px;
+  left: 0;
+  transform: none;
   background: #ffffff;
   border: 1.5px solid #bddcc9;
   border-radius: 16px;
@@ -154,8 +252,8 @@ body { margin: 0; min-height: 100vh; background: radial-gradient(circle at 80% 0
   content: '';
   position: absolute;
   bottom: -6px;
-  left: 50%;
-  transform: translateX(-50%) rotate(45deg);
+  left: 28px;
+  transform: rotate(45deg);
   width: 10px;
   height: 10px;
   background: #ffffff;
@@ -260,9 +358,10 @@ button:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visibl
 @keyframes bear-wave { 0%, 35%, 100% { transform: rotate(0deg); } 42%, 49% { transform: rotate(-18deg); } 56% { transform: rotate(8deg); } }
 @keyframes bear-blink { 0%, 96%, 100% { transform: scaleY(1); } 98% { transform: scaleY(0.1); } }
 @keyframes bear-wiggle { 0%, 100% { transform: rotate(0deg) scale(1.06); } 25% { transform: rotate(-6deg) scale(1.08); } 75% { transform: rotate(6deg) scale(1.08); } }
-@keyframes bubble-pop { from { opacity: 0; transform: translate(-50%, 8px) scale(0.9); } to { opacity: 1; transform: translate(-50%, 0) scale(1); } }
+@keyframes bubble-pop { from { opacity: 0; transform: translateY(8px) scale(0.9); } to { opacity: 1; transform: none; } }
+@keyframes monitor-pulse { 0%, 100% { box-shadow: 0 3px 8px rgba(22, 62, 54, .22); } 50% { box-shadow: 0 0 0 5px rgba(102, 224, 184, .28); } }
 
-@media (prefers-reduced-motion: reduce) { .bear, .bear-arm, .bear-eye { animation: none !important; } }
+@media (prefers-reduced-motion: reduce) { .bear, .bear-arm, .bear-eye, .bear-monitor { animation: none !important; } }
 @media (max-width: 480px) {
   .shell { width: min(100% - 22px, 680px); padding-top: 34px; }
   .card { padding: 20px; }
@@ -270,5 +369,5 @@ button:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visibl
   .bear { width: 70px; height: 70px; }
   .item-row { flex-direction: column; align-items: flex-start; gap: 8px; }
   .item-actions { align-self: flex-end; }
-  .bear-bubble { font-size: .75rem; padding: 5px 9px; }
+  .bear-bubble { width: min(290px, calc(100vw - 44px)); font-size: .75rem; padding: 6px 9px; }
 }

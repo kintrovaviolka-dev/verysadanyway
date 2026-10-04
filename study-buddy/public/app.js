@@ -22,6 +22,7 @@ const replanButton = $('#replan-button');
 const bearQuiz = $('#bear-quiz');
 const heroBear = $('#hero-bear');
 const bearBubble = $('#bear-bubble');
+const bearMonitor = $('#bear-monitor');
 
 let bearQuestions = [];
 let bearAnswers = [];
@@ -32,14 +33,14 @@ let bearAnswerLocked = false;
 const accessToken = () => localStorage.getItem('study-buddy-access-token') || '';
 
 const BEAR_CHEERS = [
-  'Věřím ti! Každý malý krok se počítá. 💕',
-  'I pět minut má dnes obrovský smysl. 🌸',
-  'Medicína je maraton, ne sprint. Dýchej. 🏃‍♀️',
-  'Nezapomeň se napít čaje nebo vody a protáhnout ramena. ☕',
-  'Odpočinek není odměna za výkon, ale nutná součást učení. 🌿',
-  'I když dnes dáš jen Bear minimum, jsi skvělá! 🐻‍❄️',
-  'Žádný stres. Tvůj budoucí pacient ti jednou poděkuje. 🩺',
-  'Laskavost k sobě samé je nejlepší studijní strategie. ✨'
+  { quote: 'Věřím ti! Každý malý krok se počítá. 💕', monitor: 'SpO₂ 100%' },
+  { quote: 'I pět minut má dnes obrovský smysl. 🌸', monitor: 'klidný tep' },
+  { quote: 'Medicína je maraton, ne sprint. Dýchej. 🏃‍♀️', monitor: 'ETCO₂ v klidu' },
+  { quote: 'Nezapomeň se napít čaje nebo vody a protáhnout ramena. ☕', monitor: 'tekutiny ✓' },
+  { quote: 'Odpočinek není odměna za výkon, ale nutná součást učení. 🌿', monitor: 'sedace: jemná' },
+  { quote: 'I když dnes dáš jen Bear minimum, jsi skvělá! 🐻‍❄️', monitor: 'minimum ✓' },
+  { quote: 'Žádný stres. Tvůj budoucí pacient ti jednou poděkuje. 🩺', monitor: 'dýchací cesty ✓' },
+  { quote: 'Laskavost k sobě samé je nejlepší studijní strategie. ✨', monitor: 'péče o sebe ✓' }
 ];
 
 function cheerFromBear() {
@@ -47,8 +48,9 @@ function cheerFromBear() {
   heroBear.classList.remove('bear-happy');
   void heroBear.offsetWidth; // trigger reflow
   heroBear.classList.add('bear-happy');
-  const quote = BEAR_CHEERS[Math.floor(Math.random() * BEAR_CHEERS.length)];
-  bearBubble.textContent = quote;
+  const cue = BEAR_CHEERS[Math.floor(Math.random() * BEAR_CHEERS.length)];
+  bearBubble.textContent = cue.quote;
+  if (bearMonitor) bearMonitor.textContent = cue.monitor;
   bearBubble.classList.remove('hidden');
   clearTimeout(bubbleTimer);
   bubbleTimer = setTimeout(() => {
@@ -76,8 +78,9 @@ function kindLabel(item) {
 }
 
 function getLearnUrl(item) {
-  // Portál s učebními materiály zatím běží jen lokálně, ne na této Cloudflare doméně.
-  // Nezobrazujeme tedy tlačítka, která by vedla na chybu 404.
+  const portal = 'https://kintrovav.vercel.app';
+  if (item.kind === 'urgent') return `${portal}/clinical-portal/`;
+  if (item.sourcePath) return `${portal}${item.sourcePath}`;
   return null;
 }
 
@@ -151,7 +154,7 @@ function renderToday(payload) {
       link.href = learnUrl;
       link.target = '_blank';
       link.rel = 'noopener noreferrer';
-      link.innerHTML = 'Otevřít a učit se <span aria-hidden="true">↗</span>';
+      link.innerHTML = 'Otevřít v portálu <span aria-hidden="true">↗</span>';
       link.addEventListener('click', () => {
         row.classList.add('item-highlight');
       });
