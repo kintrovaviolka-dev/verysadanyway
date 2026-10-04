@@ -12,6 +12,7 @@ import {
   studyCapacity
 } from './planner.js';
 import { notificationFor } from './reminders.js';
+import { validateReminderTimes } from './settings.js';
 
 const json = (body, init = {}) => Response.json(body, {
   headers: { 'Cache-Control': 'no-store', ...init.headers }, ...init
@@ -91,7 +92,7 @@ async function sendPush(env, payload, endpoint = null) {
 
 async function getSettings(db) {
   return await db.prepare('SELECT * FROM settings WHERE id = 1').first() ?? {
-    timezone: 'Europe/Prague', morning_time: '07:30', evening_time: '20:00', late_time: '23:40',
+    timezone: 'Europe/Prague', morning_time: '07:30', evening_time: '20:00', late_time: '23:45',
     morning_enabled: 1, evening_enabled: 1, late_enabled: 1, weekday_minutes: 40, weekend_minutes: 90
   };
 }
@@ -376,15 +377,16 @@ async function handleApi(request, env) {
     const body = await readJson(request);
     if (!body) return json({ error: 'Neplatná data nastavení.' }, { status: 400 });
     const current = await getSettings(env.DB);
-    const timePattern = /^([01]\d|2[0-3]):[0-5]\d$/;
-    const morning_time = typeof body.morning_time === 'string' && timePattern.test(body.morning_time) ? body.morning_time : current.morning_time;
-    const evening_time = typeof body.evening_time === 'string' && timePattern.test(body.evening_time) ? body.evening_time : current.evening_time;
-    const late_time = typeof body.late_time === 'string' && timePattern.test(body.late_time) ? body.late_time : current.late_time;
+    const morning_time = typeof body.morning_time === 'string' ? body.morning_time : current.morning_time;
+    const evening_time = typeof body.evening_time === 'string' ? body.evening_time : current.evening_time;
+    const late_time = typeof body.late_time === 'string' ? body.late_time : current.late_time;
     const morning_enabled = typeof body.morning_enabled === 'boolean' ? (body.morning_enabled ? 1 : 0) : (body.morning_enabled === 0 || body.morning_enabled === 1 ? body.morning_enabled : (current.morning_enabled ?? 1));
     const evening_enabled = typeof body.evening_enabled === 'boolean' ? (body.evening_enabled ? 1 : 0) : (body.evening_enabled === 0 || body.evening_enabled === 1 ? body.evening_enabled : (current.evening_enabled ?? 1));
     const late_enabled = typeof body.late_enabled === 'boolean' ? (body.late_enabled ? 1 : 0) : (body.late_enabled === 0 || body.late_enabled === 1 ? body.late_enabled : (current.late_enabled ?? 1));
     const weekday_minutes = Number.isInteger(body.weekday_minutes) && body.weekday_minutes >= 5 && body.weekday_minutes <= 180 ? body.weekday_minutes : current.weekday_minutes;
     const weekend_minutes = Number.isInteger(body.weekend_minutes) && body.weekend_minutes >= 10 && body.weekend_minutes <= 360 ? body.weekend_minutes : current.weekend_minutes;
+    const reminderValidation = validateReminderTimes({ morning_time, evening_time, late_time, morning_enabled, evening_enabled, late_enabled });
+    if (!reminderValidation.ok) return json({ error: reminderValidation.error }, { status: 400 });
 
     await env.DB.prepare(`
       INSERT INTO settings (id, morning_time, evening_time, late_time, morning_enabled, evening_enabled, late_enabled, weekday_minutes, weekend_minutes)

@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS settings (
   timezone TEXT NOT NULL DEFAULT 'Europe/Prague',
   morning_time TEXT NOT NULL DEFAULT '07:30',
   evening_time TEXT NOT NULL DEFAULT '20:00',
-  late_time TEXT NOT NULL DEFAULT '23:40',
+  late_time TEXT NOT NULL DEFAULT '23:45',
   weekday_minutes INTEGER NOT NULL DEFAULT 40,
   weekend_minutes INTEGER NOT NULL DEFAULT 90,
   initialized_at TEXT

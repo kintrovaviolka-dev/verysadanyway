@@ -27,6 +27,7 @@ let bearQuestions = [];
 let bearAnswers = [];
 let bearTodayComplete = false;
 let bubbleTimer = null;
+let bearAnswerLocked = false;
 
 const accessToken = () => localStorage.getItem('study-buddy-access-token') || '';
 
@@ -75,12 +76,8 @@ function kindLabel(item) {
 }
 
 function getLearnUrl(item) {
-  if (item.kind === 'cards') return null;
-  if (item.kind === 'urgent') return '/clinical-portal/';
-  if (item.sourcePath) {
-    const rawId = item.topicId ? (item.topicId.includes(':') ? item.topicId.split(':')[1] : item.topicId) : '';
-    return rawId ? `${item.sourcePath}#${rawId}` : item.sourcePath;
-  }
+  // Portál s učebními materiály zatím běží jen lokálně, ne na této Cloudflare doméně.
+  // Nezobrazujeme tedy tlačítka, která by vedla na chybu 404.
   return null;
 }
 
@@ -99,7 +96,7 @@ function populateSettings(settings) {
   if (morningEnabled) morningEnabled.checked = settings.morning_enabled !== 0;
   if (eveningTime) eveningTime.value = settings.evening_time || '20:00';
   if (eveningEnabled) eveningEnabled.checked = settings.evening_enabled !== 0;
-  if (lateTime) lateTime.value = settings.late_time || '23:40';
+  if (lateTime) lateTime.value = settings.late_time || '23:45';
   if (lateEnabled) lateEnabled.checked = settings.late_enabled !== 0;
   if (weekdayMinutes) weekdayMinutes.value = settings.weekday_minutes || 40;
   if (weekendMinutes) weekendMinutes.value = settings.weekend_minutes || 90;
@@ -137,7 +134,11 @@ function renderToday(payload) {
     checkbox.dataset.itemId = item.id;
 
     const text = document.createElement('span');
-    text.innerHTML = `<small>${kindLabel(item)} · ${item.minutes} min</small><strong>${item.label}</strong>`;
+    const meta = document.createElement('small');
+    meta.textContent = `${kindLabel(item)} · ${item.minutes} min`;
+    const title = document.createElement('strong');
+    title.textContent = item.label;
+    text.append(meta, title);
     label.append(checkbox, text);
 
     const actionWrap = document.createElement('div');
@@ -300,9 +301,16 @@ function renderBearQuestion() {
     button.className = 'quiz-option';
     button.textContent = option;
     button.addEventListener('click', () => {
+      if (bearAnswerLocked) return;
+      bearAnswerLocked = true;
+      button.classList.add('is-selected');
+      options.querySelectorAll('button').forEach((optionButton) => { optionButton.disabled = true; });
       bearAnswers.push({ id: question.id, answerIndex });
-      if (bearAnswers.length < bearQuestions.length) renderBearQuestion();
-      else completeBearMinimum();
+      window.setTimeout(() => {
+        bearAnswerLocked = false;
+        if (bearAnswers.length < bearQuestions.length) renderBearQuestion();
+        else completeBearMinimum();
+      }, 130);
     });
     options.append(button);
   });
@@ -338,6 +346,7 @@ $('#start-bear-minimum').addEventListener('click', async () => {
     if (!response.ok || payload.questions?.length !== 10) throw new Error(payload.error ?? 'Otázky se zatím nepodařilo připravit.');
     bearQuestions = payload.questions;
     bearAnswers = [];
+    bearAnswerLocked = false;
     $('#start-bear-minimum').classList.add('hidden');
     bearQuiz.classList.remove('hidden');
     $('#bear-status').textContent = '';
@@ -472,11 +481,14 @@ replanButton?.addEventListener('click', async () => {
       weekday_minutes: parseInt($('#setting-weekday-minutes').value, 10),
       weekend_minutes: parseInt($('#setting-weekend-minutes').value, 10)
     };
-    await apiFetch('/api/settings', {
+    const settingsResponse = await apiFetch('/api/settings', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(body)
     });
+    const settingsResult = await settingsResponse.json();
+    if (!settingsResponse.ok) throw new Error(settingsResult.error || 'Nepodařilo se uložit nastavení.');
+    populateSettings(settingsResult.settings);
     const response = await apiFetch('/api/replan', { method: 'POST' });
     const result = await response.json();
     if (!response.ok) throw new Error(result.error || 'Přeplánování selhalo.');

@@ -106,7 +106,7 @@
                 <input type="checkbox" id="setting-morning-enabled" />
                 <span class="toggle-label">Ranní shrnutí plánu</span>
               </label>
-              <input type="time" id="setting-morning-time" class="time-input" />
+              <input type="time" id="setting-morning-time" class="time-input" step="900" />
             </div>
 
             <div class="setting-row">
@@ -114,7 +114,7 @@
                 <input type="checkbox" id="setting-evening-enabled" />
                 <span class="toggle-label">Večerní check-in</span>
               </label>
-              <input type="time" id="setting-evening-time" class="time-input" />
+              <input type="time" id="setting-evening-time" class="time-input" step="900" />
             </div>
 
             <div class="setting-row">
@@ -122,8 +122,9 @@
                 <input type="checkbox" id="setting-late-enabled" />
                 <span class="toggle-label">Noční připomenutí (před spaním)</span>
               </label>
-              <input type="time" id="setting-late-time" class="time-input" />
+              <input type="time" id="setting-late-time" class="time-input" step="900" />
             </div>
+            <p class="settings-hint">Připomínky se odesílají po čtvrthodinách.</p>
           </div>
 
           <div class="settings-group">
@@ -162,7 +163,7 @@
       <section id="notifications" class="card hidden notification-card">
         <p class="eyebrow">Připomínky</p>
         <h2>Nech méďu připomenout se</h2>
-        <p id="notification-description">Ráno dostaneš dnešní plán, večer jemný check-in a ve 23:40 poslední nenápadné připomenutí.</p>
+        <p id="notification-description">Ráno dostaneš dnešní plán, večer jemný check-in a ve 23:45 poslední nenápadné připomenutí.</p>
         <div class="actions">
           <button id="enable-notifications" class="secondary">Zapnout notifikace</button>
           <button id="test-notification" class="quiet hidden">Poslat zkušební notifikaci</button>

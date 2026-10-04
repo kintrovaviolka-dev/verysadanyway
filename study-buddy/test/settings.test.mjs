@@ -1,6 +1,30 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { notificationFor } from '../src/reminders.js';
+import { validateReminderTimes } from '../src/settings.js';
+
+test('připomínky akceptují pouze čtvrthodiny', () => {
+  assert.equal(validateReminderTimes({
+    morning_time: '07:30', morning_enabled: 1,
+    evening_time: '20:00', evening_enabled: 1,
+    late_time: '23:45', late_enabled: 1
+  }).ok, true);
+  assert.equal(validateReminderTimes({
+    morning_time: '07:32', morning_enabled: 1,
+    evening_time: '20:00', evening_enabled: 1,
+    late_time: '23:45', late_enabled: 1
+  }).ok, false);
+});
+
+test('dvě zapnuté připomínky nemohou sdílet stejný čas', () => {
+  const result = validateReminderTimes({
+    morning_time: '07:30', morning_enabled: 1,
+    evening_time: '07:30', evening_enabled: 1,
+    late_time: '23:45', late_enabled: 0
+  });
+  assert.equal(result.ok, false);
+  assert.match(result.error, /každý svůj čas/);
+});
 
 test('ranní notifikace obsahuje laskavý souhrn', () => {
   const notif = notificationFor('morning-plan', {
