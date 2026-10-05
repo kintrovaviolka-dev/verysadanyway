@@ -122,7 +122,7 @@ const PATHOLOGY_QUESTIONS = [
     category: "Obecná patologie",
     title: "Chronický a granulomatózní zánět – patogeneze, buňky (epiteloidní, Langhansovy), příklady (TBC, sarkoidóza, syfilis).",
     organSystem: "Obecné procesy",
-    keyTerms: ["Granulom", "Langhansovy buňky", "Epiteloidní histiocyty", "Kaseózní nekróza", "Tuberculosis"],
+    keyTerms: ["Granulom", "Langhansovy buňky", "Epiteloidní histiocyty", "Kaseózní nekróza", "Tuberkulóza"],
     quiz: [
       {
         question: "Která buňka je charakteristická pro granulomatózní zánět a vzniká splynutím aktivovaných makrofágů?",
@@ -149,7 +149,7 @@ const PATHOLOGY_QUESTIONS = [
     category: "Speciální patologie",
     title: "Ateroskleróza – patogeneze (teorie poškození endotelu), stadia (lipidový proužek, plát), komplikace.",
     organSystem: "Kardiovaskulární systém",
-    keyTerms: ["Endoteliální dysfunkce", "Foam cells (pěnové buňky)", "Vazivový plát", "Ruptura plátu", "Thrombóza"],
+    keyTerms: ["Endoteliální dysfunkce", "Pěnové buňky", "Vazivový plát", "Ruptura plátu", "Trombóza"],
     quiz: [
       {
         question: "Jak vznikají tzv. pěnové buňky (foam cells) v časném stadiu patogeneze aterosklerózy?",
