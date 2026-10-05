@@ -284,6 +284,44 @@ h2 { margin-bottom: 8px; font-size: 1.35rem; letter-spacing: -.03em; }
 .quiz-option:hover { background: #e4f2ea; transform: translateY(-1px); }
 .quiz-option.is-selected { background: #d8eee0; border-color: #4d9d7f; transform: scale(.99); }
 
+/* Resus mode */
+.resus-mode { margin-top: 18px; background: linear-gradient(145deg, #fffdfb, #f3f7f5); border-color: #d9e8df; }
+.resus-badge { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 15px; background: #e8f4ee; color: #176246; font-size: 1.35rem; }
+.resus-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; margin: 19px 0 15px; padding: 5px; border-radius: 15px; background: #eaf2ed; }
+.resus-tab { min-height: 39px; padding: 7px 6px; border-radius: 10px; background: transparent; color: #527168; font-size: .78rem; }
+.resus-tab.is-active { background: #fff; color: #164c3c; box-shadow: 0 2px 9px rgba(23, 67, 54, .1); }
+.resus-content { display: grid; gap: 12px; }
+.resus-group-title { margin: 7px 1px -2px; color: #52746a; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; }
+.resus-algorithm-grid, .resus-drill-grid { display: grid; gap: 9px; }
+.resus-algorithm-card, .resus-drill-teaser, .resus-dose-card, .resus-drill-card, .resus-reader { border: 1px solid #deebe3; border-radius: 17px; background: #fff; padding: 14px; }
+.resus-algorithm-card h4, .resus-drill-teaser h3, .resus-dose-card h3, .resus-drill-card h3, .resus-reader h3 { margin-bottom: 5px; color: #193f34; }
+.resus-algorithm-card h4 { font-size: .98rem; }
+.resus-algorithm-card p, .resus-drill-teaser p, .resus-reader > p { margin-bottom: 12px; color: #5b746b; font-size: .84rem; line-height: 1.4; }
+.resus-card-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.resus-open-button, .resus-next-button { padding: 9px 11px; border-radius: 11px; background: #dff1e8; color: #185542; font-size: .8rem; }
+.resus-next-button { margin-top: 3px; background: #1d5b4a; color: #fff; }
+.resus-source-link { color: #33715e; font-size: .8rem; font-weight: 750; text-decoration: underline; text-decoration-color: #b5d8c8; text-underline-offset: 3px; }
+.resus-reader { margin-top: 6px; background: #fbfefd; }
+.resus-provenance { margin: 10px 0 0; color: #647a71; font-size: .77rem; line-height: 1.35; }
+.resus-image-wrap { overflow: auto; margin-top: 13px; border: 1px solid #dce8e1; border-radius: 12px; background: #e8efeb; touch-action: pan-x pinch-zoom; }
+.resus-image-wrap img { display: block; width: 960px; max-width: none; min-height: 420px; background: #fff; }
+.resus-safety-note { padding: 10px 11px; border-radius: 12px; background: #fff8e9; color: #765b25; font-size: .8rem; line-height: 1.42; }
+.resus-dose-table { width: 100%; margin: 13px 0; border-collapse: separate; border-spacing: 0; font-size: .82rem; line-height: 1.38; overflow: hidden; border: 1px solid #dce8e1; border-radius: 11px; }
+.resus-dose-table th, .resus-dose-table td { padding: 10px; vertical-align: top; text-align: left; border-bottom: 1px solid #e2ece6; }
+.resus-dose-table th { width: 38%; background: #f1f8f3; color: #285346; font-weight: 800; }
+.resus-dose-table tr:last-child th, .resus-dose-table tr:last-child td { border-bottom: 0; }
+.resus-progress { margin-bottom: 7px; color: #39745f; font-size: .77rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+.resus-prompt { color: #26493e; font-weight: 750; line-height: 1.45; }
+.resus-options { display: grid; gap: 8px; margin: 14px 0; }
+.resus-options button { border: 1px solid #d4e5dc; background: #fff; color: #2c5145; padding: 11px; text-align: left; font-size: .88rem; transition: border-color .16s ease, background .16s ease, transform .16s ease; }
+.resus-options button:hover:not(:disabled) { border-color: #84bba4; background: #f1f9f4; transform: translateY(-1px); }
+.resus-options button.is-correct { border-color: #62ad88; background: #e2f4e9; color: #175b3b; }
+.resus-options button.is-incorrect { border-color: #d58a86; background: #fff0ef; color: #8e3c37; }
+.resus-options button:disabled { cursor: default; opacity: 1; }
+.resus-feedback { margin: 5px 0 12px; padding: 10px 11px; border-radius: 12px; font-size: .85rem; line-height: 1.4; }
+.resus-feedback.correct { background: #e4f5e9; color: #1b5d3d; }
+.resus-feedback.incorrect { background: #fff1ef; color: #8a403a; }
+
 /* Key Topics */
 .key-topics { margin-top: 18px; }
 .key-topic-list { display: grid; gap: 9px; margin-top: 16px; }

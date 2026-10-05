@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "catalog": "node scripts/extract-catalog.mjs",
+    "resus:assets": "python3 scripts/prepare-resus-assets.py",
     "curate": "npm run catalog && node scripts/curate-key-topics.mjs",
     "push-secrets": "node scripts/create-push-secrets.mjs",
     "test": "node --test test/*.test.mjs",

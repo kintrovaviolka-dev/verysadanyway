@@ -1,3 +1,5 @@
+import { RESUS_ALGORITHMS, RESUS_DOSE_TABLES, RESUS_DRILLS, algorithmById } from './resus-library.js?v=resus-1';
+
 let calendarIcs = null;
 let today = null;
 let pushSubscription = null;
@@ -15,6 +17,7 @@ const notificationStatus = $('#notification-status');
 const bearMinimumPanel = $('#bear-minimum');
 const keyTopicsPanel = $('#key-topics');
 const settingsPanel = $('#settings');
+const resusModePanel = $('#resus-mode');
 const settingsForm = $('#settings-form');
 const settingsStatus = $('#settings-status');
 const saveSettingsButton = $('#save-settings-button');
@@ -29,6 +32,9 @@ let bearAnswers = [];
 let bearTodayComplete = false;
 let bubbleTimer = null;
 let bearAnswerLocked = false;
+let resusView = 'algorithms';
+let openResusAlgorithmId = null;
+let activeResusDrill = null;
 
 const accessToken = () => localStorage.getItem('study-buddy-access-token') || '';
 
@@ -185,6 +191,209 @@ async function fetchToday() {
   return response.json();
 }
 
+function resusSourceLink(algorithmId, label = 'Otevřít originální PDF') {
+  const algorithm = algorithmById(algorithmId);
+  const link = document.createElement('a');
+  link.className = 'resus-source-link';
+  link.href = `/algoritmy/${algorithm.pdf}`;
+  link.target = '_blank';
+  link.rel = 'noopener noreferrer';
+  link.textContent = `${label} ↗`;
+  return link;
+}
+
+function renderResusAlgorithms(container) {
+  const groups = Object.groupBy(RESUS_ALGORITHMS, ({ group }) => group);
+  Object.entries(groups).forEach(([group, algorithms]) => {
+    const heading = document.createElement('h3');
+    heading.className = 'resus-group-title';
+    heading.textContent = group;
+    const grid = document.createElement('div');
+    grid.className = 'resus-algorithm-grid';
+    algorithms.forEach((algorithm) => {
+      const card = document.createElement('article');
+      card.className = 'resus-algorithm-card';
+      const title = document.createElement('h4');
+      title.textContent = algorithm.title;
+      const focus = document.createElement('p');
+      focus.textContent = algorithm.focus;
+      const actions = document.createElement('div');
+      actions.className = 'resus-card-actions';
+      const open = document.createElement('button');
+      open.type = 'button';
+      open.className = 'resus-open-button';
+      open.textContent = openResusAlgorithmId === algorithm.id ? 'Skrýt telefonní přehled' : 'Přehled pro telefon';
+      open.addEventListener('click', () => {
+        openResusAlgorithmId = openResusAlgorithmId === algorithm.id ? null : algorithm.id;
+        renderResus();
+      });
+      actions.append(open, resusSourceLink(algorithm.id, 'Originální PDF'));
+      if (algorithm.alternatePdf) {
+        const alternate = document.createElement('a');
+        alternate.className = 'resus-source-link';
+        alternate.href = `/algoritmy/${algorithm.alternatePdf}`;
+        alternate.target = '_blank';
+        alternate.rel = 'noopener noreferrer';
+        alternate.textContent = 'Druhá dodaná kopie ↗';
+        actions.append(alternate);
+      }
+      card.append(title, focus, actions);
+      grid.append(card);
+    });
+    container.append(heading, grid);
+  });
+
+  const openAlgorithm = algorithmById(openResusAlgorithmId);
+  if (!openAlgorithm) return;
+  const reader = document.createElement('section');
+  reader.className = 'resus-reader';
+  const readerHeading = document.createElement('h3');
+  readerHeading.textContent = openAlgorithm.title;
+  const readerText = document.createElement('p');
+  readerText.textContent = 'Telefonní náhled je otočená kopie první strany zdrojového PDF. Roztáhni ho dvěma prsty; celý originál otevřeš odkazem níže.';
+  const imageWrap = document.createElement('div');
+  imageWrap.className = 'resus-image-wrap';
+  const image = document.createElement('img');
+  image.src = `/algoritmy/${openAlgorithm.preview}`;
+  image.alt = `Telefonní náhled: ${openAlgorithm.title}`;
+  imageWrap.append(image);
+  reader.append(readerHeading, readerText, resusSourceLink(openAlgorithm.id));
+  if (openAlgorithm.alternatePdf) {
+    const provenance = document.createElement('p');
+    provenance.className = 'resus-provenance';
+    provenance.textContent = 'V podkladech je druhá, obsahově shodná kopie hyperkalemického algoritmu; zůstává dostupná z karty výše pro úplnou dohledatelnost.';
+    reader.append(provenance);
+  }
+  reader.append(imageWrap);
+  container.append(reader);
+}
+
+function renderResusDoses(container) {
+  RESUS_DOSE_TABLES.forEach((tableData) => {
+    const card = document.createElement('section');
+    card.className = 'resus-dose-card';
+    const heading = document.createElement('h3');
+    heading.textContent = tableData.title;
+    const note = document.createElement('p');
+    note.className = 'resus-safety-note';
+    note.textContent = tableData.note;
+    const table = document.createElement('table');
+    table.className = 'resus-dose-table';
+    const body = document.createElement('tbody');
+    tableData.rows.forEach(([situation, dose]) => {
+      const row = document.createElement('tr');
+      const headingCell = document.createElement('th');
+      headingCell.scope = 'row';
+      headingCell.textContent = situation;
+      const doseCell = document.createElement('td');
+      doseCell.textContent = dose;
+      row.append(headingCell, doseCell);
+      body.append(row);
+    });
+    table.append(body);
+    card.append(heading, note, table, resusSourceLink(tableData.sourceId));
+    container.append(card);
+  });
+}
+
+function renderActiveDrill(container, drill) {
+  const state = activeResusDrill;
+  const step = drill.steps[state.step];
+  const card = document.createElement('section');
+  card.className = 'resus-drill-card';
+  const progress = document.createElement('p');
+  progress.className = 'resus-progress';
+  progress.textContent = `Krok ${state.step + 1} z ${drill.steps.length}`;
+  const title = document.createElement('h3');
+  title.textContent = drill.title;
+  const prompt = document.createElement('p');
+  prompt.className = 'resus-prompt';
+  prompt.textContent = step.prompt;
+  const options = document.createElement('div');
+  options.className = 'resus-options';
+  step.options.forEach((option, index) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.textContent = option;
+    if (state.choice !== undefined) {
+      button.disabled = true;
+      if (index === step.correct) button.classList.add('is-correct');
+      if (index === state.choice && index !== step.correct) button.classList.add('is-incorrect');
+    }
+    button.addEventListener('click', () => {
+      activeResusDrill = { ...state, choice: index, score: state.score + Number(index === step.correct) };
+      renderResus();
+    });
+    options.append(button);
+  });
+  card.append(progress, title, prompt, options);
+  if (state.choice !== undefined) {
+    const feedback = document.createElement('p');
+    feedback.className = state.choice === step.correct ? 'resus-feedback correct' : 'resus-feedback incorrect';
+    feedback.textContent = step.explanation;
+    const next = document.createElement('button');
+    next.type = 'button';
+    next.className = 'resus-next-button';
+    const finalStep = state.step === drill.steps.length - 1;
+    next.textContent = finalStep ? `Dokončit · ${state.score}/${drill.steps.length}` : 'Další krok';
+    next.addEventListener('click', () => {
+      activeResusDrill = finalStep ? null : { id: drill.id, step: state.step + 1, score: state.score, choice: undefined };
+      renderResus();
+    });
+    card.append(feedback, next);
+  }
+  card.append(resusSourceLink(drill.sourceId, 'Zkontrolovat zdrojový algoritmus'));
+  container.append(card);
+}
+
+function renderResusDrills(container) {
+  const current = activeResusDrill && RESUS_DRILLS.find(({ id }) => id === activeResusDrill.id);
+  if (current) return renderActiveDrill(container, current);
+  const intro = document.createElement('p');
+  intro.className = 'resus-safety-note';
+  intro.textContent = 'Každá kazuistika procvičuje jeden rozcestník. Výsledek se nikam neukládá a nijak nemění tvůj studijní plán.';
+  const grid = document.createElement('div');
+  grid.className = 'resus-drill-grid';
+  RESUS_DRILLS.forEach((drill) => {
+    const card = document.createElement('article');
+    card.className = 'resus-drill-teaser';
+    const heading = document.createElement('h3');
+    heading.textContent = drill.title;
+    const copy = document.createElement('p');
+    copy.textContent = drill.intro;
+    const start = document.createElement('button');
+    start.type = 'button';
+    start.className = 'resus-open-button';
+    start.textContent = 'Spustit kazuistiku';
+    start.addEventListener('click', () => {
+      activeResusDrill = { id: drill.id, step: 0, score: 0, choice: undefined };
+      renderResus();
+    });
+    card.append(heading, copy, start);
+    grid.append(card);
+  });
+  container.append(intro, grid);
+}
+
+function renderResus() {
+  const content = $('#resus-content');
+  if (!content) return;
+  content.replaceChildren();
+  if (resusView === 'algorithms') renderResusAlgorithms(content);
+  if (resusView === 'doses') renderResusDoses(content);
+  if (resusView === 'drills') renderResusDrills(content);
+}
+
+document.querySelectorAll('[data-resus-view]').forEach((tab) => tab.addEventListener('click', () => {
+  resusView = tab.dataset.resusView;
+  document.querySelectorAll('[data-resus-view]').forEach((button) => {
+    const selected = button === tab;
+    button.classList.toggle('is-active', selected);
+    button.setAttribute('aria-selected', String(selected));
+  });
+  renderResus();
+}));
+
 function subjectLabel(subject) {
   return ({ radiology: 'Radiologie', dermatology: 'Dermatologie', neurology: 'Neurologie' })[subject] ?? subject;
 }
@@ -227,6 +436,7 @@ async function refresh() {
     setup.classList.add('hidden');
     todayPanel.classList.add('hidden');
     settingsPanel.classList.add('hidden');
+    resusModePanel.classList.add('hidden');
     notificationPanel.classList.add('hidden');
     message.textContent = 'Tvůj plán je soukromý. Nejdřív ho prosím odemkni.';
     return false;
@@ -234,6 +444,8 @@ async function refresh() {
   if (!response.ok) throw new Error('Plán se nepodařilo načíst.');
   const status = await response.json();
   unlockPanel.classList.add('hidden');
+  resusModePanel.classList.remove('hidden');
+  renderResus();
   if (!status.events) {
     setup.classList.remove('hidden');
     message.textContent = 'Začneme jedním malým krokem: načteme rozvrh.';

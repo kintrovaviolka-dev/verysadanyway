@@ -87,6 +87,20 @@
         <p id="bear-status" class="muted"></p>
       </section>
 
+      <section id="resus-mode" class="card resus-mode hidden" aria-labelledby="resus-title">
+        <div class="section-heading">
+          <div><p class="eyebrow">Mimo denní plán · kdykoliv</p><h2 id="resus-title">Resus režim</h2></div>
+          <span class="resus-badge" aria-hidden="true">⚡</span>
+        </div>
+        <p class="gentle">Originální algoritmy, dávky a kazuistiky v jednom místě. Slouží k procvičování; při reálné péči otevři vždy zdrojový algoritmus a řiď se lokálními postupy.</p>
+        <div class="resus-tabs" role="tablist" aria-label="Resus režim">
+          <button type="button" class="resus-tab is-active" role="tab" aria-selected="true" data-resus-view="algorithms">Algoritmy</button>
+          <button type="button" class="resus-tab" role="tab" aria-selected="false" data-resus-view="doses">Dávky</button>
+          <button type="button" class="resus-tab" role="tab" aria-selected="false" data-resus-view="drills">Kazuistiky</button>
+        </div>
+        <div id="resus-content" class="resus-content" aria-live="polite"></div>
+      </section>
+
       <section id="key-topics" class="card key-topics hidden">
         <p class="eyebrow">Druhý průchod</p>
         <h2>Co méďa považuje za klíčové</h2>
@@ -178,6 +192,6 @@
         Na iPhonu si stránku nejdřív přidej na plochu; pak může přijímat push notifikace i bez otevřeného prohlížeče.
       </section>
     </main>
-    <script type="module" src="/app.js"></script>
+    <script type="module" src="/app.js?v=resus-1"></script>
   </body>
 </html>
