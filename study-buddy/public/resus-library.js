@@ -1,3 +1,8 @@
+// Every phone card is a crop of the rendered source diagram. The original PDF
+// remains available alongside it, so the reader never substitutes a summary
+// for the supplied algorithm.
+export const RESUS_PHONE_PANEL_COUNT = 8;
+
 export const RESUS_ALGORITHMS = [
   { id: 'adult-cardiac-arrest', title: 'Rozšířená resuscitace dospělých', group: 'Dospělí', pdf: 'adult-cardiac-arrest.pdf', preview: 'adult-cardiac-arrest.webp', focus: 'defibrilovatelný a nedefibrilovatelný rytmus' },
   { id: 'adult-tachycardia', title: 'Tachyarytmie u dospělých', group: 'Dospělí', pdf: 'adult-tachycardia.pdf', preview: 'adult-tachycardia.webp', focus: 'nestabilní vs. stabilní pacient, QRS' },

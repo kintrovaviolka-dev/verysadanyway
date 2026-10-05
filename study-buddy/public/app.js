@@ -1,4 +1,4 @@
-import { RESUS_ALGORITHMS, RESUS_DOSE_TABLES, RESUS_DRILLS, algorithmById } from './resus-library.js?v=resus-1';
+import { RESUS_ALGORITHMS, RESUS_DOSE_TABLES, RESUS_DRILLS, RESUS_PHONE_PANEL_COUNT, algorithmById } from './resus-library.js?v=resus-3';
 
 let calendarIcs = null;
 let today = null;
@@ -34,6 +34,7 @@ let bubbleTimer = null;
 let bearAnswerLocked = false;
 let resusView = 'algorithms';
 let openResusAlgorithmId = null;
+let resusPhonePanelIndex = 0;
 let activeResusDrill = null;
 
 const accessToken = () => localStorage.getItem('study-buddy-access-token') || '';
@@ -203,6 +204,11 @@ function resusSourceLink(algorithmId, label = 'Otevřít originální PDF') {
 }
 
 function renderResusAlgorithms(container) {
+  const openAlgorithm = algorithmById(openResusAlgorithmId);
+  if (openAlgorithm) {
+    renderResusPhoneReader(container, openAlgorithm);
+    return;
+  }
   const groups = Object.groupBy(RESUS_ALGORITHMS, ({ group }) => group);
   Object.entries(groups).forEach(([group, algorithms]) => {
     const heading = document.createElement('h3');
@@ -222,9 +228,10 @@ function renderResusAlgorithms(container) {
       const open = document.createElement('button');
       open.type = 'button';
       open.className = 'resus-open-button';
-      open.textContent = openResusAlgorithmId === algorithm.id ? 'Skrýt telefonní přehled' : 'Přehled pro telefon';
+      open.textContent = 'Otevřít telefonní karty';
       open.addEventListener('click', () => {
-        openResusAlgorithmId = openResusAlgorithmId === algorithm.id ? null : algorithm.id;
+        openResusAlgorithmId = algorithm.id;
+        resusPhonePanelIndex = 0;
         renderResus();
       });
       actions.append(open, resusSourceLink(algorithm.id, 'Originální PDF'));
@@ -243,28 +250,63 @@ function renderResusAlgorithms(container) {
     container.append(heading, grid);
   });
 
-  const openAlgorithm = algorithmById(openResusAlgorithmId);
-  if (!openAlgorithm) return;
+}
+
+function renderResusPhoneReader(container, algorithm) {
   const reader = document.createElement('section');
-  reader.className = 'resus-reader';
+  reader.className = 'resus-reader resus-phone-reader';
+  const back = document.createElement('button');
+  back.type = 'button';
+  back.className = 'quiet resus-back-button';
+  back.textContent = '← Všechny algoritmy';
+  back.addEventListener('click', () => {
+    openResusAlgorithmId = null;
+    resusPhonePanelIndex = 0;
+    renderResus();
+  });
   const readerHeading = document.createElement('h3');
-  readerHeading.textContent = openAlgorithm.title;
+  readerHeading.textContent = algorithm.title;
   const readerText = document.createElement('p');
-  readerText.textContent = 'Telefonní náhled je otočená kopie první strany zdrojového PDF. Roztáhni ho dvěma prsty; celý originál otevřeš odkazem níže.';
+  readerText.textContent = 'Procházej nezkrácený zdrojový diagram po čitelných kartách. Karty dohromady obsahují celou první stranu algoritmu.';
+  const position = document.createElement('p');
+  position.className = 'resus-phone-position';
+  position.textContent = `Karta ${resusPhonePanelIndex + 1} z ${RESUS_PHONE_PANEL_COUNT}`;
   const imageWrap = document.createElement('div');
-  imageWrap.className = 'resus-image-wrap';
+  imageWrap.className = 'resus-phone-card';
   const image = document.createElement('img');
-  image.src = `/algoritmy/${openAlgorithm.preview}`;
-  image.alt = `Telefonní náhled: ${openAlgorithm.title}`;
+  image.src = `/algoritmy/${algorithm.id}-panel-${resusPhonePanelIndex + 1}.webp?v=phone-cards-2`;
+  image.alt = `${algorithm.title}, karta ${resusPhonePanelIndex + 1} z ${RESUS_PHONE_PANEL_COUNT}`;
   imageWrap.append(image);
-  reader.append(readerHeading, readerText, resusSourceLink(openAlgorithm.id));
-  if (openAlgorithm.alternatePdf) {
+  const controls = document.createElement('div');
+  controls.className = 'resus-phone-controls';
+  const previous = document.createElement('button');
+  previous.type = 'button';
+  previous.className = 'secondary';
+  previous.textContent = '← Předchozí';
+  previous.disabled = resusPhonePanelIndex === 0;
+  previous.addEventListener('click', () => {
+    resusPhonePanelIndex -= 1;
+    renderResus();
+  });
+  const counter = document.createElement('strong');
+  counter.textContent = `${resusPhonePanelIndex + 1} / ${RESUS_PHONE_PANEL_COUNT}`;
+  const next = document.createElement('button');
+  next.type = 'button';
+  next.className = 'primary';
+  next.textContent = resusPhonePanelIndex === RESUS_PHONE_PANEL_COUNT - 1 ? 'Hotovo ✓' : 'Další →';
+  next.disabled = resusPhonePanelIndex === RESUS_PHONE_PANEL_COUNT - 1;
+  next.addEventListener('click', () => {
+    resusPhonePanelIndex += 1;
+    renderResus();
+  });
+  controls.append(previous, counter, next);
+  reader.append(back, readerHeading, readerText, position, imageWrap, controls, resusSourceLink(algorithm.id));
+  if (algorithm.alternatePdf) {
     const provenance = document.createElement('p');
     provenance.className = 'resus-provenance';
     provenance.textContent = 'V podkladech je druhá, obsahově shodná kopie hyperkalemického algoritmu; zůstává dostupná z karty výše pro úplnou dohledatelnost.';
     reader.append(provenance);
   }
-  reader.append(imageWrap);
   container.append(reader);
 }
 
