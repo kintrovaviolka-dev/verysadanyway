@@ -1,0 +1,34 @@
+# Ignore sub-projects deployed elsewhere or standalone
+study-buddy/
+ai_assistant/
+patolka-main/
+patfyza-main/
+
+# Ignore development / test files
+test/
+benchmark2.js
+compile_pdf.py
+scratch_inspect.py
+SECURITY_AUDIT.md
+*.test.js
+
+# Ignore large raw media / source assets not used by production web app
+*.pdf
+*.docx
+*.pptx
+*.zip
+psych/raw/
+neuro/raw/
+neuro/*.pdf
+neuro/*.docx
+neuro/*.pptx
+neuro/*.zip
+radiolka/img_src/
+mikra/skripta_*.md
+
+# System & tool files
+.DS_Store
+.Jules/
+.jules/
+.env*
+.venv/
