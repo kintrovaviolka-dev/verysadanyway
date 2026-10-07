@@ -1069,6 +1069,1441 @@
         "Dopisovací",
         "Třída III ESC"
       ]
+    },
+    {
+      "id": "kardio-practice-sc-01",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-aks-a-infarkt",
+      "topicTitle": "Kardiologie: AKS a infarkt",
+      "type": "single_choice",
+      "question": "Která kombinace je nezbytná pro diagnózu akutního infarktu myokardu podle univerzální definice?",
+      "options": [
+        "Jednorázově zvýšený troponin bez dalších nálezů",
+        "Vzestup a/nebo pokles troponinu s alespoň jednou hodnotou nad 99. percentilem a důkaz akutní ischémie",
+        "Bolest na hrudi trvající déle než 20 minut",
+        "Nově vzniklá blokáda levého Tawarova raménka"
+      ],
+      "correctIndex": 1,
+      "explanation": "Akutní IM vyžaduje dynamiku cTn nad 99. percentilem spolu s důkazem ischémie: symptomy, ischemické EKG změny, nové Q vlny, zobrazovací důkaz nebo koronární trombus. Izolované zvýšení cTn je myokardiální poškození, nikoli automaticky IM.",
+      "pearl": "AKS a infarkt: Akutní IM vyžaduje dynamiku cTn nad 99. percentilem spolu s důkazem ischémie: symptomy, ischemické EKG změny, nové Q vlny, zobrazovací důkaz nebo koronární trom...",
+      "tags": [
+        "Single Choice",
+        "AKS a infarkt",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-02",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-aks-a-infarkt",
+      "topicTitle": "Kardiologie: AKS a infarkt",
+      "type": "single_choice",
+      "question": "Který nález u NSTE-AKS vyžaduje okamžitou invazivní strategii (emergency, obvykle do 2 hodin)?",
+      "options": [
+        "GRACE skóre 145 bez symptomů",
+        "Potvrzený NSTEMI s mírně zvýšeným troponinem",
+        "Kardiogenní šok nebo hemodynamická nestabilita",
+        "Diabetes mellitus 2. typu"
+      ],
+      "correctIndex": 2,
+      "explanation": "Velmi vysoké riziko – zejména šok/nestabilita, refrakterní ischemie, život ohrožující arytmie, akutní HF z ischémie nebo rekurentní dynamické ST-T změny – je indikací k emergency SKG.",
+      "pearl": "AKS a infarkt: Velmi vysoké riziko – zejména šok/nestabilita, refrakterní ischemie, život ohrožující arytmie, akutní HF z ischémie nebo rekurentní dynamické ST-T změny – je in...",
+      "tags": [
+        "Single Choice",
+        "AKS a infarkt",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-03",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-aks-a-infarkt",
+      "topicTitle": "Kardiologie: AKS a infarkt",
+      "type": "single_choice",
+      "question": "Pacient s NSTE-AKS má plánovanou SKG za 12 hodin. Jaký je doporučený postup k P2Y12 inhibitoru před znalostí koronární anatomie?",
+      "options": [
+        "Rutinně podat prasugrel všem pacientům na příjmu",
+        "Rutinní pre-treatment nepodávat; P2Y12 inhibitor podat po rozhodnutí o PCI",
+        "Podat ticagrelor jen při pozitivním troponinu",
+        "Vždy podat clopidogrel spolu s LMWH"
+      ],
+      "correctIndex": 1,
+      "explanation": "Při plánované časné invazivní strategii se rutinní pre-treatment P2Y12 inhibitorem u NSTE-AKS nedoporučuje: nezlepšuje ischemické výsledky, zvyšuje krvácení a komplikuje případný urgentní CABG.",
+      "pearl": "AKS a infarkt: Při plánované časné invazivní strategii se rutinní pre-treatment P2Y12 inhibitorem u NSTE-AKS nedoporučuje: nezlepšuje ischemické výsledky, zvyšuje krvácení a k...",
+      "tags": [
+        "Single Choice",
+        "AKS a infarkt",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-04",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-aks-a-infarkt",
+      "topicTitle": "Kardiologie: AKS a infarkt",
+      "type": "single_choice",
+      "question": "Jaká je standardní délka DAPT po AKS u pacienta bez vysokého krvácivého rizika?",
+      "options": [
+        "1 měsíc",
+        "3 měsíce",
+        "6 měsíců",
+        "12 měsíců"
+      ],
+      "correctIndex": 3,
+      "explanation": "Výchozí strategie po AKS je 12 měsíců DAPT (ASA + inhibitor P2Y12), s individualizací podle vztahu ischemického a krvácivého rizika.",
+      "pearl": "AKS a infarkt: Výchozí strategie po AKS je 12 měsíců DAPT (ASA + inhibitor P2Y12), s individualizací podle vztahu ischemického a krvácivého rizika.",
+      "tags": [
+        "Single Choice",
+        "AKS a infarkt",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-05",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-aks-a-infarkt",
+      "topicTitle": "Kardiologie: AKS a infarkt",
+      "type": "single_choice",
+      "question": "Čtvrtý den po IM spodní stěny vznikne náhle plicní edém, šok a nový holosystolický šelest s maximem na hrotu a propagací do axily. Nejpravděpodobnější komplikace je:",
+      "options": [
+        "Ruptura volné stěny LK",
+        "Ruptura papilárního svalu s akutní mitrální regurgitací",
+        "Postinfarktová perikarditida",
+        "Aneurysma levé komory"
+      ],
+      "correctIndex": 1,
+      "explanation": "Posteromediální papilární sval bývá zásoben jedinou tepnou, proto je po spodním IM vulnerabilní. Akutní těžká MR se manifestuje plicním edémem a šokem a vyžaduje urgentní echo a kardiochirurgické řešení.",
+      "pearl": "AKS a infarkt: Posteromediální papilární sval bývá zásoben jedinou tepnou, proto je po spodním IM vulnerabilní. Akutní těžká MR se manifestuje plicním edémem a šokem a vyžaduj...",
+      "tags": [
+        "Single Choice",
+        "AKS a infarkt",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-06",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-aks-a-infarkt",
+      "topicTitle": "Kardiologie: AKS a infarkt",
+      "type": "single_choice",
+      "question": "Pacient se STEMI spodní stěny má elevace ST ve V4R, hypotenzi, čisté plíce a zvýšenou náplň krčních žil. Který krok je nejvhodnější?",
+      "options": [
+        "Podat nitroglycerin k úlevě od bolesti",
+        "Opatrně podat tekutiny při současné urgentní reperfuzi",
+        "Ihned podat vysokou dávku furosemidu",
+        "Zahájit neinvazivní ventilaci s vysokým PEEP"
+      ],
+      "correctIndex": 1,
+      "explanation": "Jde o infarkt pravé komory, který je preload-dependentní. Nitráty a agresivní diuréza mohou precipitovat šok; nutná je reperfuze a opatrná volumová podpora s průběžným hodnocením.",
+      "pearl": "AKS a infarkt: Jde o infarkt pravé komory, který je preload-dependentní. Nitráty a agresivní diuréza mohou precipitovat šok; nutná je reperfuze a opatrná volumová podpora s pr...",
+      "tags": [
+        "Single Choice",
+        "AKS a infarkt",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-07",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-aks-a-infarkt",
+      "topicTitle": "Kardiologie: AKS a infarkt",
+      "type": "single_choice",
+      "question": "Co nejlépe odlišuje IM typu 2 od IM typu 1?",
+      "options": [
+        "IM typu 2 nikdy nemá ischemické EKG změny",
+        "IM typu 2 je ischemie z nepoměru nabídky a spotřeby O2 bez akutní aterotrombózy",
+        "IM typu 2 je vždy způsoben koronární embolií",
+        "IM typu 1 má vždy normální koronarografii"
+      ],
+      "correctIndex": 1,
+      "explanation": "Typ 2 vzniká např. při sepsi, anémii, hypotenzi či tachyarytmii. Léčbou je především korekce precipitující příčiny; automatická PCI nebo DAPT nejsou univerzální odpovědí.",
+      "pearl": "AKS a infarkt: Typ 2 vzniká např. při sepsi, anémii, hypotenzi či tachyarytmii. Léčbou je především korekce precipitující příčiny; automatická PCI nebo DAPT nejsou univerzální...",
+      "tags": [
+        "Single Choice",
+        "AKS a infarkt",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-08",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-srdecni-selhani",
+      "topicTitle": "Kardiologie: Srdeční selhání",
+      "type": "single_choice",
+      "question": "Která kombinace tvoří čtyři základní pilíře prognózu zlepšující léčby HFrEF?",
+      "options": [
+        "ACEi/ARNI, betablokátor, MRA, SGLT2 inhibitor",
+        "Diuretikum, digoxin, verapamil, ASA",
+        "Nitrát, statin, amiodaron, MRA",
+        "Betablokátor, furosemid, ivabradin, warfarin"
+      ],
+      "correctIndex": 0,
+      "explanation": "Základ HFrEF tvoří ARNI (nebo ACEi/ARB), betablokátor, MRA a SGLT2 inhibitor. Kličkové diuretikum ulevuje od kongesce, ale samo o sobě prognózu nezlepšuje.",
+      "pearl": "Srdeční selhání: Základ HFrEF tvoří ARNI (nebo ACEi/ARB), betablokátor, MRA a SGLT2 inhibitor. Kličkové diuretikum ulevuje od kongesce, ale samo o sobě prognózu nezlepšuje.",
+      "tags": [
+        "Single Choice",
+        "Srdeční selhání",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-09",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-srdecni-selhani",
+      "topicTitle": "Kardiologie: Srdeční selhání",
+      "type": "single_choice",
+      "question": "Pro který fenotyp srdečního selhání mají dapagliflozin a empagliflozin prokázaný přínos bez ohledu na přítomnost diabetu?",
+      "options": [
+        "Pouze HFrEF",
+        "Pouze HFpEF",
+        "Napříč spektrem EF",
+        "Jen akutní myokarditida"
+      ],
+      "correctIndex": 2,
+      "explanation": "SGLT2 inhibitory snižují hospitalizace pro HF a zlepšují klinické výsledky napříč EF; nejsou jen antidiabetiky.",
+      "pearl": "Srdeční selhání: SGLT2 inhibitory snižují hospitalizace pro HF a zlepšují klinické výsledky napříč EF; nejsou jen antidiabetiky.",
+      "tags": [
+        "Single Choice",
+        "Srdeční selhání",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-10",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-srdecni-selhani",
+      "topicTitle": "Kardiologie: Srdeční selhání",
+      "type": "single_choice",
+      "question": "Jaká je nejvhodnější první i.v. léčba pacienta s akutním srdečním selháním a plicní kongescí bez hypotenze?",
+      "options": [
+        "Kličkové diuretikum",
+        "Rychlý bolus betablokátoru",
+        "Objemová resuscitace 2 l krystaloidů",
+        "Verapamil"
+      ],
+      "correctIndex": 0,
+      "explanation": "Při hypervolemii je cílem rychlá dekongesce i.v. kličkovým diuretikem. Vazodilataci lze zvážit u hypertenzního pacienta; tekutiny jsou nevhodné, pokud nejsou známky hypoperfuze z nízkého preloadu.",
+      "pearl": "Srdeční selhání: Při hypervolemii je cílem rychlá dekongesce i.v. kličkovým diuretikem. Vazodilataci lze zvážit u hypertenzního pacienta; tekutiny jsou nevhodné, pokud nejsou zn...",
+      "tags": [
+        "Single Choice",
+        "Srdeční selhání",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-11",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-srdecni-selhani",
+      "topicTitle": "Kardiologie: Srdeční selhání",
+      "type": "single_choice",
+      "question": "Která EF definuje HFrEF?",
+      "options": [
+        "LVEF ≤40 %",
+        "LVEF 41–49 %",
+        "LVEF ≥50 %",
+        "LVEF ≥60 %"
+      ],
+      "correctIndex": 0,
+      "explanation": "HFrEF znamená EF LK ≤40 %. HFmrEF je 41–49 % a HFpEF ≥50 %, vždy v kontextu symptomů a objektivních známek zvýšených plnicích tlaků.",
+      "pearl": "Srdeční selhání: HFrEF znamená EF LK ≤40 %. HFmrEF je 41–49 % a HFpEF ≥50 %, vždy v kontextu symptomů a objektivních známek zvýšených plnicích tlaků.",
+      "tags": [
+        "Single Choice",
+        "Srdeční selhání",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-12",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-chlopenni-vady",
+      "topicTitle": "Kardiologie: Chlopenní vady",
+      "type": "single_choice",
+      "question": "Který echokardiografický nález odpovídá těžké aortální stenóze?",
+      "options": [
+        "Plocha aortální chlopně 1,8 cm²",
+        "Střední gradient 18 mmHg",
+        "Plocha aortální chlopně ≤1,0 cm²",
+        "Vmax 2,2 m/s"
+      ],
+      "correctIndex": 2,
+      "explanation": "Těžká AS je typicky AVA ≤1,0 cm², Vmax ≥4,0 m/s nebo střední gradient ≥40 mmHg. Při low-flow/low-gradient AS je nutné integrované posouzení včetně průtoku a často dobutaminového zátěžového echa/CT kalcia.",
+      "pearl": "Chlopenní vady: Těžká AS je typicky AVA ≤1,0 cm², Vmax ≥4,0 m/s nebo střední gradient ≥40 mmHg. Při low-flow/low-gradient AS je nutné integrované posouzení včetně průtoku a čas...",
+      "tags": [
+        "Single Choice",
+        "Chlopenní vady",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-13",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-chlopenni-vady",
+      "topicTitle": "Kardiologie: Chlopenní vady",
+      "type": "single_choice",
+      "question": "Který symptom u pacienta s těžkou aortální stenózou je klasickou indikací k intervenci?",
+      "options": [
+        "Asymptomatická sinusová bradykardie 55/min",
+        "Námahová synkopa",
+        "Izolovaná extrasystolie",
+        "Mírná dyslipidémie"
+      ],
+      "correctIndex": 1,
+      "explanation": "Triáda symptomatické těžké AS je angina, synkopa a dušnost/HF. Její přítomnost zásadně zhoršuje prognózu bez náhrady chlopně.",
+      "pearl": "Chlopenní vady: Triáda symptomatické těžké AS je angina, synkopa a dušnost/HF. Její přítomnost zásadně zhoršuje prognózu bez náhrady chlopně.",
+      "tags": [
+        "Single Choice",
+        "Chlopenní vady",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-14",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-chlopenni-vady",
+      "topicTitle": "Kardiologie: Chlopenní vady",
+      "type": "single_choice",
+      "question": "Který poslechový nález je typický pro chronickou těžkou mitrální regurgitaci?",
+      "options": [
+        "Diastolický decrescendový šelest nad levým sternálním okrajem",
+        "Holosystolický šelest na hrotu s propagací do axily",
+        "Drsný systolický šelest do karotid",
+        "Otevírací klapnutí po II. ozvě"
+      ],
+      "correctIndex": 1,
+      "explanation": "Holosystolický apexový šelest do axily je klasický pro MR. U akutní velmi těžké MR může být šelest překvapivě krátký či tichý kvůli rychlé equalizaci tlaků.",
+      "pearl": "Chlopenní vady: Holosystolický apexový šelest do axily je klasický pro MR. U akutní velmi těžké MR může být šelest překvapivě krátký či tichý kvůli rychlé equalizaci tlaků.",
+      "tags": [
+        "Single Choice",
+        "Chlopenní vady",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-15",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-arytmologie",
+      "topicTitle": "Kardiologie: Arytmologie",
+      "type": "single_choice",
+      "question": "Podle ESC 2024 se pro první odhad tromboembolického rizika u fibrilace síní používá zejména skóre:",
+      "options": [
+        "CHA2DS2-VA",
+        "HAS-BLED jako jediný rozhodovací nástroj",
+        "TIMI",
+        "Wells"
+      ],
+      "correctIndex": 0,
+      "explanation": "ESC 2024 používá CHA2DS2-VA, tedy bez pohlaví. OAC se doporučuje při skóre ≥2 a má se zvážit při skóre 1; krvácivé riziko slouží hlavně k nápravě modifikovatelných faktorů, ne k automatickému odmítnutí OAC.",
+      "pearl": "Arytmologie: ESC 2024 používá CHA2DS2-VA, tedy bez pohlaví. OAC se doporučuje při skóre ≥2 a má se zvážit při skóre 1; krvácivé riziko slouží hlavně k nápravě modifikovateln...",
+      "tags": [
+        "Single Choice",
+        "Arytmologie",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-16",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-arytmologie",
+      "topicTitle": "Kardiologie: Arytmologie",
+      "type": "single_choice",
+      "question": "U kterého pacienta s fibrilací síní je VKA, nikoli DOAC, standardní volbou?",
+      "options": [
+        "Pacient s mechanickou chlopenní náhradou",
+        "Pacient s hypertenzí",
+        "Pacient po úspěšné ablaci FS",
+        "Pacient s BMI 28 kg/m²"
+      ],
+      "correctIndex": 0,
+      "explanation": "DOAC nejsou indikovány u mechanické chlopně a u středně až těžké revmatické mitrální stenózy. V těchto situacích zůstává standardem antagonista vitaminu K.",
+      "pearl": "Arytmologie: DOAC nejsou indikovány u mechanické chlopně a u středně až těžké revmatické mitrální stenózy. V těchto situacích zůstává standardem antagonista vitaminu K.",
+      "tags": [
+        "Single Choice",
+        "Arytmologie",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-17",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-arytmologie",
+      "topicTitle": "Kardiologie: Arytmologie",
+      "type": "single_choice",
+      "question": "Pacient má nepravidelnou širokokomplexovou tachykardii 240/min při známém WPW. Co je kontraindikováno?",
+      "options": [
+        "Synchronizovaná kardioverze při nestabilitě",
+        "Procainamid podle dostupnosti a stavu pacienta",
+        "Verapamil nebo adenosin",
+        "Urgentní konzultace elektrofyziologa"
+      ],
+      "correctIndex": 2,
+      "explanation": "U preexcitované FS blokáda AV uzlu zvýhodní vedení akcesorní dráhou a může vyústit ve fibrilaci komor. Nestabilního pacienta kardiovertujeme; u stabilního volíme lék působící na akcesorní dráhu dle lokálního protokolu.",
+      "pearl": "Arytmologie: U preexcitované FS blokáda AV uzlu zvýhodní vedení akcesorní dráhou a může vyústit ve fibrilaci komor. Nestabilního pacienta kardiovertujeme; u stabilního volím...",
+      "tags": [
+        "Single Choice",
+        "Arytmologie",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-18",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-arytmologie",
+      "topicTitle": "Kardiologie: Arytmologie",
+      "type": "single_choice",
+      "question": "Hemodynamicky stabilní pravidelná širokokomplexová tachykardie je do prokázání opaku:",
+      "options": [
+        "SVT s aberací",
+        "Komorová tachykardie",
+        "Sinusová tachykardie",
+        "Fibrilace síní"
+      ],
+      "correctIndex": 1,
+      "explanation": "U dospělého, zvláště se strukturálním onemocněním srdce, je pravidelná WCT nejčastěji KT. Chybná léčba verapamilem může být katastrofální.",
+      "pearl": "Arytmologie: U dospělého, zvláště se strukturálním onemocněním srdce, je pravidelná WCT nejčastěji KT. Chybná léčba verapamilem může být katastrofální.",
+      "tags": [
+        "Single Choice",
+        "Arytmologie",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-19",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-arytmologie",
+      "topicTitle": "Kardiologie: Arytmologie",
+      "type": "single_choice",
+      "question": "Jaká je bezprostřední léčba torsades de pointes při prodlouženém QT?",
+      "options": [
+        "Magnesium sulfát i.v. a korekce K+/spouštěčů",
+        "Verapamil i.v.",
+        "Digoxin i.v.",
+        "Adenosin opakovaně"
+      ],
+      "correctIndex": 0,
+      "explanation": "Magnesium je lékem první volby, i když je sérové Mg normální. Současně se koriguje hypokalémie, vysadí QT-prolongující léky a při recidivách z bradykardie se zvyšuje frekvence stimulací/isoprenalinem podle kontextu.",
+      "pearl": "Arytmologie: Magnesium je lékem první volby, i když je sérové Mg normální. Současně se koriguje hypokalémie, vysadí QT-prolongující léky a při recidivách z bradykardie se zv...",
+      "tags": [
+        "Single Choice",
+        "Arytmologie",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-20",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-arytmologie",
+      "topicTitle": "Kardiologie: Arytmologie",
+      "type": "single_choice",
+      "question": "Která EKG kombinace je typická pro manifestní preexcitaci (WPW) v sinusovém rytmu?",
+      "options": [
+        "Krátký PR, delta vlna a široký QRS",
+        "Dlouhý PR, úzký QRS a vysoké T",
+        "ST elevace ve V1–V3 a negativní T",
+        "Elektrická alternace"
+      ],
+      "correctIndex": 0,
+      "explanation": "Akcesorní dráha obchází fyziologické zpoždění v AV uzlu: PR se zkrátí, začátek QRS se oploští jako delta vlna a QRS se rozšíří.",
+      "pearl": "Arytmologie: Akcesorní dráha obchází fyziologické zpoždění v AV uzlu: PR se zkrátí, začátek QRS se oploští jako delta vlna a QRS se rozšíří.",
+      "tags": [
+        "Single Choice",
+        "Arytmologie",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-21",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-arytmologie",
+      "topicTitle": "Kardiologie: Arytmologie",
+      "type": "single_choice",
+      "question": "Který EKG vzorec je diagnostický pro Brugada syndrom typu 1?",
+      "options": [
+        "Saddleback ST elevace ve V1–V2 s pozitivní T",
+        "Coved ST elevace ≥2 mm ve V1–V2 s negativní T",
+        "Difuzní ST deprese",
+        "Delta vlna ve V1"
+      ],
+      "correctIndex": 1,
+      "explanation": "Spontánní nebo farmakologicky vyvolaný coved typ 1 ve V1–V2/V3 je diagnostický EKG fenotyp. Horečka může vzorec i arytmické riziko zvýraznit.",
+      "pearl": "Arytmologie: Spontánní nebo farmakologicky vyvolaný coved typ 1 ve V1–V2/V3 je diagnostický EKG fenotyp. Horečka může vzorec i arytmické riziko zvýraznit.",
+      "tags": [
+        "Single Choice",
+        "Arytmologie",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-22",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-arytmologie",
+      "topicTitle": "Kardiologie: Arytmologie",
+      "type": "single_choice",
+      "question": "Který EKG nález nejvíce podporuje hyperkalémii s rizikem maligní arytmie?",
+      "options": [
+        "Ostré vysoké T vlny a šíření QRS",
+        "Výrazná U vlna",
+        "Zkrácení PR intervalů",
+        "ST elevace jen ve II, III, aVF"
+      ],
+      "correctIndex": 0,
+      "explanation": "Hyperkalémie vede postupně k vysokým špičatým T, prodloužení PR, úbytku P a rozšíření QRS až k sine-wave obrazu. Při EKG změnách je prioritou membránová stabilizace kalciem.",
+      "pearl": "Arytmologie: Hyperkalémie vede postupně k vysokým špičatým T, prodloužení PR, úbytku P a rozšíření QRS až k sine-wave obrazu. Při EKG změnách je prioritou membránová stabili...",
+      "tags": [
+        "Single Choice",
+        "Arytmologie",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-23",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-arytmologie",
+      "topicTitle": "Kardiologie: Arytmologie",
+      "type": "single_choice",
+      "question": "Který nález nejlépe odpovídá Mobitz II AV blokádě?",
+      "options": [
+        "Postupné prodlužování PR před výpadkem QRS",
+        "Konstantní PR intervaly s náhlými nevzrušenými P vlnami",
+        "AV disociace s únikovým rytmem",
+        "Krátký PR interval"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mobitz II je infranodální porucha s konstantním PR a náhlým výpadkem QRS; má vysoké riziko progrese do kompletní AV blokády a často vyžaduje stimulaci.",
+      "pearl": "Arytmologie: Mobitz II je infranodální porucha s konstantním PR a náhlým výpadkem QRS; má vysoké riziko progrese do kompletní AV blokády a často vyžaduje stimulaci.",
+      "tags": [
+        "Single Choice",
+        "Arytmologie",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-24",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-arytmologie",
+      "topicTitle": "Kardiologie: Arytmologie",
+      "type": "single_choice",
+      "question": "Který stav představuje typickou indikaci trvalé kardiostimulace, pokud není reverzibilní příčina?",
+      "options": [
+        "Asymptomatická sinusová bradykardie 52/min",
+        "Kompletní AV blokáda",
+        "Izolovaná supraventrikulární extrasystolie",
+        "První stupeň AV blokády bez symptomů"
+      ],
+      "correctIndex": 1,
+      "explanation": "Kompletní AV blokáda ohrožuje pomalým či nespolehlivým únikovým rytmem. Před implantací je nutné pátrat po reverzibilní příčině (léky, ischemie, Lyme, metabolická porucha).",
+      "pearl": "Arytmologie: Kompletní AV blokáda ohrožuje pomalým či nespolehlivým únikovým rytmem. Před implantací je nutné pátrat po reverzibilní příčině (léky, ischemie, Lyme, metabolic...",
+      "tags": [
+        "Single Choice",
+        "Arytmologie",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-25",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-hypertenze",
+      "topicTitle": "Kardiologie: Hypertenze",
+      "type": "single_choice",
+      "question": "Jaký je práh pro hypertenzi při 24hodinovém ABPM (celkový průměr)?",
+      "options": [
+        "≥130/80 mmHg",
+        "≥135/85 mmHg",
+        "≥140/90 mmHg",
+        "≥150/95 mmHg"
+      ],
+      "correctIndex": 0,
+      "explanation": "Hypertenze je při 24h průměru ABPM ≥130/80 mmHg; denní průměr ≥135/85 a noční ≥120/70 mmHg. Mimoordinanční měření potvrzuje diagnózu a odhalí fenotyp bílého pláště či maskované HT.",
+      "pearl": "Hypertenze: Hypertenze je při 24h průměru ABPM ≥130/80 mmHg; denní průměr ≥135/85 a noční ≥120/70 mmHg. Mimoordinanční měření potvrzuje diagnózu a odhalí fenotyp bílého plá...",
+      "tags": [
+        "Single Choice",
+        "Hypertenze",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-26",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-hypertenze",
+      "topicTitle": "Kardiologie: Hypertenze",
+      "type": "single_choice",
+      "question": "Co definuje hypertenzní emergenci?",
+      "options": [
+        "TK 180/110 mmHg bez symptomů",
+        "Výrazně zvýšený TK s akutním poškozením cílového orgánu",
+        "Každý tlak nad 160/100 mmHg",
+        "Hypertenze u pacienta s obezitou"
+      ],
+      "correctIndex": 1,
+      "explanation": "Rozhodující není samotné číslo TK, ale akutní orgánové poškození (např. disekce aorty, plicní edém, encefalopatie, AKI, retinopatie). Vyžaduje monitorovanou titrovanou i.v. léčbu, nikoli nekontrolované rychlé snížení TK.",
+      "pearl": "Hypertenze: Rozhodující není samotné číslo TK, ale akutní orgánové poškození (např. disekce aorty, plicní edém, encefalopatie, AKI, retinopatie). Vyžaduje monitorovanou tit...",
+      "tags": [
+        "Single Choice",
+        "Hypertenze",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-27",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-hypertenze",
+      "topicTitle": "Kardiologie: Hypertenze",
+      "type": "single_choice",
+      "question": "Který laboratorní screening je nejvhodnější při podezření na primární hyperaldosteronismus?",
+      "options": [
+        "Poměr aldosteron/renin",
+        "Troponin/CK-MB",
+        "D-dimer",
+        "ANA profil"
+      ],
+      "correctIndex": 0,
+      "explanation": "Aldosteron-renin ratio je screeningový test. Hypokalémie podezření podporuje, ale její nepřítomnost diagnózu nevylučuje; interpretace vyžaduje správnou přípravu a zohlednění medikace.",
+      "pearl": "Hypertenze: Aldosteron-renin ratio je screeningový test. Hypokalémie podezření podporuje, ale její nepřítomnost diagnózu nevylučuje; interpretace vyžaduje správnou přípravu...",
+      "tags": [
+        "Single Choice",
+        "Hypertenze",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-28",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-plicni-cirkulace",
+      "topicTitle": "Kardiologie: Plicní cirkulace",
+      "type": "single_choice",
+      "question": "Které vyšetření je zlatým standardem k potvrzení a hemodynamické klasifikaci plicní hypertenze?",
+      "options": [
+        "Transtorakální echokardiografie",
+        "Pravostranná srdeční katetrizace",
+        "CT plic bez kontrastu",
+        "Spirometrie"
+      ],
+      "correctIndex": 1,
+      "explanation": "Echo pouze odhaduje pravděpodobnost PH. Pravostranná katetrizace přímo měří mPAP, PAWP, srdeční výdej a PVR a je nutná pro přesnou klasifikaci před specifickou terapií PAH.",
+      "pearl": "Plicní cirkulace: Echo pouze odhaduje pravděpodobnost PH. Pravostranná katetrizace přímo měří mPAP, PAWP, srdeční výdej a PVR a je nutná pro přesnou klasifikaci před specifickou ...",
+      "tags": [
+        "Single Choice",
+        "Plicní cirkulace",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-29",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-plicni-cirkulace",
+      "topicTitle": "Kardiologie: Plicní cirkulace",
+      "type": "single_choice",
+      "question": "Pacient s akutní plicní embolií je v šoku. Jaká je správná riziková kategorie a princip léčby?",
+      "options": [
+        "Nízké riziko; ambulantní DOAC",
+        "Střední riziko; samotná observace",
+        "Vysoké riziko; urgentní reperfuzní léčba, pokud není kontraindikována",
+        "Chronická PE; vždy endarterektomie"
+      ],
+      "correctIndex": 2,
+      "explanation": "Hemodynamická nestabilita definuje vysoce rizikovou PE. Při absenci kontraindikace je indikována systémová trombolýza; při kontraindikaci či selhání se zvažuje katetrizační nebo chirurgická reperfuze.",
+      "pearl": "Plicní cirkulace: Hemodynamická nestabilita definuje vysoce rizikovou PE. Při absenci kontraindikace je indikována systémová trombolýza; při kontraindikaci či selhání se zvažuje ...",
+      "tags": [
+        "Single Choice",
+        "Plicní cirkulace",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-30",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-infekcni-endokarditida",
+      "topicTitle": "Kardiologie: Infekční endokarditida",
+      "type": "single_choice",
+      "question": "Při stabilním pacientovi s podezřením na infekční endokarditidu je před antibiotiky správně:",
+      "options": [
+        "Odebrat jednu hemokulturu a ihned nasadit ATB",
+        "Odebrat alespoň tři páry hemokultur z oddělených vpichů",
+        "Neodebírat hemokultury, aby se nezdržela léčba",
+        "Provést pouze výtěr z nosu"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tři páry hemokultur z periferních vpichů před ATB maximalizují mikrobiologickou výtěžnost. U septického/šokového pacienta se odběry provádějí bezodkladně, ale nezdržují život zachraňující léčbu.",
+      "pearl": "Infekční endokarditida: Tři páry hemokultur z periferních vpichů před ATB maximalizují mikrobiologickou výtěžnost. U septického/šokového pacienta se odběry provádějí bezodkladně, ale n...",
+      "tags": [
+        "Single Choice",
+        "Infekční endokarditida",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-31",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-infekcni-endokarditida",
+      "topicTitle": "Kardiologie: Infekční endokarditida",
+      "type": "single_choice",
+      "question": "Který nález je typickou urgentní indikací k chirurgickému řešení infekční endokarditidy?",
+      "options": [
+        "Afebrilní pacient s malou stabilní vegetací",
+        "Akutní těžká chlopenní regurgitace vedoucí k plicnímu edému",
+        "Negativní CRP po terapii",
+        "Asymptomatický šelest bez vegetace"
+      ],
+      "correctIndex": 1,
+      "explanation": "Hlavní indikace chirurgie jsou srdeční selhání z dysfunkce chlopně, nekontrolovaná infekce (absces, perzistující bakterémie) a prevence embolizace u vybraných velkých mobilních vegetací.",
+      "pearl": "Infekční endokarditida: Hlavní indikace chirurgie jsou srdeční selhání z dysfunkce chlopně, nekontrolovaná infekce (absces, perzistující bakterémie) a prevence embolizace u vybraných v...",
+      "tags": [
+        "Single Choice",
+        "Infekční endokarditida",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-32",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-perikard-a-myokard",
+      "topicTitle": "Kardiologie: Perikard a myokard",
+      "type": "single_choice",
+      "question": "Jaká kombinace je první linií léčby nekomplikované akutní perikarditidy?",
+      "options": [
+        "NSAID/ASA + kolchicin",
+        "Warfarin + ASA",
+        "Verapamil + digoxin",
+        "Trombolýza"
+      ],
+      "correctIndex": 0,
+      "explanation": "Protizánětlivý lék v adekvátní dávce spolu s kolchicinem snižuje symptomy i recidivy. Při myoperikarditidě nebo specifické etiologii se postup individualizuje.",
+      "pearl": "Perikard a myokard: Protizánětlivý lék v adekvátní dávce spolu s kolchicinem snižuje symptomy i recidivy. Při myoperikarditidě nebo specifické etiologii se postup individualizuje.",
+      "tags": [
+        "Single Choice",
+        "Perikard a myokard",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-33",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-perikard-a-myokard",
+      "topicTitle": "Kardiologie: Perikard a myokard",
+      "type": "single_choice",
+      "question": "Který echokardiografický nález nejvíce podporuje srdeční tamponádu?",
+      "options": [
+        "Hypertrofie septa",
+        "Diastolický kolaps pravé síně/komory při perikardiálním výpotku",
+        "Mírná mitrální regurgitace",
+        "Dilatace levé síně"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tamponáda je klinicko-hemodynamická diagnóza. Kolaps pravostranných oddílů, dilatovaná IVC s malým kolapsem a respirační variabilita toků podporují významný intraperikardiální tlak.",
+      "pearl": "Perikard a myokard: Tamponáda je klinicko-hemodynamická diagnóza. Kolaps pravostranných oddílů, dilatovaná IVC s malým kolapsem a respirační variabilita toků podporují významný int...",
+      "tags": [
+        "Single Choice",
+        "Perikard a myokard",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-34",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-perikard-a-myokard",
+      "topicTitle": "Kardiologie: Perikard a myokard",
+      "type": "single_choice",
+      "question": "Jaké vyšetření nejlépe rozlišuje myokarditidu od ischemického IM u pacienta s troponinovou dynamikou a neobstrukčními koronárními tepnami?",
+      "options": [
+        "CMR s charakterizací tkáně",
+        "Zátěžové EKG jako jediné vyšetření",
+        "RTG hrudníku",
+        "Holter EKG"
+      ],
+      "correctIndex": 0,
+      "explanation": "CMR odliší ischemické subendokardiální/transmurální LGE od typicky subepikardiálního či mid-wall LGE při myokarditidě a pomáhá v diferenciální diagnostice MINOCA.",
+      "pearl": "Perikard a myokard: CMR odliší ischemické subendokardiální/transmurální LGE od typicky subepikardiálního či mid-wall LGE při myokarditidě a pomáhá v diferenciální diagnostice MINOC...",
+      "tags": [
+        "Single Choice",
+        "Perikard a myokard",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-35",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-aorta-a-prevence",
+      "topicTitle": "Kardiologie: Aorta a prevence",
+      "type": "single_choice",
+      "question": "Jaký je iniciální hemodynamický princip léčby akutní disekce aorty před definitivním řešením?",
+      "options": [
+        "Zvýšit tepovou frekvenci a tlak",
+        "Anti-impulsní léčba: nejdříve betablokáda a titrace TK",
+        "Podat velký objem tekutin každému pacientovi",
+        "Trombolýza"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cílem je snížit dP/dt, frekvenci a systolický tlak (obvykle i.v. betablokátorem, poté vazodilatací dle potřeby), současně zajistit urgentní kardiochirurgické zhodnocení u Stanford A.",
+      "pearl": "Aorta a prevence: Cílem je snížit dP/dt, frekvenci a systolický tlak (obvykle i.v. betablokátorem, poté vazodilatací dle potřeby), současně zajistit urgentní kardiochirurgické zh...",
+      "tags": [
+        "Single Choice",
+        "Aorta a prevence",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-36",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-aorta-a-prevence",
+      "topicTitle": "Kardiologie: Aorta a prevence",
+      "type": "single_choice",
+      "question": "Který cíl LDL-cholesterolu platí pro většinu pacientů ve velmi vysokém kardiovaskulárním riziku v sekundární prevenci?",
+      "options": [
+        "<3,0 mmol/l",
+        "<2,6 mmol/l",
+        "<1,8 mmol/l",
+        "<1,4 mmol/l a snížení alespoň o 50 %"
+      ],
+      "correctIndex": 3,
+      "explanation": "V sekundární prevenci je cílem LDL-C <1,4 mmol/l a současně alespoň 50% redukce oproti výchozí hodnotě. Základem je vysokointenzivní statin, dále se přidává ezetimib a podle potřeby PCSK9 léčba.",
+      "pearl": "Aorta a prevence: V sekundární prevenci je cílem LDL-C <1,4 mmol/l a současně alespoň 50% redukce oproti výchozí hodnotě. Základem je vysokointenzivní statin, dále se přidává eze...",
+      "tags": [
+        "Single Choice",
+        "Aorta a prevence",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-37",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-aorta-a-prevence",
+      "topicTitle": "Kardiologie: Aorta a prevence",
+      "type": "single_choice",
+      "question": "Která onkologická léčba je typicky spojena s dávkově závislou kardiomyopatií přes oxidativní poškození myocytů?",
+      "options": [
+        "Antracykliny",
+        "Penicilin",
+        "Metformin",
+        "Levothyroxin"
+      ],
+      "correctIndex": 0,
+      "explanation": "Antracykliny (např. doxorubicin) mohou vyvolat kumulativní dysfunkci LK. Riziko roste s dávkou a vyžaduje bazální i průběžné kardiologické sledování.",
+      "pearl": "Aorta a prevence: Antracykliny (např. doxorubicin) mohou vyvolat kumulativní dysfunkci LK. Riziko roste s dávkou a vyžaduje bazální i průběžné kardiologické sledování.",
+      "tags": [
+        "Single Choice",
+        "Aorta a prevence",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-38",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-tehotenstvi-a-kardio",
+      "topicTitle": "Kardiologie: Těhotenství a kardio",
+      "type": "single_choice",
+      "question": "Které antikoagulans prochází placentou a je teratogenní, přesto může být u mechanické chlopně v těhotenství zváženo ve specializovaném režimu?",
+      "options": [
+        "Warfarin",
+        "Nízkomolekulární heparin",
+        "Nefrakcionovaný heparin",
+        "Fondaparinux"
+      ],
+      "correctIndex": 0,
+      "explanation": "Warfarin placentou prochází, zatímco hepariny ne. U mechanické chlopně se volba režimu řídí rizikem trombózy chlopně a fetálním rizikem, vždy v multidisciplinárním cardio-obstetrickém týmu.",
+      "pearl": "Těhotenství a kardio: Warfarin placentou prochází, zatímco hepariny ne. U mechanické chlopně se volba režimu řídí rizikem trombózy chlopně a fetálním rizikem, vždy v multidisciplinár...",
+      "tags": [
+        "Single Choice",
+        "Těhotenství a kardio",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-39",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-tehotenstvi-a-kardio",
+      "topicTitle": "Kardiologie: Těhotenství a kardio",
+      "type": "single_choice",
+      "question": "Který stav patří mezi nejrizikovější pro těhotenství (mWHO IV), kdy je těhotenství obvykle kontraindikováno?",
+      "options": [
+        "Stabilní lehká mitrální regurgitace",
+        "Plicní arteriální hypertenze",
+        "Izolovaná komorová extrasystolie",
+        "Uzavřený malý ASD"
+      ],
+      "correctIndex": 1,
+      "explanation": "PAH nese extrémně vysoké riziko mateřské mortality v důsledku selhání pravé komory. Vyžaduje prekonceptční poradenství v expertním centru.",
+      "pearl": "Těhotenství a kardio: PAH nese extrémně vysoké riziko mateřské mortality v důsledku selhání pravé komory. Vyžaduje prekonceptční poradenství v expertním centru.",
+      "tags": [
+        "Single Choice",
+        "Těhotenství a kardio",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-sc-40",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-tehotenstvi-a-kardio",
+      "topicTitle": "Kardiologie: Těhotenství a kardio",
+      "type": "single_choice",
+      "question": "Který postup je správný při podezření na aortální disekci u těhotné pacientky?",
+      "options": [
+        "Odložit zobrazování až po porodu",
+        "Urgentně zobrazit a léčit matku; život matky má prioritu",
+        "Podat trombolýzu bez zobrazení",
+        "Vyloučit disekci, pokud je pacientka mladá"
+      ],
+      "correctIndex": 1,
+      "explanation": "Disekce je časově kritická diagnóza. Volba zobrazovací metody a intervence se přizpůsobí gestaci, ale diagnostika ani život zachraňující léčba se nesmějí oddalovat.",
+      "pearl": "Těhotenství a kardio: Disekce je časově kritická diagnóza. Volba zobrazovací metody a intervence se přizpůsobí gestaci, ale diagnostika ani život zachraňující léčba se nesmějí oddalo...",
+      "tags": [
+        "Single Choice",
+        "Těhotenství a kardio",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-ti-01",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-aks-a-infarkt",
+      "topicTitle": "Kardiologie: AKS a infarkt",
+      "type": "fill_in",
+      "question": "Doplňte (jedno slovo): CMR je klíčové vyšetření pro etiologické dořešení pracovního syndromu ________ (IM s neobstrukčními koronárními tepnami).",
+      "sentence": "Správné doplnění: MINOCA. MINOCA je pracovní diagnóza, nikoli konečná etiologie. CMR pomáhá odlišit IM, myokarditidu a Takotsubo syndrom.",
+      "acceptedAnswers": [
+        "MINOCA"
+      ],
+      "hint": "AKS a infarkt (M...)",
+      "explanation": "MINOCA je pracovní diagnóza, nikoli konečná etiologie. CMR pomáhá odlišit IM, myokarditidu a Takotsubo syndrom.",
+      "pearl": "Klíčový fakt (AKS a infarkt): MINOCA – MINOCA je pracovní diagnóza, nikoli konečná etiologie. CMR pomáhá odlišit IM, myokarditidu a Takotsubo syndrom.",
+      "tags": [
+        "Dopisovací",
+        "AKS a infarkt",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-ti-02",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-aks-a-infarkt",
+      "topicTitle": "Kardiologie: AKS a infarkt",
+      "type": "fill_in",
+      "question": "Doplňte (jedno slovo): Vzestup troponinu bez důkazu akutní ischémie označujeme jako myokardiální ________.",
+      "sentence": "Správné doplnění: poškození. Myokardiální poškození může být akutní (dynamika cTn) či chronické, ale k diagnóze IM musí být přidán důkaz ischémie.",
+      "acceptedAnswers": [
+        "poškození",
+        "poskozeni",
+        "injury"
+      ],
+      "hint": "AKS a infarkt (p...)",
+      "explanation": "Myokardiální poškození může být akutní (dynamika cTn) či chronické, ale k diagnóze IM musí být přidán důkaz ischémie.",
+      "pearl": "Klíčový fakt (AKS a infarkt): poškození – Myokardiální poškození může být akutní (dynamika cTn) či chronické, ale k diagnóze IM musí být přidán důkaz ischémie.",
+      "tags": [
+        "Dopisovací",
+        "AKS a infarkt",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-ti-03",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-srdecni-selhani",
+      "topicTitle": "Kardiologie: Srdeční selhání",
+      "type": "fill_in",
+      "question": "Doplňte zkratku: HFrEF je srdeční selhání s ________ ejekční frakcí.",
+      "sentence": "Správné doplnění: redukovanou. HFrEF je EF LK ≤40 %. U těchto pacientů mají čtyři pilíře léčby robustní prognostický přínos.",
+      "acceptedAnswers": [
+        "redukovanou",
+        "snizenou",
+        "sníženou"
+      ],
+      "hint": "Srdeční selhání (r...)",
+      "explanation": "HFrEF je EF LK ≤40 %. U těchto pacientů mají čtyři pilíře léčby robustní prognostický přínos.",
+      "pearl": "Klíčový fakt (Srdeční selhání): redukovanou – HFrEF je EF LK ≤40 %. U těchto pacientů mají čtyři pilíře léčby robustní prognostický přínos.",
+      "tags": [
+        "Dopisovací",
+        "Srdeční selhání",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-ti-04",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-srdecni-selhani",
+      "topicTitle": "Kardiologie: Srdeční selhání",
+      "type": "fill_in",
+      "question": "Doplňte (jedno slovo): Spironolakton patří mezi ________ receptoru mineralokortikoidů.",
+      "sentence": "Správné doplnění: antagonisty. MRA (spironolakton/eplerenon) snižují mortalitu a hospitalizace u symptomatického HFrEF; je nutná kontrola K+ a renálních funkcí.",
+      "acceptedAnswers": [
+        "antagonisty",
+        "antagonista",
+        "blokátory",
+        "blokator"
+      ],
+      "hint": "Srdeční selhání (a...)",
+      "explanation": "MRA (spironolakton/eplerenon) snižují mortalitu a hospitalizace u symptomatického HFrEF; je nutná kontrola K+ a renálních funkcí.",
+      "pearl": "Klíčový fakt (Srdeční selhání): antagonisty – MRA (spironolakton/eplerenon) snižují mortalitu a hospitalizace u symptomatického HFrEF; je nutná kontrola K+ a renálních funkcí.",
+      "tags": [
+        "Dopisovací",
+        "Srdeční selhání",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-ti-05",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-arytmologie",
+      "topicTitle": "Kardiologie: Arytmologie",
+      "type": "fill_in",
+      "question": "Doplňte zkratku: Nové ESC skóre pro odhad tromboembolického rizika u FS bez pohlavní kategorie je CHA2DS2-______.",
+      "sentence": "Správné doplnění: VA. CHA2DS2-VA vynechává ženské pohlaví jako samostatný bod. OAC se doporučuje při skóre ≥2 a zvažuje při skóre 1.",
+      "acceptedAnswers": [
+        "VA",
+        "va"
+      ],
+      "hint": "Arytmologie (V...)",
+      "explanation": "CHA2DS2-VA vynechává ženské pohlaví jako samostatný bod. OAC se doporučuje při skóre ≥2 a zvažuje při skóre 1.",
+      "pearl": "Klíčový fakt (Arytmologie): VA – CHA2DS2-VA vynechává ženské pohlaví jako samostatný bod. OAC se doporučuje při skóre ≥2 a zvažuje při skóre 1.",
+      "tags": [
+        "Dopisovací",
+        "Arytmologie",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-ti-06",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-arytmologie",
+      "topicTitle": "Kardiologie: Arytmologie",
+      "type": "fill_in",
+      "question": "Doplňte (jedno slovo): Pomalý vzestup počátku QRS u WPW se nazývá ________ vlna.",
+      "sentence": "Správné doplnění: delta. Delta vlna vzniká časnou aktivací komor přes akcesorní dráhu; spolu s krátkým PR a širokým QRS tvoří obraz preexcitace.",
+      "acceptedAnswers": [
+        "delta",
+        "delta vlna"
+      ],
+      "hint": "Arytmologie (d...)",
+      "explanation": "Delta vlna vzniká časnou aktivací komor přes akcesorní dráhu; spolu s krátkým PR a širokým QRS tvoří obraz preexcitace.",
+      "pearl": "Klíčový fakt (Arytmologie): delta – Delta vlna vzniká časnou aktivací komor přes akcesorní dráhu; spolu s krátkým PR a širokým QRS tvoří obraz preexcitace.",
+      "tags": [
+        "Dopisovací",
+        "Arytmologie",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-ti-07",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-arytmologie",
+      "topicTitle": "Kardiologie: Arytmologie",
+      "type": "fill_in",
+      "question": "Doplňte (jedno slovo): Lékem první volby pro torsades de pointes je i.v. ________ sulfát.",
+      "sentence": "Správné doplnění: magnesium. Magnesium sulfát je indikován i při normální magnezémii; zároveň korigujeme K+ a odstraňujeme příčinu prodlouženého QT.",
+      "acceptedAnswers": [
+        "magnesium",
+        "magnézium",
+        "magnezium",
+        "hořčík",
+        "horcik"
+      ],
+      "hint": "Arytmologie (m...)",
+      "explanation": "Magnesium sulfát je indikován i při normální magnezémii; zároveň korigujeme K+ a odstraňujeme příčinu prodlouženého QT.",
+      "pearl": "Klíčový fakt (Arytmologie): magnesium – Magnesium sulfát je indikován i při normální magnezémii; zároveň korigujeme K+ a odstraňujeme příčinu prodlouženého QT.",
+      "tags": [
+        "Dopisovací",
+        "Arytmologie",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-ti-08",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-arytmologie",
+      "topicTitle": "Kardiologie: Arytmologie",
+      "type": "fill_in",
+      "question": "Doplňte (jedno slovo): U AVNRT je první nefarmakologickou intervencí vagový ________.",
+      "sentence": "Správné doplnění: manévr. U stabilní pravidelné úzkokomplexové SVT se začíná vagovým manévrem, preferenčně modifikovaným Valsalvovým.",
+      "acceptedAnswers": [
+        "manévr",
+        "manevr",
+        "valsalva",
+        "valsavův",
+        "valsalvův"
+      ],
+      "hint": "Arytmologie (m...)",
+      "explanation": "U stabilní pravidelné úzkokomplexové SVT se začíná vagovým manévrem, preferenčně modifikovaným Valsalvovým.",
+      "pearl": "Klíčový fakt (Arytmologie): manévr – U stabilní pravidelné úzkokomplexové SVT se začíná vagovým manévrem, preferenčně modifikovaným Valsalvovým.",
+      "tags": [
+        "Dopisovací",
+        "Arytmologie",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-ti-09",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-arytmologie",
+      "topicTitle": "Kardiologie: Arytmologie",
+      "type": "fill_in",
+      "question": "Doplňte (jedno slovo): Coved ST elevace ve V1–V2 s negativní T vlnou je typ 1 syndromu ________.",
+      "sentence": "Správné doplnění: Brugada. Brugada typ 1 je zásadní nález vzhledem k riziku komorových arytmií; horečku je nutné aktivně léčit.",
+      "acceptedAnswers": [
+        "brugada",
+        "brugadova",
+        "brugadaův"
+      ],
+      "hint": "Arytmologie (B...)",
+      "explanation": "Brugada typ 1 je zásadní nález vzhledem k riziku komorových arytmií; horečku je nutné aktivně léčit.",
+      "pearl": "Klíčový fakt (Arytmologie): Brugada – Brugada typ 1 je zásadní nález vzhledem k riziku komorových arytmií; horečku je nutné aktivně léčit.",
+      "tags": [
+        "Dopisovací",
+        "Arytmologie",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-ti-10",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-perikard-a-myokard",
+      "topicTitle": "Kardiologie: Perikard a myokard",
+      "type": "fill_in",
+      "question": "Doplňte (jedno slovo): Typickou známkou akutní perikarditidy na EKG je deprese segmentu ________.",
+      "sentence": "Správné doplnění: PR. Akutní perikarditida typicky vyvolává difuzní konkávní elevace ST a PR deprese (s výjimkou aVR, někdy V1).",
+      "acceptedAnswers": [
+        "PR",
+        "pr"
+      ],
+      "hint": "Perikard a myokard (P...)",
+      "explanation": "Akutní perikarditida typicky vyvolává difuzní konkávní elevace ST a PR deprese (s výjimkou aVR, někdy V1).",
+      "pearl": "Klíčový fakt (Perikard a myokard): PR – Akutní perikarditida typicky vyvolává difuzní konkávní elevace ST a PR deprese (s výjimkou aVR, někdy V1).",
+      "tags": [
+        "Dopisovací",
+        "Perikard a myokard",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-ti-11",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-perikard-a-myokard",
+      "topicTitle": "Kardiologie: Perikard a myokard",
+      "type": "fill_in",
+      "question": "Doplňte (dvě slova): Výrazný inspirační pokles systolického TK u tamponády se nazývá ________ paradoxus.",
+      "sentence": "Správné doplnění: pulsus. Pulsus paradoxus je pokles systolického tlaku při inspiraci o >10 mmHg; není specifický jen pro tamponádu, ale v odpovídajícím kontextu je velmi užitečný.",
+      "acceptedAnswers": [
+        "pulsus",
+        "pulsus paradoxus"
+      ],
+      "hint": "Perikard a myokard (p...)",
+      "explanation": "Pulsus paradoxus je pokles systolického tlaku při inspiraci o >10 mmHg; není specifický jen pro tamponádu, ale v odpovídajícím kontextu je velmi užitečný.",
+      "pearl": "Klíčový fakt (Perikard a myokard): pulsus – Pulsus paradoxus je pokles systolického tlaku při inspiraci o >10 mmHg; není specifický jen pro tamponádu, ale v odpovídajícím kontextu je velmi užitečný.",
+      "tags": [
+        "Dopisovací",
+        "Perikard a myokard",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-ti-12",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-chlopenni-vady",
+      "topicTitle": "Kardiologie: Chlopenní vady",
+      "type": "fill_in",
+      "question": "Doplňte (jedno slovo): Plocha aortální chlopně ≤1,0 cm² odpovídá obvykle ________ aortální stenóze.",
+      "sentence": "Správné doplnění: těžké. Těžká AS vyžaduje posouzení symptomů, EF, průtoku a gradientu; discordantní nálezy často vyžadují další testování.",
+      "acceptedAnswers": [
+        "těžké",
+        "tezke",
+        "závažné",
+        "zavazne"
+      ],
+      "hint": "Chlopenní vady (t...)",
+      "explanation": "Těžká AS vyžaduje posouzení symptomů, EF, průtoku a gradientu; discordantní nálezy často vyžadují další testování.",
+      "pearl": "Klíčový fakt (Chlopenní vady): těžké – Těžká AS vyžaduje posouzení symptomů, EF, průtoku a gradientu; discordantní nálezy často vyžadují další testování.",
+      "tags": [
+        "Dopisovací",
+        "Chlopenní vady",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-ti-13",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-infekcni-endokarditida",
+      "topicTitle": "Kardiologie: Infekční endokarditida",
+      "type": "fill_in",
+      "question": "Doplňte (jedno slovo): Nejčastější původce akutní infekční endokarditidy s agresivním průběhem je Staphylococcus ________.",
+      "sentence": "Správné doplnění: aureus. S. aureus je častý zejména u akutní IE, intravaskulárních vstupů a IVDU; může rychle destruuovat chlopeň a tvořit abscesy.",
+      "acceptedAnswers": [
+        "aureus"
+      ],
+      "hint": "Infekční endokarditida (a...)",
+      "explanation": "S. aureus je častý zejména u akutní IE, intravaskulárních vstupů a IVDU; může rychle destruuovat chlopeň a tvořit abscesy.",
+      "pearl": "Klíčový fakt (Infekční endokarditida): aureus – S. aureus je častý zejména u akutní IE, intravaskulárních vstupů a IVDU; může rychle destruuovat chlopeň a tvořit abscesy.",
+      "tags": [
+        "Dopisovací",
+        "Infekční endokarditida",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-ti-14",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-plicni-cirkulace",
+      "topicTitle": "Kardiologie: Plicní cirkulace",
+      "type": "fill_in",
+      "question": "Doplňte (jedna zkratka): Hemodynamické potvrzení plicní hypertenze vyžaduje ________ srdeční katetrizaci.",
+      "sentence": "Správné doplnění: pravostrannou. Pravostranná katetrizace je referenční metodou; stanoví tlak v plicnici, wedge tlak, výdej i plicní vaskulární rezistenci.",
+      "acceptedAnswers": [
+        "pravostrannou",
+        "pravou",
+        "PSK"
+      ],
+      "hint": "Plicní cirkulace (p...)",
+      "explanation": "Pravostranná katetrizace je referenční metodou; stanoví tlak v plicnici, wedge tlak, výdej i plicní vaskulární rezistenci.",
+      "pearl": "Klíčový fakt (Plicní cirkulace): pravostrannou – Pravostranná katetrizace je referenční metodou; stanoví tlak v plicnici, wedge tlak, výdej i plicní vaskulární rezistenci.",
+      "tags": [
+        "Dopisovací",
+        "Plicní cirkulace",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-ti-15",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-plicni-cirkulace",
+      "topicTitle": "Kardiologie: Plicní cirkulace",
+      "type": "fill_in",
+      "question": "Doplňte (jedno slovo): Dlouhodobé obrácení levo-pravého zkratu při rozvoji plicní vaskulopatie se nazývá ________ syndrom.",
+      "sentence": "Správné doplnění: Eisenmengerův. Eisenmengerův syndrom vede k cyanóze a je v pokročilé fázi nevratný; uzávěr původního defektu pak může být škodlivý.",
+      "acceptedAnswers": [
+        "eisenmengerův",
+        "eisenmengeruv",
+        "eisenmenger"
+      ],
+      "hint": "Plicní cirkulace (E...)",
+      "explanation": "Eisenmengerův syndrom vede k cyanóze a je v pokročilé fázi nevratný; uzávěr původního defektu pak může být škodlivý.",
+      "pearl": "Klíčový fakt (Plicní cirkulace): Eisenmengerův – Eisenmengerův syndrom vede k cyanóze a je v pokročilé fázi nevratný; uzávěr původního defektu pak může být škodlivý.",
+      "tags": [
+        "Dopisovací",
+        "Plicní cirkulace",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-ti-16",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-hypertenze",
+      "topicTitle": "Kardiologie: Hypertenze",
+      "type": "fill_in",
+      "question": "Doplňte (jedno slovo): Screening primárního hyperaldosteronismu stojí na poměru aldosteron/______.",
+      "sentence": "Správné doplnění: renin. Poměr aldosteron/renin se interpretuje se znalostí draslíku, medikace a podmínek odběru; pozitivní screening vyžaduje potvrzení a subtyping.",
+      "acceptedAnswers": [
+        "renin",
+        "reninu"
+      ],
+      "hint": "Hypertenze (r...)",
+      "explanation": "Poměr aldosteron/renin se interpretuje se znalostí draslíku, medikace a podmínek odběru; pozitivní screening vyžaduje potvrzení a subtyping.",
+      "pearl": "Klíčový fakt (Hypertenze): renin – Poměr aldosteron/renin se interpretuje se znalostí draslíku, medikace a podmínek odběru; pozitivní screening vyžaduje potvrzení a subtyping.",
+      "tags": [
+        "Dopisovací",
+        "Hypertenze",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-ti-17",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-aorta-a-prevence",
+      "topicTitle": "Kardiologie: Aorta a prevence",
+      "type": "fill_in",
+      "question": "Doplňte (jedno slovo): Disekce postihující ascendentní aortu je podle Stanforda typ ________.",
+      "sentence": "Správné doplnění: A. Stanford A je chirurgická urgence bez ohledu na místo vstupní trhliny. Typ B ascendentní aortu nepostihuje a často se léčí primárně konzervativně, pokud není komplikovaný.",
+      "acceptedAnswers": [
+        "A",
+        "a"
+      ],
+      "hint": "Aorta a prevence (A...)",
+      "explanation": "Stanford A je chirurgická urgence bez ohledu na místo vstupní trhliny. Typ B ascendentní aortu nepostihuje a často se léčí primárně konzervativně, pokud není komplikovaný.",
+      "pearl": "Klíčový fakt (Aorta a prevence): A – Stanford A je chirurgická urgence bez ohledu na místo vstupní trhliny. Typ B ascendentní aortu nepostihuje a často se léčí primárně konzervativně, pokud není komplikovaný.",
+      "tags": [
+        "Dopisovací",
+        "Aorta a prevence",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-ti-18",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-aorta-a-prevence",
+      "topicTitle": "Kardiologie: Aorta a prevence",
+      "type": "fill_in",
+      "question": "Doplňte zkratku: U mechanické chlopně je pro dlouhodobou antikoagulaci standardem ________.",
+      "sentence": "Správné doplnění: VKA. U mechanické chlopně nejsou DOAC alternativou. Cílové INR se řídí typem a polohou protézy a dalšími rizikovými faktory.",
+      "acceptedAnswers": [
+        "VKA",
+        "vka",
+        "warfarin"
+      ],
+      "hint": "Aorta a prevence (V...)",
+      "explanation": "U mechanické chlopně nejsou DOAC alternativou. Cílové INR se řídí typem a polohou protézy a dalšími rizikovými faktory.",
+      "pearl": "Klíčový fakt (Aorta a prevence): VKA – U mechanické chlopně nejsou DOAC alternativou. Cílové INR se řídí typem a polohou protézy a dalšími rizikovými faktory.",
+      "tags": [
+        "Dopisovací",
+        "Aorta a prevence",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-ti-19",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-tehotenstvi-a-kardio",
+      "topicTitle": "Kardiologie: Těhotenství a kardio",
+      "type": "fill_in",
+      "question": "Doplňte (jedno slovo): Antikoagulans, které neprochází placentou, je nízkomolekulární ________.",
+      "sentence": "Správné doplnění: heparin. LMWH placentou neprochází a je v těhotenství obvykle preferován; dávkování a anti-Xa monitorace se řídí indikací a klinickým kontextem.",
+      "acceptedAnswers": [
+        "heparin",
+        "heparinový",
+        "heparinovy"
+      ],
+      "hint": "Těhotenství a kardio (h...)",
+      "explanation": "LMWH placentou neprochází a je v těhotenství obvykle preferován; dávkování a anti-Xa monitorace se řídí indikací a klinickým kontextem.",
+      "pearl": "Klíčový fakt (Těhotenství a kardio): heparin – LMWH placentou neprochází a je v těhotenství obvykle preferován; dávkování a anti-Xa monitorace se řídí indikací a klinickým kontextem.",
+      "tags": [
+        "Dopisovací",
+        "Těhotenství a kardio",
+        "ESC Guidelines"
+      ]
+    },
+    {
+      "id": "kardio-practice-ti-20",
+      "subjectId": "kardio",
+      "subjectTitle": "Kardiologie",
+      "grade": 4,
+      "topicId": "kardio-srdecni-selhani",
+      "topicTitle": "Kardiologie: Srdeční selhání",
+      "type": "fill_in",
+      "question": "Doplňte zkratku: Systém pro odhad funkční limitace srdečního selhání má třídy I–IV a nazývá se ________.",
+      "sentence": "Správné doplnění: NYHA. NYHA je klinická funkční klasifikace podle omezení při fyzické aktivitě; je užitečná pro sledování symptomů, ale nenahrazuje objektivní fenotypizaci HF.",
+      "acceptedAnswers": [
+        "NYHA",
+        "nyha"
+      ],
+      "hint": "Srdeční selhání (N...)",
+      "explanation": "NYHA je klinická funkční klasifikace podle omezení při fyzické aktivitě; je užitečná pro sledování symptomů, ale nenahrazuje objektivní fenotypizaci HF.",
+      "pearl": "Klíčový fakt (Srdeční selhání): NYHA – NYHA je klinická funkční klasifikace podle omezení při fyzické aktivitě; je užitečná pro sledování symptomů, ale nenahrazuje objektivní fenotypizaci HF.",
+      "tags": [
+        "Dopisovací",
+        "Srdeční selhání",
+        "ESC Guidelines"
+      ]
     }
   ]
 }

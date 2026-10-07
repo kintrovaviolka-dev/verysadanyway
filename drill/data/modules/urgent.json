@@ -454,6 +454,2131 @@
         "Simulátor",
         "Urgentní medicína"
       ]
+    },
+    {
+      "id": "urgent-game-aim_q01",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-krizove-stavy-na-sale-toxikologie",
+      "topicTitle": "Krizové stavy na sále & Toxikologie",
+      "type": "single_choice",
+      "question": "Jaká je doporučená úvodní bolusová dávka 20% lipidové emulze (Intralipid) při systémové toxicitě lokálními anestetiky (LAST) s oběhovým selháním?",
+      "options": [
+        "1,5 ml/kg intravenózně během 1 minuty",
+        "0,5 ml/kg intravenózně během 10 minut",
+        "5,0 ml/kg jako rychlý přetlakový bolus",
+        "100 ml fixně bez ohledu na hmotnost pacienta"
+      ],
+      "correctIndex": 0,
+      "explanation": "Při LAST je standardním doporučeným postupem (ASRA/ESRA) iniciální bolus 20% lipidové emulze v dávce 1,5 ml/kg během 1 minuty, následovaný kontinuální infuzí 0,25 ml/kg/min (až 0,5 ml/kg/min při přetrvávající nestabilitě). Bolus lze při neúspěchu resuscitace 1-2x zopakovat.",
+      "pearl": "Zdroj: ASRA Practice Advisory on Local Anesthetic Systemic Toxicity / ČSARIM",
+      "tags": [
+        "Single Choice",
+        "Krizové stavy na sále & Toxikologie",
+        "Pokročilá",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q02",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-krizove-stavy-na-sale-toxikologie",
+      "topicTitle": "Krizové stavy na sále & Toxikologie",
+      "type": "single_choice",
+      "question": "Při rozvoji fulminantní maligní hypertermie po úvodu sevofluranem a sukcinylcholinem je lékem volby Dantrolen. Jaká je jeho iniciální intravenózní bolusová dávka?",
+      "options": [
+        "2,5 mg/kg i.v. (opakovat dle odezvy až do dávky 10 mg/kg)",
+        "0,5 mg/kg i.v. v pomalé infuzi",
+        "10 mg/kg i.v. jednorázově jako maximální strop",
+        "1,0 mg/kg i.v. pouze po laboratorním průkazu laktátové acidózy"
+      ],
+      "correctIndex": 0,
+      "explanation": "Iniciální dávka Dantrolenu (inhibitor ryanodinových receptorů RyR1) je 2,5 mg/kg i.v. co nejrychleji. Podávání se opakuje po 1 mg/kg každých 5-10 minut, dokud neodezní hypermetabolismus, tachykardie a rigidita (kumulativně až 10 mg/kg i více).",
+      "pearl": "Zdroj: EMHG (European Malignant Hyperthermia Group) Guidelines",
+      "tags": [
+        "Single Choice",
+        "Krizové stavy na sále & Toxikologie",
+        "Expert",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q03",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-farmakologie-indukce",
+      "topicTitle": "Farmakologie & Indukce",
+      "type": "single_choice",
+      "question": "Jaká dávka Sugammadexu je indikována pro okamžitou reverzi (rescue reversal) hluboké nervosvalové blokády 3 minuty po podání rokuronia v dávce 1,2 mg/kg (např. při situaci Can not intubate, can not oxygenate)?",
+      "options": [
+        "16 mg/kg i.v.",
+        "4 mg/kg i.v.",
+        "2 mg/kg i.v.",
+        "8 mg/kg i.v."
+      ],
+      "correctIndex": 0,
+      "explanation": "Pro okamžitou reverzi po intubační dávce rokuronia (1,2 mg/kg) je doporučena dávka 16 mg/kg Sugammadexu. Běžná reverze při návratu 1-2 záškubů na PTC (post-tetanic count) vyžaduje 4 mg/kg, při návratu T2 na TOF stačí 2 mg/kg.",
+      "pearl": "Zdroj: ESAIC Guidelines on Neuromuscular Blockade Reversal",
+      "tags": [
+        "Single Choice",
+        "Farmakologie & Indukce",
+        "Pokročilá",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q04",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-dychaci-cesty-ventilace",
+      "topicTitle": "Dýchací cesty & Ventilace",
+      "type": "single_choice",
+      "question": "Který z následujících parametrů představuje nejspolehlivější cíl protektivní plicní ventilace u pacienta se středně těžkým ARDS ke snížení mortality spojené s VILI?",
+      "options": [
+        "Driving pressure (P_plat - PEEP) < 14-15 cmH2O",
+        "Špičkový inspirační tlak (P_peak) < 40 cmH2O",
+        "Dechový objem striktně 10 ml/kg aktuální tělesné hmotnosti",
+        "PaO2/FiO2 ratio udržované nad 400 mmHg za cenu vysoké FiO2"
+      ],
+      "correctIndex": 0,
+      "explanation": "Podle Amato et al. a aktuálních doporučení pro ARDS je driving pressure (hnací tlak = P_plat minus celkový PEEP) klíčovým prediktorem přežití. Hodnota by měla být držena < 14–15 cmH2O při dechovém objemu 4–8 ml/kg ideální (predikované) tělesné hmotnosti (PBW).",
+      "pearl": "Zdroj: Amato MB et al. (NEJM) / ARDS Network Guidelines",
+      "tags": [
+        "Single Choice",
+        "Dýchací cesty & Ventilace",
+        "Expert",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q05",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-kriticke-stavy-sok",
+      "topicTitle": "Kritické stavy & Šok",
+      "type": "single_choice",
+      "question": "Který vazopresor je lékem 1. volby v iniciální resuscitaci septického šoku k dosažení cílového středního arteriálního tlaku (MAP ≥ 65 mmHg)?",
+      "options": [
+        "Noradrenalin (Norepinefrin)",
+        "Dopamin",
+        "Fenylefrin",
+        "Adrenalin jako iniciální monoterapie"
+      ],
+      "correctIndex": 0,
+      "explanation": "Doporučení Surviving Sepsis Campaign (SSC) 2021 jednoznačně staví Noradrenalin na 1. místo. Dopamin je spojen s vyšším výskytem tachyarytmií a vyšší mortalitou. Vazopresin se přidává jako 2. linie při refrakterní hypotenzi.",
+      "pearl": "Zdroj: Surviving Sepsis Campaign Guidelines 2021",
+      "tags": [
+        "Single Choice",
+        "Kritické stavy & Šok",
+        "Pokročilá",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q06",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-farmakologie-indukce",
+      "topicTitle": "Farmakologie & Indukce",
+      "type": "single_choice",
+      "question": "U kterého z následujících pacientů je podání Suxamethonia (sukcinylcholinu) po 72 hodinách od úrazu PŘÍSNĚ KONTRAINDIKOVÁNO z důvodu rizika letální hyperkalémie?",
+      "options": [
+        "Pacient s popáleninami 3. stupně na 35 % povrchu těla",
+        "Pacient s izolovanou zlomeninou bérce bez kompartment syndromu",
+        "Pacient s lehkým otřesem mozku a normálním EEG",
+        "Pacient s plánovanou apendektomií bez neurologického nálezu"
+      ],
+      "correctIndex": 0,
+      "explanation": "U rozsáhlých popálenin, denervačních syndromů, míšních lézí a těžkých crush zranění dochází po 24-48 hodinách k proliferaci mimojunkčních (extrajunkčních) nikotinových acetylcholinových receptorů. Suxamethonium způsobí masivní eflux draslíku z buněk s rizikem maligních arytmií a asystolie.",
+      "pearl": "Zdroj: Miller\\",
+      "tags": [
+        "Single Choice",
+        "Farmakologie & Indukce",
+        "Expert",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q07",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-dychaci-cesty-ventilace",
+      "topicTitle": "Dýchací cesty & Ventilace",
+      "type": "single_choice",
+      "question": "Co je podle DAS (Difficult Airway Society) guidelines definitivním krokem v plánu D (",
+      "options": [
+        "Chirurgická krikothyreoidotomie (scalpel-bougie-tube FONA)",
+        "Opakovaný pokus o intubaci jiným videolaryngoskopem",
+        "Zavedení dvou laryngeálních masek nad sebe",
+        "Okamžité podání další dávky myorelaxancia a vyčkání"
+      ],
+      "correctIndex": 0,
+      "explanation": "Plán D při CICO stavu vyžaduje okamžitý přístup na krku (Front of Neck Access - FONA) pomocí techniky skalpel – zavaděč (bougie) – tracheální rourka vel. 6,0 mm s balónkem. Zdržování dalšími laryngoskopiemi vede k hypoxickému poškození mozku.",
+      "pearl": "Zdroj: DAS Guidelines for Management of Unanticipated Difficult Intubation",
+      "tags": [
+        "Single Choice",
+        "Dýchací cesty & Ventilace",
+        "Pokročilá",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q08",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-kardioanestezie-ecmo",
+      "topicTitle": "Kardioanestezie & ECMO",
+      "type": "single_choice",
+      "question": "Co označuje pojem ",
+      "options": [
+        "Hypoxii horní poloviny těla (mozek, koronárky) při zachovalé ejekci vlastního hypoxického myokardu vůči retrográdnímu oxygenovanému toku z ECMO",
+        "Trombózu ECMO oxygenátoru spojenou s masivní intravaskulární hemolýzou",
+        "Ischemii ipsilaterální dolní končetiny v důsledku okluze femorální arterie kanylou",
+        "Koagulopatii způsobenou předávkováním protaminsulfátu"
+      ],
+      "correctIndex": 0,
+      "explanation": "Při periferním VA-ECMO se oxygenovaná krev vrací retrográdně z femorální arterie do aorty. Pokud se vlastní srdeční výdej pacienta obnoví, ale plíce jsou těžce poškozené, nativní levá komora pumpuje neokysličenou krev do věnčitých tepen a mozku (truncus brachiocephalicus), což vede k hypoxii mozku a myokardu navzdory normálním plynům v dolní polovině těla.",
+      "pearl": "Zdroj: ELSO (Extracorporeal Life Support Organization) Guidelines",
+      "tags": [
+        "Single Choice",
+        "Kardioanestezie & ECMO",
+        "Expert",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q09",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-neurointenzivni-pece-vnitrni-prostredi",
+      "topicTitle": "Neurointenzivní péče & Vnitřní prostředí",
+      "type": "single_choice",
+      "question": "Jaká je doporučená cílová hodnota mozkového perfuzního tlaku (CPP = MAP - ICP) u dospělého pacienta po těžkém kraniocerebrálním poranění (TBI) dle Brain Trauma Foundation?",
+      "options": [
+        "60 – 70 mmHg",
+        "30 – 40 mmHg",
+        "90 – 110 mmHg",
+        "Striktně pod 50 mmHg k prevenci vazogenního edému"
+      ],
+      "correctIndex": 0,
+      "explanation": "Brain Trauma Foundation doporučuje udržovat CPP v rozmezí 60–70 mmHg. Hodnoty pod 50–60 mmHg vedou k ischémii mozku, zatímco agresivní navyšování CPP nad 70 mmHg vazopresory zvyšuje riziko plicního edému a ARDS.",
+      "pearl": "Zdroj: Brain Trauma Foundation Guidelines 4th Edition",
+      "tags": [
+        "Single Choice",
+        "Neurointenzivní péče & Vnitřní prostředí",
+        "Pokročilá",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q10",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-farmakologie-indukce",
+      "topicTitle": "Farmakologie & Indukce",
+      "type": "single_choice",
+      "question": "Který biochemický mechanismus je primární příčinou adrenální insuficience (suprese syntézy kortizolu) po podání Etomidátu?",
+      "options": [
+        "Dávkově závislá reverzibilní inhibice enzymu 11-beta-hydroxylázy",
+        "Přímá nekróza buněk zona fasciculata nadledvin",
+        "Blokáda ACTH receptorů v hypofýze",
+        "Inhibice enzymu aromatázy v periferní tkáni"
+      ],
+      "correctIndex": 0,
+      "explanation": "Etomidát inhibuje enzym 11-beta-hydroxylázu v kůře nadledvin (která konvertuje 11-deoxykortizol na kortizol). I jediná indukční dávka etomidátu potlačuje syntézu kortizolu na 24-48 hodin, proto se nedoporučuje v kontinuální sedaci na JIP.",
+      "pearl": "Zdroj: Stoelting\\",
+      "tags": [
+        "Single Choice",
+        "Farmakologie & Indukce",
+        "Expert",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q11",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-krizove-stavy-na-sale-toxikologie",
+      "topicTitle": "Krizové stavy na sále & Toxikologie",
+      "type": "single_choice",
+      "question": "Při interpretaci rotační tromboelastometrie (ROTEM) u krvácejícího traumatického pacienta zjistíte: EXTEM CT normální, EXTEM A10 22 mm (snížené), FIBTEM A10 4 mm (výrazně snížené). Jaká je primární cílená hemostyptická léčba?",
+      "options": [
+        "Koncentrát fibrinogenu (nebo kryoprecipitát)",
+        "Čerstvě zmražená plazma v poměru 1:1 k erytrocytům",
+        "Rekombinantní faktor VIIa (NovoSeven)",
+        "Pouze infuze kyseliny tranexamové bez dalších koagulačních faktorů"
+      ],
+      "correctIndex": 0,
+      "explanation": "FIBTEM měří sraženinu po inaktivaci krevních destiček cytochalasinem D, takže jeho amplituda (A10 / MCF) odráží čistě hladinu a polymeraci fibrinogenu. FIBTEM A10 < 8-10 mm je jasnou indikací k podání fibrinogenu (cílová hodnota FIBTEM A10 > 10-12 mm odpovídá plazmatickému fibrinogenu > 1,5-2,0 g/l).",
+      "pearl": "Zdroj: European Trauma Guidelines on Massive Bleeding / ČSARIM",
+      "tags": [
+        "Single Choice",
+        "Krizové stavy na sále & Toxikologie",
+        "Pokročilá",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q12",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-dychaci-cesty-ventilace",
+      "topicTitle": "Dýchací cesty & Ventilace",
+      "type": "single_choice",
+      "question": "Při kapnografii v průběhu celkové anestezie zaznamenáte náhlý pokles end-tidal CO2 (EtCO2) k nulovým hodnotám se zachovalou mechanickou ventilací. Která příčina je NEJMÉNĚ pravděpodobná?",
+      "options": [
+        "Maligní hypertermie v iniciální fázi",
+        "Diskonexe dýchacího okruhu nebo extubace do jícnu",
+        "Masivní plicní embolie s totální zástavou perfuze plic",
+        "Náhlá zástava oběhu (srdeční asystolie)"
+      ],
+      "correctIndex": 0,
+      "explanation": "Maligní hypertermie způsobuje prudký VZESTUP produkce CO2 (hyperkapnii s vysokým EtCO2 nereagujícím na zvýšení minutové ventilace). Nulový EtCO2 signalizuje ztrátu ventilace (diskonexe, jícen) nebo ztrátu plicního průtoku (srdeční zástava, masivní embolie).",
+      "pearl": "Zdroj: Ward\\",
+      "tags": [
+        "Single Choice",
+        "Dýchací cesty & Ventilace",
+        "Expert",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q13",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-farmakologie-indukce",
+      "topicTitle": "Farmakologie & Indukce",
+      "type": "single_choice",
+      "question": "Proč má ultra-krátce působící opioid Remifentanil kontextově-senzitivní poločas eliminace (context-sensitive half-time) pouhé 3-4 minuty i po mnoha hodinách kontinuální infuze?",
+      "options": [
+        "Je rychle hydrolyzován nespecifickými krevními a tkáňovými esterázami",
+        "Je okamžitě vychytáván tukovou tkání s ireverzibilní vazbou",
+        "Podléhá bleskové renální filtraci v glomerulech bez tubulární reabsorpce",
+        "Je metabolizován výhradně enzymem CYP3A4 v játrech s vysokou extrakcí"
+      ],
+      "correctIndex": 0,
+      "explanation": "Remifentanil obsahuje esterovou vazbu, díky níž je štěpen nespecifickými esterázami v krvi a tkáních. Nekumuluje se a jeho poločas nezávisí na délce infuze ani na jaterních či renálních funkcích.",
+      "pearl": "Zdroj: Goodman & Gilman\\",
+      "tags": [
+        "Single Choice",
+        "Farmakologie & Indukce",
+        "Pokročilá",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q14",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-neurointenzivni-pece-vnitrni-prostredi",
+      "topicTitle": "Neurointenzivní péče & Vnitřní prostředí",
+      "type": "single_choice",
+      "question": "Dle Stewartova fyzikálně-chemického přístupu k acidobazické rovnováze je infuze velkého objemu fyziologického roztoku (0,9% NaCl, [Na+] 154 mmol/l, [Cl-] 154 mmol/l) příčinou metabolické acidózy protože:",
+      "options": [
+        "Způsobuje pokles efektivní diference silných iontů (SID = [Na+] + [K+] - [Cl-]), což vede k disociaci vody a vzestupu [H+]",
+        "Přímo obsahuje vysokou koncentraci volných vodíkových iontů H3O+",
+        "Blokuje renální sekreci kyseliny močové a ketolátek",
+        "Inhibuje karboanhydrázu v erytrocytech"
+      ],
+      "correctIndex": 0,
+      "explanation": "Fyziologický roztok má SID rovnou nule (154 - 154 = 0). Jeho podání ředí plazmatickou SID (normálně cca 40-42 mmol/l). Pokles SID nutí vodu k disociaci (H2O -> H+ + OH-), aby byl zachován elektroneutrální náboj, což zvyšuje koncentraci H+ a vyvolává hyperchloremickou metabolickou acidózu.",
+      "pearl": "Zdroj: Stewart PA. Modern Quantitative Acid-Base Chemistry",
+      "tags": [
+        "Single Choice",
+        "Neurointenzivní péče & Vnitřní prostředí",
+        "Expert",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q15",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-kardioanestezie-ecmo",
+      "topicTitle": "Kardioanestezie & ECMO",
+      "type": "single_choice",
+      "question": "Jaký je správný poměr a způsob neutralizace heparinu protaminsulfátem po odpojení pacienta od mimotělního oběhu (CPB)?",
+      "options": [
+        "1 mg protaminu na 100 IU podaného heparinu, podávat velmi pomalu i.v. (riziko těžké hypotenze a plicní vazokonstrikce)",
+        "10 mg protaminu na 100 IU heparinu v rychlém bolusu",
+        "0,1 mg protaminu na 100 IU heparinu pouze subkutánně",
+        "Protamin se podává fixně 500 mg do centrální žíly během 10 sekund"
+      ],
+      "correctIndex": 0,
+      "explanation": "Standardní neutralizační dávka je cca 1 mg protaminu na 100 IU reziduálního heparinu (titrováno dle ACT - Activated Clotting Time). Rychlé podání protaminu může vyvolat těžkou systémovou vazodilataci, fatální plicní hypertenzi a katastrofální selhání pravé komory.",
+      "pearl": "Zdroj: Kaplan\\",
+      "tags": [
+        "Single Choice",
+        "Kardioanestezie & ECMO",
+        "Pokročilá",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q16",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-farmakologie-indukce",
+      "topicTitle": "Farmakologie & Indukce",
+      "type": "single_choice",
+      "question": "Který z následujících projevů NENÍ typickou součástí syndromu infuze propofolu (PRIS - Propofol Infusion Syndrome)?",
+      "options": [
+        "Hyperkalcémie a respirační alkalóza",
+        "Těžká metabolická laktátová acidóza",
+        "Rhabdomyolýza a myoglobinurie",
+        "Refrakterní bradykardie progredující do asystolie a kardiogenní šok"
+      ],
+      "correctIndex": 0,
+      "explanation": "PRIS se typicky projevuje refrakterní bradykardií, selháním myokardu, těžkou metabolickou acidózou, rhabdomyolýzou, hyperkalémií, hyperlipidémií a hepatomegalií. Vzniká při dávkách > 4-5 mg/kg/h podávaných déle než 48 hodin.",
+      "pearl": "Zdroj: ESAIC / Critical Care Medicine PRIS Consensus",
+      "tags": [
+        "Single Choice",
+        "Farmakologie & Indukce",
+        "Pokročilá",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q17",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-kriticke-stavy-sok",
+      "topicTitle": "Kritické stavy & Šok",
+      "type": "single_choice",
+      "question": "Jaký je mechanismus účinku Levosimendanu a proč je výhodný u kardiogenního šoku s ischémií myokardu?",
+      "options": [
+        "Zvyšuje citlivost troponinu C na vápník bez zvýšení intracelulárního Ca2+, čímž zvyšuje inotropii bez vzestupu spotřeby kyslíku myokardem",
+        "Blokuje beta-1 adrenergní receptory a stimuluje glykolýzu",
+        "Přímo inhibuje fosfodiestrázu-5 s selektivní koronární vazokonstrikcí",
+        "Zvyšuje influx extracelulárního vápníku přes L-typ kanály"
+      ],
+      "correctIndex": 0,
+      "explanation": "Levosimendan je kalciový senzitizér: váže se na troponin C dependentně na vápníku a zároveň otevírá ATP-senzitivní draslíkové kanály ve hladké svalovině cév (způsobuje vazodilataci). Zvyšuje kontraktilitu, aniž by zvyšoval intracelulární hladinu Ca2+ či spotřebu O2 myokardem a nezpůsobuje proarytmii.",
+      "pearl": "Zdroj: ESC Guidelines on Acute Heart Failure",
+      "tags": [
+        "Single Choice",
+        "Kritické stavy & Šok",
+        "Expert",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q18",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-dychaci-cesty-ventilace",
+      "topicTitle": "Dýchací cesty & Ventilace",
+      "type": "single_choice",
+      "question": "Při monitorování nervosvalové blokády metodou TOF (Train of Four) na m. adductor pollicis je pro bezpečnou extubaci pacienta na konci anestezie požadována hodnota TOF ratio (T4/T1):",
+      "options": [
+        "≥ 0,90 (90 %)",
+        "≥ 0,50 (50 %)",
+        "≥ 0,70 (70 %)",
+        "Stačí vymizení známek fade při manuální palpaci"
+      ],
+      "correctIndex": 0,
+      "explanation": "Hranice TOF poměru ≥ 0,90 je mezinárodním standardem pro bezpečnou extubaci. Při TOF ratio < 0,9 přetrvává svalová slabost hltanu a bránice, hrozí hypofaryngeální obstrukce a aspirace. Vizuální ani palpační hodnocení není spolehlivé pro detekci fade nad 0,4.",
+      "pearl": "Zdroj: ESAIC / ASA Guidelines on Neuromuscular Monitoring",
+      "tags": [
+        "Single Choice",
+        "Dýchací cesty & Ventilace",
+        "Pokročilá",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q19",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-neurointenzivni-pece-vnitrni-prostredi",
+      "topicTitle": "Neurointenzivní péče & Vnitřní prostředí",
+      "type": "single_choice",
+      "question": "Při rychlé korekci chronické těžké hyponatrémie ([Na+] < 115 mmol/l) hrozí které závažné neurologické postižení?",
+      "options": [
+        "Centrální pontinní myelinolýza (osmotický demyelinizační syndrom)",
+        "Akutní mozkový edém s temporální herniací",
+        "Subarachnoidální krvácení z ruptury aneuryzmatu",
+        "Ischemický iktus v povodí arteria cerebri media"
+      ],
+      "correctIndex": 0,
+      "explanation": "Při chronické hyponatrémii se neurony adaptují ztrátou intracelulárních osmolytů. Rychlé zvýšení plazmatického natria (více než o 8-10 mmol/l za 24 hodin) způsobí dehydrataci buněk a destrukci myelinových pochev v pontu (osmotická demyelinizace) s kvadruparézou a locked-in syndromem.",
+      "pearl": "Zdroj: European Clinical Practice Guidelines on Diagnosis and Treatment of Hyponatraemia",
+      "tags": [
+        "Single Choice",
+        "Neurointenzivní péče & Vnitřní prostředí",
+        "Expert",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q20",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-krizove-stavy-na-sale-toxikologie",
+      "topicTitle": "Krizové stavy na sále & Toxikologie",
+      "type": "single_choice",
+      "question": "Co je podle doporučení ERC 2021 lékem 1. volby u anafylaktického šoku na operačním sále a jaká je jeho úvodní intramuskulární (nebo titrovaná i.v.) dávka u dospělého?",
+      "options": [
+        "Adrenalin 0,5 mg i.m. (nebo 50 mcg i.v. titrovaně při monitorovaném lůžku)",
+        "Hydrokortizon 100 mg i.v. jako okamžitý zachránce života",
+        "Bisulepin 1 mg i.v. v pomalé infuzi",
+        "Kalcium glukonát 10% 10 ml bolusem"
+      ],
+      "correctIndex": 0,
+      "explanation": "Adrenalin je jediným kauzálním lékem anafylaxe. Způsobuje alfa-1 vazokonstrikci (zvýšení tlaku), beta-1 inotropii a beta-2 bronchodilataci + inhibici degranulace mastocytů. Kortikoidy a antihistaminika jsou léky 2. linie a neovlivňují akutní asfyxii a kolaps.",
+      "pearl": "Zdroj: ERC Guidelines 2021 / Resuscitation Council UK Anaphylaxis",
+      "tags": [
+        "Single Choice",
+        "Krizové stavy na sále & Toxikologie",
+        "Pokročilá",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q21",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-farmakologie-indukce",
+      "topicTitle": "Farmakologie & Indukce",
+      "type": "single_choice",
+      "question": "Které inhalační anestetikum vyžaduje speciální vyhřívaný a tlakovaný odpařovač (např. Tec 6) kvůli svému nízkému bodu varu (cca 23,5 °C při atmosférickém tlaku)?",
+      "options": [
+        "Desfluran",
+        "Sevofluran",
+        "Isofluran",
+        "Halotan"
+      ],
+      "correctIndex": 0,
+      "explanation": "Desfluran má bod varu 22,8–23,5 °C a velmi vysokou tenzi par při pokojové teplotě. Proto vyžaduje elektronicky vyhřívaný odpařovač (zahřátý na cca 39 °C a natlakovaný na 2 atmosféry), aby bylo dosaženo přesného a bezpečného dávkování par.",
+      "pearl": "Zdroj: Dorsch and Dorsch: Understanding Anesthesia Equipment",
+      "tags": [
+        "Single Choice",
+        "Farmakologie & Indukce",
+        "Pokročilá",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q22",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-kriticke-stavy-sok",
+      "topicTitle": "Kritické stavy & Šok",
+      "type": "single_choice",
+      "question": "U pacienta na řízené mechanické ventilaci monitorujete variaci pulzního tlaku (PPV - Pulse Pressure Variation) nebo variaci systolického objemu (SVV). Která podmínka MUSÍ být splněna, aby byla PPV > 13 % spolehlivým prediktorem fluid responsiveness?",
+      "options": [
+        "Sinusový rytmus, plně řízená ventilace bez spontánního dechového úsilí a dechový objem ≥ 8 ml/kg PBW",
+        "Fibrilace síní s rychlou komorovou odpovědí",
+        "Spontánní ventilace s dechovým objemem 4 ml/kg",
+        "Pravostranné srdeční selhání s těžkou trikuspidální regurgitací"
+      ],
+      "correctIndex": 0,
+      "explanation": "Dynamické parametry preloadu (PPV/SVV) založené na kardiopulmonálních interakcích vyžadují: sinusový rytmus (bez arytmií), zcela pasivního pacienta (bez spontánních dechů), dechový objem aspoň 8 ml/kg a uzavřený hrudník bez těžké plicní hypertenze.",
+      "pearl": "Zdroj: Michard F. Changes in arterial pulse pressure during mechanical ventilation. Am J Respir Crit Care Med",
+      "tags": [
+        "Single Choice",
+        "Kritické stavy & Šok",
+        "Expert",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q23",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-dychaci-cesty-ventilace",
+      "topicTitle": "Dýchací cesty & Ventilace",
+      "type": "single_choice",
+      "question": "Jaký je patofyziologický důsledek a správné ventilační nastavení při vzniku ",
+      "options": [
+        "Nedochází k dokončení exspiria před dalším nádechem; řešením je prodloužení exspiračního času (poměr I:E 1:3 až 1:4) a snížení dechové frekvence",
+        "Příliš rychlý výdech; řešením je zkrácení doby exspiria a zvýšení dechové frekvence nad 30/min",
+        "Nadměrná eliminace CO2; řešením je zvýšení dechového objemu na 12 ml/kg",
+        "Kolaps alveolů; řešením je okamžité zvýšení externího PEEP na 20 cmH2O"
+      ],
+      "correctIndex": 0,
+      "explanation": "Při obstrukci dýchacích cest (astma, CHOPN) je limitován exspirační průtok. Krátký exspirační čas způsobí kumulaci vzduchu v plicích, vzestup nitrohrudního tlaku, barotrauma a útlak žilního návratu s hypotenzí. Nutností je nízká frekvence (10-12/min) a dlouhý čas na výdech (I:E 1:3 až 1:5).",
+      "pearl": "Zdroj: Intensive Care Medicine / Principles of Critical Care",
+      "tags": [
+        "Single Choice",
+        "Dýchací cesty & Ventilace",
+        "Pokročilá",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q24",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-kardioanestezie-ecmo",
+      "topicTitle": "Kardioanestezie & ECMO",
+      "type": "single_choice",
+      "question": "Při kanylaci pro Veno-Venózní (VV) ECMO u refrakterního ARDS je hlavním cílem podpory:",
+      "options": [
+        "Izolovaná oxygenace a eliminace CO2 s ulehčením plicím bez přímé hemodynamické podpory srdečních komor",
+        "Přímá podpora čerpací funkce levé komory obcházející plicní řečiště",
+        "Kompletní náhrada funkce pravé i levé komory a perfuze koronárních tepen",
+        "Zajištění renální hemofiltrace v okruhu bez nutnosti dialyzačního přístroje"
+      ],
+      "correctIndex": 0,
+      "explanation": "VV-ECMO odebírá odkysličenou krev z centrálního žilního řečiště, oxygenuje ji a odstraňuje CO2, a vrací ji zpět do pravé síně. Neobchází srdce a neposkytuje oběhovou podporu (vyžaduje zachovalou funkci LK a PK). Umožňuje ultra-protektivní ventilaci plic.",
+      "pearl": "Zdroj: Extracorporeal Life Support Organization (ELSO) Red Book",
+      "tags": [
+        "Single Choice",
+        "Kardioanestezie & ECMO",
+        "Expert",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q25",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-farmakologie-indukce",
+      "topicTitle": "Farmakologie & Indukce",
+      "type": "single_choice",
+      "question": "Jaký je mechanismus účinku Ketaminu a které z následujících tvrzení o něm platí?",
+      "options": [
+        "Je nekompetitivním antagonistou NMDA receptorů; zachovává faryngeální reflexy a má bronchodilatační a sympatomimetický účinek",
+        "Je čistým agonistou GABA-A receptorů s výraznou vazodilatací a poklesem srdečního výdeje",
+        "Blokuje alfa-2 adrenergní receptory s navozením hluboké bradykardie",
+        "Způsobuje silnou bronchokonstrikci a je přísně zakázán u astmatiků"
+      ],
+      "correctIndex": 0,
+      "explanation": "Ketamin blokuje NMDA receptory (glutamátové) v CNS. Vyvolává disociativní anestezii, zvyšuje sympatickou aktivitu (při zachovalých zásobách katecholaminů zvyšuje TK a TF) a působí jako silný bronchodilatátor, což z něj činí ideální anestetikum pro indukci u těžkého bronchospazmu či šoku.",
+      "pearl": "Zdroj: Stoelting\\",
+      "tags": [
+        "Single Choice",
+        "Farmakologie & Indukce",
+        "Pokročilá",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q26",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-krizove-stavy-na-sale-toxikologie",
+      "topicTitle": "Krizové stavy na sále & Toxikologie",
+      "type": "single_choice",
+      "question": "V jakém časovém okně po traumatu s těžkým krvácením je nutné podat Kyselinu Tranexamovou (TXA), aby dle studií CRASH-2 a CRASH-3 signifikantně snižovala mortalitu?",
+      "options": [
+        "Do 3 hodin od úrazu (pozdější podání po 3 hodinách mortalitu naopak zvyšuje)",
+        "Až po potvrzení hyperfibrinolýzy v laboratorním koagulogramu",
+        "Výhradně do 15 minut od úrazu, později již nemá žádný efekt",
+        "Kdykoliv v průběhu prvních 24 hodin bez omezení"
+      ],
+      "correctIndex": 0,
+      "explanation": "Studie CRASH-2 i CRASH-3 prokázaly, že TXA podaná do 3 hodin od traumatu významně snižuje riziko úmrtí na krvácení. Podání po více než 3 hodinách vedlo k paradoxnímu zvýšení mortality, pravděpodobně v důsledku trombotických komplikací v pozdější fázi koagulopatie.",
+      "pearl": "Zdroj: CRASH-2 & CRASH-3 Collaborators (The Lancet)",
+      "tags": [
+        "Single Choice",
+        "Krizové stavy na sále & Toxikologie",
+        "Expert",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q27",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-neurointenzivni-pece-vnitrni-prostredi",
+      "topicTitle": "Neurointenzivní péče & Vnitřní prostředí",
+      "type": "single_choice",
+      "question": "Proč je u pacienta s akutní intrakraniální hypertenzí přísně zakázána profylaktická a dlouhodobá hyperventilace na hodnoty PaCO2 < 4,0 kPa (30 mmHg)?",
+      "options": [
+        "Způsobuje těžkou cerebrální vazokonstrikci s kritickým poklesem průtoku krve mozkem a sekundární cerebrální ischémií",
+        "Způsobuje vazodilataci mozkových tepen a okamžitý nárůst intrakraniálního tlaku",
+        "Vyvolává masivní přesun draslíku do extracelulárního prostoru s hyperkalémií",
+        "Vede k okamžitému rozvoji edému plic z hypokapnie"
+      ],
+      "correctIndex": 0,
+      "explanation": "Cerebrální cévní rezistence je extrémně citlivá na hladinu PaCO2. Pokles PaCO2 vede k vazokonstrikci arteriol a sice sníží objem krve v lebce, ale při PaCO2 < 4,0 kPa vyvolává těžkou mozkovou hypoperfuzi a ischemickou nekrózu tkáně.",
+      "pearl": "Zdroj: Brain Trauma Foundation Guidelines",
+      "tags": [
+        "Single Choice",
+        "Neurointenzivní péče & Vnitřní prostředí",
+        "Pokročilá",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q28",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-farmakologie-indukce",
+      "topicTitle": "Farmakologie & Indukce",
+      "type": "single_choice",
+      "question": "Jaký je cílový interval hodnot Bispektrálního indexu (BIS) pro zajištění adekvátní hloubky celkové anestezie a minimalizaci rizika intraoperačního bdění (awareness)?",
+      "options": [
+        "40 – 60",
+        "80 – 100",
+        "10 – 20",
+        "65 – 85"
+      ],
+      "correctIndex": 0,
+      "explanation": "BIS škála: 90-100 je plné vědomí, 60-80 lehká/střední sedace, 40-60 adekvátní celková anestezie, < 40 hluboká anestezie / burst suppression, 0 je izoelektrické EEG. Hodnoty 40-60 představují doporučený interval pro celkovou anestezii.",
+      "pearl": "Zdroj: ASA Practice Advisory for Intraoperative Awareness and Brain Function Monitoring",
+      "tags": [
+        "Single Choice",
+        "Farmakologie & Indukce",
+        "Pokročilá",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q29",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-kriticke-stavy-sok",
+      "topicTitle": "Kritické stavy & Šok",
+      "type": "single_choice",
+      "question": "Při masivní krevní transfuzi (více než 10 krevních konzerv) dochází k toxicitě citrátu sodného. Jaký laboratorní a klinický nález je pro ni charakteristický?",
+      "options": [
+        "Pokles ionizovaného vápníku (hypokalcémie), prodloužení QT intervalu a metabolická alkalóza po metabolizaci citrátu na bikarbonát",
+        "Závažná hyperkalcémie a hyperchloremická acidóza",
+        "Hyperfosfatémie a okamžitá zástava v systole",
+        "Pokles natria pod 100 mmol/l a osmotický edém mozku"
+      ],
+      "correctIndex": 0,
+      "explanation": "Citrát v konzervačním roztoku váže volné ionty vápníku -> dochází k hypokalcémii s tetanií, hypotenzí, poruchou kontraktility myokardu a prodloužením QT. Následně játra metabolizují citrát na hydrogenuhličitan, což vede k metabolické alkalóze.",
+      "pearl": "Zdroj: Transfusion Medicine and Hemostasis: Clinical and Laboratory Aspects",
+      "tags": [
+        "Single Choice",
+        "Kritické stavy & Šok",
+        "Expert",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q30",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-krizove-stavy-na-sale-toxikologie",
+      "topicTitle": "Krizové stavy na sále & Toxikologie",
+      "type": "single_choice",
+      "question": "Pacient na sále v celkové anestezii náhle vyvine hypotenzi (TK 60/30), tachykardii, hypoxii, asymetrický poslech na plicích (vpravo oslabené dýchání), tympanický poklep vpravo a náhlý nárůst špičkového inspiračního tlaku na ventilátoru. Jaký je okamžitý krok?",
+      "options": [
+        "Okamžitá punkční dekomprese tenzního pneumotoraxu jehlou velkého kalibru ve 4.-5. mezižebří v přední axilární čáře (nebo 2. mezižebří medioklavikulárně)",
+        "Provedení kontrolního skiagrafického RTG snímku plic a vyčkání na popis",
+        "Zvýšení dechového objemu a navýšení PEEP na 15 cmH2O",
+        "Podání bolusu amiodaronu a vyčkání na normalizaci EKG"
+      ],
+      "correctIndex": 0,
+      "explanation": "Tenzní pneumotorax je klinická diagnóza, která nesnese odklad na rentgenové vyšetření. V přetlakové ventilaci vede k rychlému kolapsu žilního návratu a zástavě oběhu. Řešením je okamžitá jehlová torakocentéza / torakostomie.",
+      "pearl": "Zdroj: ATLS (Advanced Trauma Life Support) 10th Edition",
+      "tags": [
+        "Single Choice",
+        "Krizové stavy na sále & Toxikologie",
+        "Pokročilá",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q31",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-farmakologie-indukce",
+      "topicTitle": "Farmakologie & Indukce",
+      "type": "single_choice",
+      "question": "Jak působí Dexmedetomidin v intenzivní péči a anesteziologii a jaká je jeho klíčová přednost oproti benzodiazepinům a propofolu?",
+      "options": [
+        "Je selektivní centrální alfa-2 agonista; poskytuje kooperativní sedaci a analgezii bez významného útlumu dechového centra",
+        "Je antagonista serotoninových 5-HT3 receptorů s hlubokou svalovou relaxací",
+        "Je čistý GABA agonista s masivním vazokonstrikčním účinkem na periférii",
+        "Je inhibitor acetylcholinesterázy stimulující dýchání a srdeční frekvenci"
+      ],
+      "correctIndex": 0,
+      "explanation": "Dexmedetomidin stimuluje alfa-2 receptory v locus coeruleus. Poskytuje sedaci připomínající fyziologický spánek, ze které je pacient snadno probuditelný ke komunikaci, má analgetické účinky a minimální vliv na dechový pohon (nespustí apnoi).",
+      "pearl": "Zdroj: Crit Care Med / Dexmedetomidine in ICU Sedation Guidelines",
+      "tags": [
+        "Single Choice",
+        "Farmakologie & Indukce",
+        "Pokročilá",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q32",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-dychaci-cesty-ventilace",
+      "topicTitle": "Dýchací cesty & Ventilace",
+      "type": "single_choice",
+      "question": "Která definice dle Berlínských kritérií z roku 2012 správně vymezuje TĚŽKÝ ARDS (Severe ARDS)?",
+      "options": [
+        "PaO2 / FiO2 ≤ 100 mmHg při PEEP ≥ 5 cmH2O s bilaterálními infiltráty na RTG/CT ne plně vysvětlitelnými srdečním selháním",
+        "PaO2 / FiO2 mezi 200 a 300 mmHg bez ohledu na PEEP",
+        "PaO2 / FiO2 ≤ 50 mmHg výhradně při nutnosti ECMO",
+        "Infiltrát na RTG pouze v jednom plicním laloku a PaO2 / FiO2 < 200 mmHg"
+      ],
+      "correctIndex": 0,
+      "explanation": "Berlínská definice ARDS: Mírný (Mild) = PaO2/FiO2 201–300 mmHg; Střední (Moderate) = PaO2/FiO2 101–200 mmHg; Těžký (Severe) = PaO2/FiO2 ≤ 100 mmHg (vše při PEEP ≥ 5 cmH2O).",
+      "pearl": "Zdroj: The ARDS Definition Task Force. JAMA 2012",
+      "tags": [
+        "Single Choice",
+        "Dýchací cesty & Ventilace",
+        "Expert",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q33",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-kardioanestezie-ecmo",
+      "topicTitle": "Kardioanestezie & ECMO",
+      "type": "single_choice",
+      "question": "Při resuscitaci refrakterní fibrilace komor (VF) nebo bezpulzové komorové tachykardie (pVT) dle ERC 2021 se podává antiarytmikum Amiodaron. Kdy a v jaké dávce?",
+      "options": [
+        "300 mg i.v. po 3. neúspěšném výboji; při přetrvávání VF/pVT další dávka 150 mg po 5. výboji",
+        "150 mg i.v. ihned před 1. výbojem",
+        "1000 mg v rychlé infuzi během prvních 2 minut KPR",
+        "Amiodaron se podává až po obnovení spontánního oběhu (ROSC)"
+      ],
+      "correctIndex": 0,
+      "explanation": "Při defibrilovatelných rytmech (VF/pVT) se po 3. výboji podává Adrenalin 1 mg a Amiodaron 300 mg (případně Lidokain 100 mg). Po 5. výboji se podává druhá dávka Amiodaronu 150 mg (nebo Lidokain 50 mg).",
+      "pearl": "Zdroj: ERC Guidelines 2021: Adult Advanced Life Support",
+      "tags": [
+        "Single Choice",
+        "Kardioanestezie & ECMO",
+        "Pokročilá",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q34",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-neurointenzivni-pece-vnitrni-prostredi",
+      "topicTitle": "Neurointenzivní péče & Vnitřní prostředí",
+      "type": "single_choice",
+      "question": "Jaký je rozdíl mezi 20% Mannitolem a 3% Hypertonickým solným roztokem (HTS) při terapii intrakraniální hypertenze s edémem mozku?",
+      "options": [
+        "Mannitol vyvolává osmotickou diurézu s rizikem hypovolemie a hypotenze, zatímco 3% HTS expanduje intravaskulární objem a stabilizuje krevní tlak",
+        "Mannitol zvyšuje systémový tlak a nelze jej podat při dehydrataci",
+        "3% HTS snižuje sodík v plazmě a způsobuje masivní diurézu",
+        "Oba roztoky fungují identicky a nemají žádný vliv na cirkulující objem"
+      ],
+      "correctIndex": 0,
+      "explanation": "Mannitol působí jako silné osmotické diuretikum -> hrozí hypovolemie, pokles MAP a tím pokles CPP. Hypertonický NaCl (3-7,5%) vytváří osmotický gradient přes intaktní hematoencefalickou bariéru, přitahuje vodu z edematózního mozku a zároveň působí jako volumexpandér.",
+      "pearl": "Zdroj: Neurocritical Care Society Guidelines for Management of Cerebral Edema",
+      "tags": [
+        "Single Choice",
+        "Neurointenzivní péče & Vnitřní prostředí",
+        "Expert",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q35",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-farmakologie-indukce",
+      "topicTitle": "Farmakologie & Indukce",
+      "type": "single_choice",
+      "question": "Který z následujících faktorů NENÍ součástí skórovacího systému dle Apfela pro predikci pooperační nevolnosti a zvracení (PONV)?",
+      "options": [
+        "Mužské pohlaví",
+        "Ženské pohlaví",
+        "Nekuřáctví",
+        "Anamnéza PONV nebo kinetózy a plánované pooperační opioidy"
+      ],
+      "correctIndex": 0,
+      "explanation": "Apfel skóre hodnotí 4 nezávislé rizikové faktory: 1. Ženské pohlaví, 2. Nekuřák, 3. Anamnéza kinetózy nebo PONV, 4. Použití pooperačních opioidů. Každý faktor přidává cca 20 % rizika (0 = 10 %, 4 = cca 80 %). Mužské pohlaví je naopak protektivní.",
+      "pearl": "Zdroj: Apfel CC et al. / Consensus Guidelines for the Management of PONV",
+      "tags": [
+        "Single Choice",
+        "Farmakologie & Indukce",
+        "Pokročilá",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q36",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-krizove-stavy-na-sale-toxikologie",
+      "topicTitle": "Krizové stavy na sále & Toxikologie",
+      "type": "single_choice",
+      "question": "Při podezření na masivní vzduchovou embolii při operaci v sedící poloze (např. v neurochirurgii) je jedním z polohovacích manévrů Durantův manévr. Jak je pacient polohován?",
+      "options": [
+        "Poloha na levém boku s hlavou níže (Trendelenburg) k zachycení vzduchové bubliny v hrotu pravé komory",
+        "Poloha na pravém boku s hlavou nahoře k vypuzení vzduchu do plicnice",
+        "Sedící poloha s elevací nohou",
+        "Prone position (na břiše) s hyperlordózou"
+      ],
+      "correctIndex": 0,
+      "explanation": "Durantův manévr (levý laterální dekubitus + Trendelenburg) napomáhá zadržení vzduchové zátky v hrotu pravé komory mimo výtokový trakt pravé komory (RVOT), čímž brání obstrukci kmene arteria pulmonalis.",
+      "pearl": "Zdroj: Barash Clinical Anesthesia / Neuroanesthesia Air Embolism Management",
+      "tags": [
+        "Single Choice",
+        "Krizové stavy na sále & Toxikologie",
+        "Expert",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q37",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-kriticke-stavy-sok",
+      "topicTitle": "Kritické stavy & Šok",
+      "type": "single_choice",
+      "question": "Která definice septického šoku odpovídá konsenzu Sepsis-3 z roku 2016?",
+      "options": [
+        "Sepse vyžadující vazopresory k udržení MAP ≥ 65 mmHg a s hladinou sérového laktátu > 2,0 mmol/l navzdory adekvátní tekutinové resuscitaci",
+        "Pouhá přítomnost horečky > 38 °C a leukocytózy při infekci močových cest",
+        "Pokles systolického tlaku pod 90 mmHg reagující okamžitě na 500 ml krystaloidu",
+        "Bakteriémie s normální hladinou laktátu bez nutnosti vazopresorů"
+      ],
+      "correctIndex": 0,
+      "explanation": "Dle Sepsis-3 je septický šok podmnožinou sepse s hlubokými oběhovými a buněčnými/metabolickými abnormalitami: nutnost vazopresorů k MAP ≥ 65 mmHg + laktát > 2 mmol/l (18 mg/dl) navzdory tekutinám. Úmrtnost přesahuje 40 %.",
+      "pearl": "Zdroj: The Third International Consensus Definitions for Sepsis and Septic Shock (Sepsis-3)",
+      "tags": [
+        "Single Choice",
+        "Kritické stavy & Šok",
+        "Pokročilá",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q38",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-dychaci-cesty-ventilace",
+      "topicTitle": "Dýchací cesty & Ventilace",
+      "type": "single_choice",
+      "question": "Při videolaryngoskopii je glotická vizualizace klasifikována modifikovanou Cormack-Lehane škálou. Stupeň 3b označuje:",
+      "options": [
+        "Epiglottis přitisknutá k zadní stěně faryngu, nelze ji elevovat od zadní stěny hltanu",
+        "Kompletní přehled celého hlasivkového vchodu včetně přední komisury",
+        "Pouze zadní část hlasivek a arytenoidní chrupavky",
+        "Viditelná volná epiglottis, ale žádná část hlasivek (lze ji elevovat)"
+      ],
+      "correctIndex": 0,
+      "explanation": "Cormack-Lehane modifikace (Cook): 1 = celá glotis, 2a = část hlasivek, 2b = pouze arytenoidy/zadní štěrbina, 3a = epiglottis elevovatelná, 3b = epiglottis přilepená k faryngu (nelze podebrat), 4 = není vidět ani epiglottis.",
+      "pearl": "Zdroj: Cook TM. A new practical classification of laryngeal view. Anaesthesia",
+      "tags": [
+        "Single Choice",
+        "Dýchací cesty & Ventilace",
+        "Pokročilá",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q39",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-farmakologie-indukce",
+      "topicTitle": "Farmakologie & Indukce",
+      "type": "single_choice",
+      "question": "Jaký je vliv jaterní a renální dysfunkce na eliminaci neuromuskulárního blokátoru Cisatrakuria (Cisatracurium)?",
+      "options": [
+        "Minimální, protože podléhá spontánní neenzymatické degradaci v plazmě (Hofmannova eliminace) a esterové hydrolýze",
+        "Způsobuje 10násobné prodloužení účinku kvůli výhradní renální exkreci",
+        "Je absolutně kontraindikován při selhání jater kvůli blokádě syntézy pseudocholinesterázy",
+        "Poločas se zkracuje kvůli vazbě na bilirubin"
+      ],
+      "correctIndex": 0,
+      "explanation": "Cisatrakurium (benzylisochinolinové myorelaxans) podléhá Hofmannově eliminaci (teplotně a pH dependentní spontánní rozpad v plazmě) a nespecifické esterázové hydrolýze. Doba účinku a zotavení je proto nezávislá na funkci ledvin i jater.",
+      "pearl": "Zdroj: Miller\\",
+      "tags": [
+        "Single Choice",
+        "Farmakologie & Indukce",
+        "Expert",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q40",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-kardioanestezie-ecmo",
+      "topicTitle": "Kardioanestezie & ECMO",
+      "type": "single_choice",
+      "question": "Jaký vliv má intraaortální balonková kontrapulzace (IABP) na hemodynamiku levé komory během srdečního cyklu?",
+      "options": [
+        "Nafouknutí balonu v diastole zvyšuje diastolický tlak v aortě a koronární perfuzi; vyfouknutí těsně před systolou snižuje afterload levé komory",
+        "Nafouknutí v systole zvyšuje systolický tlak a vyfouknutí v diastole zvyšuje preload",
+        "Trvalé nafouknutí nahrazuje činnost aortální chlopně při její těžké regurgitaci",
+        "Zvyšuje afterload pravé komory přetlakem v plicnici"
+      ],
+      "correctIndex": 0,
+      "explanation": "IABP synchronizovaně nafukuje balon v časné diastole (hned po uzávěru aortální chlopně - dikrotický zářez), což zvýší koronární a mozkový průtok. Těsně před otevřením aortální chlopně (v izovolumické kontrakci) se balon rychle vyfoukne, čímž vytvoří podtlak a výrazně sníží afterload LK.",
+      "pearl": "Zdroj: Hensley\\",
+      "tags": [
+        "Single Choice",
+        "Kardioanestezie & ECMO",
+        "Expert",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q41",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-neurointenzivni-pece-vnitrni-prostredi",
+      "topicTitle": "Neurointenzivní péče & Vnitřní prostředí",
+      "type": "single_choice",
+      "question": "Jaká je doporučená strategie managementu teploty (TTM - Targeted Temperature Management) u dospělých pacientů po mimonemocniční zástavě oběhu (OHCA) s komatem dle ERC/ESICM 2021/2022?",
+      "options": [
+        "Aktivní prevence horečky s cílovou teplotou ≤ 37,5 °C (nebo udržování kontrolované hypotermie 32–36 °C po dobu minimálně 24-72 hodin)",
+        "Hluboká hypotermie na 28 °C po dobu 7 dnů",
+        "Řízená hypertermie na 38,5 °C pro stimulaci imunitní odpovědi",
+        "Ponechání teploty zcela bez měření a intervence"
+      ],
+      "correctIndex": 0,
+      "explanation": "Dle studií TTM2 a doporučení ERC/ESICM je klíčové striktně předcházet horečce (teplotě > 37,5 °C) po dobu alespoň 72 hodin. Kontrolovaná hypotermie 32-36 °C zůstává alternativou, ale prevence febrilií má srovnatelný neurologický benefit.",
+      "pearl": "Zdroj: ERC-ESICM Guidelines on Temperature Management After Cardiac Arrest",
+      "tags": [
+        "Single Choice",
+        "Neurointenzivní péče & Vnitřní prostředí",
+        "Pokročilá",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q42",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-krizove-stavy-na-sale-toxikologie",
+      "topicTitle": "Krizové stavy na sále & Toxikologie",
+      "type": "single_choice",
+      "question": "Při methemoglobinémii (např. po předávkování prilokainem, benzokainem či dapsone) pulzní oxymetr typicky vykazuje:",
+      "options": [
+        "Falešnou saturaci SpO2 fixovanou kolem 85 % bez ohledu na skutečný parciální tlak kyslíku PaO2",
+        "Vždy 100 % SpO2 bez jakýchkoliv odchylek",
+        "Spadnutí naměřené hodnoty SpO2 na 0 %",
+        "Přesnou shodu se saturací z arteriálních krevních plynů"
+      ],
+      "correctIndex": 0,
+      "explanation": "Methemoglobin má stejný absorpční koeficient při vlnových délkách 660 nm i 940 nm (poměr R = 1,0). Konvenční dvou-vlnový pulzní oxymetr interpretuje poměr 1,0 jako saturaci přesně 85 %, i když pacient může mít těžkou hypoxémii.",
+      "pearl": "Zdroj: Barker SJ. Pulse Oximetry and Dyshemoglobins. Anesthesiology",
+      "tags": [
+        "Single Choice",
+        "Krizové stavy na sále & Toxikologie",
+        "Pokročilá",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q43",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-farmakologie-indukce",
+      "topicTitle": "Farmakologie & Indukce",
+      "type": "single_choice",
+      "question": "Fenylefrin se v anesteziologii často používá k léčbě hypotenze po spinální anestezii. Jaký je jeho farmakologický profil?",
+      "options": [
+        "Čistý přímý agonista alfa-1 adrenergních receptorů; zvyšuje SVR, což může vyvolat reflexní baroreceptorovou bradykardii",
+        "Čistý beta-1 agonista zvyšující kontraktilitu a tepovou frekvenci",
+        "Kombinovaný alfa-2 a beta-2 antagonista",
+        "Přímý dárce oxidu dusnatého způsobující plicní vazodilataci"
+      ],
+      "correctIndex": 0,
+      "explanation": "Fenylefrin je selektivní přímý alfa-1 agonista vyvolávající vazokonstrikci arteriol i venul. Zvyšuje systémovou vaskulární rezistenci (SVR) a preload, ale v důsledku vzestupu TK spouští vagový reflex vedoucí k bradykardii a případně poklesu srdečního výdeje.",
+      "pearl": "Zdroj: Miller\\",
+      "tags": [
+        "Single Choice",
+        "Farmakologie & Indukce",
+        "Pokročilá",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q44",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-dychaci-cesty-ventilace",
+      "topicTitle": "Dýchací cesty & Ventilace",
+      "type": "single_choice",
+      "question": "Při ventilaci pacienta v pronační poloze (prone positioning) u těžkého ARDS dochází ke zlepšení oxygenace především díky:",
+      "options": [
+        "Homogennější distribuci transpulmonálního tlaku a ventilačně-perfuzního poměru (V/Q) se snížením dorzálních atelektáz",
+        "Výraznému zvýšení minutového srdečního výdeje o více než 50 %",
+        "Úplnému vymizení produkce hlenu v bronších",
+        "Zmenšení celkového funkčního reziduálního objemu plic"
+      ],
+      "correctIndex": 0,
+      "explanation": "V pronační poloze leží srdce na sternu (neutlačuje dorzální laloky plic) a vertikální gradient pleurálního tlaku je mnohem rovnoměrnější. Tím dochází k rekrutování dorzálních plicních sklípků, lepší shodě ventilace s perfuzí a snížení střižného napětí (VILI). Dle studie PROSEVA snižuje mortalitu.",
+      "pearl": "Zdroj: Guerin C et al. (PROSEVA Study Group). NEJM",
+      "tags": [
+        "Single Choice",
+        "Dýchací cesty & Ventilace",
+        "Expert",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q45",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-kriticke-stavy-sok",
+      "topicTitle": "Kritické stavy & Šok",
+      "type": "single_choice",
+      "question": "U septického šoku nereagujícího na adekvátní volumoterapii a vysoké dávky noradrenalinu (např. > 0,25 mcg/kg/min) doporučují SSC guidelines 2021 přidat jako druhý vazopresor:",
+      "options": [
+        "Vazopresin (v dávce 0,03 IU/min)",
+        "Fenytoin",
+        "Nitroprusid sodný",
+        "Propranolol"
+      ],
+      "correctIndex": 0,
+      "explanation": "Vazopresin v fixní dávce 0,03 IU/min (působící přes V1 receptory) je doporučeným aditivem k noradrenalinu k navýšení MAP a snížení dávek katecholaminů (šetřící efekt).",
+      "pearl": "Zdroj: Surviving Sepsis Campaign Guidelines 2021",
+      "tags": [
+        "Single Choice",
+        "Kritické stavy & Šok",
+        "Pokročilá",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q46",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-farmakologie-indukce",
+      "topicTitle": "Farmakologie & Indukce",
+      "type": "single_choice",
+      "question": "Jaká je definice Minimální alveolární koncentrace (MAC) inhalačního anestetika?",
+      "options": [
+        "Alveolární koncentrace anestetika při 1 atmosféře, která zabrání motorické reakci na standardní chirurgický řez u 50 % pacientů",
+        "Koncentrace, při které 100 % pacientů ztratí vědomí a reflexy",
+        "Minimální koncentrace v krvi způsobující izoelektrické EEG",
+        "Procento anestetika v odpařovači nutné k zahájení úvodu do anestezie"
+      ],
+      "correctIndex": 0,
+      "explanation": "1 MAC je definován jako ustálená alveolární koncentrace inhalačního plynu za normálního tlaku, při níž 50 % jedinců nereaguje účelným pohybem na standardní bolestivý podnět (kožní incizi). MAC pro Sevofluran u dospělého je cca 2,0 %, pro Isofluran 1,15 %, pro Desfluran cca 6,0 %.",
+      "pearl": "Zdroj: Eger EI 2nd. MAC: Concepts and developments. Anesthesiology",
+      "tags": [
+        "Single Choice",
+        "Farmakologie & Indukce",
+        "Expert",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q47",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-krizove-stavy-na-sale-toxikologie",
+      "topicTitle": "Krizové stavy na sále & Toxikologie",
+      "type": "single_choice",
+      "question": "Při vysoké spinální blokádě (High/Total Spinal Anesthesia) dochází k blokádě sympatických vláken T1-T4 (kardioakcelerační vlákna). Jaký je typický klinický obraz?",
+      "options": [
+        "Těžká hypotenze doprovázená paradoxní hlubokou bradykardií a respirační tísní / zástavou",
+        "Těžká hypertenze s extrémní tachykardií",
+        "Pouze izolovaná ztráta hybnosti prstů bez vlivu na oběh",
+        "Hyperventilace s bronchospazmem a hypertermií"
+      ],
+      "correctIndex": 0,
+      "explanation": "Vysoká spinální blokáda vyřadí sympatický tonus cév (vazodilatace a venózní pooling) a navíc zablokuje vlákna T1-T4 zásobující srdce -> dochází k těžké hypotenzi s neschopností kompenzatorní tachykardie, naopak se rozvíjí těžká bradykardie (často asystolie). Nutná je okamžitá elevace nohou, tekutiny, efedrin/adrenalin a zajištění dýchacích cest.",
+      "pearl": "Zdroj: Chestnut\\",
+      "tags": [
+        "Single Choice",
+        "Krizové stavy na sále & Toxikologie",
+        "Pokročilá",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q48",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-kardioanestezie-ecmo",
+      "topicTitle": "Kardioanestezie & ECMO",
+      "type": "single_choice",
+      "question": "Který krevní derivát / koncentrát má nejvyšší koncentraci fibrinogenu a je indikován při jeho kritickém nedostatku, pokud není dostupný lyofilizovaný koncentrát lidského fibrinogenu?",
+      "options": [
+        "Kryoprecipitát",
+        "Čerstvě zmražená plazma (FFP)",
+        "Erytrocytární masa (EM)",
+        "Trombocytární koncentrát z aferézy"
+      ],
+      "correctIndex": 0,
+      "explanation": "Kryoprecipitát obsahuje cca 15 g/l fibrinogenu (asi 10x vyšší koncentrace než běžná plazma), dále faktor VIII, von Willebrandův faktor a faktor XIII. FFP obsahuje pouze cca 2 g/l fibrinogenu, takže pro korekci hypofibrinogenémie by bylo nutné podat obrovské objemy s rizikem oběhového přetížení (TACO).",
+      "pearl": "Zdroj: British Journal of Anaesthesia / Transfusion Guidelines",
+      "tags": [
+        "Single Choice",
+        "Kardioanestezie & ECMO",
+        "Pokročilá",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q49",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-dychaci-cesty-ventilace",
+      "topicTitle": "Dýchací cesty & Ventilace",
+      "type": "single_choice",
+      "question": "Při intubaci pacienta s plným žaludkem metodou rychlého úvodu do anestezie (RSI - Rapid Sequence Induction) se tradičně provádí Sellickův manévr. Na kterou anatomickou strukturu se vyvíjí tlak?",
+      "options": [
+        "Na prstencovou chrupavku (cartilago cricoidea) směrem dozadu proti tělům krčních obratlů",
+        "Na štítnou chrupavku (cartilago thyroidea) směrem nahoru a doprava",
+        "Na jazylku (os hyoideum)",
+        "Přímo na sternální jamku"
+      ],
+      "correctIndex": 0,
+      "explanation": "Sellickův manévr spočívá v aplikaci tlaku na prstencovou chrupavku (jediný kompletní chrupavčitý prstenec dýchacích cest), čímž se teoreticky stlačí jícen proti obratli C6 a zabrání pasivní regurgitaci žaludečního obsahu do faryngu.",
+      "pearl": "Zdroj: Sellick BA. Cricoid pressure to control regurgitation. The Lancet",
+      "tags": [
+        "Single Choice",
+        "Dýchací cesty & Ventilace",
+        "Pokročilá",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-game-aim_q50",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-neurointenzivni-pece-vnitrni-prostredi",
+      "topicTitle": "Neurointenzivní péče & Vnitřní prostředí",
+      "type": "single_choice",
+      "question": "Jak se vypočítá aniontová mezera (Anion Gap) v séru a která z uvedených příčin způsobuje metabolickou acidózu s VYSOKOU aniontovou mezerou (HAGMA)?",
+      "options": [
+        "AG = [Na+] - ([Cl-] + [HCO3-]); Příčina: Diabetická ketoacidóza nebo laktátová acidóza",
+        "AG = [Na+] + [Cl-] - [HCO3-]; Příčina: Průjem se ztrátou bikarbonátu",
+        "AG = [K+] - [Na+]; Příčina: Renální tubulární acidóza",
+        "AG = [HCO3-] - [Cl-]; Příčina: Infuze velkého objemu 0,9% NaCl"
+      ],
+      "correctIndex": 0,
+      "explanation": "Anion Gap = [Na+] - ([Cl-] + [HCO3-]), normální hodnota je 8-12 mmol/l. HAGMA vzniká kumulací neměřených aniontů: Laktát, Ketolátky (DKA, hladovění), Toxiny (Metanol, Etylenglykol, Salicyláty) a Urémie (zkratka GOLD MARK / MUDPILES). Průjmy a infuze NaCl způsobují acidózu s NORMÁLNÍ aniontovou mezerou (NAGMA).",
+      "pearl": "Zdroj: Rose & Post: Clinical Physiology of Acid-Base and Electrolyte Disorders",
+      "tags": [
+        "Single Choice",
+        "Neurointenzivní péče & Vnitřní prostředí",
+        "Expert",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-anest-q1",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-anestezie-aim",
+      "topicTitle": "Anesteziologie & Krizové stavy",
+      "type": "single_choice",
+      "question": "68letý muž s anamnézou těžké aortální stenózy a těžkého hypovolemického šoku v důsledku aktivního krvácení z horní části zažívacího traktu vyžaduje okamžitou endotracheální intubaci. Jeho krevní tlak je aktuálně 78/42 mmHg a srdeční frekvence je 112 bpm.\n\nKteré indukční anestetikum je pro tohoto pacienta hemodynamicky nejstabilnější a nejvhodnější volbou?",
+      "options": [
+        "Propofol 2 mg/kg IV",
+        "Ketamin 2 mg/kg IV",
+        "Etomidát 0,3 mg/kg IV",
+        "Midazolam 0,1 mg/kg IV"
+      ],
+      "correctIndex": 2,
+      "explanation": "Etomidát (0,2 - 0,3 mg/kg IV) je lékem volby u hemodynamicky nestabilních pacientů v šoku, zejména u pacientů s chlopenními vadami jako aortální stenóza. Má zanedbatelný vliv na kontraktilitu myokardu a systémovou cévní rezistenci. Propofol je zde kontraindikován, protože způsobuje hlubokou vazodilataci a depresi myokardu. I když se ketamin u šoku rovněž používá, jeho sympatická stimulace zvyšuje srdeční frekvenci a nároky myokardu na kyslík, což je při těžké aortální stenóze velmi nebezpečné.",
+      "pearl": "Klíčové léčivo / postup: Etomidate",
+      "tags": [
+        "Single Choice",
+        "Anesteziologie",
+        "AIM",
+        "Krizový stav"
+      ]
+    },
+    {
+      "id": "urgent-anest-q2",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-anestezie-aim",
+      "topicTitle": "Anesteziologie & Krizové stavy",
+      "type": "single_choice",
+      "question": "Obézní 42letá žena je plánována k urgentní laparoskopické cholecystektomii. Má anamnézu gastroesofageálního refluxu (GERD) a vyžaduje Rapid Sequence Induction (RSI) a intubaci. K usnadnění rychlé intubace plánujete použít sukcinylcholin.\n\nVe které z následujících klinických situací by byl sukcinylcholin ABSOLUTNĚ kontraindikován?",
+      "options": [
+        "Pacient s odhadovaným GFR 45 mL/min (středně těžké chronické onemocnění ledvin)",
+        "Pacient s kompletním přerušením míchy v úrovni T6 utrpěným před 12 měsíci",
+        "Pacient s anamnézou těžké pooperační nevolnosti a zvracení (PONV)",
+        "Pacient s dokumentovanou alergií na penicilin a vejce"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sukcinylcholin je absolutně kontraindikován u pacientů s chronickým poškozením míchy (typicky od 24-48 hodin po úrazu až do 1-2 let či trvale). Denervace svalu vede k ",
+      "pearl": "Klíčové léčivo / postup: Succinylcholine",
+      "tags": [
+        "Single Choice",
+        "Anesteziologie",
+        "AIM",
+        "Krizový stav"
+      ]
+    },
+    {
+      "id": "urgent-anest-q3",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-anestezie-aim",
+      "topicTitle": "Anesteziologie & Krizové stavy",
+      "type": "single_choice",
+      "question": "Pacient o hmotnosti 70 kg (ideální tělesná hmotnost) s normální funkcí jater a ledvin je uváděn do rutinní anestezie pro ortopedickou operaci. Anesteziolog podává rokuronium 50 mg IV (cca 0,7 mg/kg) k usnadnění intubace.\n\nBěhem zajišťování dýchacích cest se anesteziolog 2 minuty po podání léku setká se scénářem ",
+      "options": [
+        "Podat Neostigmin 0,05 mg/kg IV v kombinaci s glykopyrrolátem",
+        "Vyčkat 30-40 minut na přirozenou redistribuci a clearance rokuronia",
+        "Okamžitě podat Sugammadex 16,0 mg/kg IV",
+        "Okamžitě podat Sugammadex 2,0 mg/kg IV"
+      ],
+      "correctIndex": 2,
+      "explanation": "Pro nouzový záchranný reverz hluboké neuromuskulární blokády rokuroniem krátce po podání úvodní dávky 1,2 mg/kg nebo 0,6 mg/kg je požadovaná dávka Sugammadexu 16,0 mg/kg IV. Tato dávka kompletně enkapsuluje cirkulující molekuly rokuronia v plazmě, čímž obnoví nervosvalový přenos a spontánní dýchání za méně než 3 minuty, což může u krize ",
+      "pearl": "Klíčové léčivo / postup: Sugammadex",
+      "tags": [
+        "Single Choice",
+        "Anesteziologie",
+        "AIM",
+        "Krizový stav"
+      ]
+    },
+    {
+      "id": "urgent-anest-q4",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-anestezie-aim",
+      "topicTitle": "Anesteziologie & Krizové stavy",
+      "type": "single_choice",
+      "question": "28letý muž s anamnézou těžkého \n\nKteré indukční anestetikum je pro tohoto pacienta nejvýhodnější díky svým aktivním bronchodilatačním účinkům?",
+      "options": [
+        "Propofol",
+        "Ketamin",
+        "Etomidát",
+        "Midazolam"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ketamin je vysoce přínosný u pacientů s aktivním astmatem nebo bronchospasmem. Stimuluje sympatický nervový systém, což způsobuje uvolňování endogenních katecholaminů, které přímo stimulují beta-2 receptory v plicích k relaxaci hladké svaloviny a bronchodilataci. Působí také přímo relaxačně na hladkou svalovinu dýchacích cest. Propofol má také určité bronchodilatační účinky, ale Ketamin je jedinečně silný a preferovaný u aktivních astmatických krizí vyžadujících intubaci.",
+      "pearl": "Klíčové léčivo / postup: Ketamine",
+      "tags": [
+        "Single Choice",
+        "Anesteziologie",
+        "AIM",
+        "Krizový stav"
+      ]
+    },
+    {
+      "id": "urgent-anest-q5",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-anestezie-aim",
+      "topicTitle": "Anesteziologie & Krizové stavy",
+      "type": "single_choice",
+      "question": "Během úvodu do celkové anestezie pomocí Propofolu 150 mg a Fentanylu 100 mcg u 65leté ženy klesá krevní tlak pacienta ze 128/76 mmHg na 82/48 mmHg. Její srdeční frekvence se také zpomaluje ze 74 bpm na 52 bpm.\n\nKterá vasoaktivní látka a dávka je nejvhodnější první volbou k obnovení její hemodynamiky?",
+      "options": [
+        "Fenyleftrin 50-100 mcg IV bolus",
+        "Efedrin 5-10 mg IV bolus",
+        "Atropin 0,5 mg IV bolus",
+        "Epinefrin 1 mg IV push"
+      ],
+      "correctIndex": 1,
+      "explanation": "Efedrin (5-10 mg IV bolus) je zde ideálním lékem, protože pacientka trpí hypotenzí (TK 82/48) i bradykardií (SF 52 bpm), což je typický kombinovaný nežádoucí účinek propofolu a opioidů. Efedrin stimuluje alpha a beta receptory, což zvyšuje systémovou cévní rezistenci (zvyšuje TK) a zvyšuje srdeční frekvenci. Fenyleftrin je čistý alpha-1 agonista, který by sice zvýšil TK, ale způsobil by další pokles SF reflexní bradykardií, což je u bradykardického pacienta nevhodné.",
+      "pearl": "Klíčové léčivo / postup: Ephedrine",
+      "tags": [
+        "Single Choice",
+        "Anesteziologie",
+        "AIM",
+        "Krizový stav"
+      ]
+    },
+    {
+      "id": "urgent-anest-q6",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-anestezie-aim",
+      "topicTitle": "Anesteziologie & Krizové stavy",
+      "type": "single_choice",
+      "question": "Připravujete indukční dávku Propofolu pro stabilní 80letou ženu (vážící 60 kg) podstupující plánovanou operaci kýly. V anamnéze má kompenzovanou hypertenzi a osteoartrózu.\n\nJaká je nejvhodnější upravená indukční dávka Propofolu pro tuto geriatrickou pacientku?",
+      "options": [
+        "120 mg až 150 mg IV bolus (2,0 - 2,5 mg/kg)",
+        "60 mg až 90 mg IV bolus (1,0 - 1,5 mg/kg)",
+        "30 mg až 40 mg IV bolus (0,5 mg/kg)",
+        "180 mg až 210 mg IV bolus (3,0 - 3,5 mg/kg)"
+      ],
+      "correctIndex": 1,
+      "explanation": "U starších pacientů (typicky nad 65-70 let) se požadovaná indukční dávka Propofolu snižuje o 30-50 % (na přibližně 1,0 - 1,5 mg/kg IV). Starší pacienti mají snížený distribuční objem, pomalejší clearance a zvýšenou citlivost ke kardiodepresivním účinkům Propofolu (riziko těžké hypotenze). Pro 60kg pacienta je správné rozmezí 60-90 mg.",
+      "pearl": "Klíčové léčivo / postup: Propofol",
+      "tags": [
+        "Single Choice",
+        "Anesteziologie",
+        "AIM",
+        "Krizový stav"
+      ]
+    },
+    {
+      "id": "urgent-anest-q7",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-anestezie-aim",
+      "topicTitle": "Anesteziologie & Krizové stavy",
+      "type": "single_choice",
+      "question": "Pacientka je vedena v míšní (spinální) anestezii pro císařský řez. Bezprostředně po intrathekálním bloku se pacientce zatočí hlava a krevní tlak klesá na 88/44 mmHg. Její srdeční frekvence je 98 bpm.\n\nKterá vasoaktivní látka je preferována v porodnické spinální anestezii k léčbé hypotenze, aniž by způsobovala acidózu plodu nebo mateřskou tachykardii?",
+      "options": [
+        "Noradrenalin",
+        "Efedrin",
+        "Fenyleftrin",
+        "Dopamin"
+      ],
+      "correctIndex": 2,
+      "explanation": "Fenyleftrin (40 - 100 mcg IV bolusy nebo kontinuální infuze) je preferovaným lékem volby pro léčbu hypotenze vyvolané spinální anestezií u porodů. Rozsáhlé klinické studie ukázaly, že fenyleftrin udržuje průtok krve dělohou a je spojen s příznivějším acidobazickým stavem plodu (méně acidózy plodu) ve srovnání s efedrinem. Rovněž koriguje tepovou frekvenci matky, čímž předchází nadměrné tachykardii.",
+      "pearl": "Klíčové léčivo / postup: Phenylephrine",
+      "tags": [
+        "Single Choice",
+        "Anesteziologie",
+        "AIM",
+        "Krizový stav"
+      ]
+    },
+    {
+      "id": "urgent-anest-q8",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-anestezie-aim",
+      "topicTitle": "Anesteziologie & Krizové stavy",
+      "type": "single_choice",
+      "question": "28letá žena je plánována k elektivní laparoskopické operaci. Během anesteziologické konzultace uvádí, že její sestra prodělala život ohrožující, masivní nárůst tělesné teploty, svalovou rigiditu a vysokou hladinu CO2 během drobné operace kolene v celkové anestezii.\n\nKterý z následujících léků je potenciálním spouštěčem tohoto podezření na dědičné onemocnění (Maligní hypertermie) a musí být přísně vyvarován?",
+      "options": [
+        "Propofol",
+        "Rokuronium",
+        "Sukcinylcholin",
+        "Ketamin"
+      ],
+      "correctIndex": 2,
+      "explanation": "Maligní hypertermie (MH) je vzácná, život ohrožující dědičná hypermetabolická krize spouštěná expozicí volatilním inhalačním anestetikům (např. Sevofluran, Isofluran) nebo depolarizujícímu svalovému relaxanciu sukcinylcholinu. Způsobuje nekontrolované uvolňování vápníku ze sarkoplazmatického retikula, což vede k těžké svalové rigiditě, hypertermii, metabolické acidóze, rhabdomyolýze a tachykardii. Nedepolarizující relaxancia jako Rokuronium a indukční látky jako Propofol/Ketamin jsou u MH-susceptibilních pacientů zcela bezpečné.",
+      "pearl": "Klíčové léčivo / postup: Succinylcholine",
+      "tags": [
+        "Single Choice",
+        "Anesteziologie",
+        "AIM",
+        "Krizový stav"
+      ]
+    },
+    {
+      "id": "urgent-anest-q9",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-anestezie-aim",
+      "topicTitle": "Anesteziologie & Krizové stavy",
+      "type": "single_choice",
+      "question": "32letá žena je plánována k elektivní laparoskopické appendektomii. Během předoperačního vyšetření zmíní, že se v její rodině vyskytuje akutní intermitentní porfyrie (AIP). Rezidentní anesteziolog připravuje Thiopental k úvodu do anestezie.\n\nJaký je nejvhodnější postup ohledně použití Thiopentalu u této pacientky?",
+      "options": [
+        "Podat Thiopental podle plánu; AIP není kontraindikací.",
+        "Zcela se vyhnout Thiopentalu; je to silný induktor ALA syntetázy a může vyvolat život ohrožující krizi.",
+        "Podat Thiopental, ale kombinovat jej s vysokou dávkou Fentanylu k prevenci porfyrické krize.",
+        "Vyhnout se Thiopentalu pouze tehdy, pokud má pacientka v době operace aktivní bolesti břicha."
+      ],
+      "correctIndex": 1,
+      "explanation": "Thiopental (a všechny barbituráty) jsou absolutně kontraindikovány u pacientů s akutní intermitentní porfyrií (AIP) nebo jinými jaterními porfyriemi. Barbituráty indukují enzym delta-aminolevulinovou kyselinu (ALA) syntetázu, což vede k masivní akumulaci porfyrinů. To může vyvolat těžkou, život ohrožující porfyrickou krizi charakterizovanou krutými bolestmi břicha, psychiatrickými příznaky, autonomní nestabilitou a vzestupnou motorickou paralýzou. Bezpečnými alternativami jsou Propofol nebo Ketamin.",
+      "pearl": "Klíčové léčivo / postup: Thiopental",
+      "tags": [
+        "Single Choice",
+        "Anesteziologie",
+        "AIM",
+        "Krizový stav"
+      ]
+    },
+    {
+      "id": "urgent-anest-q10",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-anestezie-aim",
+      "topicTitle": "Anesteziologie & Krizové stavy",
+      "type": "single_choice",
+      "question": "45letý muž s těžkou CHOPN je na JIP po urgentní operaci břicha. Je extubovaný, ale vysoce neklidný, tachykardický a odmítá masku neinvazivní ventilace (NIV), což ho vystavuje vysokému riziku reintubace.\n\nKteré sedativum je nejvhodnější k léčbě jeho neklidu, aniž by byl ohrožen jeho dechový pohon?",
+      "options": [
+        "Kontinuální infuze Propofolu",
+        "Bolusové podávání Midazolamu podle potřeby",
+        "Kontinuální infuze Dexmedetomidinu",
+        "Kontinuální infuze Fentanylu"
+      ],
+      "correctIndex": 2,
+      "explanation": "Dexmedetomin je mezi sedativy jedinečný tím, že poskytuje ",
+      "pearl": "Klíčové léčivo / postup: Dexmedetomidine",
+      "tags": [
+        "Single Choice",
+        "Anesteziologie",
+        "AIM",
+        "Krizový stav"
+      ]
+    },
+    {
+      "id": "urgent-anest-q11",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-anestezie-aim",
+      "topicTitle": "Anesteziologie & Krizové stavy",
+      "type": "single_choice",
+      "question": "Pacient v septickém šoku dostává kontinuální infuzi Noradrenalinu přes dočasnou periferní kanylu na předloktí. Během vizity si všimnete, že místo vpichu je oteklé, chladné a bledé a pacient si stěžuje na silnou pálivou bolest.\n\nJaký je nejrychlejší a nejvhodnější postup?",
+      "options": [
+        "Zvýšit rychlost infuze k udržení cílového tlaku a přiložit teplý obklad.",
+        "Okamžitě zastavit infuzi, aspirovat zbytky léčiva z kanyly a lokálně aplikovat subkutánně Phentolamin.",
+        "Přiložit ledové obklady a propláchnout kanylu 10 mL heparinizovaného fyziologického roztoku.",
+        "Snížit rychlost infuze na polovinu a zvednout ruku nad úroveň srdce."
+      ],
+      "correctIndex": 1,
+      "explanation": "Extravazace Noradrenalinu je urgentní stav, protože lokální vazokonstrikce může způsobit těžkou ischemickou nekrózu a rozpad tkáně. Infuze musí být okamžitě zastavena. Kanylu ponechte na místě k pokusu o aspiraci zbytku léčiva, poté aplikujte antidotum Phentolamin (alpha-blokátor, obvykle 5-10 mg zředěných v 10 mL fyziologického roztoku) přes kanylu a infiltrujte subkutánně okolí kanyly k potlačení vazokonstrikce.",
+      "pearl": "Klíčové léčivo / postup: Norepinephrine",
+      "tags": [
+        "Single Choice",
+        "Anesteziologie",
+        "AIM",
+        "Krizový stav"
+      ]
+    },
+    {
+      "id": "urgent-anest-q12",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-anestezie-aim",
+      "topicTitle": "Anesteziologie & Krizové stavy",
+      "type": "single_choice",
+      "question": "Anesteziolog léčí 75letého muže, u kterého se během operace rozvinula těžká sinusová bradykardie (SF 32 bpm) a hypotenze (TK 72/40 mmHg). Rezident připravuje Atropin, ale z obavy před tachykardií podá velmi nízkou dávku 0,1 mg IV.\n\nJaký je pravděpodobný farmakologický důsledek podání této sub-terapeutické dávky Atropinu?",
+      "options": [
+        "Mírné, ale dostatečné zvýšení srdeční frekvence na přibližně 50 bpm.",
+        "Žádná změna srdeční frekvence; 0,1 mg je u dospělých zcela neúčinné.",
+        "Paradoxní zhoršení bradykardie a riziko srdeční blokády.",
+        "Okamžitá těžká sinusová tachykardie a ischémie myokardu."
+      ],
+      "correctIndex": 2,
+      "explanation": "Nízké dávky Atropinu (méně než 0,5 mg u dospělých nebo 0,1 mg u dětí) mohou způsobit paradoxní zhoršení bradykardie. K tomu dochází proto, že nízké dávky blokují presynaptické inhibitory muskarinových (M1) receptorů na zakončeních bloudivého nervu (nervus vagus), což zvyšuje uvolňování acetylcholinu, případně přímou centrální stimulací vagu. Proto je standardní dávka Atropinu u dospělých dle ACLS 1,0 mg IV a nižším dávkám je třeba se striktně vyhnout.",
+      "pearl": "Klíčové léčivo / postup: Atropine",
+      "tags": [
+        "Single Choice",
+        "Anesteziologie",
+        "AIM",
+        "Krizový stav"
+      ]
+    },
+    {
+      "id": "urgent-anest-q13",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-anestezie-aim",
+      "topicTitle": "Anesteziologie & Krizové stavy",
+      "type": "single_choice",
+      "question": "Úspěšně jste zrušili (reverzovali) depresi dýchání (dechová frekvence 4/min, SpO2 78 %) u pooperačního pacienta na dospávacím pokoji podáním Naloxonu 0,2 mg IV. Pacient je nyní bdělý, orientovaný a dýchá frekvencí 14/min se SpO2 98 %.\n\nJaký je nejvýznamnější požadavek na sledování tohoto pacienta po podání Naloxonu?",
+      "options": [
+        "Pacienta lze okamžitě propustit na standardní oddělení, protože dýchací cesty jsou zajištěné.",
+        "Pacienta pečlivě sledovat po dobu alespoň 1-2 hodin, protože účinek Naloxonu je kratší než u většiny opioidů, což hrozí návratem útlumu dýchání.",
+        "Kontrolovat zornice pacienta každých 5 minut; pokud jsou rozšířené (mydriáza), podat další dávku Naloxonu.",
+        "U všech pacientů po podání Naloxonu okamžitě zahájit kontinuální infuzi Naloxonu."
+      ],
+      "correctIndex": 1,
+      "explanation": "Doba účinku Naloxonu (přibližně 30-90 minut) je výrazně kratší než doba účinku většiny klinicky používaných opioidů (např. morfin, fentanyl). Jakmile se Naloxon metabolizuje a vyloučí, zbývající molekuly opioidů se mohou znovu navázat na receptory a způsobit opakovaný útlum dýchání a sedaci (",
+      "pearl": "Klíčové léčivo / postup: Naloxone",
+      "tags": [
+        "Single Choice",
+        "Anesteziologie",
+        "AIM",
+        "Krizový stav"
+      ]
+    },
+    {
+      "id": "urgent-anest-q14",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-anestezie-aim",
+      "topicTitle": "Anesteziologie & Krizové stavy",
+      "type": "single_choice",
+      "question": "Na konci operace chirurgický tým požaduje zrušení (reverz) blokády rokuroniem. Pacient má počet záškubů na Train-of-Four (TOF) 3. Rezident anesteziologie se rozhodne podat Neostigmin 2,5 mg IV.\n\nJaký další farmakologický krok MUSÍ rezident při podání Neostigminu učinit?",
+      "options": [
+        "Podat Neostigmin samostatně; žádná další látka není nutná.",
+        "Společně podat anticholinergikum (např. glykopyrrolát nebo atropin) k zablokování závažných muskarinových nežádoucích účinků.",
+        "Společně podat Sugammadex k zdvojnásobení rychlosti odeznění blokády.",
+        "Podat beta-blokátor k prevenci těžké tachykardie způsobené Neostigminem."
+      ],
+      "correctIndex": 1,
+      "explanation": "Neostigmin je inhibitor acetylcholinesterázy, který zvyšuje hladinu acetylcholinu na nikotinových receptorech (čímž ruší svalovou blokádu) i na muskarinových receptorech. Muskarinová stimulace způsobuje těžkou bradykardii, AV blokády, bronchospasmus, hypersalivaci a zvýšenou motilitu střev. Aby se zabránilo těmto život ohrožujícím parasympatickým účinkům, musí být Neostigmin VŽDY podáván společně s anticholinergikem (glykopyrrolát nebo atropin).",
+      "pearl": "Klíčové léčivo / postup: Neostigmine",
+      "tags": [
+        "Single Choice",
+        "Anesteziologie",
+        "AIM",
+        "Krizový stav"
+      ]
+    },
+    {
+      "id": "urgent-anest-q15",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-anestezie-aim",
+      "topicTitle": "Anesteziologie & Krizové stavy",
+      "type": "single_choice",
+      "question": "60letý muž podstupuje rozsáhlý ortopedický operační výkon. Má vysoké riziko pooperační nevolnosti a zvracení (PONV) podle skóre Apfel. Anesteziolog se rozhodne podat Dexamethason krátce po úvodu do anestezie.\n\nJaký je hlavní mechanismus a klinická výhoda Dexamethasonu v této situaci?",
+      "options": [
+        "Působí jako okamžité sedativum, čímž snižuje potřebu Propofolu.",
+        "Je to silné antiemetikum, které snižuje syntézu prostaglandinů a centrální hladinu serotoninu a působí synergicky s Ondansetronem.",
+        "Zvrátí nervosvalovou blokádu urychlením uvolňování acetylcholinu.",
+        "Je to čisté analgetikum, které zcela nahrazuje potřebu intraoperačních opioidů."
+      ],
+      "correctIndex": 1,
+      "explanation": "Dexamethason (4-10 mg IV) je vysoce účinné antiemetikum používané k profylaxi PONV. Působí snížením syntézy prostaglandinů a poklesem centrálního serotoninu. V kombinaci s antagonistou receptoru 5-HT3, jako je Ondansetron, vykazuje významný synergický efekt. Podává se krátce po úvodu kvůli pomalejšímu nástupu (1-2 hodiny). Bdělé pacienty je třeba před rychlým podáním varovat před přechodným svěděním/pálením v perineální oblasti.",
+      "pearl": "Klíčové léčivo / postup: Dexamethasone",
+      "tags": [
+        "Single Choice",
+        "Anesteziologie",
+        "AIM",
+        "Krizový stav"
+      ]
+    },
+    {
+      "id": "urgent-upv-1",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-upv-ventilace",
+      "topicTitle": "Umělá plicní ventilace & ARDS",
+      "type": "single_choice",
+      "question": "Která z následujících patologií způsobí zvýšení špičkového inspiračního tlaku (PIP), zatímco Plateau tlak (Pplat) zůstane nezměněn?",
+      "options": [
+        "Progrese syndromu ARDS",
+        "Zalomení endotracheální kanyly nebo nahromadění sekretu v ní",
+        "Rozvoj tenzního pneumotoraxu",
+        "Masivní fluidotorax vpravo"
+      ],
+      "correctIndex": 1,
+      "explanation": "Zvýšení PIP při normálním (stabilním) Pplat znamená nárůst odporu dýchacích cest (rezistence), protože rozdíl PIP - Pplat vyjadřuje tlak potřebný k překonání rezistence ($R \\\\cdot \\\\dot{V}$). Zalomení kanyly nebo sekret zvyšují rezistenci. ARDS, pneumotorax a fluidotorax snižují compliance plic, což by vedlo k nárůstu jak PIP, tak Pplat.",
+      "pearl": "Zásady protektivní plicní ventilace a nastavení ventilátoru dle ČSARIM/ARDSNet.",
+      "tags": [
+        "Single Choice",
+        "UPV",
+        "Ventilace",
+        "Intenzivní péče"
+      ]
+    },
+    {
+      "id": "urgent-upv-2",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-upv-ventilace",
+      "topicTitle": "Umělá plicní ventilace & ARDS",
+      "type": "single_choice",
+      "question": "Pacient s těžkým ARDS o výšce 180 cm a hmotnosti 110 kg (obézní) je ventilován v režimu VCV. Podle jaké hmotnosti by měl být nastaven cílový dechový objem (VT)?",
+      "options": [
+        "Podle aktuální hmotnosti 110 kg, tj. cca 660 ml",
+        "Podle ideální (predikované) hmotnosti PBW pro výšku 180 cm, tj. cca 75 kg (objem cca 450 ml)",
+        "Podle průměru mezi aktuální a ideální hmotností (cca 90 kg)",
+        "Dechový objem se u obézních neupravuje a nastavuje se fixně 600 ml všem"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ochranná plicní ventilace u ARDS vyžaduje nastavení $V_T$ na $4–6\\\\text{ ml/kg}$ predikované hmotnosti (PBW), která závisí na výšce a pohlaví pacienta, nikoli na jeho aktuální hmotnosti. Velikost plic totiž koreluje s výškou, nikoli s tukovou tkání. Použití aktuální hmotnosti u obézního pacienta by vedlo k závažnému volutraumatu a barotrauma (overdistenzi plic).",
+      "pearl": "Zásady protektivní plicní ventilace a nastavení ventilátoru dle ČSARIM/ARDSNet.",
+      "tags": [
+        "Single Choice",
+        "UPV",
+        "Ventilace",
+        "Intenzivní péče"
+      ]
+    },
+    {
+      "id": "urgent-upv-3",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-upv-ventilace",
+      "topicTitle": "Umělá plicní ventilace & ARDS",
+      "type": "single_choice",
+      "question": "Co přesně vyjadřuje driving pressure (drivující tlak) na ventilátoru a jaký je jeho bezpečný limit u ARDS?",
+      "options": [
+        "Rozdíl mezi PIP a PEEP, limit je < 35 cmH₂O",
+        "Rozdíl mezi Pplat a PEEP, limit je < 15 cmH₂O",
+        "Rozdíl mezi PIP a Pplat, limit je < 10 cmH₂O",
+        "Průměrný tlak v dýchacích cestách během cyklu, limit je < 20 cmH₂O"
+      ],
+      "correctIndex": 1,
+      "explanation": "Driving pressure ($\\\\Delta P$) je definován jako rozdíl mezi Plateau tlakem a PEEP ($\\\\Delta P = P_{plat} - PEEP$). Představuje tlak působící přímo na alveoly během roztažení dechovým objemem. Bezpečný limit u ARDS je striktně $<15\\\\text{ cmH}_2\\\\text{O}$; překročení tohoto limitu je spojeno se zvýšenou mortalitou v důsledku poškození plic (VILI).",
+      "pearl": "Zásady protektivní plicní ventilace a nastavení ventilátoru dle ČSARIM/ARDSNet.",
+      "tags": [
+        "Single Choice",
+        "UPV",
+        "Ventilace",
+        "Intenzivní péče"
+      ]
+    },
+    {
+      "id": "urgent-upv-4",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-upv-ventilace",
+      "topicTitle": "Umělá plicní ventilace & ARDS",
+      "type": "single_choice",
+      "question": "Při analýze křivky průtoku (Flow-time) zjistíte, že expirační průtok nedosahuje nulové linie předtím, než začne další nádech. Jakou patologii to indikuje a jak ji vyřešíte?",
+      "options": [
+        "Indikuje únik z okruhu (leak); řešením je nafouknout manžetu ETK",
+        "Indikuje rozvoj Auto-PEEP (air trapping); řešením je prodloužit expirační čas (snížit frekvenci nebo zkrátit Ti)",
+        "Indikuje hyperventilaci pacienta; řešením je zvýšit dechovou frekvenci",
+        "Indikuje příliš vysoký průtok; řešením je snížit špičkový inspirační průtok"
+      ],
+      "correctIndex": 1,
+      "explanation": "Pokud expirační průtok nedosáhne nuly před začátkem dalšího nádechu, znamená to, že výdech byl předčasně přerušen a část vzduchu zůstala zachycena v plicích. To vede k rozvoji Auto-PEEP (air trappingu). K vyřešení je nutné poskytnout více času na výdech ($T_e$), což docílíme snížením dechové frekvence ($RR$) nebo zkrácením inspiračního času ($T_i$).",
+      "pearl": "Zásady protektivní plicní ventilace a nastavení ventilátoru dle ČSARIM/ARDSNet.",
+      "tags": [
+        "Single Choice",
+        "UPV",
+        "Ventilace",
+        "Intenzivní péče"
+      ]
+    },
+    {
+      "id": "urgent-upv-5",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-upv-ventilace",
+      "topicTitle": "Umělá plicní ventilace & ARDS",
+      "type": "single_choice",
+      "question": "Jak se měří Plateau tlak (Pplat) a proč je jeho hodnota klinicky důležitější než PIP?",
+      "options": [
+        "Měří se na konci výdechu při expirační pauze; odráží stav odporu dýchacích cest",
+        "Měří se na konci nádechu při inspirační pauze; odráží statické napětí působící přímo na alveoly",
+        "Měří se kontinuálně během celého dechu; odráží práci dýchacích svalů",
+        "Měří se pouze nepřímo pomocí jícnové sondy"
+      ],
+      "correctIndex": 1,
+      "explanation": "Pplat se měří při nulovém průtoku na konci nádechu pomocí inspirační pauzy (obvykle 0.5 - 2 s). Jelikož plyn neproudí, odporový tlak v dýchacích cestách klesá na nulu a měřený tlak odpovídá tlaku přímo v plicních sklípcích. Je klinicky důležitější než PIP, protože PIP obsahuje odporovou složku, která plicní sklípky nepoškozuje, zatímco Pplat přímo odráží riziko mechanického poškození alveolů (barotrauma).",
+      "pearl": "Zásady protektivní plicní ventilace a nastavení ventilátoru dle ČSARIM/ARDSNet.",
+      "tags": [
+        "Single Choice",
+        "UPV",
+        "Ventilace",
+        "Intenzivní péče"
+      ]
+    },
+    {
+      "id": "urgent-upv-6",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-upv-ventilace",
+      "topicTitle": "Umělá plicní ventilace & ARDS",
+      "type": "single_choice",
+      "question": "Jaký je hlavní rozdíl mezi tlakově řízeným režimem (PCV) a režimem s tlakovou podporou (PSV)?",
+      "options": [
+        "U PCV si pacient sám určuje dechovou frekvenci, u PSV je frekvence striktně pevně nastavená ventilátorem",
+        "U PCV je nádech časově cyklovaný (končí po uplynutí Ti), zatímco u PSV je nádech průtokově cyklovaný (končí při poklesu průtoku na určité procento)",
+        "PCV je neinvazivní režim, PSV se používá výhradně u intubovaných pacientů",
+        "V režimu PCV je průtok konstantní, u PSV je decelerační"
+      ],
+      "correctIndex": 1,
+      "explanation": "V režimu PCV (Pressure Control) je nádech ukončen časově (čas nádechu $T_i$ je pevně nastaven) a ventilátor dodá dech bez ohledu na aktivitu pacienta. V režimu PSV (Pressure Support) je nádech spuštěn pacientem a ukončen (cyklován) průtokově – ventilátor ukončí podporu, jakmile inspirační průtok klesne pod stanovenou mez (obvykle 25 % maximálního průtoku), což dává pacientovi kontrolu nad délkou nádechu.",
+      "pearl": "Zásady protektivní plicní ventilace a nastavení ventilátoru dle ČSARIM/ARDSNet.",
+      "tags": [
+        "Single Choice",
+        "UPV",
+        "Ventilace",
+        "Intenzivní péče"
+      ]
+    },
+    {
+      "id": "urgent-upv-7",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-upv-ventilace",
+      "topicTitle": "Umělá plicní ventilace & ARDS",
+      "type": "single_choice",
+      "question": "Co znamená pojem 'Lower Inflection Point' (dolní inflexní bod) na tlak-objemové (P-V) smyčce plic?",
+      "options": [
+        "Bod, ve kterém dochází k poškození plic v důsledku overdistenze (přepětí)",
+        "Tlak, při kterém dochází k masivnímu otevření (náboru) zkolabovaných alveolů na začátku nádechu",
+        "Tlak na konci výdechu, kdy dochází k úplnému vyprázdnění plic",
+        "Bod na výdechové části smyčky, kde začíná kolaps alveolů"
+      ],
+      "correctIndex": 1,
+      "explanation": "Dolní inflexní bod (LIP) na P-V smyčce představuje tlak, při kterém dochází k náhlému zvýšení compliance plic v důsledku otevření (náboru, recruitmentu) dýchacích cest a zkolabovaných plicních sklípků. Nastavení hodnoty PEEP těsně nad tento bod (např. o 1-2 cmH₂O) zabraňuje opakovanému cyklickému kolapsu a otevírání plic na konci výdechu (atelektotrauma).",
+      "pearl": "Zásady protektivní plicní ventilace a nastavení ventilátoru dle ČSARIM/ARDSNet.",
+      "tags": [
+        "Single Choice",
+        "UPV",
+        "Ventilace",
+        "Intenzivní péče"
+      ]
+    },
+    {
+      "id": "urgent-upv-8",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-upv-ventilace",
+      "topicTitle": "Umělá plicní ventilace & ARDS",
+      "type": "single_choice",
+      "question": "Při kontrole ventilátoru u pacienta s těžkým ARDS v režimu VCV vidíte na displeji, že se křivka tlaku (P-t) prohýbá směrem dolů ('sedlo' / prohnutý tvar) během nádechu. Pacient zapojuje pomocné svaly. Co je příčinou?",
+      "options": [
+        "Příliš vysoký nastavený dechový objem (overdistenze)",
+        "Nedostatečný inspirační průtok (flow starvation) – pacient má vyšší hlad po vzduchu, než ventilátor dodává",
+        "Rozvoj pneumotoraxu",
+        "Nadměrně vysoký nastavený PEEP"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tento jev se nazývá 'flow starvation' (hlad po průtoku). Pacient vyvíjí silné inspirační úsilí, které nasává vzduch rychleji, než činí konstantní nastavený průtok u VCV. To způsobí pokles (propad) tlaku v okruhu pod teoretickou křivku. Řešením je zvýšení inspiračního průtoku, změna tvaru vlny na decelerační, nebo přechod na tlakově řízený režim (PCV/PSV), kde se průtok přizpůsobuje pacientovi.",
+      "pearl": "Zásady protektivní plicní ventilace a nastavení ventilátoru dle ČSARIM/ARDSNet.",
+      "tags": [
+        "Single Choice",
+        "UPV",
+        "Ventilace",
+        "Intenzivní péče"
+      ]
+    },
+    {
+      "id": "urgent-upv-9",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-upv-ventilace",
+      "topicTitle": "Umělá plicní ventilace & ARDS",
+      "type": "single_choice",
+      "question": "Jaká je definice a klinický význam transpulmonálního tlaku (Ptp)?",
+      "options": [
+        "Rozdíl mezi PIP a Pplat; určuje odpor dýchacích cest",
+        "Rozdíl mezi tlakem v alveolech a tlakem v pleurální dutině; odráží skutečné napětí působící na plicní tkáň",
+        "Tlak měřený na pravé srdeční síni u ventilovaného pacienta",
+        "Tlak potřebný k překonání odporu endotracheální kanyly"
+      ],
+      "correctIndex": 1,
+      "explanation": "Transpulmonální tlak ($P_{tp} = P_{aw} - P_{pl}$) je rozdíl mezi alveolárním tlakem a pleurálním tlakem (který se měří nepřímo jako jícnový tlak). Je to reálný tlak, který napíná plicní tkáň. Pomáhá odlišit vliv tuhých plic (ARDS) od tuhé hrudní stěny (např. obezita, ascites, rigidita hrudníku). Cílem je udržet expirační transpulmonální tlak $>0\\\\text{ cmH}_2\\\\text{O}$ (prevence kolapsu) a inspirační $<20–25\\\\text{ cmH}_2\\\\text{O}$ (prevence poškození).",
+      "pearl": "Zásady protektivní plicní ventilace a nastavení ventilátoru dle ČSARIM/ARDSNet.",
+      "tags": [
+        "Single Choice",
+        "UPV",
+        "Ventilace",
+        "Intenzivní péče"
+      ]
+    },
+    {
+      "id": "urgent-upv-10",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-upv-ventilace",
+      "topicTitle": "Umělá plicní ventilace & ARDS",
+      "type": "single_choice",
+      "question": "Proč je u pacientů s těžkým ARDS indikováno polohování na břicho (prone positioning) a jak dlouho by mělo trvat?",
+      "options": [
+        "Zlepšuje komfort pacienta; indikováno na 2-4 hodiny denně",
+        "Zlepšuje oxygenaci homogenizací ventilace a odlehčením dorzálních segmentů plic; indikováno na minimálně 16 hodin denně",
+        "Snižuje riziko aspirace; indikováno pouze při krmení sondou na 1 hodinu",
+        "Polohuje se pouze z důvodu prevence dekubitů na zádech, nemá respirační účinek"
+      ],
+      "correctIndex": 1,
+      "explanation": "Prone positioning (polohování na břicho) u pacientů s těžkým ARDS ($PaO_2/FiO_2 < 150\\\\text{ mmHg}$) významně snižuje mortalitu. Způsobuje nábor dorzálních plicních segmentů, které jsou v poloze na zádech stlačeny srdcem, mediastinem a břišními orgány. Tím se dramaticky homogenizuje ventilace, snižuje se intrapulmonální zkrat a zlepšuje oxygenace. Aby mělo polohování vliv na přežití, musí trvat minimálně $16$ hodin v jednom cyklu.",
+      "pearl": "Zásady protektivní plicní ventilace a nastavení ventilátoru dle ČSARIM/ARDSNet.",
+      "tags": [
+        "Single Choice",
+        "UPV",
+        "Ventilace",
+        "Intenzivní péče"
+      ]
+    },
+    {
+      "id": "urgent-upv-11",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-upv-ventilace",
+      "topicTitle": "Umělá plicní ventilace & ARDS",
+      "type": "single_choice",
+      "question": "Co vyjadřuje časová konstanta (Tau) plic a jaký má význam pro nastavení výdechu u pacienta s CHOPN?",
+      "options": [
+        "Tau je poměr PIP/PEEP a určuje rychlost spuštění nádechu",
+        "Tau je součinem rezistence a compliance; u pacientů s CHOPN je dlouhá, proto vyžadují delší čas na výdech (Te), aby nedošlo k Auto-PEEP",
+        "Tau vyjadřuje čas potřebný k ohřátí a zvlhčení vdechované směsi",
+        "Tau je fixní konstanta 0.5 s pro všechny dospělé pacienty"
+      ],
+      "correctIndex": 1,
+      "explanation": "Časová konstanta ($\\\\tau = R \\\\cdot C$) určuje rychlost plnění a vyprazdňování plic. Jeden časový úsek $\\\\tau$ odpovídá vyprázdnění $63\\\\%$ objemu, přičemž kompletní výdech vyžaduje $4–5\\\\tau$. U pacientů s CHOPN je vysoká rezistence ($R$), což výrazně prodlužuje $\\\\tau$. Pokud je nastaven krátký čas výdechu ($T_e$), plíce se nestihnou vyprázdnit, vzniká Auto-PEEP a air trapping. Tito pacienti potřebují dlouhý čas $T_e$.",
+      "pearl": "Zásady protektivní plicní ventilace a nastavení ventilátoru dle ČSARIM/ARDSNet.",
+      "tags": [
+        "Single Choice",
+        "UPV",
+        "Ventilace",
+        "Intenzivní péče"
+      ]
+    },
+    {
+      "id": "urgent-upv-12",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-upv-ventilace",
+      "topicTitle": "Umělá plicní ventilace & ARDS",
+      "type": "single_choice",
+      "question": "Která z následujících asynchronií se projevuje tak, že ventilátor dodá dva nádechy těsně po sobě bez adekvátního výdechu mezi nimi (tzv. breath stacking)?",
+      "options": [
+        "Auto-triggering (Autotrigger)",
+        "Double triggering (Dvojitý trigger)",
+        "Late cycling (Opožděné ukončení)",
+        "Delayed triggering (Opožděný trigger)"
+      ],
+      "correctIndex": 1,
+      "explanation": "Double triggering (dvojitý trigger) vzniká tehdy, když neurologický nádech pacienta trvá déle než nastavený čas nádechu na ventilátoru. Pacient na konci prvního mechanického nádechu stále vyvíjí podtlak, čímž okamžitě spustí (triggeruje) druhý nádech. Dochází k nahromadění objemu obou dechů (breath stacking), což extrémně zvyšuje Plateau tlak a riziko barotraumatu.",
+      "pearl": "Zásady protektivní plicní ventilace a nastavení ventilátoru dle ČSARIM/ARDSNet.",
+      "tags": [
+        "Single Choice",
+        "UPV",
+        "Ventilace",
+        "Intenzivní péče"
+      ]
+    },
+    {
+      "id": "urgent-upv-13",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-upv-ventilace",
+      "topicTitle": "Umělá plicní ventilace & ARDS",
+      "type": "single_choice",
+      "question": "Která z následujících možností nejlépe definuje 'permisivní hyperkapnii' a kdy je kontraindikována?",
+      "options": [
+        "Záměrné udržování nízkého pCO₂ k navození alkalózy; kontraindikováno u renálního selhání",
+        "Strategie tolerování vyšších hladin pCO₂ a mírné acidózy (pH > 7.20) s cílem udržet nízké protektivní objemy a tlaky; kontraindikována u nitrolební hypertenze",
+        "Povolení vysokého pCO₂ pouze u pacientů s plicní embolií; kontraindikována u astmatu",
+        "Zvýšení ventilace k dosažení nulového pCO₂ v krvi; kontraindikována u sepse"
+      ],
+      "correctIndex": 1,
+      "explanation": "Permisivní hyperkapnie je akceptace vyšších hodnot $pCO_2$ a poklesu pH krve až k $7.20$ u pacientů s těžkým ARDS. Umožňuje nám to udržet protektivní ventilaci s nízkým dechovým objemem ($4–6\\\\text{ ml/kg}$ PBW) a nízkými tlaky. Je však absolutně kontraindikována u pacientů s nitrolební hypertenzí (CO₂ způsobuje vazodilataci mozkových cév a zvyšuje intrakraniální tlak), těžkou pravokomorovou dysfunkcí a těžkou oběhovou nestabilitou.",
+      "pearl": "Zásady protektivní plicní ventilace a nastavení ventilátoru dle ČSARIM/ARDSNet.",
+      "tags": [
+        "Single Choice",
+        "UPV",
+        "Ventilace",
+        "Intenzivní péče"
+      ]
+    },
+    {
+      "id": "urgent-upv-14",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-upv-ventilace",
+      "topicTitle": "Umělá plicní ventilace & ARDS",
+      "type": "single_choice",
+      "question": "Jak se změní Tlak-Objemová (P-V) smyčka u pacienta, u kterého dojde k rozvoji masivního plicního edému (výrazný pokles compliance)?",
+      "options": [
+        "Smyčka se napřímí směrem vertikálně nahoru (strmější sklon)",
+        "Smyčka se položí směrem horizontálně doprava (plošší sklon)",
+        "Smyčka se neuzavře a její konec zůstane viset ve vzduchu",
+        "Plicní edém smyčku nijak neovlivní"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sklon P-V smyčky přímo odpovídá poddajnosti (compliance) plic. Při plicním edému, ARDS nebo atelektázách plíce tuhne (klesá compliance). K dosažení stejného objemu je zapotřebí mnohem vyššího tlaku, což se na grafu projeví oploštěním smyčky (nakloněním směrem dolů k ose tlaku X).",
+      "pearl": "Zásady protektivní plicní ventilace a nastavení ventilátoru dle ČSARIM/ARDSNet.",
+      "tags": [
+        "Single Choice",
+        "UPV",
+        "Ventilace",
+        "Intenzivní péče"
+      ]
+    },
+    {
+      "id": "urgent-upv-15",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-upv-ventilace",
+      "topicTitle": "Umělá plicní ventilace & ARDS",
+      "type": "single_choice",
+      "question": "Co je to 'Reverse triggering' (reverzní trigger) a u jaké skupiny pacientů se s ním typicky setkáváme?",
+      "options": [
+        "Spuštění nádechu přístrojem při selhání záložní ventilace; u pacientů s bdělým vědomím",
+        "Mechanický nádech přístroje vyvolá reflexní svalový stah bránice pacienta; u hluboce sedovaných pacientů",
+        "Nádech spuštěný únikem vzduchu kolem masky; u pacientů na neinvazivní ventilaci (NIV)",
+        "Vydechování pacienta proti inspiračnímu ventilu; u pacientů při probouzení"
+      ],
+      "correctIndex": 1,
+      "explanation": "Reverzní trigger je typ asynchronie, při kterém pasivní roztažení plic ventilátorem (strojový nádech) reflexně stimuluje dechové centrum pacienta a vyvolá aktivní stah bránice uprostřed nebo na konci strojového nádechu (entrainment). Typicky se vyskytuje u hluboce sedovaných pacientů (v bezvědomí nebo farmakologickém útlumu) bez myorelaxace. Může vést k breath stackingu.",
+      "pearl": "Zásady protektivní plicní ventilace a nastavení ventilátoru dle ČSARIM/ARDSNet.",
+      "tags": [
+        "Single Choice",
+        "UPV",
+        "Ventilace",
+        "Intenzivní péče"
+      ]
+    },
+    {
+      "id": "urgent-upv-16",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-upv-ventilace",
+      "topicTitle": "Umělá plicní ventilace & ARDS",
+      "type": "single_choice",
+      "question": "Při ventilaci pacienta v režimu PSV (tlaková podpora) dochází k tomu, že ventilátor přepíná do výdechu (cykluje) příliš pozdě, což nutí pacienta aktivně zapojovat expirační svaly na konci nádechu. Jak situaci upravíte?",
+      "options": [
+        "Snížím dechovou frekvenci na ventilátoru",
+        "Zvýším procentuální práh expiračního triggeru (např. z 25 % na 40 % špičkového průtoku)",
+        "Snížím PEEP",
+        "Zkrátím inspirační čas Ti na ventilátoru"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tento stav se nazývá opožděné cyklování (late cycling). V režimu PSV ventilátor cykluje do výdechu, jakmile inspirační průtok klesne na nastavené procento špičkového průtoku (expiratory trigger, např. 25 %). U pacientů s vysokým odporem dýchacích cest (CHOPN) klesá průtok velmi pomalu, což prodlužuje nádech nad neurologické přání pacienta. Zvýšením prahu (např. na 40 % nebo 50 %) přinutíme ventilátor přepnout do výdechu dříve, při vyšší rychlosti proudění vzduchu.",
+      "pearl": "Zásady protektivní plicní ventilace a nastavení ventilátoru dle ČSARIM/ARDSNet.",
+      "tags": [
+        "Single Choice",
+        "UPV",
+        "Ventilace",
+        "Intenzivní péče"
+      ]
+    },
+    {
+      "id": "urgent-upv-17",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-upv-ventilace",
+      "topicTitle": "Umělá plicní ventilace & ARDS",
+      "type": "single_choice",
+      "question": "U ventilovaného pacienta s podezřením na obstrukci dýchacích cest (bronchospasmus) provedete diagnostické vyhodnocení. Který z následujících nálezů na monitoru ventilátoru potvrzuje diagnózu?",
+      "options": [
+        "Smyčka P-V má tvar 'bird-beak' (zobák) a Plateau tlak je zvýšený nad 30 cmH₂O",
+        "Expirační průtoková křivka je protáhlá s nízkým vrcholem a smyčka F-V vykazuje prohnutý (konkávní) tvar",
+        "Při inspirační pauze dojde k vymizení rozdílu mezi PIP a Pplat",
+        "Křivka tlaku (P-t) vykazuje ostrý hrot (spike) na začátku nádechu"
+      ],
+      "correctIndex": 1,
+      "explanation": "Obstrukce dýchacích cest výrazně omezuje rychlost vydechování vzduchu. Na časové křivce průtoku (Flow-time) se to projeví nízkým vrcholem expiračního průtoku a jeho pomalým, protáhlým návratem k nule. Na smyčce Průtok-Objem (F-V loop) je typické konkávní prohnutí (tzv. 'scooped' expirium). Ostatní možnosti popisují overdistenzi, nulovou rezistenci nebo nevhodný Rise time.",
+      "pearl": "Zásady protektivní plicní ventilace a nastavení ventilátoru dle ČSARIM/ARDSNet.",
+      "tags": [
+        "Single Choice",
+        "UPV",
+        "Ventilace",
+        "Intenzivní péče"
+      ]
+    },
+    {
+      "id": "urgent-upv-18",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-upv-ventilace",
+      "topicTitle": "Umělá plicní ventilace & ARDS",
+      "type": "single_choice",
+      "question": "Při titraci PEEP u pacienta s ARDS chcete nastavit tzv. 'otevřenou plíci'. Který z parametrů je nejspolehlivějším vodítkem, že zvolený PEEP zlepšil provzdušnění plic bez nadměrného přepětí tkáně?",
+      "options": [
+        "Pokles špičkového tlaku (PIP) na nejnižší možnou hodnotu",
+        "Pokles driving pressure (drivujícího tlaku) a nárůst statické compliance plic",
+        "Pokles dechové frekvence pacienta",
+        "Nárůst poměru I:E na 1:1"
+      ],
+      "correctIndex": 1,
+      "explanation": "Správně zvolený PEEP vede k otevření zkolabovaných alveolů, čímž se zvětší funkční plocha plic a zlepší se jejich poddajnost (statická compliance). Zlepšení compliance plic se při konstantním dechovém objemu ($V_T$) projeví poklesem driving pressure ($\\\\Delta P = V_T / C_{stat}$). Pokud PEEP naopak způsobí overdistenzi, compliance klesne a driving pressure vzroste. Hledáme tedy PEEP s nejnižším driving pressure.",
+      "pearl": "Zásady protektivní plicní ventilace a nastavení ventilátoru dle ČSARIM/ARDSNet.",
+      "tags": [
+        "Single Choice",
+        "UPV",
+        "Ventilace",
+        "Intenzivní péče"
+      ]
+    },
+    {
+      "id": "urgent-upv-19",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-upv-ventilace",
+      "topicTitle": "Umělá plicní ventilace & ARDS",
+      "type": "single_choice",
+      "question": "Která z následujících metod kyslíkové terapie dokáže u spontánně dýchajícího hypoxemického pacienta generovat mírný pozitivní tlak na konci výdechu (PEEP) a zároveň přesně garantovat nastavené FiO2?",
+      "options": [
+        "Standardní kyslíková maska s rezervoárem (polomaska)",
+        "Vysokoprůtoková nosní kanyla (HFNC)",
+        "Kyslíkové brýle s nízkým průtokem (2 L/min)",
+        "Venturiho maska"
+      ],
+      "correctIndex": 1,
+      "explanation": "HFNC (High-Flow Nasal Cannula) dodává ohřátou a zvlhčenou směs plynů o vysokém průtoku (až 60 L/min), což převyšuje špičkový inspirační průtok pacienta a garantuje přesné nastavené $FiO_2$. Díky vysokému průtoku generuje v dýchacích cestách mírný přetlak (PEEP cca $3–5\\\\text{ cmH}_2\\\\text{O}$ v závislosti na tom, zda má pacient zavřená ústa) a účinně vymývá $CO_2$ z anatomického mrtvého prostoru nosohltanu.",
+      "pearl": "Zásady protektivní plicní ventilace a nastavení ventilátoru dle ČSARIM/ARDSNet.",
+      "tags": [
+        "Single Choice",
+        "UPV",
+        "Ventilace",
+        "Intenzivní péče"
+      ]
+    },
+    {
+      "id": "urgent-upv-20",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-upv-ventilace",
+      "topicTitle": "Umělá plicní ventilace & ARDS",
+      "type": "single_choice",
+      "question": "Který z následujících stavů představuje absolutní kontraindikaci pro použití neinvazivní ventilace (NIV) pomocí obličejové masky?",
+      "options": [
+        "Exacerbace CHOPN s respirační acidózou (pH 7.28)",
+        "Bezprostřední oběhový kolaps, zástava dechu, bezvědomí nebo neschopnost chránit dýchací cesty",
+        "Počínající kardiogenní plicní edém se střední dušností",
+        "Pooperační atelektázy po kardiochirurgickém výkonu"
+      ],
+      "correctIndex": 1,
+      "explanation": "NIV vyžaduje plně spolupracujícího pacienta se zachovalými obrannými reflexy dýchacích cest (kašel, polykání) a stabilním oběhem. Bezvědomí, neschopnost chránit dýchací cesty (riziko aspirace zvratků), dechová zástava a těžký šok jsou absolutními kontraindikacemi NIV a vyžadují okamžitou intubaci a zahájení invazivní UPV. Ostatní možnosti jsou naopak primárními indikacemi pro zahájení NIV.",
+      "pearl": "Zásady protektivní plicní ventilace a nastavení ventilátoru dle ČSARIM/ARDSNet.",
+      "tags": [
+        "Single Choice",
+        "UPV",
+        "Ventilace",
+        "Intenzivní péče"
+      ]
     }
   ]
 }

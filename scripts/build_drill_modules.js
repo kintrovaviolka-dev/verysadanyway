@@ -38,6 +38,7 @@ const manifest = {
 // -------------------------------------------------------------
 console.log('Processing Kardiologie...');
 const kardioData = evalJsFile(path.join(__dirname, '..', 'kardio', 'data.js'), 'CARDIOLOGY_DATA');
+const kardioPractice = evalJsFile(path.join(__dirname, '..', 'kardio', 'practice_data.js'), 'CARDIOLOGY_PRACTICE_QUESTIONS');
 const kardioQuestions = [];
 
 if (kardioData && kardioData.modules) {
@@ -108,6 +109,47 @@ if (kardioData && kardioData.modules) {
         explanation: `Kontraindikace dle ESC 2023–2026: ${c3}`,
         pearl: 'Doporučení Třídy III značí postup, který neprospívá nebo může pacienta přímo poškodit.',
         tags: ['Dopisovací', 'Třída III ESC']
+      });
+    }
+  });
+}
+
+// 4. Doplnění 60 otázek z kardio/practice_data.js
+if (Array.isArray(kardioPractice)) {
+  kardioPractice.forEach(q => {
+    const slugCat = (q.category || 'kardio').toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    if (q.type === 'single') {
+      kardioQuestions.push({
+        id: `kardio-practice-${q.id}`,
+        subjectId: 'kardio',
+        subjectTitle: 'Kardiologie',
+        grade: 4,
+        topicId: `kardio-${slugCat}`,
+        topicTitle: `Kardiologie: ${q.category}`,
+        type: 'single_choice',
+        question: q.question,
+        options: q.options || [],
+        correctIndex: typeof q.correct === 'number' ? q.correct : 0,
+        explanation: q.explanation || '',
+        pearl: q.explanation ? (q.explanation.length > 160 ? q.explanation.slice(0, 160) + '...' : q.explanation) : '',
+        tags: ['Single Choice', q.category || 'Kardiologie', 'ESC Guidelines']
+      });
+    } else if (q.type === 'type-in') {
+      kardioQuestions.push({
+        id: `kardio-practice-${q.id}`,
+        subjectId: 'kardio',
+        subjectTitle: 'Kardiologie',
+        grade: 4,
+        topicId: `kardio-${slugCat}`,
+        topicTitle: `Kardiologie: ${q.category}`,
+        type: 'fill_in',
+        question: q.question,
+        sentence: `Správné doplnění: ${q.answerLabel || ''}. ${q.explanation || ''}`,
+        acceptedAnswers: (q.answers || []).map(a => a.toLowerCase().trim()),
+        hint: `${q.category} (${(q.answerLabel || '').slice(0, 1)}...)`,
+        explanation: q.explanation || '',
+        pearl: `Klíčový fakt (${q.category}): ${q.answerLabel} – ${q.explanation}`,
+        tags: ['Dopisovací', q.category || 'Kardiologie', 'ESC Guidelines']
       });
     }
   });
@@ -469,6 +511,32 @@ if (pharmDetails) {
   });
 }
 
+// Doplnění 10 prémiových kazuistik z farmakologie/cases_data.js
+const pharmCases = evalJsFile(path.join(__dirname, '..', 'farmakologie', 'cases_data.js'), 'PHARMACOLOGY_CASES');
+if (Array.isArray(pharmCases)) {
+  pharmCases.forEach(c => {
+    const slugCat = (c.category || 'farmakologie').toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    farmaQuestions.push({
+      id: c.id,
+      subjectId: 'farma',
+      subjectTitle: 'Farmakologie',
+      grade: 4,
+      topicId: `farma-${slugCat}`,
+      topicTitle: `Kazuistika: ${c.category}`,
+      type: 'case_study',
+      title: c.title,
+      vignette: {
+        scenario: c.scenario,
+        solution: c.solution,
+        keyTakeaway: c.keyTakeaway
+      },
+      explanation: c.solution,
+      pearl: c.pearl || '',
+      tags: c.tags || ['Kazuistika', 'Farmakologie']
+    });
+  });
+}
+
 // -------------------------------------------------------------
 // 7. IMUNOLOGIE (3. ročník)
 // -------------------------------------------------------------
@@ -557,6 +625,28 @@ if (casesModule && casesModule.CASES) {
       explanation: solution,
       pearl: `Triage kategorie: ${c.triageClass || 'Akutní'}. Okamžitý cílený zásah je rozhodující pro přežití.`,
       tags: ['Kazuistika', 'Simulátor', 'Urgentní medicína']
+    });
+  });
+}
+
+// Doplnění otázek z otazky_ze_hry.ts, anesteziologického kvízu a UPV
+const upvData = evalJsFile(path.join(__dirname, '..', 'upv', 'data.js'), 'UPV_DATA');
+if (upvData && Array.isArray(upvData.quiz)) {
+  upvData.quiz.forEach(q => {
+    urgentQuestions.push({
+      id: `urgent-upv-${q.id}`,
+      subjectId: 'urgent',
+      subjectTitle: 'Urgentní příjem',
+      grade: 5,
+      topicId: 'urgent-upv-ventilace',
+      topicTitle: 'Umělá plicní ventilace & ARDS',
+      type: 'single_choice',
+      question: q.question,
+      options: q.options || [],
+      correctIndex: typeof q.correct === 'number' ? q.correct : 0,
+      explanation: q.explanation || '',
+      pearl: 'Zásady protektivní plicní ventilace a nastavení ventilátoru dle ČSARIM/ARDSNet.',
+      tags: ['Single Choice', 'UPV', 'Ventilace', 'Intenzivní péče']
     });
   });
 }

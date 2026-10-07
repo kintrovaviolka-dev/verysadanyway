@@ -1,6 +1,6 @@
 {
-  "version": "2026.1.0",
-  "lastUpdated": "2026-10-07T12:43:41.854Z",
+  "version": "2026.2.0",
+  "lastUpdated": "2026-10-07T15:55:00.000Z",
   "subjects": [
     {
       "id": "patola",
@@ -56,14 +56,14 @@
       "grade": 4,
       "icon": "🫀",
       "color": "#f43f5e",
-      "totalQuestions": 49,
+      "totalQuestions": 109,
       "counts": {
-        "single_choice": 12,
+        "single_choice": 52,
         "case_study": 25,
-        "fill_in": 12
+        "fill_in": 32
       },
-      "sizeBytes": 66061,
-      "sizeFormatted": "65 kB",
+      "sizeBytes": 134317,
+      "sizeFormatted": "131 kB",
       "file": "/drill/data/modules/kardio.json"
     },
     {
@@ -120,14 +120,14 @@
       "grade": 4,
       "icon": "💊",
       "color": "#34d399",
-      "totalQuestions": 184,
+      "totalQuestions": 194,
       "counts": {
         "single_choice": 138,
-        "case_study": 0,
+        "case_study": 10,
         "fill_in": 46
       },
-      "sizeBytes": 260108,
-      "sizeFormatted": "254 kB",
+      "sizeBytes": 292990,
+      "sizeFormatted": "286 kB",
       "file": "/drill/data/modules/farma.json"
     },
     {
@@ -136,14 +136,14 @@
       "grade": 5,
       "icon": "🚨",
       "color": "#ef4444",
-      "totalQuestions": 18,
+      "totalQuestions": 103,
       "counts": {
-        "single_choice": 0,
+        "single_choice": 85,
         "case_study": 18,
         "fill_in": 0
       },
-      "sizeBytes": 39337,
-      "sizeFormatted": "38 kB",
+      "sizeBytes": 158662,
+      "sizeFormatted": "155 kB",
       "file": "/drill/data/modules/urgent.json"
     }
   ]
