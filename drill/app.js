@@ -1448,7 +1448,7 @@
 
     document.getElementById('btn-save-custom-deck')?.addEventListener('click', async () => {
       const nameInput = document.getElementById('custom-deck-name');
-      const name = nameInput.value.trim() || 'Můj vlastní balíček';
+      const name = (nameInput.value.trim() || 'Můj vlastní balíček').slice(0, 80);
 
       const selectedSubs = Array.from(document.querySelectorAll('input[name="custom-sub"]:checked')).map(i => i.value);
       if (selectedSubs.length === 0) {
