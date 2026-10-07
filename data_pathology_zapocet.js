@@ -4525,7 +4525,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
     "options": [
       "Depozita kyseliny močové v kloubní dutině",
       "Depozita kalciových solí v kloubní dutině",
-      "Plazmocytární a lymfocytární infltrace synovie",
+      "Plazmocytární a lymfocytární infiltrace synovie",
       "Antinukleární protilátky v séru",
       "Degenerace chrupavky, praskliny a tvorba cyst pod chrupavkou"
     ],
@@ -4548,7 +4548,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
     "question": "Co je pravdivé tvrzení o procesu charakterizovaném kvantitativní ztrátou kostní tkáně se ztenčením kostních trabekul?",
     "options": [
       "Nastává při nedostatku vit.D",
-      "Vyskytuje se ve hlavici femuru u mladších jediců",
+      "Vyskytuje se ve hlavici femuru u mladších jedinců",
       "Chrupavka bývá zpravidla tmavá",
       "Proces se nazývá osteoporóza",
       "Jedná se o maligní proces postihující mladší jedince"
@@ -4593,7 +4593,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
   },
   {
     "id": 384,
-    "question": "Dívka (13) má bolesti hlavy a diabetes insipidus. TGR baze lební – ostelytické ložisko. Biopsie – směs lymfocytů, eozinofilů, obrovských mnohojaderných buněk, histiocytů. S-100 pozitivní.",
+    "question": "Dívka (13) má bolesti hlavy a diabetes insipidus. RTG baze lební – ostelytické ložisko. Biopsie – směs lymfocytů, eozinofilů, obrovských mnohojaderných buněk, histiocytů. S-100 pozitivní.",
     "options": [
       "Průběh je obvykle rychlý a fatální",
       "Průběh choroby je agresivnější u starších pacientů",
@@ -4629,7 +4629,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
   },
   {
     "id": 387,
-    "question": "Žena (40) má teplotu, příznaky postižení CNS a sníženou tvornu moči. Trombocytopenie, fragmentace erytrocytů, koagulace v normě(PT a PTT). Pravděpodobná dg.?",
+    "question": "Žena (40) má teplotu, příznaky postižení CNS a sníženou tvorbu moči. Trombocytopenie, fragmentace erytrocytů, koagulace v normě(PT a PTT). Pravděpodobná dg.?",
     "options": [
       "DIC",
       "Infekční mononukleóza",
@@ -4641,10 +4641,10 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
   },
   {
     "id": 388,
-    "question": "Trombocytopenie nebývá vyvolány",
+    "question": "Trombocytopenie nebývá vyvolána",
     "options": [
-      "Grawitzovýn karcinomem ledvin",
-      "Myelofbrózou",
+      "Grawitzovým karcinomem ledvin",
+      "Myelofibrózou",
       "Akutní leukémií",
       "Výraznou splenomegalií",
       "Některými léky (methotrexát)"
@@ -4713,7 +4713,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
   },
   {
     "id": 394,
-    "question": "Muž (72). Anizocytóza a poikilocytóza. Zvýšený průměrný objem erytrocytů, hzpersegmentovaná jádra neutrofilů. Pravděpodobná dg.:",
+    "question": "Muž (72). Anizocytóza a poikilocytóza. Zvýšený průměrný objem erytrocytů, hypersegmentovaná jádra neutrofilů. Pravděpodobná dg.:",
     "options": [
       "Hypoplazie kostní dřeně",
       "Perniciózní anémie",
