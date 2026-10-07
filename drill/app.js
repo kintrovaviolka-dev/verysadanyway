@@ -32,7 +32,17 @@
     deferredInstallPrompt: null
   };
 
-  // --- POMOCNÉ FUNKCE PRO TEXT & FUZZY MATCHING ---
+  // --- POMOCNÉ FUNKCE PRO TEXT & FUZZY MATCHING & BEZPEČNOST ---
+  function escapeHtml(str) {
+    if (str === null || str === undefined) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
   function removeDiacritics(str) {
     if (!str) return '';
     return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
@@ -62,11 +72,12 @@
   }
 
   function isFuzzyMatch(userInput, acceptedList) {
-    const cleanUser = removeDiacritics(userInput);
+    // Bezpečnostní limit na délku pro prevenci quadratic CPU DoS v Levenshtein algoritmu
+    const cleanUser = removeDiacritics(userInput).slice(0, 150);
     if (!cleanUser) return false;
 
     return acceptedList.some(accepted => {
-      const cleanAccepted = removeDiacritics(accepted);
+      const cleanAccepted = removeDiacritics(accepted).slice(0, 150);
       if (cleanUser === cleanAccepted) return true;
       if (cleanAccepted.includes(cleanUser) && cleanUser.length >= 4) return true;
       if (cleanUser.includes(cleanAccepted) && cleanAccepted.length >= 4) return true;
@@ -95,7 +106,14 @@
     if (type === 'error') icon = '🚨';
     if (type === 'warning') icon = '⚠️';
 
-    toast.innerHTML = `<span>${icon}</span> <span>${message}</span>`;
+    const iconSpan = document.createElement('span');
+    iconSpan.textContent = icon;
+    const msgSpan = document.createElement('span');
+    msgSpan.textContent = String(message);
+
+    toast.appendChild(iconSpan);
+    toast.appendChild(document.createTextNode(' '));
+    toast.appendChild(msgSpan);
     container.appendChild(toast);
 
     setTimeout(() => {
@@ -445,24 +463,30 @@
     state.customDecks.forEach(deck => {
       const card = document.createElement('div');
       card.className = 'deck-card';
+      const safeTitle = escapeHtml(deck.title);
+      const safeSubjects = escapeHtml(Array.isArray(deck.subjectIds) ? deck.subjectIds.join(', ') : '');
+      const safeTypes = escapeHtml(Array.isArray(deck.questionTypes) ? deck.questionTypes.join(' • ') : '');
+      const safeLimit = escapeHtml(deck.limit || 'vše');
+      const safeId = escapeHtml(deck.id);
+
       card.innerHTML = `
         <div class="deck-card-top">
           <div class="deck-icon-badge" style="background: rgba(0, 240, 255, 0.15); color: var(--cyan);">
             📁
           </div>
-          <button class="btn-icon btn-delete-deck" data-deck-id="${deck.id}" style="width: 28px; height: 28px; font-size: 0.8rem;" title="Smazat balíček">
+          <button class="btn-icon btn-delete-deck" data-deck-id="${safeId}" style="width: 28px; height: 28px; font-size: 0.8rem;" title="Smazat balíček">
             🗑️
           </button>
         </div>
         <div>
-          <h3 class="deck-card-title">${deck.title}</h3>
+          <h3 class="deck-card-title">${safeTitle}</h3>
           <p class="deck-card-desc">
-            Předměty: ${deck.subjectIds.join(', ')} • limit ${deck.limit || 'vše'} otázek
+            Předměty: ${safeSubjects} • limit ${safeLimit} otázek
           </p>
         </div>
         <div class="deck-card-footer">
           <div class="deck-counts">
-            <span class="deck-count-pill">${deck.questionTypes.join(' • ')}</span>
+            <span class="deck-count-pill">${safeTypes}</span>
           </div>
           <span style="color: var(--cyan); font-weight: 700; font-size: 0.85rem;">Spustit →</span>
         </div>
@@ -740,26 +764,34 @@
       headerEl.innerHTML = '';
 
       if (v.patientAge || v.patientSex) {
-        headerEl.innerHTML += `<span class="vignette-tag">👤 ${v.patientAge ? v.patientAge + ' let' : ''} ${v.patientSex || ''}</span>`;
+        const tag1 = document.createElement('span');
+        tag1.className = 'vignette-tag';
+        tag1.textContent = `👤 ${v.patientAge ? v.patientAge + ' let' : ''} ${v.patientSex || ''}`.trim();
+        headerEl.appendChild(tag1);
       }
       if (v.chiefComplaint) {
-        headerEl.innerHTML += `<span class="vignette-tag">⚠️ ${v.chiefComplaint}</span>`;
+        const tag2 = document.createElement('span');
+        tag2.className = 'vignette-tag';
+        tag2.textContent = `⚠️ ${v.chiefComplaint}`;
+        headerEl.appendChild(tag2);
       }
 
       document.getElementById('vignette-scenario-text').textContent = v.scenario || q.question || '';
 
       // Tlačítko odhalit řešení
-      promptEl.innerHTML = `
-        <div style="margin-top: 10px;">
-          <button class="btn-primary" id="btn-reveal-case" style="width: 100%;">
-            🔍 Odhalit diagnózu & klinické řešení
-          </button>
-        </div>
-      `;
-
-      document.getElementById('btn-reveal-case')?.addEventListener('click', () => {
+      promptEl.innerHTML = '';
+      const wrapDiv = document.createElement('div');
+      wrapDiv.style.marginTop = '10px';
+      const revealBtn = document.createElement('button');
+      revealBtn.className = 'btn-primary';
+      revealBtn.id = 'btn-reveal-case';
+      revealBtn.style.width = '100%';
+      revealBtn.textContent = '🔍 Odhalit diagnózu & klinické řešení';
+      revealBtn.addEventListener('click', () => {
         handleCaseReveal(q);
       });
+      wrapDiv.appendChild(revealBtn);
+      promptEl.appendChild(wrapDiv);
 
     // 2. TYP: SINGLE CHOICE
     } else if (q.type === 'single_choice') {
@@ -772,10 +804,16 @@
       (q.options || []).forEach((optText, optIdx) => {
         const btn = document.createElement('button');
         btn.className = 'option-btn';
-        btn.innerHTML = `
-          <span class="option-letter">${letters[optIdx] || optIdx + 1}</span>
-          <span>${optText}</span>
-        `;
+        
+        const letterSpan = document.createElement('span');
+        letterSpan.className = 'option-letter';
+        letterSpan.textContent = letters[optIdx] || String(optIdx + 1);
+
+        const textSpan = document.createElement('span');
+        textSpan.textContent = String(optText);
+
+        btn.appendChild(letterSpan);
+        btn.appendChild(textSpan);
 
         btn.addEventListener('click', () => {
           if (drill.answered) return;
@@ -990,7 +1028,7 @@
           Drill dokončen!
         </h2>
         <p style="color: var(--text-secondary); margin-bottom: 24px;">
-          ${drill.deckTitle}
+          ${escapeHtml(drill.deckTitle)}
         </p>
 
         <div style="display: flex; justify-content: center; gap: 24px; margin-bottom: 28px;">
@@ -1100,19 +1138,71 @@
 
   async function importUserData(file) {
     if (!file) return;
+    
+    // Bezpečnostní limit na velikost souboru (max 5 MB)
+    if (file.size > 5 * 1024 * 1024) {
+      showToast('Soubor je příliš velký (limit 5 MB).', 'error');
+      return;
+    }
+
     try {
       const text = await file.text();
       const backup = JSON.parse(text);
 
+      if (!backup || typeof backup !== 'object' || Array.isArray(backup)) {
+        throw new Error('Neplatný formát zálohy');
+      }
+
+      const allowedTypes = ['single_choice', 'case_study', 'fill_in'];
+
+      // 1. Validace a import stavů otázek
       if (Array.isArray(backup.userStates)) {
-        for (const s of backup.userStates) {
-          await window.drillStorage.saveQuestionState(s);
+        const safeStates = backup.userStates.slice(0, 5000); // max 5000 záznamů
+        for (const s of safeStates) {
+          if (s && typeof s === 'object' && typeof s.questionId === 'string' && s.questionId.length <= 128) {
+            const cleanState = {
+              questionId: String(s.questionId),
+              subjectId: typeof s.subjectId === 'string' ? String(s.subjectId).slice(0, 64) : 'unknown',
+              box: typeof s.box === 'number' && s.box >= 1 && s.box <= 5 ? s.box : 1,
+              intervalDays: typeof s.intervalDays === 'number' && s.intervalDays >= 0 ? s.intervalDays : 1,
+              timesCorrect: typeof s.timesCorrect === 'number' && s.timesCorrect >= 0 ? s.timesCorrect : 0,
+              timesIncorrect: typeof s.timesIncorrect === 'number' && s.timesIncorrect >= 0 ? s.timesIncorrect : 0,
+              isStarred: Boolean(s.isStarred),
+              lastReviewedDate: typeof s.lastReviewedDate === 'number' ? s.lastReviewedDate : Date.now(),
+              nextReviewDate: typeof s.nextReviewDate === 'number' ? s.nextReviewDate : Date.now()
+            };
+            await window.drillStorage.saveQuestionState(cleanState);
+          }
         }
       }
 
+      // 2. Validace a import vlastních balíčků
       if (Array.isArray(backup.customDecks)) {
-        for (const d of backup.customDecks) {
-          await window.drillStorage.saveCustomDeck(d);
+        const safeDecks = backup.customDecks.slice(0, 100); // max 100 balíčků
+        for (const d of safeDecks) {
+          if (d && typeof d === 'object') {
+            const cleanId = typeof d.id === 'string' ? d.id.replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 64) : 'deck-' + Date.now();
+            const cleanTitle = typeof d.title === 'string' ? d.title.trim().slice(0, 80) : 'Importovaný balíček';
+            const cleanSubjectIds = Array.isArray(d.subjectIds)
+              ? d.subjectIds.filter(id => typeof id === 'string').map(id => id.slice(0, 64))
+              : [];
+            const cleanQuestionTypes = Array.isArray(d.questionTypes)
+              ? d.questionTypes.filter(t => allowedTypes.includes(t))
+              : allowedTypes;
+            const cleanLimit = typeof d.limit === 'number' ? Math.max(0, Math.min(500, d.limit)) : 30;
+
+            if (cleanSubjectIds.length > 0 && cleanQuestionTypes.length > 0) {
+              await window.drillStorage.saveCustomDeck({
+                id: cleanId,
+                title: cleanTitle,
+                subjectIds: cleanSubjectIds,
+                questionTypes: cleanQuestionTypes,
+                limit: cleanLimit,
+                createdAt: typeof d.createdAt === 'number' ? d.createdAt : Date.now(),
+                updatedAt: typeof d.updatedAt === 'number' ? d.updatedAt : Date.now()
+              });
+            }
+          }
         }
       }
 
@@ -1121,10 +1211,10 @@
       renderCustomDecks();
       updateStatsDisplay();
 
-      showToast('Záloha byla úspěšně obnovena! 🎉', 'success');
+      showToast('Záloha byla úspěšně a bezpečně obnovena! 🎉', 'success');
     } catch (e) {
-      console.error('Chyba při importu:', e);
-      showToast('Chyba při čtení souboru se zálohou.', 'error');
+      console.error('Chyba při importu zálohy:', e);
+      showToast('Neplatný nebo poškozený soubor se zálohou.', 'error');
     }
   }
 
