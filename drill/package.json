@@ -1,0 +1,12 @@
+{
+  "name": "meddrill-pwa",
+  "private": true,
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "validate-content": "node scripts/validate-content.js",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0"
+  }
+}

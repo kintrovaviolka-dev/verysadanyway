@@ -60,13 +60,18 @@ class MedDrillStorage {
 
   // --- SPRÁVA PŘEDMĚTŮ (SUBJECTS) ---
 
-  async saveSubject(subjectData) {
+  async saveSubject(subjectData, metadata = {}) {
     await this.init();
     return new Promise((resolve, reject) => {
       const tx = this.db.transaction('subjects', 'readwrite');
       const store = tx.objectStore('subjects');
-      subjectData.downloadedAt = Date.now();
-      const req = store.put(subjectData);
+      const storedSubject = {
+        ...subjectData,
+        contentRevision: metadata.contentRevision || subjectData.contentRevision || null,
+        contentVersion: metadata.contentVersion || subjectData.contentVersion || null,
+        downloadedAt: Date.now()
+      };
+      const req = store.put(storedSubject);
       req.onsuccess = () => resolve(true);
       req.onerror = e => reject(e.target.error);
     });
@@ -176,6 +181,31 @@ class MedDrillStorage {
       existing.intervalDays = 1;
       existing.nextReviewDate = now + 1 * 24 * 60 * 60 * 1000;
     }
+
+    await this.saveQuestionState(existing);
+    return existing;
+  }
+
+  // Sebehodnocení kazuistik má tři odlišné výsledky místo pouhého ano/ne.
+  async recordCaseRating(question, rating) {
+    await this.init();
+    const existing = (await this.getQuestionState(question.id)) || {
+      questionId: question.id,
+      subjectId: question.subjectId,
+      box: 1,
+      intervalDays: 1,
+      timesCorrect: 0,
+      timesIncorrect: 0,
+      isStarred: false
+    };
+
+    const update = window.MedDrillCore.getSrsRatingUpdate(existing, rating);
+    existing.lastReviewedDate = Date.now();
+    existing.box = update.box;
+    existing.intervalDays = update.intervalDays;
+    existing.nextReviewDate = update.nextReviewDate;
+    if (update.isCorrect) existing.timesCorrect = (existing.timesCorrect || 0) + 1;
+    else existing.timesIncorrect = (existing.timesIncorrect || 0) + 1;
 
     await this.saveQuestionState(existing);
     return existing;
@@ -295,23 +325,22 @@ class MedDrillStorage {
     const starredCount = states.filter(s => s.isStarred).length;
 
     // Počítání denního streaku
-    const uniqueDays = new Set(
-      history.map(h => new Date(h.date).toISOString().slice(0, 10))
-    );
+    const uniqueDays = new Set(history.map(h => window.MedDrillCore.localDateKey(h.date)));
     const sortedDays = Array.from(uniqueDays).sort().reverse();
 
     let streak = 0;
-    const today = new Date().toISOString().slice(0, 10);
-    const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+    const today = window.MedDrillCore.localDateKey();
+    const yesterday = window.MedDrillCore.localDateKey(Date.now() - 86400000);
 
     let checkDate = sortedDays.includes(today) ? today : (sortedDays.includes(yesterday) ? yesterday : null);
     if (checkDate) {
-      let cur = new Date(checkDate);
+      // Poledne zabrání problémům s přechodem mezi letním a zimním časem.
+      let cur = new Date(`${checkDate}T12:00:00`);
       while (true) {
-        const dateStr = cur.toISOString().slice(0, 10);
+        const dateStr = window.MedDrillCore.localDateKey(cur.getTime());
         if (uniqueDays.has(dateStr)) {
           streak++;
-          cur = new Date(cur.getTime() - 86400000);
+          cur.setDate(cur.getDate() - 1);
         } else {
           break;
         }

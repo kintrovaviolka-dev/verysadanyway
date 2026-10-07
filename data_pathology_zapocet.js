@@ -3705,7 +3705,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
   },
   {
     "id": 310,
-    "question": "Fallotova tetralogie: defekt komorového septa, dextropozice s nasedáním aorty nad defektem, hypeertrofie pravé komory a …",
+    "question": "Která další vada spolu s defektem komorového septa, nasedající aortou a hypertrofií pravé komory tvoří Fallotovu tetralogii?",
     "options": [
       "Otevřený ductus arteriosus",
       "Anémie",
@@ -3885,7 +3885,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
   },
   {
     "id": 325,
-    "question": "Chronická gastritida a peptický vřed…",
+    "question": "Který mikroorganismus je nejčastěji spojen s chronickou gastritidou a peptickým vředem?",
     "options": [
       "Enterobacter cloacae",
       "E. coli",
@@ -4185,7 +4185,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
   },
   {
     "id": 350,
-    "question": "U pacienta s rozsáhlými popáleninami je nejpravděpodobněji infekce vyvolána…",
+    "question": "Který patogen je typickým původcem infekce u pacienta s rozsáhlými popáleninami?",
     "options": [
       "Campylobacter fetus",
       "Clostridium difficile",
@@ -4413,7 +4413,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
   },
   {
     "id": 369,
-    "question": "V H-E preparátech se tukové vakuoly jeví opticky prázdné, protože…",
+    "question": "Proč se v H-E preparátech tukové vakuoly jeví jako opticky prázdné?",
     "options": [
       "Tuk se nepřibarvuje",
       "Tuk byl odstraněn při fixaci",
@@ -4737,7 +4737,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
   },
   {
     "id": 396,
-    "question": "Při DIC je časté krvácení, protože…",
+    "question": "Proč je při diseminované intravaskulární koagulaci (DIC) časté krvácení?",
     "options": [
       "Dochází k urychlené spotřebě a vyčerpání koagulačních faktorů",
       "Dochází k tvorbě protilátek proti trombocytům",
@@ -4773,7 +4773,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
   },
   {
     "id": 399,
-    "question": "Perforující poranění oka vede často k…",
+    "question": "K jaké imunologicky zprostředkované komplikaci může vést perforující poranění oka?",
     "options": [
       "Retrolentární fibroplazii",
       "Primárnímu glaukomu",

@@ -8,6 +8,7 @@
     downloadedSubjects: new Map(), // subjectId -> subjectData
     userStates: new Map(),         // questionId -> userState
     customDecks: [],
+    soundEnabled: true,
     stats: {
       streak: 0,
       totalAnswered: 0,
@@ -24,12 +25,20 @@
       currentIndex: 0,
       answered: false,
       userAnswers: [],
+      missedQuestions: [],
       correctCount: 0,
+      answeredQuestionIds: new Set(),
       startTime: null,
-      timerInterval: null
+      timerInterval: null,
+      durationSeconds: null,
+      deadlineMs: null,
+      timeExpired: false,
+      finished: false
     },
     currentFilter: 'all',
-    deferredInstallPrompt: null
+    deferredInstallPrompt: null,
+    questionCardTemplate: null,
+    lastFocusedElement: null
   };
 
   // --- POMOCNÉ FUNKCE PRO TEXT & FUZZY MATCHING & BEZPEČNOST ---
@@ -87,6 +96,110 @@
     });
   }
 
+  // --- ZVUKOVÝ ENGINE (WEB AUDIO API) ---
+  let audioCtx = null;
+  function getAudioContext() {
+    if (!audioCtx && (window.AudioContext || window.webkitAudioContext)) {
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      audioCtx = new AudioContextClass();
+    }
+    if (audioCtx && audioCtx.state === 'suspended') {
+      audioCtx.resume().catch(() => {});
+    }
+    return audioCtx;
+  }
+
+  function playSfx(type) {
+    if (!state.soundEnabled) return;
+    try {
+      const ctx = getAudioContext();
+      if (!ctx) return;
+      const now = ctx.currentTime;
+
+      if (type === 'correct') {
+        // Pozitivní harmonický dvojtón (C5 -> E5)
+        const osc1 = ctx.createOscillator();
+        const osc2 = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc1.type = 'sine';
+        osc1.frequency.setValueAtTime(523.25, now);
+        osc1.frequency.exponentialRampToValueAtTime(659.25, now + 0.1);
+
+        osc2.type = 'sine';
+        osc2.frequency.setValueAtTime(659.25, now + 0.08);
+        osc2.frequency.exponentialRampToValueAtTime(783.99, now + 0.22);
+
+        gain.gain.setValueAtTime(0.06, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+
+        osc1.connect(gain);
+        osc2.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc1.start(now);
+        osc1.stop(now + 0.1);
+        osc2.start(now + 0.08);
+        osc2.stop(now + 0.25);
+      } else if (type === 'incorrect') {
+        // Tlumený měkký hlubší tón
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(220, now);
+        osc.frequency.exponentialRampToValueAtTime(150, now + 0.22);
+
+        gain.gain.setValueAtTime(0.09, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.22);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start(now);
+        osc.stop(now + 0.22);
+      } else if (type === 'star') {
+        // Zvonivý pop
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(880, now);
+        osc.frequency.exponentialRampToValueAtTime(1320, now + 0.15);
+
+        gain.gain.setValueAtTime(0.05, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start(now);
+        osc.stop(now + 0.15);
+      } else if (type === 'complete') {
+        // Fanfára při dokončení drillu
+        [523.25, 659.25, 783.99, 1046.5].forEach((freq, idx) => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          const startTime = now + idx * 0.09;
+
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(freq, startTime);
+
+          gain.gain.setValueAtTime(0.07, startTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, startTime + 0.35);
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+
+          osc.start(startTime);
+          osc.stop(startTime + 0.35);
+        });
+      }
+    } catch (e) {
+      // Tichý fallback pro nepodporované browsery
+    }
+  }
+
   function triggerHaptic(type = 'light') {
     if ('vibrate' in navigator) {
       if (type === 'success') navigator.vibrate([40, 60, 40]);
@@ -111,9 +224,13 @@
     const msgSpan = document.createElement('span');
     msgSpan.textContent = String(message);
 
+    const progBar = document.createElement('div');
+    progBar.className = 'toast-progress';
+
     toast.appendChild(iconSpan);
     toast.appendChild(document.createTextNode(' '));
     toast.appendChild(msgSpan);
+    toast.appendChild(progBar);
     container.appendChild(toast);
 
     setTimeout(() => {
@@ -126,6 +243,7 @@
 
   // --- KONFETY ENGINE ---
   function fireConfetti() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const canvas = document.getElementById('confetti-canvas');
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
@@ -188,6 +306,16 @@
       navigator.serviceWorker.register('/drill/sw.js')
         .then(reg => {
           console.log('[MedDrill] Service Worker registrován:', reg.scope);
+          if (reg.waiting) showToast('Je připravena nová verze aplikace. Obnovte stránku.', 'info');
+          reg.addEventListener('updatefound', () => {
+            const installing = reg.installing;
+            if (!installing) return;
+            installing.addEventListener('statechange', () => {
+              if (installing.state === 'installed' && navigator.serviceWorker.controller) {
+                showToast('Je připravena nová verze aplikace. Obnovte stránku.', 'info');
+              }
+            });
+          });
         })
         .catch(err => {
           console.warn('[MedDrill] Chyba registrace SW:', err);
@@ -212,6 +340,8 @@
   // --- NAČTENÍ DAT A INICIALIZACE INDEXEDDB ---
   async function initApp() {
     initServiceWorker();
+    const questionCard = document.getElementById('question-card');
+    if (questionCard) state.questionCardTemplate = questionCard.innerHTML;
 
     try {
       // 1. Inicializovat lokální IndexedDB
@@ -232,8 +362,11 @@
     // 4. Načíst stav uživatelských odpovědí a statistiky
     await refreshUserStatesAndStats();
 
-    // 5. Načíst vlastní balíčky
+    // 5. Načíst vlastní balíčky a nastavení zvuku
     state.customDecks = await window.drillStorage.getCustomDecks();
+    const soundPref = await window.drillStorage.getSetting('soundEnabled');
+    state.soundEnabled = soundPref !== false;
+    updateSoundButton();
 
     // 6. Zkontrolovat onboarding
     const onboarded = await window.drillStorage.getSetting('onboarded', false);
@@ -277,17 +410,27 @@
     const subMeta = state.manifest.subjects.find(s => s.id === subjectId);
     if (!subMeta) return false;
 
-    showToast(`Stahuji ${subMeta.title}...`, 'info');
+    const updating = isSubjectUpdateAvailable(subMeta);
+    showToast(`${updating ? 'Aktualizuji' : 'Stahuji'} ${subMeta.title}...`, 'info');
 
     try {
       const res = await fetch(subMeta.file);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
 
-      await window.drillStorage.saveSubject(data);
-      state.downloadedSubjects.set(subjectId, data);
+      await window.drillStorage.saveSubject(data, {
+        contentRevision: subMeta.revision,
+        contentVersion: state.manifest.version
+      });
+      const storedData = {
+        ...data,
+        contentRevision: subMeta.revision,
+        contentVersion: state.manifest.version,
+        downloadedAt: Date.now()
+      };
+      state.downloadedSubjects.set(subjectId, storedData);
 
-      showToast(`✅ ${subMeta.title} úspěšně uložena offline!`, 'success');
+      showToast(`✅ ${subMeta.title} ${updating ? 'byla aktualizována' : 'úspěšně uložena'} offline!`, 'success');
       renderDecksCatalog();
       renderStorageManager();
       return true;
@@ -316,7 +459,7 @@
 
   async function downloadAllSubjects() {
     if (!state.manifest) return;
-    const toDownload = state.manifest.subjects.filter(s => !state.downloadedSubjects.has(s.id));
+    const toDownload = state.manifest.subjects.filter(s => !state.downloadedSubjects.has(s.id) || isSubjectUpdateAvailable(s));
 
     if (toDownload.length === 0) {
       showToast('Všechny předměty již máte stažené offline!', 'info');
@@ -331,8 +474,16 @@
         const res = await fetch(sub.file);
         if (res.ok) {
           const data = await res.json();
-          await window.drillStorage.saveSubject(data);
-          state.downloadedSubjects.set(sub.id, data);
+          await window.drillStorage.saveSubject(data, {
+            contentRevision: sub.revision,
+            contentVersion: state.manifest.version
+          });
+          state.downloadedSubjects.set(sub.id, {
+            ...data,
+            contentRevision: sub.revision,
+            contentVersion: state.manifest.version,
+            downloadedAt: Date.now()
+          });
           successCount++;
         }
       } catch (e) {
@@ -364,9 +515,54 @@
 
     subjects.forEach(sub => {
       const isDownloaded = state.downloadedSubjects.has(sub.id);
+      const updateAvailable = isDownloaded && isSubjectUpdateAvailable(sub);
       const card = document.createElement('div');
       card.className = 'deck-card';
       card.dataset.subjectId = sub.id;
+      card.tabIndex = 0;
+      card.setAttribute('role', 'button');
+      card.setAttribute('aria-label', `${sub.title}: ${updateAvailable ? 'aktualizovat offline data' : (isDownloaded ? 'spustit drill' : 'stáhnout a spustit drill')}`);
+      card.style.setProperty('--card-glow', `${sub.color}26`);
+
+      // Výpočet míry zvládnutí (Mastery)
+      const downloaded = state.downloadedSubjects.get(sub.id);
+      let masteredCount = 0;
+      let learningCount = 0;
+      let mistakesCount = 0;
+      const totalQ = sub.totalQuestions || 0;
+
+      if (downloaded && Array.isArray(downloaded.questions)) {
+        downloaded.questions.forEach(q => {
+          const uState = state.userStates.get(q.id);
+          if (uState) {
+            if (uState.box >= 4) masteredCount++;
+            else if (uState.box >= 2) learningCount++;
+            else if (uState.timesIncorrect > uState.timesCorrect) mistakesCount++;
+          }
+        });
+      }
+
+      const masteredPct = totalQ > 0 ? ((masteredCount / totalQ) * 100) : 0;
+      const learningPct = totalQ > 0 ? ((learningCount / totalQ) * 100) : 0;
+      const mistakesPct = totalQ > 0 ? ((mistakesCount / totalQ) * 100) : 0;
+      const totalStudied = masteredCount + learningCount + mistakesCount;
+
+      let masteryHtml = '';
+      if (isDownloaded && totalQ > 0) {
+        masteryHtml = `
+          <div class="deck-mastery-box">
+            <div class="deck-mastery-bar-container">
+              <div class="deck-mastery-fill-mastered" style="width: ${masteredPct}%;" title="Zvládnuto: ${masteredCount}"></div>
+              <div class="deck-mastery-fill-learning" style="width: ${learningPct}%;" title="V procesu: ${learningCount}"></div>
+              <div class="deck-mastery-fill-mistakes" style="width: ${mistakesPct}%;" title="Chyby k nápravě: ${mistakesCount}"></div>
+            </div>
+            <div class="deck-mastery-labels">
+              <span>Pokrok: <strong class="deck-mastery-pct" style="color: ${masteredPct > 50 ? 'var(--emerald)' : (totalStudied > 0 ? 'var(--cyan)' : 'var(--text-muted)')};">${Math.round(masteredPct)}%</strong> (${masteredCount}/${totalQ})</span>
+              <span>${totalStudied > 0 ? `${totalStudied} procvičeno` : 'Zatím neprocvičováno'}</span>
+            </div>
+          </div>
+        `;
+      }
 
       card.innerHTML = `
         <div class="deck-card-top">
@@ -380,26 +576,33 @@
           <p class="deck-card-desc">
             ${sub.counts.single_choice} testových otázek • ${sub.counts.case_study} kazuistik • ${sub.counts.fill_in} dopisovacích
           </p>
+          ${masteryHtml}
         </div>
         <div class="deck-card-footer">
           <div class="deck-counts">
             <span class="deck-count-pill">
               <span class="deck-status-dot ${isDownloaded ? 'downloaded' : ''}"></span>
-              <span>${isDownloaded ? 'Staženo offline' : sub.sizeFormatted}</span>
+              <span>${updateAvailable ? 'Dostupná aktualizace' : (isDownloaded ? 'Staženo offline' : sub.sizeFormatted)}</span>
             </span>
           </div>
           <span style="color: ${sub.color}; font-weight: 700; font-size: 0.85rem;">
-            ${isDownloaded ? 'Spustit drill →' : 'Stáhnout & Spustit ⬇️'}
+            ${updateAvailable ? 'Aktualizovat →' : (isDownloaded ? 'Spustit drill →' : 'Stáhnout & Spustit ⬇️')}
           </span>
         </div>
       `;
 
       card.addEventListener('click', async () => {
-        if (!state.downloadedSubjects.has(sub.id)) {
+        if (!state.downloadedSubjects.has(sub.id) || isSubjectUpdateAvailable(sub)) {
           const ok = await downloadSubject(sub.id);
           if (!ok) return;
         }
         startSubjectDrill(sub.id);
+      });
+      card.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          card.click();
+        }
       });
 
       container.appendChild(card);
@@ -424,16 +627,24 @@
       starredPill.textContent = `${starredCount} označených`;
     }
 
-    // Aktualizovat Due Today
+    const daily = window.MedDrillCore.getDailySelection(getAllDownloadedQuestions(), state.userStates);
     const dueTodayEl = document.getElementById('stat-due-today');
-    if (dueTodayEl) {
-      const now = Date.now();
-      let due = 0;
-      state.userStates.forEach(s => {
-        if (s.nextReviewDate && s.nextReviewDate <= now) due++;
-      });
-      dueTodayEl.textContent = due;
-    }
+    if (dueTodayEl) dueTodayEl.textContent = daily.dueCount;
+    const newTodayEl = document.getElementById('stat-new-today');
+    if (newTodayEl) newTodayEl.textContent = daily.newCount;
+  }
+
+  function getAllDownloadedQuestions() {
+    const allQuestions = [];
+    state.downloadedSubjects.forEach(sub => {
+      if (Array.isArray(sub.questions)) allQuestions.push(...sub.questions);
+    });
+    return allQuestions;
+  }
+
+  function isSubjectUpdateAvailable(subjectMeta) {
+    const downloaded = state.downloadedSubjects.get(subjectMeta.id);
+    return Boolean(downloaded && window.MedDrillCore.isNewerRevision(subjectMeta.revision, downloaded.contentRevision));
   }
 
   function renderCustomDecks() {
@@ -463,6 +674,9 @@
     state.customDecks.forEach(deck => {
       const card = document.createElement('div');
       card.className = 'deck-card';
+      card.tabIndex = 0;
+      card.setAttribute('role', 'button');
+      card.setAttribute('aria-label', `Spustit vlastní balíček ${deck.title}`);
       const safeTitle = escapeHtml(deck.title);
       const safeSubjects = escapeHtml(Array.isArray(deck.subjectIds) ? deck.subjectIds.join(', ') : '');
       const safeTypes = escapeHtml(Array.isArray(deck.questionTypes) ? deck.questionTypes.join(' • ') : '');
@@ -500,6 +714,12 @@
         }
         startCustomDeckDrill(deck);
       });
+      card.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          card.click();
+        }
+      });
 
       container.appendChild(card);
     });
@@ -525,6 +745,7 @@
 
     state.manifest.subjects.forEach(sub => {
       const isDownloaded = state.downloadedSubjects.has(sub.id);
+      const updateAvailable = isDownloaded && isSubjectUpdateAvailable(sub);
       const item = document.createElement('div');
       item.className = 'storage-subject-item';
 
@@ -538,7 +759,7 @@
         </div>
         <div>
           ${isDownloaded
-            ? `<button class="btn-secondary btn-sub-action" data-action="remove" data-id="${sub.id}" style="padding: 6px 12px; font-size: 0.8rem; color: var(--rose);">Smazat</button>`
+            ? `<button class="btn-secondary btn-sub-action" data-action="${updateAvailable ? 'update' : 'remove'}" data-id="${sub.id}" style="padding: 6px 12px; font-size: 0.8rem; ${updateAvailable ? 'color: var(--cyan);' : 'color: var(--rose);'}">${updateAvailable ? 'Aktualizovat' : 'Smazat'}</button>`
             : `<button class="btn-primary btn-sub-action" data-action="download" data-id="${sub.id}" style="padding: 6px 12px; font-size: 0.8rem;">Stáhnout</button>`
           }
         </div>
@@ -547,7 +768,7 @@
       item.querySelector('.btn-sub-action').addEventListener('click', async e => {
         const action = e.target.dataset.action;
         const id = e.target.dataset.id;
-        if (action === 'download') {
+        if (action === 'download' || action === 'update') {
           await downloadSubject(id);
         } else {
           await removeSubject(id);
@@ -573,13 +794,7 @@
   }
 
   function startSmartDrill(mode) {
-    // Shromáždit všechny otázky ze všech stažených předmětů
-    const allQuestions = [];
-    state.downloadedSubjects.forEach(sub => {
-      if (Array.isArray(sub.questions)) {
-        allQuestions.push(...sub.questions);
-      }
-    });
+    const allQuestions = getAllDownloadedQuestions();
 
     if (allQuestions.length === 0) {
       showToast('Nemáte stažený žádný předmět! Stáhněte si nejprve balíček.', 'warning');
@@ -611,17 +826,12 @@
       }
     } else if (mode === 'srs') {
       title = '🧠 Dnešní Spaced Repetition opakování';
-      const now = Date.now();
-      filtered = allQuestions.filter(q => {
-        const s = state.userStates.get(q.id);
-        if (!s) return true; // Nové otázky
-        return s.nextReviewDate && s.nextReviewDate <= now;
-      });
+      const daily = window.MedDrillCore.getDailySelection(allQuestions, state.userStates);
+      filtered = daily.questions;
 
       if (filtered.length === 0) {
-        // Pokud nemá naplánované, vzít náhodných 20 k udržení formy
-        filtered = [...allQuestions].sort(() => Math.random() - 0.5).slice(0, 20);
-        title = '🧠 Denní trénink (Udržení paměti)';
+        showToast('Pro dnešek nemáte žádné otázky k opakování ani nové karty.', 'success');
+        return;
       }
     } else if (mode === 'timed') {
       title = '⏱️ Zkouškový test nanečisto (20 otázek)';
@@ -639,9 +849,11 @@
       }
     }
 
-    // Zamíchat
-    filtered = [...filtered].sort(() => Math.random() - 0.5);
-    initDrillSession(title, filtered, mode === 'timed');
+    // Denní SRS musí ponechat nejdříve nejdéle čekající opakování.
+    if (mode !== 'srs') filtered = [...filtered].sort(() => Math.random() - 0.5);
+    initDrillSession(title, filtered, mode === 'timed'
+      ? { durationSeconds: window.MedDrillCore.SPRINT_DURATION_SECONDS }
+      : {});
   }
 
   function startCustomDeckDrill(deck) {
@@ -669,16 +881,53 @@
     initDrillSession(deck.title, finalSet);
   }
 
-  function initDrillSession(title, questions, isTimed = false) {
+  function renderQuestionStepper() {
+    const container = document.getElementById('drill-stepper-container');
+    if (!container) return;
+    const drill = state.currentDrill;
+    container.innerHTML = '';
+
+    drill.questions.forEach((q, idx) => {
+      const dot = document.createElement('div');
+      dot.className = 'drill-stepper-dot';
+      const ans = drill.userAnswers[idx];
+      if (ans !== undefined) {
+        dot.classList.add(ans.isCorrect ? 'correct' : 'incorrect');
+      } else if (idx === drill.currentIndex) {
+        dot.classList.add('active');
+      }
+      dot.title = `Otázka ${idx + 1}`;
+      container.appendChild(dot);
+    });
+
+    const activeDot = container.children[drill.currentIndex];
+    if (activeDot && typeof activeDot.scrollIntoView === 'function') {
+      activeDot.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+  }
+
+  function initDrillSession(title, questions, options = {}) {
+    const durationSeconds = options.durationSeconds || null;
+    const questionCard = document.getElementById('question-card');
+    if (questionCard && state.questionCardTemplate) {
+      questionCard.innerHTML = state.questionCardTemplate;
+      bindQuestionControls();
+    }
     state.currentDrill = {
       deckTitle: title,
       questions: questions,
       currentIndex: 0,
       answered: false,
       userAnswers: [],
+      missedQuestions: [],
       correctCount: 0,
+      answeredQuestionIds: new Set(),
       startTime: Date.now(),
-      timerInterval: null
+      timerInterval: null,
+      durationSeconds,
+      deadlineMs: durationSeconds ? Date.now() + durationSeconds * 1000 : null,
+      timeExpired: false,
+      finished: false
     };
 
     switchView('view-drill');
@@ -687,15 +936,21 @@
     // Časomíra
     const timerEl = document.getElementById('drill-timer-display');
     if (timerEl) {
-      if (isTimed) {
+      if (durationSeconds) {
         timerEl.style.display = 'block';
-        let seconds = 0;
-        state.currentDrill.timerInterval = setInterval(() => {
-          seconds++;
-          const mins = Math.floor(seconds / 60).toString().padStart(2, '0');
-          const secs = (seconds % 60).toString().padStart(2, '0');
+        const updateTimer = () => {
+          const remaining = window.MedDrillCore.getRemainingSeconds(state.currentDrill.deadlineMs);
+          const mins = Math.floor(remaining / 60).toString().padStart(2, '0');
+          const secs = (remaining % 60).toString().padStart(2, '0');
           timerEl.textContent = `⏱️ ${mins}:${secs}`;
-        }, 1000);
+          if (remaining === 0) {
+            clearInterval(state.currentDrill.timerInterval);
+            state.currentDrill.timeExpired = true;
+            finishDrillSession({ timeExpired: true });
+          }
+        };
+        updateTimer();
+        state.currentDrill.timerInterval = setInterval(updateTimer, 1000);
       } else {
         timerEl.style.display = 'none';
       }
@@ -712,11 +967,12 @@
 
     drill.answered = false;
 
-    // Aktualizace čítače a progress baru
+    // Aktualizace čítače a progress baru i živého stepperu
     const counterEl = document.getElementById('drill-counter');
     const fillEl = document.getElementById('drill-progress-fill');
     counterEl.textContent = `${drill.currentIndex + 1} / ${drill.questions.length}`;
     fillEl.style.width = `${((drill.currentIndex + 1) / drill.questions.length) * 100}%`;
+    renderQuestionStepper();
 
     // Metadata
     const typeBadge = document.getElementById('question-type-badge');
@@ -786,7 +1042,7 @@
       revealBtn.className = 'btn-primary';
       revealBtn.id = 'btn-reveal-case';
       revealBtn.style.width = '100%';
-      revealBtn.textContent = '🔍 Odhalit diagnózu & klinické řešení';
+      revealBtn.innerHTML = '<span>🔍 Odhalit diagnózu & klinické řešení</span> <span class="kbd-hint" style="margin-left: 8px;">Space / Enter ↵</span>';
       revealBtn.addEventListener('click', () => {
         handleCaseReveal(q);
       });
@@ -804,6 +1060,10 @@
       (q.options || []).forEach((optText, optIdx) => {
         const btn = document.createElement('button');
         btn.className = 'option-btn';
+        btn.setAttribute('data-option-index', optIdx);
+
+        const contentWrap = document.createElement('div');
+        contentWrap.className = 'option-btn-content';
         
         const letterSpan = document.createElement('span');
         letterSpan.className = 'option-letter';
@@ -812,8 +1072,14 @@
         const textSpan = document.createElement('span');
         textSpan.textContent = String(optText);
 
-        btn.appendChild(letterSpan);
-        btn.appendChild(textSpan);
+        contentWrap.appendChild(letterSpan);
+        contentWrap.appendChild(textSpan);
+        btn.appendChild(contentWrap);
+
+        const kbdSpan = document.createElement('span');
+        kbdSpan.className = 'kbd-hint';
+        kbdSpan.textContent = letters[optIdx] || String(optIdx + 1);
+        btn.appendChild(kbdSpan);
 
         btn.addEventListener('click', () => {
           if (drill.answered) return;
@@ -847,13 +1113,18 @@
     drill.answered = true;
 
     const isCorrect = selectedIdx === question.correctIndex;
+    drill.userAnswers[drill.currentIndex] = { isCorrect, selectedIdx, questionId: question.id };
+
     if (isCorrect) {
       drill.correctCount++;
       selectedBtn.classList.add('selected-correct');
       triggerHaptic('success');
+      playSfx('correct');
     } else {
+      drill.missedQuestions.push(question);
       selectedBtn.classList.add('selected-incorrect');
       triggerHaptic('error');
+      playSfx('incorrect');
 
       // Označit správnou možnost zeleně
       const buttons = document.querySelectorAll('.option-btn');
@@ -861,6 +1132,8 @@
         buttons[question.correctIndex].classList.add('selected-correct');
       }
     }
+
+    renderQuestionStepper();
 
     // Ztlumit ostatní
     document.querySelectorAll('.option-btn').forEach((btn, idx) => {
@@ -873,9 +1146,10 @@
     await window.drillStorage.recordAnswer(question, isCorrect);
     const updatedState = await window.drillStorage.getQuestionState(question.id);
     state.userStates.set(question.id, updatedState);
+    drill.answeredQuestionIds.add(question.id);
 
     // Zobrazit vysvětlení a perličku
-    showExplanation(isCorrect ? 'Správně!' : 'Špatná odpověď', question.explanation, question.pearl, isCorrect);
+    showExplanation(isCorrect ? 'Správně!' : 'Špatná odpověď', question.explanation, question.pearl, isCorrect, false, question);
   }
 
   // Odhalení kazuistiky
@@ -887,7 +1161,7 @@
     const solution = (question.vignette && question.vignette.solution) || question.explanation || '';
     const pearl = question.pearl || (question.vignette && question.vignette.keyTakeaway) || '';
 
-    showExplanation('Klinické řešení & diagnóza', solution, pearl, true, true);
+    showExplanation('Klinické řešení & diagnóza', solution, pearl, true, true, question);
   }
 
   // Odeslání dopisovací otázky
@@ -909,26 +1183,33 @@
 
     const accepted = q.acceptedAnswers || [];
     const isCorrect = isFuzzyMatch(userVal, accepted);
+    drill.userAnswers[drill.currentIndex] = { isCorrect, userVal, questionId: q.id };
 
     if (isCorrect) {
       drill.correctCount++;
       input.classList.add('correct');
       triggerHaptic('success');
+      playSfx('correct');
     } else {
+      drill.missedQuestions.push(q);
       input.classList.add('incorrect');
       triggerHaptic('error');
+      playSfx('incorrect');
     }
+
+    renderQuestionStepper();
 
     // Uložit do IndexedDB
     await window.drillStorage.recordAnswer(q, isCorrect);
     const updatedState = await window.drillStorage.getQuestionState(q.id);
     state.userStates.set(q.id, updatedState);
+    drill.answeredQuestionIds.add(q.id);
 
     const title = isCorrect ? 'Správně!' : `Nesprávně. Správný výraz: ${accepted[0] || '-'}`;
-    showExplanation(title, q.explanation, q.pearl, isCorrect);
+    showExplanation(title, q.explanation, q.pearl, isCorrect, false, q);
   }
 
-  function showExplanation(title, content, pearl, isCorrect, isCaseStudy = false) {
+  function showExplanation(title, content, pearl, isCorrect, isCaseStudy = false, question = null) {
     const card = document.getElementById('drill-explanation-card');
     const titleEl = document.getElementById('explanation-title');
     const contentEl = document.getElementById('explanation-content');
@@ -936,6 +1217,7 @@
     const pearlText = document.getElementById('pearl-text');
     const nextBar = document.getElementById('drill-next-bar');
     const srsRating = document.getElementById('srs-rating-container');
+    const sourceEl = document.getElementById('explanation-source');
 
     titleEl.className = `explanation-title ${isCorrect ? 'correct' : 'incorrect'}`;
     titleEl.textContent = title;
@@ -948,14 +1230,28 @@
       pearlBox.style.display = 'none';
     }
 
+    if (sourceEl) {
+      if (question && question.source && question.reviewedAt) {
+        sourceEl.style.display = 'block';
+        sourceEl.textContent = `Zdroj: ${question.source} • odborně revidováno: ${question.reviewedAt}`;
+      } else {
+        sourceEl.style.display = 'none';
+        sourceEl.textContent = '';
+      }
+    }
+
     card.classList.add('active');
 
     if (isCaseStudy) {
       // Pro kazuistiky aktivovat sebehodnocení do SRS
       srsRating.classList.add('active');
-      nextBar.style.display = 'none'; // Další se aktivuje až po ohodnocení
+      nextBar.style.display = 'none';
     } else {
       nextBar.style.display = 'flex';
+      const nextBtn = document.getElementById('btn-next-question');
+      if (nextBtn) {
+        nextBtn.innerHTML = '<span>Další otázka →</span> <span class="kbd-hint" style="margin-left: 8px;">Space / Enter ↵</span>';
+      }
     }
   }
 
@@ -963,13 +1259,22 @@
   async function handleSrsRating(rating) {
     const drill = state.currentDrill;
     const q = drill.questions[drill.currentIndex];
+    const updatedState = await window.drillStorage.recordCaseRating(q, rating);
     const isCorrect = rating !== 'bad';
 
-    if (isCorrect) drill.correctCount++;
+    drill.userAnswers[drill.currentIndex] = { isCorrect, rating, questionId: q.id };
 
-    await window.drillStorage.recordAnswer(q, isCorrect);
-    const updatedState = await window.drillStorage.getQuestionState(q.id);
+    if (isCorrect) {
+      drill.correctCount++;
+      playSfx('correct');
+    } else {
+      drill.missedQuestions.push(q);
+      playSfx('incorrect');
+    }
+
+    renderQuestionStepper();
     state.userStates.set(q.id, updatedState);
+    drill.answeredQuestionIds.add(q.id);
 
     triggerHaptic('light');
 
@@ -988,20 +1293,28 @@
   }
 
   // Dokončení drill bloku
-  async function finishDrillSession() {
+  async function finishDrillSession({ timeExpired = false } = {}) {
     const drill = state.currentDrill;
+    if (drill.finished) return;
+    drill.finished = true;
     if (drill.timerInterval) clearInterval(drill.timerInterval);
 
     const durationSec = Math.round((Date.now() - drill.startTime) / 1000);
     const total = drill.questions.length;
+    const attempted = drill.answeredQuestionIds.size;
+    const unanswered = Math.max(0, total - attempted);
     const correct = drill.correctCount;
-    const pct = total > 0 ? Math.round((correct / total) * 100) : 0;
+    const scorePct = total > 0 ? Math.round((correct / total) * 100) : 0;
+    const accuracyPct = attempted > 0 ? Math.round((correct / attempted) * 100) : 0;
 
     // Zapsat do historie
     await window.drillStorage.logSession({
       deckTitle: drill.deckTitle,
-      totalAnswered: total,
+      totalAnswered: attempted,
       correctCount: correct,
+      totalPresented: total,
+      unansweredCount: unanswered,
+      timedOut: timeExpired || drill.timeExpired,
       durationSeconds: durationSec
     });
 
@@ -1009,60 +1322,143 @@
     await refreshUserStatesAndStats();
     updateStatsDisplay();
 
-    // Spustit oslavu konfetami při úspěchu > 70 %
-    if (pct >= 70) {
+    // Spustit oslavu konfetami a fanfáru při úspěchu >= 70 %
+    if (scorePct >= 70) {
       fireConfetti();
+      playSfx('complete');
     }
 
-    // Zobrazit dialog se souhrnem
+    // Příprava odznaku hodnocení
+    let badgeClass = 'practice';
+    let badgeText = '💪 Chce to ještě trénink';
+    if (scorePct >= 90) {
+      badgeClass = 'master';
+      badgeText = '🏆 Mistrovské zvládnutí sylabu!';
+    } else if (scorePct >= 70) {
+      badgeClass = 'solid';
+      badgeText = '🎯 Velmi solidní výsledek!';
+    }
+
+    // Příprava seznamu chyb
+    const missedList = drill.missedQuestions || [];
+    let mistakesHtml = '';
+    if (missedList.length > 0) {
+      const itemsHtml = missedList.slice(0, 8).map(mq => {
+        const title = escapeHtml(mq.question || mq.title || 'Otázka');
+        const expl = escapeHtml(mq.explanation || mq.hint || '');
+        return `
+          <div class="results-mistake-item">
+            <strong>${escapeHtml(mq.subjectTitle || 'Předmět')} • ${escapeHtml(mq.topicTitle || '')}</strong>
+            <div>${title}</div>
+            ${expl ? `<div style="font-size: 0.76rem; color: var(--text-muted); margin-top: 4px;">💡 ${expl}</div>` : ''}
+          </div>
+        `;
+      }).join('');
+
+      mistakesHtml = `
+        <div class="results-mistakes-box">
+          <div class="results-mistakes-header">
+            <span class="results-mistakes-title">🚨 Chyby k nápravě (${missedList.length})</span>
+            <button class="btn-primary btn-redrill-mistakes" id="btn-redrill-mistakes-now" style="padding: 8px 14px; font-size: 0.82rem;">
+              🔄 Procvičit tyto chyby
+            </button>
+          </div>
+          <div class="results-mistake-list">
+            ${itemsHtml}
+          </div>
+        </div>
+      `;
+    }
+
+    // SVG obvod kruhu pro r=58: 2 * PI * 58 ≈ 364.4
+    const circumference = 364.4;
+    const strokeOffset = circumference - (circumference * scorePct) / 100;
+
+    // Zobrazit moderní dialog se souhrnem
     const questionCard = document.getElementById('question-card');
     document.getElementById('drill-top-bar')?.style.setProperty('display', 'none');
     document.getElementById('drill-next-bar')?.style.setProperty('display', 'none');
 
     questionCard.innerHTML = `
-      <div style="text-align: center; padding: 20px 0;">
-        <div style="font-size: 3.5rem; margin-bottom: 8px;">
-          ${pct >= 85 ? '🏆' : (pct >= 60 ? '🎯' : '💪')}
+      <div class="results-hero-container">
+        <!-- Kruhový graf skóre -->
+        <div class="results-ring-wrapper">
+          <svg class="results-svg-ring" viewBox="0 0 140 140">
+            <circle class="results-ring-bg" cx="70" cy="70" r="58"></circle>
+            <circle class="results-ring-progress" id="results-ring-circle" cx="70" cy="70" r="58"
+              stroke-dasharray="${circumference}"
+              stroke-dashoffset="${circumference}"
+              style="stroke: ${scorePct >= 85 ? 'var(--emerald)' : (scorePct >= 60 ? 'var(--cyan)' : 'var(--amber)')};"
+            ></circle>
+          </svg>
+          <div class="results-ring-center">
+            <div class="results-ring-score" id="results-animated-score">0%</div>
+            <div class="results-ring-label">Úspěšnost</div>
+          </div>
         </div>
-        <h2 style="font-family: var(--font-heading); font-size: 1.6rem; margin-bottom: 6px;">
-          Drill dokončen!
+
+        <div class="results-badge-pill ${badgeClass}">
+          ${badgeText}
+        </div>
+
+        <h2 style="font-family: var(--font-heading); font-size: 1.4rem; margin-bottom: 4px; color: var(--text-white);">
+          ${timeExpired || drill.timeExpired ? '⏱️ Čas vypršel!' : 'Drill dokončen!'}
         </h2>
-        <p style="color: var(--text-secondary); margin-bottom: 24px;">
+        <p style="color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 20px;">
           ${escapeHtml(drill.deckTitle)}
         </p>
 
-        <div style="display: flex; justify-content: center; gap: 24px; margin-bottom: 28px;">
-          <div>
-            <div style="font-size: 2.4rem; font-family: var(--font-heading); font-weight: 800; color: var(--cyan);">
-              ${pct}%
-            </div>
-            <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Úspěšnost</div>
+        <!-- Statistická mřížka -->
+        <div class="results-stats-grid">
+          <div class="results-stat-card">
+            <div class="results-stat-val" style="color: var(--emerald);">${correct} / ${total}</div>
+            <div class="results-stat-label">Správně</div>
           </div>
-          <div>
-            <div style="font-size: 2.4rem; font-family: var(--font-heading); font-weight: 800; color: var(--text-white);">
-              ${correct}/${total}
-            </div>
-            <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Správně</div>
+          <div class="results-stat-card">
+            <div class="results-stat-val" style="color: #fbbf24;">${Math.floor(durationSec / 60)}m ${durationSec % 60}s</div>
+            <div class="results-stat-label">Čas</div>
           </div>
-          <div>
-            <div style="font-size: 2.4rem; font-family: var(--font-heading); font-weight: 800; color: #fbbf24;">
-              ${Math.floor(durationSec / 60)}m ${durationSec % 60}s
-            </div>
-            <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Čas</div>
+          <div class="results-stat-card">
+            <div class="results-stat-val" style="color: var(--cyan);">${accuracyPct}%</div>
+            <div class="results-stat-label">Z odpovědí</div>
           </div>
         </div>
 
-        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        ${mistakesHtml}
+
+        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; width: 100%;">
           <button class="btn-primary" id="btn-finish-drill-home">
             <span>🏠 Zpět na balíčky</span>
           </button>
           <button class="btn-secondary" id="btn-finish-drill-restart">
-            <span>🔄 Zopakovat tento drill</span>
+            <span>🔄 Zopakovat celý drill</span>
           </button>
         </div>
       </div>
     `;
 
+    // Animace naplnění kruhu a počítání procent
+    setTimeout(() => {
+      const circleEl = document.getElementById('results-ring-circle');
+      if (circleEl) circleEl.style.strokeDashoffset = String(strokeOffset);
+
+      const scoreEl = document.getElementById('results-animated-score');
+      if (scoreEl) {
+        let current = 0;
+        const stepTime = Math.max(15, Math.floor(1000 / (scorePct || 1)));
+        const timer = setInterval(() => {
+          if (current >= scorePct) {
+            scoreEl.textContent = `${scorePct}%`;
+            clearInterval(timer);
+          } else {
+            current += 1;
+            scoreEl.textContent = `${current}%`;
+          }
+        }, stepTime);
+      }
+    }, 50);
+
+    // Event listenery pro akce na výsledkové obrazovce
     document.getElementById('btn-finish-drill-home')?.addEventListener('click', () => {
       document.getElementById('drill-top-bar')?.style.removeProperty('display');
       switchView('view-home');
@@ -1071,7 +1467,12 @@
 
     document.getElementById('btn-finish-drill-restart')?.addEventListener('click', () => {
       document.getElementById('drill-top-bar')?.style.removeProperty('display');
-      initDrillSession(drill.deckTitle, drill.questions);
+      initDrillSession(drill.deckTitle, drill.questions, { durationSeconds: drill.durationSeconds });
+    });
+
+    document.getElementById('btn-redrill-mistakes-now')?.addEventListener('click', () => {
+      document.getElementById('drill-top-bar')?.style.removeProperty('display');
+      initDrillSession(`🚨 Náprava chyb (${missedList.length} otázek)`, missedList);
     });
   }
 
@@ -1206,6 +1607,28 @@
         }
       }
 
+      // 3. Validace a import historie pro zachování statistik po přenosu zařízení.
+      if (Array.isArray(backup.history)) {
+        const safeHistory = backup.history.slice(0, 500);
+        for (const item of safeHistory) {
+          if (!item || typeof item !== 'object') continue;
+          const totalAnswered = typeof item.totalAnswered === 'number'
+            ? Math.max(0, Math.min(500, Math.floor(item.totalAnswered))) : 0;
+          const correctCount = typeof item.correctCount === 'number'
+            ? Math.max(0, Math.min(totalAnswered, Math.floor(item.correctCount))) : 0;
+          await window.drillStorage.logSession({
+            deckTitle: typeof item.deckTitle === 'string' ? item.deckTitle.slice(0, 100) : 'Importovaný drill',
+            totalAnswered,
+            correctCount,
+            totalPresented: typeof item.totalPresented === 'number' ? Math.max(totalAnswered, Math.min(500, Math.floor(item.totalPresented))) : totalAnswered,
+            unansweredCount: typeof item.unansweredCount === 'number' ? Math.max(0, Math.min(500, Math.floor(item.unansweredCount))) : 0,
+            timedOut: Boolean(item.timedOut),
+            durationSeconds: typeof item.durationSeconds === 'number' ? Math.max(0, Math.min(86400, Math.floor(item.durationSeconds))) : 0,
+            date: typeof item.date === 'number' && item.date > 0 ? item.date : Date.now()
+          });
+        }
+      }
+
       await refreshUserStatesAndStats();
       state.customDecks = await window.drillStorage.getCustomDecks();
       renderCustomDecks();
@@ -1230,6 +1653,7 @@
     if (targetNav) targetNav.classList.add('active');
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.getElementById('main-content')?.focus({ preventScroll: true });
   }
 
   function handleUrlQueryParams() {
@@ -1253,16 +1677,156 @@
   // --- MODÁLNÍ OKNA ---
   function openModal(modalId) {
     const modal = document.getElementById(modalId);
-    if (modal) modal.classList.add('active');
+    if (modal) {
+      state.lastFocusedElement = document.activeElement;
+      modal.classList.add('active');
+      setTimeout(() => modal.querySelector('button, input, select, [tabindex]:not([tabindex="-1"])')?.focus(), 0);
+    }
   }
 
   function closeModal(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) modal.classList.remove('active');
+    if (state.lastFocusedElement && typeof state.lastFocusedElement.focus === 'function') {
+      state.lastFocusedElement.focus();
+      state.lastFocusedElement = null;
+    }
+  }
+
+  function bindQuestionControls() {
+    const submitButton = document.getElementById('btn-submit-fill-in');
+    if (submitButton) submitButton.onclick = handleFillInSubmit;
+
+    const fillInput = document.getElementById('fill-in-input');
+    if (fillInput) {
+      fillInput.onkeydown = e => {
+        if (e.key === 'Enter') handleFillInSubmit();
+      };
+    }
+
+    const hintButton = document.getElementById('btn-fill-in-hint');
+    if (hintButton) {
+      hintButton.onclick = () => {
+        const hintText = document.getElementById('fill-in-hint-text');
+        if (hintText) hintText.style.display = 'block';
+      };
+    }
+
+    document.querySelectorAll('.srs-rate-btn').forEach(btn => {
+      btn.onclick = () => handleSrsRating(btn.dataset.rating);
+    });
+  }
+
+  function updateSoundButton() {
+    const btn = document.getElementById('btn-toggle-sound');
+    const iconOn = document.getElementById('sound-icon-on');
+    const iconOff = document.getElementById('sound-icon-off');
+    if (!btn) return;
+    if (state.soundEnabled) {
+      btn.classList.remove('sound-muted');
+      btn.title = 'Zvukové efekty (Zapnuto - klikněte pro ztlumení)';
+      if (iconOn) iconOn.style.display = 'block';
+      if (iconOff) iconOff.style.display = 'none';
+    } else {
+      btn.classList.add('sound-muted');
+      btn.title = 'Zvukové efekty (Ztlumeno - klikněte pro zapnutí)';
+      if (iconOn) iconOn.style.display = 'none';
+      if (iconOff) iconOff.style.display = 'block';
+    }
   }
 
   // --- LISTENERY A OVLÁDACÍ PRVKY ---
   function setupEventListeners() {
+    bindQuestionControls();
+
+    // Přepínač zvuku
+    document.getElementById('btn-toggle-sound')?.addEventListener('click', async () => {
+      state.soundEnabled = !state.soundEnabled;
+      await window.drillStorage.setSetting('soundEnabled', state.soundEnabled);
+      updateSoundButton();
+      if (state.soundEnabled) playSfx('star');
+      showToast(state.soundEnabled ? 'Zvukové efekty zapnuty 🔊' : 'Zvukové efekty ztlumeny 🔇', 'info');
+    });
+
+    // Klávesové zkratky pro bleskový drill
+    document.addEventListener('keydown', event => {
+      // Ignorovat, pokud je otevřený modální dialog nebo uživatel píše do textového pole
+      if (document.querySelector('.modal-backdrop.active')) return;
+      if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA' || event.target.isContentEditable) {
+        return;
+      }
+
+      const drillView = document.getElementById('view-drill');
+      if (!drillView || !drillView.classList.contains('active')) return;
+
+      const drill = state.currentDrill;
+      if (!drill || drill.finished || !drill.questions || drill.questions.length === 0) return;
+
+      const key = event.key.toLowerCase();
+
+      // Hvězdička (S)
+      if (key === 's') {
+        event.preventDefault();
+        document.getElementById('btn-star-active-question')?.click();
+        return;
+      }
+
+      // 1. Před zodpovězením
+      if (!drill.answered) {
+        const q = drill.questions[drill.currentIndex];
+        if (!q) return;
+
+        if (q.type === 'single_choice') {
+          const keyMap = { '1': 0, '2': 1, '3': 2, '4': 3, '5': 4, 'a': 0, 'b': 1, 'c': 2, 'd': 3, 'e': 4 };
+          if (key in keyMap) {
+            event.preventDefault();
+            const buttons = document.querySelectorAll('.option-btn');
+            const idx = keyMap[key];
+            if (buttons[idx]) buttons[idx].click();
+          }
+        } else if (q.type === 'case_study') {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            document.getElementById('btn-reveal-case')?.click();
+          }
+        }
+      // 2. Po zodpovězení
+      } else {
+        const q = drill.questions[drill.currentIndex];
+        if (q && q.type === 'case_study') {
+          const srsRating = document.getElementById('srs-rating-container');
+          if (srsRating && srsRating.classList.contains('active')) {
+            if (key === '1') {
+              event.preventDefault();
+              document.querySelector('.srs-rate-btn.rate-bad')?.click();
+            } else if (key === '2') {
+              event.preventDefault();
+              document.querySelector('.srs-rate-btn.rate-medium')?.click();
+            } else if (key === '3') {
+              event.preventDefault();
+              document.querySelector('.srs-rate-btn.rate-good')?.click();
+            }
+          }
+        } else {
+          // Přechod na další otázku
+          if (event.key === 'Enter' || event.key === ' ' || event.key === 'ArrowRight') {
+            event.preventDefault();
+            goToNextQuestion();
+          }
+        }
+      }
+    });
+
+    document.querySelectorAll('.deck-card[id^="card-"]').forEach(card => {
+      card.tabIndex = 0;
+      card.setAttribute('role', 'button');
+      card.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          card.click();
+        }
+      });
+    });
     // Navigace ve spodní liště
     document.querySelectorAll('.bottom-nav .nav-item[data-view]').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -1360,6 +1924,11 @@
       const isStarred = await window.drillStorage.toggleStar(q.id, q.subjectId);
       const starBtn = document.getElementById('btn-star-active-question');
       starBtn.className = `btn-star-question ${isStarred ? 'starred' : ''}`;
+      if (isStarred) {
+        starBtn.classList.add('just-starred');
+        playSfx('star');
+        setTimeout(() => starBtn.classList.remove('just-starred'), 450);
+      }
       triggerHaptic('light');
 
       showToast(isStarred ? 'Přidáno do hvězdičkovaných ★' : 'Odebráno z hvězdičkovaných', 'info');
@@ -1369,29 +1938,11 @@
     document.getElementById('btn-next-question')?.addEventListener('click', goToNextQuestion);
 
     // Odeslání dopisovací otázky
-    document.getElementById('btn-submit-fill-in')?.addEventListener('click', handleFillInSubmit);
-    document.getElementById('fill-in-input')?.addEventListener('keydown', e => {
-      if (e.key === 'Enter') handleFillInSubmit();
-    });
-
-    // Nápověda pro dopisování
-    document.getElementById('btn-fill-in-hint')?.addEventListener('click', () => {
-      const hintText = document.getElementById('fill-in-hint-text');
-      if (hintText) hintText.style.display = 'block';
-    });
-
-    // SRS hodnocení u kazuistik
-    document.querySelectorAll('.srs-rate-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        handleSrsRating(btn.dataset.rating);
-      });
-    });
-
     // Zavírání modálů křížkem nebo tlačítkem Zavřít
     document.querySelectorAll('.modal-close-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const modal = btn.closest('.modal-backdrop');
-        if (modal) modal.classList.remove('active');
+        if (modal) closeModal(modal.id);
       });
     });
 
@@ -1399,9 +1950,30 @@
     document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
       backdrop.addEventListener('click', e => {
         if (e.target === backdrop && backdrop.id !== 'modal-onboarding') {
-          backdrop.classList.remove('active');
+          closeModal(backdrop.id);
         }
       });
+    });
+
+    document.addEventListener('keydown', event => {
+      const activeModal = document.querySelector('.modal-backdrop.active');
+      if (!activeModal) return;
+      if (event.key === 'Escape' && activeModal.id !== 'modal-onboarding') {
+        closeModal(activeModal.id);
+        return;
+      }
+      if (event.key !== 'Tab') return;
+      const focusable = [...activeModal.querySelectorAll('button:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])')];
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     });
 
     // Onboarding volba ročníku

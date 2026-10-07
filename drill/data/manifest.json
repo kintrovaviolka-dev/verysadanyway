@@ -1,9 +1,10 @@
 {
-  "version": "2026.2.0",
+  "version": "2026.3.0",
   "lastUpdated": "2026-10-07T15:55:00.000Z",
   "subjects": [
     {
       "id": "patola",
+      "revision": "2026.3.0",
       "title": "Patologie",
       "grade": 3,
       "icon": "🔬",
@@ -20,6 +21,7 @@
     },
     {
       "id": "imuno",
+      "revision": "2026.3.0",
       "title": "Imunologie",
       "grade": 3,
       "icon": "🛡️",
@@ -36,6 +38,7 @@
     },
     {
       "id": "mikra",
+      "revision": "2026.3.0",
       "title": "Mikrobiologie",
       "grade": 3,
       "icon": "🦠",
@@ -52,6 +55,7 @@
     },
     {
       "id": "kardio",
+      "revision": "2026.3.0",
       "title": "Kardiologie",
       "grade": 4,
       "icon": "🫀",
@@ -68,6 +72,7 @@
     },
     {
       "id": "neuro",
+      "revision": "2026.3.0",
       "title": "Neurologie",
       "grade": 4,
       "icon": "⚡",
@@ -84,6 +89,7 @@
     },
     {
       "id": "psych",
+      "revision": "2026.3.0",
       "title": "Psychiatrie",
       "grade": 4,
       "icon": "🧠",
@@ -100,6 +106,7 @@
     },
     {
       "id": "derma",
+      "revision": "2026.3.0",
       "title": "Dermatologie",
       "grade": 4,
       "icon": "☀️",
@@ -116,6 +123,7 @@
     },
     {
       "id": "farma",
+      "revision": "2026.3.0",
       "title": "Farmakologie",
       "grade": 4,
       "icon": "💊",
@@ -132,6 +140,7 @@
     },
     {
       "id": "urgent",
+      "revision": "2026.3.0",
       "title": "Urgentní příjem",
       "grade": 5,
       "icon": "🚨",

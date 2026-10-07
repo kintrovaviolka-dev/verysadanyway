@@ -1,6 +1,9 @@
 // drill/sw.js - Service Worker pro PWA MedDrill
-const CACHE_NAME = 'meddrill-core-v2026.1.1';
-const DATA_CACHE_NAME = 'meddrill-data-v2026.1.1';
+// The Node content build keeps this value in sync with data/manifest.json.
+// A new release gives every deployment a fresh shell without touching IndexedDB.
+const RELEASE_VERSION = '2026.3.0';
+const CACHE_NAME = `meddrill-core-v${RELEASE_VERSION}`;
+const DATA_CACHE_NAME = `meddrill-data-v${RELEASE_VERSION}`;
 
 const STATIC_ASSETS = [
   '/drill/',

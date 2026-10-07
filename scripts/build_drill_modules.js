@@ -4,6 +4,8 @@
 
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
+const { spawnSync } = require('child_process');
 
 global.window = global;
 
@@ -27,8 +29,9 @@ function cleanHtml(html) {
 const OUT_DIR = path.join(__dirname, '..', 'drill', 'data', 'modules');
 fs.mkdirSync(OUT_DIR, { recursive: true });
 
+const releaseVersion = process.env.MEDDRILL_VERSION || '2026.3.0';
 const manifest = {
-  version: '2026.1.0',
+  version: releaseVersion,
   lastUpdated: new Date().toISOString(),
   subjects: []
 };
@@ -686,6 +689,7 @@ allSubjects.forEach(sub => {
 
   manifest.subjects.push({
     id: sub.id,
+    revision: `${releaseVersion}-${crypto.createHash('sha256').update(jsonContent).digest('hex').slice(0, 12)}`,
     title: sub.title,
     grade: sub.grade,
     icon: sub.icon,
@@ -706,6 +710,19 @@ allSubjects.forEach(sub => {
 
 const manifestPath = path.join(__dirname, '..', 'drill', 'data', 'manifest.json');
 fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2), 'utf8');
+const serviceWorkerPath = path.join(__dirname, '..', 'drill', 'sw.js');
+const serviceWorker = fs.readFileSync(serviceWorkerPath, 'utf8');
+if (!/const RELEASE_VERSION = '[^']+';/.test(serviceWorker)) {
+  throw new Error('Nelze synchronizovat RELEASE_VERSION v drill/sw.js.');
+}
+const nextServiceWorker = serviceWorker.replace(
+  /const RELEASE_VERSION = '[^']+';/,
+  `const RELEASE_VERSION = '${releaseVersion}';`
+);
+if (nextServiceWorker !== serviceWorker) fs.writeFileSync(serviceWorkerPath, nextServiceWorker, 'utf8');
+const validator = path.join(__dirname, '..', 'drill', 'scripts', 'validate-content.js');
+const validation = spawnSync(process.execPath, [validator], { stdio: 'inherit' });
+if (validation.status !== 0) process.exit(validation.status || 1);
 console.log(`\n🎉 Hotovo! Celkový manifest uložen do ${manifestPath}`);
 console.log(`Celkem témat: ${manifest.subjects.length}`);
 console.log(`Celkem otázek v bance: ${manifest.subjects.reduce((sum, s) => sum + s.totalQuestions, 0)}`);

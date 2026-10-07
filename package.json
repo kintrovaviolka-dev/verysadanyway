@@ -5,6 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "node --test api/*.test.js",
+    "test:drill": "npm --prefix drill test && npm --prefix drill run validate-content",
+    "build:drill": "node scripts/build_drill_modules.js",
     "start": "node server.js",
     "dev": "node --env-file=.env server.js",
     "build": "cd clinical-learning-portal && npm install --legacy-peer-deps && npm run build && cp -r dist/* . && cd ../urgentni-prijem && npm install --legacy-peer-deps && npm run build && cp -r dist/* ."
