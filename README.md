@@ -198,7 +198,3 @@ Tento repozitář má v současné podobě primárně osobní a vzdělávací ch
 ## Kontakt
 
 Pro dotazy, návrhy či zpětnou vazbu kontaktujte autora nebo správce repozitáře přes GitHub profil / repository settings.
-
----
-
-Tento soubor je navržen tak, aby lépe odpovídal aktuálnímu stavu projektu a pomohl novému návštěvníkovi rychle orientovat se v jeho struktuře a provozu.
