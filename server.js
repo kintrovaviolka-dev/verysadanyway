@@ -27,8 +27,27 @@ app.use(express.json({ limit: '64kb' }));
 // Serve clinical-portal alias
 app.use('/clinical-portal', express.static(path.join(__dirname, 'clinical-learning-portal')));
 
+// Serve PWA drill aliases
+app.use('/drill', express.static(path.join(__dirname, 'drill')));
+app.use('/pwa', express.static(path.join(__dirname, 'drill')));
+
 // Serve static files from root directory
 app.use(express.static(__dirname));
+
+const os = require('os');
+app.get('/api/lan-ip', (req, res) => {
+  const interfaces = os.networkInterfaces();
+  let localIp = '127.0.0.1';
+  for (const name of Object.keys(interfaces)) {
+    for (const iface of interfaces[name]) {
+      if (iface.family === 'IPv4' && !iface.internal) {
+        localIp = iface.address;
+        break;
+      }
+    }
+  }
+  res.json({ ip: localIp, port: PORT });
+});
 
 // --- LAZY GEMINI CLIENT ---
 let aiClient = null;

@@ -53,6 +53,10 @@
           </button>
         </div>
 
+        <a href="/drill/?subject=kardio" class="btn btn-secondary" style="border-color: rgba(244, 63, 94, 0.4); color: #fb7185; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;" title="Procvičit Kardiologii v PWA MedDrill">
+          <span>⚡ PWA Drill</span>
+        </a>
+
         <button id="back-hub-btn" class="btn btn-secondary" title="Zpět na centrální rozcestník předmětů">
           <span id="back-hub-text">← Rozcestník</span>
         </button>
@@ -166,6 +170,10 @@
         <a href="#leitner" class="tab-btn" id="nav-sr-btn" role="button">
           <span>🧠</span>
           <span id="nav-sr-text">Spaced Repetition (115+)</span>
+        </a>
+        <a href="#procvicej" class="tab-btn" id="nav-practice-btn" role="button">
+          <span>🎯</span>
+          <span>Procvičování (60)</span>
         </a>
       </div>
 
@@ -502,6 +510,55 @@
 
     </section>
 
+    <!-- ================= POHLED 4: NÁHODNÉ PROCVIČOVÁNÍ ================= -->
+    <section id="practice-view" class="practice-view-container" aria-label="Náhodné procvičování kardiologie">
+      <div class="practice-hero">
+        <span class="practice-kicker">🎯 KLINICKÉ ROZHODOVÁNÍ</span>
+        <h2>Náhodné procvičování</h2>
+        <p>60 vysokoškolských otázek: 40 single-choice a 20 krátkých doplňovaček. Každá odpověď má klinické zdůvodnění.</p>
+      </div>
+
+      <div id="practice-setup" class="practice-panel">
+        <div class="practice-setup-group">
+          <span class="practice-label">Typ otázek</span>
+          <div class="practice-choice-row" role="group" aria-label="Typ otázek">
+            <button class="practice-choice active" data-practice-type="all">Smíšené <span>60</span></button>
+            <button class="practice-choice" data-practice-type="single">Single choice <span>40</span></button>
+            <button class="practice-choice" data-practice-type="type-in">Doplňovačky <span>20</span></button>
+          </div>
+        </div>
+        <div class="practice-setup-group">
+          <span class="practice-label">Rozsah relace</span>
+          <div class="practice-choice-row" role="group" aria-label="Počet otázek">
+            <button class="practice-choice active" data-practice-size="10">10 otázek</button>
+            <button class="practice-choice" data-practice-size="20">20 otázek</button>
+            <button class="practice-choice" data-practice-size="40">40 otázek</button>
+            <button class="practice-choice" data-practice-size="60">Všech 60</button>
+          </div>
+        </div>
+        <button id="practice-start-btn" class="btn btn-primary practice-start-btn">Spustit náhodnou relaci →</button>
+      </div>
+
+      <div id="practice-session" class="practice-panel practice-session" hidden>
+        <div class="practice-session-topline">
+          <span id="practice-category" class="practice-category">Kategorie</span>
+          <span id="practice-progress">Otázka 1 z 10</span>
+        </div>
+        <div class="practice-progress-track"><div id="practice-progress-bar" class="practice-progress-bar"></div></div>
+        <p id="practice-question" class="practice-question"></p>
+        <div id="practice-options" class="practice-options"></div>
+        <div id="practice-feedback" class="practice-feedback" hidden></div>
+        <button id="practice-next-btn" class="btn btn-secondary practice-next-btn" hidden>Další otázka →</button>
+      </div>
+
+      <div id="practice-results" class="practice-panel practice-results" hidden>
+        <div class="practice-results-icon">🏁</div>
+        <h3>Relace dokončena</h3>
+        <p id="practice-results-text"></p>
+        <button id="practice-restart-btn" class="btn btn-primary">Nová náhodná relace</button>
+      </div>
+    </section>
+
     <!-- Patička -->
     <footer>
       <p id="footer-text">© 2026 <a href="https://kintrovav.vercel.app" target="_blank" rel="noopener noreferrer" class="author-link">Viola Kintrová</a> • Kardiologický výukový portál pro 4. ročník Všeobecného lékařství.</p>
@@ -512,6 +569,7 @@
   <!-- Skripty -->
   <script src="data.js"></script>
   <script src="data_es.js"></script>
+  <script src="practice_data.js"></script>
   <script src="interactive_widgets.js"></script>
   <script src="app.js"></script>
 </body>

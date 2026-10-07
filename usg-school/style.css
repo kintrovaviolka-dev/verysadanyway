@@ -1,0 +1,724 @@
+/* USG School - Design System & Styles */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg-primary: #07090e;
+  --bg-secondary: #0e131f;
+  --bg-panel: #131929;
+  --bg-card: rgba(23, 32, 54, 0.7);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-accent: rgba(0, 229, 255, 0.25);
+  
+  --usg-screen-bg: #000000;
+  --accent-cyan: #00e5ff;
+  --accent-blue: #0077ff;
+  --accent-green: #00ff88;
+  --accent-amber: #ffb700;
+  --accent-rose: #ff2a5f;
+  --text-main: #f0f4fc;
+  --text-muted: #8391a8;
+  --text-dim: #4c576e;
+
+  --ecg-color: #00ff88;
+  --marker-color: #ffb700;
+  
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-primary);
+  color: var(--text-main);
+  min-height: 100vh;
+  overflow-x: hidden;
+  user-select: none;
+}
+
+/* ==========================================================================
+   DISPLAY / STATION SCREEN (PC/Tablet)
+   ========================================================================== */
+
+.station-layout {
+  display: grid;
+  grid-template-rows: 56px 1fr 48px;
+  height: 100vh;
+  width: 100vw;
+  background: #000;
+  overflow: hidden;
+}
+
+/* Header / Patient Bar */
+.usg-header {
+  background: #080c14;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: #b0c0d8;
+  z-index: 10;
+}
+
+.brand-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #fff;
+  font-size: 16px;
+}
+
+.brand-badge span {
+  color: var(--accent-cyan);
+}
+
+.patient-info {
+  display: flex;
+  gap: 24px;
+}
+
+.patient-tag {
+  display: flex;
+  gap: 6px;
+}
+
+.patient-tag .lbl {
+  color: var(--text-dim);
+}
+.patient-tag .val {
+  color: var(--text-main);
+  font-weight: 700;
+}
+
+.device-stats {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.status-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  font-size: 11px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-rose);
+  box-shadow: 0 0 10px var(--accent-rose);
+  transition: all 0.3s ease;
+}
+
+.status-dot.connected {
+  background: var(--accent-green);
+  box-shadow: 0 0 10px var(--accent-green);
+}
+
+/* Main Workspace */
+.usg-workspace {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  position: relative;
+  background: #000;
+  overflow: hidden;
+}
+
+/* Viewport Area */
+.usg-viewport-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 15%, #050a12 0%, #000000 80%);
+}
+
+#usgCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Clinical Overlays on Screen */
+.viewport-overlay {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: #a4b4cc;
+  pointer-events: none;
+  line-height: 1.5;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+}
+
+.viewport-overlay .preset-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.acoustic-index {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent-cyan);
+  text-align: right;
+  pointer-events: none;
+}
+
+/* Orientation Target Indicator */
+.target-guidance-card {
+  position: absolute;
+  bottom: 60px;
+  left: 20px;
+  background: rgba(10, 15, 26, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-accent);
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  min-width: 240px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.target-guidance-card .guide-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  font-family: var(--font-sans);
+}
+
+.accuracy-bar-container {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+  margin: 6px 0;
+}
+
+.accuracy-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent-rose), var(--accent-amber), var(--accent-green));
+  transition: width 0.15s ease-out;
+}
+
+.guide-feedback {
+  font-size: 11px;
+  color: #cbd5e1;
+  margin-top: 4px;
+}
+
+/* Sidebar / Controls */
+.usg-sidebar {
+  background: var(--bg-secondary);
+  border-left: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 16px;
+  overflow-y: auto;
+  z-index: 5;
+}
+
+.panel-section {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.panel-title {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-muted);
+  font-weight: 700;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* QR Code Section */
+.qr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.qr-box {
+  background: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.15);
+}
+
+.qr-box canvas, .qr-box img {
+  display: block;
+  width: 140px;
+  height: 140px;
+}
+
+.qr-hint {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.qr-link-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(0, 229, 255, 0.1);
+  color: var(--accent-cyan);
+  font-size: 11px;
+  font-family: var(--font-mono);
+  cursor: pointer;
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  margin-top: 4px;
+}
+
+/* Case Selector */
+.case-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.case-btn {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: var(--text-main);
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.case-btn:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.case-btn.active {
+  background: rgba(0, 229, 255, 0.1);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.15);
+}
+
+.case-btn .case-title {
+  font-weight: 700;
+  font-size: 13px;
+  color: #fff;
+}
+
+.case-btn .case-desc {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* 3D Probe Orientation Gizmo (Station View) */
+.gizmo-wrapper {
+  position: relative;
+  width: 100%;
+  height: 140px;
+  background: #080c14;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#gizmoCanvas {
+  width: 100%;
+  height: 100%;
+}
+
+.angle-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 6px;
+  margin-top: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.angle-box {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 6px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.angle-box .lbl {
+  color: var(--text-dim);
+  font-size: 9px;
+  text-transform: uppercase;
+}
+.angle-box .val {
+  color: var(--accent-cyan);
+  font-weight: 700;
+  font-size: 12px;
+}
+
+/* Footer / ECG Bar */
+.usg-footer {
+  background: #05080e;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  gap: 20px;
+  z-index: 10;
+}
+
+.ecg-monitor-container {
+  flex: 1;
+  height: 38px;
+  position: relative;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  border: 1px solid rgba(0, 255, 136, 0.15);
+}
+
+#ecgCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ==========================================================================
+   IPHONE PROBE PWA STYLING
+   ========================================================================== */
+
+.probe-body {
+  background: #05070c;
+  color: #fff;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: env(safe-area-inset-top, 16px) 16px env(safe-area-inset-bottom, 16px) 16px;
+  touch-action: none;
+}
+
+.probe-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.probe-title {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+.probe-title span { color: var(--accent-cyan); }
+
+.probe-conn-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-family: var(--font-mono);
+}
+
+/* Permission Modal / Fullscreen Prompt */
+.permission-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 7, 12, 0.95);
+  backdrop-filter: blur(16px);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  text-align: center;
+  gap: 20px;
+}
+
+.permission-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(0, 229, 255, 0.1);
+  border: 2px solid var(--accent-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  color: var(--accent-cyan);
+  box-shadow: 0 0 30px rgba(0, 229, 255, 0.3);
+  animation: pulseIcon 2s infinite ease-in-out;
+}
+
+@keyframes pulseIcon {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(0, 229, 255, 0.2); }
+  50% { transform: scale(1.06); box-shadow: 0 0 35px rgba(0, 229, 255, 0.5); }
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: #fff;
+  border: none;
+  padding: 16px 28px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 114, 255, 0.4);
+  width: 100%;
+  max-width: 280px;
+  transition: transform 0.1s active;
+}
+
+.btn-primary:active {
+  transform: scale(0.97);
+}
+
+/* Probe 3D / Sensor Visualizer Area */
+.probe-visualizer-container {
+  flex: 1;
+  position: relative;
+  background: radial-gradient(circle at 50% 50%, #0d1626 0%, #060910 80%);
+  border-radius: 20px;
+  border: 1px solid var(--border-subtle);
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  user-select: none;
+  touch-action: none;
+}
+
+.probe-edge-label {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--accent-cyan);
+  background: rgba(0, 229, 255, 0.12);
+  border: 1px solid rgba(0, 229, 255, 0.25);
+  padding: 3px 8px;
+  border-radius: 6px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.probe-edge-label.top {
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--accent-green);
+  border-color: rgba(0, 255, 136, 0.3);
+  background: rgba(0, 255, 136, 0.1);
+}
+
+.probe-edge-label.right {
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--marker-color);
+  border-color: rgba(255, 183, 0, 0.4);
+  background: rgba(255, 183, 0, 0.12);
+}
+
+.probe-edge-label.bottom {
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--text-dim);
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.probe-sensor-display {
+  position: absolute;
+  top: 36px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: #8da2c0;
+  z-index: 4;
+}
+
+.probe-center-gizmo {
+  width: 160px;
+  height: 240px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  perspective: 800px;
+}
+
+.probe-3d-model {
+  width: 70px;
+  height: 150px;
+  background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+  border: 2px solid var(--accent-cyan);
+  border-radius: 16px 16px 8px 8px;
+  position: relative;
+  box-shadow: 0 0 25px rgba(0, 229, 255, 0.25);
+  transform-style: preserve-3d;
+  transition: transform 0.05s linear;
+}
+
+.probe-index-marker {
+  position: absolute;
+  top: 10px;
+  right: -5px;
+  width: 10px;
+  height: 20px;
+  background: var(--marker-color);
+  border-radius: 0 4px 4px 0;
+  box-shadow: 0 0 10px var(--marker-color);
+}
+
+.probe-beam-cone {
+  position: absolute;
+  top: -60px;
+  left: -25px;
+  width: 120px;
+  height: 60px;
+  background: linear-gradient(to top, rgba(0, 229, 255, 0.4), transparent);
+  clip-path: polygon(30% 100%, 70% 100%, 100% 0, 0 0);
+  filter: blur(1px);
+  pointer-events: none;
+}
+
+.probe-hud-state {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+.probe-hud-state.perfect {
+  color: var(--accent-green);
+  text-shadow: 0 0 12px rgba(0, 255, 136, 0.6);
+}
+
+/* Probe Bottom Action Controls */
+.probe-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.probe-action-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 16px;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.probe-action-btn:active {
+  transform: scale(0.96);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.probe-action-btn.zero-btn {
+  border-color: rgba(0, 229, 255, 0.3);
+  background: rgba(0, 229, 255, 0.08);
+  color: var(--accent-cyan);
+}
+
+.probe-action-btn.freeze-btn.frozen {
+  background: rgba(255, 42, 95, 0.2);
+  border-color: var(--accent-rose);
+  color: var(--accent-rose);
+}
+
+.probe-gain-slider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+  font-size: 12px;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+}
+
+.probe-gain-slider input[type="range"] {
+  flex: 1;
+  accent-color: var(--accent-cyan);
+}

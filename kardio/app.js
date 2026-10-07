@@ -236,7 +236,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- APPLICATION STATE ---
   const state = {
-    activeView: "modules", // "modules" | "ekg" | "module-detail" | "spaced-repetition"
+    activeView: "modules", // "modules" | "ekg" | "module-detail" | "spaced-repetition" | "practice"
     selectedModuleId: null,
     activeTopicStep: "theory", // "theory" | "recall" | "summary"
     activeEkgSubpane: "desatero", // "desatero" | "anatomy" | "ions" | "syndromes" | "pacemakers" | "quiz"
@@ -276,6 +276,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const navModulesBtn = document.getElementById("nav-modules-btn");
   const navEkgBtn = document.getElementById("nav-ekg-btn");
   const navSrBtn = document.getElementById("nav-sr-btn");
+  const navPracticeBtn = document.getElementById("nav-practice-btn");
   const searchInput = document.getElementById("search-input");
   
   // Global & EKG Language Switchers
@@ -301,6 +302,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const ekgView = document.getElementById("ekg-view");
   const moduleDetailView = document.getElementById("module-detail-view");
   const srView = document.getElementById("sr-view");
+  const practiceView = document.getElementById("practice-view");
   const modulesGrid = document.getElementById("modules-grid");
 
   // EKG Masterclass Subnav elements
@@ -349,6 +351,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const srBoxIndicator = document.getElementById("sr-box-indicator");
   const srRateAgainBtn = document.getElementById("sr-rate-again-btn");
   const srRateGoodBtn = document.getElementById("sr-rate-good-btn");
+
+  // Náhodné procvičování
+  const practiceSetup = document.getElementById("practice-setup");
+  const practiceSession = document.getElementById("practice-session");
+  const practiceResults = document.getElementById("practice-results");
+  const practiceStartBtn = document.getElementById("practice-start-btn");
+  const practiceNextBtn = document.getElementById("practice-next-btn");
+  const practiceRestartBtn = document.getElementById("practice-restart-btn");
+  const practiceCategory = document.getElementById("practice-category");
+  const practiceProgress = document.getElementById("practice-progress");
+  const practiceProgressBar = document.getElementById("practice-progress-bar");
+  const practiceQuestion = document.getElementById("practice-question");
+  const practiceOptions = document.getElementById("practice-options");
+  const practiceFeedback = document.getElementById("practice-feedback");
+  const practiceResultsText = document.getElementById("practice-results-text");
 
   // --- THEME INITIALIZATION ---
   const initTheme = () => {
@@ -1171,6 +1188,173 @@ document.addEventListener("DOMContentLoaded", () => {
 
   srBackBtn.addEventListener("click", () => {
     window.location.hash = "#temata";
+  });
+
+  // --- NÁHODNÉ PROCVIČOVÁNÍ (40 single-choice + 20 doplňovaček) ---
+  const practiceState = {
+    selectedType: "all",
+    selectedSize: 10,
+    questions: [],
+    index: 0,
+    correct: 0,
+    answered: false
+  };
+
+  const getPracticePool = () => {
+    const questions = typeof CARDIOLOGY_PRACTICE_QUESTIONS !== "undefined"
+      ? CARDIOLOGY_PRACTICE_QUESTIONS
+      : [];
+    return practiceState.selectedType === "all"
+      ? questions
+      : questions.filter((question) => question.type === practiceState.selectedType);
+  };
+
+  const normalisePracticeAnswer = (value) => String(value || "")
+    .trim()
+    .toLocaleLowerCase("cs-CZ")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\s+/g, " ");
+
+  const showPracticeFeedback = (isCorrect, question) => {
+    practiceFeedback.hidden = false;
+    practiceFeedback.className = `practice-feedback ${isCorrect ? "correct" : "incorrect"}`;
+    const heading = isCorrect ? "✅ Správně." : "❌ Nesprávně.";
+    const answerHint = !isCorrect && question.type === "type-in"
+      ? `<br><strong>Správné doplnění:</strong> ${escapeHTML(question.answerLabel)}`
+      : "";
+    practiceFeedback.innerHTML = `<strong>${heading}</strong>${answerHint}<br>${escapeHTML(question.explanation)}`;
+    practiceNextBtn.hidden = false;
+    practiceNextBtn.textContent = practiceState.index + 1 === practiceState.questions.length
+      ? "Vyhodnotit relaci →"
+      : "Další otázka →";
+  };
+
+  const answerPracticeQuestion = (isCorrect, question, selectedButton = null, input = null) => {
+    if (practiceState.answered) return;
+    practiceState.answered = true;
+    if (isCorrect) practiceState.correct += 1;
+
+    if (question.type === "single") {
+      const optionButtons = practiceOptions.querySelectorAll(".practice-option");
+      optionButtons.forEach((button, index) => {
+        button.disabled = true;
+        if (index === question.correct) button.classList.add("correct");
+      });
+      if (!isCorrect && selectedButton) selectedButton.classList.add("incorrect");
+    } else if (input) {
+      input.disabled = true;
+      input.classList.add(isCorrect ? "correct" : "incorrect");
+      const submitButton = practiceOptions.querySelector("button");
+      if (submitButton) submitButton.disabled = true;
+    }
+
+    showPracticeFeedback(isCorrect, question);
+  };
+
+  const renderPracticeQuestion = () => {
+    const question = practiceState.questions[practiceState.index];
+    if (!question) return;
+
+    practiceState.answered = false;
+    practiceCategory.textContent = question.category;
+    practiceProgress.textContent = `Otázka ${practiceState.index + 1} z ${practiceState.questions.length}`;
+    practiceProgressBar.style.width = `${((practiceState.index + 1) / practiceState.questions.length) * 100}%`;
+    practiceQuestion.textContent = question.question;
+    practiceOptions.innerHTML = "";
+    practiceFeedback.hidden = true;
+    practiceFeedback.className = "practice-feedback";
+    practiceNextBtn.hidden = true;
+
+    if (question.type === "single") {
+      question.options.forEach((option, index) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "practice-option";
+        button.innerHTML = `<span class="practice-option-letter">${String.fromCharCode(65 + index)}</span><span>${escapeHTML(option)}</span>`;
+        button.addEventListener("click", () => answerPracticeQuestion(index === question.correct, question, button));
+        practiceOptions.appendChild(button);
+      });
+      return;
+    }
+
+    const answerRow = document.createElement("div");
+    answerRow.className = "practice-answer-row";
+    const input = document.createElement("input");
+    input.type = "text";
+    input.autocomplete = "off";
+    input.spellcheck = false;
+    input.placeholder = "Doplňte jedno až dvě slova…";
+    input.setAttribute("aria-label", "Vaše doplnění");
+    const checkButton = document.createElement("button");
+    checkButton.type = "button";
+    checkButton.className = "btn btn-primary";
+    checkButton.textContent = "Zkontrolovat";
+    const submit = () => {
+      const userAnswer = normalisePracticeAnswer(input.value);
+      if (!userAnswer) {
+        input.focus();
+        return;
+      }
+      const isCorrect = question.answers.some((answer) => normalisePracticeAnswer(answer) === userAnswer);
+      answerPracticeQuestion(isCorrect, question, null, input);
+    };
+    checkButton.addEventListener("click", submit);
+    input.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") submit();
+    });
+    answerRow.append(input, checkButton);
+    practiceOptions.appendChild(answerRow);
+    window.setTimeout(() => input.focus(), 0);
+  };
+
+  const startPracticeSession = () => {
+    const pool = getPracticePool();
+    if (!pool.length) return;
+    practiceState.questions = [...pool]
+      .sort(() => Math.random() - 0.5)
+      .slice(0, Math.min(practiceState.selectedSize, pool.length));
+    practiceState.index = 0;
+    practiceState.correct = 0;
+    practiceSetup.hidden = true;
+    practiceResults.hidden = true;
+    practiceSession.hidden = false;
+    renderPracticeQuestion();
+  };
+
+  const showPracticeResults = () => {
+    const total = practiceState.questions.length;
+    const percentage = Math.round((practiceState.correct / total) * 100);
+    practiceSession.hidden = true;
+    practiceResults.hidden = false;
+    practiceResultsText.textContent = `Úspěšnost: ${percentage} % (${practiceState.correct} z ${total} správně).`;
+  };
+
+  document.querySelectorAll("[data-practice-type]").forEach((button) => {
+    button.addEventListener("click", () => {
+      document.querySelectorAll("[data-practice-type]").forEach((item) => item.classList.remove("active"));
+      button.classList.add("active");
+      practiceState.selectedType = button.dataset.practiceType;
+    });
+  });
+
+  document.querySelectorAll("[data-practice-size]").forEach((button) => {
+    button.addEventListener("click", () => {
+      document.querySelectorAll("[data-practice-size]").forEach((item) => item.classList.remove("active"));
+      button.classList.add("active");
+      practiceState.selectedSize = Number(button.dataset.practiceSize);
+    });
+  });
+
+  practiceStartBtn?.addEventListener("click", startPracticeSession);
+  practiceNextBtn?.addEventListener("click", () => {
+    practiceState.index += 1;
+    if (practiceState.index >= practiceState.questions.length) showPracticeResults();
+    else renderPracticeQuestion();
+  });
+  practiceRestartBtn?.addEventListener("click", () => {
+    practiceResults.hidden = true;
+    practiceSetup.hidden = false;
   });
 
   // --- KEYBOARD SHORTCUTS ---
@@ -2083,8 +2267,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const switchView = (viewName, updateHash = true) => {
     state.activeView = viewName;
-    [modulesView, ekgView, moduleDetailView, srView].forEach((v) => v?.classList.remove("active"));
-    [navModulesBtn, navEkgBtn, navSrBtn].forEach((b) => b?.classList.remove("active"));
+    [modulesView, ekgView, moduleDetailView, srView, practiceView].forEach((v) => v?.classList.remove("active"));
+    [navModulesBtn, navEkgBtn, navSrBtn, navPracticeBtn].forEach((b) => b?.classList.remove("active"));
 
     if (viewName === "modules") {
       modulesView.classList.add("active");
@@ -2109,6 +2293,12 @@ document.addEventListener("DOMContentLoaded", () => {
       if (updateHash && window.location.hash !== "#leitner") {
         window.location.hash = "#leitner";
       }
+    } else if (viewName === "practice") {
+      practiceView.classList.add("active");
+      navPracticeBtn.classList.add("active");
+      if (updateHash && window.location.hash !== "#procvicej") {
+        window.location.hash = "#procvicej";
+      }
     }
   };
 
@@ -2127,6 +2317,8 @@ document.addEventListener("DOMContentLoaded", () => {
       else switchEkgSubpane(state.activeEkgSubpane || "desatero");
     } else if (hash === "#leitner" || hash === "#spaced-repetition") {
       startSpacedRepetition("all", false);
+    } else if (hash === "#procvicej" || hash === "#practice") {
+      switchView("practice", false);
     } else if (hash.startsWith("#modul-")) {
       const modId = hash.replace("#modul-", "");
       openModuleDetail(modId);
@@ -2148,6 +2340,11 @@ document.addEventListener("DOMContentLoaded", () => {
   navSrBtn?.addEventListener("click", (e) => {
     e.preventDefault();
     window.location.hash = "#leitner";
+  });
+
+  navPracticeBtn?.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location.hash = "#procvicej";
   });
 
   startDueBtn?.addEventListener("click", () => startSpacedRepetition("all", true));

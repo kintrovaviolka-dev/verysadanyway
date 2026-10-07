@@ -574,6 +574,48 @@ function renderBearQuestion() {
   bearQuiz.append(options);
 }
 
+function renderBearReview(results) {
+  const resultsById = new Map(results.map((result) => [result.id, result]));
+  bearQuiz.replaceChildren();
+  bearQuiz.classList.remove('hidden');
+
+  const heading = document.createElement('h3');
+  heading.className = 'bear-review-heading';
+  heading.textContent = 'Přehled odpovědí';
+  bearQuiz.append(heading);
+
+  const review = document.createElement('div');
+  review.className = 'bear-review';
+  bearQuestions.forEach((question, index) => {
+    const answer = bearAnswers[index];
+    const result = resultsById.get(question.id);
+    if (!answer || !result) return;
+
+    const card = document.createElement('article');
+    card.className = `bear-review-card ${result.correct ? 'is-correct' : 'is-incorrect'}`;
+
+    const questionText = document.createElement('p');
+    questionText.className = 'bear-review-question';
+    questionText.textContent = `${index + 1}. ${question.question}`;
+
+    const verdict = document.createElement('p');
+    verdict.className = 'bear-review-verdict';
+    verdict.textContent = result.correct ? '✓ Správně' : '✕ Tohle nebyla správná možnost';
+
+    const selected = document.createElement('p');
+    selected.className = 'bear-review-selected';
+    selected.textContent = `Tvoje odpověď: ${question.options[answer.answerIndex]}`;
+
+    const explanation = document.createElement('p');
+    explanation.className = 'bear-review-explanation';
+    explanation.textContent = result.explanation || 'Vysvětlení k této otázce zatím chybí.';
+
+    card.append(questionText, verdict, selected, explanation);
+    review.append(card);
+  });
+  bearQuiz.append(review);
+}
+
 async function completeBearMinimum() {
   $('#bear-status').textContent = 'Méďa kontroluje odpovědi…';
   const response = await apiFetch('/api/bear-minimum/complete', {
@@ -584,7 +626,7 @@ async function completeBearMinimum() {
     $('#bear-status').textContent = result.error ?? 'Vyhodnocení se nepodařilo.';
     return;
   }
-  bearQuiz.classList.add('hidden');
+  renderBearReview(result.results ?? []);
   $('#start-bear-minimum').classList.remove('hidden');
   $('#start-bear-minimum').textContent = 'Dát si jiných 10 otázek';
   $('#bear-intro').textContent = `✨ Hotovo: ${result.correct}/${result.total}. Přibyla ti sněhová vločka do sbírky — i krátký krok se počítá!`;

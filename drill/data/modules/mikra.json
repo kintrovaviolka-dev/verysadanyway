@@ -1,0 +1,4460 @@
+{
+  "id": "mikra",
+  "title": "Mikrobiologie",
+  "grade": 3,
+  "icon": "🦠",
+  "color": "#14b8a6",
+  "questions": [
+    {
+      "id": "mikra-mikra-1-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-1-a",
+      "topicTitle": "Nefermentující gramnegativní tyčinky (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Který pigment produkuje Pseudomonas aeruginosa a způsobuje modrozelené zbarvení?",
+      "options": [
+        "Melanin",
+        "Pyocyanin",
+        "Fluorescein",
+        "Pyorubrin"
+      ],
+      "correctIndex": 1,
+      "explanation": "P. aeruginosa produkuje modrý pigment pyocyanin a zelený fluorescein (pyoverdine). Kombinace dává charakteristické modrozelené zbarvení.",
+      "pearl": "P. aeruginosa: antipseudomonální peniciliny (piperacilin-tazobaktam), cefalosporiny 3.–4. gen (ceftazidim, cefepim), karbapenemy (imipenem), aminoglykosidy, flu",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-1-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-1-a",
+      "topicTitle": "Nefermentující gramnegativní tyčinky (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Která vlastnost Pseudomonas aeruginosa je klíčová pro chronickou infekci u pacientů s cystickou fibrózou?",
+      "options": [
+        "Produkce exotoxinu A",
+        "Tvorba alginátového biofilmu",
+        "Produkce hemolyzinů",
+        "Flagelární pohyblivost"
+      ],
+      "correctIndex": 1,
+      "explanation": "Alginát tvoří biofilm, který chrání P. aeruginosa před fagocytózou a antibiotiky – klíčový faktor chronické kolonizace plic u CF.",
+      "pearl": "P. aeruginosa: antipseudomonální peniciliny (piperacilin-tazobaktam), cefalosporiny 3.–4. gen (ceftazidim, cefepim), karbapenemy (imipenem), aminoglykosidy, flu",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-1-a-sc-3",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-1-a",
+      "topicTitle": "Nefermentující gramnegativní tyčinky (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Acinetobacter baumannii je znám zejména jako:",
+      "options": [
+        "Komunitní patogen GIT",
+        "Multirezistentní nozokomiální patogen",
+        "Původce legionářské nemoci",
+        "Původce kapavky"
+      ],
+      "correctIndex": 1,
+      "explanation": "A. baumannii je typický MDRAB/XDRAB nozokomiální patogen, způsobující pneumonie na JIP, infekce ran, sepse – obávána je jeho multirezistence.",
+      "pearl": "P. aeruginosa: antipseudomonální peniciliny (piperacilin-tazobaktam), cefalosporiny 3.–4. gen (ceftazidim, cefepim), karbapenemy (imipenem), aminoglykosidy, flu",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-1-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-1-b",
+      "topicTitle": "Přímá diagnostika virů (Diagnostika)",
+      "type": "single_choice",
+      "question": "Který základní znak potvrzuje replikaci viru v tkáňové kultuře?",
+      "options": [
+        "Zákal kultivačního média",
+        "Cytopatický efekt (CPE)",
+        "Pozitivní Gramovo barvení",
+        "Tvorba spor"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cytopatický efekt (CPE) jsou morfologické změny buněk (zaokrouhlení, lýza, tvorba syncytií, inkluzní tělíska) způsobené virem – klíčový důkaz virové replikace.",
+      "pearl": "1. Izolace viru – kultivace:• Tkáňové kultury (buněčné linie: Vero, HeLa, MRC-5) – standardní• Embryonované slepičí vejce (influenza, poxviry)• Laboratorní zvíř",
+      "tags": [
+        "Single Choice",
+        "Diagnostika"
+      ]
+    },
+    {
+      "id": "mikra-mikra-1-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-1-b",
+      "topicTitle": "Přímá diagnostika virů (Diagnostika)",
+      "type": "single_choice",
+      "question": "Která metoda přímé diagnostiky virů je nejcitlivější?",
+      "options": [
+        "Elektronová mikroskopie",
+        "ELISA antigenový test",
+        "Real-time PCR",
+        "Kultivace na tkáňových kulturách"
+      ],
+      "correctIndex": 2,
+      "explanation": "Real-time (kvantitativní) PCR je nejcitlivější – detekuje i jednotky kopií nukleové kyseliny ve vzorku.",
+      "pearl": "1. Izolace viru – kultivace:• Tkáňové kultury (buněčné linie: Vero, HeLa, MRC-5) – standardní• Embryonované slepičí vejce (influenza, poxviry)• Laboratorní zvíř",
+      "tags": [
+        "Single Choice",
+        "Diagnostika"
+      ]
+    },
+    {
+      "id": "mikra-mikra-1-b-sc-3",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-1-b",
+      "topicTitle": "Přímá diagnostika virů (Diagnostika)",
+      "type": "single_choice",
+      "question": "Pro průkaz rotavirů ve stolici se nejčastěji používá:",
+      "options": [
+        "Kultivace na tkáňových kulturách",
+        "ELISA průkaz antigenu ve stolici",
+        "Sérologický průkaz protilátek",
+        "Gramovo barvení"
+      ],
+      "correctIndex": 1,
+      "explanation": "ELISA průkaz antigenu ve stolici je pro rotaviry standardní – vysoká citlivost i specifita, vhodná pro rutinní diagnostiku.",
+      "pearl": "1. Izolace viru – kultivace:• Tkáňové kultury (buněčné linie: Vero, HeLa, MRC-5) – standardní• Embryonované slepičí vejce (influenza, poxviry)• Laboratorní zvíř",
+      "tags": [
+        "Single Choice",
+        "Diagnostika"
+      ]
+    },
+    {
+      "id": "mikra-mikra-1-case",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-1",
+      "topicTitle": "Nefermentující gramnegativní tyčinky",
+      "type": "case_study",
+      "title": "Klinická mikrobiologie: Nefermentující gramnegativní tyčinky",
+      "vignette": {
+        "scenario": "Jak se klinicky projevuje infekce vyvolaná patogeny ze skupiny: Nefermentující gramnegativní tyčinky?",
+        "solution": "P. aeruginosa:• Cystická fibróza – chronická pneumonie, biofilm• Popáleniny – hnisavé infekce ran (modrozelený hnis)• Nozokomiální pneumonie u UPV pacientů• Uroinfekce u katetrizovaných• Otitis externa maligna (diabetici)• Endoftalmitida, bakterémie a sepseAcinetobacter: Nozokomiální pneumonie, BSI, infekce ran.Stenotrophomonas: Pneumonie u imunosuprimovaných, krev.",
+        "keyTakeaway": "P. aeruginosa: antipseudomonální peniciliny (piperacilin-tazobaktam), cefalosporiny 3.–4. gen (ceftazidim, cefepim), karbapenemy (imipenem), aminoglykosidy, fluorochinolony. VŽDY kombinovaná terapie! Acinetobacter: karbapenemy, kolistin u XDRAB."
+      },
+      "explanation": "P. aeruginosa:• Cystická fibróza – chronická pneumonie, biofilm• Popáleniny – hnisavé infekce ran (modrozelený hnis)• Nozokomiální pneumonie u UPV pacientů• Uroinfekce u katetrizovaných• Otitis externa maligna (diabetici)• Endoftalmitida, bakterémie a sepseAcinetobacter: Nozokomiální pneumonie, BSI, infekce ran.Stenotrophomonas: Pneumonie u imunosuprimovaných, krev.",
+      "pearl": "P. aeruginosa: antipseudomonální peniciliny (piperacilin-tazobaktam), cefalosporiny 3.–4. gen (ceftazidim, cefepim), karbapenemy (imipenem), aminoglykosidy, fluorochinolony. VŽDY kombinovaná terapie! Acinetobacter: karbapenemy, kolistin u XDRAB.",
+      "tags": [
+        "Klinický rozbor",
+        "Infekce"
+      ]
+    },
+    {
+      "id": "mikra-mikra-2-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-2-a",
+      "topicTitle": "Bordetella, Brucella (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Která fáze černého kašle je nejnakažlivější?",
+      "options": [
+        "Fáze rekonvalescence",
+        "Paroxysmální fáze",
+        "Katarální fáze",
+        "Inkubační fáze"
+      ],
+      "correctIndex": 2,
+      "explanation": "Katarální fáze (1–2 týdny) – příznaky jako běžná rýma a kašel, ale B. pertussis se vylučuje v největším množství. Pacient je velmi nakažlivý.",
+      "pearl": "Bordetella: Azitromycin (1. volba), kotrimoxazol. Prevence: hexavakcína (DTaP/IPV/Hib/HBV) – 3 dávky + přeočkování.Brucella: Doxycyklin 6 týdnů + rifampicin (ne",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-2-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-2-a",
+      "topicTitle": "Bordetella, Brucella (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Který druh Brucella je nejpatogeničtější pro člověka?",
+      "options": [
+        "B. abortus",
+        "B. canis",
+        "B. melitensis",
+        "B. suis"
+      ],
+      "correctIndex": 2,
+      "explanation": "Brucella melitensis (ovce, kozy) způsobuje nejzávažnější formy brucelózy u člověka.",
+      "pearl": "Bordetella: Azitromycin (1. volba), kotrimoxazol. Prevence: hexavakcína (DTaP/IPV/Hib/HBV) – 3 dávky + přeočkování.Brucella: Doxycyklin 6 týdnů + rifampicin (ne",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-2-a-sc-3",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-2-a",
+      "topicTitle": "Bordetella, Brucella (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Pertussis toxin způsobuje lymfocytózu mechanizmem:",
+      "options": [
+        "Aktivace T-lymfocytů přes superantigen",
+        "Inhibice Gi proteinu → zvýšení cAMP → inhibice migrace lymfocytů",
+        "Blokáda receptorů pro chemokiny",
+        "Přímá destrukce neutrofilů"
+      ],
+      "correctIndex": 1,
+      "explanation": "PT inhibuje Gi protein → neinhibovaná adenylátcykláza → zvýšení cAMP → inhibice migrace lymfocytů z krve → lymfocytóza.",
+      "pearl": "Bordetella: Azitromycin (1. volba), kotrimoxazol. Prevence: hexavakcína (DTaP/IPV/Hib/HBV) – 3 dávky + přeočkování.Brucella: Doxycyklin 6 týdnů + rifampicin (ne",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-2-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-2-b",
+      "topicTitle": "Nepřímá diagnostika virů (sérologie) (Diagnostika)",
+      "type": "single_choice",
+      "question": "Co znamená serokonverze při sérologické diagnostice virové infekce?",
+      "options": [
+        "Vzestup IgM nad IgG",
+        "Přechod ze séronegativního na séropozitivní nález",
+        "Pokles titru protilátek na nulu",
+        "Průkaz viru v séru"
+      ],
+      "correctIndex": 1,
+      "explanation": "Serokonverze = pacient byl séronegativní a ve 2. séru se poprvé prokázaly specifické protilátky – jasný průkaz primární infekce.",
+      "pearl": "1. ELISA (Enzyme-Linked Immunosorbent Assay):• Nejpoužívanější sérologická metoda• Detekuje IgM (akutní infekce), IgG (prodělaná/chronická), IgA (slizniční)• Pr",
+      "tags": [
+        "Single Choice",
+        "Diagnostika"
+      ]
+    },
+    {
+      "id": "mikra-mikra-2-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-2-b",
+      "topicTitle": "Nepřímá diagnostika virů (sérologie) (Diagnostika)",
+      "type": "single_choice",
+      "question": "Která imunoglobulinová třída svědčí nejspolehlivěji pro akutní virovou infekci?",
+      "options": [
+        "IgA",
+        "IgG",
+        "IgM",
+        "IgE"
+      ],
+      "correctIndex": 2,
+      "explanation": "IgM jsou první protilátky, které se tvoří při akutní infekci a rychle klesají. Přítomnost IgM svědčí pro akutní nebo recentní infekci.",
+      "pearl": "1. ELISA (Enzyme-Linked Immunosorbent Assay):• Nejpoužívanější sérologická metoda• Detekuje IgM (akutní infekce), IgG (prodělaná/chronická), IgA (slizniční)• Pr",
+      "tags": [
+        "Single Choice",
+        "Diagnostika"
+      ]
+    },
+    {
+      "id": "mikra-mikra-2-b-sc-3",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-2-b",
+      "topicTitle": "Nepřímá diagnostika virů (sérologie) (Diagnostika)",
+      "type": "single_choice",
+      "question": "4násobný vzestup titru protilátek v párovém séru při KFR svědčí pro:",
+      "options": [
+        "Prodělanou infekci",
+        "Aktivní (aktuální) infekci",
+        "Imunitu po vakcinaci",
+        "Nespecifickou reakci"
+      ],
+      "correctIndex": 1,
+      "explanation": "4násobný vzestup titru IgG v párovém séru (odebraném s odstupem 2–3 týdnů) je diagnostickým kritériem aktivní infekce.",
+      "pearl": "1. ELISA (Enzyme-Linked Immunosorbent Assay):• Nejpoužívanější sérologická metoda• Detekuje IgM (akutní infekce), IgG (prodělaná/chronická), IgA (slizniční)• Pr",
+      "tags": [
+        "Single Choice",
+        "Diagnostika"
+      ]
+    },
+    {
+      "id": "mikra-mikra-2-case",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-2",
+      "topicTitle": "Bordetella, Brucella",
+      "type": "case_study",
+      "title": "Klinická mikrobiologie: Bordetella, Brucella",
+      "vignette": {
+        "scenario": "Jak se klinicky projevuje infekce vyvolaná patogeny ze skupiny: Bordetella, Brucella?",
+        "solution": "Černý kašel (pertussis):• Katarální fáze (1–2 týdny): rýma, kašel – velmi nakažlivé• Paroxysmální fáze (2–6 týdnů): záchvaty kašle zakončené inspiračním hvízdáním (whoop), zvracení po kašlání, apnoe u kojenců• Fáze rekonvalescence: kašel postupně ustupujeKomplikace: pneumonie, encefalopatie, mort u kojencůBrucelóza:• Zvlněná horečka (febris undulans) – kolísavá horečka, profuzní noční poty, bolesti svalů a kloubů, únava• Hepatosplenomegalie, lymfadenopatie• Komplikace: endokarditida, neurobrucelóza, orchitida",
+        "keyTakeaway": "Bordetella: Azitromycin (1. volba), kotrimoxazol. Prevence: hexavakcína (DTaP/IPV/Hib/HBV) – 3 dávky + přeočkování.Brucella: Doxycyklin 6 týdnů + rifampicin (nebo streptomycin) – kombinace nutná."
+      },
+      "explanation": "Černý kašel (pertussis):• Katarální fáze (1–2 týdny): rýma, kašel – velmi nakažlivé• Paroxysmální fáze (2–6 týdnů): záchvaty kašle zakončené inspiračním hvízdáním (whoop), zvracení po kašlání, apnoe u kojenců• Fáze rekonvalescence: kašel postupně ustupujeKomplikace: pneumonie, encefalopatie, mort u kojencůBrucelóza:• Zvlněná horečka (febris undulans) – kolísavá horečka, profuzní noční poty, bolesti svalů a kloubů, únava• Hepatosplenomegalie, lymfadenopatie• Komplikace: endokarditida, neurobrucelóza, orchitida",
+      "pearl": "Bordetella: Azitromycin (1. volba), kotrimoxazol. Prevence: hexavakcína (DTaP/IPV/Hib/HBV) – 3 dávky + přeočkování.Brucella: Doxycyklin 6 týdnů + rifampicin (nebo streptomycin) – kombinace nutná.",
+      "tags": [
+        "Klinický rozbor",
+        "Infekce"
+      ]
+    },
+    {
+      "id": "mikra-mikra-3-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-3-a",
+      "topicTitle": "Legionella, Gardnerella (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Proč se Legionella špatně barví Gramovým barvením?",
+      "options": [
+        "Nemá buněčnou stěnu",
+        "Obsahuje unikátní mastné kyseliny v buněčné stěně",
+        "Je příliš malá",
+        "Je intracelulární"
+      ],
+      "correctIndex": 1,
+      "explanation": "Stěna Legionelly obsahuje unikátní větvené mastné kyseliny, které způsobují špatné barvení Gramem. Lépe se barví stříbrem nebo Giemsa.",
+      "pearl": "Legionella: Azitromycin nebo levofloxacin (těžké případy), erytromycin/tetracyklin (lehčí).Gardnerella: Metronidazol (perorálně nebo vaginálně), řešení hormonál",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-3-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-3-a",
+      "topicTitle": "Legionella, Gardnerella (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Jakým způsobem je možné rychle diagnostikovat infekci Legionella pneumophila sérotyp 1?",
+      "options": [
+        "Kultivace na BCYE agaru",
+        "ELISA průkaz antigenu v moči",
+        "Gramovo barvení sputa",
+        "Weilova-Felixova reakce"
+      ],
+      "correctIndex": 1,
+      "explanation": "ELISA průkaz legionelového antigenu v moči je rychlý (hodiny) a citlivý (80 %) test pro L. pneumophila sérotyp 1.",
+      "pearl": "Legionella: Azitromycin nebo levofloxacin (těžké případy), erytromycin/tetracyklin (lehčí).Gardnerella: Metronidazol (perorálně nebo vaginálně), řešení hormonál",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-3-a-sc-3",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-3-a",
+      "topicTitle": "Legionella, Gardnerella (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Klíčové buňky (clue cells) v poševním sekretu jsou charakteristické pro:",
+      "options": [
+        "Kapavku",
+        "Trichomoniázu",
+        "Bakteriální vaginózu",
+        "Kandidovou kolpitidu"
+      ],
+      "correctIndex": 2,
+      "explanation": "Klíčové buňky = vaginální epiteliální buňky pokryté vrstvou bakterií (Gardnerella a dalšími anaeroby) – patognomický nález bakteriální vaginózy.",
+      "pearl": "Legionella: Azitromycin nebo levofloxacin (těžké případy), erytromycin/tetracyklin (lehčí).Gardnerella: Metronidazol (perorálně nebo vaginálně), řešení hormonál",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-3-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-3-b",
+      "topicTitle": "Chřipka a chřipkové viry (Virologie)",
+      "type": "single_choice",
+      "question": "Antigenní shift u chřipkového viru A vede k:",
+      "options": [
+        "Každoroční malé antigenní variabilitě",
+        "Vyměně celých genomových segmentů → nový podtyp → pandemie",
+        "Bodovým mutacím v hemaglutininu",
+        "Imunitní odpovědi ve sliznici"
+      ],
+      "correctIndex": 1,
+      "explanation": "Antigenní shift = přeskupení (reassortment) celých genomových segmentů mezi dvěma různými chřipkovými viry (např. lidský a ptačí) → nový podtyp H/N → imunologicky naivní populace → pandemie.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Virologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-3-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-3-b",
+      "topicTitle": "Chřipka a chřipkové viry (Virologie)",
+      "type": "single_choice",
+      "question": "Jaká je funkce neuraminidázy chřipkového viru?",
+      "options": [
+        "Vazba viru na buněčný receptor",
+        "Uvolnění nových virionů z povrchu infikované buňky",
+        "Replikace virové RNA",
+        "Tvorba obalové membrány"
+      ],
+      "correctIndex": 1,
+      "explanation": "Neuraminidáza štěpí kyselinu sialovou → oddělí nové viriony od povrchu buňky → umožní šíření infekce. Inhibitory neuraminidázy (oseltamivir) blokují tento krok.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Virologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-3-b-sc-3",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-3-b",
+      "topicTitle": "Chřipka a chřipkové viry (Virologie)",
+      "type": "single_choice",
+      "question": "Které receptory pro hemaglutinin influenza viru jsou přítomny v horních dýchacích cestách člověka?",
+      "options": [
+        "α2,3-sialyl receptory",
+        "α2,6-sialyl receptory",
+        "ACE2 receptory",
+        "CD4 receptory"
+      ],
+      "correctIndex": 1,
+      "explanation": "Lidské HCD obsahují α2,6-sialyl receptory – na ně se váže hemaglutinin sezónních chřipek. Ptáci mají α2,3 receptory v dolní DC – proto ptačí chřipka (H5N1) špatně infikuje HCD člověka.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Virologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-3-case",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-3",
+      "topicTitle": "Legionella, Gardnerella",
+      "type": "case_study",
+      "title": "Klinická mikrobiologie: Legionella, Gardnerella",
+      "vignette": {
+        "scenario": "Jak se klinicky projevuje infekce vyvolaná patogeny ze skupiny: Legionella, Gardnerella?",
+        "solution": "Legionářská nemoc: Těžká pneumonie, horečka, třesavka, suchý kašel, bolesti na hrudi, zmatenost, mikroabscesy v plicích. Mortalita 15–20 %. Predispozice: nízká imunita, kuřáci, stáří.Pontiacká horečka: Lehké chřipkovité onemocnění, 2–5 dní, spontánně odezní.Bakteriální vaginóza: Vazký zapáchající výtok (fish odor = zápach po rybině), zesílení alkalickým prostředím (sperma). MOP II. typ (bez leukocytů, bez laktobacilů, přítomny klíčové buňky).",
+        "keyTakeaway": "Legionella: Azitromycin nebo levofloxacin (těžké případy), erytromycin/tetracyklin (lehčí).Gardnerella: Metronidazol (perorálně nebo vaginálně), řešení hormonální rovnováhy."
+      },
+      "explanation": "Legionářská nemoc: Těžká pneumonie, horečka, třesavka, suchý kašel, bolesti na hrudi, zmatenost, mikroabscesy v plicích. Mortalita 15–20 %. Predispozice: nízká imunita, kuřáci, stáří.Pontiacká horečka: Lehké chřipkovité onemocnění, 2–5 dní, spontánně odezní.Bakteriální vaginóza: Vazký zapáchající výtok (fish odor = zápach po rybině), zesílení alkalickým prostředím (sperma). MOP II. typ (bez leukocytů, bez laktobacilů, přítomny klíčové buňky).",
+      "pearl": "Legionella: Azitromycin nebo levofloxacin (těžké případy), erytromycin/tetracyklin (lehčí).Gardnerella: Metronidazol (perorálně nebo vaginálně), řešení hormonální rovnováhy.",
+      "tags": [
+        "Klinický rozbor",
+        "Infekce"
+      ]
+    },
+    {
+      "id": "mikra-mikra-4-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-4-a",
+      "topicTitle": "Intracelulární G- tyčinky: Rickettsia, Coxiella, Chlamydia, Francisella (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Jaká jsou dvě formy životního cyklu Chlamydií?",
+      "options": [
+        "Vegetativní a sporulující",
+        "Elementární tělísko a retikulární tělísko",
+        "Trofozoiti a cysty",
+        "Hyfy a konidie"
+      ],
+      "correctIndex": 1,
+      "explanation": "Elementární tělísko (EB) = malá, metabolicky neaktivní, infekční forma; retikulární tělísko (RB) = velká forma, intracelulárně se dělí, ale není infekční.",
+      "pearl": "Doxycyklin – volba pro všechny. Azitromycin alternativa pro Chlamydie. Fluorochinolony pro Chlamydia pneumoniae.",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-4-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-4-a",
+      "topicTitle": "Intracelulární G- tyčinky: Rickettsia, Coxiella, Chlamydia, Francisella (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Která bakterie je původcem horečky Q?",
+      "options": [
+        "Rickettsia rickettsii",
+        "Francisella tularensis",
+        "Coxiella burnetii",
+        "Chlamydia psittaci"
+      ],
+      "correctIndex": 2,
+      "explanation": "Coxiella burnetii způsobuje horečku Q – zoonózu přenášenou ze skotu, ovcí. Tvoří spóry, přežívá v prostředí, přenáší se inhalací kontaminovaného prachu.",
+      "pearl": "Doxycyklin – volba pro všechny. Azitromycin alternativa pro Chlamydie. Fluorochinolony pro Chlamydia pneumoniae.",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-4-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-4-b",
+      "topicTitle": "Respirační viry (jiné než chřipka) (Virologie)",
+      "type": "single_choice",
+      "question": "RSV (respirační syncytiální virus) je nejnebezpečnější pro:",
+      "options": [
+        "Dospělé s CHOPN",
+        "Novorozence a kojence do 6 měsíců",
+        "Školní děti",
+        "Starší osoby s diabetem"
+      ],
+      "correctIndex": 1,
+      "explanation": "RSV způsobuje závažné bronchiolitis a bronchopneumonie u novorozenců a kojenců. Mateřské protilátky neposkytují ochranu – proto tato věková skupina nejvíce ohrožena.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Virologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-4-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-4-b",
+      "topicTitle": "Respirační viry (jiné než chřipka) (Virologie)",
+      "type": "single_choice",
+      "question": "Který sérotyp adenoviru způsobuje hemoragickou cystitidu?",
+      "options": [
+        "Typ 3",
+        "Typ 8",
+        "Typ 11",
+        "Typ 41"
+      ],
+      "correctIndex": 2,
+      "explanation": "Adenovirus typ 11 je hlavní příčinou hemoragické cystitidy (krvavá moč, dysurie), nejčastěji u dětí a imunosuprimovaných.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Virologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-4-case",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-4",
+      "topicTitle": "Intracelulární G- tyčinky: Rickettsia, Coxiella, Chlamydia, Francisella",
+      "type": "case_study",
+      "title": "Klinická mikrobiologie: Intracelulární G- tyčinky: Rickettsia, Coxiella, Chlamydia, Francisella",
+      "vignette": {
+        "scenario": "Jak se klinicky projevuje infekce vyvolaná patogeny ze skupiny: Intracelulární G- tyčinky: Rickettsia, Coxiella, Chlamydia, Francisella?",
+        "solution": "Chlamydia trachomatis: Urogenitální infekce (NGU, servarianty D–K), trachom (slepota, sérovary A–C), lymfogranuloma venereum (L1–L3).Q horečka: Akutní: chřipkovitá onemocnění, pneumonie, hepatitida. Chronická: endokarditida (až léta po infekci).Rickettsiální nemoci: Tyfusová horečka (vši), středomořská horečka (klíšťata), rickettsiální neštovice.Tularémie: Ulceroglandulární, okularglandulární, pneumonická forma.",
+        "keyTakeaway": "Doxycyklin – volba pro všechny. Azitromycin alternativa pro Chlamydie. Fluorochinolony pro Chlamydia pneumoniae."
+      },
+      "explanation": "Chlamydia trachomatis: Urogenitální infekce (NGU, servarianty D–K), trachom (slepota, sérovary A–C), lymfogranuloma venereum (L1–L3).Q horečka: Akutní: chřipkovitá onemocnění, pneumonie, hepatitida. Chronická: endokarditida (až léta po infekci).Rickettsiální nemoci: Tyfusová horečka (vši), středomořská horečka (klíšťata), rickettsiální neštovice.Tularémie: Ulceroglandulární, okularglandulární, pneumonická forma.",
+      "pearl": "Doxycyklin – volba pro všechny. Azitromycin alternativa pro Chlamydie. Fluorochinolony pro Chlamydia pneumoniae.",
+      "tags": [
+        "Klinický rozbor",
+        "Infekce"
+      ]
+    },
+    {
+      "id": "mikra-mikra-5-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-5-a",
+      "topicTitle": "Campylobacter, Helicobacter (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Proč se Campylobacter jejuni kultivuje při 42 °C?",
+      "options": [
+        "Vyšší teplota urychluje růst",
+        "Selekce termofilního C. jejuni (střevní teplota ptáků)",
+        "Potlačuje normální střevní mikroflóru",
+        "Obě b) a c)"
+      ],
+      "correctIndex": 3,
+      "explanation": "42 °C odpovídá tělesné teplotě ptáků (hlavní zdroj C. jejuni) – při této teplotě C. jejuni roste, ale většina komenzální střevní mikroflóry nikoliv (selektivní kultivace).",
+      "pearl": "Campylobacter: Makrolidy (azitromycin, klaritromycin), aminoglykosidy, doxycyklin.H. pylori (eradikace): Trojkombinace: amoxicilin + klaritromycin + omeprazol (",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-5-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-5-a",
+      "topicTitle": "Campylobacter, Helicobacter (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Jak Helicobacter pylori přežívá v kyselém prostředí žaludku?",
+      "options": [
+        "Tvorba spor",
+        "Ureasa produkuje amoniak → alkalické mikroprostředí kolem bakterie",
+        "Buněčná stěna odolná vůči kyselinám",
+        "Intracelulární přežívání v parietálních buňkách"
+      ],
+      "correctIndex": 1,
+      "explanation": "H. pylori produkuje ureázu, která štěpí močovinu na NH₃ a CO₂ → amoniakový oblak kolem bakterie neutralizuje kyselinu → přežití v kyselém žaludku.",
+      "pearl": "Campylobacter: Makrolidy (azitromycin, klaritromycin), aminoglykosidy, doxycyklin.H. pylori (eradikace): Trojkombinace: amoxicilin + klaritromycin + omeprazol (",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-5-a-sc-3",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-5-a",
+      "topicTitle": "Campylobacter, Helicobacter (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Dechový test pro diagnostiku H. pylori je postaven na principu:",
+      "options": [
+        "Dechová alergie na H. pylori",
+        "Značená ¹³C-urea je rozložena ureasou → ¹³CO₂ ve výdechu",
+        "Průkaz protilátek v kondenzátu výdechu",
+        "PCR z vydechovaného vzduchu"
+      ],
+      "correctIndex": 1,
+      "explanation": "Pacient spolkne ¹³C (nebo ¹⁴C) značenou ureu. Urease H. pylori ji štěpí → ¹³CO₂ se vstřebá a vydechuje se – detekovatelné speciálním přístrojem.",
+      "pearl": "Campylobacter: Makrolidy (azitromycin, klaritromycin), aminoglykosidy, doxycyklin.H. pylori (eradikace): Trojkombinace: amoxicilin + klaritromycin + omeprazol (",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-5-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-5-b",
+      "topicTitle": "Virové gastroenteritidy (Virologie)",
+      "type": "single_choice",
+      "question": "Která věková skupina je nejvíce ohrožena těžkou infekcí rotavirem?",
+      "options": [
+        "Dospělí nad 60 let",
+        "Teenageři",
+        "Kojenci (2–4 měsíce)",
+        "Těhotné ženy"
+      ],
+      "correctIndex": 2,
+      "explanation": "Primoinfekce rotavirem je nejzávažnější u kojenců ve věku 2–4 měsíce – imunita ještě není vyvinuta. Krátkodobá imunita po infekci vede k opakovaným reinfekcím.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Virologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-5-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-5-b",
+      "topicTitle": "Virové gastroenteritidy (Virologie)",
+      "type": "single_choice",
+      "question": "Noroviry jsou v epidemiologii gastroenteritid nebezpečné zejména proto, že:",
+      "options": [
+        "Jsou přenášeny vzdušnou cestou a kontaktem, infekční dávka je velmi nízká",
+        "Způsobují chronické infekce",
+        "Jsou obalené a tedy snadno ničitelné dezinfekcí",
+        "Způsobují jen infekce u imunosuprimovaných"
+      ],
+      "correctIndex": 0,
+      "explanation": "Noroviry: infekční dávka 10 virových jednotek, přenos fekálně-orální i vzdušnou cestou (aerosolem při zvracení) – snadné šíření v uzavřených kolektivech (lodě, domovy, nemocnice).",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Virologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-5-case",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-5",
+      "topicTitle": "Campylobacter, Helicobacter",
+      "type": "case_study",
+      "title": "Klinická mikrobiologie: Campylobacter, Helicobacter",
+      "vignette": {
+        "scenario": "Jak se klinicky projevuje infekce vyvolaná patogeny ze skupiny: Campylobacter, Helicobacter?",
+        "solution": "C. jejuni: Bolesti břicha, průjem (krev ve stolici), horečka – odezní 1 týden bez ATB. Sepse při průniku do krve. Zdroj: nedopečené kuřecí maso.H. pylori: Chronická gastritida, vředy žaludku a duodena. Asociace s MALT lymfomem žaludku a adenokarcinomem.",
+        "keyTakeaway": "Campylobacter: Makrolidy (azitromycin, klaritromycin), aminoglykosidy, doxycyklin.H. pylori (eradikace): Trojkombinace: amoxicilin + klaritromycin + omeprazol (PPI). Alternativa: amoxicilin + metronidazol + vizmut."
+      },
+      "explanation": "C. jejuni: Bolesti břicha, průjem (krev ve stolici), horečka – odezní 1 týden bez ATB. Sepse při průniku do krve. Zdroj: nedopečené kuřecí maso.H. pylori: Chronická gastritida, vředy žaludku a duodena. Asociace s MALT lymfomem žaludku a adenokarcinomem.",
+      "pearl": "Campylobacter: Makrolidy (azitromycin, klaritromycin), aminoglykosidy, doxycyklin.H. pylori (eradikace): Trojkombinace: amoxicilin + klaritromycin + omeprazol (PPI). Alternativa: amoxicilin + metronidazol + vizmut.",
+      "tags": [
+        "Klinický rozbor",
+        "Infekce"
+      ]
+    },
+    {
+      "id": "mikra-mikra-6-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-6-a",
+      "topicTitle": "Enterobakterie (kromě E. coli) (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Které enterobakterie jsou nepohyblivé?",
+      "options": [
+        "E. coli a Salmonella",
+        "Klebsiella, Shigella a Yersinia pestis",
+        "Proteus a Providencia",
+        "Serratia a Morganella"
+      ],
+      "correctIndex": 1,
+      "explanation": "Klebsiella (pouzdro místo bičíku), Shigella a Yersinia pestis jsou nepohyblivé enterobakterie – nemají H-antigen.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-6-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-6-a",
+      "topicTitle": "Enterobakterie (kromě E. coli) (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Laktosapozitivní kolonie enterobakterií na Endově agaru mají charakteristický:",
+      "options": [
+        "Černý střed",
+        "Kovový lesk (metalický lesk)",
+        "Žluté zbarvení",
+        "Průsvitný vzhled"
+      ],
+      "correctIndex": 1,
+      "explanation": "E. coli a další laktosapozitivní enterobakterie na Endově agaru tvoří kolonie s kovovým (metalickým) leskem – prasátkovité kolonie.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-6-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-6-b",
+      "topicTitle": "Neuroinfekce (virové) (Virologie)",
+      "type": "single_choice",
+      "question": "Bifázický průběh je typický pro:",
+      "options": [
+        "Herpetickou encefalitidu",
+        "Enterovirovou meningitidu",
+        "Klíšťovou encefalitidu",
+        "Vzteklinu"
+      ],
+      "correctIndex": 2,
+      "explanation": "Klíšťová encefalitida: 1. viremická fáze (horečka, myalgie) → 2. asymptomatické období (2–10 dní) → 3. neurologická fáze (meningoencefalitida). Bifázický průběh.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Virologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-6-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-6-b",
+      "topicTitle": "Neuroinfekce (virové) (Virologie)",
+      "type": "single_choice",
+      "question": "Která herpetická encefalitida je nejzávažnější a postihuje temporální laloky?",
+      "options": [
+        "CMV encefalitida",
+        "VZV cerebellitida",
+        "HSV-1 encefalitida",
+        "HHV-6 encefalitida"
+      ],
+      "correctIndex": 2,
+      "explanation": "HSV-1 encefalitida: hemoragická nekróza temporálních laloků, neléčená smrtnost 70 %, přeživší těžce postiženi. Léčba: aciklovir do 48 h od příznaků.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Virologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-6-case",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-6",
+      "topicTitle": "Enterobakterie (kromě E. coli)",
+      "type": "case_study",
+      "title": "Klinická mikrobiologie: Enterobakterie (kromě E. coli)",
+      "vignette": {
+        "scenario": "Jak se klinicky projevuje infekce vyvolaná patogeny ze skupiny: Enterobakterie (kromě E. coli)?",
+        "solution": "Střevní infekce, mimostřevní infekce (uro, sepse, meningitidy u novorozenců). Klebsiella pneumoniae: Pneumonie, nozokomiální UTI, sepse; má pouzdro. Proteus mirabilis: UTI (alkalizuje moč), ledvinové kameny. Enterobacter, Serratia: Nozokomiální infekce. Morganella, Providencia: UTI.",
+        "keyTakeaway": ""
+      },
+      "explanation": "Střevní infekce, mimostřevní infekce (uro, sepse, meningitidy u novorozenců). Klebsiella pneumoniae: Pneumonie, nozokomiální UTI, sepse; má pouzdro. Proteus mirabilis: UTI (alkalizuje moč), ledvinové kameny. Enterobacter, Serratia: Nozokomiální infekce. Morganella, Providencia: UTI.",
+      "pearl": "",
+      "tags": [
+        "Klinický rozbor",
+        "Infekce"
+      ]
+    },
+    {
+      "id": "mikra-mikra-7-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-7-a",
+      "topicTitle": "Escherichia coli, Shigella (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Proč je ATB léčba u infekce EHEC/STEC kontraindikována?",
+      "options": [
+        "EHEC je resistentní na všechna ATB",
+        "ATB uvolní shiga toxiny z lyzovaných bakterií → zhoršení HUS",
+        "ATB nejsou účinná v průsvitu střeva",
+        "Zvyšuje riziko alergické reakce"
+      ],
+      "correctIndex": 1,
+      "explanation": "Při lýze STEC bakterií (antibiotiky) se masivně uvolní shiga-like toxiny → proniknou do krve → hemolyticko-uremický syndrom (HUS) s akutním selháním ledvin.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-7-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-7-a",
+      "topicTitle": "Escherichia coli, Shigella (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Tenesmy jsou typickým příznakem u:",
+      "options": [
+        "Salmonelózy",
+        "Cholerovitého onemocnění",
+        "Shigelózy",
+        "Norovirózy"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tenesmy = frekventované bolestivé nutkání na stolici bez efektivní defekace – patognomický příznak shigelózy, způsobený zánětem distálního tlustého střeva.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-7-a-sc-3",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-7-a",
+      "topicTitle": "Escherichia coli, Shigella (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Enterotoxin LT (tepelně labilní) kmene ETEC způsobuje průjem mechanizmem:",
+      "options": [
+        "Invasí do slizniční buňky",
+        "Aktivace adenylátcyklázy → zvýšení cAMP → hypersekrece iontů a vody do střeva",
+        "Přímé poškození sliznice střeva",
+        "Supresí imunitní odpovědi"
+      ],
+      "correctIndex": 1,
+      "explanation": "LT toxin ETEC aktivuje adenylátcyklázu → zvyšuje intracelulární cAMP → otevření chloridových kanálů → hypersekrece vody a elektrolytů → vodnatý průjem (mechanismus stejný jako u choleragenu Vibrio cholerae).",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-7-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-7-b",
+      "topicTitle": "Herpetické viry (Virologie)",
+      "type": "single_choice",
+      "question": "Ve kterém gangliu přetrvává HSV-1 v latentním stadiu?",
+      "options": [
+        "Sakrálním gangliu",
+        "Trigeminálním gangliu",
+        "Dorsálním kořenovém gangliu C2–C4",
+        "Celiakálním plexu"
+      ],
+      "correctIndex": 1,
+      "explanation": "HSV-1 latentně přetrvává v trigeminálním (Gasserově) gangliu. Při reaktivaci (stres, infekce, UV záření) způsobuje herpes labialis nebo keratitidu.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Virologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-7-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-7-b",
+      "topicTitle": "Herpetické viry (Virologie)",
+      "type": "single_choice",
+      "question": "Infekční mononukleózu (EBV) charakterizuje typická triáda:",
+      "options": [
+        "Horečka, exantém, průjem",
+        "Horečka, tonzilofaryngitida, lymfadenopatie (± hepatosplenomegalie)",
+        "Kašel, rýma, konjunktivitida",
+        "Vyrážka, artritida, karditida"
+      ],
+      "correctIndex": 1,
+      "explanation": "Klasická triáda EBV mononukleózy: horečka + hnisavá angína + generalizovaná lymfadenopatie (zejm. krční uzliny) + hepatosplenomegalie. Monospot test (heterofilní protilátky).",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Virologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-8-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-8-a",
+      "topicTitle": "Salmonella, Yersinia (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Proč se ATB léčba nedoporučuje při nekomplikované zoopatogenní salmonelóze?",
+      "options": [
+        "Salmonela je přirozeně rezistentní",
+        "ATB zkrátí dobu příznaků, ale prodlouží dobu vylučování Salmonely",
+        "ATB způsobují silné vedlejší účinky",
+        "Průjem by se zhoršil"
+      ],
+      "correctIndex": 1,
+      "explanation": "ATB léčba u nekomplikované salmonelózy zkrátí klinické příznaky, ale paradoxně prodlouží střevní vylučování salmonel → záchovat přirozenou imunitní odpověď.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-8-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-8-a",
+      "topicTitle": "Salmonella, Yersinia (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Widalova reakce se používá k diagnostice:",
+      "options": [
+        "Salmonella Typhimurium gastroenteritidy",
+        "Břišního tyfu (S. Typhi)",
+        "Yersiniózy",
+        "Shigellózy"
+      ],
+      "correctIndex": 1,
+      "explanation": "Widalova aglutinační reakce detekuje protilátky proti O a H antigenům S. Typhi. Pozitivní = sérum aglutinuje i ve stokrát zředěném stavu s oběma antigeny.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-8-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-8-b",
+      "topicTitle": "Arboviry (Virologie)",
+      "type": "single_choice",
+      "question": "Hemoragická horečka dengue vzniká typicky při:",
+      "options": [
+        "Primoinfekcí dengue u kojenců",
+        "Reinfekci jiným sérotypem dengue u dětí",
+        "Infekci u imunosuprimovaných",
+        "Přenosu krvavou transfuzí"
+      ],
+      "correctIndex": 1,
+      "explanation": "Při reinfekci jiným sérotypem dengue existující protilátky zesilují vstup viru do makrofágů (antibody-dependent enhancement) → těžší průběh → hemoragická horečka dengue (DHF) nebo šokový syndrom (DSS).",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Virologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-8-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-8-b",
+      "topicTitle": "Arboviry (Virologie)",
+      "type": "single_choice",
+      "question": "Který členovec slouží jako hlavní vektor pro virus klíšťové encefalitidy (TBEV) ve střední Evropě?",
+      "options": [
+        "Komár rodu Culex",
+        "Blecha morová (Xenopsylla cheopis)",
+        "Klíště obecné (Ixodes ricinus)",
+        "Veš šatní (Pediculus humanus)"
+      ],
+      "correctIndex": 2,
+      "explanation": "Klíště obecné (Ixodes ricinus) je hlavním vektorem i rezervoárem viru klíšťové encefalitidy ve střední Evropě. Přenos nastává při sání krve klíštěte na hostiteli.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Virologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-9-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-9-a",
+      "topicTitle": "Vibrio, Aeromonas, Plesiomonas (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Mechanismus průjmu při choleře je:",
+      "options": [
+        "Destrukce střevní sliznice toxinem",
+        "Choleragen aktivuje adenylátcyklázu → zvýšení cAMP → hypersekrece vody a elektrolytů",
+        "Invaze Vibria do slizničních buněk",
+        "Produkce neurotoxinu"
+      ],
+      "correctIndex": 1,
+      "explanation": "Choleragen (CT) se váže na GM1 receptor enterocytů → aktivuje adenylátcyklázu → cAMP ↑ → otevření CFTR kanálů → hypersekrece Cl⁻, Na⁺, H₂O → profúzní vodnatý průjem (rýžová stolice).",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-9-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-9-a",
+      "topicTitle": "Vibrio, Aeromonas, Plesiomonas (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Která selektivní půda se standardně používá pro kultivaci a odlišení Vibrio cholerae od ostatních vibrií?",
+      "options": [
+        "Krevní agar s bacitracinem",
+        "Cetrimidový agar",
+        "TCŽS agar (thiosulfát-citrát-žlučové soli-sacharóza)",
+        "Endův agar"
+      ],
+      "correctIndex": 2,
+      "explanation": "TCŽS (TCBS) agar je vysoce selektivní půda pro vibria. Vibrio cholerae fermentuje sacharózu, a proto na něm roste v podobě charakteristických žlutých kolonií.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-9-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-9-b",
+      "topicTitle": "Exantémové virové infekce (Virologie)",
+      "type": "single_choice",
+      "question": "Koplikovy skvrny jsou patognomické pro:",
+      "options": [
+        "Zarděnky",
+        "Spalničky",
+        "Příušnice",
+        "Plané neštovice"
+      ],
+      "correctIndex": 1,
+      "explanation": "Koplikovy skvrny = drobné bílé/šedavé skvrny s červeným lemem na bukální sliznici (oproti 2. moláru) – typické pouze pro spalničky, předcházejí exantému.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Virologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-9-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-9-b",
+      "topicTitle": "Exantémové virové infekce (Virologie)",
+      "type": "single_choice",
+      "question": "Greggův syndrom je způsoben infekcí matky v 1. trimestru těhotenství:",
+      "options": [
+        "CMV",
+        "Rubeolou (zarděnky)",
+        "HSV-2",
+        "Parvovirus B19"
+      ],
+      "correctIndex": 1,
+      "explanation": "Greggův (vrozený zarděnkový) syndrom: infekce zarděnkami v 1. trimestru → vrozené vývojové vady: katarakta, srdeční vady, hluchota, mikrocefalie, hepatosplenomegalie.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Virologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-10-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-10-a",
+      "topicTitle": "Pasteurella, Haemophilus (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Satelitový fenomén u Haemophilu znamená:",
+      "options": [
+        "Schopnost H. influenzae přežívat v satelitech (vzdušném prostoru)",
+        "Hemofilové rostou v okolí S. aureus kolonií (S. aureus uvolní faktor V z erytrocytů)",
+        "Schopnost hemolýzy",
+        "Asociace s jinými bakteriemi"
+      ],
+      "correctIndex": 1,
+      "explanation": "S. aureus hemolyzuje erytrocyty → uvolní faktor V (NAD) → Haemophilus (vyžadující V faktor) roste jen v okolí stafylokokových kolonií = satelitový (komet) fenomén.",
+      "pearl": "Haemophilus: amoxicilin; kmeny produkující beta-laktamázu: co-amoxiclav, cefuroxim, klaritromycin, kotrimoxazol.",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-10-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-10-a",
+      "topicTitle": "Pasteurella, Haemophilus (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Akutní epiglotitida způsobená H. influenzae je nejnebezpečnější u:",
+      "options": [
+        "Novorozenců do 1 měsíce",
+        "Dětí 2–5 let",
+        "Dospělých nad 50 let",
+        "Těhotných žen"
+      ],
+      "correctIndex": 1,
+      "explanation": "H. influenzae sérotyp b způsobuje akutní epiglotitidu u dětí 2–5 let. Edém epiglotidu hrozí úplnou obstrukcí dýchacích cest – urgentní stav.",
+      "pearl": "Haemophilus: amoxicilin; kmeny produkující beta-laktamázu: co-amoxiclav, cefuroxim, klaritromycin, kotrimoxazol.",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-10-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-10-b",
+      "topicTitle": "Virové hepatitidy (Virologie)",
+      "type": "single_choice",
+      "question": "Který marker HBV svědčí pro aktivní replikaci viru a vysokou infekčnost?",
+      "options": [
+        "Anti-HBs",
+        "Anti-HBc IgG",
+        "HBeAg",
+        "HBsAg"
+      ],
+      "correctIndex": 2,
+      "explanation": "HBeAg (e-antigen HBV) svědčí pro aktivní virovou replikaci a vysokou infekčnost pacienta. Serokonverze HBeAg → anti-HBe značí ústup virové replikace.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Virologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-10-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-10-b",
+      "topicTitle": "Virové hepatitidy (Virologie)",
+      "type": "single_choice",
+      "question": "HCV infekce přechází do chronicity v:",
+      "options": [
+        "10 % případů",
+        "30 % případů",
+        "50 % případů",
+        "70 % případů"
+      ],
+      "correctIndex": 3,
+      "explanation": "Hepatitida C přechází do chronicity u 70 % infikovaných – proto je HCV nejzávažnějším chronickým hepatitickým virem. Moderní přímá antivirotika (DAA) dosahují > 95% vyléčení.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Virologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-11-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-11-a",
+      "topicTitle": "Neisserie (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Jaká je charakteristická schopnost gonokoka, která mu umožňuje unikat protilátkové imunitě?",
+      "options": [
+        "Tvorba spor",
+        "Genová konverze pilů (fimbrií) → produkce nových sérotypů",
+        "Intracelulární přežívání v lymfocytech",
+        "Pouzdro z kyseliny hyaluronové"
+      ],
+      "correctIndex": 1,
+      "explanation": "Gonokok má schopnost genové konverze – mění antigeny pilů (fimbrií) → produkuje nové sérotypy, vůči nimž imunita ještě neexistuje → uniká protilátkám.",
+      "pearl": "Kapavka: cefalosporiny 3. gen. (ceftriaxon), spektinomycin; rostoucí rezistence na fluorochinolony a peniciliny. Meningokokové infekce: penicilin (citlivé), amp",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-11-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-11-a",
+      "topicTitle": "Neisserie (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Zdraví nositelé meningokoka (10 % populace) ho nejčastěji nesou v:",
+      "options": [
+        "Nosohltanu/faryngu",
+        "Střevě",
+        "Uretře",
+        "Kůži"
+      ],
+      "correctIndex": 0,
+      "explanation": "Meningokok kolonizuje sliznici nosohltanu/faryngu bezpříznakových nosičů (10 % zdravé populace). Invazivní onemocnění vzniká jen u disponovaných jedinců.",
+      "pearl": "Kapavka: cefalosporiny 3. gen. (ceftriaxon), spektinomycin; rostoucí rezistence na fluorochinolony a peniciliny. Meningokokové infekce: penicilin (citlivé), amp",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-11-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-11-b",
+      "topicTitle": "Virové hemoragické horečky (Virologie)",
+      "type": "single_choice",
+      "question": "Která BSL (biosafety level) je vyžadována pro práci s Ebolou a Marburgem?",
+      "options": [
+        "BSL-1",
+        "BSL-2",
+        "BSL-3",
+        "BSL-4"
+      ],
+      "correctIndex": 3,
+      "explanation": "Ebola a Marburg are BSL-4 patogeny – vyžadují práci v prostředí s nejvyšší biologickou bezpečností (plně hermetické oblečení, negativní tlak v laboratoři, neopravitelné poškození).",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Virologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-11-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-11-b",
+      "topicTitle": "Virové hemoragické horečky (Virologie)",
+      "type": "single_choice",
+      "question": "Který z následujících virů způsobujících hemoragické horečky má jako hlavní rezervoár hlodavce a přenáší se vdechováním jejich aerosolizovaných exkretů?",
+      "options": [
+        "Virus Lassa (čeleď Arenaviridae)",
+        "Virus Marburg (čeleď Filoviridae)",
+        "Virus Ebola (čeleď Filoviridae)",
+        "Virus Žluté zimnice (čeleď Flaviviridae)"
+      ],
+      "correctIndex": 0,
+      "explanation": "Virus Lassa (Arenaviridae) má jako hlavní rezervoár hlodavce rodu Mastomys natalensis. Člověk se nejčastěji nakazí vdechnutím aerosolu kontaminovaného močí či trusem těchto hlodavců, případně přímým kontaktem.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Virologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-12-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-12-a",
+      "topicTitle": "Gramnegativní anaerobní bakterie (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Bacteroides fragilis je specifický rezistencí na:",
+      "options": [
+        "Metronidazol a klindamycin",
+        "Penicilin a kanamycin (a tvorba beta-laktamázy)",
+        "Vankomycin a rifampicin",
+        "Cefalosporiny 3. gen."
+      ],
+      "correctIndex": 1,
+      "explanation": "B. fragilis je rezistentní na penicilín a kanamycin a produkuje beta-laktamázu – narušuje beta-laktamová ATB. Volba léčby: metronidazol nebo inhibitory beta-laktamáz.",
+      "pearl": "Metronidazol (volba), klindamycin, chloramfenikol, peniciliny chráněné inhibitory beta-laktamáz. Často nutný chirurgický výkon.",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-12-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-12-a",
+      "topicTitle": "Gramnegativní anaerobní bakterie (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Fusospirochetózy vznikají smíšenou infekcí:",
+      "options": [
+        "Fusobakterie + Treponema pallidum",
+        "Fusobakterie + ústní spirochéty → gangrenózní rozpad tkáně",
+        "Fusobakterie + Bacteroides",
+        "Fusobakterie + Prevotella"
+      ],
+      "correctIndex": 1,
+      "explanation": "Fusospirochetózy (Vincentova angína, cancrum oris) – smíšená infekce Fusobacterium spp. s ústními spirochétami → typická gangrenózní destrukce sliznic.",
+      "pearl": "Metronidazol (volba), klindamycin, chloramfenikol, peniciliny chráněné inhibitory beta-laktamáz. Často nutný chirurgický výkon.",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-12-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-12-b",
+      "topicTitle": "Molekulárně biologické metody: hybridizace a amplifikace (Diagnostika)",
+      "type": "single_choice",
+      "question": "Jaká je hlavní výhoda amplifikačních metod (PCR) oproti hybridizačním?",
+      "options": [
+        "PCR je levnější",
+        "PCR detekuje jedinou kopii DNA, hybridizace potřebuje 10⁴–10⁵ kopií",
+        "Hybridizace je náchylnější ke kontaminaci",
+        "PCR nevyžaduje čistou DNA"
+      ],
+      "correctIndex": 1,
+      "explanation": "Amplifikační metody (PCR) mají výrazně vyšší analytickou citlivost – detekují i jednu kopii cílové DNA ve vzorku. Hybridizační metody potřebují minimálně 10⁴–10⁵ kopií DNA pro detekovatelný signál.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Diagnostika"
+      ]
+    },
+    {
+      "id": "mikra-mikra-12-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-12-b",
+      "topicTitle": "Molekulárně biologické metody: hybridizace a amplifikace (Diagnostika)",
+      "type": "single_choice",
+      "question": "Která z následujících hybridizačních metod se používá přímo na tkáňovém řezu v patologické laboratoři k lokalizaci virové DNA v hostitelské buňce bez nutnosti extrakce DNA?",
+      "options": [
+        "PCR (polymerázová řetězová reakce)",
+        "In situ hybridizace (ISH)",
+        "Multiplexová PCR",
+        "Sangerovo sekvenování"
+      ],
+      "correctIndex": 1,
+      "explanation": "In situ hybridizace (ISH) umožňuje přímou vizualizaci a lokalizaci specifické nukleové kyseliny přímo v buňkách nebo tkáňových řezech (in situ = na místě) bez její předchozí izolace.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Diagnostika"
+      ]
+    },
+    {
+      "id": "mikra-mikra-13-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-13-a",
+      "topicTitle": "Stafylokoky (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Proč jsou stafylokokové infekce charakterizovány tvorbou abscesů?",
+      "options": [
+        "Stafylokoky produkují kapslí",
+        "Koagulása přeměňuje fibrinogen na fibrin → ochranné ložisko abscesu kolem bakterií",
+        "Produkce PVL toxinu likviduje neutrofily",
+        "Schopnost intracelulárního přežití"
+      ],
+      "correctIndex": 1,
+      "explanation": "Koagulása S. aureus reaguje s plazmatickým faktorem → přeměna fibrinogenu na fibrin → fibrinová vrstva obklopuje bakterie → absces jako \"opevnění\" S. aureus před fagocytózou.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-13-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-13-a",
+      "topicTitle": "Stafylokoky (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Syndrom toxického šoku způsobuje:",
+      "options": [
+        "Protein A",
+        "TSST-1 (superantigen)",
+        "Koagulása",
+        "PVL toxin"
+      ],
+      "correctIndex": 1,
+      "explanation": "TSST-1 (toxic shock syndrome toxin 1) je superantigen – aktivuje obrovské množství T-buněk → masivní vyplavení cytokinů → toxický šok s horečkou, hypotenzí a orgánovým selháním.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-13-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-13-b",
+      "topicTitle": "PCR – polymerázová řetězová reakce (Diagnostika)",
+      "type": "single_choice",
+      "question": "Proč se Taq polymeráza používá v PCR místo běžné DNA polymerázy?",
+      "options": [
+        "Je levnější",
+        "Je termostabilní – přežije denaturační teplotu (95 °C) a pracuje při 72 °C",
+        "Je specifičtější pro virovou DNA",
+        "Produkuje méně chyb"
+      ],
+      "correctIndex": 1,
+      "explanation": "Taq polymeráza pochází z termofilní bakterie Thermus aquaticus – je termostabilní. Přežívá denaturaci při 95 °C a pracuje optimálně při 72 °C (elongace), zatímco standardní DNA polymerázy by se denaturovaly.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Diagnostika"
+      ]
+    },
+    {
+      "id": "mikra-mikra-13-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-13-b",
+      "topicTitle": "PCR – polymerázová řetězová reakce (Diagnostika)",
+      "type": "single_choice",
+      "question": "RT-PCR (reverzně-transkripční PCR) se používá pro:",
+      "options": [
+        "Detekci DNA patogenů",
+        "Amplifikaci RNA virů (přepis RNA → cDNA → PCR)",
+        "Kvantifikaci DNA v reálném čase",
+        "Sekvenování genů"
+      ],
+      "correctIndex": 1,
+      "explanation": "RT-PCR = nejprve reverzní transkriptáza přepíše RNA do cDNA (templát), pak probíhá standardní PCR. Nezbytná pro RNA viry: influenza, HCV, HIV, SARS-CoV-2.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Diagnostika"
+      ]
+    },
+    {
+      "id": "mikra-mikra-14-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-14-a",
+      "topicTitle": "Beta-hemolytické (pyogenní) streptokoky (Bakteriologie)",
+      "type": "single_choice",
+      "question": "M-protein S. pyogenes působí antifagocytárně, protože:",
+      "options": [
+        "Tvoří ochrannou kapsuli",
+        "Váže regulační faktor komplementu H → inhibuje aktivaci komplementu alternativní cestou",
+        "Produkuje toxin pro makrofágy",
+        "Váže fibrinogen → fibrinová ochrana"
+      ],
+      "correctIndex": 1,
+      "explanation": "M-protein váže faktor H (regulátor komplementu) → inhibuje aktivaci komplementu alternativní cestou → nemůže proběhnout opsonizace → S. pyogenes odolá fagocytóze.",
+      "pearl": "Penicilin (volba pro S. pyogenes, S. agalactiae). Makrolidy při alergii. Cíl: prevence revmatické horečky a GN.",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-14-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-14-a",
+      "topicTitle": "Beta-hemolytické (pyogenní) streptokoky (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Pozitivní CAMP test (zesílení hemolýzy v okolí S. aureus) je charakteristický pro:",
+      "options": [
+        "S. pyogenes",
+        "S. pneumoniae",
+        "S. agalactiae (skupina B)",
+        "Enterokoka"
+      ],
+      "correctIndex": 2,
+      "explanation": "CAMP test: S. agalactiae produkuje CAMP faktor → interaguje s beta-lyzinem S. aureus → výrazné zvýšení hemolýzy v oblasti mezi oběma bakteriemi = diagnostický znak skupiny B streptokoka.",
+      "pearl": "Penicilin (volba pro S. pyogenes, S. agalactiae). Makrolidy při alergii. Cíl: prevence revmatické horečky a GN.",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-14-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-14-b",
+      "topicTitle": "Sekvenování DNA, 16S rRNA, taxonomie bakterií (Diagnostika)",
+      "type": "single_choice",
+      "question": "ddNTPs (dideoxynukleosidtrifosfáty) zastavují replikaci, protože:",
+      "options": [
+        "Jsou radioaktivní",
+        "Nemají OH skupinu na 3' konci → nelze přidat další nukleotid",
+        "Jsou příliš velké pro aktivní místo polymerázy",
+        "Inhibují Taq polymerázu"
+      ],
+      "correctIndex": 1,
+      "explanation": "ddNTPs postrádají OH skupinu na 3' konci → po zapojení do řetězce nemůže proběhnout tvorba phosphodiesterové vazby s dalším nukleotidem → terminace elongace.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Diagnostika"
+      ]
+    },
+    {
+      "id": "mikra-mikra-14-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-14-b",
+      "topicTitle": "Sekvenování DNA, 16S rRNA, taxonomie bakterií (Diagnostika)",
+      "type": "single_choice",
+      "question": "Proč se 16S rRNA gen používá jako molekulární hodiny pro bakteriální taxonomii?",
+      "options": [
+        "Je nejkratší bakteriální gen",
+        "Obsahuje konzervované i druhově specifické (variabilní) oblasti umožňující identifikaci i příbuznost",
+        "Lze ho snadno amplifikovat pomocí PCR",
+        "Je přítomen jen u patogenních bakterií"
+      ],
+      "correctIndex": 1,
+      "explanation": "16S rRNA kombinuje konzervované oblasti (umožní použít univerzální primery → amplifikace všech bakterií) s variabilními oblastmi (specifické pro daný druh → identifikace). Sekvence odráží evoluční vzdálenost.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Diagnostika"
+      ]
+    },
+    {
+      "id": "mikra-mikra-15-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-15-a",
+      "topicTitle": "Viridující streptokoky a Pneumokoky (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Optochinový test se používá k odlišení S. pneumoniae od ostatních viridujících streptokoků. Pneumokok:",
+      "options": [
+        "Je rezistentní na optochin",
+        "Tvoří zónu inhibice kolem optochinového disku",
+        "Je citlivý na bacitracin",
+        "Tvoří modré kolonie"
+      ],
+      "correctIndex": 1,
+      "explanation": "S. pneumoniae je citlivý na optochin (ethylhydrocuprein) → tvoří inhibiční zónu >= 14 mm. Ostatní viridující streptokoky jsou rezistentní.",
+      "pearl": "Lék volby: Penicilin G (při citlivosti). Při rezistenci Cefotaxim / Ceftriaxon nebo Vankomycin.",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-15-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-15-a",
+      "topicTitle": "Viridující streptokoky a Pneumokoky (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Hlavním faktorem virulence Streptococcus pneumoniae, který brání opsonizaci a fagocytóze, je:",
+      "options": [
+        "Pneumolyzin",
+        "Teikoová kyselina",
+        "Polysacharidové pouzdro",
+        "M-protein"
+      ],
+      "correctIndex": 2,
+      "explanation": "Polysacharidové pouzdro maskuje povrchové antigeny bakteriální stěny a brání navázání C3b and fagocytóze.",
+      "pearl": "Lék volby: Penicilin G (při citlivosti). Při rezistenci Cefotaxim / Ceftriaxon nebo Vankomycin.",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-15-a-sc-3",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-15-a",
+      "topicTitle": "Viridující streptokoky a Pneumokoky (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Který ústní streptokok je klíčovým původcem zubního kazu díky tvorbě glukanů ze sacharózy?",
+      "options": [
+        "Streptococcus mutans",
+        "Streptococcus pneumoniae",
+        "Streptococcus pyogenes",
+        "Streptococcus agalactiae"
+      ],
+      "correctIndex": 0,
+      "explanation": "S. mutans syntetizuje pomocí glukosyltransferázy nerozpustné glukany, které tvoří matrix zubního plaku a metabolizují cukry na kyseliny.",
+      "pearl": "Lék volby: Penicilin G (při citlivosti). Při rezistenci Cefotaxim / Ceftriaxon nebo Vankomycin.",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-15-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-15-b",
+      "topicTitle": "Kvasinky a kvasinkové mikroorganismy (Candida, Cryptococcus) (Mykologie)",
+      "type": "single_choice",
+      "question": "Která z následujících kvasinek je přirozeně (intrinsicky) rezistentní vůči flukonazolu?",
+      "options": [
+        "Candida albicans",
+        "Candida krusei",
+        "Candida tropicalis",
+        "Candida parapsilosis"
+      ],
+      "correctIndex": 1,
+      "explanation": "Candida krusei vykazuje přirozenou rezistenci k flukonazolu; k léčbě se používají echinokandiny, vorikonazol či amfotericin B.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Mykologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-15-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-15-b",
+      "topicTitle": "Kvasinky a kvasinkové mikroorganismy (Candida, Cryptococcus) (Mykologie)",
+      "type": "single_choice",
+      "question": "Která diagnostická metoda se používá k průkazu polysacharidového pouzdra Cryptococcus neoformans v likvoru?",
+      "options": [
+        "Ziehl-Neelsenovo barvení",
+        "Tušový preparát (Burriho negativní barvení)",
+        "Gramovo barvení za horka",
+        "Neisserovo barvení"
+      ],
+      "correctIndex": 1,
+      "explanation": "Polysacharidové pouzdro nepropouští částice tuše, takže se kryptokokové buňky zobrazí jako jasné dvorce na tmavém pozadí.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Mykologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-15-b-sc-3",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-15-b",
+      "topicTitle": "Kvasinky a kvasinkové mikroorganismy (Candida, Cryptococcus) (Mykologie)",
+      "type": "single_choice",
+      "question": "Co je lékem první volby u invazivní systémové kandidózy (kandidémie) u neutropenického pacienta?",
+      "options": [
+        "Nystatin lokálně",
+        "Echinokandiny (např. Caspofungin)",
+        "Penicilin G",
+        "Metronidazol"
+      ],
+      "correctIndex": 1,
+      "explanation": "Echinokandiny blokují syntézu beta-glukanu stěny a jsou fungicidní vůči candidám s minimální toxicitou.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Mykologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-15-case",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-15",
+      "topicTitle": "Viridující streptokoky a Pneumokoky",
+      "type": "case_study",
+      "title": "Klinická mikrobiologie: Viridující streptokoky a Pneumokoky",
+      "vignette": {
+        "scenario": "Jak se klinicky projevuje infekce vyvolaná patogeny ze skupiny: Viridující streptokoky a Pneumokoky?",
+        "solution": "• Ústní streptokoky: Zubní kaz, subakutní bakteriální endokarditida (SBE, loudavá sepse).• S. pneumoniae: Lobární pneumonie (rezavé sputum), purulentní meningitida, otitis media (časté u dětí), sinusitida.",
+        "keyTakeaway": "Lék volby: Penicilin G (při citlivosti). Při rezistenci Cefotaxim / Ceftriaxon nebo Vankomycin."
+      },
+      "explanation": "• Ústní streptokoky: Zubní kaz, subakutní bakteriální endokarditida (SBE, loudavá sepse).• S. pneumoniae: Lobární pneumonie (rezavé sputum), purulentní meningitida, otitis media (časté u dětí), sinusitida.",
+      "pearl": "Lék volby: Penicilin G (při citlivosti). Při rezistenci Cefotaxim / Ceftriaxon nebo Vankomycin.",
+      "tags": [
+        "Klinický rozbor",
+        "Infekce"
+      ]
+    },
+    {
+      "id": "mikra-mikra-16-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-16-a",
+      "topicTitle": "Enterokoky, Leuconostoc, Pediococcus, nutričně variantní streptokoky (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Které dva rody grampozitivních koků vykazují přirozenou (intrinsickou) rezistenci k vankomycinu?",
+      "options": [
+        "Staphylococcus a Streptococcus",
+        "Leuconostoc a Pediococcus",
+        "Enterococcus a Peptostreptococcus",
+        "Streptococcus a Enterococcus"
+      ],
+      "correctIndex": 1,
+      "explanation": "Leuconostoc a Pediococcus mají pozměněnou stěnu zakončenou D-Ala-D-laktátem, takže na ně vankomycin nepůsobí.",
+      "pearl": "Lék volby: Ampicilin. Pro endokarditidy synergická kombinace Ampicilin + Gentamicin (aminoglykosid). U VRE: Linezolid, Daptomycin nebo Tigecyklin.",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-16-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-16-a",
+      "topicTitle": "Enterokoky, Leuconostoc, Pediococcus, nutričně variantní streptokoky (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Jaký je mechanismus rezistence u kmenů VRE (vankomycin-rezistentní enterokoky)?",
+      "options": [
+        "Změna cílového místa vazby glykopeptidů v buněčné stěně (D-Ala-D-Laktát namísto D-Ala-D-Ala)",
+        "Produkce specifické vankomycinázy štěpící antibiotikum",
+        "Aktivní efluxní pumpa odstraňující léčivo z buňky",
+        "Ztráta porinových kanálků v membráně"
+      ],
+      "correctIndex": 0,
+      "explanation": "Geny vanA a vanB kódují enzymy měnící terminální dipeptid peptidoglykanu na D-Ala-D-laktát, ke kterému má vankomycin nízkou afinitu.",
+      "pearl": "Lék volby: Ampicilin. Pro endokarditidy synergická kombinace Ampicilin + Gentamicin (aminoglykosid). U VRE: Linezolid, Daptomycin nebo Tigecyklin.",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-16-a-sc-3",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-16-a",
+      "topicTitle": "Enterokoky, Leuconostoc, Pediococcus, nutričně variantní streptokoky (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Které antibiotikum je doporučeným lékem volby pro terapii infekcí způsobených VRE kmeny?",
+      "options": [
+        "Ampicilin",
+        "Ceftriaxon",
+        "Linezolid",
+        "Imipenem"
+      ],
+      "correctIndex": 2,
+      "explanation": "Linezolid (inhibitor proteosyntézy) je schválen pro léčbu závažných infekcí způsobených VRE.",
+      "pearl": "Lék volby: Ampicilin. Pro endokarditidy synergická kombinace Ampicilin + Gentamicin (aminoglykosid). U VRE: Linezolid, Daptomycin nebo Tigecyklin.",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-16-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-16-b",
+      "topicTitle": "Aspergilové infekce (Mykologie)",
+      "type": "single_choice",
+      "question": "Které antimykotikum je lékem první volby pro léčbu invazivní plicní aspergilózy?",
+      "options": [
+        "Fluconazol",
+        "Vorikonazol",
+        "Nystatin",
+        "Flucytosin"
+      ],
+      "correctIndex": 1,
+      "explanation": "Vorikonazol vykazuje vyšší účinnost a nižší toxicitu než amfotericin B, a proto je lékem první volby pro léčbu invazivní aspergilózy.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Mykologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-16-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-16-b",
+      "topicTitle": "Aspergilové infekce (Mykologie)",
+      "type": "single_choice",
+      "question": "Detekce kterého specifického buněčného antigenu v séru a bronchoalveolární laváži (BAL) pomáhá diagnostikovat invazivní aspergilózu?",
+      "options": [
+        "Galaktomannan",
+        "Mannan",
+        "Kapsulární antigen",
+        "Teikoová kyselina"
+      ],
+      "correctIndex": 0,
+      "explanation": "Galaktomannan je polysacharid přítomný v buněčné stěně rodu Aspergillus, uvolňovaný během aktivního růstu hyf.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Mykologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-16-case",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-16",
+      "topicTitle": "Enterokoky, Leuconostoc, Pediococcus, nutričně variantní streptokoky",
+      "type": "case_study",
+      "title": "Klinická mikrobiologie: Enterokoky, Leuconostoc, Pediococcus, nutričně variantní streptokoky",
+      "vignette": {
+        "scenario": "Jak se klinicky projevuje infekce vyvolaná patogeny ze skupiny: Enterokoky, Leuconostoc, Pediococcus, nutričně variantní streptokoky?",
+        "solution": "Nozokomiální infekce močových cest (spojené s katetrem), nitrobřišní a pánevní abscesy, bakteriemie, subakutní endokarditida.",
+        "keyTakeaway": "Lék volby: Ampicilin. Pro endokarditidy synergická kombinace Ampicilin + Gentamicin (aminoglykosid). U VRE: Linezolid, Daptomycin nebo Tigecyklin."
+      },
+      "explanation": "Nozokomiální infekce močových cest (spojené s katetrem), nitrobřišní a pánevní abscesy, bakteriemie, subakutní endokarditida.",
+      "pearl": "Lék volby: Ampicilin. Pro endokarditidy synergická kombinace Ampicilin + Gentamicin (aminoglykosid). U VRE: Linezolid, Daptomycin nebo Tigecyklin.",
+      "tags": [
+        "Klinický rozbor",
+        "Infekce"
+      ]
+    },
+    {
+      "id": "mikra-mikra-17-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-17-a",
+      "topicTitle": "Korynebakteria, Bacillus sp. (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Jaký je molekulární mechanismus účinku difterického exotoxinu?",
+      "options": [
+        "Štěpení synaptických proteinů SNARE",
+        "ADP-ribosylace elongačního faktoru 2 (EF-2) a zástava proteosyntézy",
+        "Degradace fosfolipidů buněčné membrány",
+        "Stimulace adenylátcyklázy"
+      ],
+      "correctIndex": 1,
+      "explanation": "Difterický toxin je A-B toxin, jehož aktivní podjednotka A katalyzuje přenos ADP-ribózy na EF-2, čímž zastaví translokaci ribozomů a proteosyntézu.",
+      "pearl": "Záškrt: Antitoxin + Penicilin G / Erytromycin. Antrax: Ciprofloxacin / Doxycyklin.",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-17-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-17-a",
+      "topicTitle": "Korynebakteria, Bacillus sp. (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Které medium a biochemická vlastnost se využívají k diagnostice záškrtu (C. diphtheriae)?",
+      "options": [
+        "Růžové kolonie na Endově agaru",
+        "Telluritový agar (Claubergova půda), na kterém bakterie tvoří černé kolonie",
+        "Kyselé pH na Sabouraudově agaru",
+        "Modré zbarvení na Löwenstein-Jensenově půdě"
+      ],
+      "correctIndex": 1,
+      "explanation": "C. diphtheriae redukuje telluričitan draselný v Claubergově půdě na kovový tellur, což barví kolonie šedočerně.",
+      "pearl": "Záškrt: Antitoxin + Penicilin G / Erytromycin. Antrax: Ciprofloxacin / Doxycyklin.",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-17-a-sc-3",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-17-a",
+      "topicTitle": "Korynebakteria, Bacillus sp. (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Které stádium Bacillus anthracis je odpovědné za přenos a extrémní odolnost v prostředí?",
+      "options": [
+        "Vegetativní buňka",
+        "Bakteriální spóra (endospóra)",
+        "Toxinový komplex",
+        "Kapsulární antigen"
+      ],
+      "correctIndex": 1,
+      "explanation": "Endospory Bacillus anthracis jsou vysoce odolné vůči teplu, suchu i dezinfekci a mohou přežívat v půdě desítky let.",
+      "pearl": "Záškrt: Antitoxin + Penicilin G / Erytromycin. Antrax: Ciprofloxacin / Doxycyklin.",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-17-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-17-b",
+      "topicTitle": "Laboratorní techniky přímého a nepřímého průkazu mykotických nákaz (Mykologie)",
+      "type": "single_choice",
+      "question": "Který polysaccharide buněčné stěny hub slouží jako panfungální marker v séru pro včasnou diagnózu invazivních mykóz (např. kandidémie, aspergilózy)?",
+      "options": [
+        "(1,3)-β-D-glukan",
+        "Galaktomannan",
+        "LPS (lipopolysacharid)",
+        "Peptidoglykan"
+      ],
+      "correctIndex": 0,
+      "explanation": "(1,3)-beta-D-glukan je součástí stěny většiny medicínsky významných hub a detekuje se v séru; chybí však u zygomycet a kryptokoků.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Mykologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-17-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-17-b",
+      "topicTitle": "Laboratorní techniky přímého a nepřímého průkazu mykotických nákaz (Mykologie)",
+      "type": "single_choice",
+      "question": "Proč se k Sabouraudovu agaru při kultivaci hub standardně přidává chloramfenikol?",
+      "options": [
+        "K potlačení růstu kontaminujících bakterií",
+        "K urychlení klíčení spor hub",
+        "K inhibici růstu saprofytických kvasinek",
+        "K úpravě pH půdy"
+      ],
+      "correctIndex": 0,
+      "explanation": "Chloramfenikol je stabilní širokospektré antibiotikum, které brání přerůstání pomalu rostoucích hub doprovodnými bakteriemi.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Mykologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-17-case",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-17",
+      "topicTitle": "Korynebakteria, Bacillus sp.",
+      "type": "case_study",
+      "title": "Klinická mikrobiologie: Korynebakteria, Bacillus sp.",
+      "vignette": {
+        "scenario": "Jak se klinicky projevuje infekce vyvolaná patogeny ze skupiny: Korynebakteria, Bacillus sp.?",
+        "solution": "• Záškrt: Pablánová (pseudomembranózní) angína, bull neck (otok krku), toxic myocarditis, dušení.• Antrax: Kožní (pustula maligna - černý nebolestivý vřed), plicní (hadrářská nemoc - mediastinitida, krvavý exsudát), gastrointestinální.• B. cereus: Alimentární intoxikace (emetický typ s rychlým nástupem nebo průjmový typ s delší inkubací).",
+        "keyTakeaway": "Záškrt: Antitoxin + Penicilin G / Erytromycin. Antrax: Ciprofloxacin / Doxycyklin."
+      },
+      "explanation": "• Záškrt: Pablánová (pseudomembranózní) angína, bull neck (otok krku), toxic myocarditis, dušení.• Antrax: Kožní (pustula maligna - černý nebolestivý vřed), plicní (hadrářská nemoc - mediastinitida, krvavý exsudát), gastrointestinální.• B. cereus: Alimentární intoxikace (emetický typ s rychlým nástupem nebo průjmový typ s delší inkubací).",
+      "pearl": "Záškrt: Antitoxin + Penicilin G / Erytromycin. Antrax: Ciprofloxacin / Doxycyklin.",
+      "tags": [
+        "Klinický rozbor",
+        "Infekce"
+      ]
+    },
+    {
+      "id": "mikra-mikra-18-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-18-a",
+      "topicTitle": "Listeria, laktobacily (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Proč je při empirické antibiotické léčbě hnisavé meningitidy u novorozenců a starších dospělých nutné kombinovat cefalosporiny III. generace s Ampicilinem?",
+      "options": [
+        "Protože Listeria monocytogenes vykazuje intrinsickou (přirozenou) rezistenci k cefalosporinům",
+        "Pro synergický účinek na Streptococcus pneumoniae",
+        "Cefalosporiny nepůsobí na Haemophilus influenzae",
+        "Ampicilin snižuje otok mozku"
+      ],
+      "correctIndex": 0,
+      "explanation": "Listeria monocytogenes je přirozeně rezistentní ke všem cefalosporinům, proto je nutné u rizikových skupin (novorozenci, senioři, imunosuprimovaní) přidat k empirické léčbě ampicilin.",
+      "pearl": "Lék volby pro Listerii: **Ampicilin** (popř. s Gentamicinem). **Listeria vykazuje přirozenou rezistenci k cefalosporinům!**",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-18-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-18-a",
+      "topicTitle": "Listeria, laktobacily (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Který mikroorganismus tvoří klíčovou součást vaginální mikroflóry zdravé ženy a udržuje kyselé pH pochvy?",
+      "options": [
+        "Gardnerella vaginalis",
+        "Lactobacillus spp. (Döderleinův bacil)",
+        "Candida albicans",
+        "Streptococcus agalactiae"
+      ],
+      "correctIndex": 1,
+      "explanation": "Laktobacily produkují kyselinu mléčnou a H2O2, čímž udržují kyselé pH pochvy (< 4,5), které inhibuje růst anaerobů a kvasinek.",
+      "pearl": "Lék volby pro Listerii: **Ampicilin** (popř. s Gentamicinem). **Listeria vykazuje přirozenou rezistenci k cefalosporinům!**",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-18-a-sc-3",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-18-a",
+      "topicTitle": "Listeria, laktobacily (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Jaký charakteristický typ pohyb vužíva Listeria monocytogenes při pokojové teplotě (20–25 °C)?",
+      "options": [
+        "Rychlý přímý pohyb bičíky",
+        "Vířivý / přemetový pohyb (tumbling motility)",
+        "Plazivý pohyb (swarming)",
+        "Bakterie je zcela nepohyblivá"
+      ],
+      "correctIndex": 1,
+      "explanation": "Listeria monocytogenes má při teplotách pod 30 °C peritrichální bičíky vyvolávající typický přemetový (tumbling) pohyb, zatímco při 37 °C bičíky netvoří.",
+      "pearl": "Lék volby pro Listerii: **Ampicilin** (popř. s Gentamicinem). **Listeria vykazuje přirozenou rezistenci k cefalosporinům!**",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-18-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-18-b",
+      "topicTitle": "Kryptokoková meningoencefalitida (Mykologie)",
+      "type": "single_choice",
+      "question": "Který zástupce mykóz je nejčastějším původcem subakutní meningoencefalitidy u pacientů v pokročilém stádiu AIDS?",
+      "options": [
+        "Aspergillus fumigatus",
+        "Cryptococcus neoformans",
+        "Mucor indicus",
+        "Candida krusei"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cryptococcus neoformans vykazuje vysokou neurotropii a je nejčastější příčinou plísňové meningitidy u HIV pozitivních pacientů.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Mykologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-18-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-18-b",
+      "topicTitle": "Kryptokoková meningoencefalitida (Mykologie)",
+      "type": "single_choice",
+      "question": "Co tvoří hlavní faktor virulence Cryptococcus neoformans chránící kvasinku před imunitním systémem hostitele?",
+      "options": [
+        "Masivní polysacharidové pouzdro",
+        "Termolabilní enterotoxin",
+        "Endotoxická stěna s LPS",
+        "Bičík s tumbling pohybem"
+      ],
+      "correctIndex": 0,
+      "explanation": "Tlusté polysacharidové pouzdro brání fagocytóze a opsonizaci a potlačuje leukocytární infiltraci.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Mykologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-18-case",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-18",
+      "topicTitle": "Listeria, laktobacily",
+      "type": "case_study",
+      "title": "Klinická mikrobiologie: Listeria, laktobacily",
+      "vignette": {
+        "scenario": "Jak se klinicky projevuje infekce vyvolaná patogeny ze skupiny: Listeria, laktobacily?",
+        "solution": "• Listeria: U těhotných chřipkovité příznaky → infekce plodu (granulomatosis infantiseptica, abort, předčasný porod). U novorozenců (časná a pozdní sepse/meningitida) a u seniorů/imunodeficitů purulentní meningitida.• Laktobacily: Součást normální mikroflóry pochvy (Döderleinův bacil - udržuje pH < 4.5, brání vaginózám) a GIT. Zřídka vyvolávají oportunní endokarditidu.",
+        "keyTakeaway": "Lék volby pro Listerii: **Ampicilin** (popř. s Gentamicinem). **Listeria vykazuje přirozenou rezistenci k cefalosporinům!**"
+      },
+      "explanation": "• Listeria: U těhotných chřipkovité příznaky → infekce plodu (granulomatosis infantiseptica, abort, předčasný porod). U novorozenců (časná a pozdní sepse/meningitida) a u seniorů/imunodeficitů purulentní meningitida.• Laktobacily: Součást normální mikroflóry pochvy (Döderleinův bacil - udržuje pH < 4.5, brání vaginózám) a GIT. Zřídka vyvolávají oportunní endokarditidu.",
+      "pearl": "Lék volby pro Listerii: **Ampicilin** (popř. s Gentamicinem). **Listeria vykazuje přirozenou rezistenci k cefalosporinům!**",
+      "tags": [
+        "Klinický rozbor",
+        "Infekce"
+      ]
+    },
+    {
+      "id": "mikra-mikra-19-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-19-a",
+      "topicTitle": "Nocardia, Arcanobacterium a příbuzné G+ tyčinky (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Která z následujících vlastností je charakteristická pro rod Nocardia a odlišuje jej od rodu Actinomyces?",
+      "options": [
+        "Je to striktní anaerob",
+        "Je to striktní aerob a je částečně acidorezistentní (kyselovzdorný)",
+        "Působí výhradně vaginózy",
+        "Tvoří termostabilní endospory"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nocardia je striktní aerob a díky mykolovým kyselinám ve stěně je slabě acidorezistentní (zatímco Actinomyces je anaerobní a acidorezistentní není).",
+      "pearl": "Nokardióza: **Co-trimoxazol** (lék volby, dlouhodobě 6–12 měsíců). Arcanobacterium: Erytromycin nebo Penicilin.",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-19-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-19-a",
+      "topicTitle": "Nocardia, Arcanobacterium a příbuzné G+ tyčinky (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Lékem první volby pro terapii plicní a systémové nokardiózy je:",
+      "options": [
+        "Co-trimoxazol (TMP-SMX)",
+        "Penicilin G i.v.",
+        "Metronidazol",
+        "Amfotericin B"
+      ],
+      "correctIndex": 0,
+      "explanation": "Vysokodávkovaný Co-trimoxazol je lékem první volby a podává se po dobu několika měsíců pro zamezení relapsu.",
+      "pearl": "Nokardióza: **Co-trimoxazol** (lék volby, dlouhodobě 6–12 měsíců). Arcanobacterium: Erytromycin nebo Penicilin.",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-19-a-sc-3",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-19-a",
+      "topicTitle": "Nocardia, Arcanobacterium a příbuzné G+ tyčinky (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Který patogen vyvolává u mladistvých faryngitidu doprovázenou skarlatiniformním (spálovým) exantémem, čímž napodobuje Streptococcus pyogenes?",
+      "options": [
+        "Nocardia asteroides",
+        "Arcanobacterium haemolyticum",
+        "Listeria monocytogenes",
+        "Bacillus anthracis"
+      ],
+      "correctIndex": 1,
+      "explanation": "Arcanobacterium haemolyticum vyvolává u adolescentů angínu s kožním exantémem; je přirozeně rezistentní k některým antibiotikům, ale dobře citlivý na erytromycin.",
+      "pearl": "Nokardióza: **Co-trimoxazol** (lék volby, dlouhodobě 6–12 měsíců). Arcanobacterium: Erytromycin nebo Penicilin.",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-19-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-19-b",
+      "topicTitle": "Mukormykóza (Zygomykóza) (Mykologie)",
+      "type": "single_choice",
+      "question": "Které stádium dekompenzace diabetu představuje kritický rizikový faktor pro rozvoj rhinocerebrální mukormykózy?",
+      "options": [
+        "Chronická mírná hyperglykémie",
+        "Diabetická ketoacidóza (nízké pH stimuluje růst zygomycet)",
+        "Hypoglykemické koma",
+        "Diabetická retinopatie"
+      ],
+      "correctIndex": 1,
+      "explanation": "V kyselém prostředí (ketoacidóze) a při dostupnosti volného železa rostou zygomycety extrémně rychle a snadno invadují cévy.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Mykologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-19-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-19-b",
+      "topicTitle": "Mukormykóza (Zygomykóza) (Mykologie)",
+      "type": "single_choice",
+      "question": "Jak vypadají mikroskopická vlákna (hyfy) zygomycet (Mucor, Rhizopus) v nativním preparátu z tkáně?",
+      "options": [
+        "Úzké, septované hyfy větvící se pod ostrým úhlem 45°",
+        "Široké, neseptované (cenocytické) hyfy větvící se pod pravým úhlem 90°",
+        "Drobné pučící kvasinky s pseudohyfami",
+        "Jednoduché bičíkaté trofozoity"
+      ],
+      "correctIndex": 1,
+      "explanation": "Zygomycety charakterizují robustní neseptovaná vlákna větvená v pravém úhlu, na rozdíl od Aspergilla, který je úzký a septovaný pod úhlem 45°.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Mykologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-19-case",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-19",
+      "topicTitle": "Nocardia, Arcanobacterium a příbuzné G+ tyčinky",
+      "type": "case_study",
+      "title": "Klinická mikrobiologie: Nocardia, Arcanobacterium a příbuzné G+ tyčinky",
+      "vignette": {
+        "scenario": "Jak se klinicky projevuje infekce vyvolaná patogeny ze skupiny: Nocardia, Arcanobacterium a příbuzné G+ tyčinky?",
+        "solution": "• Nokardióza: Inhalační nákaza u imunosuprimovaných (glukokortikoidy, transplantace). Plicní nokardióza (nekrotizující pneumonie, abscesy) s častou hematogenní diseminací do mozku (abscesy CNS) a kůže.• Arcanobacterium: Faryngitida a tonzilitida s drobným exantémem napodobujícím spálu (postihuje adolescenty, vyžaduje odlišení od S. pyogenes).",
+        "keyTakeaway": "Nokardióza: **Co-trimoxazol** (lék volby, dlouhodobě 6–12 měsíců). Arcanobacterium: Erytromycin nebo Penicilin."
+      },
+      "explanation": "• Nokardióza: Inhalační nákaza u imunosuprimovaných (glukokortikoidy, transplantace). Plicní nokardióza (nekrotizující pneumonie, abscesy) s častou hematogenní diseminací do mozku (abscesy CNS) a kůže.• Arcanobacterium: Faryngitida a tonzilitida s drobným exantémem napodobujícím spálu (postihuje adolescenty, vyžaduje odlišení od S. pyogenes).",
+      "pearl": "Nokardióza: **Co-trimoxazol** (lék volby, dlouhodobě 6–12 měsíců). Arcanobacterium: Erytromycin nebo Penicilin.",
+      "tags": [
+        "Klinický rozbor",
+        "Infekce"
+      ]
+    },
+    {
+      "id": "mikra-mikra-20-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-20-a",
+      "topicTitle": "Grampozitivní anaerobní koky a tyčinky (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Který z následujících toxinů působí jako zinková metaloproteáza štěpící synaptobrevin, čímž blokuje uvolnění inhibičních mediátorů glycinu a GABA v míše?",
+      "options": [
+        "Botulotoxin",
+        "Tetanospasmin",
+        "Difterický toxin",
+        "Choleratoxin"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tetanospasmin retrográdně putuje do míšních interneuronů, kde zablokuje uvolnění tlumivých mediátorů → nekontrolovaná stimulace motorických neuronů a spastické křeče.",
+      "pearl": "C. perfringens: chirurgie + Penicilin G. Tetanus: Antitoxin (TIG) + Metronidazol + očkování. C. difficile: **Vankomycin p.o.** nebo **Fidaxomycin p.o.**",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-20-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-20-a",
+      "topicTitle": "Grampozitivní anaerobní koky a tyčinky (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Proč je podávání Vankomycinu intravenózně neúčinné při léčbě kolitidy vyvolané Clostridioides difficile?",
+      "options": [
+        "Vankomycin neproniká stěnou kapilár",
+        "Vankomycin se po i.v. podání nevylučuje do střevního lumen a nedosáhne tam terapeutické koncentrace",
+        "C. difficile je přirozeně rezistentní k vankomycinu",
+        "C. difficile se nachází pouze v krvi"
+      ],
+      "correctIndex": 1,
+      "explanation": "Vankomycin se z trávicího traktu téměř nevstřebává, což se využívá při podání p.o. (kdy působí přímo ve střevě). Při podání i.v. se do střeva nedostane.",
+      "pearl": "C. perfringens: chirurgie + Penicilin G. Tetanus: Antitoxin (TIG) + Metronidazol + očkování. C. difficile: **Vankomycin p.o.** nebo **Fidaxomycin p.o.**",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-20-a-sc-3",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-20-a",
+      "topicTitle": "Grampozitivní anaerobní koky a tyčinky (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Který klostridiový toxin funguje jako lecitináza (fosfolipáza C) rozrušující buněčné membrány a vyvolávající myonekrózu u plynaté sněti?",
+      "options": [
+        "Alfa-toxin Clostridium perfringens",
+        "Tetanospasmin",
+        "Toxin B Clostridium difficile",
+        "Botulotoxin"
+      ],
+      "correctIndex": 0,
+      "explanation": "Alfa-toxin C. perfringens hydrolyzuje lecitin v buněčných membránách erytrocytů, destiček a svalových buněk, což vede k nekróze a hemolýze.",
+      "pearl": "C. perfringens: chirurgie + Penicilin G. Tetanus: Antitoxin (TIG) + Metronidazol + očkování. C. difficile: **Vankomycin p.o.** nebo **Fidaxomycin p.o.**",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-20-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-20-b",
+      "topicTitle": "Endemické a vzácné mykózy (Mykologie)",
+      "type": "single_choice",
+      "question": "Který rezervoár je typický pro zdroj nákazy Histoplasma capsulatum v endemických oblastech?",
+      "options": [
+        "Půda bohatá na ptačí a netopýří trus (jeskyně, kurníky)",
+        "Sladkovodní ryby",
+        "Domácí kočky",
+        "Nesterilní jehly"
+      ],
+      "correctIndex": 0,
+      "explanation": "Ptačí a netopýří exkrementy poskytují ideální organické médium pro růst plísňové formy Histoplasma capsulatum.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Mykologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-20-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-20-b",
+      "topicTitle": "Endemické a vzácné mykózy (Mykologie)",
+      "type": "single_choice",
+      "question": "Nález robustních, kulatých struktur zvaných 'sférulie' naplněných desítkami drobných endospor v plicní biopsii je typický pro:",
+      "options": [
+        "Coccidioides immitis",
+        "Histoplasma capsulatum",
+        "Blastomyces dermatitidis",
+        "Candida albicans"
+      ],
+      "correctIndex": 0,
+      "explanation": "Coccidioides immitis v hostiteli netvoří kvasinky, nýbrž sférulie (průměr 20–80 µm), které praskají a uvolňují endospory.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Mykologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-20-case",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-20",
+      "topicTitle": "Grampozitivní anaerobní koky a tyčinky",
+      "type": "case_study",
+      "title": "Klinická mikrobiologie: Grampozitivní anaerobní koky a tyčinky",
+      "vignette": {
+        "scenario": "Jak se klinicky projevuje infekce vyvolaná patogeny ze skupiny: Grampozitivní anaerobní koky a tyčinky?",
+        "solution": "• Plynatá sněť: Myonekróza s krepitací (plyn ve tkáni), sepse.• Tetanus: Trismus (křeč žvýkacích svalů), risus sardonicus, opistotonus, spastická paralýza.• Botulismus: Chabá paralýza (diplopie, dysfagie, dyspnoe). U kojenců z medu.• C. difficile: Profúzní průjmy, hlen, pseudomembrány na sliznici tlustého střeva.",
+        "keyTakeaway": "C. perfringens: chirurgie + Penicilin G. Tetanus: Antitoxin (TIG) + Metronidazol + očkování. C. difficile: **Vankomycin p.o.** nebo **Fidaxomycin p.o.**"
+      },
+      "explanation": "• Plynatá sněť: Myonekróza s krepitací (plyn ve tkáni), sepse.• Tetanus: Trismus (křeč žvýkacích svalů), risus sardonicus, opistotonus, spastická paralýza.• Botulismus: Chabá paralýza (diplopie, dysfagie, dyspnoe). U kojenců z medu.• C. difficile: Profúzní průjmy, hlen, pseudomembrány na sliznici tlustého střeva.",
+      "pearl": "C. perfringens: chirurgie + Penicilin G. Tetanus: Antitoxin (TIG) + Metronidazol + očkování. C. difficile: **Vankomycin p.o.** nebo **Fidaxomycin p.o.**",
+      "tags": [
+        "Klinický rozbor",
+        "Infekce"
+      ]
+    },
+    {
+      "id": "mikra-mikra-21-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-21-a",
+      "topicTitle": "Mycobacterium tuberculosis (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Která barvící metoda se používá pro průkaz Mycobacterium tuberculosis?",
+      "options": [
+        "Barvení dle Grama",
+        "Barvení dle Ziehla-Neelsena",
+        "Giemsovo barvení",
+        "Burriho metoda"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ziehl-Neelsenovo barvení využívá karbolfuchsin za horka a odbarvení kyselým alkoholem. Acidorezistentní mykobakterie zůstanou červené.",
+      "pearl": "Iniciální fáze (2 měsíce): čtyřkombinace HRZE (Isoniazid, Rifampicin, Pyrazinamid, Ethambutol). Pokračovací fáze (4 měsíce): dvojkombinace HR.",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-21-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-21-a",
+      "topicTitle": "Mycobacterium tuberculosis (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Která čtyřkombinace antituberkulotik se podává v iniciální 2měsíční fázi léčení TBC?",
+      "options": [
+        "Penicilin, Streptomycin, Doxycyklin, Ciprofloxacin",
+        "Isoniazid, Rifampicin, Pyrazinamid, Ethambutol",
+        "Vancomycin, Gentamicin, Metronidazol, Azitromycin",
+        "Fluconazol, Klindamycin, Cotrimoxazol, Erytromycin"
+      ],
+      "correctIndex": 1,
+      "explanation": "Standardní iniciální regimen pro TBC je HRZE: Isoniazid, Rifampicin, Pyrazinamid a Ethambutol po dobu 2 měsíců.",
+      "pearl": "Iniciální fáze (2 měsíce): čtyřkombinace HRZE (Isoniazid, Rifampicin, Pyrazinamid, Ethambutol). Pokračovací fáze (4 měsíce): dvojkombinace HR.",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-21-a-sc-3",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-21-a",
+      "topicTitle": "Mycobacterium tuberculosis (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Které buňky tvoří charakteristické jádro tuberkulózního granulomu v plicích?",
+      "options": [
+        "Neutrofilní granulocyty",
+        "Langhansovy obrovské vícejaderné buňky a epiteloidní buňky",
+        "Eosinofily",
+        "Mastocyty"
+      ],
+      "correctIndex": 1,
+      "explanation": "Při TBC granulomu splývají aktivované makrofágy v epiteloidní buňky a Langhansovy vícejaderné obrovské buňky obklopující kaseózní nekrózu.",
+      "pearl": "Iniciální fáze (2 měsíce): čtyřkombinace HRZE (Isoniazid, Rifampicin, Pyrazinamid, Ethambutol). Pokračovací fáze (4 měsíce): dvojkombinace HR.",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-21-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-21-b",
+      "topicTitle": "Pneumocystová pneumonie (PJP) (Mykologie)",
+      "type": "single_choice",
+      "question": "Pneumocystis jirovecii je z taxonomického hlediska:",
+      "options": [
+        "Prvok (Protozoon)",
+        "Gramnegativní bakterie",
+        "Houba (Mikromyceta)",
+        "Virus"
+      ],
+      "correctIndex": 2,
+      "explanation": "Sekvenování DNA jednoznačně zařadilo Pneumocystis jirovecii mezi houby.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Mykologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-21-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-21-b",
+      "topicTitle": "Pneumocystová pneumonie (PJP) (Mykologie)",
+      "type": "single_choice",
+      "question": "Lékem první volby v terapii i profilaxi pneumocystové pneumonie je:",
+      "options": [
+        "Amfotericin B",
+        "Co-trimoxazol (TMP-SMX)",
+        "Penicilin G",
+        "Ciprofloxacin"
+      ],
+      "correctIndex": 1,
+      "explanation": "Co-trimoxazol (Trimethoprim-Sulfamethoxazol) je lékem první volby pro léčbu i profilaxi PJP.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Mykologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-21-b-sc-3",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-21-b",
+      "topicTitle": "Pneumocystová pneumonie (PJP) (Mykologie)",
+      "type": "single_choice",
+      "question": "Pneumocystová pneumonie se rozvíjí typicky u HIV pozitivních pacientů, pokud poklesne hladina CD4+ T-lymfocytů pod:",
+      "options": [
+        "500 / µl",
+        "200 / µl",
+        "50 / µl",
+        "1000 / µl"
+      ],
+      "correctIndex": 1,
+      "explanation": "Kritickou hranicí pro vznik PJP je pokles CD4+ T-buněk pod 200 v 1 mm³ krve.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Mykologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-21-case",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-21",
+      "topicTitle": "Mycobacterium tuberculosis",
+      "type": "case_study",
+      "title": "Klinická mikrobiologie: Mycobacterium tuberculosis",
+      "vignette": {
+        "scenario": "Jak se klinicky projevuje infekce vyvolaná patogeny ze skupiny: Mycobacterium tuberculosis?",
+        "solution": "• Primární TBC: Většinou asymptomatická, zhojení kalcifikací.• Postprimární (reaktivovaná) TBC: Postihuje plicní hroty. Kašel, hemoptýza, noční poty, kachexie (úbytek hmotnosti). Extrapulmonální: bazální meningitida (hlavně u dětí), urogenitální, kostní (Pottova nemoc).",
+        "keyTakeaway": "Iniciální fáze (2 měsíce): čtyřkombinace HRZE (Isoniazid, Rifampicin, Pyrazinamid, Ethambutol). Pokračovací fáze (4 měsíce): dvojkombinace HR."
+      },
+      "explanation": "• Primární TBC: Většinou asymptomatická, zhojení kalcifikací.• Postprimární (reaktivovaná) TBC: Postihuje plicní hroty. Kašel, hemoptýza, noční poty, kachexie (úbytek hmotnosti). Extrapulmonální: bazální meningitida (hlavně u dětí), urogenitální, kostní (Pottova nemoc).",
+      "pearl": "Iniciální fáze (2 měsíce): čtyřkombinace HRZE (Isoniazid, Rifampicin, Pyrazinamid, Ethambutol). Pokračovací fáze (4 měsíce): dvojkombinace HR.",
+      "tags": [
+        "Klinický rozbor",
+        "Infekce"
+      ]
+    },
+    {
+      "id": "mikra-mikra-22-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-22-a",
+      "topicTitle": "Atypická (netuberkulózní) mykobakteria (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Které netuberkulózní mykobakterium vyvolává tzv. 'akvarijní granulom' po poranění ve vodě?",
+      "options": [
+        "Mycobacterium kansasii",
+        "Mycobacterium marinum",
+        "Mycobacterium bovis",
+        "Mycobacterium leprae"
+      ],
+      "correctIndex": 1,
+      "explanation": "M. marinum se vyskytuje ve vodě a akváriích a vstupuje drobnými oděrkami na kůži.",
+      "pearl": "Dlouhodobá kombinace: Klaritromycin/Azitromycin + Ethambutol + Rifampicin.",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-22-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-22-a",
+      "topicTitle": "Atypická (netuberkulózní) mykobakteria (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Čím se liší netuberkulózní mykobakteriózy od klasické tuberkulózy vyvolané M. tuberculosis?",
+      "options": [
+        "Nejsou acidorezistentní",
+        "Nepřenášejí se z člověka na člověka (jsou to enviromentální nákazy)",
+        "Způsobují je spirochety",
+        "Nelze je léčit žádnými antibiotiky"
+      ],
+      "correctIndex": 1,
+      "explanation": "NTM nákazy vznikají z prostředí; přenos z člověka na člověka nenastává.",
+      "pearl": "Dlouhodobá kombinace: Klaritromycin/Azitromycin + Ethambutol + Rifampicin.",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-22-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-22-b",
+      "topicTitle": "Dermatomykózy a povrchové mykózy (Mykologie)",
+      "type": "single_choice",
+      "question": "Pityriasis versicolor je povrchové mykotické onemocnění vyvolané:",
+      "options": [
+        "Trichophyton rubrum",
+        "Malassezia furfur",
+        "Candida albicans",
+        "Microsporum canis"
+      ],
+      "correctIndex": 1,
+      "explanation": "Malassezia furfur tvoří charakteristické šupinaté hyper/hypopigmentované skvrny na trupu.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Mykologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-22-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-22-b",
+      "topicTitle": "Dermatomykózy a povrchové mykózy (Mykologie)",
+      "type": "single_choice",
+      "question": "Které činidlo se přidává k seškrabu kůže při přímé mikroskopii pro rozvolnění lidského keratinu?",
+      "options": [
+        "Čistý ethanol",
+        "10–20% KOH (hydroxid draselný)",
+        "Kyselina chlorovodíková",
+        "Formalín"
+      ],
+      "correctIndex": 1,
+      "explanation": "Hydroxid draselný rozpustí lidský keratin a epitelie, což odhalí odolné stěny houbových hyf.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Mykologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-23-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-23-a",
+      "topicTitle": "Mycobacterium leprae a odběry na mykobakteria (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Proč nelze Mycobacterium leprae dokázat kultivací na Löwenstein-Jensenově půdě?",
+      "options": [
+        "Je to anaerobní bakterie",
+        "Je to obligátní intracelulární patogen nelze kultivovat in vitro",
+        "Kultivační půdu zničí svými toxiny",
+        "Roste pouze v agarovém médiu s krví"
+      ],
+      "correctIndex": 1,
+      "explanation": "M. leprae nelze kultivovat na umělých živných médiích in vitro (množí se pouze v živých tkáních).",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-23-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-23-a",
+      "topicTitle": "Mycobacterium leprae a odběry na mykobakteria (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Metoda dekontaminace nesterilních vzorků sputa dle Petroffa před kultivací TBC využívá vlastností mykobakterií odolávat působení:",
+      "options": [
+        "4% NaOH (hydroxidu sodného)",
+        "Horké vodě",
+        "Čistému acetonu",
+        "Ultrafialovému záření"
+      ],
+      "correctIndex": 0,
+      "explanation": "Působení 4% NaOH zničí doprovodnou flóru úst a dýchacích cest, zatímco odolné stěny mykobakterií přežijí.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-23-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-23-b",
+      "topicTitle": "Fusarióza, feohyfomykózy a chromoblastomykózy (Mykologie)",
+      "type": "single_choice",
+      "question": "Typickým mikroskopickým nálezem v tkáňovém vzorku u chromoblastomykózy jsou:",
+      "options": [
+        "Cysty Pneumocystis jirovecii",
+        "Sklerotická (muriformní) tělíska",
+        "Endospory Coccidioides",
+        "Sphaeruly"
+      ],
+      "correctIndex": 1,
+      "explanation": "Pro chromoblastomykózu jsou patognomická sklerotická tělíska (hnědé silnostěnné kulovité buněčné sestavy).",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Mykologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-23-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-23-b",
+      "topicTitle": "Fusarióza, feohyfomykózy a chromoblastomykózy (Mykologie)",
+      "type": "single_choice",
+      "question": "Jaké zbarvení mají vlákna a struktury feohyfomykózních hub v mikroskopickém preparátu?",
+      "options": [
+        "Bezbarvé / průhledné",
+        "Tmavě hnědé až černé (díky melaninu v buněčné stěně)",
+        "Světle růžové",
+        "Zelenožluté"
+      ],
+      "correctIndex": 1,
+      "explanation": "Dematiaceoví houby syntetizují melanin, který dává jejich hyfám a konidiím tmavě hnědé až černé zbarvení.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Mykologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-23-case",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-23",
+      "topicTitle": "Mycobacterium leprae a odběry na mykobakteria",
+      "type": "case_study",
+      "title": "Klinická mikrobiologie: Mycobacterium leprae a odběry na mykobakteria",
+      "vignette": {
+        "scenario": "Jak se klinicky projevuje infekce vyvolaná patogeny ze skupiny: Mycobacterium leprae a odběry na mykobakteria?",
+        "solution": "• Tuberkuloidní: necitlivé depigmentované skvrny na kůži, postižení nervů.• Lepromatózní: znetvoření obličeje (facies leontina), ztráta prstů, slepota, masivní ložiska.",
+        "keyTakeaway": ""
+      },
+      "explanation": "• Tuberkuloidní: necitlivé depigmentované skvrny na kůži, postižení nervů.• Lepromatózní: znetvoření obličeje (facies leontina), ztráta prstů, slepota, masivní ložiska.",
+      "pearl": "",
+      "tags": [
+        "Klinický rozbor",
+        "Infekce"
+      ]
+    },
+    {
+      "id": "mikra-mikra-24-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-24-a",
+      "topicTitle": "Antimykotika – klasifikace a mechanizmus účinku (Farmakoterapie)",
+      "type": "single_choice",
+      "question": "Která skupina antimykotik působí inhibicí syntézy β-(1,3)-D-glukanu buněčné stěny hub?",
+      "options": [
+        "Polyeny",
+        "Azoly",
+        "Echinokandiny",
+        "Allylaminy"
+      ],
+      "correctIndex": 2,
+      "explanation": "Echinokandiny (caspofungin, anidulafungin) blokují tvorbu β-(1,3)-D-glukanu, čímž způsobují osmotickou lýzu houbové buňky.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Farmakoterapie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-24-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-24-a",
+      "topicTitle": "Antimykotika – klasifikace a mechanizmus účinku (Farmakoterapie)",
+      "type": "single_choice",
+      "question": "Hlavním orgánově limitujícím nežádoucím účinkem systémově podávaného Amfotericinu B je:",
+      "options": [
+        "Nefrotoxicita",
+        "Kardiomyopatie",
+        "Aplastická anémie",
+        "Ototoxicita"
+      ],
+      "correctIndex": 0,
+      "explanation": "Amfotericin B vyvolává renální vasokonstrikci a přímé poškození tubulů vedoucí k nefrotoxicitě.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Farmakoterapie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-24-a-sc-3",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-24-a",
+      "topicTitle": "Antimykotika – klasifikace a mechanizmus účinku (Farmakoterapie)",
+      "type": "single_choice",
+      "question": "Flucytosin (5-FC) se v terapii systémových mykóz podává nejčastěji v kombinaci s Amfotericinem B u:",
+      "options": [
+        "Kandidové kolpitidy",
+        "Kryptokokové meningitidy",
+        "Tinea pedis",
+        "Pityriasis versicolor"
+      ],
+      "correctIndex": 1,
+      "explanation": "Kombinace Amfotericinu B a Flucytosinu je u kryptokokové meningitidy (C. neoformans) synergická.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Farmakoterapie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-24-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-24-b",
+      "topicTitle": "HIV – charakteristika, klinika a diagnostika (Virologie)",
+      "type": "single_choice",
+      "question": "Který antigen se detekuje v kombinovaném sérologickém testu 4. generace pro včasnou diagnostiku HIV?",
+      "options": [
+        "gp120",
+        "p24",
+        "gp41",
+        "p17"
+      ],
+      "correctIndex": 1,
+      "explanation": "Kapsidový antigen p24 se objevuje v séru ještě před tvorbou protilátek (v okně 2–3 týdnů po nákaze).",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Virologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-24-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-24-b",
+      "topicTitle": "HIV – charakteristika, klinika a diagnostika (Virologie)",
+      "type": "single_choice",
+      "question": "Pokles počtu CD4+ T-lymfocytů pod jakou hranici je kritériem pro definici stádia AIDS?",
+      "options": [
+        "500 / µl",
+        "200 / µl",
+        "50 / µl",
+        "1000 / µl"
+      ],
+      "correctIndex": 1,
+      "explanation": "Hladina CD4+ lymfocytů pod 200/µl indikuje těžký imunodeficit.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Virologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-25-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-25-a",
+      "topicTitle": "Mykoplasmata a chlamydie (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Forma chlamydie, která je infekční a přežívá v extracelulárním prostředí, se nazývá:",
+      "options": [
+        "Retikulární tělísko",
+        "Elementární tělísko",
+        "Tachyzoit",
+        "Sporozoit"
+      ],
+      "correctIndex": 1,
+      "explanation": "Elementární tělísko (EB) je infekční forma chlamydie přizpůsobená přežití mimo buňku hostitele.",
+      "pearl": "Makrolidy (Azitromycin) nebo Tetracykliny (Doxycyklin). β-laktamy jsou neúčinné!",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-25-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-25-a",
+      "topicTitle": "Mykoplasmata a chlamydie (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Proč jsou peniciliny a cefalosporiny zcela neúčinné při léčbě infekcí vyvolaných Mycoplasma pneumoniae?",
+      "options": [
+        "Mykoplasmata produkují masivně penicilinázu",
+        "Mykoplasmata nemají buněčnou stěnu (chybí peptidoglykan)",
+        "Mykoplasmata jsou striktní anaeroby",
+        "Mykoplasmata se vyskytují pouze v nehtové ploténce"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mykoplasmata postrádají buněčnou stěnu a peptidoglykan, na jehož syntézu β-laktamová antibiotika cílí.",
+      "pearl": "Makrolidy (Azitromycin) nebo Tetracykliny (Doxycyklin). β-laktamy jsou neúčinné!",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-25-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-25-b",
+      "topicTitle": "Trypanosomy – spavá nemoc a Chagasova choroba (Parazitologie)",
+      "type": "single_choice",
+      "question": "Který členovec slouží jako hlavní přenašeč (vektor) spavé nemoci vyvolané Trypanosoma brucei?",
+      "options": [
+        "Komár rodu Anopheles",
+        "Moucha Tse-tse (rod Glossina)",
+        "Dravá ploštice (rod Triatoma)",
+        "Blecha morová"
+      ],
+      "correctIndex": 1,
+      "explanation": "Spavou nemoc přenáší moucha Tse-tse (Glossina) slinami během sání krve hostitele.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-25-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-25-b",
+      "topicTitle": "Trypanosomy – spavá nemoc a Chagasova choroba (Parazitologie)",
+      "type": "single_choice",
+      "question": "Co tvoří charakteristický klinický nález u akutní fáze Chagasova onemocnění?",
+      "options": [
+        "Opistotonus",
+        "Romanův příznak (jednostranný nebolestivý otok očních víček a spojivky)",
+        "Winterbottomovo znamení",
+        "Zubní kaz"
+      ],
+      "correctIndex": 1,
+      "explanation": "Romanův příznak je klasický projev průniku T. cruzi do spojivky po vmasírování výkalů ploštice.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-25-case",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-25",
+      "topicTitle": "Mykoplasmata a chlamydie",
+      "type": "case_study",
+      "title": "Klinická mikrobiologie: Mykoplasmata a chlamydie",
+      "vignette": {
+        "scenario": "Jak se klinicky projevuje infekce vyvolaná patogeny ze skupiny: Mykoplasmata a chlamydie?",
+        "solution": "• M. pneumoniae: atypická pneumonie (chladové aglutininy, suchý kašel).• C. trachomatis: sérotypy A-C (trachom), D-K (uretritidy, cervicitidy, novorozenecká konjunktivitida), L1-L3 (Lymphogranuloma venereum).",
+        "keyTakeaway": "Makrolidy (Azitromycin) nebo Tetracykliny (Doxycyklin). β-laktamy jsou neúčinné!"
+      },
+      "explanation": "• M. pneumoniae: atypická pneumonie (chladové aglutininy, suchý kašel).• C. trachomatis: sérotypy A-C (trachom), D-K (uretritidy, cervicitidy, novorozenecká konjunktivitida), L1-L3 (Lymphogranuloma venereum).",
+      "pearl": "Makrolidy (Azitromycin) nebo Tetracykliny (Doxycyklin). β-laktamy jsou neúčinné!",
+      "tags": [
+        "Klinický rozbor",
+        "Infekce"
+      ]
+    },
+    {
+      "id": "mikra-mikra-26-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-26-a",
+      "topicTitle": "Spirochety (Borrelia, Treponema, Leptospira) (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Který sérologický test na syfilis patří mezi specifické treponemové testy používané k potvrzení reaktivity screeningu?",
+      "options": [
+        "RRR (Rychlá reaginová reakce)",
+        "VDRL (Venereal Disease Research Laboratory)",
+        "TPHA (Treponema pallidum hemaglutinační test)",
+        "Weilova-Felixova reakce"
+      ],
+      "correctIndex": 2,
+      "explanation": "TPHA využívá specifické treponemové antigeny a zůstává pozitivní po celý život i po úspěšném vyléčení.",
+      "pearl": "Syfilis: Lék volby: **Penicilin G** (i.m. benzathin-penicilin). Borelióza: Doxycyklin, Ceftriaxon.",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-26-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-26-a",
+      "topicTitle": "Spirochety (Borrelia, Treponema, Leptospira) (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Jaký klinický projev je typický pro první stádium Lymské boreliózy a objevuje se obvykle 1–3 týdny po přisátí klíštěte?",
+      "options": [
+        "Opistotonus",
+        "Erythema migrans (stěhovavé zarudnutí s centrálním vyblednutím)",
+        "Ulcus durum",
+        "Karditida"
+      ],
+      "correctIndex": 1,
+      "explanation": "Erythema migrans je patognomická kožní léze s průměrem větším než 5 cm, která se centrifugálně šíří a uprostřed bledne.",
+      "pearl": "Syfilis: Lék volby: **Penicilin G** (i.m. benzathin-penicilin). Borelióza: Doxycyklin, Ceftriaxon.",
+      "tags": [
+        "Single Choice",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-26-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-26-b",
+      "topicTitle": "Leishmanie – kožní, slizniční a viscerální leishmanióza (Parazitologie)",
+      "type": "single_choice",
+      "question": "Které stádium leishmanií se nachází v buňkách mononukleárního fagocytárního systému (makrofázích) infikovaného člověka?",
+      "options": [
+        "Promastigot (bičíkatá forma)",
+        "Amastigot (bezbičíkatá intracelulární forma)",
+        "Sporozoit",
+        "Cysta"
+      ],
+      "correctIndex": 1,
+      "explanation": "Promastigoti z phlebotoma jsou pohlceni makrofágy, kde ztrácejí bičík a transformují se v amastigoty.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-26-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-26-b",
+      "topicTitle": "Leishmanie – kožní, slizniční a viscerální leishmanióza (Parazitologie)",
+      "type": "single_choice",
+      "question": "Viscerální leishmanióza (kala-azar) vyvolaná Leishmania donovani se projevuje triádou:",
+      "options": [
+        "Horečka, masivní hepatosplenomegalie a pancytopenie",
+        "Hematurie, dysurie a kalcifikace měchýře",
+        "Chabá paréza, slepota a vypadávání vlasů",
+        "Opistotonus, trismus a risus sardonicus"
+      ],
+      "correctIndex": 0,
+      "explanation": "Masivní splenomegalie s útlumem kostní dřeně a horečkami je typický obraz kala-azar.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-26-case",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-26",
+      "topicTitle": "Spirochety (Borrelia, Treponema, Leptospira)",
+      "type": "case_study",
+      "title": "Klinická mikrobiologie: Spirochety (Borrelia, Treponema, Leptospira)",
+      "vignette": {
+        "scenario": "Jak se klinicky projevuje infekce vyvolaná patogeny ze skupiny: Spirochety (Borrelia, Treponema, Leptospira)?",
+        "solution": "• Syfilis: 1. stadium (ulcus durum), 2. stadium (exantém, condylomata lata), 3. stadium (gummata, tabes dorsalis, kardiovaskulární postižení).• Borelióza: 1. stadium (erythema migrans), 2. stadium (neuroborelióza, lymfocytom, meningoradikulitida), 3. stadium (artritida, acrodermatitis chronica atrophicans).• Leptospiróza: chřipkovité stadium → Weilova nemoc (žloutenka, renální selhání, krvácení).",
+        "keyTakeaway": "Syfilis: Lék volby: **Penicilin G** (i.m. benzathin-penicilin). Borelióza: Doxycyklin, Ceftriaxon."
+      },
+      "explanation": "• Syfilis: 1. stadium (ulcus durum), 2. stadium (exantém, condylomata lata), 3. stadium (gummata, tabes dorsalis, kardiovaskulární postižení).• Borelióza: 1. stadium (erythema migrans), 2. stadium (neuroborelióza, lymfocytom, meningoradikulitida), 3. stadium (artritida, acrodermatitis chronica atrophicans).• Leptospiróza: chřipkovité stadium → Weilova nemoc (žloutenka, renální selhání, krvácení).",
+      "pearl": "Syfilis: Lék volby: **Penicilin G** (i.m. benzathin-penicilin). Borelióza: Doxycyklin, Ceftriaxon.",
+      "tags": [
+        "Klinický rozbor",
+        "Infekce"
+      ]
+    },
+    {
+      "id": "mikra-mikra-27-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-27-a",
+      "topicTitle": "Peniciliny – základní a kombinované (Farmakoterapie)",
+      "type": "single_choice",
+      "question": "Které antibiotikum je lékem první volby pro cílenou léčbu infekcí vyvolaných meticilin-citlivým Staphylococcus aureus (MSSA)?",
+      "options": [
+        "Oxacilin",
+        "Ampicilin",
+        "Penicilin G",
+        "Vankomycin"
+      ],
+      "correctIndex": 0,
+      "explanation": "Oxacilin je stabilní vůči stafylokokové beta-laktamáze a představuje lék volby pro závažné MSSA infekce.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Farmakoterapie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-27-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-27-a",
+      "topicTitle": "Peniciliny – základní a kombinované (Farmakoterapie)",
+      "type": "single_choice",
+      "question": "Který inhibitor beta-laktamáz se přidává k amoxicilinu k obnovení jeho účinku proti kmenům produkujícím širokospektré beta-laktamázy?",
+      "options": [
+        "Sulbaktam",
+        "Tazobaktam",
+        "Kyselina klavulanová",
+        "Cilastatin"
+      ],
+      "correctIndex": 2,
+      "explanation": "Kyselina klavulanová se ireverzibilně váže na aktivní místo beta-laktamázy (sebevražedný inhibitor) a chrání amoxicilin před degradací.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Farmakoterapie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-27-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-27-b",
+      "topicTitle": "Střevní protozoární nákazy (Giardia, Entamoeba, Cryptosporidium) (Parazitologie)",
+      "type": "single_choice",
+      "question": "Který střevní prvok způsobuje krvavě-hlenovité průjmy a může u pacienta vyvolat mimostřevní komplikaci v podobě jaterního abscesu?",
+      "options": [
+        "Giardia lamblia",
+        "Entamoeba histolytica",
+        "Cryptosporidium parvum",
+        "Trichomonas vaginalis"
+      ],
+      "correctIndex": 1,
+      "explanation": "Entamoeba histolytica invaduje střevní stěnu a portálním oběhem může vycestovat do jater, kde zakládá amébový absces.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-27-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-27-b",
+      "topicTitle": "Střevní protozoární nákazy (Giardia, Entamoeba, Cryptosporidium) (Parazitologie)",
+      "type": "single_choice",
+      "question": "Giardia lamblia parazituje v tenkém střevě (duodenu) člověka. Její přítomnost vede typicky k:",
+      "options": [
+        "Tvorbě hlubokých vředů s krvácením",
+        "Malabsorpci tuků (steatorhei) a nadýmání bez přítomnosti krve ve stolici",
+        "Vzniku plicních eozinofilních infiltrátů",
+        "Ztrátě vlasů"
+      ],
+      "correctIndex": 1,
+      "explanation": "Trofozoiti mechanicky pokrývají sliznici duodena a jejuna přísavnými disky, čímž blokují absorpci tuků.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-28-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-28-a",
+      "topicTitle": "Cefalosporiny – rozdělení a indikace (Farmakoterapie)",
+      "type": "single_choice",
+      "question": "Který cefalosporin III. generace má výrazný protipseudomonádový účinek?",
+      "options": [
+        "Cefotaxim",
+        "Ceftriaxon",
+        "Ceftazidim",
+        "Cefazolin"
+      ],
+      "correctIndex": 2,
+      "explanation": "Ceftazidim je cefalosporin 3. generace se specifickým vysokým účinkem proti Pseudomonas aeruginosa.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Farmakoterapie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-28-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-28-a",
+      "topicTitle": "Cefalosporiny – rozdělení a indikace (Farmakoterapie)",
+      "type": "single_choice",
+      "question": "Jednorázové i.m. nebo i.v. podání Ceftriaxonu je standardním způsobem léčby pro:",
+      "options": [
+        "Nekomplikovanou kapavku (Neisseria gonorrhoeae)",
+        "Lymskou boreliózu 3. fáze",
+        "Pneumocystovou pneumonii",
+        "Pseudomembranózní kolitidu"
+      ],
+      "correctIndex": 0,
+      "explanation": "Ceftriaxon (500 mg až 1 g i.m. s lidokainem) je lékem volby pro nekomplikované kapavčité infekce.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Farmakoterapie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-28-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-28-b",
+      "topicTitle": "Trichomonas vaginalis a urogenitální bičíkovci (Parazitologie)",
+      "type": "single_choice",
+      "question": "Proč je nutné přiléčit sexuálního partnera při záchytu Trichomonas vaginalis u ženy?",
+      "options": [
+        "Partner má vždy těžkou formou orchitidy",
+        "Muži bývají asymptomatičtí přenašeči a došlo by k okamžité reinfekci",
+        "Trichomonas způsobuje neplodnost u mužů do 24h",
+        "Prvok se přenáší pouze vzduchem v domácnosti"
+      ],
+      "correctIndex": 1,
+      "explanation": "Muži bývají bezpříznakovými rezervoáry v uretře; bez léčby obou partnerů nastává okamžitá reinfekce.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-28-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-28-b",
+      "topicTitle": "Trichomonas vaginalis a urogenitální bičíkovci (Parazitologie)",
+      "type": "single_choice",
+      "question": "Čím se Trichomonas vaginalis liší od většiny ostatních střevních a tkáňových prvoků?",
+      "options": [
+        "Vytváří extrémně odolné dvojité cysty",
+        "Vytváří pouze trofozoity a zcela netvoří cystické stádium",
+        "Nemá žádná jádra ani bičíky",
+        "Množí se pouze v erytrocytech"
+      ],
+      "correctIndex": 1,
+      "explanation": "Trichomonas vaginalis existuje výhradně ve formě trofozoitu a netvoří odolné cysty, proto je odkázána na přímý přenos slizničním kontaktem.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-29-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-29-a",
+      "topicTitle": "Karbapenemy a karbapenemázy (Farmakoterapie)",
+      "type": "single_choice",
+      "question": "Který karbapenem nemá účinek proti Pseudomonas aeruginosa?",
+      "options": [
+        "Meropenem",
+        "Imipenem",
+        "Ertapenem",
+        "Doripenem"
+      ],
+      "correctIndex": 2,
+      "explanation": "Ertapenem má sice dlouhý poločas, ale chybí mu účinnost proti Pseudomonas aeruginosa a Acinetobacter spp.",
+      "pearl": "Nozokomiální sepse, febrilní neutropenie, závažné intraabdominální infekce.",
+      "tags": [
+        "Single Choice",
+        "Farmakoterapie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-29-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-29-a",
+      "topicTitle": "Karbapenemy a karbapenemázy (Farmakoterapie)",
+      "type": "single_choice",
+      "question": "Novodobé Metalo-β-laktamázy (MBL, např. NDM-1) způsobují rezistenci bakterií vůči karbapenemům a vyžadují k činnosti iont:",
+      "options": [
+        "Vápníku (Ca²⁺)",
+        "Zinku (Zn²⁺)",
+        "Železa (Fe³⁺)",
+        "Hořčíku (Mg²⁺)"
+      ],
+      "correctIndex": 1,
+      "explanation": "Metalo-beta-laktamázy (třída B, např. NDM-1) využívají ve svém aktivním místě iont zinku Zn²⁺ k hydrolytickému štěpení β-laktamového kruhu.",
+      "pearl": "Nozokomiální sepse, febrilní neutropenie, závažné intraabdominální infekce.",
+      "tags": [
+        "Single Choice",
+        "Farmakoterapie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-29-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-29-b",
+      "topicTitle": "Volně žijící améby (Naegleria, Acanthamoeba, Balamuthia) (Parazitologie)",
+      "type": "single_choice",
+      "question": "Naegleria fowleri proniká do mozku člověka nejčastěji při koupání cestou:",
+      "options": [
+        "Zvukovodu",
+        "Sliznice nosní přes lamina cribrosa čichové kosti",
+        "Oční spojivky",
+        "Kousnutím komára"
+      ],
+      "correctIndex": 1,
+      "explanation": "Voda s trofozoity vnikne do nosu → parazit proniká podél nervus olfactorius přes lamina cribrosa přímo do čelního laloku mozku.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-29-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-29-b",
+      "topicTitle": "Volně žijící améby (Naegleria, Acanthamoeba, Balamuthia) (Parazitologie)",
+      "type": "single_choice",
+      "question": "Nebezpečná amébová keratitida způsobená Acanthamoeba spp. vzniká nejčastěji v souvislosti s:",
+      "options": [
+        "Konzumací mořských ryb",
+        "Nedostatečnou hygienou a oplachováním kontaktních čoček vodovodní vodou",
+        "Inhalací spor v lesním prostředí",
+        "Aplikací očních kapek s neomycinem"
+      ],
+      "correctIndex": 1,
+      "explanation": "Oplachování neschválených kontaktních čoček vodou z vodovodu přenáší Acanthamoebu na rohovku s vznikem krutě bolestivé keratitidy.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-30-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-30-a",
+      "topicTitle": "Aminoglykosidy – spektrum a toxicita (Farmakoterapie)",
+      "type": "single_choice",
+      "question": "Které dva hlavní toxické nežádoucí účinky limitují podávání aminoglykosidů?",
+      "options": [
+        "Hepatotoxicita a kardiotoxicita",
+        "Nefrotoxicita a ototoxicita",
+        "Kardiomyopatie a myelotoxita",
+        "Pankreatitida a neurotoxicita"
+      ],
+      "correctIndex": 1,
+      "explanation": "Aminoglykosidy se kumulují v ledvinných tubulech a ve vnitřním uchu, což působí nefrotoxicitu a ototoxicitu.",
+      "pearl": "G- urosepse, endokarditidy (v synergii s peniciliny).",
+      "tags": [
+        "Single Choice",
+        "Farmakoterapie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-30-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-30-a",
+      "topicTitle": "Aminoglykosidy – spektrum a toxicita (Farmakoterapie)",
+      "type": "single_choice",
+      "question": "Aminoglykosidy usmrcují bakterie mechanizmem inhibice proteosyntézy po vazbě na:",
+      "options": [
+        "50S podjednotku ribozomu",
+        "30S podjednotku ribozomu",
+        "RNA-polymerázu",
+        "DNA-gyrázu"
+      ],
+      "correctIndex": 1,
+      "explanation": "Aminoglykosidy se vazují na 30S podjednotku ribozomu, čímž způsobují chybné čtení mRNA a zástavu proteosyntézy.",
+      "pearl": "G- urosepse, endokarditidy (v synergii s peniciliny).",
+      "tags": [
+        "Single Choice",
+        "Farmakoterapie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-30-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-30-b",
+      "topicTitle": "Toxoplasmóza – Toxoplasma gondii (Parazitologie)",
+      "type": "single_choice",
+      "question": "Které zvíře je definitivním hostitelem Toxoplasma gondii a vylučuje oocysty trusem?",
+      "options": [
+        "Pes",
+        "Kočka",
+        "Prase",
+        "Skot"
+      ],
+      "correctIndex": 1,
+      "explanation": "Pouze v střevním epitelu kočkovitých šelem probíhá sexuální cyklus T. gondii zakončený tvorbou a vylučováním oocyst.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-30-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-30-b",
+      "topicTitle": "Toxoplasmóza – Toxoplasma gondii (Parazitologie)",
+      "type": "single_choice",
+      "question": "Klasická klinická triáda u kongenitální toxoplazmózy (Morbus Janků) zahrnuje:",
+      "options": [
+        "Kataraktu, hluchotu a srdeční vadu",
+        "Hydrocefalus, chorioretinitidu a intrakraniální kalcifikace",
+        "Mikrocefalii, anémii a hepatitidu",
+        "Spina bifida, rozštěp patra a polydaktylii"
+      ],
+      "correctIndex": 1,
+      "explanation": "Těžká kongenitální toxoplazmóza novorozenců se projevuje hydrocefalem, intrakraniálními kalcifikacemi a zánětem sítnice a cévnatky.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-31-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-31-a",
+      "topicTitle": "Fluorochinolony – spektrum a indikace (Farmakoterapie)",
+      "type": "single_choice",
+      "question": "Který fluorochinolon má nejsilnější antimikrobiální účinek proti Pseudomonas aeruginosa?",
+      "options": [
+        "Moxifloxacin",
+        "Ciprofloxacin",
+        "Ofloxacin",
+        "Norfloxacin"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ciprofloxacin je nejúčinnější protipseudomonádový fluorochinolon.",
+      "pearl": "Podání p.o. i i.v. Pozor na tendinitidy a ruptury Achillovy šlachy.",
+      "tags": [
+        "Single Choice",
+        "Farmakoterapie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-31-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-31-a",
+      "topicTitle": "Fluorochinolony – spektrum a indikace (Farmakoterapie)",
+      "type": "single_choice",
+      "question": "Proč jsou fluorochinolony kontraindikovány u dětí a dospívajících v období růstu?",
+      "options": [
+        "Způsobují nevratnou hluchotu",
+        "Vypalují ledvinné glomeruly",
+        "Způsobují chondrotoxicitu s poškozením růstových chrupavek",
+        "Vyvolávají hypoglykemické koma"
+      ],
+      "correctIndex": 2,
+      "explanation": "Fluorochinolony mohou poškodit vývoj kloubních chrupavek (chondrotoxicita) u rostoucího organismu.",
+      "pearl": "Podání p.o. i i.v. Pozor na tendinitidy a ruptury Achillovy šlachy.",
+      "tags": [
+        "Single Choice",
+        "Farmakoterapie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-31-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-31-b",
+      "topicTitle": "Malárie – Plasmodium sp. (Parazitologie)",
+      "type": "single_choice",
+      "question": "Která metoda se v laboratoři standardně používá k určení druhové příslušnosti plasmodia u pacienta s malárií?",
+      "options": [
+        "Kultivace na Sabouraudově agaru",
+        "Tlustá kapka",
+        "Tenký krevní nátěr barvený Giemsou",
+        "Průkaz protilátek KFR"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tenký krevní nátěr zachovává neporušenou morfologii erytrocytů a umožňuje přesné určení druhu plasmodia.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-31-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-31-b",
+      "topicTitle": "Malárie – Plasmodium sp. (Parazitologie)",
+      "type": "single_choice",
+      "question": "Které stádium Plasmodium vivax a P. ovale přežívá v játrech a způsobuje pozdní relapsy malárie?",
+      "options": [
+        "Tachyzoity",
+        "Hypnozoity",
+        "Sporozoity",
+        "Merozoity"
+      ],
+      "correctIndex": 1,
+      "explanation": "Hypnozoiti jsou dormantní jaterní formy P. vivax a P. ovale, které mohou vyvolat reaktivaci malárie.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-31-case",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-31",
+      "topicTitle": "Fluorochinolony – spektrum a indikace",
+      "type": "case_study",
+      "title": "Klinická mikrobiologie: Fluorochinolony – spektrum a indikace",
+      "vignette": {
+        "scenario": "Jak se klinicky projevuje infekce vyvolaná patogeny ze skupiny: Fluorochinolony – spektrum a indikace?",
+        "solution": "Ciprofloxacin: Uroinfekce, otitis externa maligna, salmonelóza, shigelóza, legionelóza.Moxifloxacin: Závažné komunitní pneumonie u alergiků na penicilin.",
+        "keyTakeaway": "Podání p.o. i i.v. Pozor na tendinitidy a ruptury Achillovy šlachy."
+      },
+      "explanation": "Ciprofloxacin: Uroinfekce, otitis externa maligna, salmonelóza, shigelóza, legionelóza.Moxifloxacin: Závažné komunitní pneumonie u alergiků na penicilin.",
+      "pearl": "Podání p.o. i i.v. Pozor na tendinitidy a ruptury Achillovy šlachy.",
+      "tags": [
+        "Klinický rozbor",
+        "Infekce"
+      ]
+    },
+    {
+      "id": "mikra-mikra-32-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-32-a",
+      "topicTitle": "Makrolidy, azalidy a linkosamidy (Farmakoterapie)",
+      "type": "single_choice",
+      "question": "Které antibiotikum se jako inhibitor proteosyntézy přidává k potlačení produkce toxinů u syndromu toxického šoku?",
+      "options": [
+        "Amoxicilin",
+        "Klindamycin",
+        "Gentamicin",
+        "Ciprofloxacin"
+      ],
+      "correctIndex": 1,
+      "explanation": "Klindamycin tlumí proteosyntézu v bakteriální buňce, čímž zastavuje syntézu a uvolňování exotoxinů.",
+      "pearl": "Klindamycin potlačuje tvorbu exotoxinů u staphylokokového/streptokokového syndromu toxického šoku (TSS).",
+      "tags": [
+        "Single Choice",
+        "Farmakoterapie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-32-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-32-a",
+      "topicTitle": "Makrolidy, azalidy a linkosamidy (Farmakoterapie)",
+      "type": "single_choice",
+      "question": "Které antibiotikum je indikováno pro léčbu toxoplazmózy u těhotných žen v 1. trimestru?",
+      "options": [
+        "Spiramycin",
+        "Klaritromycin",
+        "Ciprofloxacin",
+        "Klindamycin"
+      ],
+      "correctIndex": 0,
+      "explanation": "Spiramycin se akumuluje v placentární tkáni a brání přestupu T. gondii na plod.",
+      "pearl": "Klindamycin potlačuje tvorbu exotoxinů u staphylokokového/streptokokového syndromu toxického šoku (TSS).",
+      "tags": [
+        "Single Choice",
+        "Farmakoterapie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-32-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-32-b",
+      "topicTitle": "Motolice (Trematoda) – Schistosomy (Parazitologie)",
+      "type": "single_choice",
+      "question": "Který druh krevničky typicky způsobuje urogenitální formu schistosomózy s hematurií a fibrózou močového měchýře?",
+      "options": [
+        "Schistosoma mansoni",
+        "Schistosoma japonicum",
+        "Schistosoma haematobium",
+        "Fasciola hepatica"
+      ],
+      "correctIndex": 2,
+      "explanation": "Schistosoma haematobium dospívá v cévních pleteních močového měchýře, kam klade vajíčka s typickým terminálním trnem.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-32-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-32-b",
+      "topicTitle": "Motolice (Trematoda) – Schistosomy (Parazitologie)",
+      "type": "single_choice",
+      "question": "Infekční stádium schistosom, které ve sladké vodě aktivně provrtává kůži člověka, se nazývá:",
+      "options": [
+        "Miracidium",
+        "Cerkárie",
+        "Metacerkárie",
+        "Sporocysta"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cerkárie opouštějí tělo plže a během koupání aktivně pronikají neporušenou pokožkou člověka.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-33-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-33-a",
+      "topicTitle": "Tetracykliny a glycylcykliny (Farmakoterapie)",
+      "type": "single_choice",
+      "question": "Proč jsou tetracykliny (např. Doxycyklin) kontraindikovány u dětí do 8 let a těhotných?",
+      "options": [
+        "Způsobují akutní selhání ledvin",
+        "Vážou se na vápník a ukládají se v kostech a vyvíjející se zubní sklovině",
+        "Vyvolávají aplastickou anémii",
+        "Způsobují chabou obrnu svalstva"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tetracykliny chelatují vápník a ukládají se v kalcifikujících tkáních, což vede k trvalé diskoloraci zubů.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Farmakoterapie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-33-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-33-a",
+      "topicTitle": "Tetracykliny a glycylcykliny (Farmakoterapie)",
+      "type": "single_choice",
+      "question": "Na které z následujících bakterií nemá Tigecyklin (glycylcyklin) žádný účinek?",
+      "options": [
+        "MRSA",
+        "VRE",
+        "Pseudomonas aeruginosa",
+        "ESBL produkující E. coli"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tigecyklin je přirozeně neúčinný proti Pseudomonas aeruginosa a Proteus spp.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Farmakoterapie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-33-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-33-b",
+      "topicTitle": "Plicní a jaterní motolice (Fasciola, Paragonimus) (Parazitologie)",
+      "type": "single_choice",
+      "question": "Jak se člověk nejčastěji nakazí motolicí plicní (Paragonimus westermani)?",
+      "options": [
+        "Pozřením nedostatečně tepelně upravených sladkovodních krabů nebo raků",
+        "Vdechnutím infekčních vajíček z prachu",
+        "Aktivním provrtáním cerkárií kůží při koupání",
+        "Kousnutím komára Anopheles"
+      ],
+      "correctIndex": 0,
+      "explanation": "Infekčním stádiem P. westermani jsou metacerkárie ve svalech sladkovodních krabů a raků.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-33-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-33-b",
+      "topicTitle": "Plicní a jaterní motolice (Fasciola, Paragonimus) (Parazitologie)",
+      "type": "single_choice",
+      "question": "Pozřením které kontaminované potraviny dochází k nákaze motolicí jaterní (Fasciola hepatica)?",
+      "options": [
+        "Surových ryb",
+        "Vodních rostlin (např. divoké řeřišnice) s přichycenými metacerkáriemi",
+        "Nedovařeného hovězího masa",
+        "Nepasterizovaného ovčího mléka"
+      ],
+      "correctIndex": 1,
+      "explanation": "Metacerkárie F. hepatica se přichycují na vodní rostliny (řeřišnice), jejichž konzumací za syrova dochází k infekci.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-34-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-34-a",
+      "topicTitle": "Rifampicin, metronidazol, nitrofurantoin a fidaxomycin (Farmakoterapie)",
+      "type": "single_choice",
+      "question": "Které z léčiv je indikováno výhradně pro nekomplikované infekce močových cest (cystitidy) kvůli absenci systémového účinku?",
+      "options": [
+        "Rifampicin",
+        "Metronidazol",
+        "Nitrofurantoin",
+        "Fidaxomycin"
+      ],
+      "correctIndex": 2,
+      "explanation": "Nitrofurantoin se rychle vylučuje do moče, kde dosahuje vysokých koncentrací.",
+      "pearl": "Metronidazol p.o./i.v. Při podávání kontraindikován alkohol (disulfiramový efekt!).",
+      "tags": [
+        "Single Choice",
+        "Farmakoterapie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-34-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-34-a",
+      "topicTitle": "Rifampicin, metronidazol, nitrofurantoin a fidaxomycin (Farmakoterapie)",
+      "type": "single_choice",
+      "question": "Která reakce vzniká při požití alkoholu během léčby Metronidazolem?",
+      "options": [
+        "Disulfiramový (antabusový) efekt – nevolnost, zvracení, hypotenze",
+        "Aplastická anémie",
+        "Syndrom šedého dítěte",
+        "Akutní selhání ledvin"
+      ],
+      "correctIndex": 0,
+      "explanation": "Metronidazol inhibuje aldehyddehydrogenázu, což způsobuje nahromadění acetaldehydu.",
+      "pearl": "Metronidazol p.o./i.v. Při podávání kontraindikován alkohol (disulfiramový efekt!).",
+      "tags": [
+        "Single Choice",
+        "Farmakoterapie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-34-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-34-b",
+      "topicTitle": "Tasemnice (Cestoda) – střevní a tkáňové formy (Parazitologie)",
+      "type": "single_choice",
+      "question": "Pozřením čeho se člověk nakazí nebezpečnou tkáňovou formou tasemnice – cysticerkózou (Taenia solium)?",
+      "options": [
+        "Pozřením larvy (boubele) v hovězím mase",
+        "Pozřením vajíček Taenia solium",
+        "Pozřením dospělého červa",
+        "Průnikem larev přes kůži při chůzi naboso"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cysticerkóza vzniká tehdy, pokud člověk pozře vajíčka T. solium a stane se mezihostitelem larev.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-34-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-34-b",
+      "topicTitle": "Tasemnice (Cestoda) – střevní a tkáňové formy (Parazitologie)",
+      "type": "single_choice",
+      "question": "Která tasemnice má skolex opatřený kromě čtyř přísavek také věncem úchopových háčků?",
+      "options": [
+        "Taenia saginata",
+        "Taenia solium",
+        "Hymenolepis nana",
+        "Diphyllobothrium latum"
+      ],
+      "correctIndex": 1,
+      "explanation": "Taenia solium má na svém rostellu charakteristický věnec chitinových háčků.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-35-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-35-a",
+      "topicTitle": "Diagnostika sepse a infekcí krevního řečiště (Diagnostika)",
+      "type": "single_choice",
+      "question": "Jaký objem krve se standardně odebírá do jedné hemokultivační lahvičky u dospělých?",
+      "options": [
+        "1–2 ml",
+        "8–10 ml",
+        "20–30 ml",
+        "0,5 ml"
+      ],
+      "correctIndex": 1,
+      "explanation": "Optimální poměr krve a kultivačního média vyžaduje 8–10 ml krve.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Diagnostika"
+      ]
+    },
+    {
+      "id": "mikra-mikra-35-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-35-a",
+      "topicTitle": "Diagnostika sepse a infekcí krevního řečiště (Diagnostika)",
+      "type": "single_choice",
+      "question": "Který biomarker v séru stoupá nejrychleji a nejspecifičtěji u bakteriální sepse?",
+      "options": [
+        "Kreatinin",
+        "Prokalcitonin (PCT)",
+        "CRP",
+        "Albumin"
+      ],
+      "correctIndex": 1,
+      "explanation": "Prokalcitonin stoupá velmi rychle (4–6 hodin po začátku se bakteriální sepse).",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Diagnostika"
+      ]
+    },
+    {
+      "id": "mikra-mikra-35-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-35-b",
+      "topicTitle": "Echinokokózy – Echinococcus granulosus a multilocularis (Parazitologie)",
+      "type": "single_choice",
+      "question": "Který patogen způsobuje alveolární hydatidózu, která svými vlastnostmi infiltrace a metastazování připomíná maligní nádor?",
+      "options": [
+        "Echinococcus granulosus",
+        "Echinococcus multilocularis",
+        "Taenia solium",
+        "Fasciola hepatica"
+      ],
+      "correctIndex": 1,
+      "explanation": "Echinococcus multilocularis tvoří infiltrující cysty bez ohraničení v játrech.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-35-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-35-b",
+      "topicTitle": "Echinokokózy – Echinococcus granulosus a multilocularis (Parazitologie)",
+      "type": "single_choice",
+      "question": "Proč je prasknutí hydatidové cysty Echinococcus granulosus v těle pacienta nebezpečné?",
+      "options": [
+        "Způsobuje okamžitý rozvoj diabetu",
+        "Rozlévá tekutinu s rizikem smrtelného anafylaktického šoku a diseminace dceřiných cyst",
+        "Způsobuje infarkt myokardu",
+        "Vede k okamžité slepotě"
+      ],
+      "correctIndex": 1,
+      "explanation": "Hydatidová tekutina vyvolává těžkou anafylaktickou reakci a uvolněné skolexy zakládají sekundární cysty.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-36-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-36-a",
+      "topicTitle": "Infekce dýchacích cest a odběry (Diagnostika)",
+      "type": "single_choice",
+      "question": "Jak se pod mikroskopem hodnotí kvalita sputa před kultivačním vyšetřením?",
+      "options": [
+        "Podle zbarvení hlenu",
+        "Podle poměru polymorfonukleárních leukocytů a dlaždicových epitelových buněk",
+        "Podle přítomnosti bublin vzduchu",
+        "Podle přítomnosti laktobacilů"
+      ],
+      "correctIndex": 1,
+      "explanation": "Kvalitní sputum z DDC obsahuje mnoho leukocytů a málo dlaždicových epitelií ze slin.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Diagnostika"
+      ]
+    },
+    {
+      "id": "mikra-mikra-36-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-36-a",
+      "topicTitle": "Infekce dýchacích cest a odběry (Diagnostika)",
+      "type": "single_choice",
+      "question": "Která speciální půda se používá pro kultivační průkaz Bordetella pertussis (černého kašle)?",
+      "options": [
+        "Endův agar",
+        "Bordet-Gengouova půda s krví",
+        "Sabouraudův agar",
+        "Claubergova půda"
+      ],
+      "correctIndex": 1,
+      "explanation": "Bordetella pertussis vyžaduje pro nárůst bramborovo-glycerinový agar s krví.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Diagnostika"
+      ]
+    },
+    {
+      "id": "mikra-mikra-36-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-36-b",
+      "topicTitle": "Střevní nematodózy (Enterobius, Ascaris, Strongyloides, Ancylostoma) (Parazitologie)",
+      "type": "single_choice",
+      "question": "Grahamova metoda (lepicí páska) je standardní diagnostickou metodou pro průkaz:",
+      "options": [
+        "Ascaris lumbricoides",
+        "Enterobius vermicularis",
+        "Strongyloides stercoralis",
+        "Taenia saginata"
+      ],
+      "correctIndex": 1,
+      "explanation": "Roup dětský klade vajíčka v perianálních řasách, proto se odebírají otiskem lepicí pásky.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-36-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-36-b",
+      "topicTitle": "Střevní nematodózy (Enterobius, Ascaris, Strongyloides, Ancylostoma) (Parazitologie)",
+      "type": "single_choice",
+      "question": "Která hlístice způsobuje při migraci larev plícemi tvoření přechodných eozinofilních infiltrátů (Loefflerův syndrom)?",
+      "options": [
+        "Enterobius vermicularis",
+        "Ascaris lumbricoides",
+        "Trichomonas vaginalis",
+        "Taenia solium"
+      ],
+      "correctIndex": 1,
+      "explanation": "Larvy Ascaris lumbricoides migrují ze střeva přes plíce do dýchacích cest, což vyvolává plynoucí plicní eosinofilii.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-37-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-37-a",
+      "topicTitle": "Infekce kůže a měkkých tkání, normální flóra (Diagnostika)",
+      "type": "single_choice",
+      "question": "Který patogen je hlavním původcem erysipelu (růže) – ostře ohraničeného kožního zánětu s horečkou?",
+      "options": [
+        "Staphylococcus aureus",
+        "Streptococcus pyogenes",
+        "Pseudomonas aeruginosa",
+        "Propionibacterium acnes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Erysipel je streptokoková infekce způsobená Streptococcus pyogenes (skupina A).",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Diagnostika"
+      ]
+    },
+    {
+      "id": "mikra-mikra-37-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-37-a",
+      "topicTitle": "Infekce kůže a měkkých tkání, normální flóra (Diagnostika)",
+      "type": "single_choice",
+      "question": "Která bakterie je hlavním anaerobním zástupcem fyziologické mikroflóry kožních mazových žláz?",
+      "options": [
+        "Cutibacterium (Propionibacterium) acnes",
+        "Staphylococcus aureus",
+        "Pseudomonas aeruginosa",
+        "Clostridium perfringens"
+      ],
+      "correctIndex": 0,
+      "explanation": "Cutibacterium acnes je lipofilní anaerob žijící v pórách a mazových žlázách kůže.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Diagnostika"
+      ]
+    },
+    {
+      "id": "mikra-mikra-37-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-37-b",
+      "topicTitle": "Tkáňové nematodózy (Toxocara, Trichinella, Dracunculus) (Parazitologie)",
+      "type": "single_choice",
+      "question": "Který parazit se přenáší na člověka konzumací nedostatečně tepelně upraveného masa divočáků a tvoří cysty ve svalech?",
+      "options": [
+        "Toxocara canis",
+        "Trichinella spiralis",
+        "Dracunculus medinensis",
+        "Ascaris lumbricoides"
+      ],
+      "correctIndex": 1,
+      "explanation": "Trichinella spiralis se přenáší nákazou ze svaloviny černého vepřového masa nebo divočáků.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-37-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-37-b",
+      "topicTitle": "Tkáňové nematodózy (Toxocara, Trichinella, Dracunculus) (Parazitologie)",
+      "type": "single_choice",
+      "question": "Nález granulomu na sítnici oka u dítěte s anamnézou hraní na pískovišti vzbuzuje podezření na:",
+      "options": [
+        "Larva migrans ocularis (Toxocara canis)",
+        "Trichinellózu",
+        "Skvrnitý tyfus",
+        "Leptospirózu"
+      ],
+      "correctIndex": 0,
+      "explanation": "Larvy Toxocara canis uvíznuté v cévách oka tvoří retinální granulom.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-38-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-38-a",
+      "topicTitle": "Sexuálně přenosné infekce (STI) (Diagnostika)",
+      "type": "single_choice",
+      "question": "Která diagnostická metoda je nejcitlivější a v současnosti doporučovaná jako zlatý standard pro průkaz Chlamydia trachomatis v urogenitálním traktu?",
+      "options": [
+        "Gramovo barvení",
+        "Kultivace na krevním agaru",
+        "Metody PCR a NAAT (amplifikace nukleových kyselin)",
+        "Weilova-Felixova reakce"
+      ],
+      "correctIndex": 2,
+      "explanation": "NAAT (PCR) testy vykazují nejvyšší specifitu a citlivost pro průkaz chlamydií.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Diagnostika"
+      ]
+    },
+    {
+      "id": "mikra-mikra-38-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-38-a",
+      "topicTitle": "Sexuálně přenosné infekce (STI) (Diagnostika)",
+      "type": "single_choice",
+      "question": "Mikroskopický záchyt gramnegativních intruleukocytárních diplokoků v hnisavém sekretu uretry u muže potvrzuje dg.:",
+      "options": [
+        "Syfilis",
+        "Kapavky (Neisseria gonorrhoeae)",
+        "Chlamydiové uretritidy",
+        "Trichomoniázy"
+      ],
+      "correctIndex": 1,
+      "explanation": "Intracelulárně uložené G- diplokoky v neutrofilech jsou patognomické pro akutní kapavku.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Diagnostika"
+      ]
+    },
+    {
+      "id": "mikra-mikra-38-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-38-b",
+      "topicTitle": "Filárie – Wuchereria, Brugia, Loa Loa, Onchocerca (Parazitologie)",
+      "type": "single_choice",
+      "question": "Který parazit přenášený muchničkami je původcem tzv. 'říční slepoty' v tropických oblastech?",
+      "options": [
+        "Wuchereria bancrofti",
+        "Loa loa",
+        "Onchocerca volvulus",
+        "Brugia malayi"
+      ],
+      "correctIndex": 2,
+      "explanation": "Onchocerca volvulus vyvolává po migraci larev rohovkové nekrózy a slepotu.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-38-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-38-b",
+      "topicTitle": "Filárie – Wuchereria, Brugia, Loa Loa, Onchocerca (Parazitologie)",
+      "type": "single_choice",
+      "question": "Který vlasovec je charakteristický svou migrací přímo pod oční spojivkou a přenáší se ovády Chrysops?",
+      "options": [
+        "Wuchereria bancrofti",
+        "Loa loa (vlasovec oční)",
+        "Onchocerca volvulus",
+        "Dracunculus medinensis"
+      ],
+      "correctIndex": 1,
+      "explanation": "Loa loa dospělec viditelně přechází přes oční bělmo a spojivku.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-39-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-39-a",
+      "topicTitle": "Infekce centrálního nervového systému a likvor (Diagnostika)",
+      "type": "single_choice",
+      "question": "Pro purulentní (hnisavou bakteriální) meningitidu je v biochemickém nálezu likvoru typický:",
+      "options": [
+        "Vysoká glukóza a nízký protein",
+        "Výrazný pokles glukózy a vysoký protein (hyperproteinorhachie)",
+        "Čirý vzhled a převaha lymfocytů",
+        "Absence jakýchkoli buněk"
+      ],
+      "correctIndex": 1,
+      "explanation": "Bakterie spotřebovávají glukózu → výrazná hypoglykorhachie a vysoký zánětlivý protein.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Diagnostika"
+      ]
+    },
+    {
+      "id": "mikra-mikra-39-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-39-a",
+      "topicTitle": "Infekce centrálního nervového systému a likvor (Diagnostika)",
+      "type": "single_choice",
+      "question": "Vzhled mozkomíšního moku a normální hladina glukózy při převaze lymfocytů svědčí pro meningitidu:",
+      "options": [
+        "Purulentní meningokokové",
+        "Virové (aseptické)",
+        "Pseudomonádové",
+        "Klostridiové"
+      ],
+      "correctIndex": 1,
+      "explanation": "Virové meningitidy nezpůsobují spotřebu glukózy, proto zůstává koncentrace glukózy v likvoru v rozmezí normy.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Diagnostika"
+      ]
+    },
+    {
+      "id": "mikra-mikra-39-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-39-b",
+      "topicTitle": "Členovci (Arthropoda) jako parazité a vektory (Parazitologie)",
+      "type": "single_choice",
+      "question": "Které vývojové stádium klíštěte Ixodes ricinus nepřenáší na člověka žádné patogeny?",
+      "options": [
+        "Larva",
+        "Nymfa",
+        "Dospělá samička",
+        "Sameček"
+      ],
+      "correctIndex": 0,
+      "explanation": "Larvy se líhnou nenakažené a patogeny získají až prvním sáním.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-39-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-39-b",
+      "topicTitle": "Členovci (Arthropoda) jako parazité a vektory (Parazitologie)",
+      "type": "single_choice",
+      "question": "Komár rodu Aedes is hlavním přenašečem:",
+      "options": [
+        "Malárie",
+        "Spavé nemoci",
+        "Viru Dengue, Žluté zimnice a viru Zika",
+        "Moru"
+      ],
+      "correctIndex": 2,
+      "explanation": "Komáři rodu Aedes jsou přenašeči arbovirů (Dengue, Zika, žlutá zimnice).",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-40-a-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-40-a",
+      "topicTitle": "Gastrointestinální nákazy a odběr stolice (Diagnostika)",
+      "type": "single_choice",
+      "question": "Jaký odběrový materiál je dostatečný pro rutinní bakteriologické vyšetření stolice (průkaz Salmonel, Campylobacterů)?",
+      "options": [
+        "Kus kusové stolice ve sterilní nádobce",
+        "Rektální výtěr na tamponu v transportní půdě (např. Amiesově)",
+        "Otisk lepicí páskou z konečníku",
+        "Odběr močového sedimentu"
+      ],
+      "correctIndex": 1,
+      "explanation": "Rektální výtěr v Amiesově transportní půdě je standardním vzorkem.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Diagnostika"
+      ]
+    },
+    {
+      "id": "mikra-mikra-40-a-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-40-a",
+      "topicTitle": "Gastrointestinální nákazy a odběr stolice (Diagnostika)",
+      "type": "single_choice",
+      "question": "Průjmové onemocnění s velmi rychlým nástupem (do 1–6 hodin po jídle) s dominujícím zvracením bez horečky svědčí pro:",
+      "options": [
+        "Infekci Salmonella enteritidis",
+        "Bakteriální intoxikaci preformovaným enterotoxinem (např. S. aureus)",
+        "Břišní tyfus",
+        "Kryptosporidiózu"
+      ],
+      "correctIndex": 1,
+      "explanation": "Krátká inkubační doba bez horečky je typická pro alimentární intoxikace preformovaným stefylokokovým enterotoxinem.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Diagnostika"
+      ]
+    },
+    {
+      "id": "mikra-mikra-40-b-sc-1",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-40-b",
+      "topicTitle": "Zákožka svrabová a vši (Parazitologie)",
+      "type": "single_choice",
+      "question": "Který zástupce vší je významným vektorem (přenašečem) epidemického skvrnitého tyfu?",
+      "options": [
+        "Veš dětská (Pediculus capitis)",
+        "Veš šatní (Pediculus humanus)",
+        "Veš muňka (Phthirus pubis)",
+        "Zákožka svrabová"
+      ],
+      "correctIndex": 1,
+      "explanation": "Veš šatní (P. humanus) přenáší Rickettsia prowazekii.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-mikra-40-b-sc-2",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-40-b",
+      "topicTitle": "Zákožka svrabová a vši (Parazitologie)",
+      "type": "single_choice",
+      "question": "Které mikroskopické vyšetření se používá k průkazu zákožky svrabové z kožního seškrabu?",
+      "options": [
+        "Gramovo barvení",
+        "Nativní preparát po projasnění 10–20% KOH",
+        "Kultivace na krevním agaru",
+        "PCR z krve"
+      ],
+      "correctIndex": 1,
+      "explanation": "Seškrab kůže z chodbičky se kapkou 10–20% KOH projasní, čímž se rozpustí keratin.",
+      "pearl": "",
+      "tags": [
+        "Single Choice",
+        "Parazitologie"
+      ]
+    }
+  ]
+}

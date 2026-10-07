@@ -682,7 +682,7 @@ const NEUROLOGY_DATA = {
           "id": "q06-test2",
           "question": "Bilateralní internukleární oftalmoplegie (INO) u mladého dospělého je vysoce suspektní z:",
           "options": [
-            "Roztroušené sklerózy (demylinizace FLM)",
+            "Roztroušené sklerózy (demyelinizace FLM)",
             "Myasthenia gravis",
             "Nedostatku thiaminu (Wernickeova encefalopatie)",
             "Meningeomu sulcus olfactorius"
@@ -2734,7 +2734,7 @@ const NEUROLOGY_DATA = {
             "Střední deficit s lehkou parézou končetiny"
           ],
           "correctIndex": 0,
-          "explanation": "Intrakraniální hemoragie na CT je absolutní kontraindikací trombolýzy, protože podání rtPA by způsobilo fatální progresi krvácení."
+          "explanation": "Intrakraniální hemoragie na CT je absolutní kontraindikací trombolýzy, protože podání rtPA by způsobilo fatální progresi krvácení (věk nad 80 let dnes již není kontraindikací dle aktuálních doporučení ESO)."
         }
       ]
     },
@@ -4232,15 +4232,15 @@ const NEUROLOGY_DATA = {
       "quiz": [
         {
           "id": "pq-S18-1",
-          "question": "Který kognitivní test je výrazně citlivější než MMSE pro včasnou detekci mírné kognitivní poruchy (MCI) a exekutivních dysfunkcí?",
+          "question": "Který typický nález v mozkomíšním moku svědčí pro diagnózu Alzheimerovy nemoci v rámci biomarkerového profilu A/T/N?",
           "options": [
-            "Glasgow Coma Scale",
-            "Montreal Cognitive Assessment (MoCA)",
-            "Barthelův index všedních činností",
-            "NIHSS skóre"
+            "Pokles amyloid-beta 42 (Aβ42) a vzestup fosforylovaného tau proteinu (p-tau)",
+            "Zvýšení amyloid-beta 42 a normální hladina tau proteinu",
+            "Izolovaná pozitivita 14-3-3 proteinu bez změn tau",
+            "Masivní neutrofilní pleocytóza a laktát > 4 mmol/l"
           ],
-          "correctIndex": 1,
-          "explanation": "Montreal Cognitive Assessment (MoCA) testuje široké spektrum funkcí včetně exekutivních, zrakově-prostorových a pozornostních a je podstatně senzitivnější pro záchyt MCI a časné fáze demence než MMSE."
+          "correctIndex": 0,
+          "explanation": "Pro Alzheimerovu nemoc je v likvoru typický pokles hladiny Aβ42 (v důsledku ukládání amyloidu do senilních plak v mozku) a současná elevace celkového tau (t-tau – marker neuronálního rozpadu) a fosforylovaného tau proteinu (p-tau – korelát neurofibrilárních klubek)."
         },
         {
           "id": "pq-S18-2",
@@ -4248,7 +4248,7 @@ const NEUROLOGY_DATA = {
           "options": [
             "Inhibice acetylcholinesterázy a butyrylcholinesterázy",
             "Necholeretická stimulace dopaminových D2 receptorů",
-            "Nekompeticionální antagonismus NMDA glutamátových receptorů bránící excitotoxicitě",
+            "Nekompetitivní antagonismus NMDA glutamátových receptorů bránící excitotoxicitě",
             "Blokáda CGRP receptorů"
           ],
           "correctIndex": 2,
@@ -4789,7 +4789,7 @@ const NEUROLOGY_DATA = {
           },
           {
             "title": "3. Klinické formy a Průběh onemocnění",
-            "content": "<div class=\"anatomy-grid\">\n                <div class=\"grid-item\">\n                    <h4>Klinické fenotypy RS</h4>\n                    <ul>\n                        <li><strong>Klinicky izolovaný syndrom (CIS):</strong> první akutní neurologická ataka suspektní z demyelinizace (např. jednostranná retrobulbární neuritida).</li>\n                        <li><strong>Relabující-remitentní RS (RRRS, 85 %):</strong> střídání <em>relapsů</em> (nový ložiskový deficit trvající > 24 hod bez infekce) s obdobími úplné nebo částečné <em>remise</em>.</li>\n                        <li><strong>Sekundárně progresivní RS (SPMS):</strong> po 10–20 letech trvání RRRS dochází k postupnému trvalému nárůstu disability i bez přítomnosti relapsů.</li>\n                        <li><strong>Primárně progresivní RS (PPMS, 10–15 %):</strong> pozvolná kontinuální progrese neurologického deficitu od samého počátku bez relapsů (typicky progredující spastická paraparéza u pacientů kolem 40–50 let).</li>\n                    </ul>\n                </div>\n                <div class=\"grid-item\">\n                    <h4>Typické klinické příznaky</h4>\n                    <ul>\n                        <li><strong>Optická (retrobulbární) neuritida:</strong> jednostranný pokles zrakové ostrosti, retrobulbární bolest oka při pohledu do stran, porucha barvocitu (dyschromatopsie – červená barva).</li>\n                        <li><strong>Kmenové a mozečkové příznaky:</strong> internukleární oftalmoplegie (INO – léze MLF), diplopie, rotační vertigo, ataxie, intenční třes, dysartrie (<em>Charcotova triáda: nystagmus, intenční tremor, skandovaná řeč</em>).</li>\n                        <li><strong>Míšní příznaky:</strong> spastická paraparéza dolních končetin, poruchy citlivosti, urgentní mikce/inkontinence.</li>\n                        <li><strong>Specifické fenomény:</strong>\n                            <ul>\n                                <li><em>Lhermitteův příznak:</em> pocit průchodu elektrického proudu páteří do končetin při předklonu hlavy (demylinizace krční míchy).</li>\n                                <li><em>Uhthoffův fenomén:</em> přechodné zhoršení symptomů při zvýšení tělesné teploty (horká koupel, cvičení, horečka) v důsledku bloku vedení v demyelinizovaných axonech.</li>\n                            </ul>\n                        </li>\n                    </ul>\n                </div>\n            </div>"
+            "content": "<div class=\"anatomy-grid\">\n                <div class=\"grid-item\">\n                    <h4>Klinické fenotypy RS</h4>\n                    <ul>\n                        <li><strong>Klinicky izolovaný syndrom (CIS):</strong> první akutní neurologická ataka suspektní z demyelinizace (např. jednostranná retrobulbární neuritida).</li>\n                        <li><strong>Relabující-remitentní RS (RRRS, 85 %):</strong> střídání <em>relapsů</em> (nový ložiskový deficit trvající > 24 hod bez infekce) s obdobími úplné nebo částečné <em>remise</em>.</li>\n                        <li><strong>Sekundárně progresivní RS (SPMS):</strong> po 10–20 letech trvání RRRS dochází k postupnému trvalému nárůstu disability i bez přítomnosti relapsů.</li>\n                        <li><strong>Primárně progresivní RS (PPMS, 10–15 %):</strong> pozvolná kontinuální progrese neurologického deficitu od samého počátku bez relapsů (typicky progredující spastická paraparéza u pacientů kolem 40–50 let).</li>\n                    </ul>\n                </div>\n                <div class=\"grid-item\">\n                    <h4>Typické klinické příznaky</h4>\n                    <ul>\n                        <li><strong>Optická (retrobulbární) neuritida:</strong> jednostranný pokles zrakové ostrosti, retrobulbární bolest oka při pohledu do stran, porucha barvocitu (dyschromatopsie – červená barva).</li>\n                        <li><strong>Kmenové a mozečkové příznaky:</strong> internukleární oftalmoplegie (INO – léze MLF), diplopie, rotační vertigo, ataxie, intenční třes, dysartrie (<em>Charcotova triáda: nystagmus, intenční tremor, skandovaná řeč</em>).</li>\n                        <li><strong>Míšní příznaky:</strong> spastická paraparéza dolních končetin, poruchy citlivosti, urgentní mikce/inkontinence.</li>\n                        <li><strong>Specifické fenomény:</strong>\n                            <ul>\n                                <li><em>Lhermitteův příznak:</em> pocit průchodu elektrického proudu páteří do končetin při předklonu hlavy (demyelinizace krční míchy).</li>\n                                <li><em>Uhthoffův fenomén:</em> přechodné zhoršení symptomů při zvýšení tělesné teploty (horká koupel, cvičení, horečka) v důsledku bloku vedení v demyelinizovaných axonech.</li>\n                            </ul>\n                        </li>\n                    </ul>\n                </div>\n            </div>"
           },
           {
             "title": "4. Diagnostika (McDonaldova revidovaná kritéria 2017)",

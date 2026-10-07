@@ -62,6 +62,30 @@
     {
       "source": "/upv/(.*)",
       "destination": "/upv/$1"
+    },
+    {
+      "source": "/drill",
+      "destination": "/drill/index.html"
+    },
+    {
+      "source": "/drill/",
+      "destination": "/drill/index.html"
+    },
+    {
+      "source": "/drill/(.*)",
+      "destination": "/drill/$1"
+    },
+    {
+      "source": "/pwa",
+      "destination": "/drill/index.html"
+    },
+    {
+      "source": "/pwa/",
+      "destination": "/drill/index.html"
+    },
+    {
+      "source": "/pwa/(.*)",
+      "destination": "/drill/$1"
     }
   ]
 }

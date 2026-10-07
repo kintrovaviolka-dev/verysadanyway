@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>MedDrill • PWA Trenažér otázek LF OU | verysadanyway</title>
+  <meta name="description" content="Lékařský drill trenažér: Active Recall otázky, kazuistiky a dopisování pro 3., 4. a 5. ročník všeobecného lékařství.">
+  
+  <!-- Security & CSP -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self';">
+
+  <!-- PWA & Mobile Web App Meta -->
+  <link rel="manifest" href="/drill/manifest.json">
+  <meta name="theme-color" content="#0c0f12">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="MedDrill">
+  <link rel="apple-touch-icon" href="/drill/icons/icon-192.svg">
+  <link rel="icon" type="image/svg+xml" href="/drill/icons/icon-192.svg">
+
+  <link rel="stylesheet" href="/drill/style.css">
+</head>
+<body>
+  <!-- Canvas pro oslavné konfety -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <div id="app">
+    <!-- Horní lišta -->
+    <header class="app-header">
+      <a href="/drill/" class="brand" id="brand-link">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2L4 7v6c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V7l-8-5zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>MedDrill</h1>
+          <span class="brand-tagline">LF OU • verysadanyway</span>
+        </div>
+      </a>
+
+      <div class="header-actions">
+        <!-- Streak odznak -->
+        <div class="streak-badge" id="streak-badge" title="Denní série procvičování">
+          <span>🔥</span>
+          <span id="streak-count">0</span>
+        </div>
+
+        <!-- Tlačítko Offline Hub -->
+        <button class="btn-icon" id="btn-open-storage" title="Správa stažených balíčků & Offline">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/>
+          </svg>
+        </button>
+
+        <!-- Tlačítko Instalovat PWA -->
+        <button class="btn-icon" id="btn-install-pwa" title="Nainstalovat do telefonu / na plochu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14zm-1-6h-3V8h-2v5H8l4 4 4-4z"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Hlavní obsah -->
+    <main id="main-content">
+      <!-- 1. POHLED: ROZCESTNÍK BALÍČKŮ (HOME) -->
+      <section class="view active" id="view-home">
+        <!-- SRS Denní karta -->
+        <div class="srs-hero-card">
+          <div class="srs-hero-tag">
+            <span>⚡ Spaced Repetition</span>
+          </div>
+          <h2 class="srs-hero-title">Dnešní dávka k opakování</h2>
+          <p class="srs-hero-desc">Otázky naplánované na dnešní den na základě zapomínací křivky pro trvalé zapamatování.</p>
+          
+          <div class="srs-hero-stats">
+            <div class="srs-stat-item">
+              <span class="srs-stat-val" id="stat-due-today">0</span>
+              <span class="srs-stat-label">K opakování</span>
+            </div>
+            <div class="srs-stat-item">
+              <span class="srs-stat-val" id="stat-mastered">0</span>
+              <span class="srs-stat-label">Zvládnuto</span>
+            </div>
+            <div class="srs-stat-item">
+              <span class="srs-stat-val" id="stat-accuracy">0%</span>
+              <span class="srs-stat-label">Úspěšnost</span>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <button class="btn-primary" id="btn-start-daily-srs">
+              <span>🧠 Spustit denní drill</span>
+            </button>
+            <button class="btn-secondary" id="btn-create-custom-deck">
+              <span>➕ Vlastní balíček</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Rychlé filtry ročníků -->
+        <div class="filter-pills" id="subject-filter-pills">
+          <button class="filter-pill active" data-filter="all">Všechny sady</button>
+          <button class="filter-pill" data-filter="grade-3">3. ročník</button>
+          <button class="filter-pill" data-filter="grade-4">4. ročník</button>
+          <button class="filter-pill" data-filter="grade-5">5. ročník</button>
+          <button class="filter-pill" data-filter="smart">Smart balíčky</button>
+          <button class="filter-pill" data-filter="custom">Moje balíčky</button>
+        </div>
+
+        <!-- Sekce Smart balíčků -->
+        <div class="section-header" style="margin-top: 10px;">
+          <h2>Procvičovací režimy & Smart Decks</h2>
+          <p>Inteligentní generátory testů zaměřené na slabá místa</p>
+        </div>
+
+        <div class="decks-grid" id="smart-decks-grid" style="margin-bottom: 28px;">
+          <!-- Karta Chybový záchranář -->
+          <div class="deck-card" id="card-mistakes-deck">
+            <div class="deck-card-top">
+              <div class="deck-icon-badge" style="background: rgba(239, 68, 68, 0.15); color: #ef4444;">🚨</div>
+              <span class="deck-grade-badge">Chyby</span>
+            </div>
+            <div>
+              <h3 class="deck-card-title">Chybový záchranář</h3>
+              <p class="deck-card-desc">Procvičte si otázky, ve kterých jste v minulosti chybovali, dokud je nezvládnete.</p>
+            </div>
+            <div class="deck-card-footer">
+              <div class="deck-counts">
+                <span class="deck-count-pill" id="mistakes-count-pill">0 chyb k nápravě</span>
+              </div>
+              <span style="color: var(--rose); font-weight: 700; font-size: 0.85rem;">Procvičit →</span>
+            </div>
+          </div>
+
+          <!-- Karta Klinický maraton (Kazuistiky) -->
+          <div class="deck-card" id="card-cases-deck">
+            <div class="deck-card-top">
+              <div class="deck-icon-badge" style="background: rgba(139, 92, 246, 0.15); color: #a78bfa;">🏥</div>
+              <span class="deck-grade-badge">Klinika</span>
+            </div>
+            <div>
+              <h3 class="deck-card-title">Klinický maraton</h3>
+              <p class="deck-card-desc">Řešte reálné kazuistiky z Kardiologie, Neurologie, Psychiatrie a Urgentu.</p>
+            </div>
+            <div class="deck-card-footer">
+              <div class="deck-counts">
+                <span class="deck-count-pill">Všechny kazuistiky</span>
+              </div>
+              <span style="color: var(--violet); font-weight: 700; font-size: 0.85rem;">Vyřešit →</span>
+            </div>
+          </div>
+
+          <!-- Karta Zkouškový trenažér na čas -->
+          <div class="deck-card" id="card-timed-exam">
+            <div class="deck-card-top">
+              <div class="deck-icon-badge" style="background: rgba(0, 240, 255, 0.15); color: #00f0ff;">⏱️</div>
+              <span class="deck-grade-badge">Test</span>
+            </div>
+            <div>
+              <h3 class="deck-card-title">Simulace testu (Sprint)</h3>
+              <p class="deck-card-desc">Náhodný mix 20 otázek napříč staženými obory s časovým limitem 20 minut.</p>
+            </div>
+            <div class="deck-card-footer">
+              <div class="deck-counts">
+                <span class="deck-count-pill">20 otázek • 20 min</span>
+              </div>
+              <span style="color: var(--cyan); font-weight: 700; font-size: 0.85rem;">Spustit →</span>
+            </div>
+          </div>
+
+          <!-- Karta Oblíbené a označené -->
+          <div class="deck-card" id="card-starred-deck">
+            <div class="deck-card-top">
+              <div class="deck-icon-badge" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24;">⭐️</div>
+              <span class="deck-grade-badge">Záložky</span>
+            </div>
+            <div>
+              <h3 class="deck-card-title">Hvězdičkované otázky</h3>
+              <p class="deck-card-desc">Karty a kazuistiky, které jste si během procvičování označili hvězdičkou.</p>
+            </div>
+            <div class="deck-card-footer">
+              <div class="deck-counts">
+                <span class="deck-count-pill" id="starred-count-pill">0 označených</span>
+              </div>
+              <span style="color: #fbbf24; font-weight: 700; font-size: 0.85rem;">Otevřít →</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sekce Oborových balíčků -->
+        <div class="section-header">
+          <h2>Oborové sady dle sylabu LF OU</h2>
+          <p>Kompletní banka otázek pro jednotlivé předměty</p>
+        </div>
+
+        <div class="decks-grid" id="subject-decks-grid">
+          <!-- Dynamicky renderované balíčky předmětů -->
+        </div>
+
+        <!-- Sekce Vlastních balíčků -->
+        <div class="section-header" style="margin-top: 32px;" id="custom-decks-header">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <h2>Moje vlastní balíčky</h2>
+              <p>Vámi vytvořené výběry a sady k procvičení</p>
+            </div>
+            <button class="btn-secondary" id="btn-create-custom-deck-inline" style="padding: 6px 14px; font-size: 0.8rem;">
+              + Nový
+            </button>
+          </div>
+        </div>
+
+        <div class="decks-grid" id="custom-decks-grid" style="margin-top: 14px;">
+          <!-- Vlastní balíčky -->
+        </div>
+      </section>
+
+      <!-- 2. POHLED: DRILL RUNNER (PROCVIOVÁNÍ) -->
+      <section class="view" id="view-drill">
+        <!-- Horní lišta testu -->
+        <div class="drill-top-bar">
+          <button class="drill-back-btn" id="btn-exit-drill">
+            <span>← Ukončit</span>
+          </button>
+          <div class="drill-progress-info">
+            <span id="drill-counter">1 / 20</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span class="drill-timer" id="drill-timer-display" style="display: none;">⏱️ 00:00</span>
+            <button class="btn-star-question" id="btn-star-active-question" title="Přidat do oblíbených">
+              ★
+            </button>
+          </div>
+        </div>
+
+        <!-- Progress bar -->
+        <div class="drill-progress-bar-container">
+          <div class="drill-progress-fill" id="drill-progress-fill"></div>
+        </div>
+
+        <!-- Karta s otázkou -->
+        <div class="question-card-container" id="question-card">
+          <!-- Metadata otázky -->
+          <div class="question-meta-bar">
+            <span class="question-badge single_choice" id="question-type-badge">Single Choice</span>
+            <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;" id="question-subject-badge">Kardiologie</span>
+          </div>
+
+          <!-- Kazuistika Vignette (pokud jde o kazuistiku) -->
+          <div class="case-vignette-box" id="case-vignette-box" style="display: none;">
+            <div class="vignette-patient-header" id="vignette-patient-header">
+              <!-- Pacient info -->
+            </div>
+            <div class="vignette-scenario-text" id="vignette-scenario-text"></div>
+          </div>
+
+          <!-- Text otázky -->
+          <div class="question-text" id="question-prompt">
+            Načítání otázky...
+          </div>
+
+          <!-- Možnosti pro Single Choice -->
+          <div class="options-grid" id="options-grid">
+            <!-- Tlačítka A, B, C, D -->
+          </div>
+
+          <!-- Dopisovací pole (pro Fill-in) -->
+          <div class="fill-in-box" id="fill-in-box" style="display: none;">
+            <div class="fill-in-input-wrapper">
+              <input type="text" class="fill-in-input" id="fill-in-input" placeholder="Zadejte odpověď nebo termín..." autocomplete="off" maxlength="120">
+              <button class="btn-primary" id="btn-submit-fill-in" style="padding: 12px 18px;">
+                Zkontrolovat
+              </button>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <button class="btn-secondary" id="btn-fill-in-hint" style="padding: 6px 12px; font-size: 0.78rem;">
+                💡 Nápověda
+              </button>
+              <span id="fill-in-hint-text" style="font-size: 0.8rem; color: var(--amber); display: none;"></span>
+            </div>
+          </div>
+
+          <!-- Karta vysvětlení po zodpovězení -->
+          <div class="drill-explanation-card" id="drill-explanation-card">
+            <div class="explanation-title" id="explanation-title">
+              Správně!
+            </div>
+            <div class="explanation-content" id="explanation-content">
+              Detailní vysvětlení odpovědi.
+            </div>
+
+            <!-- Klinická perla -->
+            <div class="pearl-box" id="pearl-box" style="display: none;">
+              <div class="pearl-header">
+                <span>⚡ Klinická perlička</span>
+              </div>
+              <div class="pearl-text" id="pearl-text"></div>
+            </div>
+
+            <!-- SRS Sebehodnocení pro Kazuistiky -->
+            <div class="srs-rating-container" id="srs-rating-container">
+              <span class="srs-rating-label">Ohodnoťte, jak dobře jste případ zvládli (pro Spaced Repetition):</span>
+              <div class="srs-rating-buttons">
+                <button class="srs-rate-btn rate-bad" data-rating="bad">
+                  <span>🚨</span>
+                  <span>Nevěděl/a</span>
+                </button>
+                <button class="srs-rate-btn rate-medium" data-rating="medium">
+                  <span>🤔</span>
+                  <span>Váhal/a</span>
+                </button>
+                <button class="srs-rate-btn rate-good" data-rating="good">
+                  <span>🎯</span>
+                  <span>Znal/a jistě</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spodní lišta s tlačítkem Další -->
+        <div class="drill-next-bar" id="drill-next-bar" style="display: none;">
+          <button class="btn-primary" id="btn-next-question" style="width: 100%;">
+            <span>Další otázka →</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 3. POHLED: STATISTIKY (STATS) -->
+      <section class="view" id="view-stats">
+        <div class="section-header">
+          <h2>Statistika & Pokrok</h2>
+          <p>Přehled vašeho studia a zvládnutých otázek</p>
+        </div>
+
+        <!-- Karty celkového skóre -->
+        <div class="decks-grid" style="margin-bottom: 24px;">
+          <div class="deck-card" style="cursor: default;">
+            <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Denní série</span>
+            <div style="font-size: 2.2rem; font-family: var(--font-heading); font-weight: 800; color: #fbbf24; margin: 4px 0;">
+              🔥 <span id="stats-streak-val">0</span> dní
+            </div>
+            <p style="font-size: 0.78rem; color: var(--text-secondary);">Pokračujte každý den pro udržení paměťové stopy.</p>
+          </div>
+
+          <div class="deck-card" style="cursor: default;">
+            <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Celková úspěšnost</span>
+            <div style="font-size: 2.2rem; font-family: var(--font-heading); font-weight: 800; color: var(--cyan); margin: 4px 0;">
+              <span id="stats-accuracy-val">0</span>%
+            </div>
+            <p style="font-size: 0.78rem; color: var(--text-secondary);"><span id="stats-total-answered">0</span> zodpovězených otázek celkem.</p>
+          </div>
+        </div>
+
+        <!-- Leitner krabičky rozpad -->
+        <div class="question-card-container">
+          <h3 style="font-family: var(--font-heading); font-size: 1.1rem; margin-bottom: 14px;">Rozpad Spaced Repetition (Leitner krabičky)</h3>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 4px;">
+                <span>🟢 Krabička 4 & 5 (Trvale zvládnuto)</span>
+                <strong id="box-mastered-count">0 karet</strong>
+              </div>
+              <div class="drill-progress-bar-container" style="margin-bottom: 0;">
+                <div class="drill-progress-fill" id="box-mastered-bar" style="background: var(--emerald); width: 0%;"></div>
+              </div>
+            </div>
+
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 4px;">
+                <span>🟡 Krabička 2 & 3 (V procesu učení)</span>
+                <strong id="box-learning-count">0 karet</strong>
+              </div>
+              <div class="drill-progress-bar-container" style="margin-bottom: 0;">
+                <div class="drill-progress-fill" id="box-learning-bar" style="background: var(--amber); width: 0%;"></div>
+              </div>
+            </div>
+
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 4px;">
+                <span>🔴 Krabička 1 (Nové & Chybné otázky)</span>
+                <strong id="box-mistakes-count">0 karet</strong>
+              </div>
+              <div class="drill-progress-bar-container" style="margin-bottom: 0;">
+                <div class="drill-progress-fill" id="box-mistakes-bar" style="background: var(--rose); width: 0%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Export & Import dat -->
+        <div class="question-card-container" style="margin-top: 20px;">
+          <h3 style="font-family: var(--font-heading); font-size: 1.1rem; margin-bottom: 8px;">Záloha a přenos dat</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;">Všechna data se ukládají v prohlížeči. Zde si můžete svůj pokrok vyexportovat a přenést do jiného zařízení.</p>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <button class="btn-secondary" id="btn-export-data">
+              <span>📥 Exportovat pokrok (JSON)</span>
+            </button>
+            <label class="btn-secondary" style="cursor: pointer;">
+              <span>📤 Obnovit ze zálohy</span>
+              <input type="file" id="input-import-data" accept=".json" style="display: none;">
+            </label>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Spodní navigační lišta -->
+    <nav class="bottom-nav">
+      <button class="nav-item active" data-view="view-home">
+        <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+        <span>Balíčky</span>
+      </button>
+      <button class="nav-item" id="nav-item-daily-srs">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+        <span>Denní SRS</span>
+      </button>
+      <button class="nav-item" data-view="view-stats">
+        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+        <span>Statistiky</span>
+      </button>
+      <button class="nav-item" id="nav-item-storage">
+        <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>
+        <span>Offline data</span>
+      </button>
+    </nav>
+
+    <!-- =======================================================================
+         MODÁLNÍ DIALOGY
+         ======================================================================= -->
+
+    <!-- 1. ONBOARDING MODAL (Při prvním spuštění) -->
+    <div class="modal-backdrop" id="modal-onboarding">
+      <div class="modal-dialog">
+        <div class="modal-header">
+          <h2 class="modal-title">Vítejte v MedDrillu! 🩺⚡</h2>
+        </div>
+        <div class="modal-body">
+          <p style="color: var(--text-secondary); margin-bottom: 18px;">
+            Který ročník všeobecného lékařství právě studujete? Aplikace vám stáhne relevantní banku otázek a kazuistik pro okamžité procvičování.
+          </p>
+
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <button class="option-btn" data-onboard-grade="3">
+              <span class="option-letter">3</span>
+              <div>
+                <strong>3. ročník</strong>
+                <div style="font-size: 0.8rem; color: var(--text-muted);">Patologie, Imunologie, Mikrobiologie</div>
+              </div>
+            </button>
+
+            <button class="option-btn" data-onboard-grade="4">
+              <span class="option-letter">4</span>
+              <div>
+                <strong>4. ročník</strong>
+                <div style="font-size: 0.8rem; color: var(--text-muted);">Kardiologie, Neurologie, Psychiatrie, Dermatologie, Farmakologie</div>
+              </div>
+            </button>
+
+            <button class="option-btn" data-onboard-grade="5">
+              <span class="option-letter">5</span>
+              <div>
+                <strong>5. ročník</strong>
+                <div style="font-size: 0.8rem; color: var(--text-muted);">Urgentní příjem, UPV & Intenzivní péče</div>
+              </div>
+            </button>
+
+            <button class="option-btn" data-onboard-grade="all">
+              <span class="option-letter">★</span>
+              <div>
+                <strong>Stáhnout všechny ročníky (~2 MB)</strong>
+                <div style="font-size: 0.8rem; color: var(--text-muted);">Kompletní databáze všech 2000+ otázek</div>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. OFFLINE & STORAGE HUB MODAL -->
+    <div class="modal-backdrop" id="modal-storage">
+      <div class="modal-dialog">
+        <div class="modal-header">
+          <h2 class="modal-title">Správce stažených balíčků 💾</h2>
+          <button class="btn-icon modal-close-btn">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="storage-summary-banner">
+            <div>
+              <strong style="color: var(--text-white); font-size: 0.95rem;">100% Offline provoz</strong>
+              <div style="font-size: 0.8rem; color: var(--cyan);" id="storage-summary-text">Staženo 0 předmětů</div>
+            </div>
+            <button class="btn-primary" id="btn-download-all-offline" style="padding: 8px 14px; font-size: 0.82rem;">
+              ⚡ Stáhnout vše
+            </button>
+          </div>
+
+          <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 12px;">
+            Vyberte, které předměty chcete mít uložené přímo v telefonu bez nutnosti internetového připojení:
+          </p>
+
+          <div class="storage-subject-list" id="storage-subject-list">
+            <!-- Dynamický seznam předmětů s tlačítky Stáhnout / Smazat -->
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-secondary modal-close-btn">Zavřít</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. DECK CREATOR MODAL -->
+    <div class="modal-backdrop" id="modal-create-deck">
+      <div class="modal-dialog">
+        <div class="modal-header">
+          <h2 class="modal-title">Vytvořit vlastní balíček ➕</h2>
+          <button class="btn-icon modal-close-btn">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <div>
+              <label style="display: block; font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 6px;">Název balíčku</label>
+              <input type="text" id="custom-deck-name" class="fill-in-input" placeholder="např. Páteční zápočet z Mikry & Patologie" style="width: 100%;" maxlength="80">
+            </div>
+
+            <div>
+              <label style="display: block; font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 6px;">Zvolte předměty</label>
+              <div id="custom-deck-subjects-checkboxes" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                <!-- Checkboxy předmětů -->
+              </div>
+            </div>
+
+            <div>
+              <label style="display: block; font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 6px;">Typy otázek</label>
+              <div style="display: flex; gap: 16px;">
+                <label style="display: flex; align-items: center; gap: 6px; font-size: 0.85rem; cursor: pointer;">
+                  <input type="checkbox" id="check-type-sc" checked> Single Choice
+                </label>
+                <label style="display: flex; align-items: center; gap: 6px; font-size: 0.85rem; cursor: pointer;">
+                  <input type="checkbox" id="check-type-case" checked> Kazuistiky
+                </label>
+                <label style="display: flex; align-items: center; gap: 6px; font-size: 0.85rem; cursor: pointer;">
+                  <input type="checkbox" id="check-type-fill" checked> Dopisovací
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <label style="display: block; font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 6px;">Velikost testu</label>
+              <select id="custom-deck-limit" class="fill-in-input" style="width: 100%;">
+                <option value="15">15 otázek (Rychlý 5min drill)</option>
+                <option value="30" selected>30 otázek (Standardní blok)</option>
+                <option value="50">50 otázek (Zkouškový blok)</option>
+                <option value="0">Všechny dostupné otázky</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-secondary modal-close-btn">Zrušit</button>
+          <button class="btn-primary" id="btn-save-custom-deck">Vytvořit a spustit</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. PWA INSTALL GUIDE MODAL -->
+    <div class="modal-backdrop" id="modal-install-guide">
+      <div class="modal-dialog">
+        <div class="modal-header">
+          <h2 class="modal-title">Instalace do telefonu 📱</h2>
+          <button class="btn-icon modal-close-btn">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div id="install-native-prompt-section" style="display: none; margin-bottom: 20px;">
+            <p style="color: var(--text-secondary); margin-bottom: 14px;">
+              Váš prohlížeč podporuje přímou 1-klik instalaci aplikace na domovskou obrazovku:
+            </p>
+            <button class="btn-primary" id="btn-trigger-native-install" style="width: 100%;">
+              📲 Nainstalovat MedDrill do telefonu
+            </button>
+          </div>
+
+          <div id="install-ios-guide-section">
+            <h3 style="font-family: var(--font-heading); color: var(--text-white); font-size: 1rem; margin-bottom: 8px;">🍎 Návod pro iPhone a iPad (Safari)</h3>
+            <ol style="padding-left: 20px; font-size: 0.88rem; color: #cbd5e1; line-height: 1.7; margin-bottom: 18px;">
+              <li>V prohlížeči Safari klepněte dole na ikonu <strong>Sdílet ⎋</strong> (čtvereček se šipkou nahoru).</li>
+              <li>V nabídce sjeďte dolů a klepněte na <strong>„Přidat na plochu“ ⊞</strong>.</li>
+              <li>V pravém horním rohu potvrďte tlačítkem <strong>Přidat</strong>.</li>
+              <li>Aplikace se objeví mezi vašimi aplikacemi a spustí se bez lišt prohlížeče!</li>
+            </ol>
+
+            <h3 style="font-family: var(--font-heading); color: var(--text-white); font-size: 1rem; margin-bottom: 8px;">🤖 Návod pro Android (Chrome)</h3>
+            <ol style="padding-left: 20px; font-size: 0.88rem; color: #cbd5e1; line-height: 1.7;">
+              <li>Klepněte vpravo nahoře na <strong>tři tečky ⋮</strong>.</li>
+              <li>Zvolte <strong>„Nainstalovat aplikaci“</strong> nebo <strong>„Přidat na plochu“</strong>.</li>
+            </ol>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-secondary modal-close-btn">Rozumím</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Skripty -->
+  <script src="/drill/storage.js"></script>
+  <script src="/drill/app.js"></script>
+</body>
+</html>

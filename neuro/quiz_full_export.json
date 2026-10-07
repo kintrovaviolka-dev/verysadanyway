@@ -1,0 +1,2808 @@
+[
+  {
+    "number": 1,
+    "badge": "O01",
+    "section": "Obecná neurologie",
+    "title": "Centrální řízení motoriky, motorická kůra, anatomie prvního motoneuronu",
+    "theory_titles": [
+      "1. Korová reprezentace a somatotopie (motorický homunkulus)",
+      "2. Průběh pyramidové dráhy (Tractus corticospinalis & corticonuclearis)",
+      "3. Syndrom centrální (spastické) parézy vs. periferní parézy"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "q01-test1",
+        "question": "Při lézi primární motorické kůry na mediální ploše hemisféry v povodí arteria cerebri anterior vzniká:",
+        "options": [
+          "Převaha parézy horní končetiny a obličeje kontralaterálně",
+          "Převaha parézy dolní končetiny (krurální paréza) kontralaterálně",
+          "Homolaterální chabá obrna končetin",
+          "Izolovaná kvadrantová anopsie"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Převaha parézy dolní končetiny (krurální paréza) kontralaterálně",
+        "explanation": "Na mediální ploše gyrusu praecentralis je lokalizována korová reprezentace dolní končetiny, která je vaskularizována z arteria cerebri anterior."
+      },
+      {
+        "idx": 2,
+        "id": "q01-test2",
+        "question": "Který z následujících nálezů svědčí pro periferní (chabou) a NIKOLIV centrální lézi?",
+        "options": [
+          "Pozitivní Babinského reflex",
+          "Spastický fenomén sklapovacího nože",
+          "Přítomnost fascikulací a časných svalových atrofií",
+          "Klonus pately a nohy"
+        ],
+        "correctIndex": 2,
+        "correctAnswer": "Přítomnost fascikulací a časných svalových atrofií",
+        "explanation": "Fascikulace a časná výrazná neurogenní atrofie jsou typickými známkami denervace při lézi 2. (dolního) motoneuronu."
+      }
+    ]
+  },
+  {
+    "number": 2,
+    "badge": "O02",
+    "section": "Obecná neurologie",
+    "title": "Periferní nerv, nervosvalový přenos, kosterní sval",
+    "theory_titles": [
+      "1. Periferní nerv a syndrom periferní (chabé) parézy",
+      "2. Nervosvalový přenos a jeho poruchy (Myastenie vs. Lambert-Eaton)",
+      "3. Myogenní syndrom (Myopatie, Svalové dystrofie)"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "q02-test1",
+        "question": "Pro Lambert-Eatonův myastenický syndrom (LEMS) je charakteristické:",
+        "options": [
+          "Protilátky proti postsynaptickým nikotinovým ACh receptorům",
+          "Zhoršování svalové síly bezprostředně po opakované zátěži",
+          "Přechodné zlepšení síly a reflexů po krátké volní kontrakci (facilitace) a asociace se SCLC",
+          "Přítomnost fascikulací jazyka a končetin"
+        ],
+        "correctIndex": 2,
+        "correctAnswer": "Přechodné zlepšení síly a reflexů po krátké volní kontrakci (facilitace) a asociace se SCLC",
+        "explanation": "LEMS je presynaptická porucha způsobená protilátkami proti Ca2+ kanálům (VGCC). Projevuje se typickou facilitací po svalové kontrakci a silnou asociací s malobuněčným karcinomem plic."
+      },
+      {
+        "idx": 2,
+        "id": "q02-test2",
+        "question": "Základním lékem první volby v symptomatické terapii Myasthenia gravis je:",
+        "options": [
+          "Inhibitor acetylcholinesterázy (pyridostigmin)",
+          "Beta-2 mimetikum (salbutamol)",
+          "Baklofen",
+          "Levodopa"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "Inhibitor acetylcholinesterázy (pyridostigmin)",
+        "explanation": "Pyridostigmin (Mestinon) inhibuje enzym acetylcholinesterázu v synaptické štěrbině, čímž prodlužuje a zvyšuje dostupnost acetylcholinu pro zbývající receptory."
+      }
+    ]
+  },
+  {
+    "number": 3,
+    "badge": "O03",
+    "section": "Obecná neurologie",
+    "title": "Senzitivní systém, senzitivní korová oblast mozku",
+    "theory_titles": [
+      "1. Dráha zadních provazců (Lemniskální systém - Epikritické čití)",
+      "2. Anterolaterální systém (Tractus spinothalamicus - Protopatické čití)",
+      "3. Typy senzitivních poruch a disociace čití"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "q03-test1",
+        "question": "Fasciculus gracilis (Golli) přivádí senzitivní vlákna z:",
+        "options": [
+          "Horní končetiny a krku (C1–Th5)",
+          "Dolní poloviny těla a dolních končetin (Th6 a níže)",
+          "Obličeje a trojklanného nervu",
+          "Vnitřních orgánů pánve výhradně pro motoriku"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Dolní poloviny těla a dolních končetin (Th6 a níže)",
+        "explanation": "Fasciculus gracilis leží mediálně v zadních provazcích a vede propriocepci a diskriminační čití z dolních končetin a dolního trupu (od Th6 kaudálně)."
+      },
+      {
+        "idx": 2,
+        "id": "q03-test2",
+        "question": "Při tabické disociaci čití (např. u funikulární myelózy při deficitu vitamínu B12) nacházíme:",
+        "options": [
+          "Ztrátu vnímání bolesti a tepla při intaktní propriocepci",
+          "Ztrátu hlubokého čití, polohocitu a vibrace se senzorickou ataxií při zachovalém vnímání bolesti a tepla",
+          "Kompletní anestézii všech modalit na jedné polovině těla",
+          "Hypestézii v distribuci n. ischiadicus"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Ztrátu hlubokého čití, polohocitu a vibrace se senzorickou ataxií při zachovalém vnímání bolesti a tepla",
+        "explanation": "Tabická disociace vzniká poškozením zadních provazců míšních: vyhasíná propriocepce, polohocit a vibrace (pallestézie), což způsobuje pád při zavření očí (pozitivní Romberg II), zatímco spinotalamický trakt je ušetřen."
+      }
+    ]
+  },
+  {
+    "number": 4,
+    "badge": "O04",
+    "section": "Obecná neurologie",
+    "title": "Míšní syndromy",
+    "theory_titles": [
+      "1. Kompletní transverzální léze míšní (Míšní transekce)",
+      "2. Parciální míšní syndromy (Brown-Séquard, a. spinalis anterior)",
+      "3. Syndrom conus medullaris vs. cauda equina"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "q04-test1",
+        "question": "Při míšní lézi v úrovni Th4 očekáváme senzitivní hladinu anestézie v úrovni:",
+        "options": [
+          "Pupku (umbilicus)",
+          "Prsních bradavek (mamillární linie)",
+          "Tříselných vazů",
+          "Klíčních kostí"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Prsních bradavek (mamillární linie)",
+        "explanation": "Dermatom Th4 odpovídá úrovni prsních bradavek (mamillární čára). Úroveň Th10 odpovídá pupku a Th12 tříslům."
+      },
+      {
+        "idx": 2,
+        "id": "q04-test2",
+        "question": "V akutní fázi transverzální léze míšní (fáze míšního šoku) je neurologický nález pod úrovní léze charakterizován:",
+        "options": [
+          "Spastickou paraparézou s hyperreflexií a klonem",
+          "Chabou plegií, areflexií, atonickým močovým měchýřem a anestézií",
+          "Zvýšenou svalovou rigiditou fenoménu ozubeného kola",
+          "Hyperkinezemi typu chorey a atetózy"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Chabou plegií, areflexií, atonickým močovým měchýřem a anestézií",
+        "explanation": "V akutním stádiu míšního šoku dochází vlivem náhlé ztráty supraspinální facilitace k chabé plegii, vyhasnutí všech reflexů a atonii sfinkterů. Spasticita nastupuje až sekundárně."
+      }
+    ]
+  },
+  {
+    "number": 5,
+    "badge": "O05",
+    "section": "Obecná neurologie",
+    "title": "Mozkový kmen a diencephalon, anatomie a syndromy",
+    "theory_titles": [
+      "1. Anatomické oddíly kmene a jádra hlavových nervů",
+      "2. Přehled alternujících kmenových syndromů",
+      "3. Diencephalon: Thalamický a hypotalamický syndrom"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "q05-test1",
+        "question": "Weberův syndrom je způsoben lézí v mesencephalonu a projevuje se:",
+        "options": [
+          "Homolaterální parézou n. oculomotorius (III) a kontralaterální spastickou hemiparézou",
+          "Homolaterální parézou n. facialis a kontralaterální hemiparézou",
+          "Bilaterální hluchotou a ataxií",
+          "Bitemporální hemianopsií a obezitou"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "Homolaterální parézou n. oculomotorius (III) a kontralaterální spastickou hemiparézou",
+        "explanation": "Weberův syndrom postihuje ventrální mesencephalon: vlákna n. III a crura cerebri (pyramidovou dráhu), což vede k homolaterální mydriáze s ptózou a kontralaterální hemiparéze."
+      },
+      {
+        "idx": 2,
+        "id": "q05-test2",
+        "question": "Která z následujících cév je nejčastěji okludována při vzniku Wallenbergova syndromu?",
+        "options": [
+          "Arteria cerebri anterior",
+          "Arteria cerebelli inferior posterior (PICA) nebo arteria vertebralis",
+          "Arteria communicans posterior",
+          "Arteria basilaris v apexu"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Arteria cerebelli inferior posterior (PICA) nebo arteria vertebralis",
+        "explanation": "Wallenbergův dorzolaterální medulární syndrom vzniká uzávěrem PICA (arteria cerebelli inferior posterior) nebo její mateřské arteria vertebralis."
+      }
+    ]
+  },
+  {
+    "number": 6,
+    "badge": "O06",
+    "section": "Obecná neurologie",
+    "title": "Přehled hlavových nervů, anatomie a funkce a postižení okohybné inervace",
+    "theory_titles": [
+      "1. Jednotlivé okohybné nervy a klinický obraz jejich lézí",
+      "2. Internukleární oftalmoplegie (INO) a léze FLM",
+      "3. Pupilární reakce a zornicové syndromy"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "q06-test1",
+        "question": "Pacient při chůzi ze schodů vidí vertikálně dvojitě a kompenzačně uklání hlavu na zdravou stranu (Bielschowského příznak). Který nerv je postižen?",
+        "options": [
+          "N. abducens (VI)",
+          "N. trochlearis (IV)",
+          "N. oculomotorius (III)",
+          "N. opticus (II)"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "N. trochlearis (IV)",
+        "explanation": "N. trochlearis (IV) inervuje m. obliquus superior, který sklápí bulbus dolů a dovnitř. Jeho obrna způsobuje diplopii při pohledu dolů (ze schodů) a kompenzační úklon hlavy k protilehlému rameni."
+      },
+      {
+        "idx": 2,
+        "id": "q06-test2",
+        "question": "Bilateralní internukleární oftalmoplegie (INO) u mladého dospělého je vysoce suspektní z:",
+        "options": [
+          "Roztroušené sklerózy (demylinizace FLM)",
+          "Myasthenia gravis",
+          "Nedostatku thiaminu (Wernickeova encefalopatie)",
+          "Meningeomu sulcus olfactorius"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "Roztroušené sklerózy (demylinizace FLM)",
+        "explanation": "U mladých dospělých je bilaterální INO klasickým a typickým příznakem roztroušené sklerózy (RS) v důsledku demyelinizační léze ve fasciculus longitudinalis medialis v mozkovém kmeni."
+      }
+    ]
+  },
+  {
+    "number": 7,
+    "badge": "O07",
+    "section": "Obecná neurologie",
+    "title": "Přehled hlavových nervů, anatomie a funkce a postižení n. trigeminus",
+    "theory_titles": [
+      "1. Anatomické větve a senzitivní inervace",
+      "2. Motorická inervace a reflexy",
+      "3. Neuralgie n. trigeminus (Tic douloureux)"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "q07-test1",
+        "question": "Která větev n. trigeminus prochází přes foramen ovale a obsahuje i motorická vlákna?",
+        "options": [
+          "N. ophthalmicus (V1)",
+          "N. maxillaris (V2)",
+          "N. mandibularis (V3)",
+          "N. intermedius"
+        ],
+        "correctIndex": 2,
+        "correctAnswer": "N. mandibularis (V3)",
+        "explanation": "N. mandibularis (V3) prochází přes foramen ovale baze lební a jako jediná ze tří větví n. V obsahuje motorickou složku pro žvýkací svaly."
+      },
+      {
+        "idx": 2,
+        "id": "q07-test2",
+        "question": "Pro klasickou (primární) neuralgii n. trigeminus je typické:",
+        "options": [
+          "Trvalá tupá bolest s těžkou poruchou citlivosti na obličeji",
+          "Paroxysmální šlehající bolest trvající sekundy, spouštěná lehkým dotykem, bez objektivního senzitivního deficitu",
+          "Obrna mimických svalů na stejné straně obličeje",
+          "Vyhasnutí patelárního reflexu"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Paroxysmální šlehající bolest trvající sekundy, spouštěná lehkým dotykem, bez objektivního senzitivního deficitu",
+        "explanation": "Klasická neuralgie trigeminu je charakterizována krátkými, bleskovými záchvaty kruté bolesti s trigger zónami, přičemž objektivní neurologický senzitivní nález je v normě."
+      }
+    ]
+  },
+  {
+    "number": 8,
+    "badge": "O08",
+    "section": "Obecná neurologie",
+    "title": "Přehled hlavových nervů, anatomie a funkce a postižení n. facialis",
+    "theory_titles": [
+      "1. Rozdíl mezi centrální a periferní parézou n. facialis",
+      "2. Topografická diagnostika léze n. facialis podél průběhu",
+      "3. Bellova paréza a Ramsay-Huntův syndrom"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "q08-test1",
+        "question": "U pacienta s cévní mozkovou příhodou v pravé hemisféře očekáváme na obličeji:",
+        "options": [
+          "Kompletní periferní parézu všech větví n. VII vpravo",
+          "Centrální parézu n. VII vlevo s poklesem levého ústního koutku a se ZACHOVANÝM vrásčením čela",
+          "Vyhaslý korneální reflex oboustranně",
+          "Výrazný lagoftalmus s Bellovým příznakem vpravo"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Centrální parézu n. VII vlevo s poklesem levého ústního koutku a se ZACHOVANÝM vrásčením čela",
+        "explanation": "Při hemisférické CMP vzniká kontralaterální centrální paréza n. VII. Horní větev (čelo) má bilaterální inervaci a zůstává intaktní; pokleslý je pouze kontralaterální ústní koutek."
+      },
+      {
+        "idx": 2,
+        "id": "q08-test2",
+        "question": "Základním kauzálním/patogenetickým lékem první volby u akutní Bellovy idiopatické parézy n. facialis je:",
+        "options": [
+          "Systémová kortikoterapie (prednison p.o.) zahájená do 72 hodin",
+          "Antibiotická léčba penicilinem",
+          "Intravenózní heparinizace",
+          "Vysokodávkovaný warfarin"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "Systémová kortikoterapie (prednison p.o.) zahájená do 72 hodin",
+        "explanation": "Časné zahájení léčby perorálními kortikoidy (prednison) do 72 hodin výrazně redukuje zánětlivý edém nervu ve Falopiově kanálu a maximalizuje pravděpodobnost plné úpravy funkce."
+      }
+    ]
+  },
+  {
+    "number": 9,
+    "badge": "O09",
+    "section": "Obecná neurologie",
+    "title": "Syndromy mozkových laloků",
+    "theory_titles": [
+      "1. Frontální syndrom",
+      "2. Parietální syndrom",
+      "3. Temporální a okcipitální syndrom"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "q09-test1",
+        "question": "Který z následujících příznaků je typický pro poškození prefrontálního kortexu frontálního laloku?",
+        "options": [
+          "Bitemporální hemianopsie",
+          "Moria (nemístné žertování), desinhibice a přítomnost axiálních úchopových reflexů",
+          "Gerstmannův syndrom",
+          "Wernickeova afázie"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Moria (nemístné žertování), desinhibice a přítomnost axiálních úchopových reflexů",
+        "explanation": "Poškození prefrontální kůry vede k prefrontálnímu syndromu s morií, desinhibicí chování, poruchou úsudku a návratem primitivních reflexů (úchopový, sací)."
+      },
+      {
+        "idx": 2,
+        "id": "q09-test2",
+        "question": "Uncinátní krize s čichovými či chuťovými halucinacemi a snovými stavy (déja-vu) jsou typické pro lézi:",
+        "options": [
+          "Mediálního temporálního laloku (uncus gyri parahippocampalis)",
+          "Okcipitálního laloku",
+          "Předního rohu míšního",
+          "Mozečkového vermis"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "Mediálního temporálního laloku (uncus gyri parahippocampalis)",
+        "explanation": "Uncinátní krize jsou fokální epileptické záchvaty vycházející z uncus gyri parahippocampalis v mediálním temporálním laloku, kde je korová reprezentace čichu."
+      }
+    ]
+  },
+  {
+    "number": 10,
+    "badge": "O10",
+    "section": "Obecná neurologie",
+    "title": "Poruchy řeči, afázie",
+    "theory_titles": [
+      "1. Klasifikace a anatomie korových afázií",
+      "2. Znaky afatické řeči (Parafázie, Neologismy, Anomie)",
+      "3. Diferenciální diagnóza: Afázie vs. Dysartrie vs. Dysfonie"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "q10-test1",
+        "question": "Brocovo motorické řečové centrum je anatomicky lokalizováno v:",
+        "options": [
+          "Gyrus frontalis inferior (area 44, 45 dle Brodmanna) v dominantní hemisféře",
+          "Gyrus temporalis superior (area 22)",
+          "Gyrus postcentralis parietálního laloku",
+          "Flocculonodulárním laloku mozečku"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "Gyrus frontalis inferior (area 44, 45 dle Brodmanna) v dominantní hemisféře",
+        "explanation": "Brocovo centrum motorické expresivní řeči leží v zadní části gyrus frontalis inferior (pars opercularis a triangularis, Brodmannovy areje 44 a 45) dominantní hemisféry."
+      },
+      {
+        "idx": 2,
+        "id": "q10-test2",
+        "question": "Pacient po cévní mozkové příhodě rozumí řeči, mluví plynule, ale při pokusu zopakovat po vyšetřujícím větu 'Na stromě sedí pták' zcela selhává a komolí slova. O jakou afázii jde?",
+        "options": [
+          "Globální afázii",
+          "Kondukční afázii",
+          "Brocovu afázii",
+          "Transkortikální motorickou afázii"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Kondukční afázii",
+        "explanation": "Kondukční afázie vzniká přerušením fasciculus arcuatus: pacient má zachované porozumění i fluentní spontánní řeč, ale má selektivně těžce porušenou schopnost opakovat předložená slova a věty."
+      }
+    ]
+  },
+  {
+    "number": 11,
+    "badge": "O11",
+    "section": "Obecná neurologie",
+    "title": "Poruchy kognitivních funkcí",
+    "theory_titles": [
+      "1. Agnozie (Poruchy rozpoznávání)",
+      "2. Apraxie (Poruchy účelných pohybů)",
+      "3. Amnézie a screeningové kognitivní testy"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "q11-test1",
+        "question": "Neschopnost ukládat a pamatovat si nové informace vzniklé po úrazu či poškození mozku se označuje jako:",
+        "options": [
+          "Retrográdní amnézie",
+          "Anterográdní amnézie",
+          "Senzorická afázie",
+          "Ideomotorická apraxie"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Anterográdní amnézie",
+        "explanation": "Anterográdní amnézie je neschopnost fixovat a ukládat nové zážitky a informace do dlouhodobé paměti po inzultu mozku (poškození hipokampu)."
+      },
+      {
+        "idx": 2,
+        "id": "q11-test2",
+        "question": "Který kognitivní test je nejcitlivější pro časný záchyt mírné kognitivní poruchy (MCI) a exekutivní dysfunkce?",
+        "options": [
+          "MoCA (Montreal Cognitive Assessment)",
+          "Glasgow Coma Scale",
+          "Barthel index",
+          "NIHSS"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "MoCA (Montreal Cognitive Assessment)",
+        "explanation": "MoCA test je výrazně citlivější než MMSE zejména pro včasný záchyt MCI, exekutivní dysfunkce a prostorové orientace."
+      }
+    ]
+  },
+  {
+    "number": 12,
+    "badge": "O12",
+    "section": "Obecná neurologie",
+    "title": "Kvalitativní a kvantitativní poruchy vědomí",
+    "theory_titles": [
+      "1. Kvantitativní poruchy vědomí (Stupně bezvědomí)",
+      "2. Glasgow Coma Scale (GCS)",
+      "3. Zvláštní stavy bezvědomí, Locked-in a Smrt mozku"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "q12-test1",
+        "question": "Při vyšetření pacienta v bezvědomí po traumatu zjistíte: otevírá oči na oslovení (E3), slovně produkuje nevhodná nesouvislá slova (V3) a na výzvu stiskne ruku (M6). Výsledné GCS je:",
+        "options": [
+          "10 bodů",
+          "12 bodů",
+          "14 bodů",
+          "8 bodů"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "12 bodů",
+        "explanation": "GCS = E3 (na oslovení) + V3 (nevhodná slova) + M6 (vyhoví výzvám) = 3 + 3 + 6 = 12 bodů."
+      },
+      {
+        "idx": 2,
+        "id": "q12-test2",
+        "question": "Pro apalický syndrom (vegetativní stav) je charakteristické:",
+        "options": [
+          "Plná lucidita s vertikálními pohyby očí",
+          "Zachovaná bdělost s otevřenýma očima a cyklem spánku/bdění, ale úplná absence vědomí sebe sama a kontaktu s okolím",
+          "Trvalá mydriáza s vyhaslou fotoreakcí",
+          "Záchvaty psychomotorického neklidu a halucinací"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Zachovaná bdělost s otevřenýma očima a cyklem spánku/bdění, ale úplná absence vědomí sebe sama a kontaktu s okolím",
+        "explanation": "Při vegetativním stavu (apalickém syndromu) funguje kmenový ARAS (pacient má otevřené oči a cyklus spánek-bdění), ale korové funkce jsou zcela vyhaslé (chybí kontakt s okolím)."
+      }
+    ]
+  },
+  {
+    "number": 13,
+    "badge": "O13",
+    "section": "Obecná neurologie",
+    "title": "Likvor, jeho cirkulace, hydrocephalus",
+    "theory_titles": [
+      "1. Tvorba a cirkulace mozkomíšního moku",
+      "2. Dělení hydrocefalu (Obstrukční vs. Komunikující)",
+      "3. Normotenzní hydrocefalus (NPH - Hakimova triáda)"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "q13-test1",
+        "question": "Kde dochází k hlavní fyziologické resorpci mozkomíšního moku do žilního systému?",
+        "options": [
+          "V plexus choroideus III. komory",
+          "V Pacchionských granulacích (granulationes arachnoideales) v durálních splavech",
+          "V míšním centrálním kanálku",
+          "V ependymu postranních komor"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "V Pacchionských granulacích (granulationes arachnoideales) v durálních splavech",
+        "explanation": "Resorpce likvoru probíhá jednosměrnými chlopňovými strukturami – Pacchionskými granulacemi arachnoidey prominujícími do durálních žilních splavů (zejména sinus sagittalis superior)."
+      },
+      {
+        "idx": 2,
+        "id": "q13-test2",
+        "question": "Při obstrukci na úrovni aqueductus mesencephali (Sylvii) na CT mozku uvidíme rozšíření:",
+        "options": [
+          "Pouze IV. komory",
+          "Postranních komor a III. komory, zatímco IV. komora má normální či zúžený kalibr",
+          "Všech čtyř komor symetricky",
+          "Pouze subarachnoidálního prostoru na konvexitě"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Postranních komor a III. komory, zatímco IV. komora má normální či zúžený kalibr",
+        "explanation": "Při uzávěru Sylviova mokovodu vázne odtok z III. komory, takže dochází k dilataci komor nad překážkou (obě postranní komory + III. komora), zatímco IV. komora ležící pod mokovodem zůstává štíhlá."
+      }
+    ]
+  },
+  {
+    "number": 14,
+    "badge": "O14",
+    "section": "Obecná neurologie",
+    "title": "Syndrom nitrolební hypertenze a hypotenze",
+    "theory_titles": [
+      "1. Syndrom nitrolební hypertenze (ICP > 20 mmHg)",
+      "2. Mozkové herniace (Mozkové kónusy)",
+      "3. Syndrom nitrolební hypotenze a postpunkční syndrom"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "q14-test1",
+        "question": "Které vyšetření je absolutně kontraindikováno u pacienta se suspektním nitrolebním expanzivním procesem a městnavou papilou před provedením CT mozku?",
+        "options": [
+          "Magnetická rezonance",
+          "Lumbální punkce",
+          "Elektroencefalografie (EEG)",
+          "Dopplerovská sonografie karotid"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Lumbální punkce",
+        "explanation": "Lumbální punkce při intrakraniální expanzi a edému mozku hrozí vytvořením tlakového gradientu a fatální okcipitální herniací mozečkových tonzil do foramen magnum."
+      },
+      {
+        "idx": 2,
+        "id": "q14-test2",
+        "question": "Pro postpunkční syndrom po lumbální punkci platí:",
+        "options": [
+          "Bolest hlavy vzniká typicky vleže a ustupuje při postavení",
+          "Vzniká v důsledku přetrvávajícího úniku likvoru duralním defektem s trakcí za meningy a mozkové cévy ve svislé poloze",
+          "Je vyvolán bakteriální kontaminací subarachnoidálního prostoru",
+          "Vždy vyžaduje okamžitou kraniotomii"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Vzniká v důsledku přetrvávajícího úniku likvoru duralním defektem s trakcí za meningy a mozkové cévy ve svislé poloze",
+        "explanation": "Postpunkční syndrom je způsoben likvorovou hypotenzí při přetrvávající mikropíštěli v tvrdé pleně; gravitace ve stoji vyvolává pokles mozku a tah za senzitivní meningy a cévy."
+      }
+    ]
+  },
+  {
+    "number": 15,
+    "badge": "O15",
+    "section": "Obecná neurologie",
+    "title": "Meningeální syndrom",
+    "theory_titles": [
+      "1. Subjektivní příznaky meningeálního syndromu",
+      "2. Objektivní meningeální příznaky a testy u lůžka",
+      "3. Diferenciální diagnostika: Meningitida vs. SAB vs. Meningismus"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "q15-test1",
+        "question": "Při vyšetření Kernigova příznaku vyšetřující provádí:",
+        "options": [
+          "Pasivní flexi dolní končetiny v kyčli do 90° a následný pokus o extenzi v kolenním kloubu",
+          "Poklep kladívkem pod patelu",
+          "Tlak prstem na processus mastoideus",
+          "Rotaci hlavy v krční páteři"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "Pasivní flexi dolní končetiny v kyčli do 90° a následný pokus o extenzi v kolenním kloubu",
+        "explanation": "Kernigův příznak se testuje pokusem o extenzi bérce při 90° flexi v kyčli; reflexní spazmus hamstringů způsobený meningeálním drážděním extenzi kolene zablokuje a vyvolá bolest."
+      },
+      {
+        "idx": 2,
+        "id": "q15-test2",
+        "question": "Pro meningismus (na rozdíl od skutečné meningitidy) je typické:",
+        "options": [
+          "Přítomnost meningeálních příznaků při vysoké horečce, ale s NORMÁLNÍM biochemickým i cytologickým nálezem v moku",
+          "Nález tisíců granulocytů v mozkomíšním moku",
+          "Prudký pokles glukózy v likvoru",
+          "Přítomnost xantochromie"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "Přítomnost meningeálních příznaků při vysoké horečce, ale s NORMÁLNÍM biochemickým i cytologickým nálezem v moku",
+        "explanation": "Meningismus je funkční dráždění mozkových plen (např. při těžké viróze, chřipce, angíně) s pozitivními meningeálními jevy, ale s normálním, sterilním nálezem v mozkomíšním moku."
+      }
+    ]
+  },
+  {
+    "number": 16,
+    "badge": "O16",
+    "section": "Obecná neurologie",
+    "title": "Vyšetření novorozenců a kojenců",
+    "theory_titles": [
+      "1. Primitivní neonatální a axiální reflexy",
+      "2. Vyšetření svalového tonu a trakční test",
+      "3. Dětská mozková obrna (DMO) a varovné známky"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "q16-test1",
+        "question": "Perzistence primitivních novorozeneckých reflexů (např. Moorova reflexu či ATŠR) po 6. měsíci věku svědčí pro:",
+        "options": [
+          "Fyziologické urychlení psychomotorického vývoje",
+          "Opoždění maturace CNS a suspektní rozvoj dětské mozkové obrny (DMO)",
+          "Výhradně periferní lézi n. peroneus",
+          "Nedostatek vápníku v potravě"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Opoždění maturace CNS a suspektní rozvoj dětské mozkové obrny (DMO)",
+        "explanation": "Primitivní reflexy musí v průběhu prvního půlroku vyhasnout díky maturaci mozkové kůry a descendentní inhibici; jejich perzistence je klíčovým varovným signálem centrální motorické léze (DMO)."
+      },
+      {
+        "idx": 2,
+        "id": "q16-test2",
+        "question": "Při vyšetření novorozence zjistíte, že při tahu za ruce do sedu (trakční test) hlavička visí pasivně dozadu a končetiny jsou zcela chabé. Tento nález označujeme jako:",
+        "options": [
+          "Normální nález u ročního dítěte",
+          "Hypotonický syndrom (Floppy infant)",
+          "Spastickou tetraplegii",
+          "Rigiditu bazálních ganglií"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Hypotonický syndrom (Floppy infant)",
+        "explanation": "Ztráta tonu s pasivním přepadáváním hlavy (head lag) a chabostí končetin charakterizuje syndrom hypotonického dítěte (Floppy infant syndrome - např. spinální svalová atrofie SMA, kongenitální myopatie)."
+      }
+    ]
+  },
+  {
+    "number": 17,
+    "badge": "O17",
+    "section": "Obecná neurologie",
+    "title": "Zobrazovací metody v neurologii, rozdíl mezi CT a MR vyšetřením",
+    "theory_titles": [
+      "1. Výpočetní tomografie (CT) v neurologii",
+      "2. Magnetická rezonance (MR) a klíčové sekvence",
+      "3. Srovnání CT vs. MR a kontraindikace"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "q17-test1",
+        "question": "Na nativním CT mozku se čerstvé intrakraniální krvácení zobrazuje jako:",
+        "options": [
+          "Hypodenzní (tmavá) oblast",
+          "Hyperdenzní (bílá/světlá) oblast s denzitou kolem +60 až +80 HU",
+          "Oblast se signálovou ztrátou",
+          "Striktně izodenzní se vzduchem"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Hyperdenzní (bílá/světlá) oblast s denzitou kolem +60 až +80 HU",
+        "explanation": "Čerstvý krevní extravazát bohatý na hemoglobin má vysokou hustotu pro rentgenové záření a na nativním CT se zobrazuje jako zářivě bílá hyperdenzita (+60 až +80 HU)."
+      },
+      {
+        "idx": 2,
+        "id": "q17-test2",
+        "question": "Která zobrazovací metoda je suverénní pro diagnostiku demyelinizačních plak u roztroušené sklerózy a lézí míchy?",
+        "options": [
+          "Nativní CT mozku",
+          "Magnetická rezonance (MR) v sekvencích T2, FLAIR a T1 s gadoliniem",
+          "RTG lebky a krční páteře",
+          "Klasická digitální subtrakční angiografie"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Magnetická rezonance (MR) v sekvencích T2, FLAIR a T1 s gadoliniem",
+        "explanation": "MR s T2/FLAIR sekvencemi a T1 po aplikaci gadoliniového kontrastu je zlatým standardem pro detekci a diseminaci demyelinizačních plak RS v mozku a míše."
+      }
+    ]
+  },
+  {
+    "number": 18,
+    "badge": "O18",
+    "section": "Obecná neurologie",
+    "title": "Základní principy EEG a EMG",
+    "theory_titles": [
+      "1. Elektroencefalografie (EEG) – Základní rytmy a grafoelementy",
+      "2. Elektromyografie (EMG) – Kondukční studie (Elektroneurografie - ENG)",
+      "3. Jehlová EMG – Neurogenní vs. Myogenní nález"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "q18-test1",
+        "question": "Generalizované synchronní komplexy hrot-vlna o frekvenci přesně 3 Hz na EEG jsou typickým nálezem u:",
+        "options": [
+          "Dětských absencí (petit mal)",
+          "Ischemické cévní mozkové příhody",
+          "Alzheimerovy demence",
+          "Myasthenia gravis"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "Dětských absencí (petit mal)",
+        "explanation": "Pravidelné generalizované komplexy hrot-vlna o frekvenci 3 Hz jsou patognomonickým elektroencefalografickým korelátem typických epileptických absencí (petit mal) u dětí."
+      },
+      {
+        "idx": 2,
+        "id": "q18-test2",
+        "question": "Při vyšetření rychlosti vedení periferním nervem (ENG) svědčí výrazné zpomalení rychlosti vedení při zachované amplitudě CMAP pro:",
+        "options": [
+          "Primárně demyelinizační lézi periferního nervu",
+          "Primárně těžkou axonální degeneraci",
+          "Duchenneovu svalovou dystrofii",
+          "Mozečkový infarkt"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "Primárně demyelinizační lézi periferního nervu",
+        "explanation": "Rychlost vedení vzruchu nervem přímo závisí na integritě myelinové pochvy a saltatorním vedení; její izolovaný pokles je známkou demyelinizace (např. CIDP, syndrom Guillain-Barré)."
+      }
+    ]
+  },
+  {
+    "number": 19,
+    "badge": "O19",
+    "section": "Obecná neurologie",
+    "title": "Vyšetření mozkomíšního moku",
+    "theory_titles": [
+      "1. Technika lumbální punkce, indikace a kontraindikace",
+      "2. Základní parametry a normální hodnoty likvoru",
+      "3. Přehled likvorových syndromů"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "q19-test1",
+        "question": "Který biochemický parametr v mozkomíšním moku nejspolehlivěji odliší bakteriální hnisavou meningitidu od virové serózní meningitidy?",
+        "options": [
+          "Koncentrace sodíku a draslíku",
+          "Hladina laktátu (u bakteriální > 3,5 mmol/l, u virové normální) a pokles poměru glukózy likvor/sérum",
+          "Hladina kreatininu",
+          "Množství bilirubinu"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Hladina laktátu (u bakteriální > 3,5 mmol/l, u virové normální) a pokles poměru glukózy likvor/sérum",
+        "explanation": "Bakterie spotřebovávají glukózu anaerobním metabolismem za masivní produkce laktátu; laktát nad 3,5 mmol/l s poklesem poměru glykorachie/glykémie pod 0,4 je jasným znakem bakteriální meningitidy."
+      },
+      {
+        "idx": 2,
+        "id": "q19-test2",
+        "question": "Při jakém podezření je lumbální punkce absolutně kontraindikována bez předchozího CT mozku?",
+        "options": [
+          "Při suspektní roztroušené skleróze",
+          "Při intrakraniální ložiskové expanzi s edémem mozku a rizikem kónusu",
+          "Při polyneuropatii dolních končetin",
+          "Při migrenózním záchvatu"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Při intrakraniální ložiskové expanzi s edémem mozku a rizikem kónusu",
+        "explanation": "Při intrakraniální expanzi hrozí při lumbální punkci okamžitá fatální herniace (zaklínění) mozečkových tonzil do foramen magnum."
+      }
+    ]
+  },
+  {
+    "number": 20,
+    "badge": "O20",
+    "section": "Obecná neurologie",
+    "title": "Vyšetření stoje a chůze, základní poruchy stoje a chůze",
+    "theory_titles": [
+      "1. Vyšetření stoje (Rombergovy zkoušky)",
+      "2. Vyšetření chůze a speciální manévry",
+      "3. Přehled patologických typů chůze"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "q20-test1",
+        "question": "Pacient, který nedokáže stát ani chodit po patách, ale chůzi po špičkách zvládá bez obtíží, má parézu v segmentu / inervační oblasti:",
+        "options": [
+          "Kořene L5 (nebo n. fibularis communis)",
+          "Kořene S1 (nebo n. tibialis)",
+          "Kořene L2 (n. femoralis)",
+          "N. obturatorius"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "Kořene L5 (nebo n. fibularis communis)",
+        "explanation": "Dorzální flexe nohy (stoj a chůze po patách) je inervována kořenem L5 přes n. fibularis profundus (m. tibialis anterior)."
+      },
+      {
+        "idx": 2,
+        "id": "q20-test2",
+        "question": "Pro parkinsonskou chůzi je typické:",
+        "options": [
+          "Široká baze s vrávoráním ze strany na stranu jako u opilce",
+          "Drobné šouravé krůčky, chybění souhybů horních končetin a sklon k festinaci (propulzi)",
+          "Vysoké zvedání kolen s pleskáním nohou o zem",
+          "Opisování oblouku končetinou zevně"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Drobné šouravé krůčky, chybění souhybů horních končetin a sklon k festinaci (propulzi)",
+        "explanation": "Parkinsonská chůze (marche à petits pas) je charakterizována hypokinézou, flekčním držením trupu, chyběním synkinéz paží, drobnými šouravými kroky a festinací."
+      }
+    ]
+  },
+  {
+    "number": 21,
+    "badge": "O21",
+    "section": "Obecná neurologie",
+    "title": "Strategie neurologického vyšetření, symptom, syndrom, topografická diagnóza, etiologická diagnóza",
+    "theory_titles": [
+      "1. Diagnostické stupně v neurologii (Klinický algoritmus)",
+      "2. Rychlé rozlišení úrovně léze v motorickém systému",
+      "3. Časový průběh (Dynamika) a nozologie"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "q21-test1",
+        "question": "Pacient má symetrickou slabost proximálního pletencového svalstva DKK, normální citlivost a elevaci sérové kreatinkinázy (CK). Topograficky se léze nachází v:",
+        "options": [
+          "Kosterním svalu (myopatie)",
+          "Periferním nervu",
+          "Thalamu",
+          "Předním rohu míšním"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "Kosterním svalu (myopatie)",
+        "explanation": "Symetrická proximální slabost při zcela intaktním čití a s elevací svalových enzymů (CK) je typickým obrazem primárního onemocnění svalu (myopatie/svalové dystrofie)."
+      },
+      {
+        "idx": 2,
+        "id": "q21-test2",
+        "question": "Který z následujících nálezů jednoznačně lokalizuje lézi do mozkového kmene?",
+        "options": [
+          "Izolovaná porucha paměti",
+          "Alternující syndrom (homolaterální obrna hlavového nervu + kontralaterální hemiparéza)",
+          "Sedlovitá anestézie",
+          "Gerstmannův syndrom"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Alternující syndrom (homolaterální obrna hlavového nervu + kontralaterální hemiparéza)",
+        "explanation": "Alternující syndromy (např. Weber, Millard-Gubler, Wallenberg) jsou absolutně specifické pro poškození mozkového kmene, kde se kříží dlouhé dráhy a vystupují jádra hlavových nervů."
+      }
+    ]
+  },
+  {
+    "number": 22,
+    "badge": "O22",
+    "section": "Obecná neurologie",
+    "title": "Vyšetření mozečkových funkcí",
+    "theory_titles": [
+      "1. Funkční anatomie mozečku (Archicerebellum, Paleocerebellum, Neocerebellum)",
+      "2. Součásti mozečkového syndromu (Neocerebelární triáda a příznaky)",
+      "3. Klinické zkoušky mozečkových funkcí u lůžka"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "q22-test1",
+        "question": "Trunkální (axiální) ataxie s neschopností sedět a stát a s titubacemi trupu je typická pro lézi:",
+        "options": [
+          "Mozečkového vermis (paleocerebellum)",
+          "Laterální mozečkové hemisféry",
+          "Nucleus lentiformis",
+          "Předního rohu míšního"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "Mozečkového vermis (paleocerebellum)",
+        "explanation": "Vermis cerebelli řídí axiální svalstvo trupu a rovnováhu; jeho léze způsobuje těžkou trunkální ataxii a titubace trupu v sedu i stoji."
+      },
+      {
+        "idx": 2,
+        "id": "q22-test2",
+        "question": "Neschopnost provádět rychlé střídavé pohyby (např. rychlou supinaci a pronaci předloktí) se označuje jako:",
+        "options": [
+          "Adiadochokineze",
+          "Astereognozie",
+          "Apraxie",
+          "Akalkulie"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "Adiadochokineze",
+        "explanation": "Adiadochokineze (dysdiadochokineze) je klasickým příznakem mozečkové dysfunkce projevujícím se ztrátou schopnosti plynule střídat antagonistické motorické akty."
+      }
+    ]
+  },
+  {
+    "number": 23,
+    "badge": "O23",
+    "section": "Obecná neurologie",
+    "title": "Vyšetření extrapyramidového systému",
+    "theory_titles": [
+      "1. Anatomie bazálních ganglií a neurotransmise",
+      "2. Hypokineticko-rigidní (Parkinsonský) syndrom",
+      "3. Hyperkinetické syndromy (Přehled mimovolních pohybů)"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "q23-test1",
+        "question": "Fenomén ozubeného kola (Negro) při pasivním pohybu v kloubu je charakteristický pro:",
+        "options": [
+          "Spastickou centrální parézu",
+          "Extrapyramidovou rigiditu u Parkinsonovy nemoci",
+          "Mozečkovou hypotonii",
+          "Chabou periferní obrnu"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Extrapyramidovou rigiditu u Parkinsonovy nemoci",
+        "explanation": "Fenomén ozubeného kola vzniká kombinací plastické extrapyramidové rigidity s klidovým tremorem při pasivním pohybu v kloubu u parkinsonismu."
+      },
+      {
+        "idx": 2,
+        "id": "q23-test2",
+        "question": "Prudké, házivé, velkoamplitudové mimovolní pohyby jedné poloviny těla (hemibalismus) jsou způsobeny lézí:",
+        "options": [
+          "Nucleus subthalamicus (Luysi)",
+          "Gyrus praecentralis",
+          "Zadních provazců míšních",
+          "Lobus flocculonodularis"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "Nucleus subthalamicus (Luysi)",
+        "explanation": "Léze (nejčastěji lakunární infarkt) v nucleus subthalamicus vede ke ztrátě inhibice thalamu a vzniku explozivních házivých pohybů (hemibalismu)."
+      }
+    ]
+  },
+  {
+    "number": 24,
+    "badge": "O24",
+    "section": "Obecná neurologie",
+    "title": "Vyšetření pyramidové dráhy",
+    "theory_titles": [
+      "1. Paretické zánikové jevy na horních končetinách",
+      "2. Paretické zánikové jevy na dolních končetinách",
+      "3. Spastické pyramidové iritační jevy (Patologické reflexy)"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "q24-test1",
+        "question": "Který z následujících reflexů patří mezi spastické pyramidové iritační jevy FLEKČNÍ skupiny na dolní končetině?",
+        "options": [
+          "Babinského reflex",
+          "Rossolimův reflex",
+          "Oppenheimův příznak",
+          "Chaddockův příznak"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Rossolimův reflex",
+        "explanation": "Rossolimův reflex (společně se Žukovským) patří do flekční skupiny pyramidových jevů na DKK (poklep na bázi prstů vyvolá patologickou plantární flexi prstů)."
+      },
+      {
+        "idx": 2,
+        "id": "q24-test2",
+        "question": "Při zkoušce Mingazzini na horních končetinách je nejčasnější známkou centrální pyramidové parézy:",
+        "options": [
+          "Pronační stočení předloktí a dlaně",
+          "Výrazná supinace ruky",
+          "Extenze všech prstů",
+          "Intenční třes v rameni"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "Pronační stočení předloktí a dlaně",
+        "explanation": "Při oslabení pyramidové inervace dochází vlivem převahy silnějších pronátorů nejprve k pronaci dlaně (Dufourův fenomén / pronační úchylka), teprve následně k poklesu paže."
+      }
+    ]
+  },
+  {
+    "number": 25,
+    "badge": "O25",
+    "section": "Obecná neurologie",
+    "title": "Šlachově-okosticové reflexy",
+    "theory_titles": [
+      "1. Anatomie reflexního oblouku a hodnocení reflexů",
+      "2. Přehled reflexů na horních končetinách",
+      "3. Přehled reflexů na dolních končetinách"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "q25-test1",
+        "question": "Vyhasnutí bicipitálního reflexu a styloradiálního reflexu při zachovaném tricipitálním reflexu svědčí pro periferní lézi v segmentu:",
+        "options": [
+          "C5–C6",
+          "C7",
+          "C8–Th1",
+          "L4"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "C5–C6",
+        "explanation": "Bicipitální reflex odpovídá segmentu C5 (C6) a styloradiální segmentu C6; jejich selektivní vyhasnutí svědčí pro kořenovou lézi C5–C6."
+      },
+      {
+        "idx": 2,
+        "id": "q25-test2",
+        "question": "Při podezření na slabou výbavnost šlachových reflexů používáme k jejich facilitaci:",
+        "options": [
+          "Jendrassikův manévr (zaklesnutí prstů rukou a tah od sebe)",
+          "Valsalvův manévr",
+          "Trendelenburgův test",
+          "Lasegueův manévr"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "Jendrassikův manévr (zaklesnutí prstů rukou a tah od sebe)",
+        "explanation": "Jendrassikův manévr (zaklesnutí rukou a tah od sebe při úderu kladívkem na DK) slouží k reflexní facilitaci a ověření skutečné přítomnosti či vyhasnutí reflexu."
+      }
+    ]
+  },
+  {
+    "number": 1,
+    "badge": "S01",
+    "section": "Speciální neurologie",
+    "title": "Epilepsie, základní příznaky a typy onemocnění",
+    "theory_titles": [
+      "1. Klasifikace epileptických záchvatů (ILAE 2017)",
+      "2. Status epilepticus a první pomoc",
+      "3. Dlouhodobá farmakoterapie (Antiepileptika - ASM)"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "s01-test1",
+        "question": "Typický generalizovaný tonicko-klonický záchvat (GTCS) je charakterizován:",
+        "options": [
+          "Zachovaným vědomím s izolovanými záškuby palce ruky",
+          "Iniciální tonickou fází s apnoí a cyanózou, následovanou klonickou fází rytmických záškubů a postiktální zmateností",
+          "Pouze náhlým pádem bez křečí",
+          "Trvalým mrkáním víček bez poruchy vědomí"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Iniciální tonickou fází s apnoí a cyanózou, následovanou klonickou fází rytmických záškubů a postiktální zmateností",
+        "explanation": "GTCS probíhá klasicky ve dvou fázích: tonické (generalizovaný spazmus s apnoí) a klonické (rytmické záškuby), po které následuje postiktální spánek a zmatenost."
+      },
+      {
+        "idx": 2,
+        "id": "s01-test2",
+        "question": "Fokální záchvat s automatismy (mlaskání, žvýkání, přerovnávání předmětů) a alterací vědomí vychází nejčastěji z:",
+        "options": [
+          "Temporálního laloku (meziotemporální skleróza hipokampu)",
+          "Okcipitálního laloku",
+          "Mozečku",
+          "Míchy"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "Temporálního laloku (meziotemporální skleróza hipokampu)",
+        "explanation": "Fokální záchvaty s poruchou vědomí a orofaciálními či gestuálními automatismy typicky vznikají v temporálním laloku (zejména při meziotemporální skleróze)."
+      }
+    ]
+  },
+  {
+    "number": 2,
+    "badge": "S02",
+    "section": "Speciální neurologie",
+    "title": "Epileptické záchvaty v dětství a adolescenci",
+    "theory_titles": [
+      "1. Febrilní křeče (Křeče při horečce)",
+      "2. Věkově vázané idiopatické generalizované a fokální epilepsie",
+      "3. Těžké epileptické encefalopatie (West & Lennox-Gastaut)"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "s02-test1",
+        "question": "Lékem první volby pro typické dětské absence (CAE) s 3 Hz hrot-vlna komplexy na EEG je:",
+        "options": [
+          "Etosuximid (nebo valproát sodný)",
+          "Karbamazepin",
+          "Fenytoin",
+          "Baklofen"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "Etosuximid (nebo valproát sodný)",
+        "explanation": "Etosuximid selektivně blokuje T-typ Ca2+ kanálů v thalamu a je lékem 1. volby u izolovaných dětských absencí."
+      },
+      {
+        "idx": 2,
+        "id": "s02-test2",
+        "question": "U kojence s Westovým syndromem a tuberózní sklerózou je lékem první volby:",
+        "options": [
+          "Vigabatrin",
+          "Karbamazepin",
+          "Diazepam dlouhodobě",
+          "Atropin"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "Vigabatrin",
+        "explanation": "Vigabatrin (inhibitor GABA-transaminázy) je vysoce specifickým a účinným lékem volby pro infantilní spazmy (Westův syndrom) asociované s tuberózní sklerózou."
+      }
+    ]
+  },
+  {
+    "number": 3,
+    "badge": "S03",
+    "section": "Speciální neurologie",
+    "title": "Cévní mozkové příhody ischemické",
+    "theory_titles": [
+      "1. Etiologie a TOAST klasifikace",
+      "2. Teritoriální klinické syndromy",
+      "3. Akutní reperfuzní léčba (Trombolýza a Trombektomie)"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "s03-test1",
+        "question": "Ischémie v povodí arteria cerebri anterior (ACA) se typicky projeví:",
+        "options": [
+          "Převahou parézy dolní končetiny (krurální hemiparéza) kontralaterálně",
+          "Převahou faciobrachiální parézy",
+          "Izolovanou homonymní hemianopsií bez parézy",
+          "Kmenovým alternujícím syndromem"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "Převahou parézy dolní končetiny (krurální hemiparéza) kontralaterálně",
+        "explanation": "Arteria cerebri anterior zásobuje mediální plochu hemisféry (motorický homunkulus pro dolní končetinu), proto způsobuje převahu krurální parézy."
+      },
+      {
+        "idx": 2,
+        "id": "s03-test2",
+        "question": "Při akutní ischemické CMP je absolutní kontraindikací intravenózní trombolýzy:",
+        "options": [
+          "Přítomnost intrakraniálního krvácení na nativním CT mozku",
+          "Věk nad 80 let",
+          "Přítomnost fibrilace síní",
+          "Střední deficit s lehkou parézou končetiny"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "Přítomnost intrakraniálního krvácení na nativním CT mozku",
+        "explanation": "Intrakraniální hemoragie na CT je absolutní kontraindikací trombolýzy, protože podání rtPA by způsobilo fatální progresi krvácení."
+      }
+    ]
+  },
+  {
+    "number": 4,
+    "badge": "S04",
+    "section": "Speciální neurologie",
+    "title": "Subdurální a epidurální intrakraniální krvácení",
+    "theory_titles": [
+      "1. Epidurální hematom (EDH)",
+      "2. Subdurální hematom (SDH - Akutní vs. Chronický)",
+      "3. Srovnávací přehled EDH vs. SDH"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "s04-test1",
+        "question": "Na nativním CT mozku se chronický subdurální hematom (starší než 3 týdny) zobrazuje typicky jako:",
+        "options": [
+          "Bikonvexní zářivě bílá hyperdenzita",
+          "Srpkovitý hypodenzní (tmavý) až izodenzní lem podél kalvy překračující švy",
+          "Drobná kalcifikace v zadní jámě",
+          "Krvácení do mozkových komor"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Srpkovitý hypodenzní (tmavý) až izodenzní lem podél kalvy překračující švy",
+        "explanation": "V průběhu 3 týdnů dochází k lýze erytrocytů a zkapalnění hematomu, takže se chronický SDH stává na CT hypodenzním (tmavým)."
+      },
+      {
+        "idx": 2,
+        "id": "s04-test2",
+        "question": "Epidurální hematom nejčastěji vzniká traumatickým roztržením:",
+        "options": [
+          "Arteria meningea media při fraktuře spánkové kosti",
+          "Přemosťujících žil",
+          "Arteria basilaris",
+          "Plexus choroideus"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "Arteria meningea media při fraktuře spánkové kosti",
+        "explanation": "Fraktura squama ossis temporalis s lacerací arteria meningea media je klasickou příčinou arteriálního epidurálního hematomu."
+      }
+    ]
+  },
+  {
+    "number": 5,
+    "badge": "S05",
+    "section": "Speciální neurologie",
+    "title": "Subarachnoidální krvácení",
+    "theory_titles": [
+      "1. Etiologie a predilekční lokalizace aneuryzmat",
+      "2. Klinický obraz a Hunt-Hessova škála",
+      "3. Diagnostický algoritmus a léčba"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "s05-test1",
+        "question": "Pro subarachnoidální krvácení je typický nástup bolesti hlavy:",
+        "options": [
+          "Bleskový (thunderclap headache) s dosažením maximální intenzity během několika sekund",
+          "Plíživý během několika týdnů",
+          "Výhradně jednostranný pulzující s aurou",
+          "Bolest vázaná pouze na polohu vestoje"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "Bleskový (thunderclap headache) s dosažením maximální intenzity během několika sekund",
+        "explanation": "Blesková bolest hlavy (thunderclap) s maximální intenzitou během sekund ('úder blesku') je kardinálním příznakem ruptury aneuryzmatu a SAB."
+      },
+      {
+        "idx": 2,
+        "id": "s05-test2",
+        "question": "Endovaskulární léčba intrakraniálního aneuryzmatu zavedením platinových spirálek do vaku se označuje jako:",
+        "options": [
+          "Coiling",
+          "Clipping",
+          "Stentování karotidy",
+          "Kraniotomie"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "Coiling",
+        "explanation": "Endovaskulární coiling je miniinvazivní uzávěr vaku aneuryzmatu platinovými spirálkami zavedenými transfemorálním/transradiálním katétrem."
+      }
+    ]
+  },
+  {
+    "number": 6,
+    "badge": "S06",
+    "section": "Speciální neurologie",
+    "title": "Intraparenchymová krvácení do mozku",
+    "theory_titles": [
+      "1. Etiologie a typická predilekční místa ICH",
+      "2. Klinický obraz dle lokalizace hematomu",
+      "3. Management a konzervativní vs. chirurgická léčba"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "s06-test1",
+        "question": "Pro cerebrální amyloidovou angiopatii (CAA) jako příčinu intracerebrálního krvácení je typické:",
+        "options": [
+          "Lokalizace hematomu v putamen u mladých mužů",
+          "Lobární (kortiko-subkortikální) lokalizace hematomů u starších pacientů s častou recidivou",
+          "Krvácení výhradně do míchy",
+          "Vznik výhradně po úrazech hlavy"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Lobární (kortiko-subkortikální) lokalizace hematomů u starších pacientů s častou recidivou",
+        "explanation": "CAA postihuje cévy mozkové kůry u starších pacientů a projevuje se typickými lobárními hematomy na konvexitě hemisfér."
+      },
+      {
+        "idx": 2,
+        "id": "s06-test2",
+        "question": "Specifickým antidotem k okamžité reverzi antikoagulačního účinku dabigatranu při život ohrožujícím krvácení je:",
+        "options": [
+          "Idarucizumab (Praxbind)",
+          "Protamin sulfát",
+          "Vitamin K",
+          "Kyselina acetylsalicylová"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "Idarucizumab (Praxbind)",
+        "explanation": "Idarucizumab je humanizovaný fragment monoklonální protilátky, který specificky a okamžitě váže volný i vázaný dabigatran a neutralizuje jeho antikoagulační účinek."
+      }
+    ]
+  },
+  {
+    "number": 7,
+    "badge": "S07",
+    "section": "Speciální neurologie",
+    "title": "Cévní onemocnění míchy",
+    "theory_titles": [
+      "1. Cévní zásobení míchy a syndrom a. spinalis anterior",
+      "2. Spinální krvácení (Hematomyelie a spinální hematomy)",
+      "3. Spinální durální arteriovenózní píštěle (dAVF)"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "s07-test1",
+        "question": "Při syndromu arteria spinalis anterior v úrovni hrudní míchy nacházíme:",
+        "options": [
+          "Ztrátu polohocitu a vibrace při zachovaném vnímání bolesti",
+          "Spastickou paraplegii DKK, ztrátu vnímání bolesti a tepla pod lézí a zachovaný polohocit a vibraci",
+          "Pouze izolovanou obrnu hlavových nervů",
+          "Hemiparézu horní končetiny"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Spastickou paraplegii DKK, ztrátu vnímání bolesti a tepla pod lézí a zachovaný polohocit a vibraci",
+        "explanation": "Při syndromu a. spinalis anterior je postižena přední část míchy (motorika, spinotalamický trakt), zatímco zadní provazce vyživované ze zadních spinálních tepen zůstávají intaktní."
+      },
+      {
+        "idx": 2,
+        "id": "s07-test2",
+        "question": "Spinální durální arteriovenózní píštěle (dAVF) se typicky projevují:",
+        "options": [
+          "Bleskovou bolestí hlavy",
+          "Pomalu progredující spasticko-ataktickou paraparézou s poruchou sfinkterů způsobenou venózní hypertenzí míchy",
+          "Akutní parézou n. facialis",
+          "Křečemi typu absencí"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Pomalu progredující spasticko-ataktickou paraparézou s poruchou sfinkterů způsobenou venózní hypertenzí míchy",
+        "explanation": "Spinální dAVF způsobují žilní hypertenzi a městnání v míšních žilách, což vede k chronické kongestivní myelopatii s progredující paraparézou."
+      }
+    ]
+  },
+  {
+    "number": 8,
+    "badge": "S08",
+    "section": "Speciální neurologie",
+    "title": "Kraniocerebrální poranění (KCP)",
+    "theory_titles": [
+      "1. Definice a Epidemiologie",
+      "2. Patofyziologie poranění mozku",
+      "3. Klasifikace závažnosti KCP",
+      "4. Diagnostika a algoritmus vyšetření",
+      "5. Léčba a management na neuroJIP"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "pq-S08-1",
+        "question": "Která hodnota GCS jednoznačně definuje těžké kraniocerebrální trauma vyžadující zajištění dýchacích cest intubací?",
+        "options": [
+          "GCS 13–15",
+          "GCS 9–12",
+          "GCS ≤ 8",
+          "GCS ≤ 10"
+        ],
+        "correctIndex": 2,
+        "correctAnswer": "GCS ≤ 8",
+        "explanation": "GCS ≤ 8 definuje těžké poranění mozku v bezvědomí, kdy pacient ztrácí ochranné polykací a kašlací reflexy dýchacích cest, a je absolutně indikována orotracheální intubace a neurointenzivní péče."
+      },
+      {
+        "idx": 2,
+        "id": "pq-S08-2",
+        "question": "Cushingova triáda jako klasický pozdní příznak dekompenzované nitrolební hypertenze zahrnuje:",
+        "options": [
+          "Hypotenzi, tachykardii a tachypnoi",
+          "Hypertenzi, bradykardii a poruchu/nepravidelnost dýchání",
+          "Hypertermii, hypotenzi a křeče",
+          "Anizokorii, plegii a tachykardii"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Hypertenzi, bradykardii a poruchu/nepravidelnost dýchání",
+        "explanation": "Cushingova reakce/triáda se skládá ze systémové arteriální hypertenze (pokus těla udržet CPP přes vysoký ICP), reflexní bradykardie a respiračních nepravidelností."
+      }
+    ]
+  },
+  {
+    "number": 9,
+    "badge": "S09",
+    "section": "Speciální neurologie",
+    "title": "Poranění míchy a páteře",
+    "theory_titles": [
+      "1. Úvod a Mechanismy poranění",
+      "2. Míšní šok vs. Neurogenní šok",
+      "3. Klasifikace závažnosti míšní léze (ASIA / AIS Impairment Scale)",
+      "4. Inkompletní míšní syndromy",
+      "5. Diagnostika a management"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "pq-S09-1",
+        "question": "Při syndromu a. spinalis anterior (přední 2/3 míchy) zůstává zachováno které čití?",
+        "options": [
+          "Algické čití (bolest)",
+          "Termické čití (teplo a chlad)",
+          "Hluboké proprioceptivní a vibrační čití (zadní provazce)",
+          "Žádné čití nezůstává zachováno"
+        ],
+        "correctIndex": 2,
+        "correctAnswer": "Hluboké proprioceptivní a vibrační čití (zadní provazce)",
+        "explanation": "A. spinalis anterior zásobuje přední rohy míšní a postranní provazce (tr. spinothalamicus a tr. corticospinalis). Zadní provazce (fasciculus gracilis a cuneatus) jsou zásobeny párovou a. spinalis posterior, proto je hluboké polohové a vibrační čití zachováno."
+      },
+      {
+        "idx": 2,
+        "id": "pq-S09-2",
+        "question": "Jaký je terapeutický cíl středního arteriálního tlaku (MAP) v akutní fázi míšního traumatu k prevenci ischemie míchy?",
+        "options": [
+          "MAP ≥ 60 mmHg",
+          "MAP ≥ 70 mmHg",
+          "MAP ≥ 85–90 mmHg po dobu 5–7 dnů",
+          "MAP ≤ 65 mmHg k prevenci krvácení"
+        ],
+        "correctIndex": 2,
+        "correctAnswer": "MAP ≥ 85–90 mmHg po dobu 5–7 dnů",
+        "explanation": "Podle mezinárodních doporučení (AANS/CNS) je cílem udržovat MAP ≥ 85–90 mmHg minimálně prvních 5–7 dní po traumatu míchy pro zajištění dostatečného perfuzního tlaku poraněné míšní tkáně."
+      }
+    ]
+  },
+  {
+    "number": 10,
+    "badge": "S10",
+    "section": "Speciální neurologie",
+    "title": "Hemoragické cévní mozkové příhody",
+    "theory_titles": [
+      "1. Úvod a Klasifikace hemoragických CMP",
+      "2. Etiologie a Rizikové faktory ICH",
+      "3. Klinický obraz",
+      "4. Diagnostický algoritmus",
+      "5. Léčba a Akutní management ICH"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "pq-S10-1",
+        "question": "Jaký je cílový systolický krevní tlak v akutní fázi intracerebrálního krvácení dle současných doporučení?",
+        "options": [
+          "Pod 110 mmHg",
+          "130–140 mmHg",
+          "160–180 mmHg k zachování perfuze",
+          "Krevní tlak se v akutní fázi vůbec nesnižuje"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "130–140 mmHg",
+        "explanation": "Dle mezinárodních guidelines (studie INTERACT-2, ATACH-2) je optimální cílový systolický krevní tlak 130–140 mmHg. Příliš prudký pokles pod 120 mmHg může vést k renálnímu poškození, zatímco vyšší tlak zvyšuje riziko expanze hematomu."
+      },
+      {
+        "idx": 2,
+        "id": "pq-S10-2",
+        "question": "Co představuje tzv. 'Spot sign' na CT angiografii u pacienta s intracerebrálním krvácením?",
+        "options": [
+          "Kalzifikaci v cévní stěně",
+          "Fokus extravazace kontrastní látky uvnitř hematomu znamenající aktivní krvácení a vysoké riziko expanze",
+          "Ischemické penumbru kolem krvácení",
+          "Trombus v a. cerebri media"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Fokus extravazace kontrastní látky uvnitř hematomu znamenající aktivní krvácení a vysoké riziko expanze",
+        "explanation": "'Spot sign' je drobný ložiskový kontrastní únik v parenchymovém hematomu při CTA, který svědčí o probíhající extravazaci krve a je nejsilnějším prediktorem časného zvětšení hematomu a mortality."
+      }
+    ]
+  },
+  {
+    "number": 11,
+    "badge": "S11",
+    "section": "Speciální neurologie",
+    "title": "Bakteriální infekce centrálního nervového systému",
+    "theory_titles": [
+      "1. Úvod a Klasifikace",
+      "2. Etiologie akutní purulentní meningitidy dle věku",
+      "3. Klinický obraz a Meningeální syndrom",
+      "4. Diagnostika a Likvorový nález",
+      "5. Léčba bakteriální meningitidy",
+      "6. Mozkový absces a Neuroborelióza"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "pq-S11-1",
+        "question": "Kdy je nejvhodnější podat Dexamethason u akutní bakteriální meningitidy?",
+        "options": [
+          "Až po obdržení definitivních výsledků kultivace likvoru za 48 hodin",
+          "Bezprostředně před aplikací první dávky antibiotik nebo současně s ní",
+          "Až po 5 dnech antibiotické léčby při přetrvávání horeček",
+          "Dexamethason je u bakteriálních infekcí přísně kontraindikován"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Bezprostředně před aplikací první dávky antibiotik nebo současně s ní",
+        "explanation": "Dexamethason musí být aplikován před nebo s první dávkou ATB, aby potlačil masivní zánětlivou reakci vyvolanou rozpadem bakteriálních těl a uvolněním endotoxinů po prvním zásahu baktericidního antibiotika."
+      },
+      {
+        "idx": 2,
+        "id": "pq-S11-2",
+        "question": "Které antibiotikum je lékem první volby v léčbě lymeské neuroboreliózy s postižením CNS a hlavových nervů?",
+        "options": [
+          "Ciprofloxacin p.o.",
+          "Ceftriaxon 2 g i.v. 1x denně po dobu 14–21 dní",
+          "Gentamicin i.m.",
+          "Amoxicilin 500 mg p.o. po 8 hod 5 dní"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Ceftriaxon 2 g i.v. 1x denně po dobu 14–21 dní",
+        "explanation": "Zlatým standardem léčby neuroboreliózy s průkazem postižení CNS a intratekální syntézy je parenterální Ceftriaxon 2 g i.v. denně po dobu 2–3 týdnů (případně perorální Doxycyklin u mírnějších forem)."
+      }
+    ]
+  },
+  {
+    "number": 12,
+    "badge": "S12",
+    "section": "Speciální neurologie",
+    "title": "Virové infekce centrálního nervového systému",
+    "theory_titles": [
+      "1. Úvod a Dělení virových neuroinfekcí",
+      "2. Hlavní virová agens",
+      "3. Herpetická encefalitida (HSV-1)",
+      "4. Klíšťová meningoencefalitida (TBEV)"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "pq-S12-1",
+        "question": "Která diagnostická metoda je zlatým standardem pro potvrzení diagnózy herpetické encefalitidy způsobené HSV-1?",
+        "options": [
+          "Kultivace viru z likvoru",
+          "Průkaz HSV-1 DNA v mozkomíšním moku pomocí PCR",
+          "Paul-Bunnellova reakce",
+          "Elektronová mikroskopie moči"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Průkaz HSV-1 DNA v mozkomíšním moku pomocí PCR",
+        "explanation": "Detekce DNA viru Herpes simplex v likvoru metodou polymerázové řetězové reakce (PCR) je vysoce senzitivní (> 95 %) a specifická metoda, která je diagnostickým zlatým standardem."
+      },
+      {
+        "idx": 2,
+        "id": "pq-S12-2",
+        "question": "Které tvrzení o klíšťové meningoencefalitidě je PRAVDIVÉ?",
+        "options": [
+          "Lékem první volby je Ganciclovir i.v.",
+          "Onemocnění má typicky monofázický průběh bez chřipkové fáze",
+          "Diagnóza se opírá o průkaz specifických protilátek IgM a IgG v séru a likvoru (ELISA)",
+          "V likvoru dominuje těžká hypoglykorachie pod 1 mmol/l"
+        ],
+        "correctIndex": 2,
+        "correctAnswer": "Diagnóza se opírá o průkaz specifických protilátek IgM a IgG v séru a likvoru (ELISA)",
+        "explanation": "Klíšťová encefalitida se diagnostikuje serologicky průkazem specifických protilátek IgM a IgG v séru a mozkomíšním moku metodou ELISA. Kauzální antivirotikum neexistuje."
+      }
+    ]
+  },
+  {
+    "number": 13,
+    "badge": "S13",
+    "section": "Speciální neurologie",
+    "title": "Nádory centrálního nervového systému - nitrolební nádory",
+    "theory_titles": [
+      "1. Úvod a Epidemiologie",
+      "2. Klasifikace primárních nádorů CNS (WHO 2021)",
+      "3. Klinický obraz mozkových nádorů",
+      "4. Diagnostika",
+      "5. Terapie nitrolebních nádorů"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "pq-S13-1",
+        "question": "Který primární nádor je nejčastějším zdrojem metastáz do mozku u dospělých?",
+        "options": [
+          "Karcinom prostaty",
+          "Bronchogenní karcinom plic",
+          "Osteosarkom",
+          "Karcinom štítné žlázy"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Bronchogenní karcinom plic",
+        "explanation": "Bronchogenní karcinom plic (malobuněčný i nemalobuněčný) je nejčastějším primárním tumorem, který tvoří až 50 % všech mozkových metastáz."
+      },
+      {
+        "idx": 2,
+        "id": "pq-S13-2",
+        "question": "Typickým znakem meningeomu na kontrastním MRI vyšetření je:",
+        "options": [
+          "Nepravidelné prstencové sycení s centrální nekrózou",
+          "Ostře ohraničený extraaxiální nádor s homogenním sycením a přítomností 'dural tail sign' (durálního lemu)",
+          "Difuzní infiltrace bílé hmoty bez vychytávání kontrastu",
+          "Výhradně intraventrikulární lokalizace"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Ostře ohraničený extraaxiální nádor s homogenním sycením a přítomností 'dural tail sign' (durálního lemu)",
+        "explanation": "Meningeomy jsou extraaxiální, homogenně a intenzivně se sytící benigní tumory, u kterých je charakteristický výběžek sytící se přilehlé dury mater zvaný 'dural tail sign'."
+      }
+    ]
+  },
+  {
+    "number": 14,
+    "badge": "S14",
+    "section": "Speciální neurologie",
+    "title": "Nádory centrálního nervového systému - míšní nádory",
+    "theory_titles": [
+      "1. Anatomická klasifikace míšních nádorů",
+      "2. Klinický obraz a Stádia míšního nádoru",
+      "3. Diagnostika",
+      "4. Léčebné postupy"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "pq-S14-1",
+        "question": "Který nádor je nejčastějším primárním intramedulárním tumorem dospělých?",
+        "options": [
+          "Meningeom",
+          "Ependymom",
+          "Oligodendrogliom",
+          "Metastáza melanomu"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Ependymom",
+        "explanation": "Ependymom tvoří cca 60 % všech intramedulárních nádorů dospělých (nejčastěji v cervikální míše a v oblasti conus medullaris). Je dobře ohraničený a chirurgicky resekabilní."
+      },
+      {
+        "idx": 2,
+        "id": "pq-S14-2",
+        "question": "Který klinický příznak je typickým časným varovným znakem extramedulárního míšního nádoru?",
+        "options": [
+          "Plošná hypotonie všech čtyř končetin",
+          "Radikulární bolest v příslušném dermatomu s noční exacerbací v poloze vleže",
+          "Masivní cerebelární ataxie",
+          "Hornerův syndrom při lumbální lézi"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Radikulární bolest v příslušném dermatomu s noční exacerbací v poloze vleže",
+        "explanation": "Noční kořenová bolest vleže (způsobená venózním městnáním v páteřním kanálu a tahem za dorzální kořen při relaxaci páteře) je klasickým a časným varovným příznakem extramedulárních spinálních tumorů."
+      }
+    ]
+  },
+  {
+    "number": 15,
+    "badge": "S15",
+    "section": "Speciální neurologie",
+    "title": "Onemocnění s parkinsonským syndromem (Atypické a sekundární parkinsonismy)",
+    "theory_titles": [
+      "1. Definice Parkinsonského syndromu (Parkinsonismu)",
+      "2. Etiologická klasifikace parkinsonismu",
+      "3. Varovné známky („Red Flags“) svědčící PROTI idiopatické Parkinsonově nemoci",
+      "4. Diagnostika a Odlišení"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "pq-S15-1",
+        "question": "Fenomén 'cizí ruky' (alien limb), výrazně asymetrická rigidita, apraxie a kortikální myoklonus jsou typické pro:",
+        "options": [
+          "Multisystémovou atrofii (MSA)",
+          "Kortikobazální degeneraci (CBD)",
+          "Idiopatickou Parkinsonovu nemoc",
+          "Esenciální třes"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Kortikobazální degeneraci (CBD)",
+        "explanation": "Kortikobazální degenerace (CBD) je charakterizována těžkou asymetrií, apraxií jedné končetiny, fenoménem 'cizí ruky' (končetina vykonává mimovolní komplexní pohyby) a kortikálním senzitivním výpadkem."
+      },
+      {
+        "idx": 2,
+        "id": "pq-S15-2",
+        "question": "Které vyšetření dokáže spolehlivě odlišit idiopatickou Parkinsonovu nemoc od polékového parkinsonismu nebo esenciálního třesu?",
+        "options": [
+          "Nekontrastní CT mozku",
+          "DaTscan (SPECT s 123I-ioflupanem)",
+          "Elektroencefalografie (EEG)",
+          "Lumbální punkce s vyšetřením bílkoviny"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "DaTscan (SPECT s 123I-ioflupanem)",
+        "explanation": "DaTscan zobrazuje denzitu presynaptických dopaminových transportérů ve striatu. U Parkinsonovy nemoci a degenerativních parkinsonismů je vazba výrazně snížena, zatímco u polékového parkinsonismu a esenciálního třesu je presynaptický transportér intaktní a nález normální."
+      }
+    ]
+  },
+  {
+    "number": 16,
+    "badge": "S16",
+    "section": "Speciální neurologie",
+    "title": "Parkinsonova nemoc",
+    "theory_titles": [
+      "1. Úvod a Epidemiologie",
+      "2. Etiopatogeneze a Neuropatologie",
+      "3. Klinický obraz",
+      "4. Farmakoterapie Parkinsonovy nemoci",
+      "5. Pozdní hybné komplikace a Pokročilá léčba"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "pq-S16-1",
+        "question": "Který z následujících patofyziologických procesů je podstatou idiopatické Parkinsonovy nemoci?",
+        "options": [
+          "Demyelinizace pyramidových drah v míše",
+          "Selektivní zánik dopaminergních neuronů v substantia nigra pars compacta s přítomností Lewyho tělísek",
+          "Kumulace mědi v bazálních gangliích",
+          "Expanze CAG tripletů v huntingtinu"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Selektivní zánik dopaminergních neuronů v substantia nigra pars compacta s přítomností Lewyho tělísek",
+        "explanation": "Parkinsonova nemoc je charakterizována progresivní degenerací dopaminergních neuronů v substantia nigra pars compacta s akumulací alfa-synukleinu v podobě intracelulárních Lewyho tělísek."
+      },
+      {
+        "idx": 2,
+        "id": "pq-S16-2",
+        "question": "Které antiparkinsonikum je lékem volby pro potlačení L-DOPA indukovaných dyskinezí?",
+        "options": [
+          "Haloperidol",
+          "Amantadin",
+          "Metoklopramid",
+          "Baklofen"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Amantadin",
+        "explanation": "Amantadin (antagonista NMDA receptorů a nepřímé dopaminomimetikum) je jediným lékem s prokázanou účinností na redukci mimovolních pohybů a dyskinezí vyvolaných dlouhodobou léčbou Levodopou."
+      }
+    ]
+  },
+  {
+    "number": 17,
+    "badge": "S17",
+    "section": "Speciální neurologie",
+    "title": "Onemocnění s choreatickým syndromem",
+    "theory_titles": [
+      "1. Definice Chorey a Hyperkinezí",
+      "2. Huntingtonova nemoc (Huntington's Disease - HD)",
+      "3. Ostatní příčiny choreatických syndromů",
+      "4. Léčba chorey"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "pq-S17-1",
+        "question": "Který lék ze skupiny inhibitorů VMAT2 je registrován a specificky indikován pro symptomatickou léčbu chorey u Huntingtonovy nemoci?",
+        "options": [
+          "Levodopa",
+          "Tetrabenazin",
+          "Donepezil",
+          "Riluzol"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Tetrabenazin",
+        "explanation": "Tetrabenazin je reverzibilní inhibitor vezikulárního monoaminového transportéru typu 2 (VMAT2), který snižuje dostupnost dopaminu v presynaptických vezikulách bazálních ganglií a efektivně tlumí choreatické dyskineze."
+      },
+      {
+        "idx": 2,
+        "id": "pq-S17-2",
+        "question": "Sydenhamova chorea (Chorea minor) vzniká jako pozdní autoimunitní následek infekce kterým patogenem?",
+        "options": [
+          "Borrelia burgdorferi",
+          "Streptococcus pyogenes (skupina A)",
+          "Treponema pallidum",
+          "Virus Epstein-Barrové"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Streptococcus pyogenes (skupina A)",
+        "explanation": "Sydenhamova chorea je projevem revmatické horečky po streptokokové faryngitidě způsobené Streptococcus pyogenes skupiny A na podkladě molekulárních mimikry a tvorby autoprotilátek proti neuronům bazálních ganglií."
+      }
+    ]
+  },
+  {
+    "number": 18,
+    "badge": "S18",
+    "section": "Speciální neurologie",
+    "title": "Demence a Alzheimerova nemoc",
+    "theory_titles": [
+      "1. Syndrom demence a Mírná kognitivní porucha",
+      "2. Alzheimerova nemoc (AN / Alzheimer's Disease - AD)",
+      "3. Etiopatogeneze a Neuropatologie AN",
+      "4. Klinický obraz Alzheimerovy nemoci",
+      "5. Diagnostika Alzheimerovy nemoci",
+      "6. Léčba Alzheimerovy nemoci"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "pq-S18-1",
+        "question": "Který kognitivní test je výrazně citlivější než MMSE pro včasnou detekci mírné kognitivní poruchy (MCI) a exekutivních dysfunkcí?",
+        "options": [
+          "Glasgow Coma Scale",
+          "Montreal Cognitive Assessment (MoCA)",
+          "Barthelův index všedních činností",
+          "NIHSS skóre"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Montreal Cognitive Assessment (MoCA)",
+        "explanation": "Montreal Cognitive Assessment (MoCA) testuje široké spektrum funkcí včetně exekutivních, zrakově-prostorových a pozornostních a je podstatně senzitivnější pro záchyt MCI a časné fáze demence než MMSE."
+      },
+      {
+        "idx": 2,
+        "id": "pq-S18-2",
+        "question": "Který mechanismus účinku má lék Memantin používaný v terapii středně těžké a těžké Alzheimerovy nemoci?",
+        "options": [
+          "Inhibice acetylcholinesterázy a butyrylcholinesterázy",
+          "Necholeretická stimulace dopaminových D2 receptorů",
+          "Nekompeticionální antagonismus NMDA glutamátových receptorů bránící excitotoxicitě",
+          "Blokáda CGRP receptorů"
+        ],
+        "correctIndex": 2,
+        "correctAnswer": "Nekompeticionální antagonismus NMDA glutamátových receptorů bránící excitotoxicitě",
+        "explanation": "Memantin je středně afinitní nekompetitivní antagonista NMDA receptorů, který chrání neurony před chronickým toxickým působením nadbytku glutamátu (excitotoxicitou) a zlepšuje synaptický přenos signálu."
+      }
+    ]
+  },
+  {
+    "number": 19,
+    "badge": "S19",
+    "section": "Speciální neurologie",
+    "title": "Bolesti hlavy - diferenciální diagnóza (Primární vs. sekundární cefalalgie)",
+    "theory_titles": [
+      "1. Klasifikace bolestí hlavy (ICHD-3)",
+      "2. Varovné známky sekundárních bolestí hlavy („Red Flags“ – mnemotechnická pomůcka SNOOP)",
+      "3. Vybrané závažné sekundární bolesti hlavy",
+      "4. Primární bolesti hlavy (mimo migrénu)"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "pq-S19-1",
+        "question": "U kterého typu bolesti hlavy je typická oboustranná tupá svíravá bolest bez zhoršení běžnou fyzickou aktivitou a bez zvracení?",
+        "options": [
+          "Migréna bez aury",
+          "Tenzní bolest hlavy (TTH)",
+          "Cluster headache",
+          "Disekce a. vertebralis"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Tenzní bolest hlavy (TTH)",
+        "explanation": "Tenzní bolest hlavy je charakterizována bilaterální tupou tlakovou/svíravou bolestí mírné až střední intenzity, která se nezhoršuje běžnou zátěží a není doprovázena nauzeou ani zvracením."
+      },
+      {
+        "idx": 2,
+        "id": "pq-S19-2",
+        "question": "Který laboratorní nález je klíčovým diagnostickým vodítkem při podezření na temporální arteritidu u 70letého pacienta s novou bolestí spánku?",
+        "options": [
+          "Těžká leukopenie",
+          "Výrazná elevace sedimentace erytrocytů (FW > 50–100 mm/h) a CRP",
+          "Zvýšená hladina troponinu T",
+          "Snížená hladina kyseliny močové"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Výrazná elevace sedimentace erytrocytů (FW > 50–100 mm/h) a CRP",
+        "explanation": "Temporální (Hortonova) arteritida je systémová vaskulitida velkých cév, která se u seniorů manifestuje dramaticky zvýšenými zánětlivými parametry – sedimentace erytrocytů (FW) bývá typicky > 50–100 mm za první hodinu spolu s vysokým CRP."
+      }
+    ]
+  },
+  {
+    "number": 20,
+    "badge": "S20",
+    "section": "Speciální neurologie",
+    "title": "Migréna",
+    "theory_titles": [
+      "1. Definice a Epidemiologie",
+      "2. Patofyziologie migrény",
+      "3. Fáze migrenózního záchvatu",
+      "4. Akutní záchvatová léčba migrény",
+      "5. Profylaktická léčba migrény"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "pq-S20-1",
+        "question": "Které z následujících antiepileptik je v profylaxi migrény přísně kontraindikováno u žen ve fertilním věku pro vysoké riziko těžkých vrozených vývojových vad a kognitivního poškození plodu?",
+        "options": [
+          "Metoprolol",
+          "Valproát sodný",
+          "Amitriptylin",
+          "Flunarizin"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Valproát sodný",
+        "explanation": "Valproát sodný má vysoký teratogenní potenciál (defekty neurální trubice, kraniofaciální vady, pokles IQ u dětí) a je v léčbě migrény u žen ve fertilním věku absolutně kontraindikován."
+      },
+      {
+        "idx": 2,
+        "id": "pq-S20-2",
+        "question": "Jaká je maximální standardní doba trvání typické migrenózní aury dle mezinárodních diagnostických kritérií ICHD-3?",
+        "options": [
+          "5 minut",
+          "60 minut",
+          "24 hodin",
+          "72 hodin"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "60 minut",
+        "explanation": "Typická migrenózní aura (zraková, senzorická, řečová) se rozvíjí postupně a jednotlivé symptomy trvají 5 až 60 minut. Aura trvající déle než 60 minut se klasifikuje jako prolongovaná aura a vyžaduje vyloučení TIA/ischemické CMP."
+      }
+    ]
+  },
+  {
+    "number": 21,
+    "badge": "S21",
+    "section": "Speciální neurologie",
+    "title": "Vaskulární demence, Demence s Lewyho tělísky (DLB) a Frontotemporální demence (FTD)",
+    "theory_titles": [
+      "1. Úvod a Diferenciální diagnostika demencí",
+      "2. Vaskulární demence (VaD - Vascular Dementia)",
+      "3. Demence s Lewyho tělísky (DLB - Dementia with Lewy Bodies)",
+      "4. Frontotemporální lobární degenerace (FTD / Pickova nemoc)"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "pq-S21-1",
+        "question": "Schodovitá (stepwise) progrese kognitivního deficitu v čase s časnou poruchou chůze a pseudobulbárním syndromem je typická pro:",
+        "options": [
+          "Alzheimerovu nemoc",
+          "Vaskulární demenci (VaD)",
+          "Frontotemporální demenci",
+          "Creutzfeldtovu-Jakobovu nemoc"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Vaskulární demenci (VaD)",
+        "explanation": "Schodovité zhoršování stavu (skokový pokles po každé nové ischemické atace s přechodnou stabilizací), časná porucha stability chůze a pseudobulbární syndrom jsou charakteristickými znaky vaskulární demence."
+      },
+      {
+        "idx": 2,
+        "id": "pq-S21-2",
+        "question": "Lékem první volby pro zlepšení kognice a zmírnění zrakových halucinací u Demence s Lewyho tělísky (DLB) jsou:",
+        "options": [
+          "Typická neuroleptika (Haloperidol)",
+          "Inhibitory acetylcholinesterázy (Donepezil, Rivastigmin)",
+          "Vysoké dávky Levodopy",
+          "Benzodiazepiny"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Inhibitory acetylcholinesterázy (Donepezil, Rivastigmin)",
+        "explanation": "Inhibitory acetylcholinesterázy (Donepezil, Rivastigmin) výrazně zlepšují cholinergní deficit u DLB, stabilizují kognitivní fluktuace a bezpečně potlačují zrakové halucinace bez rizika neuroleptické toxicity."
+      }
+    ]
+  },
+  {
+    "number": 22,
+    "badge": "S22",
+    "section": "Speciální neurologie",
+    "title": "Alkoholismus a postižení nervového systému",
+    "theory_titles": [
+      "1. Úvod a Mechanismy neurotoxicity alkoholu",
+      "2. Wernicke-Korsakovův syndrom (WKS)",
+      "3. Další neurologické komplikace alkoholismu"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "pq-S22-1",
+        "question": "Které anatomické struktury mozku jsou nejvíce poškozeny u Korsakovova amnestického syndromu?",
+        "options": [
+          "Corpora mamillaria a dorzomediální jádra talamu",
+          "Putamen a globus pallidus",
+          "Přední rohy míšní",
+          "Nucleus dentatus mozečku"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "Corpora mamillaria a dorzomediální jádra talamu",
+        "explanation": "Neuropatologickým podkladem Korsakovova syndromu je atrofie a hemoragická nekróza corpora mamillaria (součást Papezova paměťového okruhu) a dorzomediálního talamu."
+      },
+      {
+        "idx": 2,
+        "id": "pq-S22-2",
+        "question": "Při izolované alkoholické cerebelární degeneraci bývá dominujícím klinickým nálezem:",
+        "options": [
+          "Klidový třes končetin 4 Hz",
+          "Ataxie stoje a chůze o široké bázi při relativně zachovalé taxické koordinaci na horních končetinách",
+          "Chorea obličeje a jazyka",
+          "Spastická kvadruplegie"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Ataxie stoje a chůze o široké bázi při relativně zachovalé taxické koordinaci na horních končetinách",
+        "explanation": "Alkoholická atrofie vermis mozečku postihuje primárně mediální struktury (vermis cerebelli), proto je vyjádřena těžká trupová ataxie a porucha chůze, zatímco taxe na končetinách (hemisféry) bývá intaktní."
+      }
+    ]
+  },
+  {
+    "number": 23,
+    "badge": "S23",
+    "section": "Speciální neurologie",
+    "title": "Diabetes mellitus a postižení nervového systému",
+    "theory_titles": [
+      "1. Úvod a Epidemiologie",
+      "2. Klasifikace diabetických neuropatií",
+      "3. Diagnostika diabetické neuropatie",
+      "4. Léčba diabetické neuropatie"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "pq-S23-1",
+        "question": "Který z následujících příznaků je typickým a nebezpečným projevem kardiovaskulární diabetické autonomní neuropatie (DAN)?",
+        "options": [
+          "Klidová bradykardie pod 50/min",
+          "Němá (asymptomatická) ischémie a infarkt myokardu bez stenokardie",
+          "Zvýšená variabilita srdeční frekvence při dýchání",
+          "Hypertenzní krize výhradně vestoje"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Němá (asymptomatická) ischémie a infarkt myokardu bez stenokardie",
+        "explanation": "Autonomní denervace myokardu vede ke ztrátě aferentního vedení viscerální bolesti ze srdce, což způsobuje, že ischémie i akutní infarkt myokardu mohou proběhnout zcela bezbolestně (němý infarkt)."
+      },
+      {
+        "idx": 2,
+        "id": "pq-S23-2",
+        "question": "Které vyšetření je nejvhodnějším rychlým screeningovým testem pro hodnocení ztráty protektivního taktilního čití na plosce nohy?",
+        "options": [
+          "Semmes-Weinsteinovo 10g monofilamentum",
+          "Termoelektroda",
+          "Babinského reflex",
+          "Posturální test"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "Semmes-Weinsteinovo 10g monofilamentum",
+        "explanation": "Aplikace 10g Semmes-Weinsteinova monofilamenta na standardní body planty nohy je celosvětově doporučeným screeningem k detekci ztráty protektivního čití a stratifikaci rizika ulcerací."
+      }
+    ]
+  },
+  {
+    "number": 24,
+    "badge": "S24",
+    "section": "Speciální neurologie",
+    "title": "Roztroušená skleróza mozkomíšní (Sclerosis multiplex)",
+    "theory_titles": [
+      "1. Úvod a Epidemiologie",
+      "2. Etiopatogeneze a Neuropatologie",
+      "3. Klinické formy a Průběh onemocnění",
+      "4. Diagnostika (McDonaldova revidovaná kritéria 2017)",
+      "5. Léčba Roztroušené sklerózy"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "pq-S24-1",
+        "question": "Průkaz kterého laboratorního nálezu v likvoru podporuje diagnózu roztroušené sklerózy a může nahradit kritérium diseminace v čase (DIT)?",
+        "options": [
+          "Izolovaná masivní neutrofilní pleocytóza",
+          "Přítomnost intratekálních oligoklonálních IgG pásů (OCB typ 2 nebo 3)",
+          "Extrémní hypoglykorachie pod 1 mmol/l",
+          "Pozitivita 14-3-3 proteinu"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Přítomnost intratekálních oligoklonálních IgG pásů (OCB typ 2 nebo 3)",
+        "explanation": "Podle revidovaných McDonaldových kritérií 2017 přítomnost specifických oligoklonálních IgG pásů v likvoru (svědčících pro chronickou intratekální syntézu protilátek) nahrazuje potřebu průkazu diseminace v čase u pacientů s typickým CIS."
+      },
+      {
+        "idx": 2,
+        "id": "pq-S24-2",
+        "question": "Při léčbě kterým vysoce účinným lékem roztroušené sklerózy (anti-integrin alfa-4) je nutné přísně monitorovat protilátky proti JC viru kvůli riziku PML?",
+        "options": [
+          "Glatiramer acetát",
+          "Natalizumab (Tysabri)",
+          "Interferon beta-1a",
+          "Teriflunomid"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Natalizumab (Tysabri)",
+        "explanation": "Natalizumab blokuje integrin alfa-4 a brání vstupu lymfocytů do CNS. U pacientů s pozitivitou protilátek proti JC viru vzniká při léčbě trvající déle než 2 roky vysoké riziko oportunní infekce – progresivní multifokální leukoencefalopatie (PML)."
+      }
+    ]
+  },
+  {
+    "number": 25,
+    "badge": "S25",
+    "section": "Speciální neurologie",
+    "title": "Jiná nutriční a karenční postižení nervového systému",
+    "theory_titles": [
+      "1. Úvod do nutričních neurokarencí",
+      "2. Deficit Vitaminu B₁₂ (Kobalaminu) a Funikulární myelóza",
+      "3. Další významné karenční stavy v neurologii"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "pq-S25-1",
+        "question": "Který klinický obraz nejlépe vystihuje postižení míchy u funikulární myelózy?",
+        "options": [
+          "Čistá chabá paraparéza s areflexií bez poruchy citlivosti",
+          "Spastická paraparéza kombinovaná se spinální senzorickou ataxií a výpadkem vibračního čití",
+          "Hornerův syndrom a hemianopsie",
+          "Termická a algická anestezie při intaktním polohocitu"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Spastická paraparéza kombinovaná se spinální senzorickou ataxií a výpadkem vibračního čití",
+        "explanation": "Funikulární myelóza postihuje pyramidové dráhy v postranních provazcích (spasticita, hyperreflexie, Babinski) a dráhy hlubokého čití v zadních provazcích (ztráta polohocitu a vibrace, senzorická ataxie)."
+      },
+      {
+        "idx": 2,
+        "id": "pq-S25-2",
+        "question": "Deficit kterého stopového prvku vyvolává myeloneuropatii s klinickým a MRI obrazem nerozeznatelným od nedostatku vitaminu B12?",
+        "options": [
+          "Železa",
+          "Mědi (Cu)",
+          "Selenu",
+          "Vápníku"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Mědi (Cu)",
+        "explanation": "Deficit mědi (např. po bariatrické operaci nebo při předávkování zinkem) vede k poruše cytochrom-c-oxidázy a způsobuje vakuolární myelopatii zadních a postranních provazců zcela identickou s funikulární myelózou."
+      }
+    ]
+  },
+  {
+    "number": 26,
+    "badge": "S26",
+    "section": "Speciální neurologie",
+    "title": "Hydrocephalus (včetně Normotenzního hydrocefalu dospělých)",
+    "theory_titles": [
+      "1. Fyziologie a Cirkulace likvoru",
+      "2. Klasifikace hydrocefalu",
+      "3. Normotenzní hydrocefalus dospělých (NPH - Normal Pressure Hydrocephalus)",
+      "4. Diagnostika NPH",
+      "5. Léčba Hydrocefalu"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "pq-S26-1",
+        "question": "Který příznak normotenzního hydrocefalu dospělých (NPH) se obvykle objevuje jako první a nejlépe reaguje na shuntovou operaci?",
+        "options": [
+          "Hluboká korová afázie",
+          "Porucha chůze (magnetická šouravá chůze / apraxie chůze)",
+          "Zrakové halucinace",
+          "Kvadruplegie"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Porucha chůze (magnetická šouravá chůze / apraxie chůze)",
+        "explanation": "Porucha chůze je nejčasnějším a nejkonzistentnějším příznakem NPH a zároveň nejlépe a nejrychleji reaguje na odlehčení likvorového tlaku (tap-test a VP shunt)."
+      },
+      {
+        "idx": 2,
+        "id": "pq-S26-2",
+        "question": "Metodou volby pro chirurgické řešení nekomunikujícího obstrukčního hydrocefalu při stenóze aqueductus Sylvii je:",
+        "options": [
+          "Endoskopická ventrikulostomie spodiny III. komory (ETV)",
+          "Lumbální punkce 1x týdně",
+          "Resekce corpus callosum",
+          "Podávání vysokých dávek furosemidu"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "Endoskopická ventrikulostomie spodiny III. komory (ETV)",
+        "explanation": "Endoskopická ventrikulostomie spodiny třetí komory (ETV) vytvoří fyziologickou vnitřní komunikaci mezi III. komorou a interpedunkulární cisternou a eliminuje nutnost implantace cizorodého materiálu (shuntu)."
+      }
+    ]
+  },
+  {
+    "number": 27,
+    "badge": "S27",
+    "section": "Speciální neurologie",
+    "title": "Mozková smrt",
+    "theory_titles": [
+      "1. Definice a Význam mozkové smrti",
+      "2. Předpoklady pro zahájení stanovení mozkové smrti",
+      "3. Klinické vyšetření kmenové areflexie",
+      "4. Apnoický test (Test zástavy spontánního dýchání)",
+      "5. Potvrzující (konfirmační) instrumentální vyšetření dle legislativy ČR"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "pq-S27-1",
+        "question": "Který nález na konfirmačním EEG vyšetření svědčí pro mozkovou smrt?",
+        "options": [
+          "Difuzní rytmus delta o vysoké voltáži",
+          "Elektrokortikální ticho (izoelektrická linie s amplitudou < 2 µV trvající minimálně 30 minut)",
+          "Periodické trifázické vlny",
+          "Generalizované hrot-vlna komplexy"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Elektrokortikální ticho (izoelektrická linie s amplitudou < 2 µV trvající minimálně 30 minut)",
+        "explanation": "Průkaz elektrokortikálního ticha (izoelektrické linie bez jakékoliv bioelektrické mozkové aktivity nad 2 µV při maximálním zesílení po dobu 30 minut) je elektrofyziologickým konfirmačním kritériem mozkové smrti."
+      },
+      {
+        "idx": 2,
+        "id": "pq-S27-2",
+        "question": "Při vyšetření okulocefalického reflexu u pacienta s intaktním mozkovým kmenem vyvolá rychlá pasivní rotace hlavy doprava:",
+        "options": [
+          "Konjugovanou deviaci očních bulbů doleva (opačným směrem – fenomén panenčích očí)",
+          "Okamžitou oboustrannou mydriázu",
+          "Spontánní mrknutí pravého oka",
+          "Zástavu dechu"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "Konjugovanou deviaci očních bulbů doleva (opačným směrem – fenomén panenčích očí)",
+        "explanation": "Intaktní kmenové okulocefalické reflexní dráhy udržují pohled fixovaný v prostoru, proto rotace hlavy doprava vyvolá protisměrnou deviaci bulbů doleva. U mozkové smrti jsou bulby 'zamrzlé' a pohybují se pasivně spolu s hlavou."
+      }
+    ]
+  },
+  {
+    "number": 28,
+    "badge": "S28",
+    "section": "Speciální neurologie",
+    "title": "Syringomyelie a Syringobulbie",
+    "theory_titles": [
+      "1. Definice a Terminologie",
+      "2. Etiologie a Patogeneze",
+      "3. Patofyziologie a Klinický obraz",
+      "4. Diagnostika",
+      "5. Léčba"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "pq-S28-1",
+        "question": "Který klinický příznak je typickým projevem syringobulbie při kraniální propagaci kavity do kmene?",
+        "options": [
+          "Bitemporální hemianopsie",
+          "Disociovaná porucha čití na obličeji v koncentrických zónách (cibulovitá distribuce), dysfagie a atrofie jazyka",
+          "Klidový třes končetin",
+          "Oboustranná ptóza víček bez dalších příznaků"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Disociovaná porucha čití na obličeji v koncentrických zónách (cibulovitá distribuce), dysfagie a atrofie jazyka",
+        "explanation": "Syringobulbie postihuje ncl. spinalis n. V (cibulovité zóny poruchy čití v obličeji), ncl. ambiguus n. IX/X (dysfagie, dysfonie) a ncl. n. XII (atrofie a fascikulace jazyka)."
+      },
+      {
+        "idx": 2,
+        "id": "pq-S28-2",
+        "question": "Jaká minimální vzdálenost herniace cerebelárních tonzil pod úroveň foramen magnum je na sagitálním MRI považována za diagnostické kritérium Chiariho malformace I. typu?",
+        "options": [
+          "1 mm",
+          "3 mm",
+          "5 mm",
+          "15 mm"
+        ],
+        "correctIndex": 2,
+        "correctAnswer": "5 mm",
+        "explanation": "Kaudální sestup mozečkových tonzil o 5 mm a více pod rovinu foramen magnum (McRaeova linie) na sagitálním T1/T2 MRI snímku definuje Chiari I malformaci."
+      }
+    ]
+  },
+  {
+    "number": 29,
+    "badge": "S29",
+    "section": "Speciální neurologie",
+    "title": "Hereditární spastická paraparéza (Strümpell-Lorrain)",
+    "theory_titles": [
+      "1. Definice a Genetická heterogenita",
+      "2. Neuropatologie a Klasifikace",
+      "3. Diagnostika a Diferenciální diagnóza",
+      "4. Léčba"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "pq-S29-1",
+        "question": "Základním patofyziologickým mechanismem u čistých forem HSP je:",
+        "options": [
+          "Autoimunitní demyelinizace periferních nervů",
+          "Retrográdní axonální degenerace (dying-back axonopathy) nejdelších vláken kortikospinálního traktu v míše",
+          "Zánik motoneuronů v předních rozích míšních",
+          "Aplastický defekt mozečku"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Retrográdní axonální degenerace (dying-back axonopathy) nejdelších vláken kortikospinálního traktu v míše",
+        "explanation": "HSP je typickou 'dying-back' axonopatií, kdy degenerují distální zakončení nejdelších kortikospinálních axonů inervujících lumbosakrální segmenty míchy."
+      },
+      {
+        "idx": 2,
+        "id": "pq-S29-2",
+        "question": "Který z následujících nálezů je pro 'čistou' formu HSP TYPICKÝ?",
+        "options": [
+          "Těžká kognitivní demence v mladém věku",
+          "Intaktní hybnost a reflexy na horních končetinách při těžké spasticitě na dolních končetinách",
+          "Svalové fascikulace jazyka a dysfagie",
+          "Ztráta zraku v důsledku retinitis pigmentosa"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Intaktní hybnost a reflexy na horních končetinách při těžké spasticitě na dolních končetinách",
+        "explanation": "Čistá forma HSP je definována izolovaným postižením dolních končetin (spasticita, paraparéza, hyperreflexie, Babinski) při zachování normálních funkcí horních končetin, řeči a kognice."
+      }
+    ]
+  },
+  {
+    "number": 30,
+    "badge": "S30",
+    "section": "Speciální neurologie",
+    "title": "Amyotrofická laterální skleróza (ALS)",
+    "theory_titles": [
+      "1. Definice a Epidemiologie",
+      "2. Etiopatogeneze a Genetika",
+      "3. Neuropatologie a Postižené struktury",
+      "4. Klinické formy ALS",
+      "5. Diagnostika (Gold Coast kritéria 2020)",
+      "6. Terapie a Komplexní management"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "pq-S30-1",
+        "question": "Které z následujících vyšetření je nejdůležitější pro definitivní průkaz difuzní léze periferního motoneuronu u ALS?",
+        "options": [
+          "Mozková scintigrafie",
+          "Jehlová elektromyografie (EMG) prokazující denervaci a reinervaci ve více tělesných etážích",
+          "Lumbální punkce s vyšetřením oligoklonálních pásů",
+          "Pozitronová emisní tomografie (PET)"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Jehlová elektromyografie (EMG) prokazující denervaci a reinervaci ve více tělesných etážích",
+        "explanation": "Jehlová elektromyografie (EMG) je klíčovou metodou prokazující difuzní zánik předních rohů míšních a motorických jader (akutní spontánní aktivita a neurogenní přestavba MUP) v bulbárním, cervikálním, hrudním a lumbosakrálním segmentu."
+      },
+      {
+        "idx": 2,
+        "id": "pq-S30-2",
+        "question": "Která genetická mutace je nejčastější příčinou familiární formy ALS a může být asociována s frontotemporální demencí?",
+        "options": [
+          "Expanze hexanukleotidu v genu C9orf72",
+          "Bodová mutace v genu pro huntingtin",
+          "Delece v genu pro dystrofin",
+          "Duplikace genu PMP22"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "Expanze hexanukleotidu v genu C9orf72",
+        "explanation": "Hexanukleotidová expanze GGGGCC v genu C9orf72 je nejčastější genetickou abnormalitou u familiární ALS (40 %) i familiární FTD a je odpovědná za překryvný syndrom ALS-FTD."
+      }
+    ]
+  },
+  {
+    "number": 31,
+    "badge": "S31",
+    "section": "Speciální neurologie",
+    "title": "Vertebrogenní onemocnění krční páteře (Cervikální syndromy a myelopatie)",
+    "theory_titles": [
+      "1. Úvod a Anatomicko-funkční poměry krční páteře",
+      "2. Pseudoradikulární (funkční) krční syndromy",
+      "3. Cervikální kořenové (radikulární) syndromy C5–C8",
+      "4. Cervikální spondylogenní myelopatie (CSM)",
+      "5. Konzervativní a Chirurgická léčba cervikálních syndromů"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "pq-S31-1",
+        "question": "Který manévr/test slouží k provokaci kořenové bolesti při cervikální radikulopatii kompresí foramen intervertebrale?",
+        "options": [
+          "Lasègueův manévr",
+          "Spurlingův test (axiální tlak na temeno hlavy v mírné extenzi a lateroflexi krku)",
+          "Trendelenburgův test",
+          "Fromentův příznak"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Spurlingův test (axiální tlak na temeno hlavy v mírné extenzi a lateroflexi krku)",
+        "explanation": "Spurlingův test (komprese foramen intervertebrale záklonem a úklonem hlavy k postižené straně s lehkým tlakem na temeno) vyvolá prudké vyzáření radikulární bolesti do příslušného dermatomu paže."
+      },
+      {
+        "idx": 2,
+        "id": "pq-S31-2",
+        "question": "Jaká je nejčastější lokalizace degenerativního postižení a výhřezu ploténky v oblasti krční páteře?",
+        "options": [
+          "Segment C1/C2",
+          "Segment C6/C7 (útlak kořene C7)",
+          "Segment C2/C3",
+          "Segment C7/Th1"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Segment C6/C7 (útlak kořene C7)",
+        "explanation": "Nejvyšší mechanické přetížení a nejčastější výhřez krční ploténky je v segmentu C6/C7 s kompresí kořene C7 (následovaný segmentem C5/C6 s kompresí kořene C6)."
+      }
+    ]
+  },
+  {
+    "number": 32,
+    "badge": "S32",
+    "section": "Speciální neurologie",
+    "title": "Vertebrogenní onemocnění hrudní páteře (Torakalgie a dif. dg.)",
+    "theory_titles": [
+      "1. Anatomie a Specifika hrudní páteře",
+      "2. Vertebrogenní syndromy hrudní páteře",
+      "3. Diferenciální diagnostika – Zásadní vyloučení viscerální etiologie!",
+      "4. Diagnostika a Terapie"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "pq-S32-1",
+        "question": "Který klinický znak nejvíce svědčí pro vertebrogenní (funkční muskuloskeletální) původ bolesti na hrudníku oproti angině pectoris?",
+        "options": [
+          "Bolest vzniká v klidu a budí pacienta ze spánku",
+          "Bolest je ostře vázána na polohu trupu, rotaci a hluboký nádech a je přesně palpačně reprodukovatelná na žebru",
+          "Bolest vyzařuje do dolní čelisti a je provázena studeným potem",
+          "Bolest ustupuje po sublinguálním nitroglycerinu"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Bolest je ostře vázána na polohu trupu, rotaci a hluboký nádech a je přesně palpačně reprodukovatelná na žebru",
+        "explanation": "Závislost bolesti na mechanickém pohybu trupu, nádechu/kašli a zejména přesná reprodukovatelnost bolesti palpací v místě žeberního či mezižeberního skloubení je typická pro vertebrogenní poruchu."
+      },
+      {
+        "idx": 2,
+        "id": "pq-S32-2",
+        "question": "Co označuje Tietzeův syndrom v diferenciální diagnostice bolestí přední stěny hrudníku?",
+        "options": [
+          "Disekci a. thoracica interna",
+          "Bolestivý neinfekční zánět a zduření kostochondrálního přechodu 2. nebo 3. žebra a sterna",
+          "Výhřez ploténky Th1/Th2",
+          "Spasmus jícnového svěrače"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Bolestivý neinfekční zánět a zduření kostochondrálního přechodu 2. nebo 3. žebra a sterna",
+        "explanation": "Tietzeův syndrom je benigní, bolestivý otok kostochondrálního nebo sternokostálního spojení (nejčastěji 2. a 3. žebra), který se manifestuje lokalizovanou bolestí imitující kardiální ischemii."
+      }
+    ]
+  },
+  {
+    "number": 33,
+    "badge": "S33",
+    "section": "Speciální neurologie",
+    "title": "Vertebrogenní onemocnění bederní páteře a Syndrom cauda equina",
+    "theory_titles": [
+      "1. Úvod a Anatomie lumbosakrální páteře",
+      "2. Lumbální kořenové (radikulární) syndromy L4, L5 a S1",
+      "3. Provokační manévry a Fyzikální vyšetření",
+      "5. Léčba lumbálních vertebrogenních syndromů"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "pq-S33-1",
+        "question": "Vyhaslý patelární reflex, slabost m. quadriceps femoris a porucha citlivosti na vnitřním kotníku odpovídají lézi kořene:",
+        "options": [
+          "Kořen L3",
+          "Kořen L4",
+          "Kořen L5",
+          "Kořen S1"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Kořen L4",
+        "explanation": "Kořen L4 zajišťuje motoriku m. quadriceps femoris (patelární reflex L2–L4) a senzitivitu na přední ploše stehna, koleni a vnitřní straně bérce a kotníku."
+      },
+      {
+        "idx": 2,
+        "id": "pq-S33-2",
+        "question": "Při vyšetření Lasègueova manévru se za pozitivní výsledek svědčící pro radikulární dráždění L5/S1 považuje:",
+        "options": [
+          "Pouhý tah ve svalech hamstringů v úhlu 90°",
+          "Vyzáření ostré bolesti podél dermatomu do dolní končetiny při pasivní elevaci natažené DK v úhlu pod 60°",
+          "Zvýšení krevního tlaku",
+          "Záškub pately"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Vyzáření ostré bolesti podél dermatomu do dolní končetiny při pasivní elevaci natažené DK v úhlu pod 60°",
+        "explanation": "Pravý pozitivní Lasègueův příznak znamená reprodukci radikulární vystřelující bolesti pod koleno do nohy při pasivní flexi v kyčli s extendovaným kolenem v úhlu < 60° (kdy dochází k maximálnímu tahu za kořeny L5 a S1)."
+      }
+    ]
+  },
+  {
+    "number": 34,
+    "badge": "S34",
+    "section": "Speciální neurologie",
+    "title": "Syndrom karpálního tunelu (a úžinové syndromy horní končetiny)",
+    "theory_titles": [
+      "1. Úvod a Anatomie karpálního tunelu",
+      "2. Etiopatogeneze a Rizikové faktory",
+      "3. Klinický obraz",
+      "4. Klinické provokační testy",
+      "5. Diagnostika",
+      "6. Terapie"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "pq-S34-1",
+        "question": "Který sval ruky podléhá atrofii při chronické těžké lézi nervus medianus v karpálním tunelu?",
+        "options": [
+          "m. abductor digiti minimi",
+          "m. interosseus dorsalis primus",
+          "m. abductor pollicis brevis (svaly thenaru)",
+          "m. adductor pollicis"
+        ],
+        "correctIndex": 2,
+        "correctAnswer": "m. abductor pollicis brevis (svaly thenaru)",
+        "explanation": "N. medianus motoricky inervuje svaly thenaru (m. abductor pollicis brevis, m. opponens pollicis a povrchovou hlavu m. flexor pollicis brevis), které při pokročilém CTS atrofují."
+      },
+      {
+        "idx": 2,
+        "id": "pq-S34-2",
+        "question": "Které systémové onemocnění je známým rizikovým faktorem pro vznik syndromu karpálního tunelu?",
+        "options": [
+          "Hypotyreóza",
+          "Celiakie",
+          "Myasthenia gravis",
+          "Hypoparatyreóza"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "Hypotyreóza",
+        "explanation": "Hypotyreóza (ukládání mukopolysacharidů v pojivu při myxedému), diabetes mellitus, revmatoidní artritida a akromegalie jsou typickými systémovými predispozicemi ke vzniku CTS."
+      }
+    ]
+  },
+  {
+    "number": 35,
+    "badge": "S35",
+    "section": "Speciální neurologie",
+    "title": "Syndrom brachiálního plexu a Diferenciálně diagnostická rozvaha",
+    "theory_titles": [
+      "1. Anatomie Plexus Brachialis",
+      "2. Klasické formy parézy brachiálního plexu",
+      "3. Speciální klinické jednotky postižení plexu",
+      "4. Diferenciálně diagnostická rozvaha (Plexus vs. Kořen vs. Periferní nerv)"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "pq-S35-1",
+        "question": "Odstávající lopatka (scapula alata) vzniká při paréze m. serratus anterior v důsledku léze kterého nervu?",
+        "options": [
+          "Nervus thoracicus longus",
+          "Nervus axillaris",
+          "Nervus musculocutaneus",
+          "Nervus suprascapularis"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "Nervus thoracicus longus",
+        "explanation": "Nervus thoracicus longus (vycházející přímo z kořenů C5–C7 brachiálního plexu) inervuje m. serratus anterior, který fixuje lopatku k hrudnímu koši; jeho paréza vede k odstávání mediální hrany lopatky (scapula alata)."
+      },
+      {
+        "idx": 2,
+        "id": "pq-S35-2",
+        "question": "Při syndromu horní hrudní apertury (TOS) je nejčastěji komprimována která část brachiálního plexu?",
+        "options": [
+          "Truncus superior (C5–C6)",
+          "Truncus inferior (C8–Th1)",
+          "Fasciculus lateralis",
+          "Nervus radialis"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Truncus inferior (C8–Th1)",
+        "explanation": "Truncus inferior (kořeny C8–Th1) a a. subclavia přebíhají přes první žebro v nejtěsnějším prostoru skalenického trojúhelníku, a proto jsou nejčastějším místem útlaku u neurogenního i vaskulárního TOS."
+      }
+    ]
+  },
+  {
+    "number": 36,
+    "badge": "S36",
+    "section": "Speciální neurologie",
+    "title": "Onemocnění autonomního (vegetativního) nervstva",
+    "theory_titles": [
+      "1. Anatomie a Fyziologie autonomního nervového systému (ANS)",
+      "2. Hlavní syndromy autonomní dysfunkce (Dysautonomie)",
+      "3. Fokální a Urgentní autonomní syndromy",
+      "4. Vyšetřovací metody autonomního systému"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "pq-S36-1",
+        "question": "Který lék ze skupiny agonistů alfa-1 adrenergních receptorů je lékem volby pro farmakologickou léčbu těžké symptomatické neurogenní ortostatické hypotenze?",
+        "options": [
+          "Bisoprolol",
+          "Midodrin",
+          "Atropin",
+          "Pramipexol"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Midodrin",
+        "explanation": "Midodrin je periferní alfa-1 adrenergní agonista, který vyvolává vazokonstrikci arteriálního i venózního řečiště, zvyšuje žilní návrat a brání poklesu krevního tlaku při vertikalizaci."
+      },
+      {
+        "idx": 2,
+        "id": "pq-S36-2",
+        "question": "Která složka Ewingovy baterie testuje primárně integritu kardiovagální parasympatické větve autonomního systému?",
+        "options": [
+          "Variabilita srdeční frekvence při hlubokém dýchání (poměr E/I)",
+          "Izometrický test stisku ruky (Handgrip test)",
+          "Měření poklesu TK při postavení",
+          "Sudomotorický axonální reflex (QSART)"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "Variabilita srdeční frekvence při hlubokém dýchání (poměr E/I)",
+        "explanation": "Respirační sinusová arytmie a poměr E/I (expirium/inspirium) při pomalém hlubokém dýchání (6 dechů/min) jsou zprostředkovány výhradně n. vagus a jsou nejcitlivějším testem parasympatické funkce srdce."
+      }
+    ]
+  },
+  {
+    "number": 37,
+    "badge": "S37",
+    "section": "Speciální neurologie",
+    "title": "Polyneuropatie",
+    "theory_titles": [
+      "1. Definice a Klasifikace polyneuropatií",
+      "2. Elektrofyziologické a Etiologické dělení",
+      "3. Hereditární motoricko-senzitivní neuropatie (HMSN / Charcot-Marie-Tooth - CMT)",
+      "4. Získané specifické formy polyneuropatií",
+      "5. Diagnostika a Terapie polyneuropatií"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "pq-S37-1",
+        "question": "Která onkoneurální protilátka je typicky pozitivní u pacientů s paraneoplastickou subakutní senzitivní neuronopatií při malobuněčném karcinomu plic?",
+        "options": [
+          "Anti-AChR",
+          "Anti-Hu (ANNA-1)",
+          "Anti-MuSK",
+          "Anti-Aquaporin 4"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Anti-Hu (ANNA-1)",
+        "explanation": "Protilátky anti-Hu (ANNA-1) jsou vysoce specifickým paraneoplastickým markerem spojeným s malobuněčným karcinomem plic a způsobují autoimunitní destrukci spinálních ganglií (Denny-Brownův syndrom)."
+      },
+      {
+        "idx": 2,
+        "id": "pq-S37-2",
+        "question": "Které cytostatikum je známé rizikem vzniku akutních chladem indukovaných parestezií a chronické senzorické polyneuropatie?",
+        "options": [
+          "5-Fluorouracil",
+          "Oxaliplatina",
+          "Methotrexát",
+          "Cyklofosfamid"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Oxaliplatina",
+        "explanation": "Oxaliplatina způsobuje typickou akutní chladovou alodynii a při kumulativní dávce chronickou toxickou axonální polyneuropatii s ataxií."
+      }
+    ]
+  },
+  {
+    "number": 38,
+    "badge": "S38",
+    "section": "Speciální neurologie",
+    "title": "Onemocnění nervosvalového přenosu (Myasthenia gravis, LEMS a Botulismus)",
+    "theory_titles": [
+      "1. Fyziologie nervosvalového přenosu",
+      "2. Myasthenia Gravis (MG)",
+      "3. Klinický obraz Myasthenia Gravis",
+      "4. Diagnostika Myasthenia Gravis",
+      "5. Léčba Myasthenia Gravis",
+      "6. Lambert-Eatonův Myastenický Syndrom (LEMS) a Botulismus"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "pq-S38-1",
+        "question": "Který lék je lékem první volby pro rychlou symptomatickou léčbu Myasthenia gravis?",
+        "options": [
+          "Pyridostigmin (Mestinon)",
+          "Baklofen",
+          "Riluzol",
+          "Amantadin"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "Pyridostigmin (Mestinon)",
+        "explanation": "Pyridostigmin (Mestinon) je reverzibilní inhibitor acetylcholinesterázy, který prodlužuje přítomnost acetylcholinu v synaptické štěrbině a promptně zlepšuje svalovou sílu."
+      },
+      {
+        "idx": 2,
+        "id": "pq-S38-2",
+        "question": "Které z následujících léčiv může vyvolat akutní dekompenzaci a myastenickou krizi u pacienta s Myasthenia gravis a je u nich relativně kontraindikováno?",
+        "options": [
+          "Aminoglykosidová antibiotika (např. Gentamicin)",
+          "Paracetamol",
+          "Inhibitory protonové pumpy",
+          "Penicilin G"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "Aminoglykosidová antibiotika (např. Gentamicin)",
+        "explanation": "Aminoglykosidy (gentamicin, amikacin), makrolidy, chinolony, beta-blokátory, myorelaxancia a hořčík (magnesium i.v.) blokují nervosvalový přenos a mohou u myastenika vyvolat fatální respirační selhání."
+      }
+    ]
+  },
+  {
+    "number": 39,
+    "badge": "S39",
+    "section": "Speciální neurologie",
+    "title": "Onemocnění kosterního svalstva (Svalové dystrofie, myotonie a myositidy)",
+    "theory_titles": [
+      "1. Úvod a Klasifikace myopatií",
+      "2. Svalové dystrofie vázané na X-chromozom (Dystrofinopatie)",
+      "3. Myotonická dystrofie 1. typu (DM1 / Morbus Steinert)",
+      "4. Zánětlivé myopatie (Idiopatické myositidy)",
+      "5. Toxické a Polékové myopatie (Statinová myopatie)"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "pq-S39-1",
+        "question": "Která z následujících zánětlivých myopatií je charakteristická asymetrickým postižením distálních flexorů prstů ruky a m. quadriceps u mužů nad 50 let a špatnou odpovědí na kortikoterapii?",
+        "options": [
+          "Polymyositida",
+          "Dermatomyositida",
+          "Myositida s inkluzními tělísky (IBM)",
+          "Duchenneova dystrofie"
+        ],
+        "correctIndex": 2,
+        "correctAnswer": "Myositida s inkluzními tělísky (IBM)",
+        "explanation": "Inclusion Body Myositis (IBM) je specifická zánětlivě-degenerativní myopatie starších mužů s predilekčním postižením hlubokých flexorů prstů a m. quadriceps, která neodpovídá na standardní imunosupresi."
+      },
+      {
+        "idx": 2,
+        "id": "pq-S39-2",
+        "question": "Myotonický fenomén u myotonické dystrofie představuje:",
+        "options": [
+          "Rychlý zánik reflexů",
+          "Zpomalenou relaxaci kosterního svalu po předchozí volní kontrakci nebo mechanické stimulaci",
+          "Spontánní fascikulace jazyka",
+          "Nekontrolovatelné choreatické pohyby"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Zpomalenou relaxaci kosterního svalu po předchozí volní kontrakci nebo mechanické stimulaci",
+        "explanation": "Myotonie je definována jako porucha svalové relaxace (opožděné uvolnění po volní kontrakci) způsobená hyperexcitabilitou sarkolemy a repetitivními výboji na EMG."
+      }
+    ]
+  },
+  {
+    "number": 40,
+    "badge": "S40",
+    "section": "Speciální neurologie",
+    "title": "Dětská mozková obrna (DMO / Infantile Cerebral Palsy)",
+    "theory_titles": [
+      "1. Definice a Charakteristika DMO",
+      "2. Etiologie a Rizikové faktory",
+      "3. Klasifikace klinických forem DMO",
+      "4. Časná diagnostika DMO",
+      "5. Komplexní terapie a Rehabilitace"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "pq-S40-1",
+        "question": "Která klinická forma DMO je charakterizována mimovolními kroutivými pohyby (atetózou), dystonií a výraznou orofaciální dyskinezí při často zachovalých kognitivních schopnostech?",
+        "options": [
+          "Spastická diplegie",
+          "Dyskinetická (atetoidní) forma",
+          "Ataktická forma",
+          "Spastická hemiplegie"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Dyskinetická (atetoidní) forma",
+        "explanation": "Dyskinetická forma DMO vzniká poškozením bazálních ganglií a talamu (po těžké asfyxii nebo kernikteru) a projevuje se atetózou, dystonií a dysartrií bez primární spasticity."
+      },
+      {
+        "idx": 2,
+        "id": "pq-S40-2",
+        "question": "Přetrvávání kterého primitivního reflexu po 6. měsíci věku brání dítěti v symetrickém vzpřímení a otáčení z bříška na záda?",
+        "options": [
+          "Asymetrický tonický šíjový reflex (ATŠR neboli reflex šermíře)",
+          "Patelární reflex",
+          "Zornicový reflex",
+          "Korneální reflex"
+        ],
+        "correctIndex": 0,
+        "correctAnswer": "Asymetrický tonický šíjový reflex (ATŠR neboli reflex šermíře)",
+        "explanation": "Asymetrický tonický šíjový reflex (ATŠR – otočení hlavičky vyvolá extenzi končetin na straně obličeje a flexi na straně záhlaví) fyziologicky vyhasíná do 4.–6. měsíce věku. Jeho perzistence je kardinální známkou spastické formy DMO."
+      }
+    ]
+  },
+  {
+    "number": 41,
+    "badge": "S41",
+    "section": "Speciální neurologie",
+    "title": "Akutní a chronické zánětlivé polyradikuloneuritidy (Guillain-Barré syndrom a CIDP)",
+    "theory_titles": [
+      "1. Guillain-Barré Syndrom (GBS / Akutní zánětlivá demyelinizační polyradikuloneuropatie - AIDP)",
+      "2. Etiopatogeneze a Molekulární mimikry",
+      "3. Klinický obraz a Varianty GBS",
+      "4. Diagnostika GBS",
+      "5. Léčba a Monitorace na JIP",
+      "6. Chronická zánětlivá demyelinizační polyradikuloneuropatie (CIDP)"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "pq-S41-1",
+        "question": "Která infekce je nejčastějším gastrointestinálním spouštěčem Guillain-Barré syndromu na podkladě molekulárních mimikry s gangliosidy?",
+        "options": [
+          "Salmonella enteritidis",
+          "Campylobacter jejuni",
+          "Clostridioides difficile",
+          "Helicobacter pylori"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Campylobacter jejuni",
+        "explanation": "Campylobacter jejuni má v lipooligosacharidech pouzdra antigenní epitopy identické s lidskými gangliosidy periferních nervů (GM1/GD1a), což vede ke zkřížené autoimunitní destrukci."
+      },
+      {
+        "idx": 2,
+        "id": "pq-S41-2",
+        "question": "Jaký je časový limit progrese motorického deficitu, který odlišuje akutní GBS od chronické zánětlivé demyelinizační polyneuropatie (CIDP)?",
+        "options": [
+          "24 hodin",
+          "4 týdny (GBS progreduje do 4 týdnů, CIDP progreduje nebo relabuje déle než 8 týdnů)",
+          "6 měsíců",
+          "1 rok"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "4 týdny (GBS progreduje do 4 týdnů, CIDP progreduje nebo relabuje déle než 8 týdnů)",
+        "explanation": "U Guillain-Barré syndromu dosahuje progrese maxima (nadíru) do 2 až 4 týdnů. Pokud motorický deficit progreduje kontinuálně nebo relabuje déle než 8 týdnů, jde o chronickou jednotku CIDP."
+      }
+    ]
+  },
+  {
+    "number": 42,
+    "badge": "S42",
+    "section": "Speciální neurologie",
+    "title": "Kraniocerebrální traumata - Komoce, kontuze a Difuzní axonální poranění (DAP)",
+    "theory_titles": [
+      "1. Úvod a Rozdělení traumatických lézí mozku",
+      "2. Komoce mozku (Commotio cerebri / Otřes mozku)",
+      "3. Kontuze mozku (Contusio cerebri / Zhmoždění mozku)",
+      "5. Přehled a Srovnání traumatických jednotek"
+    ],
+    "quiz": [
+      {
+        "idx": 1,
+        "id": "pq-S42-1",
+        "question": "Mechanismus vzniku kontuzních ložisek typu 'contrecoup' (protináraz) je způsoben:",
+        "options": [
+          "Proniknutím cizího tělesa do mozku",
+          "Setrvačným nárazem mozkového parenchymu na kostěné hrany vnitřního reliéfu lebky na opačné straně, než působila primární síla úderu",
+          "Rupturou aneuryzmatu a. basilaris",
+          "Trombózou sinus sagittalis superior"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Setrvačným nárazem mozkového parenchymu na kostěné hrany vnitřního reliéfu lebky na opačné straně, než působila primární síla úderu",
+        "explanation": "Při nárazu hlavy se mozek v likvorovém obalu setrvačností opožďuje a následně naráží na protilehlou vnitřní stěnu kalvy a kostěné výběžky baze (čelní a spánkové póly), což vytváří ložiska contrecoup."
+      },
+      {
+        "idx": 2,
+        "id": "pq-S42-2",
+        "question": "Které z následujících tvrzení o komoci mozku (commotio cerebri) je PRAVDIVÉ?",
+        "options": [
+          "Na nativním CT mozku jsou typicky přítomna vícečetná petechiální krvácení",
+          "Bezvědomí netrvá déle než 5–15 minut a neurologický objektivní nález je po odeznění normální",
+          "Vždy zanechává trvalou spastickou paraparézu",
+          "Je absolutní indikací k urgentní kraniotomii"
+        ],
+        "correctIndex": 1,
+        "correctAnswer": "Bezvědomí netrvá déle než 5–15 minut a neurologický objektivní nález je po odeznění normální",
+        "explanation": "Komoce mozku je definována jako reverzibilní funkční výpadek bez strukturální léze; bezvědomí trvá sekundy až maximálně 15 minut, CT je normální a objektivní neurologický nález je bez ložiskového deficitu."
+      }
+    ]
+  }
+]

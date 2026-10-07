@@ -1,0 +1,150 @@
+{
+  "version": "2026.1.0",
+  "lastUpdated": "2026-10-07T12:43:41.854Z",
+  "subjects": [
+    {
+      "id": "patola",
+      "title": "Patologie",
+      "grade": 3,
+      "icon": "🔬",
+      "color": "#00FFC2",
+      "totalQuestions": 401,
+      "counts": {
+        "single_choice": 401,
+        "case_study": 0,
+        "fill_in": 0
+      },
+      "sizeBytes": 335730,
+      "sizeFormatted": "328 kB",
+      "file": "/drill/data/modules/patola.json"
+    },
+    {
+      "id": "imuno",
+      "title": "Imunologie",
+      "grade": 3,
+      "icon": "🛡️",
+      "color": "#00d2ff",
+      "totalQuestions": 348,
+      "counts": {
+        "single_choice": 348,
+        "case_study": 0,
+        "fill_in": 0
+      },
+      "sizeBytes": 283166,
+      "sizeFormatted": "277 kB",
+      "file": "/drill/data/modules/imuno.json"
+    },
+    {
+      "id": "mikra",
+      "title": "Mikrobiologie",
+      "grade": 3,
+      "icon": "🦠",
+      "color": "#14b8a6",
+      "totalQuestions": 195,
+      "counts": {
+        "single_choice": 178,
+        "case_study": 17,
+        "fill_in": 0
+      },
+      "sizeBytes": 185731,
+      "sizeFormatted": "181 kB",
+      "file": "/drill/data/modules/mikra.json"
+    },
+    {
+      "id": "kardio",
+      "title": "Kardiologie",
+      "grade": 4,
+      "icon": "🫀",
+      "color": "#f43f5e",
+      "totalQuestions": 49,
+      "counts": {
+        "single_choice": 12,
+        "case_study": 25,
+        "fill_in": 12
+      },
+      "sizeBytes": 66061,
+      "sizeFormatted": "65 kB",
+      "file": "/drill/data/modules/kardio.json"
+    },
+    {
+      "id": "neuro",
+      "title": "Neurologie",
+      "grade": 4,
+      "icon": "⚡",
+      "color": "#06b6d4",
+      "totalQuestions": 402,
+      "counts": {
+        "single_choice": 134,
+        "case_study": 67,
+        "fill_in": 201
+      },
+      "sizeBytes": 575600,
+      "sizeFormatted": "562 kB",
+      "file": "/drill/data/modules/neuro.json"
+    },
+    {
+      "id": "psych",
+      "title": "Psychiatrie",
+      "grade": 4,
+      "icon": "🧠",
+      "color": "#a78bfa",
+      "totalQuestions": 192,
+      "counts": {
+        "single_choice": 64,
+        "case_study": 32,
+        "fill_in": 96
+      },
+      "sizeBytes": 223764,
+      "sizeFormatted": "219 kB",
+      "file": "/drill/data/modules/psych.json"
+    },
+    {
+      "id": "derma",
+      "title": "Dermatologie",
+      "grade": 4,
+      "icon": "☀️",
+      "color": "#ff7a59",
+      "totalQuestions": 216,
+      "counts": {
+        "single_choice": 144,
+        "case_study": 72,
+        "fill_in": 0
+      },
+      "sizeBytes": 352391,
+      "sizeFormatted": "344 kB",
+      "file": "/drill/data/modules/derma.json"
+    },
+    {
+      "id": "farma",
+      "title": "Farmakologie",
+      "grade": 4,
+      "icon": "💊",
+      "color": "#34d399",
+      "totalQuestions": 184,
+      "counts": {
+        "single_choice": 138,
+        "case_study": 0,
+        "fill_in": 46
+      },
+      "sizeBytes": 260108,
+      "sizeFormatted": "254 kB",
+      "file": "/drill/data/modules/farma.json"
+    },
+    {
+      "id": "urgent",
+      "title": "Urgentní příjem",
+      "grade": 5,
+      "icon": "🚨",
+      "color": "#ef4444",
+      "totalQuestions": 18,
+      "counts": {
+        "single_choice": 0,
+        "case_study": 18,
+        "fill_in": 0
+      },
+      "sizeBytes": 39337,
+      "sizeFormatted": "38 kB",
+      "file": "/drill/data/modules/urgent.json"
+    }
+  ]
+}

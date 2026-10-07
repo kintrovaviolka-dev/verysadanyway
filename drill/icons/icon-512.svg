@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141a24"/>
+      <stop offset="50%" stop-color="#0c0f14"/>
+      <stop offset="100%" stop-color="#05070a"/>
+    </linearGradient>
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f0ff"/>
+      <stop offset="50%" stop-color="#00ffc2"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f43f5e"/>
+      <stop offset="100%" stop-color="#fb7185"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="16" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background rounded box -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)"/>
+  <rect width="504" height="504" x="4" y="4" rx="108" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="4"/>
+
+  <!-- Glowing outer circle -->
+  <circle cx="256" cy="256" r="180" fill="none" stroke="url(#glowGrad)" stroke-width="8" opacity="0.4" filter="url(#glow)"/>
+  <circle cx="256" cy="256" r="180" fill="rgba(0, 240, 255, 0.03)" stroke="url(#glowGrad)" stroke-width="4"/>
+
+  <!-- Medical Cross / Plus Symbol -->
+  <path d="M 232 140 H 280 V 224 H 364 V 272 H 280 V 356 H 232 V 272 H 148 V 224 H 232 Z" 
+        fill="url(#glowGrad)" filter="url(#glow)" opacity="0.95"/>
+
+  <!-- EKG Pulse Wave across center -->
+  <path d="M 120 256 L 190 256 L 210 220 L 230 300 L 256 160 L 282 340 L 302 240 L 322 256 L 392 256" 
+        fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Lightning badge in corner -->
+  <circle cx="360" cy="152" r="38" fill="#141a24" stroke="rgba(255,255,255,0.12)" stroke-width="3"/>
+  <path d="M 364 126 L 344 154 H 362 L 354 178 L 378 148 H 360 Z" fill="#fbbf24"/>
+
+  <!-- Small dot badge -->
+  <circle cx="256" cy="406" r="6" fill="#00ffc2"/>
+  <circle cx="236" cy="406" r="4" fill="rgba(255,255,255,0.3)"/>
+  <circle cx="276" cy="406" r="4" fill="rgba(255,255,255,0.3)"/>
+</svg>

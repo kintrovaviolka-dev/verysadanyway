@@ -421,15 +421,15 @@
   },
   {
     "id": 36,
-    "question": "Které cytokiny vylučované makrofágy a dendritickými buňkami jsou primárně zodpovědné za stimulaci jater k produkci proteinů akutní fáze (např. CRP)?",
+    "question": "Který cytokin je hlavním induktorem syntézy proteinů akutní fáze v játrech (např. CRP)?",
     "options": [
-      "IL-4 a IL-5",
-      "IL-10 a TGF-β",
-      "IL-1 a TNF-α",
-      "IFN-α a IFN-β"
+      "IL-4",
+      "IL-6",
+      "IL-10",
+      "IFN-γ"
     ],
-    "correct": 2,
-    "explanation": "Prozánětlivé cytokiny Interleukin-1 (IL-1), Interleukin-6 (IL-6) a Tumor nekrotizující faktor alfa (TNF-α) působí na hepatocyty a indukují systémovou odpověď akutní fáze."
+    "correct": 1,
+    "explanation": "IL-6 je hlavním induktorem syntézy proteinů akutní fáze v hepatocytech. IL-1 a TNF-α se na systémové zánětlivé odpovědi také podílejí, ale nejsou nejlepší samostatnou odpovědí na tuto otázku."
   },
   {
     "id": 37,
@@ -445,15 +445,15 @@
   },
   {
     "id": 38,
-    "question": "Výskyt antimitochondriálních protilátek (AMA) v séru pacienta je vysoce specifickým a typickým diagnostickým markerem pro:",
+    "question": "Výskyt antimitochondriálních protilátek (AMA) v séru pacienta je typický zejména pro:",
     "options": [
       "systémový lupus erythematodes (SLE)",
-      "primární biliární cirhózu (cholangitidu)",
+      "primární biliární cholangitidu",
       "revmatoidní artritidu",
       "celiakii"
     ],
     "correct": 1,
-    "explanation": "Antimitochondriální protilátky (AMA) jsou namířeny proti pyruvátdehydrogenázovému komplexu v mitochondriích a detekují se u více než 90 % pacientů s primární biliární cirhózou."
+    "explanation": "AMA jsou namířeny zejména proti pyruvátdehydrogenázovému komplexu v mitochondriích a jsou typickým markerem primární biliární cholangitidy (PBC)."
   },
   {
     "id": 39,
@@ -589,15 +589,15 @@
   },
   {
     "id": 50,
-    "question": "Co je v České republice statisticky nejčastější příčinou vzniku sekundárních imunodeficitů?",
+    "question": "Která situace je častou příčinou sekundární imunodeficience?",
     "options": [
       "Iatrogenní příčiny (např. chemoterapie, imunosupresivní léčba, radioterapie)",
-      "Infekce virem HIV (syndrom AIDS)",
-      "Závažná a dlouhodobá protein-energetická podvýživa",
-      "Stoupající koncentrace toxických emisí a chemikálií v životním prostředí"
+      "Akutní nekomplikovaná viróza",
+      "Běžná sezónní alergická rýma",
+      "Krátkodobá fyzická zátěž"
     ],
     "correct": 0,
-    "explanation": "V rozvinutých zemích včetně ČR jsou nejčastější příčinou sekundárních imunodeficitů medicínské (iatrogenní) zásahy – zejména onkologická léčba (cytostatika, ozařování) a imunosuprese po transplantacích či u autoimunit."
+    "explanation": "Sekundární imunodeficience vzniká v průběhu života například při imunosupresivní či onkologické léčbě, HIV infekci, podvýživě nebo některých nádorech. Četnost jednotlivých příčin závisí na sledované populaci."
   },
   {
     "id": 51,
@@ -709,15 +709,15 @@
   },
   {
     "id": 60,
-    "question": "Které autoprotilátky jsou asociovány s orgánově specifickým onemocněním?",
+    "question": "Které autoprotilátky jsou typické pro autoimunitní onemocnění štítné žlázy?",
     "options": [
-      "Protilátky proti endomyziu",
-      "protilátky proti thyreoglobulinu",
-      "IgG a IgM",
-      "Protilátky proti tyreoglobulinu"
+      "Protilátky proti thyreoglobulinu",
+      "Antimitochondriální protilátky",
+      "Protilátky proti citrulinovaným proteinům",
+      "Antifosfolipidové protilátky"
     ],
     "correct": 0,
-    "explanation": "Správná odpověď: Protilátky proti endomyziu."
+    "explanation": "Protilátky proti tyreoglobulinu jsou orgánově specifické a vyskytují se například u Hashimotovy tyreoiditidy."
   },
   {
     "id": 61,
@@ -745,27 +745,27 @@
   },
   {
     "id": 63,
-    "question": "Která látka není přítomna v lyzozomálních granulích fagocytujících buněk?",
+    "question": "Která z následujících látek není běžnou složkou granul fagocytujících buněk?",
     "options": [
-      "Tryptázy",
-      "Sérum",
-      "Sérokonverze",
-      "IgM"
+      "Lysozym",
+      "Defenziny",
+      "Myeloperoxidáza",
+      "Inzulin"
     ],
-    "correct": 0,
-    "explanation": "Správná odpověď: Tryptázy."
+    "correct": 3,
+    "explanation": "Granula fagocytů obsahují mikrobicidní látky, například lysozym, defenziny a v neutrofilech myeloperoxidázu. Inzulin do jejich granul nepatří."
   },
   {
     "id": 64,
-    "question": "Na čem závisí obrana proti extracelulárním bakteriím?",
+    "question": "Které mechanismy jsou nejdůležitější v obraně proti extracelulárním bakteriím?",
     "options": [
-      "Na interakci antigenu, antigen-specifických T lymfocytů, makrofágů a cytokinů",
-      "Na nitrobuněčném zabíjení, funkčních protilátkách, komplementu a fagocytóze",
-      "Na antigenu, T lymfocytech, makrofázích a cytokinech",
-      "Změna třídy tvořených protilátek během odpovědi B lymfocytu"
+      "Opsonizace protilátkami a C3b, aktivace komplementu a fagocytóza",
+      "Killing infikovaných buněk cytotoxickými T lymfocyty",
+      "Tvorba granulomů z makrofágů a Th1 buněk",
+      "Tvorba interferonu typu I"
     ],
-    "correct": 1,
-    "explanation": "Správná odpověď: Na nitrobuněčném zabíjení, funkčních protilátkách, komplementu a fagocytóze."
+    "correct": 0,
+    "explanation": "Extracelulární bakterie jsou odstraňovány zejména opsonizací protilátkami a C3b, aktivací komplementu a následnou fagocytózou."
   },
   {
     "id": 65,
@@ -1021,15 +1021,15 @@
   },
   {
     "id": 86,
-    "question": "Co je imunologická tolerance?",
+    "question": "Kde se u T lymfocytů uplatňuje zejména centrální imunologická tolerance?",
     "options": [
-      "Získaná neodpovídavost lymfocytů na antigen vyvolaná stykem s antigenem",
-      "T lymfocyty se tolerují snáze a menší dávkou antigenu",
-      "Na interakci antigenu, antigen-specifických T lymfocytů, makrofágů a cytokinů",
-      "Integrin a molekula Ig rodiny důležité pro adhezi leukocytů"
+      "V brzlíku při selekci vyvíjejících se T lymfocytů",
+      "Výhradně v kostní dřeni po kontaktu s mikroby",
+      "Pouze v periferní krvi po očkování",
+      "V lymfatické uzlině při tvorbě protilátek"
     ],
     "correct": 0,
-    "explanation": "Správná odpověď: Získaná neodpovídavost lymfocytů na antigen vyvolaná stykem s antigenem."
+    "explanation": "Centrální tolerance T lymfocytů probíhá převážně v brzlíku, kde jsou silně autoreaktivní klony odstraněny nebo mohou diferencovat v Treg buňky."
   },
   {
     "id": 87,
@@ -1057,15 +1057,15 @@
   },
   {
     "id": 89,
-    "question": "Jak se nazývají místa na antigenu reagující se specifickou protilátkou?",
+    "question": "Jak se nazývá jednotlivé místo na antigenu rozpoznávané specifickou protilátkou?",
     "options": [
       "Selektiny",
-      "Epitopy",
+      "Epitop",
       "Hapten",
-      "Epitop"
+      "Izotyp"
     ],
     "correct": 1,
-    "explanation": "Správná odpověď: Epitopy."
+    "explanation": "Epitop neboli antigenní determinanta je konkrétní část antigenu rozpoznávaná vazebným místem protilátky nebo BCR."
   },
   {
     "id": 90,
@@ -1117,15 +1117,15 @@
   },
   {
     "id": 94,
-    "question": "Čím je tvořen membranolytický komplex komplementu?",
+    "question": "Které složky tvoří membranolytický komplex komplementu (MAC)?",
     "options": [
-      "C5a",
-      "Složkami C5b-C9",
-      "C5b-C9",
-      "Komplement"
+      "C1q, C1r a C1s",
+      "C3b a faktor B",
+      "C5b až C9",
+      "C3a a C5a"
     ],
-    "correct": 1,
-    "explanation": "Správná odpověď: Složkami C5b-C9."
+    "correct": 2,
+    "explanation": "MAC vzniká sestavením C5b, C6, C7, C8 a polymerů C9; vytváří pór v membráně cílové buňky."
   },
   {
     "id": 95,
@@ -1297,15 +1297,15 @@
   },
   {
     "id": 109,
-    "question": "Která vakcína představuje nejmenší riziko u imunokompromitovaných?",
+    "question": "Který obecný typ vakcíny se u imunokompromitovaných obvykle nepovažuje za živé riziko replikace vakcinačního kmene?",
     "options": [
-      "Difterickým toxoidem",
-      "Polysacharidová vakcína",
-      "Aktivní umělá imunizace",
-      "Vakcína proti pneumokokům"
+      "Živá atenuovaná vakcína",
+      "Neživá (inaktivovaná nebo subjednotková) vakcína",
+      "Replikačně schopná virová vektorová vakcína",
+      "Perorální živá vakcína"
     ],
-    "correct": 3,
-    "explanation": "Správná odpověď: Vakcína proti pneumokokům."
+    "correct": 1,
+    "explanation": "Neživé vakcíny nemohou v organismu replikovat. Jejich indikace a očekávaná účinnost se ale u imunokompromitovaných řídí typem a intenzitou imunosuprese; živé vakcíny mohou být kontraindikovány."
   },
   {
     "id": 110,
@@ -1345,15 +1345,15 @@
   },
   {
     "id": 113,
-    "question": "Co je příkladem pasivní imunizace?",
+    "question": "Které tvrzení nejlépe vystihuje aktivní imunizaci?",
     "options": [
-      "Thymus a játra",
-      "Protilátky proti tyreoglobulinu",
-      "Transplacentární přenos IgG",
-      "Protilátkami a komplementem"
+      "Organismus si po podání antigenu vytváří vlastní specifickou odpověď a paměť",
+      "Podávají se hotové protilátky s okamžitým, ale přechodným účinkem",
+      "Jde výhradně o přenos IgG přes placentu",
+      "Nevzniká žádná imunologická paměť"
     ],
-    "correct": 2,
-    "explanation": "Správná odpověď: Transplacentární přenos IgG."
+    "correct": 0,
+    "explanation": "Aktivní imunizace stimuluje vlastní imunitní systém k tvorbě efektorové odpovědi a paměti. Podání hotových protilátek a transplacentární přenos IgG jsou příklady pasivní imunizace."
   },
   {
     "id": 114,
@@ -1417,15 +1417,15 @@
   },
   {
     "id": 119,
-    "question": "Které cytokiny stimulují syntézu proteinů akutní fáze?",
+    "question": "Který cytokin je hlavním induktorem syntézy proteinů akutní fáze v játrech?",
     "options": [
-      "IL-1 a IL-12",
-      "IL-1 a TNF",
-      "Interferon gama (IFN-γ)",
-      "IL-1 a TNF-α"
+      "IL-4",
+      "IL-6",
+      "IFN-γ",
+      "IL-10"
     ],
     "correct": 1,
-    "explanation": "Správná odpověď: IL-1 a TNF."
+    "explanation": "IL-6 je hlavním cytokinem stimulujícím hepatocyty k tvorbě proteinů akutní fáze, včetně CRP."
   },
   {
     "id": 120,
@@ -1525,15 +1525,15 @@
   },
   {
     "id": 128,
-    "question": "Jaký je rozdíl mezi specifickou a nespecifickou imunitou?",
+    "question": "Která vlastnost nejlépe odlišuje adaptivní imunitu od vrozené imunity?",
     "options": [
-      "Protilátkami zprostředkovaná destrukce buněk (např. cytotoxickými IgG či IgM)",
-      "Specifická neodpovídavost lymfocytů na antigen po kontaktu s antigenem",
-      "Specifická je pomalejší a přesná, nespecifická rychlá a vrozená",
-      "Specifická imunita dokáže rozlišit i velmi drobné změny ve struktuře antigenu a vytváří paměťové buňky."
+      "Vytváří antigenně specifickou imunologickou paměť",
+      "Je přítomna již při narození bez předchozí expozice",
+      "Reaguje výhradně prostřednictvím fagocytózy",
+      "Neumí rozpoznávat antigeny"
     ],
-    "correct": 2,
-    "explanation": "Správná odpověď: Specifická je pomalejší a přesná, nespecifická rychlá a vrozená."
+    "correct": 0,
+    "explanation": "Adaptivní imunita využívá antigenově specifické TCR a BCR a vytváří paměť. Vrozená imunita reaguje rychle pomocí receptorů rozpoznávajících společné vzory patogenů."
   },
   {
     "id": 129,
@@ -1669,15 +1669,15 @@
   },
   {
     "id": 140,
-    "question": "Jaká vakcína nepůsobí u malých dětí?",
+    "question": "Který typ vakcíny vyvolává u dětí mladších 2 let slabou T-nezávislou protilátkovou odpověď, pokud není konjugován s proteinem?",
     "options": [
-      "Aktivní umělá imunizace",
-      "Pasivní imunizace",
-      "Inaktivovaná vakcína",
-      "Polysacharidová vakcína"
+      "Čistá polysacharidová vakcína",
+      "Konjugovaná polysacharidová vakcína",
+      "Toxoidová vakcína",
+      "mRNA vakcína"
     ],
-    "correct": 3,
-    "explanation": "Správná odpověď: Polysacharidová vakcína."
+    "correct": 0,
+    "explanation": "Čisté polysacharidové antigeny vyvolávají T-nezávislou odpověď, která je u dětí mladších 2 let nezralá. Konjugace polysacharidu s proteinem umožní T-dependentní odpověď a imunologickou paměť."
   },
   {
     "id": 141,
@@ -1789,15 +1789,15 @@
   },
   {
     "id": 150,
-    "question": "Kde jsou lokalizovány geny HLA systému?",
+    "question": "Na kterém raménku 6. chromozomu je lokalizován HLA komplex?",
     "options": [
-      "Na 6. chromozomu",
-      "Na krátkém raménku 6. chromozomu",
-      "Na elektroforetickém rozdělení proteinů a následné imunochemické detekci",
-      "Na všech jaderných buňkách"
+      "Na krátkém raménku (6p)",
+      "Na dlouhém raménku (6q)",
+      "Na krátkém raménku chromozomu X",
+      "Na mitochondriální DNA"
     ],
-    "correct": 1,
-    "explanation": "Správná odpověď: Na krátkém raménku 6. chromozomu."
+    "correct": 0,
+    "explanation": "Geny HLA systému jsou lokalizovány na krátkém raménku 6. chromozomu, v oblasti 6p21."
   },
   {
     "id": 151,
@@ -1947,13 +1947,13 @@
     "id": 163,
     "question": "Co znamená MHC restrikce T lymfocytů?",
     "options": [
-      "Ztráta tolerance, molekulární mimikry i uvolnění sekvestrovaných antigenů",
-      "Rozpoznání antigenu pouze v komplexu s vlastním MHC",
-      "Antigenní varianty Ig přítomné u všech jedinců druhu",
-      "Rozpoznání antigenu v souvislosti s vlastní molekulou MHC"
+      "Ztráta tolerance k vlastním antigenům",
+      "Rozpoznání antigenního peptidu pouze v komplexu s vlastním MHC",
+      "Změna třídy imunoglobulinu po aktivaci B buňky",
+      "Nespecifická aktivace lymfocytů superantigenem"
     ],
     "correct": 1,
-    "explanation": "Správná odpověď: Rozpoznání antigenu pouze v komplexu s vlastním MHC."
+    "explanation": "TCR rozpoznává antigenní peptid jen tehdy, je-li prezentován vlastní molekulou MHC."
   },
   {
     "id": 164,
@@ -2007,13 +2007,13 @@
     "id": 168,
     "question": "Čím je zprostředkována hypersenzitivita II. typu?",
     "options": [
-      "IgG a IgM protilátkami",
-      "IgG a C3b",
-      "IgG a IgM",
-      "IgG 2, IgM 10"
+      "IgG a IgM protilátkami proti buněčným nebo tkáňovým antigenům",
+      "IgE na žírných buňkách",
+      "Cirkulujícími imunokomplexy bez vazby na tkáň",
+      "T lymfocyty bez účasti protilátek"
     ],
     "correct": 0,
-    "explanation": "Správná odpověď: IgG a IgM protilátkami."
+    "explanation": "Hypersenzitivita II. typu je zprostředkovaná IgG nebo IgM protilátkami proti antigenům na buňkách či v extracelulární matrix, často s aktivací komplementu."
   },
   {
     "id": 169,
@@ -2053,27 +2053,27 @@
   },
   {
     "id": 172,
-    "question": "Co je imunologická tolerance?",
+    "question": "Jaký mechanismus periferní tolerance brání aktivaci autoreaktivního T lymfocytu, který rozpozná antigen bez kostimulačního signálu?",
     "options": [
-      "Schopnost lymfocytu rozeznat antigen",
-      "Aktivace jediného B lymfocytu specifickým antigenem",
-      "Adheze a migrace lymfocytů do zánětu",
-      "Neodpovídavost lymfocytů na antigen"
+      "Anergie",
+      "Izotypový přesmyk",
+      "Opsonizace",
+      "Tvorba membranolytického komplexu"
     ],
-    "correct": 3,
-    "explanation": "Správná odpověď: Neodpovídavost lymfocytů na antigen."
+    "correct": 0,
+    "explanation": "Rozpoznání antigenu T lymfocytem bez potřebné kostimulace může vést k anergii, tedy funkční neodpovídavosti. Jde o důležitý mechanismus periferní tolerance."
   },
   {
     "id": 173,
-    "question": "Na čem závisí oddálená hypersenzitivita?",
+    "question": "Který mechanismus je typický pro oddálenou hypersenzitivitu IV. typu?",
     "options": [
-      "Na antigenu, T lymfocytech, makrofázích a cytokinech",
-      "Na nitrobuněčném zabíjení, funkčních protilátkách, komplementu a fagocytóze",
-      "Na interakci antigenu, antigen-specifických T lymfocytů, makrofágů a cytokinů",
-      "Interakce antigenu, T lymfocytů, makrofágů a cytokinů"
+      "Aktivace antigen-specifických T lymfocytů a makrofágů cytokiny",
+      "Degranulace žírných buněk po vazbě alergenu na IgE",
+      "Vazba IgG na povrch erytrocytu s jeho lýzou",
+      "Ukládání cirkulujících imunokomplexů v cévách"
     ],
     "correct": 0,
-    "explanation": "Správná odpověď: Na antigenu, T lymfocytech, makrofázích a cytokinech."
+    "explanation": "Hypersenzitivita IV. typu je zprostředkovaná T lymfocyty. Cytokiny aktivují makrofágy a další efektorové buňky; nejde o reakci řízenou protilátkami."
   },
   {
     "id": 174,
@@ -2161,15 +2161,15 @@
   },
   {
     "id": 181,
-    "question": "Jaká je nejnadějnější léčebná metoda těžkého SCID?",
+    "question": "Jaký je současný standard kurativní léčby těžkého kombinovaného imunodeficitu (SCID)?",
     "options": [
-      "Peptidové fragmenty asociované s vlastními MHC molekulami",
-      "Křížové reakce mezi antigeny a charakter antigenu",
-      "Transplantace buněk kostní dřeně nebo pupečníkové krve",
-      "Fc receptory, TLR a receptory pro endotoxin"
+      "Hematopoetická transplantace kmenových buněk",
+      "Dlouhodobé podávání antihistaminik",
+      "Opakované podání toxoidů",
+      "Výhradně substituce IgA"
     ],
-    "correct": 2,
-    "explanation": "Správná odpověď: Transplantace buněk kostní dřeně nebo pupečníkové krve."
+    "correct": 0,
+    "explanation": "Hematopoetická transplantace kmenových buněk (HSCT) je standardní kurativní léčbou SCID. U některých geneticky vymezených forem může být možností i genová terapie."
   },
   {
     "id": 182,
@@ -2245,15 +2245,15 @@
   },
   {
     "id": 188,
-    "question": "Co je imunologická tolerance?",
+    "question": "Které T lymfocyty aktivně tlumí imunitní odpověď a přispívají k periferní toleranci?",
     "options": [
-      "Na interakci antigenu, antigen-specifických T lymfocytů, makrofágů a cytokinů",
-      "Specifická neodpovídavost lymfocytů na antigen po kontaktu s antigenem",
-      "T lymfocyty se tolerují snáze a menší dávkou antigenu",
-      "Integrin a molekula Ig rodiny důležité pro adhezi leukocytů"
+      "Regulační T lymfocyty (Treg)",
+      "Cytotoxické T lymfocyty (Tc)",
+      "NK buňky",
+      "Plazmatické buňky"
     ],
-    "correct": 1,
-    "explanation": "Správná odpověď: Specifická neodpovídavost lymfocytů na antigen po kontaktu s antigenem."
+    "correct": 0,
+    "explanation": "Treg lymfocyty tlumí aktivaci dalších imunitních buněk, například prostřednictvím IL-10, TGF-β a kontaktních mechanismů, a udržují periferní toleranci."
   },
   {
     "id": 189,
@@ -2353,15 +2353,15 @@
   },
   {
     "id": 197,
-    "question": "Co je transfer faktor?",
+    "question": "Jaký je klinický status takzvaného transfer faktoru v léčbě poruch buněčné imunity?",
     "options": [
-      "Na interakci antigenu, antigen-specifických T lymfocytů, makrofágů a cytokinů",
-      "Interakce antigenu, T lymfocytů, makrofágů a cytokinů",
-      "Na antigenu, T lymfocytech, makrofázích a cytokinech",
-      "Nízkomolekulární extrakt leukocytů přenášející přecitlivělost IV. typu"
+      "Jde o historický koncept bez role ve standardní současné léčbě imunodeficiencí",
+      "Je standardní náhradou za hematopoetickou transplantaci",
+      "Je povinnou součástí profylaxe infekcí u SCID",
+      "Je typem živé vakcíny"
     ],
-    "correct": 3,
-    "explanation": "Správná odpověď: Nízkomolekulární extrakt leukocytů přenášející přecitlivělost IV. typu."
+    "correct": 0,
+    "explanation": "Transfer faktor je historický imunologický koncept. V současné klinické praxi není standardní léčbou poruch buněčné imunity."
   },
   {
     "id": 198,
@@ -2427,13 +2427,13 @@
     "id": 203,
     "question": "Co je kostní dřeň z imunologického hlediska?",
     "options": [
-      "Na nitrobuněčném zabíjení, funkčních protilátkách, komplementu a fagocytóze",
-      "Primární lymfatický orgán a místo diferenciace B lymfocytů",
-      "Lymfocyty aktivované IL-2 používané v experimentální terapii nádorů",
-      "Primární lymfatický orgán a zrání B lymfocytů"
+      "Sekundární lymfatický orgán, kde dozrávají T lymfocyty",
+      "Primární lymfatický orgán a místo vývoje B lymfocytů",
+      "Exokrinní žláza produkující komplement",
+      "Místo tvorby protilátek plazmatickými buňkami výhradně po infekci"
     ],
     "correct": 1,
-    "explanation": "Správná odpověď: Primární lymfatický orgán a místo diferenciace B lymfocytů."
+    "explanation": "Kostní dřeň je primární lymfatický orgán. Vznikají zde krevní buňky a u člověka zde probíhá vývoj B lymfocytů."
   },
   {
     "id": 204,
@@ -2593,27 +2593,27 @@
   },
   {
     "id": 217,
-    "question": "Jaká hladina komplementu je typická pro systémová autoimunitní onemocnění?",
+    "question": "Jaký nález komplementu může svědčit pro jeho spotřebu při aktivním imunokomplexovém systémovém lupusu erythematodes?",
     "options": [
-      "IL-10",
-      "C5b-C9",
-      "Snížená",
-      "F(ab')2"
+      "Snížené koncentrace C3 a C4",
+      "Trvale zvýšené C3 a C4 bez ohledu na aktivitu nemoci",
+      "Absence všech imunoglobulinů",
+      "Izolované zvýšení IgE"
     ],
-    "correct": 2,
-    "explanation": "Správná odpověď: Snížená."
+    "correct": 0,
+    "explanation": "Při aktivním imunokomplexovém SLE může docházet ke spotřebě komplementu a poklesu C3 a C4. Tento nález není univerzální pro všechna systémová autoimunitní onemocnění."
   },
   {
     "id": 218,
-    "question": "Pro jaké onemocnění jsou typické AMA protilátky?",
+    "question": "Pro jaké onemocnění jsou typické antimitochondriální protilátky (AMA)?",
     "options": [
-      "Primární biliární cirhózu",
-      "Deficit B buněk",
-      "primární biliární cirhózu (cholangitidu)",
-      "Selektivní deficit IgA"
+      "Primární biliární cholangitidu",
+      "Selektivní deficit IgA",
+      "Revmatoidní artritidu",
+      "Celiakii"
     ],
     "correct": 0,
-    "explanation": "Správná odpověď: Primární biliární cirhózu."
+    "explanation": "AMA jsou typickým sérologickým markerem primární biliární cholangitidy."
   },
   {
     "id": 219,
@@ -2641,13 +2641,15 @@
   },
   {
     "id": 221,
-    "question": "Mohou léky vyvolat všechny typy hypersenzitivity?",
+    "question": "Které typy hypersenzitivity mohou léky vyvolat?",
     "options": [
-      "Ano",
-      "Ne"
+      "Pouze I. typ",
+      "Pouze II. a III. typ",
+      "Pouze IV. typ",
+      "I., II., III. i IV. typ"
     ],
-    "correct": 0,
-    "explanation": "Správná odpověď: Ano."
+    "correct": 3,
+    "explanation": "Léky mohou vyvolat všechny čtyři klasické typy hypersenzitivity. Konkrétní mechanismus závisí na léčivu, jeho metabolitech a klinickém projevu."
   },
   {
     "id": 222,
@@ -2663,15 +2665,15 @@
   },
   {
     "id": 223,
-    "question": "Jaký imunoglobulin se neuplatňuje u hypersenzitivity IV. typu?",
+    "question": "Která složka imunitního systému zprostředkovává hypersenzitivitu IV. typu?",
     "options": [
-      "IgG",
-      "IgM",
-      "IgE",
-      "IgA"
+      "T lymfocyty",
+      "IgE protilátky na žírných buňkách",
+      "IgM proti erytrocytům",
+      "Cirkulující imunokomplexy"
     ],
-    "correct": 2,
-    "explanation": "Správná odpověď: IgE."
+    "correct": 0,
+    "explanation": "Hypersenzitivita IV. typu je pozdní buněčná reakce zprostředkovaná T lymfocyty a jejich cytokiny, nikoli protilátkami."
   },
   {
     "id": 224,
@@ -2771,15 +2773,15 @@
   },
   {
     "id": 232,
-    "question": "Která metoda není izotopová kvantitativní metoda?",
+    "question": "Která metoda využívá enzymově značenou protilátku k detekci antigenu nebo protilátky?",
     "options": [
       "ELISA",
-      "Western blot",
+      "SDS-PAGE",
       "Turbidimetrie",
-      "Průtoková cytometrie"
+      "Mikrolymfocytotoxický test"
     ],
     "correct": 0,
-    "explanation": "Správná odpověď: ELISA."
+    "explanation": "ELISA používá enzymovou značku navázanou na protilátku nebo antigen; signál vzniká po přidání vhodného substrátu."
   },
   {
     "id": 233,
@@ -2845,13 +2847,13 @@
     "id": 238,
     "question": "Co jsou izotypy imunoglobulinů?",
     "options": [
-      "Rozpoznání antigenu pouze v komplexu s vlastním MHC",
-      "blokují fyziologické účinky uvolněného histaminu na tkáňové receptory",
-      "Rozpoznání antigenu v souvislosti s vlastní molekulou MHC",
-      "Antigenní varianty Ig přítomné u všech jedinců druhu"
+      "Třídy imunoglobulinů dané konstantní oblastí těžkého řetězce, společné jedincům druhu",
+      "Genetické varianty konstantních oblastí Ig mezi jedinci téhož druhu",
+      "Jedinečné antigenní determinanty variabilní oblasti protilátky",
+      "Místo vazby protilátky na antigen"
     ],
-    "correct": 3,
-    "explanation": "Správná odpověď: Antigenní varianty Ig přítomné u všech jedinců druhu."
+    "correct": 0,
+    "explanation": "Izotypy jsou třídy Ig (IgM, IgD, IgG, IgA a IgE), dané konstantní oblastí těžkého řetězce a společné jedincům téhož druhu. Genetické varianty mezi jedinci jsou alotypy."
   },
   {
     "id": 239,
@@ -3107,25 +3109,27 @@
   },
   {
     "id": 260,
-    "question": "Jak se diagnostikuje alergie na penicilin?",
+    "question": "Jaký je správný obecný postup při ověřování hlášené alergie na penicilin?",
     "options": [
-      "Prick testy a specifické IgE",
-      "Kvantitativní vyšetření imunoglobulinů",
-      "Průkazem antifosfolipidových protilátek a recidivujících trombóz",
-      "K průkazu antigenů nebo protilátek"
+      "Anamnéza a riziková stratifikace, podle indikace kožní test a kontrolovaná perorální provokace",
+      "Stanovení celkového IgG bez klinické anamnézy",
+      "Průkaz antinukleárních protilátek",
+      "Pouze specifické IgE v séru u každého pacienta"
     ],
     "correct": 0,
-    "explanation": "Správná odpověď: Prick testy a specifické IgE."
+    "explanation": "Ověření alergie na penicilin začíná anamnézou a posouzením rizika. U vhodných pacientů se používá kožní test s penicilinovými determinantami a po negativním výsledku kontrolovaná perorální provokace; postup se volí podle typu a závažnosti původní reakce."
   },
   {
     "id": 261,
-    "question": "Jsou reakce po acylpyrinu zprostředkovány IgE?",
+    "question": "Jsou nejčastější zkříženě reaktivní reakce po kyselině acetylsalicylové zprostředkovány IgE?",
     "options": [
-      "Ano",
-      "Ne"
+      "Ano, vždy jde o IgE mechanismus",
+      "Ne, typicky souvisejí s inhibicí COX-1",
+      "Ano, jde o hypersenzitivitu IV. typu",
+      "Ne, protože kyselina acetylsalicylová nemůže vyvolat žádnou reakci"
     ],
     "correct": 1,
-    "explanation": "Správná odpověď: Ne."
+    "explanation": "Ne. Nejčastější zkříženě reaktivní reakce na NSAID souvisejí s inhibicí COX-1, nikoli s IgE. Vzácné selektivní alergické reakce na konkrétní NSAID však IgE-zprostředkované být mohou."
   },
   {
     "id": 262,
@@ -3141,7 +3145,7 @@
   },
   {
     "id": 263,
-    "question": "Jaký typ hypersenzitivity bývá na sliznici dutiny ústní?",
+    "question": "Jaký typ hypersenzitivity je typický pro kontaktní stomatitidu po kontaktu s alergenem?",
     "options": [
       "I. typ",
       "II. typ",
@@ -3149,7 +3153,7 @@
       "IV. typ"
     ],
     "correct": 3,
-    "explanation": "Správná odpověď: IV. typ."
+    "explanation": "Kontaktní stomatitida je příkladem pozdní buněčné hypersenzitivity IV. typu. Samotná lokalizace do dutiny ústní bez určení nemoci typ hypersenzitivity neurčuje."
   },
   {
     "id": 264,
@@ -3237,13 +3241,15 @@
   },
   {
     "id": 271,
-    "question": "Provádí se dnes očkování proti pravým neštovicím?",
+    "question": "Provádí se dnes rutinní očkování veřejnosti proti pravým neštovicím?",
     "options": [
-      "Ano",
-      "Ne"
+      "Ano, u celé populace v pravidelném očkovacím kalendáři",
+      "Ne, rutinní očkování veřejnosti bylo po eradikaci ukončeno",
+      "Ano, výhradně u všech dětí do jednoho roku",
+      "Ne, protože neexistuje žádná vakcína proti orthopoxvirům"
     ],
     "correct": 1,
-    "explanation": "Správná odpověď: Ne."
+    "explanation": "Ne. Rutinní očkování veřejnosti bylo po eradikaci pravých neštovic ukončeno. Vakcíny proti orthopoxvirům však existují pro vybrané profesní nebo rizikové skupiny a pro mimořádné situace."
   },
   {
     "id": 272,
@@ -3295,15 +3301,15 @@
   },
   {
     "id": 276,
-    "question": "Kdy se podává vakcína proti vzteklině?",
+    "question": "Jaký je správný první krok po možné expozici vzteklině?",
     "options": [
-      "Lymfocyty infiltrující nádorovou tkáň",
-      "Na všech jaderných buňkách",
-      "Po půl roce života bakteriálními infekcemi",
-      "Po pokousání neznámým zvířetem"
+      "Neodkladně vyčistit ránu a zajistit odborné posouzení rizika postexpoziční profylaxe",
+      "Automaticky podat vakcínu po každém kontaktu s neznámým zvířetem",
+      "Vyčkat na rozvoj neurologických příznaků",
+      "Podat pouze antihistaminikum"
     ],
-    "correct": 3,
-    "explanation": "Správná odpověď: Po pokousání neznámým zvířetem."
+    "correct": 0,
+    "explanation": "Po možné expozici je třeba ránu důkladně omýt a bez odkladu posoudit riziko podle typu expozice, druhu a dostupnosti zvířete i místní epidemiologie. O postexpoziční profylaxi rozhoduje odborné posouzení; podle situace zahrnuje vakcínu a u dosud neočkovaných také imunoglobulin."
   },
   {
     "id": 277,
@@ -3319,15 +3325,15 @@
   },
   {
     "id": 278,
-    "question": "Co podáváme při poruchách buněčné imunity?",
+    "question": "Jaký postup je u závažné poruchy buněčné imunity vhodnější než podávání thymových hormonů nebo transfer faktoru?",
     "options": [
-      "Hormony thymu a transfer faktor",
-      "Systém glykoproteinů s kaskádovou aktivací",
-      "Na krátkém raménku 6. chromozomu",
-      "Receptory vrozené imunity rozpoznávající patogeny"
+      "Léčba vycházející z konkrétní diagnózy, například HSCT a antiinfekční profylaxe",
+      "Podání živé vakcíny bez ohledu na imunosupresi",
+      "Podání transfer faktoru jako standardní kurativní terapie",
+      "Výhradně dlouhodobé podávání antihistaminik"
     ],
     "correct": 0,
-    "explanation": "Správná odpověď: Hormony thymu a transfer faktor."
+    "explanation": "Závažné poruchy buněčné imunity vyžadují postup podle příčiny a tíže, například hematopoetickou transplantaci, imunoglobulinovou substituci u kombinovaných deficitů, antiinfekční profylaxi a cílenou léčbu. Thymové hormony a transfer faktor nejsou standardní současnou léčbou."
   },
   {
     "id": 279,
@@ -3355,15 +3361,15 @@
   },
   {
     "id": 281,
-    "question": "Jakého původu jsou monoklonální protilátky používané v diagnostice?",
+    "question": "Jaký může být původ současných monoklonálních protilátek používaných v diagnostice a léčbě?",
     "options": [
-      "Myšího",
-      "T-lymfocyty",
-      "Epitop",
-      "Retroviry"
+      "Mohou být myší, chimérické, humanizované nebo plně lidské",
+      "Vždy výhradně myší",
+      "Vždy výhradně z T lymfocytů pacienta",
+      "Vznikají přímou izolací z retrovirů"
     ],
     "correct": 0,
-    "explanation": "Správná odpověď: Myšího."
+    "explanation": "Původ monoklonálních protilátek je různý. Kromě původních myších protilátek se používají chimérické, humanizované a plně lidské protilátky, často připravené rekombinantními metodami."
   },
   {
     "id": 282,
@@ -3511,13 +3517,15 @@
   },
   {
     "id": 294,
-    "question": "Jsou HLA I přítomny na trombocytech?",
+    "question": "Na kterých krevních elementech lze prokázat HLA třídy I?",
     "options": [
-      "Ano",
-      "Ne"
+      "Na leukocytech i trombocytech",
+      "Pouze na erytrocytech",
+      "Pouze v plazmě",
+      "Pouze na zralých neutrofilech, nikoli na trombocytech"
     ],
     "correct": 0,
-    "explanation": "Správná odpověď: Ano."
+    "explanation": "Molekuly HLA třídy I jsou na jaderných buňkách a lze je prokázat i na trombocytech. Zralé erytrocyty jádro nemají a HLA I neexprimují."
   },
   {
     "id": 295,
@@ -3557,15 +3565,15 @@
   },
   {
     "id": 298,
-    "question": "Co nepatří mezi integriny?",
+    "question": "Která molekula patří mezi integriny podílející se na adhezi leukocytů?",
     "options": [
-      "Neodpovídavost lymfocytů na antigen",
-      "CD8, TCR a ICAM",
-      "TCR, CD3 a CD4/CD8",
-      "CD19, CD20 a HLA II"
+      "LFA-1",
+      "ICAM-1",
+      "E-selektin",
+      "CD3"
     ],
-    "correct": 1,
-    "explanation": "Správná odpověď: CD8, TCR a ICAM."
+    "correct": 0,
+    "explanation": "LFA-1 je integrin na leukocytech. Váže se například na ICAM-1, která patří do imunoglobulinové nadrodiny; E-selektin je selektin."
   },
   {
     "id": 299,
@@ -3581,49 +3589,51 @@
   },
   {
     "id": 300,
-    "question": "Co zvyšuje expresi adhezivních molekul?",
+    "question": "Které prozánětlivé cytokiny zvyšují expresi adhezivních molekul na endotelu?",
     "options": [
-      "IL-1 a TNF",
-      "Interferon gama (IFN-γ)",
       "IL-1 a TNF-α",
-      "IL-1 a IL-12"
+      "IL-4 a IL-5",
+      "IL-10 a TGF-β",
+      "IL-2 a IL-7"
     ],
     "correct": 0,
-    "explanation": "Správná odpověď: IL-1 a TNF."
+    "explanation": "IL-1 a TNF-α aktivují endotel a zvyšují expresi adhezivních molekul, což podporuje přestup leukocytů do zánětlivého ložiska."
   },
   {
     "id": 301,
-    "question": "Jsou geny HLA vázány na chromozom X?",
+    "question": "Kde jsou lokalizovány geny HLA systému?",
     "options": [
-      "Ano",
-      "Ne"
+      "Na krátkém raménku 6. chromozomu",
+      "Na chromozomu X",
+      "Na mitochondriální DNA",
+      "Na krátkém raménku 14. chromozomu"
     ],
-    "correct": 1,
-    "explanation": "Správná odpověď: Ne."
+    "correct": 0,
+    "explanation": "HLA komplex je lokalizován na krátkém raménku 6. chromozomu (6p21), nikoli na chromozomu X."
   },
   {
     "id": 302,
-    "question": "Jaké funkce má kostní dřeň?",
+    "question": "Jaká imunologická role kostní dřeně je u člověka správná?",
     "options": [
-      "Primární lymfatický orgán a místo diferenciace B lymfocytů",
-      "Pokles CD4+ lymfocytů, oportunní infekce a nádory",
-      "Primární lymfatický orgán a zrání B lymfocytů",
-      "Nízkomolekulární extrakt leukocytů přenášející přecitlivělost IV. typu"
+      "Je primárním lymfatickým orgánem a místem vývoje B lymfocytů",
+      "Je sekundárním lymfatickým orgánem, kde dozrávají T lymfocyty",
+      "Slouží výhradně k degradaci imunokomplexů",
+      "Je místem centrální tolerance T lymfocytů"
     ],
-    "correct": 2,
-    "explanation": "Správná odpověď: Primární lymfatický orgán a zrání B lymfocytů."
+    "correct": 0,
+    "explanation": "Kostní dřeň je primární lymfatický orgán, ve kterém u člověka probíhá vývoj B lymfocytů. T lymfocyty dozrávají v brzlíku."
   },
   {
     "id": 303,
-    "question": "Co není přítomno v granulích fagocytů?",
+    "question": "Která z následujících látek není součástí granul neutrofilů?",
     "options": [
-      "Beraní krvinky",
-      "IV. typ",
-      "Složkami C5b-C9",
-      "Endogenní pyrogen"
+      "Myeloperoxidáza",
+      "Lysozym",
+      "Laktroferrin",
+      "Albumin"
     ],
     "correct": 3,
-    "explanation": "Správná odpověď: Endogenní pyrogen."
+    "explanation": "Neutrofilní granula obsahují mikrobicidní proteiny a enzymy, například myeloperoxidázu, lysozym a laktroferrin. Albumin je hlavní plazmatický protein, ne obsah granul."
   },
   {
     "id": 304,
@@ -3699,15 +3709,15 @@
   },
   {
     "id": 310,
-    "question": "Co nepatří mezi funkce komplementu?",
+    "question": "Který děj nepatří mezi přímé efektorové funkce komplementu?",
     "options": [
-      "Neutralizace virů",
-      "Difterickým toxoidem",
-      "IFN gama",
-      "Sekreční IgA"
+      "Tvorba imunologické paměti B lymfocytů",
+      "Opsonizace pomocí C3b",
+      "Chemotaxe a zánětlivá aktivace pomocí C5a",
+      "Lýza buněk membranolytickým komplexem"
     ],
     "correct": 0,
-    "explanation": "Správná odpověď: Neutralizace virů."
+    "explanation": "Komplement se přímo podílí na opsonizaci, zánětlivé signalizaci a lýze některých buněk. Imunologická paměť B buněk je funkcí adaptivní imunity."
   },
   {
     "id": 311,
@@ -3975,15 +3985,15 @@
   },
   {
     "id": 333,
-    "question": "Která složka komplementu se neúčastní opsonizace?",
+    "question": "Který fragment komplementu je hlavním opsoninem?",
     "options": [
+      "C3b",
       "C3a",
-      "C4",
-      "C5b-C9",
-      "C5a"
+      "C5a",
+      "C9"
     ],
-    "correct": 3,
-    "explanation": "Správná odpověď: C5a."
+    "correct": 0,
+    "explanation": "C3b se váže na povrch mikroorganismů a usnadňuje jejich pohlcení fagocyty prostřednictvím komplementových receptorů. C3a a C5a jsou anafylatoxiny, C9 je součástí MAC."
   },
   {
     "id": 334,
@@ -4131,38 +4141,38 @@
   },
   {
     "id": 346,
-    "question": "Co musí být shodné při transplantaci orgánu?",
+    "question": "Který princip je zásadní při předtransplantačním imunologickém posouzení orgánového transplantátu?",
     "options": [
-      "HLA I, HLA II a ABO systém",
-      "TCR-antigen-MHC II, CD4-HLA II, LFA-1/ICAM-1 a CD28-B7",
-      "Sílu vazby mezi multivalentním antigenem a protilátkou",
-      "Křížové reakce mezi antigeny a charakter antigenu"
+      "ABO kompatibilita a vyšetření dárcovsky specifických protilátek / křížové zkoušky",
+      "Úplná shoda všech HLA I a HLA II alel u každého orgánu",
+      "Shodný titr celkového IgE dárce a příjemce",
+      "Shodná přítomnost protilátek proti endomyziu"
     ],
     "correct": 0,
-    "explanation": "Správná odpověď: HLA I, HLA II a ABO systém."
+    "explanation": "Pro orgánové transplantace je zásadní kompatibilita ABO a nepřítomnost klinicky významných dárcovsky specifických protilátek v křížové zkoušce. Význam HLA shody se liší podle typu orgánu; úplná shoda není univerzální podmínkou."
   },
   {
     "id": 347,
-    "question": "Která složka komplementu se významně podílí na imunokomplexových nemocích?",
+    "question": "Který anafylatoxin významně přispívá k přilákání neutrofilů při imunokomplexovém zánětu?",
     "options": [
-      "C5b-C9",
-      "C4",
-      "C3",
-      "C5a"
+      "C5a",
+      "C1q",
+      "C3b",
+      "C9"
     ],
-    "correct": 3,
-    "explanation": "Správná odpověď: C5a."
+    "correct": 0,
+    "explanation": "C5a je silný anafylatoxin a chemotaktický faktor pro neutrofily. V imunokomplexových nemocích se uplatňuje více složek komplementu, proto je v otázce výslovně vymezena role C5a."
   },
   {
     "id": 348,
-    "question": "Které imunologické metody patří mezi nejcitlivější?",
+    "question": "Která metoda využívá radioizotopovou značku k velmi citlivému průkazu antigenu nebo protilátky?",
     "options": [
-      "Aktivní umělá imunizace",
-      "Průkaz genové mutace",
-      "ELISA a RIA",
-      "Kvantitativní vyšetření imunoglobulinů"
+      "RIA",
+      "ELISA",
+      "Turbidimetrie",
+      "Hemaglutinační reakce"
     ],
-    "correct": 2,
-    "explanation": "Správná odpověď: ELISA a RIA."
+    "correct": 0,
+    "explanation": "RIA (radioimunoanalýza) používá radioizotopovou značku a je velmi citlivá. V rutinní praxi ji často nahradily neizotopové metody, například ELISA nebo chemiluminiscenční imunostanovení."
   }
 ]

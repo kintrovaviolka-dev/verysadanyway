@@ -1,0 +1,459 @@
+{
+  "id": "urgent",
+  "title": "Urgentní příjem",
+  "grade": 5,
+  "icon": "🚨",
+  "color": "#ef4444",
+  "questions": [
+    {
+      "id": "urgent-case-1",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-level-1",
+      "topicTitle": "Klinická kazuistika: Akutní infarkt myokardu spodní stěny (STEMI)",
+      "type": "case_study",
+      "title": "Akutní infarkt myokardu spodní stěny (STEMI)",
+      "vignette": {
+        "patientAge": 45,
+        "patientSex": "Muž",
+        "chiefComplaint": "Bolest na hrudi, dušnost",
+        "scenario": "František Novák (45 let, Muž). Hlavní potíž: Bolest na hrudi, dušnost. Pacient uvádí náhlý začátek svíravé bolesti s vyzařováním do levé paže a zadní stěny krku. Trvá cca 20 minut, doprovázeno studeným potem.\n\nVitální funkce: TF 110/min, TK 160/95 mmHg, SpO2 92%, GCS 15, Dechová frekvence 22/min.",
+        "solution": "Diagnóza: Akutní infarkt myokardu spodní stěny (STEMI) (MKN: I21.1)\n\nEKG: 12svodové EKG: Sinusová tachykardie 110/min, ST elevace 3 mm ve svodech II, III, aVF s recipročními depresemi v I, aVL.\nLaboratoř: Biochemie STATIM: Troponin I: 450 ng/l (norma <14) - SILNĚ POZITIVNÍ, CK-MB: 4.2 ug/l (norma <2.5), Urea: 6.2 mmol/l, Kreatinin: 88 umol/l, CRP: 5.2 mg/l, Draslík: 3.9 mmol/l, Sodík: 139 mmol/l.",
+        "keyTakeaway": "Cílená terapie a postup pro Akutní infarkt myokardu spodní stěny (STEMI). Triage skupina: 2."
+      },
+      "explanation": "Diagnóza: Akutní infarkt myokardu spodní stěny (STEMI) (MKN: I21.1)\n\nEKG: 12svodové EKG: Sinusová tachykardie 110/min, ST elevace 3 mm ve svodech II, III, aVF s recipročními depresemi v I, aVL.\nLaboratoř: Biochemie STATIM: Troponin I: 450 ng/l (norma <14) - SILNĚ POZITIVNÍ, CK-MB: 4.2 ug/l (norma <2.5), Urea: 6.2 mmol/l, Kreatinin: 88 umol/l, CRP: 5.2 mg/l, Draslík: 3.9 mmol/l, Sodík: 139 mmol/l.",
+      "pearl": "Triage kategorie: 2. Okamžitý cílený zásah je rozhodující pro přežití.",
+      "tags": [
+        "Kazuistika",
+        "Simulátor",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-case-2",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-level-2",
+      "topicTitle": "Klinická kazuistika: Akutní plicní embolie se středním rizikem",
+      "type": "case_study",
+      "title": "Akutní plicní embolie se středním rizikem",
+      "vignette": {
+        "patientAge": 52,
+        "patientSex": "Žena",
+        "chiefComplaint": "Náhlý kolaps, dušnost a pleurální bolest na hrudi",
+        "scenario": "Alena Dvořáková (52 let, Žena). Hlavní potíž: Náhlý kolaps, dušnost a pleurální bolest na hrudi. Byla přivezena RZP po náhlém kolapsu při vstávání z postele. Nyní si stěžuje na výraznou dušnost, ostrý píchavý tlak na pravé straně hrudníku zhoršující se při nádechu, a suchý dráždivý kašel.\n\nVitální funkce: TF 124/min, TK 105/65 mmHg, SpO2 88%, GCS 14, Dechová frekvence 26/min.",
+        "solution": "Diagnóza: Akutní embolizace plicnice (MKN: I26.9)\n\nEKG: 12svodové EKG: Sinusová tachykardie 124/min, nespecifické změny ST-T, přítomen S1Q3T3 vzorec (hluboké S v I, kmit Q v III a negativní T v III), inkompletní blokáda pravého raménka (iRBBB).\nLaboratoř: Biochemie STATIM: Troponin I: 55 ng/l (lehce zvýšený), D-Dimery: 3450 ng/ml (norma <500) - EXTRÉMNĚ POZITIVNÍ, CRP: 15.1 mg/l, Kreatinin: 75 umol/l, Urea: 5.1 mmol/l.",
+        "keyTakeaway": "Cílená terapie a postup pro Akutní plicní embolie se středním rizikem. Triage skupina: 2."
+      },
+      "explanation": "Diagnóza: Akutní embolizace plicnice (MKN: I26.9)\n\nEKG: 12svodové EKG: Sinusová tachykardie 124/min, nespecifické změny ST-T, přítomen S1Q3T3 vzorec (hluboké S v I, kmit Q v III a negativní T v III), inkompletní blokáda pravého raménka (iRBBB).\nLaboratoř: Biochemie STATIM: Troponin I: 55 ng/l (lehce zvýšený), D-Dimery: 3450 ng/ml (norma <500) - EXTRÉMNĚ POZITIVNÍ, CRP: 15.1 mg/l, Kreatinin: 75 umol/l, Urea: 5.1 mmol/l.",
+      "pearl": "Triage kategorie: 2. Okamžitý cílený zásah je rozhodující pro přežití.",
+      "tags": [
+        "Kazuistika",
+        "Simulátor",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-case-3",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-level-3",
+      "topicTitle": "Klinická kazuistika: Masivní polytrauma s hemoragickým šokem",
+      "type": "case_study",
+      "title": "Masivní polytrauma s hemoragickým šokem",
+      "vignette": {
+        "patientAge": 32,
+        "patientSex": "Muž",
+        "chiefComplaint": "Polytrauma po nehodě na motocyklu",
+        "scenario": "Jan Kučera (32 let, Muž). Hlavní potíž: Polytrauma po nehodě na motocyklu. Mladý motorkář po střetu s autem ve vysoké rychlosti. Přivezen v bezvědomí, zaveden krční límec. Viditelná deformita pánve, tržné rány na stehně s masivním zevním krvácením, asymetrie hrudníku, dýchání povrchní.\n\nVitální funkce: TF 138/min, TK 82/40 mmHg, SpO2 86%, GCS 9, Dechová frekvence 28/min.",
+        "solution": "Diagnóza: Polytrauma, hemoragický šok, nestabilní zlomenina pánve, hemotorax vpravo (MKN: T07)\n\nEKG: 12svodové EKG: Sinusová tachykardie 138/min, bez ložiskových změn.\nLaboratoř: Biochemie STATIM: Urea: 7.5 mmol/l, Kreatinin: 120 umol/l, Laktát: 4.8 mmol/l (těžká tkáňová hypoxie), Troponin I: 18 ng/l (v normě). Krevní skupina: B Rh negativní.",
+        "keyTakeaway": "Cílená terapie a postup pro Masivní polytrauma s hemoragickým šokem. Triage skupina: 1."
+      },
+      "explanation": "Diagnóza: Polytrauma, hemoragický šok, nestabilní zlomenina pánve, hemotorax vpravo (MKN: T07)\n\nEKG: 12svodové EKG: Sinusová tachykardie 138/min, bez ložiskových změn.\nLaboratoř: Biochemie STATIM: Urea: 7.5 mmol/l, Kreatinin: 120 umol/l, Laktát: 4.8 mmol/l (těžká tkáňová hypoxie), Troponin I: 18 ng/l (v normě). Krevní skupina: B Rh negativní.",
+      "pearl": "Triage kategorie: 1. Okamžitý cílený zásah je rozhodující pro přežití.",
+      "tags": [
+        "Kazuistika",
+        "Simulátor",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-case-4",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-level-1",
+      "topicTitle": "Klinická kazuistika: Akutní subglotická laryngitida (Croup)",
+      "type": "case_study",
+      "title": "Akutní subglotická laryngitida (Croup)",
+      "vignette": {
+        "patientAge": 3,
+        "patientSex": "Chlapec",
+        "chiefComplaint": "Štěkavý kašel, inspirační stridor a ztížené dýchání",
+        "scenario": "Tobiášek Veselý (3 let, Chlapec). Hlavní potíž: Štěkavý kašel, inspirační stridor a ztížené dýchání. Matka uvádí, že dítě šlo spát zdravé, jen s lehkou rýmou. Kolem půlnoci se probudilo s drsným, štěkavým kašlem a sípáním při nádechu. Je neklidné, pláče, což zhoršuje dušnost. Má zatahování podžebří a jugula.\n\nVitální funkce: TF 142/min, TK 95/60 mmHg, SpO2 91%, GCS 15, Dechová frekvence 36/min.",
+        "solution": "Diagnóza: Akutní subglotická laryngitida (Croup) (MKN: J05.0)\n\nEKG: EKG: Sinusová tachykardie 142/min, bez patologických změn.\nLaboratoř: Biochemie: CRP: 8.5 mg/l (virová etiologie odpovídá nízkému CRP), Draslík: 4.2 mmol/l, Sodík: 140 mmol/l, Glykémie: 5.6 mmol/l.",
+        "keyTakeaway": "Cílená terapie a postup pro Akutní subglotická laryngitida (Croup). Triage skupina: 2."
+      },
+      "explanation": "Diagnóza: Akutní subglotická laryngitida (Croup) (MKN: J05.0)\n\nEKG: EKG: Sinusová tachykardie 142/min, bez patologických změn.\nLaboratoř: Biochemie: CRP: 8.5 mg/l (virová etiologie odpovídá nízkému CRP), Draslík: 4.2 mmol/l, Sodík: 140 mmol/l, Glykémie: 5.6 mmol/l.",
+      "pearl": "Triage kategorie: 2. Okamžitý cílený zásah je rozhodující pro přežití.",
+      "tags": [
+        "Kazuistika",
+        "Simulátor",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-case-5",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-level-3",
+      "topicTitle": "Klinická kazuistika: Meningokoková sepse a meningitida",
+      "type": "case_study",
+      "title": "Meningokoková sepse a meningitida",
+      "vignette": {
+        "patientAge": 8,
+        "patientSex": "Dívka",
+        "chiefComplaint": "Horečka, úporná bolest hlavy, zvracení, fialové skvrnky na kůži",
+        "scenario": "Eliška Novotná (8 let, Dívka). Hlavní potíž: Horečka, úporná bolest hlavy, zvracení, fialové skvrnky na kůži. Dítě je schvácené, spavé, těžko komunikuje. Trpí silnou bolestí hlavy, světloplachostí a opakovaně zvrací. Matka si před hodinou všimla drobných červenofialových skvrnek na stehnech a břiše, které neblednou při zatlačení skleničkou.\n\nVitální funkce: TF 155/min, TK 80/42 mmHg, SpO2 90%, GCS 11, Dechová frekvence 32/min.",
+        "solution": "Diagnóza: Meningokoková sepse a meningitida (MKN: A39.0)\n\nEKG: EKG: Sinusová tachykardie 155/min, bez ložiskové ischemie.\nLaboratoř: Biochemie STATIM: CRP: 185 mg/l - VYSOKÉ, Laktát: 5.4 mmol/l (závažný laktátový šok), Kreatinin: 110 umol/l, Urea: 8.2 mmol/l, Glykémie: 3.2 mmol/l.",
+        "keyTakeaway": "Cílená terapie a postup pro Meningokoková sepse a meningitida. Triage skupina: 1."
+      },
+      "explanation": "Diagnóza: Meningokoková sepse a meningitida (MKN: A39.0)\n\nEKG: EKG: Sinusová tachykardie 155/min, bez ložiskové ischemie.\nLaboratoř: Biochemie STATIM: CRP: 185 mg/l - VYSOKÉ, Laktát: 5.4 mmol/l (závažný laktátový šok), Kreatinin: 110 umol/l, Urea: 8.2 mmol/l, Glykémie: 3.2 mmol/l.",
+      "pearl": "Triage kategorie: 1. Okamžitý cílený zásah je rozhodující pro přežití.",
+      "tags": [
+        "Kazuistika",
+        "Simulátor",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-case-6",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-level-2",
+      "topicTitle": "Klinická kazuistika: Anafylaktický šok po bodnutí vosou",
+      "type": "case_study",
+      "title": "Anafylaktický šok po bodnutí vosou",
+      "vignette": {
+        "patientAge": 28,
+        "patientSex": "Muž",
+        "chiefComplaint": "Dušnost, otok obličeje, celotělová kopřivka a kolaps",
+        "scenario": "Jakub Král (28 let, Muž). Hlavní potíž: Dušnost, otok obličeje, celotělová kopřivka a kolaps. Pacienta na zahradě bodla vosa do krku. Během 10 minut se u něj rozvinul masivní otok rtů, jazyka a krku, sípání, svědivá vyrážka po celém těle a následně zkolaboval na zem. Manželka zavolala RZP, na místě podán Epipen, na urgent přivezen stále dušný s poklesem tlaku.\n\nVitální funkce: TF 132/min, TK 75/40 mmHg, SpO2 85%, GCS 13, Dechová frekvence 30/min.",
+        "solution": "Diagnóza: Anafylaktický šok po bodnutí hmyzem (MKN: T78.2)\n\nEKG: EKG: Sinusová tachykardie 132/min, nespecifické oploštění vln T.\nLaboratoř: Biochemie: CRP: 2.1 mg/l, Kreatinin: 82 umol/l, Troponin I: 12 ng/l, Draslík: 4.1 mmol/l. IgE specifické na vosí jed: Extrémně zvýšené.",
+        "keyTakeaway": "Cílená terapie a postup pro Anafylaktický šok po bodnutí vosou. Triage skupina: 1."
+      },
+      "explanation": "Diagnóza: Anafylaktický šok po bodnutí hmyzem (MKN: T78.2)\n\nEKG: EKG: Sinusová tachykardie 132/min, nespecifické oploštění vln T.\nLaboratoř: Biochemie: CRP: 2.1 mg/l, Kreatinin: 82 umol/l, Troponin I: 12 ng/l, Draslík: 4.1 mmol/l. IgE specifické na vosí jed: Extrémně zvýšené.",
+      "pearl": "Triage kategorie: 1. Okamžitý cílený zásah je rozhodující pro přežití.",
+      "tags": [
+        "Kazuistika",
+        "Simulátor",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-case-7",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-level-2",
+      "topicTitle": "Klinická kazuistika: Akutní pankreatitida s počínající peritonitidou",
+      "type": "case_study",
+      "title": "Akutní pankreatitida s počínající peritonitidou",
+      "vignette": {
+        "patientAge": 39,
+        "patientSex": "Žena",
+        "chiefComplaint": "Náhlá krutá bolest v nadbřišku, zvracení, schvácenost",
+        "scenario": "Hana Součková (39 let, Žena). Hlavní potíž: Náhlá krutá bolest v nadbřišku, zvracení, schvácenost. Pacientka uvádí náhlý vznik extrémní bolesti v epigastriu po včerejší oslavě narozenin (tučné jídlo, alkohol). Bolest vyzařuje pásovitě do zad, opakovaně zvrací žluč, nemůže najít úlevovou polohu. Břicho je difúzně citlivé, stažené, přítomna palpační bolestivost.\n\nVitální funkce: TF 112/min, TK 110/70 mmHg, SpO2 95%, GCS 15, Dechová frekvence 20/min.",
+        "solution": "Diagnóza: Akutní biliární pankreatitida (MKN: K85.9)\n\nEKG: EKG: Sinusová tachykardie 112/min, bez známek ischemie.\nLaboratoř: Biochemie STATIM: Amyláza v séru: 1450 U/l (norma <100) - EXTRÉMNĚ ZVÝŠENÁ, Lipáza v séru: 2200 U/l (norma <60) - SILNĚ POZITIVNÍ, CRP: 110 mg/l, Bilirubin: 42 umol/l, ALT: 2.1 ukat/l, AST: 1.8 ukat/l, Triglyceridy: 8.5 mmol/l.",
+        "keyTakeaway": "Cílená terapie a postup pro Akutní pankreatitida s počínající peritonitidou. Triage skupina: 3."
+      },
+      "explanation": "Diagnóza: Akutní biliární pankreatitida (MKN: K85.9)\n\nEKG: EKG: Sinusová tachykardie 112/min, bez známek ischemie.\nLaboratoř: Biochemie STATIM: Amyláza v séru: 1450 U/l (norma <100) - EXTRÉMNĚ ZVÝŠENÁ, Lipáza v séru: 2200 U/l (norma <60) - SILNĚ POZITIVNÍ, CRP: 110 mg/l, Bilirubin: 42 umol/l, ALT: 2.1 ukat/l, AST: 1.8 ukat/l, Triglyceridy: 8.5 mmol/l.",
+      "pearl": "Triage kategorie: 3. Okamžitý cílený zásah je rozhodující pro přežití.",
+      "tags": [
+        "Kazuistika",
+        "Simulátor",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-case-8",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-level-3",
+      "topicTitle": "Klinická kazuistika: Úmyslná intoxikace tricyklickými antidepresivy",
+      "type": "case_study",
+      "title": "Úmyslná intoxikace tricyklickými antidepresivy",
+      "vignette": {
+        "patientAge": 21,
+        "patientSex": "Muž",
+        "chiefComplaint": "Porucha vědomí, křeče a arytmie",
+        "scenario": "Martin Dvořák (21 let, Muž). Hlavní potíž: Porucha vědomí, křeče a arytmie. Pacient nalezen matkou v pokoji ležící na zemi, vedle něj prázdné blistry od Amitriptylinu (cca 30 tablet po 50mg). Při příjezdu RZP byl v bezvědomí, prodělal jeden generalizovaný tonicko-klonický záchvat křečí trvající 2 minuty. Nyní reaguje pouze na bolestivý podnět hlubokým sténáním.\n\nVitální funkce: TF 128/min, TK 85/50 mmHg, SpO2 91%, GCS 8, Dechová frekvence 10/min.",
+        "solution": "Diagnóza: Úmyslná intoxikace tricyklickými antidepresivy (MKN: T43.0)\n\nEKG: EKG: Sinusová tachykardie 128/min, extrémní rozšíření komplexu QRS (140 ms), prodloužení intervalu QTc (510 ms), hluboké S ve svodech I a aVL (TCA toxicita).\nLaboratoř: Biochemie: Kreatinin: 95 umol/l, Laktát: 3.1 mmol/l, Draslík: 3.6 mmol/l, Sodík: 138 mmol/l, Glykémie: 5.4 mmol/l. Toxikologický screening z moči: Pozitivní na Tricyklická antidepresiva (TCA).",
+        "keyTakeaway": "Cílená terapie a postup pro Úmyslná intoxikace tricyklickými antidepresivy. Triage skupina: 2."
+      },
+      "explanation": "Diagnóza: Úmyslná intoxikace tricyklickými antidepresivy (MKN: T43.0)\n\nEKG: EKG: Sinusová tachykardie 128/min, extrémní rozšíření komplexu QRS (140 ms), prodloužení intervalu QTc (510 ms), hluboké S ve svodech I a aVL (TCA toxicita).\nLaboratoř: Biochemie: Kreatinin: 95 umol/l, Laktát: 3.1 mmol/l, Draslík: 3.6 mmol/l, Sodík: 138 mmol/l, Glykémie: 5.4 mmol/l. Toxikologický screening z moči: Pozitivní na Tricyklická antidepresiva (TCA).",
+      "pearl": "Triage kategorie: 2. Okamžitý cílený zásah je rozhodující pro přežití.",
+      "tags": [
+        "Kazuistika",
+        "Simulátor",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-case-9",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-level-1",
+      "topicTitle": "Klinická kazuistika: Komplikované febrilní křeče u batolete",
+      "type": "case_study",
+      "title": "Komplikované febrilní křeče u batolete",
+      "vignette": {
+        "patientAge": 1.5,
+        "patientSex": "Chlapec",
+        "chiefComplaint": "Generalizované křeče celého těla, horečka a porucha vědomí",
+        "scenario": "Honzík Novotný (1.5 let, Chlapec). Hlavní potíž: Generalizované křeče celého těla, horečka a porucha vědomí. Matka uvádí, že osmnáctiměsíční dítě mělo od rána rýmu a teplotu 38.5 °C. Před 10 minutami doma náhle ztuhlo, začalo škubat všemi končetinami, stočilo oči v sloup a přestalo reagovat. Záchvat trval přes 5 minut. RZP podala rektální Diazepam desitin tube 5mg. Nyní na urgentu křeče pominuly, ale chlapec je v hlubokém postiktálním útlumu (GCS 10) a má horečku 39.4 °C.\n\nVitální funkce: TF 135/min, TK 90/55 mmHg, SpO2 92%, GCS 10, Dechová frekvence 24/min.",
+        "solution": "Diagnóza: Komplikované febrilní křeče (MKN: R56.0)\n\nEKG: EKG: Sinusová tachykardie 135/min, bez patologických změn.\nLaboratoř: Biochemie: CRP: 48 mg/l (mírně zvýšené, svědčí pro infekt), Draslík: 4.0 mmol/l, Sodík: 136 mmol/l, Glykémie: 4.8 mmol/l (vylučuje hypoglykemickou genezi křečí).",
+        "keyTakeaway": "Cílená terapie a postup pro Komplikované febrilní křeče u batolete. Triage skupina: 2."
+      },
+      "explanation": "Diagnóza: Komplikované febrilní křeče (MKN: R56.0)\n\nEKG: EKG: Sinusová tachykardie 135/min, bez patologických změn.\nLaboratoř: Biochemie: CRP: 48 mg/l (mírně zvýšené, svědčí pro infekt), Draslík: 4.0 mmol/l, Sodík: 136 mmol/l, Glykémie: 4.8 mmol/l (vylučuje hypoglykemickou genezi křečí).",
+      "pearl": "Triage kategorie: 2. Okamžitý cílený zásah je rozhodující pro přežití.",
+      "tags": [
+        "Kazuistika",
+        "Simulátor",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-case-10",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-level-2",
+      "topicTitle": "Klinická kazuistika: Těžký akutní astmatický stav (Status asthmaticus) u dítěte",
+      "type": "case_study",
+      "title": "Těžký akutní astmatický stav (Status asthmaticus) u dítěte",
+      "vignette": {
+        "patientAge": 6,
+        "patientSex": "Dívka",
+        "chiefComplaint": "Těžká klidová dušnost, slyšitelné pískání, vyčerpání",
+        "scenario": "Sofinka Marešová (6 let, Dívka). Hlavní potíž: Těžká klidová dušnost, slyšitelné pískání, vyčerpání. Šestiletá dívka s astmatem trpí záchvatem dušnosti od odpoledne. Doma matka podala celkem 6 dávek Ventolinu inhalačně bez většího efektu. Nyní je neklidná, mluví pouze v jednotlivých slovech, má výrazné zatahování jugula, podžebří a alární kmit. Poslechově je dýchání velmi oslabené s oboustrannými pískoty (fenomén 'tichých plic' / silent chest, varovné znamení blížícího se udušení).\n\nVitální funkce: TF 148/min, TK 105/65 mmHg, SpO2 89%, GCS 15, Dechová frekvence 42/min.",
+        "solution": "Diagnóza: Status asthmaticus (MKN: J46)\n\nEKG: EKG: Výrazná sinusová tachykardie 148/min, známky zatížení pravého srdce (P pulmonale).\nLaboratoř: Biochemie: CRP: 12 mg/l, Draslík: 3.5 mmol/l (hraniční draslík - riziko poklesu po opakovaných inhalacích beta2-mimetik!), Sodík: 139 mmol/l, Glykémie: 5.8 mmol/l.",
+        "keyTakeaway": "Cílená terapie a postup pro Těžký akutní astmatický stav (Status asthmaticus) u dítěte. Triage skupina: 2."
+      },
+      "explanation": "Diagnóza: Status asthmaticus (MKN: J46)\n\nEKG: EKG: Výrazná sinusová tachykardie 148/min, známky zatížení pravého srdce (P pulmonale).\nLaboratoř: Biochemie: CRP: 12 mg/l, Draslík: 3.5 mmol/l (hraniční draslík - riziko poklesu po opakovaných inhalacích beta2-mimetik!), Sodík: 139 mmol/l, Glykémie: 5.8 mmol/l.",
+      "pearl": "Triage kategorie: 2. Okamžitý cílený zásah je rozhodující pro přežití.",
+      "tags": [
+        "Kazuistika",
+        "Simulátor",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-case-11",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-level-3",
+      "topicTitle": "Klinická kazuistika: Akutní epiglotitida (Kritický dětský stav)",
+      "type": "case_study",
+      "title": "Akutní epiglotitida (Kritický dětský stav)",
+      "vignette": {
+        "patientAge": 4,
+        "patientSex": "Chlapec",
+        "chiefComplaint": "Extrémní bolest v krku, neschopnost polykat (slintání), inspirační stridor",
+        "scenario": "Adámek Kučera (4 let, Chlapec). Hlavní potíž: Extrémní bolest v krku, neschopnost polykat (slintání), inspirační stridor. Čtyřletý chlapec s rychlou progresí horečky a těžké dušnosti během několika hodin. Na urgentním příjmu sedí v tzv. tripodální poloze (v předklonu, s nataženým krkem a pootevřenými ústy), masivně mu vytékají sliny z úst (neschopnost polykat pro extrémní bolestivost) a mluví tichým, 'knedlíkovým' hlasem. Přítomen tichý inspirační stridor.\n\nVitální funkce: TF 155/min, TK 95/60 mmHg, SpO2 90%, GCS 14, Dechová frekvence 35/min.",
+        "solution": "Diagnóza: Akutní epiglotitida (MKN: J05.1)\n\nEKG: EKG: Sinusová tachykardie 155/min, bez dalších změn.\nLaboratoř: Biochemie STATIM: CRP: 145 mg/l (velmi vysoká bakteriální aktivita), prokalcitonin: 3.2 ug/l, Draslík: 4.1 mmol/l, Sodík: 138 mmol/l.",
+        "keyTakeaway": "Cílená terapie a postup pro Akutní epiglotitida (Kritický dětský stav). Triage skupina: 1."
+      },
+      "explanation": "Diagnóza: Akutní epiglotitida (MKN: J05.1)\n\nEKG: EKG: Sinusová tachykardie 155/min, bez dalších změn.\nLaboratoř: Biochemie STATIM: CRP: 145 mg/l (velmi vysoká bakteriální aktivita), prokalcitonin: 3.2 ug/l, Draslík: 4.1 mmol/l, Sodík: 138 mmol/l.",
+      "pearl": "Triage kategorie: 1. Okamžitý cílený zásah je rozhodující pro přežití.",
+      "tags": [
+        "Kazuistika",
+        "Simulátor",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-case-12",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-level-3",
+      "topicTitle": "Klinická kazuistika: Kardiogenní šok při extenzivním infarktu myokardu (STEMI)",
+      "type": "case_study",
+      "title": "Kardiogenní šok při extenzivním infarktu myokardu (STEMI)",
+      "vignette": {
+        "patientAge": 68,
+        "patientSex": "Muž",
+        "chiefComplaint": "Extrémní dušnost, studený lepkavý pot, zmatenost, slabost",
+        "scenario": "Josef Horák (68 let, Muž). Hlavní potíž: Extrémní dušnost, studený lepkavý pot, zmatenost, slabost. Pacient s narůstající pálivou bolestí za hrudní kostí od včerejšího večera (nikam nevolal). RZP ho přiváží v těžkém kardiogenním šoku. Je bledý, studeně opocený, na končetinách má mramorovanou kůži. Je mírně zmatený z hypoperfúze mozku. Poslechově na plicích slyšíte oboustranně vlhké chrápky do poloviny polí svědčící pro závažný plicní edém.\n\nVitální funkce: TF 122/min, TK 78/45 mmHg, SpO2 83%, GCS 13, Dechová frekvence 32/min.",
+        "solution": "Diagnóza: Kardiogenní šok při akutním infarktu myokardu s plicním edémem (MKN: R57.0)\n\nEKG: 12svodové EKG: Sinusová tachykardie 122/min, masivní ST elevace 5 mm ve svodech V1, V2, V3, V4, V5 (extenzivní přední STEMI), reciproční deprese ve II, III, aVF.\nLaboratoř: Biochemie STATIM: Troponin I: 5800 ng/l (extrémní poškození myokardu) - EXTRÉMNĚ POZITIVNÍ, CK-MB: 48 ug/l, Kreatinin: 165 umol/l (počínající renální selhávání při šoku), Draslík: 4.8 mmol/l, Sodík: 137 mmol/l, Laktát: 4.2 mmol/l (těžký tkáňový šok).",
+        "keyTakeaway": "Cílená terapie a postup pro Kardiogenní šok při extenzivním infarktu myokardu (STEMI). Triage skupina: 1."
+      },
+      "explanation": "Diagnóza: Kardiogenní šok při akutním infarktu myokardu s plicním edémem (MKN: R57.0)\n\nEKG: 12svodové EKG: Sinusová tachykardie 122/min, masivní ST elevace 5 mm ve svodech V1, V2, V3, V4, V5 (extenzivní přední STEMI), reciproční deprese ve II, III, aVF.\nLaboratoř: Biochemie STATIM: Troponin I: 5800 ng/l (extrémní poškození myokardu) - EXTRÉMNĚ POZITIVNÍ, CK-MB: 48 ug/l, Kreatinin: 165 umol/l (počínající renální selhávání při šoku), Draslík: 4.8 mmol/l, Sodík: 137 mmol/l, Laktát: 4.2 mmol/l (těžký tkáňový šok).",
+      "pearl": "Triage kategorie: 1. Okamžitý cílený zásah je rozhodující pro přežití.",
+      "tags": [
+        "Kazuistika",
+        "Simulátor",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-case-13",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-level-2",
+      "topicTitle": "Klinická kazuistika: Hyperakutní cévní mozková příhoda v časném okně (iCMP)",
+      "type": "case_study",
+      "title": "Hyperakutní cévní mozková příhoda v časném okně (iCMP)",
+      "vignette": {
+        "patientAge": 72,
+        "patientSex": "Žena",
+        "chiefComplaint": "Náhlé ochrnutí levé poloviny těla, nesrozumitelná řeč",
+        "scenario": "Ludmila Černá (72 let, Žena). Hlavní potíž: Náhlé ochrnutí levé poloviny těla, nesrozumitelná řeč. Pacientka byla nalezena dcerou ležící na zemi před 45 minutami. Je při vědomí, ale vykazuje těžkou dysartrii (nesrozumitelná řeč), pokleslý levý ústní koutek, levou ruku nezvedne vůbec (plegie) a levá dolní končetina je těžce paretická. Náhlý vznik příznaků před přibližně 1 hodinou. Orientační NIHSS skóre odhadnuto na 16 (těžký neurologický deficit).\n\nVitální funkce: TF 92/min, TK 175/95 mmHg, SpO2 96%, GCS 14, Dechová frekvence 16/min.",
+        "solution": "Diagnóza: Hyperakutní ischemická cévní mozková příhoda (MKN: I63.3)\n\nEKG: EKG: Fibrilace síní s frekvencí komor 92/min, bez akutních ischemických změn na ST-T.\nLaboratoř: Biochemie STATIM: CRP: 4.2 mg/l, Kreatinin: 90 umol/l, Draslík: 4.1 mmol/l, Sodík: 141 mmol/l, Glykémie: 6.8 mmol/l (klíčové pro vyloučení hypoglykémie jako imitace mrtvice!).",
+        "keyTakeaway": "Cílená terapie a postup pro Hyperakutní cévní mozková příhoda v časném okně (iCMP). Triage skupina: 2."
+      },
+      "explanation": "Diagnóza: Hyperakutní ischemická cévní mozková příhoda (MKN: I63.3)\n\nEKG: EKG: Fibrilace síní s frekvencí komor 92/min, bez akutních ischemických změn na ST-T.\nLaboratoř: Biochemie STATIM: CRP: 4.2 mg/l, Kreatinin: 90 umol/l, Draslík: 4.1 mmol/l, Sodík: 141 mmol/l, Glykémie: 6.8 mmol/l (klíčové pro vyloučení hypoglykémie jako imitace mrtvice!).",
+      "pearl": "Triage kategorie: 2. Okamžitý cílený zásah je rozhodující pro přežití.",
+      "tags": [
+        "Kazuistika",
+        "Simulátor",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-case-14",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-level-2",
+      "topicTitle": "Klinická kazuistika: Akutní koronární syndrom bez elevací ST (NSTEMI)",
+      "type": "case_study",
+      "title": "Akutní koronární syndrom bez elevací ST (NSTEMI)",
+      "vignette": {
+        "patientAge": 58,
+        "patientSex": "Muž",
+        "chiefComplaint": "Tlaková bolest na hrudi, opocení",
+        "scenario": "Pavel Mareš (58 let, Muž). Hlavní potíž: Tlaková bolest na hrudi, opocení. Pacient si stěžuje na tupou, pálivou bolest za hrudní kostí vyzařující do levého ramene, která začala v klidu před 2 hodinami. Pociťuje mírnou dušnost a nauzeu. Na EKG nejsou zřejmé ST elevace, ale jsou přítomny deprese ST 1mm ve svodech V4-V6.\n\nVitální funkce: TF 88/min, TK 145/90 mmHg, SpO2 95%, GCS 15, Dechová frekvence 18/min.",
+        "solution": "Diagnóza: Akutní infarkt myokardu bez elevací ST (NSTEMI) (MKN: I21.4)\n\nEKG: 12svodové EKG: Sinusový rytmus 88/min, deprese ST segmentu 1 mm ve svodech V4-V6, bez ST elevací.\nLaboratoř: Biochemie STATIM: Troponin I: 120 ng/l (norma <14) - POZITIVNÍ, CK-MB: 3.5 ug/l, Kreatinin: 95 umol/l, Urea: 6.8 mmol/l, CRP: 3.1 mg/l, Draslík: 4.0 mmol/l, Sodík: 140 mmol/l.",
+        "keyTakeaway": "Cílená terapie a postup pro Akutní koronární syndrom bez elevací ST (NSTEMI). Triage skupina: 3."
+      },
+      "explanation": "Diagnóza: Akutní infarkt myokardu bez elevací ST (NSTEMI) (MKN: I21.4)\n\nEKG: 12svodové EKG: Sinusový rytmus 88/min, deprese ST segmentu 1 mm ve svodech V4-V6, bez ST elevací.\nLaboratoř: Biochemie STATIM: Troponin I: 120 ng/l (norma <14) - POZITIVNÍ, CK-MB: 3.5 ug/l, Kreatinin: 95 umol/l, Urea: 6.8 mmol/l, CRP: 3.1 mg/l, Draslík: 4.0 mmol/l, Sodík: 140 mmol/l.",
+      "pearl": "Triage kategorie: 3. Okamžitý cílený zásah je rozhodující pro přežití.",
+      "tags": [
+        "Kazuistika",
+        "Simulátor",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-case-15",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-level-2",
+      "topicTitle": "Klinická kazuistika: Exacerbace CHOPN (Chronická obstrukční plicní nemoc)",
+      "type": "case_study",
+      "title": "Exacerbace CHOPN (Chronická obstrukční plicní nemoc)",
+      "vignette": {
+        "patientAge": 67,
+        "patientSex": "Muž",
+        "chiefComplaint": "Těžká dušnost, produktivní kašel, sípání",
+        "scenario": "Jaroslav Beneš (67 let, Muž). Hlavní potíž: Těžká dušnost, produktivní kašel, sípání. Dlouholetý kuřák s anamnézou CHOPN III. stupně přichází pro progresi dušnosti za poslední 3 dny. Nyní je výrazně dušný i v klidu, nemůže domluvit větu. Kašle s produkcí žlutozeleného sputa. Na monitoru SpO2 84% při dýchání vzduchu, slyšitelné exspirační vrzoty a pískoty oboustranně.\n\nVitální funkce: TF 105/min, TK 150/85 mmHg, SpO2 84%, GCS 15, Dechová frekvence 28/min.",
+        "solution": "Diagnóza: Akutní exacerbace chronické obstrukční plicní nemoci (MKN: J44.1)\n\nEKG: 12svodové EKG: P-pulmonale ve svodech II, III, aVF (přetížení pravé síně), sinusová tachykardie 105/min, osa doprava, bez akutních ischemických změn.\nLaboratoř: Biochemie STATIM: CRP: 48.5 mg/l (zvýšené), Urea: 7.2 mmol/l, Kreatinin: 92 umol/l, Draslík: 4.2 mmol/l, Sodík: 139 mmol/l, Troponin I: 12 ng/l (v normě).",
+        "keyTakeaway": "Cílená terapie a postup pro Exacerbace CHOPN (Chronická obstrukční plicní nemoc). Triage skupina: 2."
+      },
+      "explanation": "Diagnóza: Akutní exacerbace chronické obstrukční plicní nemoci (MKN: J44.1)\n\nEKG: 12svodové EKG: P-pulmonale ve svodech II, III, aVF (přetížení pravé síně), sinusová tachykardie 105/min, osa doprava, bez akutních ischemických změn.\nLaboratoř: Biochemie STATIM: CRP: 48.5 mg/l (zvýšené), Urea: 7.2 mmol/l, Kreatinin: 92 umol/l, Draslík: 4.2 mmol/l, Sodík: 139 mmol/l, Troponin I: 12 ng/l (v normě).",
+      "pearl": "Triage kategorie: 2. Okamžitý cílený zásah je rozhodující pro přežití.",
+      "tags": [
+        "Kazuistika",
+        "Simulátor",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-case-16",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-level-2",
+      "topicTitle": "Klinická kazuistika: Akutní ischemická cévní mozková příhoda v levém povodí ACM",
+      "type": "case_study",
+      "title": "Akutní ischemická cévní mozková příhoda v levém povodí ACM",
+      "vignette": {
+        "patientAge": 69,
+        "patientSex": "Žena",
+        "chiefComplaint": "Porucha řeči, ochrnutí pravé poloviny těla",
+        "scenario": "Marie Svobodová (69 let, Žena). Hlavní potíž: Porucha řeči, ochrnutí pravé poloviny těla. Pacientka náhle přestala mluvit a ochrnula na pravou ruku a nohu před 90 minutami při sledování televize. Je přítomna těžká motorická afázie, pokleslý pravý koutek úst a pravostranná hemiparéza. NIHSS skóre odhadnuto na 14.\n\nVitální funkce: TF 82/min, TK 180/100 mmHg, SpO2 97%, GCS 14, Dechová frekvence 16/min.",
+        "solution": "Diagnóza: Akutní ischemická cévní mozková příhoda (MKN: I63.9)\n\nEKG: 12svodové EKG: Sinusový rytmus 82/min, bez akutních změn.\nLaboratoř: Biochemie STATIM: CRP: 2.5 mg/l, Glykémie: 7.5 mmol/l (klíčové k vyloučení hypoglykémie jako imitátoru mrtvice!), Kreatinin: 85 umol/l, Urea: 5.9 mmol/l, Draslík: 4.1 mmol/l, Sodík: 142 mmol/l.",
+        "keyTakeaway": "Cílená terapie a postup pro Akutní ischemická cévní mozková příhoda v levém povodí ACM. Triage skupina: 2."
+      },
+      "explanation": "Diagnóza: Akutní ischemická cévní mozková příhoda (MKN: I63.9)\n\nEKG: 12svodové EKG: Sinusový rytmus 82/min, bez akutních změn.\nLaboratoř: Biochemie STATIM: CRP: 2.5 mg/l, Glykémie: 7.5 mmol/l (klíčové k vyloučení hypoglykémie jako imitátoru mrtvice!), Kreatinin: 85 umol/l, Urea: 5.9 mmol/l, Draslík: 4.1 mmol/l, Sodík: 142 mmol/l.",
+      "pearl": "Triage kategorie: 2. Okamžitý cílený zásah je rozhodující pro přežití.",
+      "tags": [
+        "Kazuistika",
+        "Simulátor",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-case-17",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-level-2",
+      "topicTitle": "Klinická kazuistika: Pediatrická anafylaxe po bodnutí hmyzem",
+      "type": "case_study",
+      "title": "Pediatrická anafylaxe po bodnutí hmyzem",
+      "vignette": {
+        "patientAge": 6,
+        "patientSex": "Žena",
+        "chiefComplaint": "Celková slabost, ztížené dýchání, kopřivka",
+        "scenario": "Ema Nováková (6 let, Žena). Hlavní potíž: Celková slabost, ztížené dýchání, kopřivka. Šestiletá dívka bodnutá vosou do paže před 20 minutami na zahradě. Během 10 minut se rozvinul generalizovaný erytém, svědivá kopřivka na trupu a končetinách, otok rtů a víček. Nyní si stěžuje na ztížené dýchání, je slyšitelný jemný inspirační stridor a exspirační vrzoty. Dívka je neklidná, bledá.\n\nVitální funkce: TF 140/min, TK 80/45 mmHg, SpO2 90%, GCS 15, Dechová frekvence 32/min.",
+        "solution": "Diagnóza: Anafylaktická reakce po bodnutí hmyzem (MKN: T78.2)\n\nEKG: 12svodové EKG: Sinusová tachykardie 140/min, bez akutních změn.\nLaboratoř: Biochemie STATIM: CRP: 1.2 mg/l, Kreatinin: 45 umol/l, Urea: 4.1 mmol/l, Draslík: 4.0 mmol/l, Sodík: 138 mmol/l, Tryptáza: odebrána (výsledek bude dostupný později).",
+        "keyTakeaway": "Cílená terapie a postup pro Pediatrická anafylaxe po bodnutí hmyzem. Triage skupina: 2."
+      },
+      "explanation": "Diagnóza: Anafylaktická reakce po bodnutí hmyzem (MKN: T78.2)\n\nEKG: 12svodové EKG: Sinusová tachykardie 140/min, bez akutních změn.\nLaboratoř: Biochemie STATIM: CRP: 1.2 mg/l, Kreatinin: 45 umol/l, Urea: 4.1 mmol/l, Draslík: 4.0 mmol/l, Sodík: 138 mmol/l, Tryptáza: odebrána (výsledek bude dostupný později).",
+      "pearl": "Triage kategorie: 2. Okamžitý cílený zásah je rozhodující pro přežití.",
+      "tags": [
+        "Kazuistika",
+        "Simulátor",
+        "Urgentní medicína"
+      ]
+    },
+    {
+      "id": "urgent-case-18",
+      "subjectId": "urgent",
+      "subjectTitle": "Urgentní příjem",
+      "grade": 5,
+      "topicId": "urgent-level-1",
+      "topicTitle": "Klinická kazuistika: Akutní poškození ledvin (AKI) prerenální etiologie",
+      "type": "case_study",
+      "title": "Akutní poškození ledvin (AKI) prerenální etiologie",
+      "vignette": {
+        "patientAge": 74,
+        "patientSex": "Muž",
+        "chiefComplaint": "Celková slabost, oligurie, dehydratace",
+        "scenario": "Josef Kovář (74 let, Muž). Hlavní potíž: Celková slabost, oligurie, dehydratace. Starší pacient přichází pro výraznou celkovou slabost, motání hlavy při vstávání a snížené močení (za posledních 24 hodin vymočil cca 200 ml). Před 3 dny prodělal gastroenteritidu s četnými průjmy a zvracením, od té doby vykazoval minimální příjem tekutin. Na monitoru hraniční krevní tlak, suché sliznice, snížený turgor kůže.\n\nVitální funkce: TF 96/min, TK 100/60 mmHg, SpO2 96%, GCS 15, Dechová frekvence 16/min.",
+        "solution": "Diagnóza: Akutní poškození ledvin prerenální (při dehydrataci) (MKN: N17.0)\n\nEKG: 12svodové EKG: Sinusový rytmus 96/min, bez akutních ischemických změn, bez projevů hyperkalémie (hrotnaté T vlny nepřítomny).\nLaboratoř: Biochemie STATIM: Urea: 24.5 mmol/l (silně zvýšená), Kreatinin: 310 umol/l (silně zvýšený, KDIGO 3 kritéria), CRP: 12.1 mg/l, Draslík: 5.2 mmol/l (mírná hyperkalémie), Sodík: 144 mmol/l, Kyselina močová: 550 umol/l.",
+        "keyTakeaway": "Cílená terapie a postup pro Akutní poškození ledvin (AKI) prerenální etiologie. Triage skupina: 3."
+      },
+      "explanation": "Diagnóza: Akutní poškození ledvin prerenální (při dehydrataci) (MKN: N17.0)\n\nEKG: 12svodové EKG: Sinusový rytmus 96/min, bez akutních ischemických změn, bez projevů hyperkalémie (hrotnaté T vlny nepřítomny).\nLaboratoř: Biochemie STATIM: Urea: 24.5 mmol/l (silně zvýšená), Kreatinin: 310 umol/l (silně zvýšený, KDIGO 3 kritéria), CRP: 12.1 mg/l, Draslík: 5.2 mmol/l (mírná hyperkalémie), Sodík: 144 mmol/l, Kyselina močová: 550 umol/l.",
+      "pearl": "Triage kategorie: 3. Okamžitý cílený zásah je rozhodující pro přežití.",
+      "tags": [
+        "Kazuistika",
+        "Simulátor",
+        "Urgentní medicína"
+      ]
+    }
+  ]
+}

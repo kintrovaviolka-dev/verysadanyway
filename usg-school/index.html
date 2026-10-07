@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>USG School – Echokardiografický Trenažér</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- PeerJS for WebRTC -->
+  <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+  <!-- QRCode.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+  <div class="station-layout">
+    <!-- Header / Clinical Bar -->
+    <header class="usg-header">
+      <div class="brand-badge">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan)">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+        </svg>
+        USG<span>SCHOOL</span> <small style="font-weight: 500; font-size: 11px; color: var(--text-dim); margin-left: 4px;">| PLAX Simulator</small>
+      </div>
+
+      <div class="patient-info">
+        <div class="patient-tag"><span class="lbl">ID:</span> <span class="val">USG-2026-88</span></div>
+        <div class="patient-tag"><span class="lbl">SONDA:</span> <span class="val">S5-1 Cardiac Phased</span></div>
+        <div class="patient-tag"><span class="lbl">PRESET:</span> <span class="val">TTE Adult / PLAX</span></div>
+        <div class="patient-tag"><span class="lbl">HR:</span> <span class="val" style="color: var(--accent-green);">72 bpm</span></div>
+      </div>
+
+      <div class="device-stats">
+        <div class="status-pill">
+          <div class="status-dot" id="connDot"></div>
+          <span id="connStatusText">Čekám na sondu...</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="usg-workspace">
+      <!-- Ultrasound Viewport -->
+      <div class="usg-viewport-container">
+        <canvas id="usgCanvas"></canvas>
+
+        <!-- Viewport Metadata HUD -->
+        <div class="viewport-overlay">
+          <div class="preset-title" id="activeCaseTitle">1. Fyziologický nález – PLAX</div>
+          <div>Freq: 3.5 MHz</div>
+          <div>Depth: 16.0 cm</div>
+          <div>FPS: 60 Hz</div>
+          <div>MI: 1.1 &nbsp; TIS: 0.4</div>
+          <div id="gainDisplay">Gain: 50 dB</div>
+        </div>
+
+        <div class="acoustic-index">
+          <div>INDEX MARKER: VPRAVO</div>
+          <div style="font-size: 10px; color: var(--text-dim);">Pravé rameno pacienta</div>
+        </div>
+
+        <!-- Target Guidance Card / Tutor Feedback -->
+        <div class="target-guidance-card">
+          <div class="guide-header">
+            <span>PLAX VYROVNÁNÍ SONDY</span>
+            <span id="accuracyPercent" style="color: var(--accent-green); font-size: 14px;">100%</span>
+          </div>
+          <div class="accuracy-bar-container">
+            <div class="accuracy-bar" id="accuracyBar" style="width: 100%;"></div>
+          </div>
+          <div class="guide-feedback" id="guideFeedback">Optimální PLAX zobrazení (všechny struktury v ose).</div>
+        </div>
+      </div>
+
+      <!-- Sidebar Controls & Connection -->
+      <aside class="usg-sidebar">
+        <!-- QR Code Connection Box -->
+        <div class="panel-section">
+          <div class="panel-title">
+            <span>iPhone Sonda</span>
+            <span id="roomIdBadge" style="font-size: 10px; color: var(--accent-cyan); font-family: var(--font-mono);">---</span>
+          </div>
+          <div class="qr-container">
+            <div class="qr-box" id="qrcode"></div>
+            <div class="qr-hint">Naskenujte fotoaparátem iPhonu a použijte telefon jako sondu</div>
+            <div id="probeDirectUrlText" style="font-size: 10px; font-family: var(--font-mono); color: var(--accent-cyan); word-break: break-all; margin-top: 2px;"></div>
+            <div style="display: flex; gap: 6px; margin-top: 4px; width: 100%;">
+              <button class="qr-link-copy" id="copyProbeUrlBtn" style="flex: 1;" onclick="copyProbeLink()">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                Kopírovat odkaz
+              </button>
+              <button class="qr-link-copy" id="toggleHttpsBtn" style="color: var(--accent-green); border-color: rgba(0, 255, 136, 0.3);" onclick="toggleHttpsTunnel()">
+                🔒 HTTPS Mód
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case Selector -->
+        <div class="panel-section">
+          <div class="panel-title">Klinický Scénář</div>
+          <div class="case-tabs">
+            <button class="case-btn active" id="casePhys" onclick="switchCase('physiological')">
+              <span class="case-title">1. Fyziologický PLAX</span>
+              <span class="case-desc">Normální kinetika stěn, normální separace cípů MV & AV, bez výpotku.</span>
+            </button>
+            <button class="case-btn" id="caseEffusion" onclick="switchCase('pericardial_effusion')">
+              <span class="case-title" style="color: var(--accent-amber);">2. Masivní výpotek (Tamponáda)</span>
+              <span class="case-desc">Anechogenní lem tekutiny, vlající srdce (swinging heart), kolaps RV.</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 3D Probe Orientation & Telemetry -->
+        <div class="panel-section">
+          <div class="panel-title">Orientace Sondy (3D)</div>
+          <div class="gizmo-wrapper">
+            <canvas id="gizmoCanvas"></canvas>
+          </div>
+          <div class="angle-stats-grid">
+            <div class="angle-box">
+              <div class="lbl">Pitch (Fan)</div>
+              <div class="val" id="valPitch">0.0°</div>
+            </div>
+            <div class="angle-box">
+              <div class="lbl">Roll (Rot)</div>
+              <div class="val" id="valRoll">0.0°</div>
+            </div>
+            <div class="angle-box">
+              <div class="lbl">Yaw (Rock)</div>
+              <div class="val" id="valYaw">0.0°</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Controls (Test on PC) -->
+        <div class="panel-section">
+          <div class="panel-title">Rychlé Ovládání</div>
+          <div style="display: flex; gap: 8px;">
+            <button class="case-btn" style="flex: 1; text-align: center; font-weight: 700;" onclick="engine.calibrateZero()">
+              🎯 Kalibrace 0°
+            </button>
+            <button class="case-btn" id="stationFreezeBtn" style="flex: 1; text-align: center; font-weight: 700;" onclick="toggleFreeze()">
+              ❄️ Freeze
+            </button>
+          </div>
+          <div style="margin-top: 10px; font-size: 11px; color: var(--text-muted); line-height: 1.4;">
+            💡 <em>Tip pro test na PC bez mobilu: Můžete hýbat myší se stisknutým tlačítkem nad obrazovkou pro simulaci náklonu sondy!</em>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <!-- Footer / Live ECG -->
+    <footer class="usg-footer">
+      <div style="font-family: var(--font-mono); font-size: 11px; color: var(--accent-green); font-weight: 700; white-space: nowrap;">
+        LEAD II (ECG)
+      </div>
+      <div class="ecg-monitor-container">
+        <canvas id="ecgCanvas"></canvas>
+      </div>
+      <div style="font-family: var(--font-mono); font-size: 11px; color: var(--text-dim); white-space: nowrap;">
+        SWEEP: 25 mm/s
+      </div>
+    </footer>
+  </div>
+
+  <script src="usg-engine.js"></script>
+  <script src="connection.js"></script>
+  <script>
+    // Initialize Engine & Connection
+    let engine;
+    let connection;
+    let probeUrl = '';
+
+    window.addEventListener('DOMContentLoaded', () => {
+      engine = new UsgEngine('usgCanvas', 'ecgCanvas', 'gizmoCanvas');
+
+      // Setup Connection Bridge
+      connection = new UsgConnection('station', (state, roomId) => {
+        const dot = document.getElementById('connDot');
+        const text = document.getElementById('connStatusText');
+        const idBadge = document.getElementById('roomIdBadge');
+
+        if (state === 'ready') {
+          idBadge.textContent = roomId;
+          generateQrCode(roomId);
+        } else if (state === 'connected') {
+          dot.classList.add('connected');
+          text.textContent = 'Sonda připojena (iPhone 16 Pro)';
+          text.style.color = 'var(--accent-green)';
+        } else if (state === 'disconnected') {
+          dot.classList.remove('connected');
+          text.textContent = 'Sonda odpojena';
+          text.style.color = 'var(--accent-rose)';
+        }
+      }, (data) => {
+        // Data received from iPhone Probe
+        engine.setProbeData(data);
+        updateTelemetryUI();
+      });
+
+      connection.initStation();
+
+      // UI Update Interval for guidance & angles
+      setInterval(updateTelemetryUI, 50);
+
+      // Setup Mouse Simulation on Canvas for testing on PC
+      setupMouseSimulation();
+    });
+
+    let useHttpsTunnel = false;
+    const httpsTunnelHost = 'large-weeks-yawn.loca.lt';
+
+    function toggleHttpsTunnel() {
+      useHttpsTunnel = !useHttpsTunnel;
+      const btn = document.getElementById('toggleHttpsBtn');
+      btn.textContent = useHttpsTunnel ? '📶 Lokální Wi-Fi' : '🔒 HTTPS Mód';
+      btn.style.color = useHttpsTunnel ? 'var(--accent-cyan)' : 'var(--accent-green)';
+      if (connection && connection.roomId) {
+        generateQrCode(connection.roomId);
+      }
+    }
+
+    async function generateQrCode(roomId) {
+      let host = window.location.host;
+      let protocol = window.location.protocol;
+
+      if (useHttpsTunnel) {
+        protocol = 'https:';
+        host = httpsTunnelHost;
+      } else if (host.includes('localhost') || host.includes('127.0.0.1')) {
+        try {
+          const res = await fetch('/api/lan-ip');
+          const data = await res.json();
+          if (data && data.ip && data.ip !== '127.0.0.1') {
+            host = `${data.ip}:${data.port || 3000}`;
+          }
+        } catch (e) {
+          console.warn('Could not fetch LAN IP', e);
+        }
+      }
+
+      const loc = window.location;
+      const baseUrl = protocol + '//' + host + loc.pathname.replace('index.html', '').replace(/\/$/, '') + '/probe.html';
+      probeUrl = baseUrl + '?room=' + roomId;
+
+      const qrContainer = document.getElementById('qrcode');
+      qrContainer.innerHTML = '';
+      new QRCode(qrContainer, {
+        text: probeUrl,
+        width: 140,
+        height: 140,
+        colorDark: "#000000",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.M
+      });
+
+      const urlDisplay = document.getElementById('probeDirectUrlText');
+      if (urlDisplay) {
+        urlDisplay.textContent = probeUrl;
+      }
+    }
+
+    function copyProbeLink() {
+      if (probeUrl) {
+        navigator.clipboard.writeText(probeUrl);
+        const btn = document.getElementById('copyProbeUrlBtn');
+        btn.textContent = '✓ Odkaz zkopírován!';
+        setTimeout(() => {
+          btn.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Kopírovat odkaz na sondu`;
+        }, 2000);
+      }
+    }
+
+    function switchCase(caseType) {
+      engine.activeCase = caseType;
+      document.getElementById('casePhys').classList.toggle('active', caseType === 'physiological');
+      document.getElementById('caseEffusion').classList.toggle('active', caseType === 'pericardial_effusion');
+      document.getElementById('activeCaseTitle').textContent =
+        caseType === 'physiological' ? '1. Fyziologický nález – PLAX' : '2. Masivní perikardiální výpotek s tamponádou';
+    }
+
+    function toggleFreeze() {
+      engine.isFrozen = !engine.isFrozen;
+      const btn = document.getElementById('stationFreezeBtn');
+      btn.textContent = engine.isFrozen ? '▶️ Unfreeze' : '❄️ Freeze';
+      btn.style.borderColor = engine.isFrozen ? 'var(--accent-rose)' : 'var(--border-subtle)';
+    }
+
+    function updateTelemetryUI() {
+      if (!engine) return;
+      document.getElementById('valPitch').textContent = engine.currentOrientation.pitch.toFixed(1) + '°';
+      document.getElementById('valRoll').textContent = engine.currentOrientation.roll.toFixed(1) + '°';
+      document.getElementById('valYaw').textContent = engine.currentOrientation.yaw.toFixed(1) + '°';
+      document.getElementById('accuracyPercent').textContent = engine.accuracyScore + '%';
+      document.getElementById('accuracyBar').style.width = engine.accuracyScore + '%';
+      document.getElementById('guideFeedback').textContent = engine.guidanceText;
+      document.getElementById('gainDisplay').textContent = `Gain: ${Math.round(engine.gain * 50)} dB`;
+    }
+
+    // Mouse drag simulation for easy PC desktop testing
+    function setupMouseSimulation() {
+      let isDragging = false;
+      let startX = 0, startY = 0;
+      const canvas = document.getElementById('usgCanvas');
+
+      canvas.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.clientX;
+        startY = e.clientY;
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        const dx = (e.clientX - startX) * 0.15;
+        const dy = (e.clientY - startY) * 0.15;
+        engine.setProbeData({
+          pitch: Math.max(-25, Math.min(25, dy)),
+          roll: Math.max(-25, Math.min(25, dx)),
+          yaw: Math.max(-25, Math.min(25, dx * 0.5))
+        });
+      });
+
+      window.addEventListener('mouseup', () => {
+        isDragging = false;
+      });
+    }
+  </script>
+</body>
+</html>

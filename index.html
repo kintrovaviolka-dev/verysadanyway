@@ -27,6 +27,29 @@
       <p>Centrální rozcestník pro přípravu na zkoušky a zápočty ve 3., 4. a 5. ročníku všeobecného lékařství.</p>
     </header>
 
+    <!-- PWA MedDrill Oznámení & Spuštění -->
+    <section class="pwa-hero-announcement" id="pwa-announcement" aria-label="Nová PWA aplikace MedDrill">
+      <div class="pwa-announcement-glow" aria-hidden="true"></div>
+      <div class="pwa-announcement-content">
+        <div class="pwa-badge">
+          <span class="pwa-pulse-dot" aria-hidden="true"></span>
+          <span>NOVINKA 2026 • PWA APLIKACE DO TELEFONU</span>
+        </div>
+        <div class="pwa-text">
+          <h2>MedDrill: Active Recall otázky, kazuistiky & dopisování 📱⚡</h2>
+          <p>Procvičujte testové otázky a klinické případy kdekoliv – v tramvaji i v nemocnici <strong>100% offline</strong>. Zvolte si svůj ročník, tvořte vlastní balíčky a sledujte svůj denní streak.</p>
+        </div>
+        <div class="pwa-actions">
+          <a href="/drill/" class="btn-pwa-primary">
+            <span>🚀 Spustit MedDrill PWA</span>
+          </a>
+          <button type="button" class="btn-pwa-secondary" id="btn-portal-pwa-install">
+            <span>📲 Jak nainstalovat na plochu</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
     <!-- Volba ročníku -->
     <section class="grades-section" id="main-content">
       <h2 class="section-title">Vyberte ročník studia</h2>
@@ -74,6 +97,7 @@
           <span class="icon" aria-hidden="true">🔬</span>
           <h3>Patologie</h3>
           <p>Morfologické popisy, histologické taháky a seznam zkouškových témat.</p>
+          <a href="/drill/?subject=patola" class="card-drill-badge" onclick="event.stopPropagation();" title="Procvičit Patologii v PWA MedDrill">⚡ Procvičit v PWA</a>
         </div>
         <div class="subject-card oset" data-subject="oset" id="subject-oset" role="button" tabindex="0" data-grade="3">
           <span class="icon" aria-hidden="true">🩺</span>
@@ -84,26 +108,31 @@
           <span class="icon" aria-hidden="true">🛡️</span>
           <h3>Imunologie</h3>
           <p>Aktivní procvičování testových otázek a zkouškových okruhů.</p>
+          <a href="/drill/?subject=imuno" class="card-drill-badge" onclick="event.stopPropagation();" title="Procvičit Imunologii v PWA MedDrill">⚡ Procvičit v PWA</a>
         </div>
         <div class="subject-card mikrobiologie" data-subject="mikrobiologie" id="subject-mikrobiologie" role="button" tabindex="0" data-grade="3">
           <span class="icon" aria-hidden="true">🦠</span>
           <h3>Mikrobiologie</h3>
           <p>Interaktivní dvojotázky s Leitnerovým systémem: bakteriologie, virologie, mykologie a diagnostika.</p>
+          <a href="/drill/?subject=mikra" class="card-drill-badge" onclick="event.stopPropagation();" title="Procvičit Mikrobiologii v PWA MedDrill">⚡ Procvičit v PWA</a>
         </div>
         <div class="subject-card farmakologie" data-subject="farmakologie" id="subject-farmakologie" role="button" tabindex="0" data-grade="4">
           <span class="icon" aria-hidden="true">💊</span>
           <h3>Farmakologie</h3>
           <p>Příprava na zkoušku, farmakokinetický trenažér a stažení vypracovaných témat.</p>
+          <a href="/drill/?subject=farma" class="card-drill-badge" onclick="event.stopPropagation();" title="Procvičit Farmakologii v PWA MedDrill">⚡ Procvičit v PWA</a>
         </div>
         <div class="subject-card dermatologie" data-subject="dermatologie" id="subject-dermatologie" role="button" tabindex="0" data-grade="4">
           <span class="icon" aria-hidden="true">☀️</span>
           <h3>Dermatologie</h3>
           <p>Interaktivní portál obecné dermatologie, Leitnerovy krabičky a procvičování.</p>
+          <a href="/drill/?subject=derma" class="card-drill-badge" onclick="event.stopPropagation();" title="Procvičit Dermatologii v PWA MedDrill">⚡ Procvičit v PWA</a>
         </div>
         <div class="subject-card kardiologie" data-subject="kardiologie" id="subject-kardiologie" role="button" tabindex="0" data-grade="4">
           <span class="icon" aria-hidden="true">🫀</span>
           <h3>Kardiologie</h3>
           <p>ESC Guidelines (2023–2026), 3-fázový rozpad témat (Learn-Recall-Breakdown) a Spaced Repetition (115+ karet).</p>
+          <a href="/drill/?subject=kardio" class="card-drill-badge" onclick="event.stopPropagation();" title="Procvičit Kardiologii v PWA MedDrill">⚡ Procvičit v PWA</a>
         </div>
         <div class="subject-card radiologie" data-subject="radiologie" id="subject-radiologie" role="button" tabindex="0" data-grade="4">
           <span class="icon" aria-hidden="true">🩻</span>
@@ -114,11 +143,13 @@
           <span class="icon" aria-hidden="true">🧠</span>
           <h3>Psychiatrie</h3>
           <p>Obecná a speciální psychiatrie, psychofarmakoterapie, nozologie a Spaced Repetition trenažér.</p>
+          <a href="/drill/?subject=psych" class="card-drill-badge" onclick="event.stopPropagation();" title="Procvičit Psychiatrii v PWA MedDrill">⚡ Procvičit v PWA</a>
         </div>
         <div class="subject-card neurologie" data-subject="neurologie" id="subject-neurologie" role="button" tabindex="0" data-grade="4">
           <span class="icon" aria-hidden="true">⚡</span>
           <h3>Neurologie</h3>
           <p>Obecná neurologie, centrální motorika, hlavové nervy, reflexy, syndromologie a Spaced Repetition.</p>
+          <a href="/drill/?subject=neuro" class="card-drill-badge" onclick="event.stopPropagation();" title="Procvičit Neurologii v PWA MedDrill">⚡ Procvičit v PWA</a>
         </div>
         <div class="subject-card clinical-portal" data-subject="clinical-portal" id="subject-clinical-portal" role="button" tabindex="0" data-grade="5">
           <span class="icon" aria-hidden="true">🫁</span>
@@ -129,6 +160,7 @@
           <span class="icon" aria-hidden="true">🚨</span>
           <h3>Urgentní příjem</h3>
           <p>Klinický simulátor lékaře na urgentním příjmu. Vyřešte 18 realistických kazuistik.</p>
+          <a href="/drill/?subject=urgent" class="card-drill-badge" onclick="event.stopPropagation();" title="Procvičit Urgentní příjem v PWA MedDrill">⚡ Procvičit v PWA</a>
         </div>
         <div class="subject-card upv" data-subject="upv" id="subject-upv" role="button" tabindex="0" data-grade="5">
           <span class="icon" aria-hidden="true">💨</span>
@@ -255,6 +287,38 @@
           </svg>
         </button>
       </form>
+  <!-- Modal pro instalaci PWA MedDrill na rozcestníku -->
+  <div class="modal-backdrop" id="portal-modal-install" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; align-items: center; justify-content: center; padding: 20px;">
+    <div style="background: #141a22; border: 1px solid rgba(255,255,255,0.12); border-radius: 20px; max-width: 520px; width: 100%; padding: 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.8); color: #f1f5f9; position: relative;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+        <h3 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 800; color: #ffffff;">Jak nainstalovat MedDrill do telefonu 📱</h3>
+        <button type="button" id="btn-close-portal-install" style="background: none; border: none; font-size: 1.5rem; color: #94a3b8; cursor: pointer;">&times;</button>
+      </div>
+      <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 18px;">
+        MedDrill je Progressive Web App (PWA). Nemusíte nic stahovat z App Store ani Google Play – stačí přidat na plochu za 5 sekund:
+      </p>
+
+      <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 16px; margin-bottom: 16px;">
+        <h4 style="color: #00f0ff; font-size: 0.95rem; margin-bottom: 8px;">🍎 iPhone & iPad (Safari)</h4>
+        <ol style="padding-left: 20px; font-size: 0.85rem; color: #cbd5e1; line-height: 1.6;">
+          <li>Klepněte dole v Safari na tlačítko <strong>Sdílet ⎋</strong> (čtvereček se šipkou).</li>
+          <li>Sjeďte dolů a vyberte <strong>„Přidat na plochu“ ⊞</strong>.</li>
+          <li>Potvrďte tlačítkem <strong>Přidat</strong>. Aplikace se spustí na celé obrazovce i offline!</li>
+        </ol>
+      </div>
+
+      <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 16px; margin-bottom: 20px;">
+        <h4 style="color: #00ffc2; font-size: 0.95rem; margin-bottom: 8px;">🤖 Android & Chrome / PC</h4>
+        <p style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.6;">
+          Klepněte v prohlížeči na <strong>tři tečky ⋮</strong> a zvolte <strong>„Nainstalovat aplikaci“</strong> (případně „Přidat na plochu“).
+        </p>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 10px;">
+        <a href="/drill/" class="btn-pwa-primary" style="padding: 10px 20px; font-size: 0.9rem;">
+          🚀 Přejít do aplikace MedDrill
+        </a>
+      </div>
     </div>
   </div>
 
@@ -280,6 +344,23 @@
   <script src="app.js"></script>
   <script src="feedback.js"></script>
   
+  <!-- Script pro otevření instalačního modálu PWA MedDrill -->
+  <script>
+    document.getElementById('btn-portal-pwa-install')?.addEventListener('click', () => {
+      const modal = document.getElementById('portal-modal-install');
+      if (modal) modal.style.display = 'flex';
+    });
+    document.getElementById('btn-close-portal-install')?.addEventListener('click', () => {
+      const modal = document.getElementById('portal-modal-install');
+      if (modal) modal.style.display = 'none';
+    });
+    document.getElementById('portal-modal-install')?.addEventListener('click', (e) => {
+      if (e.target.id === 'portal-modal-install') {
+        e.target.style.display = 'none';
+      }
+    });
+  </script>
+
   <!-- Vercel Web Analytics -->
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
