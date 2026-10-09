@@ -149,6 +149,61 @@
     });
   }
 
+  const ANATOMICAL_TERMS = new Set([
+    'srdce', 'srdci', 'srdecni', 'myokard', 'myokardu', 'plice', 'plic', 'plicni',
+    'jatra', 'jatrech', 'jater', 'jaterni', 'ledvina', 'ledviny', 'ledvin', 'ledvinny',
+    'uzlina', 'uzliny', 'uzlin', 'kuze', 'kozi', 'kozne', 'mozek', 'mozku', 'mozkovy',
+    'zaludek', 'zaludku', 'zaludecni', 'strevo', 'streva', 'tenke', 'tluste', 'kost',
+    'kosti', 'kostni', 'cevy', 'ceva', 'cevni', 'tepna', 'tepny', 'arterie', 'organ',
+    'cordis', 'pulmonis', 'renis', 'hepatis', 'cerebri', 'cutis', 'ventriculi'
+  ]);
+
+  function evaluateSlideTextMatch(userInput, question) {
+    const cleanUser = removeDiacritics(userInput).slice(0, 150).trim();
+    if (!cleanUser) return { match: 'incorrect', score: 0 };
+
+    const acceptedList = (question.acceptedAnswers || []).map(a => removeDiacritics(a).trim());
+    const correctOption = question.options && question.options[question.correctIndex]
+      ? removeDiacritics(question.options[question.correctIndex]).trim()
+      : '';
+    if (correctOption && !acceptedList.includes(correctOption)) {
+      acceptedList.push(correctOption);
+    }
+
+    // 1. Plná správnost (100% match nebo 1 překlep, případně přesný podřetězec)
+    for (const accepted of acceptedList) {
+      if (cleanUser === accepted) return { match: 'correct', score: 1.0 };
+      if (accepted.length >= 5 && levenshteinDistance(cleanUser, accepted) <= 1) {
+        return { match: 'correct', score: 1.0 };
+      }
+      if (!ANATOMICAL_TERMS.has(cleanUser)) {
+        if (cleanUser.length >= 7 && accepted.includes(cleanUser)) {
+          return { match: 'correct', score: 1.0 };
+        }
+        if (accepted.length >= 7 && cleanUser.includes(accepted)) {
+          return { match: 'correct', score: 1.0 };
+        }
+      }
+    }
+
+    // 2. Částečná shoda (Skoro / Partial match)
+    for (const accepted of acceptedList) {
+      if (accepted.length >= 8 && levenshteinDistance(cleanUser, accepted) <= 2) {
+        return { match: 'partial', score: 0.5 };
+      }
+      const userWords = cleanUser.split(/[\s,+-]+/).filter(w => w.length >= 4 && !ANATOMICAL_TERMS.has(w));
+      const acceptedWords = accepted.split(/[\s,+-]+/).filter(w => w.length >= 4 && !ANATOMICAL_TERMS.has(w));
+      const commonWords = userWords.filter(uw =>
+        acceptedWords.some(aw => aw.includes(uw) || uw.includes(aw) || (aw.length >= 5 && levenshteinDistance(uw, aw) <= 1))
+      );
+      if (commonWords.length > 0) {
+        return { match: 'partial', score: 0.5 };
+      }
+    }
+
+    return { match: 'incorrect', score: 0 };
+  }
+
   // --- ZVUKOVÝ ENGINE (WEB AUDIO API) ---
   let audioCtx = null;
   function getAudioContext() {
@@ -707,6 +762,13 @@
       reportedMikraPill.textContent = reportedCount ? `${reportedCount} vynesených otázek` : 'Stáhněte Mikrobiologii';
     }
 
+    const preparatyPill = document.getElementById('preparaty-count-pill');
+    if (preparatyPill) {
+      const prep = state.downloadedSubjects.get('preparaty');
+      const prepCount = prep && Array.isArray(prep.questions) ? prep.questions.length : 89;
+      preparatyPill.textContent = prep ? `${prepCount} zkouškových preparátů` : `${prepCount} preparátů (připraveno)`;
+    }
+
     const daily = window.MedDrillCore.getDailySelection(getAllDownloadedQuestions(), state.userStates);
     const dueTodayEl = document.getElementById('stat-due-today');
     if (dueTodayEl) dueTodayEl.textContent = daily.dueCount;
@@ -935,6 +997,14 @@
         showToast('Nejdřív si stáhněte aktuální balíček Mikrobiologie.', 'info');
         return;
       }
+    } else if (mode === 'preparaty') {
+      title = '🔬 Zkouškové preparáty z patologie';
+      filtered = allQuestions.filter(q => q.subjectId === 'preparaty' || q.isSlide === true);
+
+      if (filtered.length === 0) {
+        showToast('Nejdřív si stáhněte balíček Zkouškové preparáty.', 'info');
+        return;
+      }
     }
 
     // Denní SRS musí ponechat nejdříve nejdéle čekající opakování.
@@ -1064,10 +1134,15 @@
 
     // Metadata
     const typeBadge = document.getElementById('question-type-badge');
-    typeBadge.className = `question-badge ${q.type}`;
-    if (q.type === 'single_choice') typeBadge.textContent = 'Single Choice';
-    else if (q.type === 'case_study') typeBadge.textContent = 'Kazuistika';
-    else if (q.type === 'fill_in') typeBadge.textContent = 'Dopisovací otázka';
+    if (q.isSlide || q.subjectId === 'preparaty') {
+      typeBadge.className = 'question-badge preparaty';
+      typeBadge.textContent = 'Histologický preparát';
+    } else {
+      typeBadge.className = `question-badge ${q.type}`;
+      if (q.type === 'single_choice') typeBadge.textContent = 'Single Choice';
+      else if (q.type === 'case_study') typeBadge.textContent = 'Kazuistika';
+      else if (q.type === 'fill_in') typeBadge.textContent = 'Dopisovací otázka';
+    }
 
     const subBadge = document.getElementById('question-subject-badge');
     subBadge.textContent = `${q.subjectTitle || ''} • ${q.topicTitle || ''}`;
@@ -1080,10 +1155,14 @@
     const mediaCaption = document.getElementById('question-media-caption');
     if (mediaBox && mediaImage && q.media && q.media.src) {
       mediaImage.src = q.media.src;
-      mediaImage.alt = q.media.alt || 'Obrázková otázka z mikrobiologie';
-      if (mediaCaption) mediaCaption.textContent = q.media.kind === 'supplied'
-        ? 'Obrázek z dodaného studentského sešitu.'
-        : 'Reprezentativní výukový obrázek.';
+      mediaImage.alt = q.media.alt || (q.isSlide ? 'Histologický preparát' : 'Obrázková otázka');
+      if (mediaCaption) {
+        mediaCaption.textContent = q.isSlide
+          ? '🔍 Klikněte pro zvětšení a detailní náhled preparátu na celou obrazovku.'
+          : (q.media.kind === 'supplied'
+            ? 'Obrázek z dodaného studentského sešitu.'
+            : 'Reprezentativní výukový obrázek.');
+      }
       mediaBox.hidden = false;
     } else if (mediaBox) {
       mediaBox.hidden = true;
@@ -1104,6 +1183,7 @@
     const vignetteBox = document.getElementById('case-vignette-box');
     const optionsGrid = document.getElementById('options-grid');
     const fillInBox = document.getElementById('fill-in-box');
+    const revealSlideBtn = document.getElementById('btn-reveal-slide-options');
     const explanationCard = document.getElementById('drill-explanation-card');
     const nextBar = document.getElementById('drill-next-bar');
     const srsRating = document.getElementById('srs-rating-container');
@@ -1115,8 +1195,36 @@
     srsRating.classList.remove('active');
     pearlBox.style.display = 'none';
 
+    // 0. TYP: HISTOLOGICKÝ PREPARÁT (HYBRID: PSANÍ TEXTEM + VÝBĚR ZE 4 MOŽNOSTÍ)
+    if (q.isSlide || q.subjectId === 'preparaty') {
+      vignetteBox.style.display = 'none';
+      optionsGrid.style.display = 'none';
+      fillInBox.style.display = 'block';
+
+      if (revealSlideBtn) {
+        revealSlideBtn.style.display = 'inline-flex';
+        revealSlideBtn.disabled = false;
+        revealSlideBtn.onclick = () => {
+          if (drill.answered) return;
+          fillInBox.style.display = 'none';
+          renderSlideOptions(q);
+        };
+      }
+
+      const input = document.getElementById('fill-in-input');
+      input.value = '';
+      input.className = 'fill-in-input';
+      input.placeholder = 'Napište název preparátu (např. Amyloidóza srdce)...';
+      input.disabled = false;
+      input.focus();
+
+      const hintText = document.getElementById('fill-in-hint-text');
+      hintText.style.display = 'none';
+      hintText.textContent = q.hint || '';
+
     // 1. TYP: KAZUISTIKA
-    if (q.type === 'case_study') {
+    } else if (q.type === 'case_study') {
+      if (revealSlideBtn) revealSlideBtn.style.display = 'none';
       vignetteBox.style.display = 'block';
       optionsGrid.style.display = 'none';
       fillInBox.style.display = 'none';
@@ -1157,46 +1265,14 @@
 
     // 2. TYP: SINGLE CHOICE
     } else if (q.type === 'single_choice') {
+      if (revealSlideBtn) revealSlideBtn.style.display = 'none';
       vignetteBox.style.display = 'none';
       fillInBox.style.display = 'none';
-      optionsGrid.style.display = 'flex';
-      optionsGrid.innerHTML = '';
-
-      const letters = ['A', 'B', 'C', 'D', 'E'];
-      (q.options || []).forEach((optText, optIdx) => {
-        const btn = document.createElement('button');
-        btn.className = 'option-btn';
-        btn.setAttribute('data-option-index', optIdx);
-
-        const contentWrap = document.createElement('div');
-        contentWrap.className = 'option-btn-content';
-        
-        const letterSpan = document.createElement('span');
-        letterSpan.className = 'option-letter';
-        letterSpan.textContent = letters[optIdx] || String(optIdx + 1);
-
-        const textSpan = document.createElement('span');
-        textSpan.textContent = String(optText);
-
-        contentWrap.appendChild(letterSpan);
-        contentWrap.appendChild(textSpan);
-        btn.appendChild(contentWrap);
-
-        const kbdSpan = document.createElement('span');
-        kbdSpan.className = 'kbd-hint';
-        kbdSpan.textContent = letters[optIdx] || String(optIdx + 1);
-        btn.appendChild(kbdSpan);
-
-        btn.addEventListener('click', () => {
-          if (drill.answered) return;
-          handleSingleChoiceAnswer(q, optIdx, btn);
-        });
-
-        optionsGrid.appendChild(btn);
-      });
+      renderSlideOptions(q);
 
     // 3. TYP: FILL-IN (DOPISOVACÍ)
     } else if (q.type === 'fill_in') {
+      if (revealSlideBtn) revealSlideBtn.style.display = 'none';
       vignetteBox.style.display = 'none';
       optionsGrid.style.display = 'none';
       fillInBox.style.display = 'block';
@@ -1204,6 +1280,7 @@
       const input = document.getElementById('fill-in-input');
       input.value = '';
       input.className = 'fill-in-input';
+      input.placeholder = 'Zadejte odpověď nebo termín...';
       input.disabled = false;
       input.focus();
 
@@ -1211,6 +1288,47 @@
       hintText.style.display = 'none';
       hintText.textContent = q.hint || '';
     }
+  }
+
+  function renderSlideOptions(q) {
+    const drill = state.currentDrill;
+    const optionsGrid = document.getElementById('options-grid');
+    if (!optionsGrid) return;
+    optionsGrid.style.display = 'flex';
+    optionsGrid.innerHTML = '';
+
+    const letters = ['A', 'B', 'C', 'D', 'E'];
+    (q.options || []).forEach((optText, optIdx) => {
+      const btn = document.createElement('button');
+      btn.className = 'option-btn';
+      btn.setAttribute('data-option-index', optIdx);
+
+      const contentWrap = document.createElement('div');
+      contentWrap.className = 'option-btn-content';
+      
+      const letterSpan = document.createElement('span');
+      letterSpan.className = 'option-letter';
+      letterSpan.textContent = letters[optIdx] || String(optIdx + 1);
+
+      const textSpan = document.createElement('span');
+      textSpan.textContent = String(optText);
+
+      contentWrap.appendChild(letterSpan);
+      contentWrap.appendChild(textSpan);
+      btn.appendChild(contentWrap);
+
+      const kbdSpan = document.createElement('span');
+      kbdSpan.className = 'kbd-hint';
+      kbdSpan.textContent = letters[optIdx] || String(optIdx + 1);
+      btn.appendChild(kbdSpan);
+
+      btn.addEventListener('click', () => {
+        if (drill.answered) return;
+        handleSingleChoiceAnswer(q, optIdx, btn);
+      });
+
+      optionsGrid.appendChild(btn);
+    });
   }
 
   // Odpověď pro Single Choice
@@ -1286,6 +1404,61 @@
 
     drill.answered = true;
     input.disabled = true;
+
+    // Speciální vyhodnocení pro histologické preparáty s 3-stupňovým rozptylem
+    if (q.isSlide || q.subjectId === 'preparaty') {
+      const evalRes = evaluateSlideTextMatch(userVal, q);
+      const isCorrect = evalRes.match === 'correct';
+      const isPartial = evalRes.match === 'partial';
+
+      drill.userAnswers[drill.currentIndex] = {
+        isCorrect: isCorrect || isPartial,
+        isPartial,
+        userVal,
+        questionId: q.id
+      };
+
+      if (isCorrect) {
+        drill.correctCount++;
+        input.classList.add('correct');
+        triggerHaptic('success');
+        playSfx('correct');
+      } else if (isPartial) {
+        drill.correctCount += 0.5;
+        input.classList.add('partial');
+        triggerHaptic('light');
+        playSfx('correct');
+      } else {
+        drill.missedQuestions.push(q);
+        input.classList.add('incorrect');
+        triggerHaptic('error');
+        playSfx('incorrect');
+      }
+
+      renderQuestionStepper();
+
+      // Uložit do IndexedDB
+      await window.drillStorage.recordAnswer(q, isCorrect || isPartial);
+      const updatedState = await window.drillStorage.getQuestionState(q.id);
+      state.userStates.set(q.id, updatedState);
+      drill.answeredQuestionIds.add(q.id);
+
+      const officialName = (q.options && q.options[q.correctIndex]) || (q.acceptedAnswers && q.acceptedAnswers[0]) || '';
+      let title = '';
+      let explanationPrefix = '';
+
+      if (isCorrect) {
+        title = '🎯 Výborně! Správná diagnóza';
+      } else if (isPartial) {
+        title = `🟡 Skoro správně! Oficiální název: ${officialName}`;
+        explanationPrefix = `Rozpoznán klíčový termín / kořen slova ve vaší odpovědi: *${escapeHtml(userVal)}*.<br><br>`;
+      } else {
+        title = `❌ Nesprávně. Správná diagnóza: ${officialName}`;
+      }
+
+      showExplanation(title, (explanationPrefix ? explanationPrefix + q.explanation : q.explanation), q.pearl, isCorrect || isPartial, false, q);
+      return;
+    }
 
     const accepted = q.acceptedAnswers || [];
     const isCorrect = isFuzzyMatch(userVal, accepted);
@@ -2021,6 +2194,38 @@
     document.getElementById('card-timed-exam')?.addEventListener('click', () => startSmartDrill('timed'));
     document.getElementById('card-starred-deck')?.addEventListener('click', () => startSmartDrill('starred'));
     document.getElementById('card-reported-mikra')?.addEventListener('click', () => startSmartDrill('reported-mikra'));
+    document.getElementById('card-preparaty-deck')?.addEventListener('click', async () => {
+      if (!state.downloadedSubjects.has('preparaty') || (state.manifest && isSubjectUpdateAvailable(state.manifest.subjects.find(s => s.id === 'preparaty')))) {
+        const ok = await downloadSubject('preparaty');
+        if (!ok) return;
+      }
+      startSubjectDrill('preparaty');
+    });
+
+    // Lightbox zvětšení snímků preparátů
+    const mediaImage = document.getElementById('question-media-image');
+    if (mediaImage) {
+      mediaImage.addEventListener('click', () => {
+        const lightbox = document.getElementById('modal-lightbox');
+        const lightboxImg = document.getElementById('lightbox-image');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        if (lightbox && lightboxImg && mediaImage.src) {
+          lightboxImg.src = mediaImage.src;
+          lightboxImg.alt = mediaImage.alt || 'Zvětšený histologický preparát';
+          if (lightboxCaption) {
+            const q = state.currentDrill.questions[state.currentDrill.currentIndex];
+            lightboxCaption.textContent = (q && (q.isSlide || q.subjectId === 'preparaty') && !state.currentDrill.answered)
+              ? 'Histologický preparát (zvětšený detail — klikněte na × nebo Escape pro zavření)'
+              : (mediaImage.alt || '');
+          }
+          openModal('modal-lightbox');
+        }
+      });
+    }
+
+    document.getElementById('btn-close-lightbox')?.addEventListener('click', () => {
+      closeModal('modal-lightbox');
+    });
 
     // Tlačítko ukončení testu
     document.getElementById('btn-exit-drill')?.addEventListener('click', () => {

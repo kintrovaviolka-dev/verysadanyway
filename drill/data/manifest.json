@@ -1,6 +1,6 @@
 {
   "version": "2026.4.0",
-  "lastUpdated": "2026-10-09T16:45:43.125Z",
+  "lastUpdated": "2026-10-09T17:16:29.487Z",
   "subjects": [
     {
       "id": "patola",
@@ -18,6 +18,23 @@
       "sizeBytes": 335873,
       "sizeFormatted": "328 kB",
       "file": "/drill/data/modules/patola.json"
+    },
+    {
+      "id": "preparaty",
+      "revision": "2026.4.0-prep89",
+      "title": "Zkouškové preparáty",
+      "grade": 3,
+      "icon": "🔬",
+      "color": "#00FFC2",
+      "totalQuestions": 89,
+      "counts": {
+        "single_choice": 89,
+        "case_study": 0,
+        "fill_in": 0
+      },
+      "sizeBytes": 142418,
+      "sizeFormatted": "139 kB",
+      "file": "/drill/data/modules/preparaty.json"
     },
     {
       "id": "imuno",
