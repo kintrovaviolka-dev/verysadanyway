@@ -840,7 +840,7 @@ select:focus-visible {
   font-size: 0.95rem;
   line-height: 1.6;
   color: #cbd5e1;
-  white-space: pre-line;
+  white-space: normal;
   overflow-wrap: anywhere;
 }
 
@@ -1059,6 +1059,31 @@ select:focus-visible {
   line-height: 1.6;
   color: #cbd5e1;
   margin-bottom: 16px;
+}
+
+.drill-formatted-para {
+  margin: 0 0 10px 0;
+  line-height: 1.6;
+}
+
+.drill-formatted-para:last-child {
+  margin-bottom: 0;
+}
+
+.drill-formatted-list {
+  margin: 8px 0 12px 18px;
+  padding: 0;
+  list-style-type: disc;
+}
+
+.drill-formatted-list li {
+  margin-bottom: 6px;
+  line-height: 1.5;
+  color: #e2e8f0;
+}
+
+.drill-formatted-list li:last-child {
+  margin-bottom: 0;
 }
 
 /* Clinical Pearl Banner */

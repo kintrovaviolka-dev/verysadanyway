@@ -52,6 +52,59 @@
       .replace(/'/g, '&#039;');
   }
 
+  function formatMedicalText(raw) {
+    if (!raw) return '';
+    let str = String(raw).trim();
+    str = str.replace(/<br\s*\/?>/gi, '\n');
+    str = str.replace(/<ul[^>]*>/gi, '').replace(/<\/ul>/gi, '');
+    str = str.replace(/<li>\s*/gi, '• ').replace(/<\/li>\s*/gi, '\n');
+    str = str.replace(/<strong>([\s\S]*?)<\/strong>/gi, '**$1**');
+    str = str.replace(/<b>([\s\S]*?)<\/b>/gi, '**$1**');
+    str = str.replace(/<em>([\s\S]*?)<\/em>/gi, '*$1*');
+    str = str.replace(/<i>([\s\S]*?)<\/i>/gi, '*$1*');
+    str = str.replace(/<[^>]+>/g, '');
+
+    let safe = escapeHtml(str);
+    safe = safe.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    safe = safe.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+
+    const lines = safe.split('\n');
+    let inList = false;
+    const htmlParts = [];
+
+    lines.forEach(line => {
+      const trimmed = line.trim();
+      if (!trimmed) {
+        if (inList) {
+          htmlParts.push('</ul>');
+          inList = false;
+        }
+        return;
+      }
+
+      if (trimmed.startsWith('• ') || trimmed.startsWith('- ') || /^[0-9]+\.\s+/.test(trimmed)) {
+        if (!inList) {
+          htmlParts.push('<ul class="drill-formatted-list">');
+          inList = true;
+        }
+        const itemText = trimmed.replace(/^(•|-|[0-9]+\.)\s+/, '');
+        htmlParts.push(`<li>${itemText}</li>`);
+      } else {
+        if (inList) {
+          htmlParts.push('</ul>');
+          inList = false;
+        }
+        htmlParts.push(`<p class="drill-formatted-para">${trimmed}</p>`);
+      }
+    });
+
+    if (inList) {
+      htmlParts.push('</ul>');
+    }
+
+    return htmlParts.join('') || safe;
+  }
+
   function removeDiacritics(str) {
     if (!str) return '';
     return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
@@ -1032,7 +1085,7 @@
         headerEl.appendChild(tag2);
       }
 
-      document.getElementById('vignette-scenario-text').textContent = v.scenario || q.question || '';
+      document.getElementById('vignette-scenario-text').innerHTML = formatMedicalText(v.scenario || q.question || '');
 
       // Tlačítko odhalit řešení
       promptEl.innerHTML = '';
@@ -1221,11 +1274,19 @@
 
     titleEl.className = `explanation-title ${isCorrect ? 'correct' : 'incorrect'}`;
     titleEl.textContent = title;
-    contentEl.textContent = content || 'Správná volba dle lékařského postupu.';
+    contentEl.innerHTML = formatMedicalText(content || 'Správná volba dle lékařského postupu.');
 
-    if (pearl && pearl.length > 5) {
+    const cleanPearl = pearl ? String(pearl).trim() : '';
+    const cleanContent = content ? String(content).trim() : '';
+    const isGenericPearl = !cleanPearl ||
+      cleanPearl.length < 15 ||
+      /^(speciální|obecná) neurologie|lf ou|učebnice|kapitola|kardiologie|psychiatrie|dermatologie/i.test(cleanPearl) ||
+      (cleanContent && cleanPearl.toLowerCase() === cleanContent.toLowerCase()) ||
+      (cleanPearl.startsWith('Klíčový fakt: ') && cleanPearl.toLowerCase() === cleanContent.toLowerCase());
+
+    if (!isGenericPearl) {
       pearlBox.style.display = 'block';
-      pearlText.textContent = pearl;
+      pearlText.innerHTML = formatMedicalText(cleanPearl);
     } else {
       pearlBox.style.display = 'none';
     }

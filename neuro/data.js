@@ -1,4 +1,3 @@
-// data.js - Kompletní databáze Obecné a Speciální neurologie pro 4. ročník LF OU
 const NEUROLOGY_DATA = {
   "title": "Neurologie • Kompletní studijní portál LF OU",
   "subtitle": "Interaktivní příprava ke zkoušce z neurologie: Obecná neurologie (25 otázek) a Speciální neurologie (42 otázek) s Leitner flashcards, aktivním vybavováním a testovou bankou.",
@@ -185,19 +184,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-q01-1",
           "front": "Kde dochází ke křížení pyramidové dráhy a jaké procento vláken se kříží?",
           "back": "V <em>decussatio pyramidum</em> na rozhraní prodloužené míchy a hřbetní míchy. Kříží se cca <strong>80–90 % vláken</strong> (tractus corticospinalis lateralis); 10–20 % běží nekříženě (tractus corticospinalis anterior).",
-          "hint": "Rozhraní medulla oblongata a mícha."
+          "hint": "Rozhraní prodloužené a hřbetní míchy."
         },
         {
           "id": "fc-q01-2",
           "front": "Jmenujte 4 základní příznaky syndromu léze centrálního motoneuronu (1. motoneuron).",
           "back": "1. <strong>Spasticita</strong> (zvýšený tonus s fenoménem sklapovacího nože)<br>2. <strong>Hyperreflexie</strong> šlachově-okosticových reflexů + klonus<br>3. <strong>Pyramidové iritační jevy</strong> (např. pozitivní Babinski)<br>4. <strong>Zánik kožních reflexů</strong> (břišní) + absence časných neurogenních atrofií.",
-          "hint": "Tonus, reflexy, iritační jevy, atrofie."
+          "hint": "Fenomén sklapovacího nože, hyperreflexie, Babinski."
         },
         {
           "id": "fc-q01-3",
           "front": "Jaká je lokalizace vláken pro HK a DK v capsula interna?",
           "back": "Všechna pyramidová vlákna pro trup a končetiny procházejí v <strong>crus posterius</strong> capsula interna (somatotopicky zpředu dozadu: HK -> trup -> DK). V <strong>genu</strong> probíhá <em>tractus corticonuclearis</em> pro hlavové nervy.",
-          "hint": "Genu vs. crus posterius."
+          "hint": "Zadní raménko capsula interna."
         }
       ],
       "quiz": [
@@ -278,19 +277,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-q02-1",
           "front": "Jaký je hlavní rozdíl v patofyziologii mezi Myasthenia gravis a LEMS?",
           "back": "<strong>Myasthenia gravis:</strong> Postsynaptický autoimunitní blok (anti-AChR nebo anti-MuSK protilátky).<br><strong>LEMS:</strong> Presynaptický blok uvolňování acetylcholinu (anti-VGCC Ca2+ kanály, často paraneoplastický u SCLC).",
-          "hint": "Postsynapse vs. presynapse."
+          "hint": "Postsynaptické AChR vs. presynaptické VGCC."
         },
         {
           "id": "fc-q02-2",
           "front": "Co je to Gowersovo znamení a pro co je typické?",
           "back": "Fenomén, kdy pacient při vstávání ze země 'šplhá rukama po vlastních dolních končetinách' v důsledku těžké slabosti pánevního pletence a gluteálního svalstva. Typické pro <strong>proximální myopatie a svalové dystrofie (např. Duchenneova dystrofie)</strong>.",
-          "hint": "Vstávání z podlahy u myopatií."
+          "hint": "Šplhání po vlastním těle při slabosti pletenců."
         },
         {
           "id": "fc-q02-3",
           "front": "Jaký je EMG nález u myogenní léze na jehlovém EMG?",
           "back": "Akční potenciály motorických jednotek (MUAP) mají <strong>nízkou amplitudu</strong>, <strong>zkrácené trvání</strong> a vysokou polyfázii. Při minimální volní kontrakci vzniká předčasný bohatý interferenční obraz.",
-          "hint": "Amplituda a trvání MUAP."
+          "hint": "EMG obraz primárního svalového postižení."
         }
       ],
       "quiz": [
@@ -371,19 +370,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-q03-1",
           "front": "Kde dochází ke křížení dráhy zadních provazců a kde spinotalamické dráhy?",
           "back": "<strong>Zadní provazce:</strong> Kříží se až v <em>prodloužené míše</em> (decussatio lemnisci medialis).<br><strong>Spinotalamická dráha:</strong> Kříží se hned <em>v míše</em> v commissura alba anterior (1–2 segmenty nad vstupem).",
-          "hint": "Kmen vs. míšní segmenty."
+          "hint": "Tractus spinothalamicus kříží v míše, zadní provazce až v prodloužené míše."
         },
         {
           "id": "fc-q03-2",
           "front": "Definujte syringomyelickou disociaci čití.",
           "back": "Selektivní ztráta vnímání <strong>bolesti a teploty</strong> (protopatické čití) při <strong>zachovalém hlubokém a taktilním čití</strong> (epikritické čití).",
-          "hint": "Bolest/teplo vs. polohocit/vibrace."
+          "hint": "Gyrus postcentralis v parietálním laloku."
         },
         {
           "id": "fc-q03-3",
           "front": "Co je to astereognozie a pro lézi které struktury svědčí?",
           "back": "Neschopnost identifikovat hmatem předmět vložený do ruky při zavřených očích (tvar, materiál). Svědčí pro lézi <strong>kontralaterálního parietálního somatosenzorického kortexu</strong>.",
-          "hint": "Poznávání předmětů hmatem."
+          "hint": "Neschopnost poznat předmět hmatem při zachovaném čití."
         }
       ],
       "quiz": [
@@ -464,19 +463,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-q04-1",
           "front": "Jaký je charakter senzitivního a motorického výpadku u Brown-Séquardova syndromu?",
           "back": "<strong>Homolaterálně:</strong> Centrální spastická paréza + ztráta propriocepce a vibrace (zadní provazce).<br><strong>Kontralaterálně:</strong> Ztráta vnímání bolesti a teploty (spinotalamický trakt).",
-          "hint": "Co je na straně léze a co naproti."
+          "hint": "Ipsilaterální centrální paréza + kontralaterální termanestezie."
         },
         {
           "id": "fc-q04-2",
           "front": "Které senzitivní modality zůstávají ZACHOVÁNY při syndromu arteria spinalis anterior?",
           "back": "<strong>Hluboké čití, polohocit a vibrace</strong> (epikritické čití zadních provazců), protože zadní provazce jsou zásobeny párovými <em>aa. spinales posteriores</em>.",
-          "hint": "Zadní provazce a jejich cévní zásobení."
+          "hint": "Přední míšní arterie zásobuje přední 2/3 míchy."
         },
         {
           "id": "fc-q04-3",
           "front": "Jaký je hlavní rozdíl mezi syndromem conus medullaris a cauda equina?",
           "back": "<strong>Conus medullaris:</strong> Časná sfinkterová porucha, symetrická sedlovitá anestézie, bez těžké motorické parézy DKK.<br><strong>Cauda equina:</strong> Těžká krutá radikulární bolest do DKK, asymetrická chabá paréza DKK, vyhaslé reflexy L/S, sfinktery mohou nastupovat později.",
-          "hint": "Bolest, paréza a symetrie."
+          "hint": "Dissociovaná porucha čití v plášťové distribuci."
         }
       ],
       "quiz": [
@@ -557,19 +556,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-q05-1",
           "front": "Co je to alternující kmenový syndrom a jaké je obecné pravidlo pro lokalizaci?",
           "back": "Kombinace <strong>homolaterální periferní obrny hlavového nervu</strong> (na straně léze v kmeni) a <strong>kontralaterální centrální hemiparézy / hemihypestézie</strong> končetin a trupu.",
-          "hint": "Hlavový nerv vs. končetiny."
+          "hint": "Ipsilaterální hlavový nerv + kontralaterální hemiparéza/hemihypestezie."
         },
         {
           "id": "fc-q05-2",
           "front": "Jaké jsou hlavní klinické projevy Wallenbergova dorzolaterálního medulárního syndromu?",
           "back": "1. <strong>Homolaterálně:</strong> Hornerův syndrom, ataxie HKK, dysfagie/dysfonie (n. IX/X), znecitlivění obličeje (n. V).<br>2. <strong>Kontralaterálně:</strong> Porucha vnímání bolesti a teploty na těle.<br>3. <strong>Další:</strong> Vertigo, zvracení, nystagmus, škytavka.",
-          "hint": "PICA syndrom."
+          "hint": "Dorzo-laterální oblongata (a. cerebelli inferior posterior - PICA)."
         },
         {
           "id": "fc-q05-3",
           "front": "Co charakterizuje talamický syndrom dle Dejerine-Roussy?",
           "back": "Kontralaterální <strong>hemihypestézie</strong> všech modalit spojená s krutou spontánní <strong>talamickou bolestí</strong>, alodynií, hyperpatií a přechodnou senzorickou ataxií.",
-          "hint": "Thalamus a chronická bolest."
+          "hint": "Thalamus - relé všech senzitivních drah kromě čichu."
         }
       ],
       "quiz": [
@@ -650,19 +649,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-q06-1",
           "front": "Jak se projeví kompletní léze n. oculomotorius (III. nerv)?",
           "back": "1. <strong>Těžká ptóza</strong> horního víčka.<br>2. <strong>Divergentní strabismus</strong> (bulbus stočen zevně a dolů).<br>3. <strong>Mydriáza</strong> (široká zornice bez reakce na osvit) a porucha akomodace.",
-          "hint": "Ptóza, postavení bulbu a zornice."
+          "hint": "N. oculomotorius (III. hlavový nerv)."
         },
         {
           "id": "fc-q06-2",
           "front": "Popište klinický nález u internukleární oftalmoplegie (INO) vlevo.",
           "back": "Při pohledu doprava levé oko <strong>neaddukuje</strong> (vázne addukce vlevo), zatímco pravé oko abdukuje za přítomnosti <strong>monokulárního nystagmu</strong>. Konvergence na blízko je intaktní.",
-          "hint": "Léze FLM, addukce vs. nystagmus."
+          "hint": "Fasciculus longitudinalis medialis (FLM)."
         },
         {
           "id": "fc-q06-3",
           "front": "Co tvoří triádu Hornerova syndromu a jaký je jeho mechanismus?",
           "back": "Triáda: <strong>Ptóza</strong>, <strong>mióza</strong> a <strong>enoftalmus</strong> (+ event. ipsilaterální anhidróza). Mechanismus: Léze <strong>okosympatické dráhy</strong> (např. Pancoastův tumor plic, disekce a. carotis interna, Wallenbergův syndrom).",
-          "hint": "Sympatikus a zornice."
+          "hint": "Nervus abducens (VI. hlavový nerv) – m. rectus lateralis."
         }
       ],
       "quiz": [
@@ -743,19 +742,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-q07-1",
           "front": "Jaký je reflexní oblouk korneálního reflexu?",
           "back": "<strong>Aferentace:</strong> N. ophthalmicus (V1) n. trigeminus.<br><strong>Centrum:</strong> Pons Varoli.<br><strong>Eferentace:</strong> N. facialis (VII) -> m. orbicularis oculi (oboustranné sevření víček).",
-          "hint": "Trigeminus -> Facialis."
+          "hint": "Trigeminus (V) je aferentní větev, Facialis (VII) je eferentní větev."
         },
         {
           "id": "fc-q07-2",
           "front": "Na kterou stranu se uchyluje dolní čelist při paréze motorické složky n. trigeminus a proč?",
           "back": "Čelist se při otevření úst uchyluje <strong>na stranu léze</strong> v důsledku převahy zdravého kontralaterálního <em>m. pterygoideus lateralis</em>, který vysunuje čelist dopředu a mediálně.",
-          "hint": "Ipsilaterálně k lézi."
+          "hint": "Karbamazepin je lékem 1. volby."
         },
         {
           "id": "fc-q07-3",
           "front": "Jaký je lék první volby u klasické neuralgie n. trigeminus?",
           "back": "<strong>Karbamazepin</strong> (nebo oxkarbazepin). Blokuje napěťově řízené sodíkové kanály a tlumí ektopické výboje v demyelinizovaném kořeni nervu.",
-          "hint": "Antiepileptikum na sodíkové kanály."
+          "hint": "V3 - nervus mandibularis."
         }
       ],
       "quiz": [
@@ -836,19 +835,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-q08-1",
           "front": "Proč je u centrální parézy n. facialis zachována hybnost čela?",
           "back": "Protože jádro n. VII pro horní větev (m. frontalis) dostává <strong>bilaterální kortikonukleární inervaci z obou mozkových hemisfér</strong>. Dolní polovina obličeje má inervaci pouze zkříženou.",
-          "hint": "Bilaterální korová inervace."
+          "hint": "Periferní paréza postihuje i čelo, centrální čelo šetří."
         },
         {
           "id": "fc-q08-2",
           "front": "Co je to Bellův fenomén?",
           "back": "Při pokusu o zavření oka u periferní parézy n. VII se <strong>bulbus fyziologicky stáčí vzhůru a mírně zevně</strong>. Při nedovření víčka (lagoftalmu) je tento pohyb viditelný přes štěrbinu (bělmo).",
-          "hint": "Stáčení bulbu vzhůru při lagoftalmu."
+          "hint": "Stáčení očního bulbu vzhůru při pokusu o zavření oka."
         },
         {
           "id": "fc-q08-3",
           "front": "Co charakterizuje Ramsay-Huntův syndrom?",
           "back": "1. <strong>Periferní paréza n. facialis</strong>.<br>2. <strong>Herpetické vezikuly v zevním zvukovodu</strong> a na boltci (Herpes zoster oticus).<br>3. Bolest ucha + často léze n. VIII (závrať, tinitus, nedoslýchavost).",
-          "hint": "VZV v ganglion geniculi."
+          "hint": "Reaktivace VZV v ganglion geniculi s herpetickým výsevem v uchu."
         }
       ],
       "quiz": [
@@ -929,19 +928,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-q09-1",
           "front": "Vyjmenujte 4 složky Gerstmannova syndromu a jeho lokalizaci.",
           "back": "1. <strong>Akalkulie</strong> (porucha počítání)<br>2. <strong>Agrafie</strong> (porucha psaní)<br>3. <strong>Prstová agnozie</strong> (nerozpoznání prstů)<br>4. <strong>Pravolevá dezorientace</strong>.<br>Lokalizace: <em>Gyrus angularis dominantní parietální hemisféry</em>.",
-          "hint": "Počítání, psaní, prsty, strany."
+          "hint": "Akalkulie, agrafie, alektie prstů a stranová dezorientace."
         },
         {
           "id": "fc-q09-2",
           "front": "Co charakterizuje korovou slepotu a Antonův syndrom?",
           "back": "<strong>Korová slepota:</strong> Oboustranná léze primárního zrakového kortexu v okcipitálních lalocích (ztráta zraku, ale fotoreakce zornic je zachována).<br><strong>Antonův syndrom:</strong> Anosognózie korové slepoty – pacient popírá slepotu a konfabuluje.",
-          "hint": "Okcipitální kortex a anosognózie."
+          "hint": "Syndrom korové slepoty s anosognózií deficitu."
         },
         {
           "id": "fc-q09-3",
           "front": "Co je to Foster-Kennedyho syndrom?",
           "back": "Kombinace: 1. <strong>Homolaterální atrofie n. opticus a anosmie</strong> (přímý tlak tumoru na spodinu frontálního laloku) + 2. <strong>Kontralaterální městnavá papila</strong> (z celkové nitrolební hypertenze).",
-          "hint": "Tumor baze frontálního laloku."
+          "hint": "Frontální lalok - léze prefrontální kůry."
         }
       ],
       "quiz": [
@@ -1022,19 +1021,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-q10-1",
           "front": "Jaký je hlavní rozdíl mezi Brocovou a Wernickeovou afázií?",
           "back": "<strong>Brocova afázie:</strong> Nefluentní, namáhavá produkce řeči, ale <em>dobré porozumění</em> (pacient si deficit uvědomuje).<br><strong>Wernickeova afázie:</strong> Fluentní řeč (logorea, parafázie), ale <em>těžká porucha porozumění</em> (pacient si deficit neuvědomuje).",
-          "hint": "Plynulost vs. porozumění."
+          "hint": "Broca = motorická (neplynulá), Wernicke = senzorická (plynulá)."
         },
         {
           "id": "fc-q10-2",
           "front": "Kde je anatomická léze u kondukční afázie a jaký je její klíčový příznak?",
           "back": "Léze je ve <strong>fasciculus arcuatus</strong> (asociační dráha spojující Wernickeovo a Brocovo centrum). Klíčový příznak: <strong>Izolovaně těžce porušené opakování slov a vět</strong> při zachované fluenci i porozumění.",
-          "hint": "Fasciculus arcuatus a opakování."
+          "hint": "Fasciculus arcuatus propojuje Wernickeovu a Brocovu oblast."
         },
         {
           "id": "fc-q10-3",
           "front": "Jaký je zásadní rozdíl mezi afázií a dysartrií?",
           "back": "<strong>Afázie:</strong> Korová porucha tvorby a chápání jazykového symbolického kódu (postiženo je i psaní a čtení).<br><strong>Dysartrie:</strong> Čistě motorická porucha artikulace svalů mluvidel; psaní a porozumění jsou <strong>intaktní</strong>.",
-          "hint": "Jazykový kód vs. motorická artikulace."
+          "hint": "Gyrus temporalis superior (Wernickeovo centrum)."
         }
       ],
       "quiz": [
@@ -1115,19 +1114,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-q11-1",
           "front": "Definujte rozdíl mezi ideomotorickou a ideoatorní apraxií.",
           "back": "<strong>Ideomotorická apraxie:</strong> Pacient má plán, ale <em>nedokáže provést jednotlivé gesta a úkony na výzvu</em> (porucha realizace).<br><strong>Ideoatorní apraxie:</strong> Pacient <em>ztratil samotný koncept a posloupnost kroků</em> u komplexních činností s předměty.",
-          "hint": "Plán vs. realizace pohybu."
+          "hint": "Apraxie = neschopnost provést naučený účelný pohyb."
         },
         {
           "id": "fc-q11-2",
           "front": "Co je to prozopagnozie a kde je anatomická léze?",
           "back": "Neschopnost <strong>rozpoznávat známé lidské tváře zrakem</strong> (pacient pozná lidi až podle hlasu či chůze). Léze je v <strong>gyrus fusiformis (occipitotemporální kůra)</strong>, často oboustranně.",
-          "hint": "Rozpoznávání tváří."
+          "hint": "Prosopagnózie - gyrus fusiformis."
         },
         {
           "id": "fc-q11-3",
           "front": "Jaké je bodové rozmezí v testu MMSE a jaké je skóre pro suspektní demenci?",
           "back": "Maximum je <strong>30 bodů</strong>. Skóre <strong>< 24 bodů</strong> svědčí pro přítomnost demence (24–27 b. odpovídá lehké kognitivní poruše - MCI).",
-          "hint": "Limit pro demenci v MMSE."
+          "hint": "MMSE skóre pod 24 bodů z 30."
         }
       ],
       "quiz": [
@@ -1208,19 +1207,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-q12-1",
           "front": "Jaké je bodové rozmezí GCS a od jaké hodnoty je definováno kóma s nutností intubace?",
           "back": "Rozmezí je <strong>3 až 15 bodů</strong>. Kóma je definováno při <strong>GCS ≤ 8 bodů</strong> (indikace k orotracheální intubaci a umělé plicní ventilaci).",
-          "hint": "Minimální a mezní skóre."
+          "hint": "GCS má rozmezí 3 až 15 bodů."
         },
         {
           "id": "fc-q12-2",
           "front": "Popište Locked-in syndrom (lokalizace léze a způsob komunikace).",
           "back": "Léze je ve <strong>ventrální části pontu</strong> (trombóza a. basilaris). Pacient má intaktní vědomí, ale je kvadruplegický s obrnou hlavových nervů; komunikuje <strong>výhradně vertikálními pohyby bulbů a mrkáním</strong>.",
-          "hint": "Ventrální pons a vertikální pohled."
+          "hint": "Locked-in syndrom (pseudokóma) - ventrální léze pontu."
         },
         {
           "id": "fc-q12-3",
           "front": "Jaké jsou základní kmenové reflexy, které musí vymizet při stanovení smrti mozku?",
           "back": "1. <strong>Fotoreakce</strong> (zornicový reflex)<br>2. <strong>Korneální reflex</strong><br>3. <strong>Vestibulookulární reflex</strong> (kalorický/okulocefalický)<br>4. <strong>Faryngeální a tracheální (kašlací) reflex</strong><br>5. Negativní <strong>apnoický test</strong>.",
-          "hint": "Zornice, rohovka, kalorie, kašel, apnoe."
+          "hint": "Apnoický test k potvrzení mozkové smrti."
         }
       ],
       "quiz": [
@@ -1301,19 +1300,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-q13-1",
           "front": "Popište průchod moku komorovým systémem z postranních komor do subarachnoidálního prostoru.",
           "back": "Postranní komory -> <strong>Foramen interventriculare (Monroi)</strong> -> III. komora -> <strong>Aqueductus Sylvii</strong> -> IV. komora -> <strong>Apertura mediana (Magendie) a laterales (Luschka)</strong> -> cisterna magna a subarachnoidální prostor.",
-          "hint": "Monro -> Sylvius -> Magendie/Luschka."
+          "hint": "Normální denní produkce likvoru je cca 500 ml."
         },
         {
           "id": "fc-q13-2",
           "front": "Vyjmenujte 3 složky Hakimovy triády u normotenzního hydrocefalu (NPH).",
           "back": "1. <strong>Porucha chůze</strong> (šouravá, magnetická apraxie chůze)<br>2. <strong>Demence</strong> (subkortikální zpomalení)<br>3. <strong>Urinární inkontinence</strong> (imperativní mikce).",
-          "hint": "Chůze, hlava, moč."
+          "hint": "Hakimova triáda: porucha chůze, demence, inkontinence moči."
         },
         {
           "id": "fc-q13-3",
           "front": "Co je to likvorový Tap-test (odpouštěcí test)?",
           "back": "Lumbální punkce s odběrem <strong>30–50 ml moku</strong> a objektivním testováním chůze před a po punkci. Výrazné zlepšení chůze potvrdí NPH a indikuje zavedení <strong>VP shuntu</strong>.",
-          "hint": "Odběr 40 ml a test chůze."
+          "hint": "Tap test (odpouštěcí lumbální punkce) 30-50 ml."
         }
       ],
       "quiz": [
@@ -1394,19 +1393,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-q14-1",
           "front": "Co tvoří Cushingovu triádu u nitrolební hypertenze?",
           "back": "1. <strong>Systémová arteriální hypertenze</strong> (se širokým pulzním tlakem)<br>2. <strong>Bradykardie</strong><br>3. <strong>Respirační deprese / nepravidelné dýchání</strong>.<br>Znamená dekompenzaci ICP s útlakem mozkového kmene!",
-          "hint": "TK, pulz, dýchání."
+          "hint": "Cushingova triáda: hypertenze, bradykardie, nepravidelné dýchání."
         },
         {
           "id": "fc-q14-2",
           "front": "Jaké jsou klinické příznaky temporální (uncální) herniace?",
           "back": "1. <strong>Homolaterální mydriáza</strong> s vyhaslou fotoreakcí (komprese n. III).<br>2. <strong>Kontralaterální hemiparéza</strong> (komprese pyramidové dráhy v crus cerebri).<br>3. Rychlý pokles vědomí do kómatu.",
-          "hint": "Zornice na straně léze + hemiparéza naproti."
+          "hint": "Unkální herniace = útlak n. III a mozkového kmene."
         },
         {
           "id": "fc-q14-3",
           "front": "Jaký je typický charakter bolesti hlavy u syndromu likvorové hypotenze (postpunkčního syndromu)?",
           "back": "Typická <strong>ortostatická (posturální) bolest hlavy</strong>: prudce se zhoršuje ve vzpřímené poloze (stoj, sed) a <strong>zcela vymizí nebo výrazně uleví po ulehnutí do horizontály</strong>.",
-          "hint": "Vzpřímená poloha vs. horizontála."
+          "hint": "Ortostatická bolest hlavy - zhoršení ve stoji, úleva vleže."
         }
       ],
       "quiz": [
@@ -1487,19 +1486,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-q15-1",
           "front": "Jak se vyšetřuje a hodnotí Brudzinského šíjový příznak (Brudzinski I)?",
           "back": "Pacient leží na zádech. Vyšetřující pasivně předkloní (flektuje) hlavu pacienta. Test je <strong>pozitivní, pokud pacient reflexně flektuje dolní končetiny v kolenou a kyčlích</strong>.",
-          "hint": "Flexe hlavy vyvolá flexi nohou."
+          "hint": "Opozice šíje, Brudzinski, Kernig."
         },
         {
           "id": "fc-q15-2",
           "front": "Jaký je nález v likvoru u akutní hnisavé (bakteriální) meningitidy?",
           "back": "1. <strong>Vzhled:</strong> Zkalený až hnisavý (opakní).<br>2. <strong>Cytologie:</strong> Masivní pleocytóza (stovky až tisíce elementů, převaha <em>polymorfonukleárních neutrofilů</em>).<br>3. <strong>Biochemie:</strong> Vysoký protein (bílkovina), <strong>extrémně nízká glukóza</strong> (< 40 % glykémie) a <strong>vysoký laktát (> 3,5 mmol/l)</strong>.",
-          "hint": "Neutrofily, nízká glukóza, vysoký laktát."
+          "hint": "Bakteriální meningitida má purulentní mok s převahou neutrofilů."
         },
         {
           "id": "fc-q15-3",
           "front": "Co je to xantochromie likvoru a co prokazuje?",
           "back": "Žlutavé až nažloutlé zbarvení supernatantu mozkomíšního moku <strong>po centrifugaci</strong> způsobené přítomností bilirubinu a hemoglobinu z rozpadlých erytrocytů. Prokazuje <strong>subarachnoidální krvácení (SAB)</strong> a odlišuje ho od arteficiálního zakrvácení při traumatické punkci.",
-          "hint": "Žlutý supernatant po centrifugaci moku."
+          "hint": "Xantochromie po centrifugaci likvoru (rozpad erytrocytů na bilirubin)."
         }
       ],
       "quiz": [
@@ -1580,19 +1579,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-q16-1",
           "front": "Co je to Moorův reflex a do kterého měsíce věku je fyziologický?",
           "back": "Úlekový reflex vyvolaný náhlým poklesem hlavičky: 1. fáze abdukce a extenze HKK s rozevřením dlaní, 2. fáze addukce a flexe HKK. Fyziologický je <strong>do 4.–5. měsíce věku</strong>.",
-          "hint": "Úlekový reflex 'objetí'."
+          "hint": "Morův reflex - úleková reakce."
         },
         {
           "id": "fc-q16-2",
           "front": "Popište asymetrický tonický šíjový reflex (ATŠR).",
           "back": "Při pasivním otočení hlavičky k jedné straně dochází k <strong>extenzi končetin na straně obličeje a flexi na straně záhlaví</strong> ('postoj šermíře'). Musí vymizet do 6. měsíce.",
-          "hint": "Postoj šermíře."
+          "hint": "Asymetrický tonický šíjový reflex (ATŠR)."
         },
         {
           "id": "fc-q16-3",
           "front": "Co charakterizuje diplegickou formu dětské mozkové obrny (Littleovu nemoc)?",
           "back": "Spastická paraparéza s <strong>dominantním postižením dolních končetin</strong>, spasticitou adduktorů kyčlí (nůžkovité křížení končetin při chůzi) a chůzí po špičkách (pes equinovarus). Častá u nedonošených dětí.",
-          "hint": "DMO s převahou na DKK a nůžkovitou chůzí."
+          "hint": "Diparetická forma DMO - nůžkovitá chůze."
         }
       ],
       "quiz": [
@@ -1673,19 +1672,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-q17-1",
           "front": "Jaký je hlavní rozdíl v zobrazení likvoru mezi T1, T2 a FLAIR sekvencí na MR mozku?",
           "back": "<strong>T1:</strong> Likvor je <strong>černý (hypointenzní)</strong>.<br><strong>T2:</strong> Likvor je <strong>zářivě bílý (hyperintenzní)</strong>.<br><strong>FLAIR:</strong> Likvor je <strong>potlačen do černa</strong>, zatímco patologie a edém kolem komor zůstávají bílé.",
-          "hint": "Barva likvoru v T1, T2 a FLAIR."
+          "hint": "T2 a FLAIR sekvence na MRI."
         },
         {
           "id": "fc-q17-2",
           "front": "Která MR sekvence prokáže akutní mozkový infarkt během několika minut od vzniku?",
           "back": "<strong>DWI (Diffusion-Weighted Imaging)</strong> v kombinaci s <strong>ADC mapou</strong>. Ischémie se zobrazuje jako restrikce difuze (hyperintenzní na DWI, hypointenzní na ADC).",
-          "hint": "Restrikce difuze vody."
+          "hint": "DWI - difuzně vážený obraz k detekci časné ischemie."
         },
         {
           "id": "fc-q17-3",
           "front": "Vyjmenujte 3 hlavní absolutní kontraindikace vyšetření magnetickou rezonancí (MR).",
           "back": "1. <strong>Nekompatibilní kardiostimulátor / ICD / neurostimulátor</strong>.<br>2. <strong>Feromagnetické kovové cizí těleso v orbitě / oku</strong>.<br>3. Starší <strong>feromagnetické intrakraniální cévní svorky (aneurysm clips)</strong>.",
-          "hint": "Kovy a elektronické implantáty."
+          "hint": "CT mozku nativně bez kontrastu k vyloučení krve."
         }
       ],
       "quiz": [
@@ -1766,19 +1765,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-q18-1",
           "front": "Jaká je frekvence fyziologického alfa rytmu na EEG a kdy se nejlépe zobrazí?",
           "back": "Frekvence <strong>8–13 Hz</strong>. Zobrazí se u bdělého relaxovaného člověka <strong>při zavřených očích v okcipitální krajině</strong>. Otevření očí vyvolá jeho vymizení (Bergerův fenomén).",
-          "hint": "8–13 Hz a zavřené oči."
+          "hint": "Alfa rytmus 8-13 Hz v okcipitální krajině při zavřených očích."
         },
         {
           "id": "fc-q18-2",
           "front": "Jaký je zásadní rozdíl v parametrech MUAP na jehlovém EMG mezi neurogenní a myogenní lézí?",
           "back": "<strong>Neurogenní léze:</strong> MUAP mají <strong>vysokou amplitudu</strong> a <strong>prodloužené trvání</strong> (obří potenciály z reinervace).<br><strong>Myogenní léze:</strong> MUAP mají <strong>nízkou amplitudu</strong> a <strong>zkrácené trvání</strong> (úbytek svalových vláken).",
-          "hint": "Amplituda a trvání potenciálu."
+          "hint": "Fibrilace a pozitivní ostré vlny (PSW)."
         },
         {
           "id": "fc-q18-3",
           "front": "Co značí přítomnost fibrilací a pozitivních ostrých vln (PSW) v klidovém jehlovém EMG?",
           "back": "Značí <strong>aktivní denervaci svalových vláken</strong> (akutní či progredující poškození axonu nebo těla motoneuronu).",
-          "hint": "Klidová spontánní aktivita."
+          "hint": "Fascikulace - spontánní záškuby motorických jednotek."
         }
       ],
       "quiz": [
@@ -1859,19 +1858,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-q19-1",
           "front": "V jaké výšce páteře se provádí lumbální punkce a proč?",
           "back": "V meziobratlovém prostoru <strong>L3/L4 nebo L4/L5</strong> (v úrovni crista iliaca). V této úrovni již mícha nepokračuje (conus medullaris končí v L1/L2) a v lumbálním vaku jsou pouze volné kořeny <em>cauda equina</em>.",
-          "hint": "L3/L4 a konec míchy."
+          "hint": "Meziobratlový prostor L3/L4 nebo L4/L5 pod zakončením míchy."
         },
         {
           "id": "fc-q19-2",
           "front": "Co je to proteinocytologická disociace v moku a u kterého onemocnění je typická?",
           "back": "Nález <strong>vysoké koncentrace bílkoviny</strong> při <strong>normálním počtu buněčných elementů (cytologie ≤ 5/µl)</strong>. Je typická pro <strong>syndrom Guillain-Barré (AIDP)</strong> a chronickou zánětlivou demyelinizační polyneuropatii (CIDP).",
-          "hint": "Vysoký protein + normální buňky."
+          "hint": "Albuminocytologická disociace - vysoký protein, normální buňky."
         },
         {
           "id": "fc-q19-3",
           "front": "Jaký likvorový nález oligoklonálních IgG pásů (OCB) svědčí pro roztroušenou sklerózu?",
           "back": "<strong>Izolovaná intratekální syntéza IgG (Typ 2):</strong> Přítomnost <strong>≥ 2 oligoklonálních pásů v likvoru</strong>, které <strong>nejsou přítomny v séru</strong> pacienta.",
-          "hint": "Pásy v moku, které chybí v séru."
+          "hint": "Oligoklonální pásy (OKP) svědčí pro intratekální syntézu IgG."
         }
       ],
       "quiz": [
@@ -1952,19 +1951,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-q20-1",
           "front": "Jaký je rozdíl mezi mozečkovou a senzorickou ataxií při Rombergově zkoušce?",
           "back": "<strong>Senzorická ataxie (zadní provazce):</strong> Pozitivní Romberg – při otevřených očích stojí dobře, ale <em>po zavření očí ihned padá</em>.<br><strong>Mozečková ataxie:</strong> Vrávorá a je nestabilní <em>stejně s otevřenýma i zavřenýma očima</em>.",
-          "hint": "Vliv zavření očí."
+          "hint": "Rombergův test - stoj spatný se zavřenýma očima."
         },
         {
           "id": "fc-q20-2",
           "front": "Popište cirkumdukční (kositelskou) chůzi a u jaké léze vzniká.",
           "back": "Pacient při kroku <strong>opisuje paretickou dolní končetinou oblouk do strany</strong> kvůli spastické extenzi v koleni a plantární flexi. Vzniká u <strong>centrální spastické hemiparézy (Wernicke-Mann)</strong> po CMP.",
-          "hint": "Spastická extenze DK a opisování oblouku."
+          "hint": "Cirkumdukce - opisování oblouku spastickou DK."
         },
         {
           "id": "fc-q20-3",
           "front": "Který kořen a nerv vyšetřujeme chůzí po špičkách a který chůzí po patách?",
           "back": "<strong>Chůze po špičkách:</strong> Kořen <strong>S1</strong> (n. ischiadicus -> n. tibialis -> m. triceps surae).<br><strong>Chůze po patách:</strong> Kořen <strong>L5</strong> (n. ischiadicus -> n. fibularis/peroneus profundus -> m. tibialis anterior).",
-          "hint": "Špičky = S1, Paty = L5."
+          "hint": "L5 = chůze po patách; S1 = chůze po špičkách."
         }
       ],
       "quiz": [
@@ -2045,19 +2044,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-q21-1",
           "front": "Jaký je rozdíl mezi topografickou a etiologickou diagnózou v neurologii?",
           "back": "<strong>Topografická diagnóza:</strong> Určuje <em>KDE</em> v nervovém systému se léze nachází (např. pravý parietální lalok, mícha Th8, n. radialis).<br><strong>Etiologická diagnóza:</strong> Určuje <em>CO</em> lézi způsobilo (např. ischemický infarkt, meningeom, borelióza).",
-          "hint": "Kde vs. Co."
+          "hint": "Topická (Kde?) a Etiologická (Co?)."
         },
         {
           "id": "fc-q21-2",
           "front": "Které 3 klíčové znaky odliší míšní lézi od hemisférické léze mozku?",
           "back": "1. <strong>Senzitivní hladina na trupu</strong> (ostrý přechod od dermatomu léze kaudálně).<br>2. <strong>Sfinkterové poruchy</strong> (časná retence moči).<br>3. <strong>Absence postižení hlavových nervů</strong> a kortikálních funkcí (řeč, zrakové pole).",
-          "hint": "Hladina čití, moč, hlavové nervy."
+          "hint": "Hladina senzitivního výpadku."
         },
         {
           "id": "fc-q21-3",
           "front": "Jaký časový profil nástupu symptomů je typický pro vaskulární příhody a jaký pro neurodegenerace?",
           "back": "<strong>Vaskulární (CMP):</strong> Náhlý iktální vznik během <em>sekund až minut</em>.<br><strong>Neurodegenerativní:</strong> Pomalá plíživá progrese trvající <em>měsíce až roky</em>.",
-          "hint": "Sekundy vs. roky."
+          "hint": "Náhlý začátek v sekundách/minutách = vaskulární etiologie."
         }
       ],
       "quiz": [
@@ -2138,19 +2137,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-q22-1",
           "front": "Na které straně těla se projeví léze mozečkové hemisféry a proč?",
           "back": "Na <strong>HOMOLATERÁLNÍ (stejnostranné)</strong> straně těla, protože descendentní a ascendentní spoje mozečku s kůrou a míchou se kříží dvakrát (tractus corticopontocerebellaris a tractus cerebellorubrospinalis).",
-          "hint": "Ipsilaterálně vs. kontralaterálně."
+          "hint": "Mozečková hemisféra řídí homolaterální (stejnostrannou) polovinu těla."
         },
         {
           "id": "fc-q22-2",
           "front": "Definujte intenční tremor a odlište ho od klidového tremoru.",
           "back": "<strong>Intenční tremor:</strong> Kinetický hrubý třes, který se objevuje během cíleného pohybu a <strong>graduje s blížícím se cílem</strong> (typický pro mozeček).<br><strong>Klidový tremor:</strong> Třes v klidu (4–6 Hz), který <em>při volním pohybu mizí</em> (typický pro Parkinsonovu nemoc).",
-          "hint": "Cílený pohyb vs. klid."
+          "hint": "Adiadochokinéza - neschopnost rychlých střídavých pohybů."
         },
         {
           "id": "fc-q22-3",
           "front": "Jak se provádí zkouška na Stewart-Holmesův fenomén (rebound fenomén)?",
           "back": "Pacient flektuje předloktí proti odporu lékaře. Při <strong>náhlém uvolnění tahu</strong> u mozečkové léze selže včasná kontrakce antagonistů (tricepsu) a <strong>ruka narazí do pacientova hrudníku</strong>.",
-          "hint": "Uvolnění odporu flektovaného předloktí."
+          "hint": "Stewart-Holmesův fenomén (rebound fenomén)."
         }
       ],
       "quiz": [
@@ -2231,19 +2230,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-q23-1",
           "front": "Vyjmenujte 4 hlavní kardinální příznaky Parkinsonovy nemoci.",
           "back": "1. <strong>Bradykinéza / Akinéza</strong> (zpomalení a ochuzení pohybu)<br>2. <strong>Rigidita</strong> (plastický tonus s fenoménem ozubeného kola)<br>3. <strong>Klidový tremor</strong> (4–6 Hz, asymetrický)<br>4. <strong>Posturální instabilita</strong> (porucha posturálních reflexů).",
-          "hint": "TRAP: Tremor, Rigidity, Akinesia, Postural instability."
+          "hint": "TRAP triáda / tetráda: Tremor, Rigidita, Akineze, Posturální instabilita."
         },
         {
           "id": "fc-q23-2",
           "front": "Jaký je rozdíl mezi spasticitou (pyramidová léze) a rigiditou (extrapyramidová léze)?",
           "back": "<strong>Spasticita (pyramidová):</strong> Závislá na rychlosti protažení, typický <em>fenomén sklapovacího nože</em> (zpočátku velký odpor, pak povolí), predilekce na flexorech HK a extenzorech DK.<br><strong>Rigidita (extrapyramidová):</strong> Nezávislá na rychlosti, <em>rovnoměrný plastický odpor po celou dráhu (olověná trubka / ozubené kolo)</em>, postihuje agonisty i antagonisty.",
-          "hint": "Sklapovací nůž vs. olověná trubka / ozubené kolo."
+          "hint": "Rigidita = fenomén ozubeného kola a olověné trubky."
         },
         {
           "id": "fc-q23-3",
           "front": "Kde je anatomická léze při vzniku hemibalismu?",
           "back": "V <strong>kontralaterálním nucleus subthalamicus (Luysi)</strong> (nejčastěji drobná cévní ischémie).",
-          "hint": "Subthalamické jádro."
+          "hint": "Hemibalismus vzniká lézí nucleus subthalamicus Luysi."
         }
       ],
       "quiz": [
@@ -2324,19 +2323,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-q24-1",
           "front": "Jak se provádí a co je pozitivní odpovědí u Babinského reflexu?",
           "back": "Provedení: Podráždění zevní hrany plosky nohy od paty k malíku a pod prsty tupým hrotem.<br>Odpověď: <strong>Pomalá tonická dorzální extenze palce nohy</strong> (často s vějířovitým rozevřením ostatních prstů). Svědčí pro lézi 1. motoneuronu.",
-          "hint": "Podráždění plosky a pohyb palce nahoru."
+          "hint": "Babinského reflex - extenze palce a vějíř prstů."
         },
         {
           "id": "fc-q24-2",
           "front": "Vyjmenujte 3 paretické zánikové jevy na horních končetinách.",
           "back": "1. <strong>Mingazzini HKK:</strong> Pokles a pronace předpažené končetiny.<br>2. <strong>Dufour:</strong> Pronační stáčení dlaně.<br>3. <strong>Rúseq:</strong> Pokles a flexe prstů v předpažení.",
-          "hint": "Mingazzini, Dufour, Rúseq."
+          "hint": "Mingazziniho zkouška poklesu končetin."
         },
         {
           "id": "fc-q24-3",
           "front": "Jak se vyšetřuje Oppenheimův příznak z Babinského skupiny?",
           "back": "Silným tlakem kloubů prstů vyšetřujícího <strong>podél přední hrany tibie (holenní kosti) shora dolů</strong>. Pozitivní odpovědí je dorzální extenze palce nohy.",
-          "hint": "Tlak podél hrany tibie."
+          "hint": "Oppenheimův příznak - tlak podél hrany tibie."
         }
       ],
       "quiz": [
@@ -2417,19 +2416,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-q25-1",
           "front": "Přiřaďte segmentální míšní inervaci k patelárnímu reflexu a reflexu Achillovy šlachy.",
           "back": "<strong>Patelární reflex:</strong> Segment <strong>L2–L4 (hlavně L4)</strong>, n. femoralis.<br><strong>Reflex Achillovy šlachy (RŠA):</strong> Segment <strong>L5–S2 (hlavně S1)</strong>, n. tibialis.",
-          "hint": "L4 vs. S1."
+          "hint": "Reflex šlachy Achillovy (kořen S1)."
         },
         {
           "id": "fc-q25-2",
           "front": "Přiřaďte segmentální míšní inervaci k bicipitálnímu a tricipitálnímu reflexu na HK.",
           "back": "<strong>Bicipitální reflex:</strong> Segment <strong>C5–C6</strong> (n. musculocutaneus).<br><strong>Tricipitální reflex:</strong> Segment <strong>C7</strong> (n. radialis).",
-          "hint": "C5/C6 vs. C7."
+          "hint": "Reflex bicipitový (C5/C6) vs. tricipitový (C7)."
         },
         {
           "id": "fc-q25-3",
           "front": "Co je to klonus a o jakém typu léze svědčí?",
           "back": "Klonus je <strong>série rychlých rytmických mimovolních svalových stahů</strong> vyvolaná náhlým pasivním protažením šlachy (např. klonus pately či nohy při rychlé dorzální flexi). Svědčí pro těžkou <strong>lézi centrálního motoneuronu (1. motoneuron)</strong>.",
-          "hint": "Rytmické kontrakce po protažení šlachy."
+          "hint": "Klonus - rytmické oscilace svalu při hyperreflexii."
         }
       ],
       "quiz": [
@@ -2510,7 +2509,7 @@ const NEUROLOGY_DATA = {
           "id": "fc-s01-1",
           "front": "Jak je definován Status epilepticus (čas t1) a jaké je riziko při prodlení?",
           "back": "Definován jako konvulzivní záchvat trvající <strong>≥ 5 minut</strong> nebo sériové záchvaty bez nabytí vědomí. Při trvání > 30 min (čas t2) hrozí <strong>ireverzibilní poškození neuronů (excitotoxicita Glu) a systémové selhání</strong>.",
-          "hint": "Limit 5 minut."
+          "hint": "Limit 5 minut pro status epilepticus."
         },
         {
           "id": "fc-s01-2",
@@ -2522,7 +2521,7 @@ const NEUROLOGY_DATA = {
           "id": "fc-s01-3",
           "front": "Proč je valproát sodný relativně kontraindikován u žen ve fertilním věku?",
           "back": "Z důvodu <strong>vysoké teratogenity</strong> (riziko rozštěpů neurální trubice - spina bifida, kraniofaciální defekty a autismus/pokles IQ u plodu). Lékem volby u žen je lamotrigin nebo levetiracetam.",
-          "hint": "Teratogenita a malformace plodu."
+          "hint": "Valproát sodný má vysoké teratogenní riziko."
         }
       ],
       "quiz": [
@@ -2603,19 +2602,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-s02-1",
           "front": "Co tvoří klasickou triádu Westova syndromu u kojenců?",
           "back": "1. <strong>Infantilní spazmy</strong> (sériové flekční záchvaty 'Salaam').<br>2. <strong>Zástava / regres psychomotorického vývoje</strong>.<br>3. <strong>Hypsarytmie</strong> na EEG (chaotický vysokovoltážní vzorec).",
-          "hint": "Spazmy, vývoj, hypsarytmie."
+          "hint": "Spazmy, zástava psychomotorického vývoje a hypsarytmie."
         },
         {
           "id": "fc-s02-2",
           "front": "Jaký je EEG korelát typických dětských absencí (Petit Mal)?",
           "back": "Generalizované, synchronní a symetrické <strong>komplexy hrot-vlna o frekvenci přesně 3 Hz</strong> (provokovatelné hyperventilací).",
-          "hint": "Hrot-vlna 3 Hz."
+          "hint": "Frekvence hrot-vlna 3 Hz při absencích."
         },
         {
           "id": "fc-s02-3",
           "front": "Jaká je definice prostých febrilních křečí a jaká je první pomoc při záchvatu?",
           "back": "Generalizované křeče při horečce trvající <strong>< 10–15 minut</strong> u dětí od 6 měsíců do 5 let, neopakují se do 24 h. První pomoc: <strong>Diazepam rektálně</strong> (0,5 mg/kg gel) + fyzikální chlazení a antipyretika.",
-          "hint": "Krátké generalizované křeče a rektální diazepam."
+          "hint": "Febrilní křeče - rektální diazepam."
         }
       ],
       "quiz": [
@@ -2696,19 +2695,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-s03-1",
           "front": "Jaké je standardní časové okno pro intravenózní trombolýzu (IVT) a pro mechanickou trombektomii (MT)?",
           "back": "<strong>Intravenózní trombolýza (IVT):</strong> Do <strong>4,5 hodiny</strong> od začátku symptomů.<br><strong>Mechanická trombektomie (MT):</strong> Standardně do <strong>6 hodin</strong> (u selektovaných pacientů s penumbrou na CTP až do 24 h).",
-          "hint": "4,5 h vs. 6 (24) h."
+          "hint": "Časové okno pro i.v. trombolýzu je 4,5 hodiny."
         },
         {
           "id": "fc-s03-2",
           "front": "Jaký klinický obraz je typický pro okluzi arteria cerebri media (ACM) v dominantní hemisféře?",
           "back": "1. <strong>Kontralaterální faciobrachiální hemiparéza</strong> a hemihypestézie.<br>2. <strong>Globální / Brocova afázie</strong>.<br>3. Homonymní hemianopsie a konjugovaná deviace pohledu k ložisku.",
-          "hint": "Tvář + ruka + řeč."
+          "hint": "FAST test: Face, Arm, Speech, Time."
         },
         {
           "id": "fc-s03-3",
           "front": "Jaká je nejčastější příčina kardioembolické ischemické CMP a jaká je sekundární prevence?",
           "back": "Příčina: <strong>Fibrilace síní</strong> (tvorba trombu v oušku levé síně).<br>Sekundární prevence: <strong>Přímá orální antikoagulancia (DOAC</strong> – apixaban, rivaroxaban, dabigatran, edoxaban) nebo warfarin.",
-          "hint": "Fibrilace síní a DOAC."
+          "hint": "Fibrilace síní - antikoagulace DOAC."
         }
       ],
       "quiz": [
@@ -2789,19 +2788,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-s04-1",
           "front": "Jaký je anatomický zdroj krvácení a typický tvar na CT u epidurálního hematomu?",
           "back": "Zdroj: <strong>Arteria meningea media</strong>.<br>Tvar na CT: <strong>Bikonvexní (čočkovitý)</strong> hyperdenzní útvar, který <em>nepřekračuje lebeční švy</em>.",
-          "hint": "Tepna a čočkovitý tvar."
+          "hint": "Arteria meningea media (bikonvexní čočkovitý tvar)."
         },
         {
           "id": "fc-s04-2",
           "front": "Jaký je anatomický zdroj krvácení a typický tvar na CT u subdurálního hematomu?",
           "back": "Zdroj: <strong>Přemosťující žíly (bridging veins)</strong>.<br>Tvar na CT: <strong>Konkavokonvexní (srpkovitý / poloměsíčitý)</strong> lem, který <em>volně překračuje lebeční švy</em>.",
-          "hint": "Žíly a srpkovitý tvar."
+          "hint": "Přemosťující vény (srpkovitý konkavokonvexní tvar)."
         },
         {
           "id": "fc-s04-3",
           "front": "Popište klasický 'lucidní interval' u epidurálního hematomu.",
           "back": "Úraz hlavy s krátkým iniciálním bezvědomím -> <strong>přechodné plné nabytí vědomí a relativní klid (lucidní interval 1–6 h)</strong> -> následné prudké zhoršení stavu s bolestí hlavy, mydriázou a komatem.",
-          "hint": "Úraz -> probuzení -> náhlé kóma."
+          "hint": "Lucidní interval (přechodné probuzení před zhoršením stavu)."
         }
       ],
       "quiz": [
@@ -2882,19 +2881,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-s05-1",
           "front": "Jaká je nejčastější příčina netraumatického subarachnoidálního krvácení (SAB)?",
           "back": "<strong>Ruptura intrakraniálního sakulárního aneuryzmatu</strong> na Willisově okruhu (nejčastěji a. communicans anterior a a. communicans posterior).",
-          "hint": "Cévní aneuryzma na Willisově okruhu."
+          "hint": "Ruptura vakovitého aneuryzmatu Willisova okruhu."
         },
         {
           "id": "fc-s05-2",
           "front": "Jaký je diagnostický postup při podezření na SAB při negativním nativním CT mozku?",
           "back": "Provedení <strong>lumbální punkce s odstupem 6–12 hodin</strong> a vyšetření moku na <strong>xantochromii po centrifugaci</strong> (spektrofotometrie bilirubinu).",
-          "hint": "Lumbální punkce a xantochromie."
+          "hint": "CT mozku nativně + lumbální punkce při negativitě."
         },
         {
           "id": "fc-s05-3",
           "front": "Který lék je standardně podáván jako prevence mozkových vazospazmů po SAB?",
           "back": "<strong>Nimodipin</strong> (specifický cerebrovaskulární blokátor kalciových kanálů) podávaný po dobu 21 dní.",
-          "hint": "Blokátor Ca2+ kanálů na cévy mozku."
+          "hint": "Nimodipin jako prevence vazospazmů."
         }
       ],
       "quiz": [
@@ -2975,19 +2974,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-s06-1",
           "front": "Jaké jsou dvě nejčastější příčiny netraumatického intracerebrálního krvácení (ICH)?",
           "back": "1. <strong>Arteriální hypertenze</strong> (ruptura Charcot-Bouchardových mikroaneuryzmat v bazálních gangliích a talamu).<br>2. <strong>Cerebrální amyloidová angiopatie (CAA)</strong> (lobární hematomy u seniorů).",
-          "hint": "Hypertenze vs. amyloid."
+          "hint": "Arteriální hypertenze a Charcot-Bouchardova mikroaneuryzmata."
         },
         {
           "id": "fc-s06-2",
           "front": "Jaký klinický nález na zornicích a motorice je typický pro masivní pontinní krvácení?",
           "back": "<strong>Špendlíkovité zornice (pin-point pupils)</strong> reagující na světlo pouze pod lupou + <strong>kvadruplegie / decerebrační rigidita</strong>, hyperpyrexie a hluboké kóma.",
-          "hint": "Pin-point zornice a kvadruplegie."
+          "hint": "Cerebrální amyloidová angiopatie (CAA) u seniorů."
         },
         {
           "id": "fc-s06-3",
           "front": "Kdy je jednoznačně indikována neurochirurgická evakuace intracerebrálního hematomu?",
           "back": "U <strong>mozečkového hematomu s průměrem > 3 cm</strong> (nebo s útlakem mozkového kmene a obstrukcí IV. komory).",
-          "hint": "Mozeček nad 3 cm."
+          "hint": "Mozečkový hematom nad 3 cm je indikací k urgentní operaci."
         }
       ],
       "quiz": [
@@ -3068,19 +3067,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-s07-1",
           "front": "Co je to Adamkiewiczova arterie (a. radicularis magna) a jaký má klinický význam?",
           "back": "Hlavní radikulární tepna odstupující z aorty v úrovni <strong>Th9–L1</strong> zásobující dolní 2/3 míchy. Její uzávěr (např. při operacích aorty) vede k <strong>míšnímu infarktu s paraplegií</strong>.",
-          "hint": "Zásobování dolních 2/3 míchy z aorty."
+          "hint": "Arteria radicularis magna (Adamkiewiczova arterie)."
         },
         {
           "id": "fc-s07-2",
           "front": "Jaký je charakter senzitivního a motorického výpadku u infarktu v povodí arteria spinalis anterior?",
           "back": "<strong>Motorika:</strong> Spastická paraparéza/kvadruparéza.<br><strong>Senzitivita:</strong> Ztráta vnímání bolesti a teploty při <strong>ZACHOVANÉM hlubokém polohocitu a vibraci</strong> (zadní provazce jsou ušetřeny).",
-          "hint": "Paraparéza + ztráta bolesti/teploty + zachovaný polohocit."
+          "hint": "Přední míšní arterie - zachování zadních provazců."
         },
         {
           "id": "fc-s07-3",
           "front": "Jaká je terapeutická časová urgence u spinálního epidurálního hematomu (SEDH)?",
           "back": "Urgentní <strong>dekompresní laminektomie do 8–12 hodin</strong> od vzniku příznaků k zabránění trvalé ireverzibilní paraplegie a sfinkterové inkontinence.",
-          "hint": "Operace do 8-12 hodin."
+          "hint": "Míšní epidurální hematom vyžaduje dekompresi do 8-12 hodin."
         }
       ],
       "quiz": [
@@ -3155,8 +3154,8 @@ const NEUROLOGY_DATA = {
           {
             "id": "sc-S08-1",
             "title": "Klinická kazuistika – Kraniocerebrální poranění (KCP)",
-            "question": "<strong>Kazuistika:</strong> 32letý motocyklista po nárazu do svodidel v bezvědomí přivezen RZP. GCS 6 (E1V2M3), anizokorie s mydriázou vpravo a pomalou fotoreakcí, TK 165/95 mmHg, TF 52/min, nepravidelné dýchání (Cushingova triáda).<br><br><strong>Klinický úkol:</strong> Zhodnoťte klinický stav, popište hrozící komplikaci a navrhněte okamžitý diagnosticko-terapeutický postup.",
-            "answer": "<ul style='margin: 6px 0 0 18px; padding: 0; line-height: 1.5;'><li>Zhodnocení: Těžké KCP (GCS 6), syndrom nitrolební hypertenze s Cushingovou triádou (hypertenze, bradykardie, bradypnoe/porucha dechu) a rozvíjející se unkální (temporální) herniace s útlakem n. III vpravo.</li><li>Okamžité zajištění vitálních funkcí: OTI (intubace s fixací C-páteře), analgosedace, UPV k normokapnii (pCO₂ 4,5 kPa), elevace hlavy 30°.</li><li>Osmoterapie: bolus Manitol 20% (1 g/kg) nebo 3% NaCl i.v.</li><li>Diagnostika: Statimové nekontrastní CT mozku a C-páteře k ozřejmění příčiny (akutní epidurální/subdurální hematom).</li><li>Neurochirurgická pohotovost: Okamžitá dekomprese/kraniotomie a evakuace expanzivního ložiska.</li></ul>",
+            "question": "32letý motocyklista po nárazu do svodidel v bezvědomí přivezen RZP. GCS 6 (E1V2M3), anizokorie s mydriázou vpravo a pomalou fotoreakcí, TK 165/95 mmHg, TF 52/min, nepravidelné dýchání (Cushingova triáda).\n\n\n\nKlinický úkol: Zhodnoťte klinický stav, popište hrozící komplikaci a navrhněte okamžitý diagnosticko-terapeutický postup.",
+            "answer": "• Zhodnocení: Těžké KCP (GCS 6), syndrom nitrolební hypertenze s Cushingovou triádou (hypertenze, bradykardie, bradypnoe/porucha dechu) a rozvíjející se unkální (temporální) herniace s útlakem n. III vpravo.\n• Okamžité zajištění vitálních funkcí: OTI (intubace s fixací C-páteře), analgosedace, UPV k normokapnii (pCO₂ 4,5 kPa), elevace hlavy 30°.\n• Osmoterapie: bolus Manitol 20% (1 g/kg) nebo 3% NaCl i.v.\n• Diagnostika: Statimové nekontrastní CT mozku a C-páteře k ozřejmění příčiny (akutní epidurální/subdurální hematom).\n• Neurochirurgická pohotovost: Okamžitá dekomprese/kraniotomie a evakuace expanzivního ložiska.",
             "keyPoints": [
               "Zhodnocení: Těžké KCP (GCS 6), syndrom nitrolební hypertenze s Cushingovou triádou (hypertenze, bradykardie, bradypnoe/porucha dechu) a rozvíjející se unkální (temporální) herniace s útlakem n. III vpravo.",
               "Okamžité zajištění vitálních funkcí: OTI (intubace s fixací C-páteře), analgosedace, UPV k normokapnii (pCO₂ 4,5 kPa), elevace hlavy 30°.",
@@ -3173,19 +3172,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-S08-1",
           "front": "Jak je definován mozkový perfuzní tlak (CPP) a jaká je jeho cílová hodnota u těžkého KCP?",
           "back": "CPP = MAP (střední arteriální tlak) – ICP (nitrolební tlak). Cílová hodnota u pacientů s těžkým KCP na neuroJIP je 60–70 mmHg (při udržení ICP < 20–22 mmHg a MAP > 80–90 mmHg).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "CPP = MAP - ICP. Cílová hodnota 60-70 mmHg."
         },
         {
           "id": "fc-S08-2",
           "front": "Jaké jsou hlavní rozdíly mezi primárním a sekundárním poraněním mozku při KCP?",
           "back": "Primární vzniká v okamžiku nárazu mechanickým působením (fraktury, kontuze, DAP, hematomy) a nelze ho zvrátit. Sekundární se rozvíjí v minutách až dnech (edém mozku, intrakraniální hypertenze, hypoxie, hypotenze) a je hlavním cílem intenzivní péče mu zabránit.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Sekundární poškození mozku: edém, intrakraniální hypertenze, hypoxie."
         },
         {
           "id": "fc-S08-3",
           "front": "Proč jsou u těžkých kraniocerebrálních traumat striktně kontraindikovány hypotonické infuzní roztoky (např. 5% glukóza)?",
           "back": "Hypotonické roztoky snižují plazmatickou osmolalitu, což vede k přesunu vody po osmotickém gradientu z cévního řečiště do mozkového parenchymu a prudkému zhoršení vazogenního i cytotoxického edému mozku a vzestupu ICP.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Hypotonické roztoky (5% glukóza) zhoršují edém mozku."
         }
       ],
       "quiz": [
@@ -3260,8 +3259,8 @@ const NEUROLOGY_DATA = {
           {
             "id": "sc-S09-1",
             "title": "Klinická kazuistika – Poranění míchy a páteře",
-            "question": "<strong>Kazuistika:</strong> 20letý mladík po skoku do mělké vody vytištěn z vody s plegií všech čtyř končetin. TK 80/45 mmHg, TF 48/min, kůže teplá, suchá. Pacient nereaguje na bolestivé podněty od klíčních kostí distálně, anální svěrač bez tonu.<br><br><strong>Klinický úkol:</strong> Stanovte diagnózu syndromu, vysvětlete hemodynamický stav a uveďte klíčové kroky urgentní péče.",
-            "answer": "<ul style='margin: 6px 0 0 18px; padding: 0; line-height: 1.5;'><li>Diagnóza: Akutní kompletní transverzální cervikální míšní léze (C4–C5) s míšním šokem (chabá kvadruplegie, areflexie, atonie) a současným neurogenním šokem.</li><li>Patofyziologie hemodynamiky: Léze krčního sympatiku způsobila ztrátu periferního cévního tonu (arteriální i venózní vazodilatace) s hypotenzí a převahou n. vagus vedoucí k bradykardii.</li><li>Imobilizace: Okamžitá fixace krční páteře rigidním límcem a transport na vakuové matraci.</li><li>Hemodynamická stabilizace: Intravenózní volumoterapie krystaloidy a vazopresor (noradrenalin) k dosažení MAP ≥ 85 mmHg.</li><li>Diagnostika a dekomprese: Urgentní CT páteře + MRI míchy a okamžitá operační revize/stabilizace na spondylochirurgii.</li></ul>",
+            "question": "20letý mladík po skoku do mělké vody vytištěn z vody s plegií všech čtyř končetin. TK 80/45 mmHg, TF 48/min, kůže teplá, suchá. Pacient nereaguje na bolestivé podněty od klíčních kostí distálně, anální svěrač bez tonu.\n\n\n\nKlinický úkol: Stanovte diagnózu syndromu, vysvětlete hemodynamický stav a uveďte klíčové kroky urgentní péče.",
+            "answer": "• Diagnóza: Akutní kompletní transverzální cervikální míšní léze (C4–C5) s míšním šokem (chabá kvadruplegie, areflexie, atonie) a současným neurogenním šokem.\n• Patofyziologie hemodynamiky: Léze krčního sympatiku způsobila ztrátu periferního cévního tonu (arteriální i venózní vazodilatace) s hypotenzí a převahou n. vagus vedoucí k bradykardii.\n• Imobilizace: Okamžitá fixace krční páteře rigidním límcem a transport na vakuové matraci.\n• Hemodynamická stabilizace: Intravenózní volumoterapie krystaloidy a vazopresor (noradrenalin) k dosažení MAP ≥ 85 mmHg.\n• Diagnostika a dekomprese: Urgentní CT páteře + MRI míchy a okamžitá operační revize/stabilizace na spondylochirurgii.",
             "keyPoints": [
               "Diagnóza: Akutní kompletní transverzální cervikální míšní léze (C4–C5) s míšním šokem (chabá kvadruplegie, areflexie, atonie) a současným neurogenním šokem.",
               "Patofyziologie hemodynamiky: Léze krčního sympatiku způsobila ztrátu periferního cévního tonu (arteriální i venózní vazodilatace) s hypotenzí a převahou n. vagus vedoucí k bradykardii.",
@@ -3278,19 +3277,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-S09-1",
           "front": "Jaké jsou typické příznaky neurogenního šoku při poranění krční či horní hrudní míchy a jak se liší od hemoragického šoku?",
           "back": "Neurogenní šok se projevuje hypotenzí s BRADYKARDIÍ (vymizení sympatiku s převahou vagu) a teplou suchou kůží (vazodilatace). Hemoragický šok má hypotenzi s TACHYKARDIÍ a chladnou bledou opocenou periferií.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Neurogenní šok: hypotenze + bradykardie (ztráta sympatiku)."
         },
         {
           "id": "fc-S09-2",
           "front": "Jaký klinický nález charakterizuje Brown-Séquardův syndrom při jednostranné lézi míchy?",
           "back": "Ipsilaterálně pod lézí centrální paréza (tr. corticospinalis) a ztráta hlubokého čití/propriocepce (zadní provazce); kontralaterálně pod lézí ztráta vnímání bolesti a teploty (tr. spinothalamicus).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Brown-Séquardův syndrom při hemisekci míchy."
         },
         {
           "id": "fc-S09-3",
           "front": "Co znamená označení míšní léze jako ASIA A?",
           "back": "Kompletní léze míchy – pod úrovní léze není zachována žádná motorická ani senzitivní funkce, a to včetně nejnižších sakrálních segmentů S4–S5 (chybí anální kontraktilita i anální čití).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Míšní šok - počáteční areflexie a atonie."
         }
       ],
       "quiz": [
@@ -3365,8 +3364,8 @@ const NEUROLOGY_DATA = {
           {
             "id": "sc-S10-1",
             "title": "Klinická kazuistika – Hemoragické cévní mozkové příhody",
-            "question": "<strong>Kazuistika:</strong> 74letý pacient s fibrilací síní na rivaroxabanu (Xarelto) náhle zkolaboval při obědě. Při příjezdu somnolentní, expresivní afázie, pravostranná těžká hemiplegie, TK 190/105 mmHg. Nativní CT prokazuje lobární hematom 45 ml vlevo fronto-temporálně bez hydrocefalu.<br><br><strong>Klinický úkol:</strong> Stanovte diagnózu, terapeutické priority v prvních minutách a konkrétní farmakologický postup.",
-            "answer": "<ul style='margin: 6px 0 0 18px; padding: 0; line-height: 1.5;'><li>Diagnóza: Akutní intracerebrální lobární krvácení (ICH) vlevo na antikoagulační léčbě rivaroxabanem (přímý inhibitor faktoru Xa).</li><li>Korekce krevního tlaku: Okamžité zahájení kontinuální infuze Urapidilu k poklesu systolického TK k cílovým 130–140 mmHg.</li><li>Reverze antikoagulace: Podání specifického antidota Andexanet alfa (Ondexxya) nebo podání koncentrátu protrombinového komplexu (PCC - Beriplex) v dávce 50 IU/kg i.v.</li><li>Neurochirurgická konzultace: Posouzení indikace k operační evakuaci při zhoršování vědomí / nárůstu hematomu.</li><li>Hospitalizace na iktové jednotce / neuroJIP s monitorací ICP a vitálních funkcí.</li></ul>",
+            "question": "74letý pacient s fibrilací síní na rivaroxabanu (Xarelto) náhle zkolaboval při obědě. Při příjezdu somnolentní, expresivní afázie, pravostranná těžká hemiplegie, TK 190/105 mmHg. Nativní CT prokazuje lobární hematom 45 ml vlevo fronto-temporálně bez hydrocefalu.\n\n\n\nKlinický úkol: Stanovte diagnózu, terapeutické priority v prvních minutách a konkrétní farmakologický postup.",
+            "answer": "• Diagnóza: Akutní intracerebrální lobární krvácení (ICH) vlevo na antikoagulační léčbě rivaroxabanem (přímý inhibitor faktoru Xa).\n• Korekce krevního tlaku: Okamžité zahájení kontinuální infuze Urapidilu k poklesu systolického TK k cílovým 130–140 mmHg.\n• Reverze antikoagulace: Podání specifického antidota Andexanet alfa (Ondexxya) nebo podání koncentrátu protrombinového komplexu (PCC - Beriplex) v dávce 50 IU/kg i.v.\n• Neurochirurgická konzultace: Posouzení indikace k operační evakuaci při zhoršování vědomí / nárůstu hematomu.\n• Hospitalizace na iktové jednotce / neuroJIP s monitorací ICP a vitálních funkcí.",
             "keyPoints": [
               "Diagnóza: Akutní intracerebrální lobární krvácení (ICH) vlevo na antikoagulační léčbě rivaroxabanem (přímý inhibitor faktoru Xa).",
               "Korekce krevního tlaku: Okamžité zahájení kontinuální infuze Urapidilu k poklesu systolického TK k cílovým 130–140 mmHg.",
@@ -3383,19 +3382,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-S10-1",
           "front": "Jak se liší typická lokalizace hypertenzního intracerebrálního krvácení od krvácení při cerebrální amyloidové angiopatii (CAA)?",
           "back": "Hypertenzní ICH je lokalizováno hluboko v mozkovém parenchymu (bazální ganglia – putamen, talamus, pons a mozeček). CAA postihuje lobární kortikosubkortikální oblasti (často parieto-okcipitálně) u pacientů vyššího věku.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "CT sken bez kontrastu okamžitě prokáže hyperdenzní krvácení."
         },
         {
           "id": "fc-S10-2",
           "front": "Jaké specifické antidotum podáte pacientovi s akutním mozkovým krvácením léčenému Dabigatranem?",
           "back": "Idarucizumab (Praxbind) v dávce 5 g i.v. (podávaný jako dvě po sobě jdoucí infuze/bolusy po 2,5 g), který okamžitě neutralizuje dabigatran s vysokou afinitou.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Kontrola krevního tlaku - snížení systoly pod 140 mmHg."
         },
         {
           "id": "fc-S10-3",
           "front": "Které mozkové krvácení představuje absolutní indikaci k urgentní neurochirurgické evakuaci hematomu?",
           "back": "Mozečkový hematom (hematom zadní jámy) o průměru > 3 cm nebo s útlakem mozkového kmene a rozvojem hydrocefalu. Konzervativní postup je v tomto případě fatální.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Reverze antikoagulace - PCC a antidota (idarucizumab, andexanet alfa)."
         }
       ],
       "quiz": [
@@ -3474,8 +3473,8 @@ const NEUROLOGY_DATA = {
           {
             "id": "sc-S11-1",
             "title": "Klinická kazuistika – Bakteriální infekce centrálního nervového systému",
-            "question": "<strong>Kazuistika:</strong> 68letá diabetička přivezena pro 2 dny trvající horečky 39,2 °C, těžkou zmatenost a světloplachost. Objektivně: somnolentní, ztuhlost šíje na 3 prsty, pozitivní Kernigův příznak, na kůži bez petechií. Glukóza v krvi je 11 mmol/l.<br><br><strong>Klinický úkol:</strong> Navrhněte diagnostický postup, interpretujte očekávaný nález v moku a sestavte bezodkladnou léčebnou kombinaci léků.",
-            "answer": "<ul style='margin: 6px 0 0 18px; padding: 0; line-height: 1.5;'><li>Diagnostika: Náběr 2 párů hemokultur, urgentní CT mozku (vzhledem k věku, diabetu a alteraci vědomí) k vyloučení intrakraniální expanze, následně okamžitá lumbální punkce.</li><li>Zahájení léčby BEZ prodlení: Pokud by CT zdrželo LP o více než 30 minut, podat ATB ihned po náběru hemokultur.</li><li>Farmakoterapie: Dexamethason 10 mg i.v. podaný těsně před nebo s první dávkou ATB.</li><li>Antibiotická kombinace: Ceftriaxon 2 g i.v. po 12 hod + Ampicilin 2 g i.v. po 4 hod (kvůli věku > 50 let k pokrytí L. monocytogenes a S. pneumoniae).</li><li>Očekávaný likvor: Hnisavý, tisíce granulocytů, glukóza v likvoru < 2 mmol/l (poměr < 0,2), protein > 3 g/l, laktát > 4 mmol/l.</li></ul>",
+            "question": "68letá diabetička přivezena pro 2 dny trvající horečky 39,2 °C, těžkou zmatenost a světloplachost. Objektivně: somnolentní, ztuhlost šíje na 3 prsty, pozitivní Kernigův příznak, na kůži bez petechií. Glukóza v krvi je 11 mmol/l.\n\n\n\nKlinický úkol: Navrhněte diagnostický postup, interpretujte očekávaný nález v moku a sestavte bezodkladnou léčebnou kombinaci léků.",
+            "answer": "• Diagnostika: Náběr 2 párů hemokultur, urgentní CT mozku (vzhledem k věku, diabetu a alteraci vědomí) k vyloučení intrakraniální expanze, následně okamžitá lumbální punkce.\n• Zahájení léčby BEZ prodlení: Pokud by CT zdrželo LP o více než 30 minut, podat ATB ihned po náběru hemokultur.\n• Farmakoterapie: Dexamethason 10 mg i.v. podaný těsně před nebo s první dávkou ATB.\n• Antibiotická kombinace: Ceftriaxon 2 g i.v. po 12 hod + Ampicilin 2 g i.v. po 4 hod (kvůli věku > 50 let k pokrytí L. monocytogenes a S. pneumoniae).\n• Očekávaný likvor: Hnisavý, tisíce granulocytů, glukóza v likvoru < 2 mmol/l (poměr < 0,2), protein > 3 g/l, laktát > 4 mmol/l.",
             "keyPoints": [
               "Diagnostika: Náběr 2 párů hemokultur, urgentní CT mozku (vzhledem k věku, diabetu a alteraci vědomí) k vyloučení intrakraniální expanze, následně okamžitá lumbální punkce.",
               "Zahájení léčby BEZ prodlení: Pokud by CT zdrželo LP o více než 30 minut, podat ATB ihned po náběru hemokultur.",
@@ -3492,19 +3491,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-S11-1",
           "front": "Jaký je typický likvorový nález u akutní bakteriální purulentní meningitidy?",
           "back": "Zakalený hnisavý likvor, neutrofilní polynukleární pleocytóza (stovky až desetitisíce buněk), vysoká bílkovina (> 1–5 g/l), vysoký laktát (> 3,5 mmol/l) a výrazně snížená glukóza (poměr likvor/krevní glukóza < 0,4).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Ceftriaxon + Ampicilin (proti Listerii) + Dexamethason."
         },
         {
           "id": "fc-S11-2",
           "front": "Proč se u pacientů s podezřením na bakteriální meningitidu starších 50 let přidává k Ceftriaxonu do empirické léčby Ampicilin?",
           "back": "K pokrytí bakterie Listeria monocytogenes, která je přirozeně rezistentní k cefalosporinům 3. generace (včetně ceftriaxonu) a způsobuje meningitidy u kojenců, seniorů a imunosuprimovaných.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Dexamethason před první dávkou ATB snižuje mortalitu a hluchotu."
         },
         {
           "id": "fc-S11-3",
           "front": "Co tvoří klinickou triádu Bannwarthova syndromu u 2. stadia lymeské neuroboreliózy?",
           "back": "1. Lymfocytární meningitida (bolesti hlavy), 2. intenzivní stěhovavé radikulární bolesti (radikuloneuritida), 3. periferní paréza hlavových nervů (nejčastěji n. facialis, často oboustranná diplegia facialis).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Pokles glukózy v likvoru (poměr likvor/krev < 0,4)."
         }
       ],
       "quiz": [
@@ -3575,8 +3574,8 @@ const NEUROLOGY_DATA = {
           {
             "id": "sc-S12-1",
             "title": "Klinická kazuistika – Virové infekce centrálního nervového systému",
-            "question": "<strong>Kazuistika:</strong> 45letý dosud zdravý muž přivezen rodinou pro náhlou změnu osobnosti, agresivitu, dezorientaci, horečku 38,8 °C a nově vzniklou poruchu porozumění řeči (senzorická afázie). Během příjmu prodělal fokální motorický záchvat s automatickým polykáním.<br><br><strong>Klinický úkol:</strong> Vyslovte nejpravděpodobnější diagnózu, navrhněte klíčová paraklinická vyšetření a okamžitý terapeutický krok.",
-            "answer": "<ul style='margin: 6px 0 0 18px; padding: 0; line-height: 1.5;'><li>Diagnóza: Akutní herpetická nekrotizující encefalitida (HSV-1) s postižením dominantního temporálního laloku.</li><li>Okamžitá léčba: Ihned zahájit infuzi Acicloviru v dávce 10 mg/kg i.v. po 8 hodinách (nečekat na výsledky LP a PCR!).</li><li>Zobrazovací vyšetření: MRI mozku (T2/FLAIR a DWI hyperintenzita v temporálním laloku a insule vlevo, edém).</li><li>Lumbální punkce: Vyšetření likvoru včetně statimového PCR průkazu HSV-1 DNA, očekává se lymfocytární pleocytóza a přítomnost erytrocytů.</li><li>Elektrofyziologie: EEG k detekci periodických lateralizovaných epileptiformních výbojů (PLEDs) nad levým spánkovým lalokem a antikonvulzivní léčba (levetiracetam i.v.).</li></ul>",
+            "question": "45letý dosud zdravý muž přivezen rodinou pro náhlou změnu osobnosti, agresivitu, dezorientaci, horečku 38,8 °C a nově vzniklou poruchu porozumění řeči (senzorická afázie). Během příjmu prodělal fokální motorický záchvat s automatickým polykáním.\n\n\n\nKlinický úkol: Vyslovte nejpravděpodobnější diagnózu, navrhněte klíčová paraklinická vyšetření a okamžitý terapeutický krok.",
+            "answer": "• Diagnóza: Akutní herpetická nekrotizující encefalitida (HSV-1) s postižením dominantního temporálního laloku.\n• Okamžitá léčba: Ihned zahájit infuzi Acicloviru v dávce 10 mg/kg i.v. po 8 hodinách (nečekat na výsledky LP a PCR!).\n• Zobrazovací vyšetření: MRI mozku (T2/FLAIR a DWI hyperintenzita v temporálním laloku a insule vlevo, edém).\n• Lumbální punkce: Vyšetření likvoru včetně statimového PCR průkazu HSV-1 DNA, očekává se lymfocytární pleocytóza a přítomnost erytrocytů.\n• Elektrofyziologie: EEG k detekci periodických lateralizovaných epileptiformních výbojů (PLEDs) nad levým spánkovým lalokem a antikonvulzivní léčba (levetiracetam i.v.).",
             "keyPoints": [
               "Diagnóza: Akutní herpetická nekrotizující encefalitida (HSV-1) s postižením dominantního temporálního laloku.",
               "Okamžitá léčba: Ihned zahájit infuzi Acicloviru v dávce 10 mg/kg i.v. po 8 hodinách (nečekat na výsledky LP a PCR!).",
@@ -3593,19 +3592,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-S12-1",
           "front": "Jaká je typická anatomická lokalizace a lék volby u herpetické encefalitidy vyvolané HSV-1?",
           "back": "Typická lokalizace je nekrotizující zánět temporálních a frontálních laloků a limbického systému. Lékem volby je Aciclovir i.v. v dávce 10 mg/kg po 8 hodinách po dobu 14–21 dnů.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "HSV-1 encefalitida postihuje temporální a frontální laloky."
         },
         {
           "id": "fc-S12-2",
           "front": "Jak se v likvoru liší virová (aseptická) meningitida od purulentní bakteriální meningitidy?",
           "back": "Virová má čirý likvor, lymfocytární pleocytózu (desítky až stovky buněk), NORMÁLNÍ glukózu (poměr > 0,6) a normální laktát (< 2,5 mmol/l). Bakteriální má zkalený likvor, masivní neutrofilní pleocytózu, těžkou hypoglykorachii a vysoký laktát.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Aciklovir 10 mg/kg i.v. každých 8 hodin."
         },
         {
           "id": "fc-S12-3",
           "front": "Jaký klinický průběh a neurologický deficit je charakteristický pro klíšťovou encefalitidu?",
           "back": "Bifázický průběh (1. chřipková virémie, 2. po bezpříznakovém intervalu neuroinfekce). Při postižení předních rohů míšních (myelitická forma) způsobuje typicky chabou parézu ramenního pletence a proximálních partií paže.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Klíšťová meningoencefalitida - dvoufázový průběh."
         }
       ],
       "quiz": [
@@ -3680,8 +3679,8 @@ const NEUROLOGY_DATA = {
           {
             "id": "sc-S13-1",
             "title": "Klinická kazuistika – Nádory centrálního nervového systému - nitrolební nádory",
-            "question": "<strong>Kazuistika:</strong> 58letý manažer vyšetřován pro 3 týdny progredující ranní bolesti hlavy se zvracením nalačno, zpomalené psychomotorické tempo a nově vzniklý generalizovaný tonicko-klonický záchvat. MRI odhalilo v pravém frontálním laloku infiltrativní tumorózní expanzi s nepravidelným prstencovým sycením po gadoliniu, centrální nekrózou a masivním vazogenním edémem s přetlakem středových struktur o 8 mm.<br><br><strong>Klinický úkol:</strong> Stanovte suspektní diagnózu, navrhněte okamžitou medikamentózní stabilizaci a další léčebný onkochirurgický plán.",
-            "answer": "<ul style='margin: 6px 0 0 18px; padding: 0; line-height: 1.5;'><li>Suspektní diagnóza: Glioblastom (WHO grade 4) pravého frontálního laloku se syndromem nitrolební hypertenze a strukturální epilepsií.</li><li>Okamžitá farmakoterapie: Zahájení antiedematózní léčby Dexamethasonem (např. 8 mg i.v. bolus, dále 4 mg po 6h) a nasazení antikonvulziva (Levetiracetam 500–1000 mg 2x denně).</li><li>Chirurgický výkon: Urgentní neurochirurgická kraniotomie a maximální možná bezpečná resekce tumoru s pomocí neuronavigace a fluorescenčního navádění (5-ALA).</li><li>Histopatologická a molekulární verifikace: Vyšetření IDH mutace, 1p/19q kodelece a metylace promotoru MGMT.</li><li>Adjuvantní onkologická léčba: Stuppův protokol – konkomitantní radioterapie (60 Gy) s Temozolomidem, následovaná udržovací chemoterapií.</li></ul>",
+            "question": "58letý manažer vyšetřován pro 3 týdny progredující ranní bolesti hlavy se zvracením nalačno, zpomalené psychomotorické tempo a nově vzniklý generalizovaný tonicko-klonický záchvat. MRI odhalilo v pravém frontálním laloku infiltrativní tumorózní expanzi s nepravidelným prstencovým sycením po gadoliniu, centrální nekrózou a masivním vazogenním edémem s přetlakem středových struktur o 8 mm.\n\n\n\nKlinický úkol: Stanovte suspektní diagnózu, navrhněte okamžitou medikamentózní stabilizaci a další léčebný onkochirurgický plán.",
+            "answer": "• Suspektní diagnóza: Glioblastom (WHO grade 4) pravého frontálního laloku se syndromem nitrolební hypertenze a strukturální epilepsií.\n• Okamžitá farmakoterapie: Zahájení antiedematózní léčby Dexamethasonem (např. 8 mg i.v. bolus, dále 4 mg po 6h) a nasazení antikonvulziva (Levetiracetam 500–1000 mg 2x denně).\n• Chirurgický výkon: Urgentní neurochirurgická kraniotomie a maximální možná bezpečná resekce tumoru s pomocí neuronavigace a fluorescenčního navádění (5-ALA).\n• Histopatologická a molekulární verifikace: Vyšetření IDH mutace, 1p/19q kodelece a metylace promotoru MGMT.\n• Adjuvantní onkologická léčba: Stuppův protokol – konkomitantní radioterapie (60 Gy) s Temozolomidem, následovaná udržovací chemoterapií.",
             "keyPoints": [
               "Suspektní diagnóza: Glioblastom (WHO grade 4) pravého frontálního laloku se syndromem nitrolební hypertenze a strukturální epilepsií.",
               "Okamžitá farmakoterapie: Zahájení antiedematózní léčby Dexamethasonem (např. 8 mg i.v. bolus, dále 4 mg po 6h) a nasazení antikonvulziva (Levetiracetam 500–1000 mg 2x denně).",
@@ -3698,19 +3697,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-S13-1",
           "front": "Jaký lék je lékem volby k rychlému zmírnění vazogenního edému mozku u pacientů s intrakraniálním nádorem?",
           "back": "Dexamethason (syntetický kortikoid) ve vysoké dávce (např. 8–16 mg i.v./p.o. denně), který stabilizuje permeabilitu hematoencefalické bariéry.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Glioblastom (WHO Grade 4) - nejzhoubnější primární tumor."
         },
         {
           "id": "fc-S13-2",
           "front": "Co představuje Stuppův protokol v onkologické léčbě multiformního glioblastomu (WHO grade 4)?",
           "back": "Kombinovaná radioterapie (fokální zevní ozařování 60 Gy) s konkomitantním podáváním perorálního alkylačního cytostatika Temozolomidu (TMZ) denně, následovaná 6 cykly adjuvantního podávání Temozolomidu.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Meningeom (WHO Grade 1) - durální dural tail sign."
         },
         {
           "id": "fc-S13-3",
           "front": "Jaký klinický nález a symptomy vyvolává vestibulární schwannom (neurinom akustiku) v mostomozečkovém koutu?",
           "back": "Progresivní jednostrannou percepční nedoslýchavost, tinitus a nestabilitu/vertigo (útlak n. VIII), později periferní parézu n. VII a poruchu čití na obličeji s oslabením korneálního reflexu (útlak n. V).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Mozkové metastázy jsou nejčastějšími intrakraniálními tumory vůbec."
         }
       ],
       "quiz": [
@@ -3781,8 +3780,8 @@ const NEUROLOGY_DATA = {
           {
             "id": "sc-S14-1",
             "title": "Klinická kazuistika – Nádory centrálního nervového systému - míšní nádory",
-            "question": "<strong>Kazuistika:</strong> 62letý pacient léčený pro karcinom prostaty přichází pro 10 dní trvající kruté pásovité bolesti v hrudníku zhoršující se v noci a nově vzniklou slabost obou dolních končetin s obtížemi při chůzi do schodů. Při vyšetření: spastická paraparéza DK (síla 3/5), oboustranný pozitivní Babinski, hypestezie pro všechny modality od dermatomu Th8 distálně a retence moči.<br><br><strong>Klinický úkol:</strong> Stanovte syndromologickou diagnózu, zhodnoťte naléhavost stavu a navrhněte okamžitý diagnosticko-terapeutický algoritmus.",
-            "answer": "<ul style='margin: 6px 0 0 18px; padding: 0; line-height: 1.5;'><li>Diagnóza: Akutní metastatická komprese míchy (MSCC) v úrovni Th8 při generalizovaném karcinomu prostaty se syndromem transverzální míšní léze.</li><li>Naléhavost: Absolutní neurologická a neurochirurgická urgence – riziko ireverzibilní paraplegie a sfinkterové areflexie.</li><li>Okamžitá medikace: Aplikace Dexamethasonu 16–24 mg i.v. bolus, dále 4 mg po 6 hodinách.</li><li>Zobrazovací vyšetření: Statimové celopáteřní MRI (k průkazu komprese míchy, patologické fraktury obratle a vyloučení vícečetných ložisek).</li><li>Chirurgické řešení: Urgentní neurochirurgická dekomprese páteřního kanálu (laminektomie/korpektomie) s instrumentovanou stabilizací páteře následovaná lokální radioterapií a onkologickou léčbou.</li></ul>",
+            "question": "62letý pacient léčený pro karcinom prostaty přichází pro 10 dní trvající kruté pásovité bolesti v hrudníku zhoršující se v noci a nově vzniklou slabost obou dolních končetin s obtížemi při chůzi do schodů. Při vyšetření: spastická paraparéza DK (síla 3/5), oboustranný pozitivní Babinski, hypestezie pro všechny modality od dermatomu Th8 distálně a retence moči.\n\n\n\nKlinický úkol: Stanovte syndromologickou diagnózu, zhodnoťte naléhavost stavu a navrhněte okamžitý diagnosticko-terapeutický algoritmus.",
+            "answer": "• Diagnóza: Akutní metastatická komprese míchy (MSCC) v úrovni Th8 při generalizovaném karcinomu prostaty se syndromem transverzální míšní léze.\n• Naléhavost: Absolutní neurologická a neurochirurgická urgence – riziko ireverzibilní paraplegie a sfinkterové areflexie.\n• Okamžitá medikace: Aplikace Dexamethasonu 16–24 mg i.v. bolus, dále 4 mg po 6 hodinách.\n• Zobrazovací vyšetření: Statimové celopáteřní MRI (k průkazu komprese míchy, patologické fraktury obratle a vyloučení vícečetných ložisek).\n• Chirurgické řešení: Urgentní neurochirurgická dekomprese páteřního kanálu (laminektomie/korpektomie) s instrumentovanou stabilizací páteře následovaná lokální radioterapií a onkologickou léčbou.",
             "keyPoints": [
               "Diagnóza: Akutní metastatická komprese míchy (MSCC) v úrovni Th8 při generalizovaném karcinomu prostaty se syndromem transverzální míšní léze.",
               "Naléhavost: Absolutní neurologická a neurochirurgická urgence – riziko ireverzibilní paraplegie a sfinkterové areflexie.",
@@ -3799,19 +3798,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-S14-1",
           "front": "Jaké je anatomické dělení nádorů páteřního kanálu a jaké jsou jejich nejčastější zástupci?",
           "back": "1. Epidurální (nejčastější, metastázy karcinomů a myelom), 2. Intradurální extramedulární (schwannomy, meningeomy), 3. Intramedulární (ependymom, astrocytom míchy).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Intramedulární (ependymom, astrocytom) vs. extramedulární (neurinom, meningeom)."
         },
         {
           "id": "fc-S14-2",
           "front": "Jaký klinický význam má akutní metastatická komprese míchy (MSCC) a jaký je okamžitý postup?",
           "back": "Jde o urgentní stav hrozící trvalou plegií a inkontinencí. Okamžitě se podává vysokodávkovaný Dexamethason (16–24 mg i.v.) k potlačení edému míchy a provádí se urgentní chirurgická dekomprese (nebo radioterapie) ideálně do 24 hodin.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Metastázy do obratlů - syndrom míšní komprese."
         },
         {
           "id": "fc-S14-3",
           "front": "Co charakterizuje Froinův syndrom v mozkomíšním moku u spinálního tumoru?",
           "back": "Extrémní proteinorachie (často desítky g/l), xantochromní žluté zbarvení a spontánní koagulace likvoru ve zkumavce v důsledku úplného bloku cirkulace likvoru pod úrovní nádoru.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Dexamethason k redukci peritumorózního edému míchy."
         }
       ],
       "quiz": [
@@ -3882,8 +3881,8 @@ const NEUROLOGY_DATA = {
           {
             "id": "sc-S15-1",
             "title": "Klinická kazuistika – Onemocnění s parkinsonským syndromem (Atypické a sekundární parkinsonismy)",
-            "question": "<strong>Kazuistika:</strong> 66letý muž přichází pro rok trvající obtíže s chůzí a časté pády dozadu při vstávání z křesla. Manželka uvádí, že má ztuhlé držení těla a obtížně se dívá pod nohy při chůzi ze schodů. Při vyšetření: těžké omezení volního pohledu dolů, které lze překonat při oculocefalickém manévru (fenomén loutkových očí), symetrická axiální rigidita, žádný třes. Levodopa v dávce 800 mg/den byla bez efektu.<br><br><strong>Klinický úkol:</strong> Stanovte diagnózu, vysvětlete mechanismus poruchy pohledu a uveďte typický nález na MRI.",
-            "answer": "<ul style='margin: 6px 0 0 18px; padding: 0; line-height: 1.5;'><li>Diagnóza: Progresivní supranukleární obrna (PSP - Richardsonův syndrom), atypický neurodegenerativní parkinsonský syndrom (tauopatie).</li><li>Mechanismus poruchy pohledu: Jde o supranukleární lézi – postižení premotorických jader v mezencefalu (rostrální intersticiální ncl. MLF), jádra okohybných nervů a kmenové reflexní okruhy jsou intaktní, proto je oculocefalický manévr pozitivní.</li><li>Typický nález na MRI: Selektivní atrofie tegmenta mezencefala s vyhlazením horní kontury (tzv. 'hummingbird sign' neboli příznak kolibříka v sagitální rovině a příznak Mickey Mouse v axiální rovině).</li><li>Terapeutické možnosti: Špatná odpověď na dopaminergní léčbu; terapie je převážně symptomatická, rehabilitační a logopedická (prevence pádů, pomůcky na chůzi, zahušťování stravy).</li></ul>",
+            "question": "66letý muž přichází pro rok trvající obtíže s chůzí a časté pády dozadu při vstávání z křesla. Manželka uvádí, že má ztuhlé držení těla a obtížně se dívá pod nohy při chůzi ze schodů. Při vyšetření: těžké omezení volního pohledu dolů, které lze překonat při oculocefalickém manévru (fenomén loutkových očí), symetrická axiální rigidita, žádný třes. Levodopa v dávce 800 mg/den byla bez efektu.\n\n\n\nKlinický úkol: Stanovte diagnózu, vysvětlete mechanismus poruchy pohledu a uveďte typický nález na MRI.",
+            "answer": "• Diagnóza: Progresivní supranukleární obrna (PSP - Richardsonův syndrom), atypický neurodegenerativní parkinsonský syndrom (tauopatie).\n• Mechanismus poruchy pohledu: Jde o supranukleární lézi – postižení premotorických jader v mezencefalu (rostrální intersticiální ncl. MLF), jádra okohybných nervů a kmenové reflexní okruhy jsou intaktní, proto je oculocefalický manévr pozitivní.\n• Typický nález na MRI: Selektivní atrofie tegmenta mezencefala s vyhlazením horní kontury (tzv. 'hummingbird sign' neboli příznak kolibříka v sagitální rovině a příznak Mickey Mouse v axiální rovině).\n• Terapeutické možnosti: Špatná odpověď na dopaminergní léčbu; terapie je převážně symptomatická, rehabilitační a logopedická (prevence pádů, pomůcky na chůzi, zahušťování stravy).",
             "keyPoints": [
               "Diagnóza: Progresivní supranukleární obrna (PSP - Richardsonův syndrom), atypický neurodegenerativní parkinsonský syndrom (tauopatie).",
               "Mechanismus poruchy pohledu: Jde o supranukleární lézi – postižení premotorických jader v mezencefalu (rostrální intersticiální ncl. MLF), jádra okohybných nervů a kmenové reflexní okruhy jsou intaktní, proto je oculocefalický manévr pozitivní.",
@@ -3899,19 +3898,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-S15-1",
           "front": "Které klinické příznaky jsou klíčové pro diagnózu progresivní supranukleární obrny (PSP)?",
           "back": "Supranukleární paréza vertikálního pohledu (zejména směrem dolů), časné nevysvětlitelné pády vzad během prvního roku, axiální rigidita v extenzi trupu a absence třesu s minimální odpovědí na L-DOPA.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Multisystémová atrofie (MSA) s autonomním selháním."
         },
         {
           "id": "fc-S15-2",
           "front": "Jaké jsou dvě hlavní formy multisystémové atrofie (MSA) a jaký kardinální příznak mají společný?",
           "back": "MSA-P (převaha parkinsonského hypokineticko-rigidního syndromu) a MSA-C (převaha cerebelární ataxie). Obě formy mají společnou časnou a těžkou autonomní dysfunkci (ortostatická hypotenze, erektilní dysfunkce, močová inkontinence).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Progresivní supranukleární obrna (PSP) - obrna vertikálního pohledu."
         },
         {
           "id": "fc-S15-3",
           "front": "Které běžně užívané léky mohou vyvolat sekundární polékový parkinsonismus?",
           "back": "Klasická i atypická neuroleptika (haloperidol, risperidon), prokinetika a antiemetika blokující dopaminové receptory (metoklopramid/Degan, thiethylperazin/Torecan) a blokátory vápníkových kanálů (cinarizin, flunarizin).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Kortikobazální degenerace (CBD) - syndrom cizí ruky (alien hand)."
         }
       ],
       "quiz": [
@@ -3986,8 +3985,8 @@ const NEUROLOGY_DATA = {
           {
             "id": "sc-S16-1",
             "title": "Klinická kazuistika – Parkinsonova nemoc",
-            "question": "<strong>Kazuistika:</strong> 61letý učitel přichází pro rok trvající třes pravé ruky v klidu, který mizí při psaní na tabuli, a pocit ztuhlosti pravého ramene. Písmo má postupně menší a hůře čitelné. Při vyšetření: asymetrický klidový třes PDK (4–5 Hz), fenomén ozubeného kola na pravém zápěstí, hypomimie v obličeji a zkrácení kroku vpravo s chyběním souhybu pravé paže při chůzi.<br><br><strong>Klinický úkol:</strong> Stanovte diagnózu, zhodnoťte klinické stadium a navrhněte iniciální farmakoterapii s ohledem na věk pacienta.",
-            "answer": "<ul style='margin: 6px 0 0 18px; padding: 0; line-height: 1.5;'><li>Diagnóza: Idiopatická Parkinsonova nemoc (počáteční asymetrické stádium Hoehn-Yahr 1).</li><li>Klinické známky: Typická triáda – klidový třes, rigidita s fenoménem ozubeného kola, hypokineze/mikrografie s asymetrickým začátkem na dominantní končetině.</li><li>Iniciální léčba u 61letého pacienta: Vzhledem k věku < 65 let a zachovalé kognici je vhodnou volbou agonista dopaminových receptorů (např. Pramipexol nebo Ropinirol v pomalu titrované dávce) nebo inhibitor MAO-B (Rasagilin 1 mg denně) k oddálení pozdních hybných komplikací.</li><li>Alternativa: Při výrazném funkčním omezení časné nasazení nízké dávky Levodopy s inhibitorem dekarboxylázy (např. Madopar / Nakom).</li><li>Edukace a varování: Poučit pacienta o riziku náhlého usnutí (sleep attacks) a poruch kontroly impulzů (patologické hráčství, hypersexualita, záchvatovité nakupování) při léčbě dopaminovými agonisty.</li></ul>",
+            "question": "61letý učitel přichází pro rok trvající třes pravé ruky v klidu, který mizí při psaní na tabuli, a pocit ztuhlosti pravého ramene. Písmo má postupně menší a hůře čitelné. Při vyšetření: asymetrický klidový třes PDK (4–5 Hz), fenomén ozubeného kola na pravém zápěstí, hypomimie v obličeji a zkrácení kroku vpravo s chyběním souhybu pravé paže při chůzi.\n\n\n\nKlinický úkol: Stanovte diagnózu, zhodnoťte klinické stadium a navrhněte iniciální farmakoterapii s ohledem na věk pacienta.",
+            "answer": "• Diagnóza: Idiopatická Parkinsonova nemoc (počáteční asymetrické stádium Hoehn-Yahr 1).\n• Klinické známky: Typická triáda – klidový třes, rigidita s fenoménem ozubeného kola, hypokineze/mikrografie s asymetrickým začátkem na dominantní končetině.\n• Iniciální léčba u 61letého pacienta: Vzhledem k věku < 65 let a zachovalé kognici je vhodnou volbou agonista dopaminových receptorů (např. Pramipexol nebo Ropinirol v pomalu titrované dávce) nebo inhibitor MAO-B (Rasagilin 1 mg denně) k oddálení pozdních hybných komplikací.\n• Alternativa: Při výrazném funkčním omezení časné nasazení nízké dávky Levodopy s inhibitorem dekarboxylázy (např. Madopar / Nakom).\n• Edukace a varování: Poučit pacienta o riziku náhlého usnutí (sleep attacks) a poruch kontroly impulzů (patologické hráčství, hypersexualita, záchvatovité nakupování) při léčbě dopaminovými agonisty.",
             "keyPoints": [
               "Diagnóza: Idiopatická Parkinsonova nemoc (počáteční asymetrické stádium Hoehn-Yahr 1).",
               "Klinické známky: Typická triáda – klidový třes, rigidita s fenoménem ozubeného kola, hypokineze/mikrografie s asymetrickým začátkem na dominantní končetině.",
@@ -4004,19 +4003,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-S16-1",
           "front": "Proč se Levodopa v terapii Parkinsonovy nemoci musí vždy podávat v kombinaci s inhibitorem DOPA-dekarboxylázy (např. karbidopou nebo benserazidem)?",
           "back": "Inhibitor DOPA-dekarboxylázy neprochází hematoencefalickou bariérou a blokuje periferní přeměnu Levodopy na dopamin v těle. Tím umožní její průnik do mozku a zabrání periferním nežádoucím účinkům dopaminu (těžká nauzea, zvracení, arytmie, hypotenze).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Zánik dopaminergních neuronů v substantia nigra pars compacta."
         },
         {
           "id": "fc-S16-2",
           "front": "Která porucha spánku je považována za vysoce specifický časný premotorický marker Parkinsonovy nemoci?",
           "back": "Porucha chování v REM spánku (RBD - REM Sleep Behavior Disorder), charakterizovaná vymizením svalové atonie v REM fázi a 'přehráváním' akčních a agresivních snů (křik, záškuby, údery).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Levodopa (L-DOPA) - prekurzor dopaminu."
         },
         {
           "id": "fc-S16-3",
           "front": "Do kterých mozkových struktur se nejčastěji zavádějí stimulační elektrody při hluboké mozkové stimulaci (DBS) u pacientů s pokročilou Parkinsonovou nemocí?",
           "back": "Nejčastějším cílem je nucleus subthalamicus (STN), alternativně globus pallidus internus (GPi).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Hluboká mozková stimulace (DBS) nucleus subthalamicus."
         }
       ],
       "quiz": [
@@ -4087,8 +4086,8 @@ const NEUROLOGY_DATA = {
           {
             "id": "sc-S17-1",
             "title": "Klinická kazuistika – Onemocnění s choreatickým syndromem",
-            "question": "<strong>Kazuistika:</strong> 38letý muž je odeslán praktickým lékařem pro změny chování, výbuchy vzteku, těžkou depresi v posledních dvou letech a nově pozorovaný neklid prstů a záškuby v obličeji, které maskuje uhlazováním vlasů. Při vyšetření nedokáže udržet vyplazený jazyk déle než 3 sekundy. Pacientův otec zemřel v ústavu sociální péče v 52 letech s diagnózou demence a poruchy chůze.<br><br><strong>Klinický úkol:</strong> Stanovte suspektní diagnózu, popište dědičnost s fenoménem anticipace a navrhněte diagnostický a symptomatický postup.",
-            "answer": "<ul style='margin: 6px 0 0 18px; padding: 0; line-height: 1.5;'><li>Suspektní diagnóza: Huntingtonova nemoc (HD) – pozitivní rodinná anamnéza, časné psychiatrické a behaviorální změny, choreatické hyperkineze a motorická impersistence (jazyk).</li><li>Genetika a dědičnost: Autozomálně dominantní onemocnění (CAG expanze na 4p16.3). Fenomén anticipace vysvětluje dřívější nástup příznaků u syna (38 let) oproti otci (52 let) v důsledku nestability a zmnožení CAG repetic při spermatogenezi.</li><li>Potvrzení diagnózy: Genetické vyšetření DNA z periferní krve (po řádném genetickém a psychologickém poradenství) s kvantifikací počtu CAG repetic.</li><li>Zobrazovací vyšetření: MRI mozku k průkazu atrofie caput nuclei caudati.</li><li>Symptomatická léčba a péče: Tlumení chorey inhibitorem VMAT2 (Tetrabenazin) nebo Tiapridem, antidepresivní léčba (SSRI), přísná monitorace a prevence suicidálního chování.</li></ul>",
+            "question": "38letý muž je odeslán praktickým lékařem pro změny chování, výbuchy vzteku, těžkou depresi v posledních dvou letech a nově pozorovaný neklid prstů a záškuby v obličeji, které maskuje uhlazováním vlasů. Při vyšetření nedokáže udržet vyplazený jazyk déle než 3 sekundy. Pacientův otec zemřel v ústavu sociální péče v 52 letech s diagnózou demence a poruchy chůze.\n\n\n\nKlinický úkol: Stanovte suspektní diagnózu, popište dědičnost s fenoménem anticipace a navrhněte diagnostický a symptomatický postup.",
+            "answer": "• Suspektní diagnóza: Huntingtonova nemoc (HD) – pozitivní rodinná anamnéza, časné psychiatrické a behaviorální změny, choreatické hyperkineze a motorická impersistence (jazyk).\n• Genetika a dědičnost: Autozomálně dominantní onemocnění (CAG expanze na 4p16.3). Fenomén anticipace vysvětluje dřívější nástup příznaků u syna (38 let) oproti otci (52 let) v důsledku nestability a zmnožení CAG repetic při spermatogenezi.\n• Potvrzení diagnózy: Genetické vyšetření DNA z periferní krve (po řádném genetickém a psychologickém poradenství) s kvantifikací počtu CAG repetic.\n• Zobrazovací vyšetření: MRI mozku k průkazu atrofie caput nuclei caudati.\n• Symptomatická léčba a péče: Tlumení chorey inhibitorem VMAT2 (Tetrabenazin) nebo Tiapridem, antidepresivní léčba (SSRI), přísná monitorace a prevence suicidálního chování.",
             "keyPoints": [
               "Suspektní diagnóza: Huntingtonova nemoc (HD) – pozitivní rodinná anamnéza, časné psychiatrické a behaviorální změny, choreatické hyperkineze a motorická impersistence (jazyk).",
               "Genetika a dědičnost: Autozomálně dominantní onemocnění (CAG expanze na 4p16.3). Fenomén anticipace vysvětluje dřívější nástup příznaků u syna (38 let) oproti otci (52 let) v důsledku nestability a zmnožení CAG repetic při spermatogenezi.",
@@ -4105,19 +4104,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-S17-1",
           "front": "Jaká je genetická podstata a dědičnost Huntingtonovy nemoci?",
           "back": "Autozomálně dominantní dědičnost s plnou penetrancí a anticipací. Je způsobena dynamickou expanzí trinukleotidu CAG (≥ 36–40 repetic) v genu pro huntingtin (HTT) na 4. chromozomu.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Expanze CAG tripletů v genu pro huntingtin (4. chromozom)."
         },
         {
           "id": "fc-S17-2",
           "front": "Která mozková struktura podléhá u Huntingtonovy nemoci nejčasnější a nejvýraznější atrofii viditelné na MRI mozku?",
           "back": "Hlava ocasatého jádra (caput nuclei caudati) a putamen ve striatu, což na MRI vede k typickému rozšíření čelních rohů postranních mozkových komor.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Chorea minor (Sydenhamova chorea) po streptokokové infekci."
         },
         {
           "id": "fc-S17-3",
           "front": "Poškození které anatomické struktury vede k rozvoji hemibalismu (prudkých házivých pohybů končetin)?",
           "back": "Nucleus subthalamicus Luysi (subthalamické jádro), nejčastěji na podkladě akutního lakunárního ischemického infarktu nebo drobného krvácení.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Tetrabenazin - depletor dopaminu (inhibitor VMAT2)."
         }
       ],
       "quiz": [
@@ -4196,8 +4195,8 @@ const NEUROLOGY_DATA = {
           {
             "id": "sc-S18-1",
             "title": "Klinická kazuistika – Demence a Alzheimerova nemoc",
-            "question": "<strong>Kazuistika:</strong> 72letá bývalá účetní přivedena dcerou pro 2 roky progredující zapomínání nedávných událostí, ztrácení klíčů a neschopnost samostatně uvařit podle receptu nebo zaplatit složenky. Při vyšetření: orientována osobou, ale neví přesný měsíc ani rok, v testu MMSE skóruje 21/30 bodů (výpadek paměti na 3 slova, porucha počítání a konstrukce), v testu kreslení hodin chybně umisťuje ručičky. Neurologický nález bez ložiskového motorického deficitu.<br><br><strong>Klinický úkol:</strong> Stanovte diagnózu a stádium, popište potřebná zobrazovací a laboratorní vyšetření a navrhněte optimální farmakoterapii.",
-            "answer": "<ul style='margin: 6px 0 0 18px; padding: 0; line-height: 1.5;'><li>Diagnóza: Demence u Alzheimerovy nemoci v lehkém stádiu (MMSE 21/30, narušení instrumentálních aktivit denního života - IADL).</li><li>Strukturální vyšetření: MRI mozku (koronární T1 a T2/FLAIR) k vyloučení strukturálních léčitelných příčin (subdurální hematom, NPH, tumor) a ke zhodnocení atrofie hipokampů (Scheltens MTA skóre).</li><li>Laboratorní vyloučení sekundárních demencí: Krevní obraz, biochemie, ionty, TSH (hypotyreóza), vitamin B12, folát, sérologie lues.</li><li>Farmakoterapie: Nasazení inhibitoru acetylcholinesterázy v monoterapii – např. Donepezil (zahájit 5 mg 1x denně večer, po 4–6 týdnech navýšit na 10 mg denně) nebo Rivastigmin (transdermální náplast).</li><li>Nefarmakologická opatření: Kognitivní trénink, pravidelný denní režim, zajištění sociální pomoci a bezpečnosti v domácnosti.</li></ul>",
+            "question": "72letá bývalá účetní přivedena dcerou pro 2 roky progredující zapomínání nedávných událostí, ztrácení klíčů a neschopnost samostatně uvařit podle receptu nebo zaplatit složenky. Při vyšetření: orientována osobou, ale neví přesný měsíc ani rok, v testu MMSE skóruje 21/30 bodů (výpadek paměti na 3 slova, porucha počítání a konstrukce), v testu kreslení hodin chybně umisťuje ručičky. Neurologický nález bez ložiskového motorického deficitu.\n\n\n\nKlinický úkol: Stanovte diagnózu a stádium, popište potřebná zobrazovací a laboratorní vyšetření a navrhněte optimální farmakoterapii.",
+            "answer": "• Diagnóza: Demence u Alzheimerovy nemoci v lehkém stádiu (MMSE 21/30, narušení instrumentálních aktivit denního života - IADL).\n• Strukturální vyšetření: MRI mozku (koronární T1 a T2/FLAIR) k vyloučení strukturálních léčitelných příčin (subdurální hematom, NPH, tumor) a ke zhodnocení atrofie hipokampů (Scheltens MTA skóre).\n• Laboratorní vyloučení sekundárních demencí: Krevní obraz, biochemie, ionty, TSH (hypotyreóza), vitamin B12, folát, sérologie lues.\n• Farmakoterapie: Nasazení inhibitoru acetylcholinesterázy v monoterapii – např. Donepezil (zahájit 5 mg 1x denně večer, po 4–6 týdnech navýšit na 10 mg denně) nebo Rivastigmin (transdermální náplast).\n• Nefarmakologická opatření: Kognitivní trénink, pravidelný denní režim, zajištění sociální pomoci a bezpečnosti v domácnosti.",
             "keyPoints": [
               "Diagnóza: Demence u Alzheimerovy nemoci v lehkém stádiu (MMSE 21/30, narušení instrumentálních aktivit denního života - IADL).",
               "Strukturální vyšetření: MRI mozku (koronární T1 a T2/FLAIR) k vyloučení strukturálních léčitelných příčin (subdurální hematom, NPH, tumor) a ke zhodnocení atrofie hipokampů (Scheltens MTA skóre).",
@@ -4214,19 +4213,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-S18-1",
           "front": "Jaký je typický profil likvorových biomarkerů ('Alzheimerovský triplet') u pacientů s Alzheimerovou nemocí?",
           "back": "Snížená hladina beta-amyloidu (Aβ42) v důsledku jeho ukládání do mozkových plaků, zvýšená hladina celkového tau proteinu (t-tau, marker zániku neuronů) a zvýšená hladina fosforylovaného tau proteinu (p-tau, marker tvorby neurofibrilárních klubek).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Beta-amyloidové plaky a tau-neurofibrilární klubka."
         },
         {
           "id": "fc-S18-2",
           "front": "Které dvě hlavní lékové skupiny tvoří základ kognitivní farmakoterapie Alzheimerovy nemoci a v jakých stádiích se nasazují?",
           "back": "1. Inhibitory acetylcholinesterázy (Donepezil, Rivastigmin, Galantamin) – indikované v lehkém až středním stádiu (MMSE 13–26). 2. Antagonista NMDA receptorů Memantin – indikovaný ve středně těžkém až těžkém stádiu (MMSE 3–19) nebo v kombinaci.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Inhibitory acetylcholinesterázy (donepezil, rivastigmin, galantamin)."
         },
         {
           "id": "fc-S18-3",
           "front": "Co hodnotí Scheltensova vizuální škála (MTA skóre) na koronárních řezech MRI mozku?",
           "back": "Míru atrofie mediálního temporálního laloku a hipokampu (hodnotí šířku choroidální fisury, temporálního rohu komory a výšku hipokampu v rozmezí 0–4 body).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Memantin - nekompetitivní NMDA antagonista."
         }
       ],
       "quiz": [
@@ -4297,8 +4296,8 @@ const NEUROLOGY_DATA = {
           {
             "id": "sc-S19-1",
             "title": "Klinická kazuistika – Bolesti hlavy - diferenciální diagnóza (Primární vs. sekundární cefalalgie)",
-            "question": "<strong>Kazuistika:</strong> 34letý manažer se v noci probudil krutou 'vrtavou' bolestí za pravým okem. Bolest je tak intenzivní, že nedokáže ležet a neklidně chodí po pokoji. Z pravého oka mu teče slza, pravá nosní dírka je ucpaná a pravé víčko pokleslé a oteklé. Podobné epizody se u něj opakovaly každou noc v posledních 2 týdnech vždy po vypití skleničky vína.<br><br><strong>Klinický úkol:</strong> Stanovte diagnózu, popište záchvatovou terapii a navrhněte lék volby pro dlouhodobou profylaxi.",
-            "answer": "<ul style='margin: 6px 0 0 18px; padding: 0; line-height: 1.5;'><li>Diagnóza: Cluster headache (trigeminová autonomní cefalalgie) v aktivní periodě.</li><li>Charakteristika záchvatu: Jednostranná periorbitální krutá bolest v noci, motorický neklid, ipsilaterální autonomní příznaky (lakrimace, nosní kongesce, ptóza/Horner), provokace alkoholem.</li><li>Akutní záchvatová léčba: Inhalace 100% kyslíku maskou průtokem 12–15 l/min po dobu 15 minut a/nebo subkutánní injekce Sumatriptanu 6 mg s.c.</li><li>Dlouhodobá profylaxe: Verapamil v titrované dávce (240–480 mg denně s kontrolami EKG kvůli riziku AV blokád).</li><li>Překlenovací léčba (bridging): Krátkodobý sestupný cyklus perorálního Prednisonu (zahájit 60–80 mg/den po dobu 5–7 dnů) pro rychlé přerušení periody záchvatů před nástupem účinku verapamilu.</li></ul>",
+            "question": "34letý manažer se v noci probudil krutou 'vrtavou' bolestí za pravým okem. Bolest je tak intenzivní, že nedokáže ležet a neklidně chodí po pokoji. Z pravého oka mu teče slza, pravá nosní dírka je ucpaná a pravé víčko pokleslé a oteklé. Podobné epizody se u něj opakovaly každou noc v posledních 2 týdnech vždy po vypití skleničky vína.\n\n\n\nKlinický úkol: Stanovte diagnózu, popište záchvatovou terapii a navrhněte lék volby pro dlouhodobou profylaxi.",
+            "answer": "• Diagnóza: Cluster headache (trigeminová autonomní cefalalgie) v aktivní periodě.\n• Charakteristika záchvatu: Jednostranná periorbitální krutá bolest v noci, motorický neklid, ipsilaterální autonomní příznaky (lakrimace, nosní kongesce, ptóza/Horner), provokace alkoholem.\n• Akutní záchvatová léčba: Inhalace 100% kyslíku maskou průtokem 12–15 l/min po dobu 15 minut a/nebo subkutánní injekce Sumatriptanu 6 mg s.c.\n• Dlouhodobá profylaxe: Verapamil v titrované dávce (240–480 mg denně s kontrolami EKG kvůli riziku AV blokád).\n• Překlenovací léčba (bridging): Krátkodobý sestupný cyklus perorálního Prednisonu (zahájit 60–80 mg/den po dobu 5–7 dnů) pro rychlé přerušení periody záchvatů před nástupem účinku verapamilu.",
             "keyPoints": [
               "Diagnóza: Cluster headache (trigeminová autonomní cefalalgie) v aktivní periodě.",
               "Charakteristika záchvatu: Jednostranná periorbitální krutá bolest v noci, motorický neklid, ipsilaterální autonomní příznaky (lakrimace, nosní kongesce, ptóza/Horner), provokace alkoholem.",
@@ -4315,19 +4314,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-S19-1",
           "front": "Jaká je okamžitá léčba první volby při akutním záchvatu Cluster headache?",
           "back": "Inhalace 100% kyslíku obličejovou maskou s rezervoárem průtokem 12–15 litrů/minutu po dobu 15–20 minut a/nebo aplikace Sumatriptanu 6 mg subkutánně.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Tenzní bolest hlavy - tupá, svíravá oboustranná cefalea."
         },
         {
           "id": "fc-S19-2",
           "front": "Jaké závažné riziko hrozí při neléčené temporální (obrovskobuněčné) arteritidě a jaký je okamžitý postup?",
           "back": "Hrozí akutní ireverzibilní ztráta zraku (přední ischemická neuropatie optiku - AION). Okamžitě se musí nasadit vysokodávkovaná kortikoterapie (Prednison 60–80 mg p.o. nebo metylprednizolon i.v.), a to ještě před provedením biopsie a. temporalis.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Cluster headache - trigeminová autonomní cefalea u mužů."
         },
         {
           "id": "fc-S19-3",
           "front": "Co znamená 'hromobitová bolest hlavy' (thunderclap headache) a jakou diagnózu je nutno bezodkladně vyloučit?",
           "back": "Jde o náhle vzniklou bolest hlavy, která dosáhne maximální nesnesitelné intenzity během několika sekund až do 1 minuty. Je nutné bezodkladně vyloučit subarachnoidální krvácení (nativní CT mozku, případně lumbální punkce).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "MOH (Medication Overuse Headache) - bolest hlavy z nadužívání analgetik."
         }
       ],
       "quiz": [
@@ -4402,8 +4401,8 @@ const NEUROLOGY_DATA = {
           {
             "id": "sc-S20-1",
             "title": "Klinická kazuistika – Migréna",
-            "question": "<strong>Kazuistika:</strong> 29letá právnička trpí od 18 let atakami pulzující bolesti levé poloviny hlavy se zvracením, které předchází 30minutové jiskření a výpadek v pravém zorném poli. Poslední půlrok má záchvaty 6–8x do měsíce. Užívá volně prodejná analgetika a Sumatriptan téměř každý druhý den, bolest se však stává trvalou a každodenní. Pacientka plánuje v dohledné době těhotenství.<br><br><strong>Klinický úkol:</strong> Zhodnoťte klinický stav (včetně komplikace), navrhněte management nadužívání analgetik a zvolte bezpečnou profylaktickou léčbu.",
-            "answer": "<ul style='margin: 6px 0 0 18px; padding: 0; line-height: 1.5;'><li>Diagnóza: Migréna s typickou zrakovou aurou komplikovaná rozvojem bolesti hlavy z nadužívání medikace (MOH - Medication Overuse Headache) a vysokou frekvencí záchvatů.</li><li>Management MOH: Okamžité radikální vysazení nadužívaných triptanů a kombinovaných analgetik (detoxikace, poučení o přechodném rebound zhoršení cefaley v prvních 7–14 dnech s možností překlenutí antiemetiky/NSAID).</li><li>Indikace profylaktické léčby: Frekvence 6–8 záchvatů měsíčně a přítomnost MOH je jednoznačnou indikací k zavedení profylaxe.</li><li>Volba profylaktika s ohledem na plánované těhotenství: Přísně kontraindikován je Valproát a Topiramát (vysoká teratogenita!). Lékem volby je Beta-blokátor (Metoprolol v nízké titrované dávce) nebo v případě selhání konvenční terapie zvážení biologické léčby anti-CGRP monoklonální protilátkou (Erenumab/Fremanezumab) s vysazením před koncepcí.</li><li>Režimová opatření: Pravidelný spánkový režim, hydratace, eliminace spouštěčů (stres, nepravidelná strava), vedení záchvatového deníku.</li></ul>",
+            "question": "29letá právnička trpí od 18 let atakami pulzující bolesti levé poloviny hlavy se zvracením, které předchází 30minutové jiskření a výpadek v pravém zorném poli. Poslední půlrok má záchvaty 6–8x do měsíce. Užívá volně prodejná analgetika a Sumatriptan téměř každý druhý den, bolest se však stává trvalou a každodenní. Pacientka plánuje v dohledné době těhotenství.\n\n\n\nKlinický úkol: Zhodnoťte klinický stav (včetně komplikace), navrhněte management nadužívání analgetik a zvolte bezpečnou profylaktickou léčbu.",
+            "answer": "• Diagnóza: Migréna s typickou zrakovou aurou komplikovaná rozvojem bolesti hlavy z nadužívání medikace (MOH - Medication Overuse Headache) a vysokou frekvencí záchvatů.\n• Management MOH: Okamžité radikální vysazení nadužívaných triptanů a kombinovaných analgetik (detoxikace, poučení o přechodném rebound zhoršení cefaley v prvních 7–14 dnech s možností překlenutí antiemetiky/NSAID).\n• Indikace profylaktické léčby: Frekvence 6–8 záchvatů měsíčně a přítomnost MOH je jednoznačnou indikací k zavedení profylaxe.\n• Volba profylaktika s ohledem na plánované těhotenství: Přísně kontraindikován je Valproát a Topiramát (vysoká teratogenita!). Lékem volby je Beta-blokátor (Metoprolol v nízké titrované dávce) nebo v případě selhání konvenční terapie zvážení biologické léčby anti-CGRP monoklonální protilátkou (Erenumab/Fremanezumab) s vysazením před koncepcí.\n• Režimová opatření: Pravidelný spánkový režim, hydratace, eliminace spouštěčů (stres, nepravidelná strava), vedení záchvatového deníku.",
             "keyPoints": [
               "Diagnóza: Migréna s typickou zrakovou aurou komplikovaná rozvojem bolesti hlavy z nadužívání medikace (MOH - Medication Overuse Headache) a vysokou frekvencí záchvatů.",
               "Management MOH: Okamžité radikální vysazení nadužívaných triptanů a kombinovaných analgetik (detoxikace, poučení o přechodném rebound zhoršení cefaley v prvních 7–14 dnech s možností překlenutí antiemetiky/NSAID).",
@@ -4420,19 +4419,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-S20-1",
           "front": "Jaký je mechanismus účinku a hlavní kardiovaskulární kontraindikace Triptanů v léčbě migrény?",
           "back": "Triptany jsou selektivní agonisté 5-HT1B/1D serotoninových receptorů, které způsobují vazokonstrikci meningeálních cév a blokují uvolňování CGRP. Kontraindikací jsou ischemická choroba srdeční (ICHS), stav po infarktu myokardu, prodělaná CMP/TIA a nekontrolovaná hypertenze.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Zraková aura - scintilační skotom šířící se v zorném poli."
         },
         {
           "id": "fc-S20-2",
           "front": "Který vazoaktivní neuropeptid hraje klíčovou roli v patogenezi migrény a je cílem moderní biologické léčby?",
           "back": "CGRP (Calcitonin Gene-Related Peptide). Moderní biologická léčba využívá monoklonální protilátky blokující přímo CGRP ligand (Fremanezumab, Galkanezumab) nebo jeho receptor (Erenumab).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Triptany - agonisté 5-HT 1B/1D serotoninových receptorů."
         },
         {
           "id": "fc-S20-3",
           "front": "Jak je definována bolest hlavy z nadužívání léků (Medication Overuse Headache - MOH)?",
           "back": "Bolest hlavy přítomná ≥ 15 dní v měsíci u pacienta s preexistující primární cefaleou, který pravidelně nadužívá akutní medikaci po dobu ≥ 3 měsíců (triptany, opioidy nebo kombinovaná analgetika ≥ 10 dní/měsíc, prostá analgetika ≥ 15 dní/měsíc).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Anti-CGRP monoklonální protilátky (erenumab, fremanezumab, galcanezumab)."
         }
       ],
       "quiz": [
@@ -4503,8 +4502,8 @@ const NEUROLOGY_DATA = {
           {
             "id": "sc-S21-1",
             "title": "Klinická kazuistika – Vaskulární demence, Demence s Lewyho tělísky (DLB) a Frontotemporální demence (FTD)",
-            "question": "<strong>Kazuistika:</strong> 56letý vysokoškolský profesor byl propuštěn ze zaměstnání, protože začal na poradách vulgárně urážet kolegy, svlékat se v kanceláři a v obchodě bez placení jíst čokolády. Manželka uvádí, že je zcela lhostejný k rodině a celý den mechanicky přepíná programy v televizi. V testu paměti si vybaví 3 ze 3 slov i po 10 minutách a orientace v prostoru je bezchybná. Neurologické vyšetření je bez ložiskového motorického deficitu.<br><br><strong>Klinický úkol:</strong> Stanovte diagnózu, vysvětlete nesoulad mezi pamětí a chováním a navrhněte adekvátní dovyšetření a léčebný přístup.",
-            "answer": "<ul style='margin: 6px 0 0 18px; padding: 0; line-height: 1.5;'><li>Diagnóza: Frontotemporální demence – behaviorální varianta (bvFTD / frontotemporální lobární degenerace) v preseniálním věku.</li><li>Vysvětlení nálezu: Neurodegenerativní proces primárně postihuje frontální korové sítě (orbitofrekvenci a ventromediální prefrontální kortex) zodpovědné za inhibici chování, sociální empatii a exekutivu. Hipokampy a temporoparietální paměťové sítě jsou v časné fázi intaktní, proto má pacient normální paměť a orientaci.</li><li>Dovyšetření: MRI mozku (průkaz selektivní atrofie frontálních a předních temporálních laloků), FDG-PET mozku (výrazný hypometabolismus frontálně).</li><li>Farmakoterapie: Inhibitory acetylcholinesterázy (Donepezil) jsou kontraindikovány (nefungují a mohou zvýšit agitovanost). K redukci impulzivity a dezinhibice se podávají SSRI (např. Citalopram, Trazodon).</li><li>Sociálně-právní kroky: Omezení svéprávnosti a zajištění dohledu rodiny k ochraně financí a prevenci společensky nepřijatelného jednání.</li></ul>",
+            "question": "56letý vysokoškolský profesor byl propuštěn ze zaměstnání, protože začal na poradách vulgárně urážet kolegy, svlékat se v kanceláři a v obchodě bez placení jíst čokolády. Manželka uvádí, že je zcela lhostejný k rodině a celý den mechanicky přepíná programy v televizi. V testu paměti si vybaví 3 ze 3 slov i po 10 minutách a orientace v prostoru je bezchybná. Neurologické vyšetření je bez ložiskového motorického deficitu.\n\n\n\nKlinický úkol: Stanovte diagnózu, vysvětlete nesoulad mezi pamětí a chováním a navrhněte adekvátní dovyšetření a léčebný přístup.",
+            "answer": "• Diagnóza: Frontotemporální demence – behaviorální varianta (bvFTD / frontotemporální lobární degenerace) v preseniálním věku.\n• Vysvětlení nálezu: Neurodegenerativní proces primárně postihuje frontální korové sítě (orbitofrekvenci a ventromediální prefrontální kortex) zodpovědné za inhibici chování, sociální empatii a exekutivu. Hipokampy a temporoparietální paměťové sítě jsou v časné fázi intaktní, proto má pacient normální paměť a orientaci.\n• Dovyšetření: MRI mozku (průkaz selektivní atrofie frontálních a předních temporálních laloků), FDG-PET mozku (výrazný hypometabolismus frontálně).\n• Farmakoterapie: Inhibitory acetylcholinesterázy (Donepezil) jsou kontraindikovány (nefungují a mohou zvýšit agitovanost). K redukci impulzivity a dezinhibice se podávají SSRI (např. Citalopram, Trazodon).\n• Sociálně-právní kroky: Omezení svéprávnosti a zajištění dohledu rodiny k ochraně financí a prevenci společensky nepřijatelného jednání.",
             "keyPoints": [
               "Diagnóza: Frontotemporální demence – behaviorální varianta (bvFTD / frontotemporální lobární degenerace) v preseniálním věku.",
               "Vysvětlení nálezu: Neurodegenerativní proces primárně postihuje frontální korové sítě (orbitofrekvenci a ventromediální prefrontální kortex) zodpovědné za inhibici chování, sociální empatii a exekutivu. Hipokampy a temporoparietální paměťové sítě jsou v časné fázi intaktní, proto má pacient normální paměť a orientaci.",
@@ -4521,19 +4520,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-S21-1",
           "front": "Jaká je kardinální klinická tetráda Demence s Lewyho tělísky (DLB)?",
           "back": "1. Fluktuující kognice s kolísáním pozornosti, 2. rekurentní detailní zrakové halucinace, 3. spontánní parkinsonský syndrom (rigidita, bradykineze), 4. porucha chování v REM spánku (RBD).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Demence s Lewyho tělísky (DLB) - zrakové halucinace a fluktuace."
         },
         {
           "id": "fc-S21-2",
           "front": "Proč je podání klasických neuroleptik (např. Haloperidolu) u Demence s Lewyho tělísky přísně kontraindikováno?",
           "back": "Pacienti s DLB mají extrémní přecitlivělost na neuroleptika (neuroleptic sensitivity) – blokáda dopaminových receptorů může vést k fatálnímu prohloubení rigidity, katatonii, komatu či malignímu neuroleptickému syndromu.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Alfa-synuklein tvoří Lewyho tělíska."
         },
         {
           "id": "fc-S21-3",
           "front": "Jaké jsou hlavní klinické projevy behaviorální varianty frontotemporální demence (bvFTD)?",
           "back": "Časná změna osobnosti a sociálního chování: dezinhibice (ztráta společenských zábran), apatie a ztráta empatie, stereotypní a rituální chování, hyperoralita (přejídání, bažení po sladkém) – s relativně zachovalou pamětí a prostorovou orientací v časné fázi.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Vaskulární demence má schodovitý průběh."
         }
       ],
       "quiz": [
@@ -4600,8 +4599,8 @@ const NEUROLOGY_DATA = {
           {
             "id": "sc-S22-1",
             "title": "Klinická kazuistika – Alkoholismus a postižení nervového systému",
-            "question": "<strong>Kazuistika:</strong> 52letý bezdomovec s chronickým abúzem alkoholu přivezen RZP pro těžkou zmatenost. Při vyšetření: pacient je dezorientovaný, na očích patrný horizontální a vertikální nystagmus s oboustrannou neschopností abdukce očních bulbů (oboustranná paréza n. VI), v sedu výrazná ataxie trupu a neschopnost samostatného stoje. Sestra připravuje infuzi 10% glukózy pro krevní glykémii 3,8 mmol/l.<br><br><strong>Klinický úkol:</strong> Identifikujte akutní diagnózu, zhodnoťte chybu v postupu sestry a určete okamžitý terapeutický plán.",
-            "answer": "<ul style='margin: 6px 0 0 18px; padding: 0; line-height: 1.5;'><li>Diagnóza: Akutní Wernickeova encefalopatie (kompletní klasická triáda: oftalmoplegie n. VI + nystagmus, ataxie stoje a trupu, globální zmatenost při deficitu thiaminu).</li><li>Kritická intervence: Okamžitě zastavit podání infuze glukózy!</li><li>Správný farmakologický postup: Aplikovat vysokou dávku Thiaminu (vitamin B1) 500 mg i.v. v pomalé infuzi ve fyziologickém roztoku (0,9% NaCl) 3x denně po dobu 3–5 dnů.</li><li>Následná péče: Až po zahájení aplikace thiaminu podat roztoky glukózy, doplnit magnesium (kofaktor thiamin-dependentních enzymů), kalium a komplex vitaminů B.</li><li>Prevence chronicity: Včasná léčba zabrání přechodu do trvalého ireverzibilního Korsakovova amnestického syndromu.</li></ul>",
+            "question": "52letý bezdomovec s chronickým abúzem alkoholu přivezen RZP pro těžkou zmatenost. Při vyšetření: pacient je dezorientovaný, na očích patrný horizontální a vertikální nystagmus s oboustrannou neschopností abdukce očních bulbů (oboustranná paréza n. VI), v sedu výrazná ataxie trupu a neschopnost samostatného stoje. Sestra připravuje infuzi 10% glukózy pro krevní glykémii 3,8 mmol/l.\n\n\n\nKlinický úkol: Identifikujte akutní diagnózu, zhodnoťte chybu v postupu sestry a určete okamžitý terapeutický plán.",
+            "answer": "• Diagnóza: Akutní Wernickeova encefalopatie (kompletní klasická triáda: oftalmoplegie n. VI + nystagmus, ataxie stoje a trupu, globální zmatenost při deficitu thiaminu).\n• Kritická intervence: Okamžitě zastavit podání infuze glukózy!\n• Správný farmakologický postup: Aplikovat vysokou dávku Thiaminu (vitamin B1) 500 mg i.v. v pomalé infuzi ve fyziologickém roztoku (0,9% NaCl) 3x denně po dobu 3–5 dnů.\n• Následná péče: Až po zahájení aplikace thiaminu podat roztoky glukózy, doplnit magnesium (kofaktor thiamin-dependentních enzymů), kalium a komplex vitaminů B.\n• Prevence chronicity: Včasná léčba zabrání přechodu do trvalého ireverzibilního Korsakovova amnestického syndromu.",
             "keyPoints": [
               "Diagnóza: Akutní Wernickeova encefalopatie (kompletní klasická triáda: oftalmoplegie n. VI + nystagmus, ataxie stoje a trupu, globální zmatenost při deficitu thiaminu).",
               "Kritická intervence: Okamžitě zastavit podání infuze glukózy!",
@@ -4618,19 +4617,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-S22-1",
           "front": "Proč je absolutně nutné podat Thiamin (vitamin B1) nitrožilně před zahájením infuze glukózy u malnutričního alkoholika?",
           "back": "Metabolismus glukózy spotřebovává thiamin jako nezbytný kofaktor pyruvátdehydrogenázy. Podání samotné glukózy bez thiaminu vyčerpá minimální rezervy, zablokuje Krebsův cyklus, způsobí masivní laktátovou acidózu a vyvolá akutní fatální Wernickeovu encefalopatii.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Wernickeova encefalopatie - deficit vitaminu B1 (thiaminu)."
         },
         {
           "id": "fc-S22-2",
           "front": "Které příznaky tvoří klasickou triádu Wernickeovy encefalopatie?",
           "back": "1. Okohybné poruchy (nystagmus, oboustranná paréza n. VI, obrna pohledu), 2. cerebelární ataxie (posturální ataxie trupu a chůze), 3. globální zmatenost/alterace mentálního stavu.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Marchiafava-Bignami - demyelinizace corpus callosum."
         },
         {
           "id": "fc-S22-3",
           "front": "Jaká iatrogenní chyba vede k rozvoji osmotického demyelinizačního syndromu (centrální pontinní myelinolýzy)?",
           "back": "Příliš rychlá nitrožilní korekce chronické hyponatrémie (překročení rychlosti vzestupu natrémie o více než 8–10 mmol/l za 24 hodin).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Delirium tremens - život ohrožující abstinenční stav."
         }
       ],
       "quiz": [
@@ -4692,7 +4691,7 @@ const NEUROLOGY_DATA = {
           },
           {
             "title": "4. Léčba diabetické neuropatie",
-            "content": "<ol>\n                <li><strong>Kauzální a metabolická léčba:</strong> striktní a stabilní kompenzace diabetu (HbA1c < 45–53 mmol/mol) – zabraňuje progresi a vzniku nových komplikací. Kyselina thioktová (α-lipoová, 600 mg i.v./p.o. – silný antioxidant).</li>\n                <li><strong>Symptomatická léčba bolestivé polyneuropatie:</strong>\n                    <ul>\n                        <li><em>Antiepileptika (ligandy α₂\δ podjednotky vápníkových kanálů):</em> <strong>Pregabalin</strong> (150–600 mg/den), <strong>Gabapentin</strong> (900–2400 mg/den).</li>\n                        <li><em>Antidepresiva (SNRI a TCA):</em> <strong>Duloxetin</strong> (60–120 mg/den – lék 1. volby), Venlafaxin, Amitriptylin.</li>\n                        <li><em>Lokální terapie:</em> Kapsaicinové náplasti (8% Qutenza).</li>\n                    </ul>\n                </li>\n                <li><strong>Péče o nohy a edukace:</strong> každodenní inspekce nohou, speciální diabetická obuv s bezešvou vložkou, včasná léčba otlaků v podiatrické poradně.</li>\n            </ol>"
+            "content": "<ol>\n                <li><strong>Kauzální a metabolická léčba:</strong> striktní a stabilní kompenzace diabetu (HbA1c < 45–53 mmol/mol) – zabraňuje progresi a vzniku nových komplikací. Kyselina thioktová (α-lipoová, 600 mg i.v./p.o. – silný antioxidant).</li>\n                <li><strong>Symptomatická léčba bolestivé polyneuropatie:</strong>\n                    <ul>\n                        <li><em>Antiepileptika (ligandy α₂δ podjednotky vápníkových kanálů):</em> <strong>Pregabalin</strong> (150–600 mg/den), <strong>Gabapentin</strong> (900–2400 mg/den).</li>\n                        <li><em>Antidepresiva (SNRI a TCA):</em> <strong>Duloxetin</strong> (60–120 mg/den – lék 1. volby), Venlafaxin, Amitriptylin.</li>\n                        <li><em>Lokální terapie:</em> Kapsaicinové náplasti (8% Qutenza).</li>\n                    </ul>\n                </li>\n                <li><strong>Péče o nohy a edukace:</strong> každodenní inspekce nohou, speciální diabetická obuv s bezešvou vložkou, včasná léčba otlaků v podiatrické poradně.</li>\n            </ol>"
           }
         ]
       },
@@ -4701,8 +4700,8 @@ const NEUROLOGY_DATA = {
           {
             "id": "sc-S23-1",
             "title": "Klinická kazuistika – Diabetes mellitus a postižení nervového systému",
-            "question": "<strong>Kazuistika:</strong> 64letý diabetik 2. typu přichází pro 6 měsíců progredující pálení plosek nohou zhoršující se v noci, pocit 'chůze jako po mechu' a nedávný nebolestivý vřed pod hlavičkou 1. metatarzu vpravo. Při vyšetření: ladička na mediálním kotníku 1/8 oboustranně, monofilamentum necítí na 4 z 5 bodů plosky, reflexy šlachy Achillovy nevýbavné, pulzace na a. dorsalis pedis hmatné.<br><br><strong>Klinický úkol:</strong> Stanovte diagnózu, zhodnoťte riziko diabetické nohy a navrhněte komplexní léčebný a preventivní plán.",
-            "answer": "<ul style='margin: 6px 0 0 18px; padding: 0; line-height: 1.5;'><li>Diagnóza: Diabetická distální symetrická senzomotorická polyneuropatie (DSPN) s těžkou poruchou hlubokého i povrchového čití a vznikem neuropatického vředu (diabetická noha Wagner 1).</li><li>Patofyziologie: Ztráta protektivního čití bolesti a tlaku vede k nepozorovanému mechanickému přetížení a vzniku trofických defektů.</li><li>Terapie neuropatické bolesti: Zahájit léčbu Duloxetinem (30 mg titrovat na 60 mg denně) nebo Pregabalinem (75 mg 2x denně).</li><li>Metabolická kontrola: Optimalizace kompenzace diabetu (úprava perorálních antidiabetik/inzulínu k cílovému HbA1c), zvážení antioxidační léčby kyselinou thioktovou (alfa-lipoovou) 600 mg denně.</li><li>Podiatrická péče: Lokální ošetření vředu, odlehčení planty speciální terapeutickou obuví, edukace každodenní vizuální kontroly nohou a zákaz chůze naboso.</li></ul>",
+            "question": "64letý diabetik 2. typu přichází pro 6 měsíců progredující pálení plosek nohou zhoršující se v noci, pocit 'chůze jako po mechu' a nedávný nebolestivý vřed pod hlavičkou 1. metatarzu vpravo. Při vyšetření: ladička na mediálním kotníku 1/8 oboustranně, monofilamentum necítí na 4 z 5 bodů plosky, reflexy šlachy Achillovy nevýbavné, pulzace na a. dorsalis pedis hmatné.\n\n\n\nKlinický úkol: Stanovte diagnózu, zhodnoťte riziko diabetické nohy a navrhněte komplexní léčebný a preventivní plán.",
+            "answer": "• Diagnóza: Diabetická distální symetrická senzomotorická polyneuropatie (DSPN) s těžkou poruchou hlubokého i povrchového čití a vznikem neuropatického vředu (diabetická noha Wagner 1).\n• Patofyziologie: Ztráta protektivního čití bolesti a tlaku vede k nepozorovanému mechanickému přetížení a vzniku trofických defektů.\n• Terapie neuropatické bolesti: Zahájit léčbu Duloxetinem (30 mg titrovat na 60 mg denně) nebo Pregabalinem (75 mg 2x denně).\n• Metabolická kontrola: Optimalizace kompenzace diabetu (úprava perorálních antidiabetik/inzulínu k cílovému HbA1c), zvážení antioxidační léčby kyselinou thioktovou (alfa-lipoovou) 600 mg denně.\n• Podiatrická péče: Lokální ošetření vředu, odlehčení planty speciální terapeutickou obuví, edukace každodenní vizuální kontroly nohou a zákaz chůze naboso.",
             "keyPoints": [
               "Diagnóza: Diabetická distální symetrická senzomotorická polyneuropatie (DSPN) s těžkou poruchou hlubokého i povrchového čití a vznikem neuropatického vředu (diabetická noha Wagner 1).",
               "Patofyziologie: Ztráta protektivního čití bolesti a tlaku vede k nepozorovanému mechanickému přetížení a vzniku trofických defektů.",
@@ -4719,19 +4718,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-S23-1",
           "front": "Proč má diabetická mikroangiopatická paréza n. oculomotorius (n. III) zachovanou fotoreakci a zornici (tzv. pupil-sparing)?",
           "back": "Protože ischemie z okluze vasa nervorum postihuje centrální jádro nervu, zatímco povrchová parasympatická vlákna inervující zornici (m. sphincter pupillae) jsou zásobena kolaterálním difuzním tokem z plen a zůstávají intaktní (na rozdíl od vnějšího útlaku aneuryzmatem).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Distální symetrická senzomotorická polyneuropatie - ponožková distribuce."
         },
         {
           "id": "fc-S23-2",
           "front": "Co charakterizuje syndrom Bruns-Garland (diabetickou amyotrofii)?",
           "back": "Akutní až subakutní krutá jednostranná bolest v boku a stehně, po které rychle následuje masivní atrofie a slabost m. quadriceps femoris s vymizením patelárního reflexu na podkladě ischemické plexopatie.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Diabetická amyotrofie (Bruns-Garlandův syndrom)."
         },
         {
           "id": "fc-S23-3",
           "front": "Které dvě lékové skupiny jsou první volbou v symptomatické léčbě bolestivé diabetické polyneuropatie?",
           "back": "1. SNRI antidepresiva (Duloxetin), 2. Gabapentinoidy (Pregabalin nebo Gabapentin).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Pregabalin, gabapentin nebo duloxetin na neuropatickou bolest."
         }
       ],
       "quiz": [
@@ -4806,8 +4805,8 @@ const NEUROLOGY_DATA = {
           {
             "id": "sc-S24-1",
             "title": "Klinická kazuistika – Roztroušená skleróza mozkomíšní (Sclerosis multiplex)",
-            "question": "<strong>Kazuistika:</strong> 26letá žena přichází pro týden trvající zamlžené vidění levého oka s bolestí za okem při pohybu a poruchou vnímání červené barvy. Před rokem prodělala přechodné 3týdenní brnění obou dolních končetin od pasu dolů. MRI mozku prokazuje 4 T2-hyperintenzní oválné léze v periventrikulární bílé hmotě orientované kolmo na komory (Dawsonovy prsty), z nichž jedna vychytává gadolinium, a lumbální punkce prokazuje 6 specifických oligoklonálních IgG pásů v likvoru (typ 2).<br><br><strong>Klinický úkol:</strong> Stanovte diagnózu dle McDonaldových kritérií, popište okamžitou léčbu oční ataky a doporučte dlouhodobou strategii.",
-            "answer": "<ul style='margin: 6px 0 0 18px; padding: 0; line-height: 1.5;'><li>Diagnóza: Klinicky definitivní roztroušená skleróza (relabující-remitentní forma - RRRS).</li><li>Splnění McDonaldových kritérií: Splněna diseminace v prostoru (periventrikulární léze + n. opticus), diseminace v čase je prokázána přítomností současně enhancující a neenhancující léze na MRI i pozitivitou oligoklonálních IgG pásů (OCB typ 2).</li><li>Okamžitá léčba ataky (retrobulbární neuritidy): Metylprednizolon (Solu-Medrol) 1 g i.v. denně v infuzi po dobu 3–5 dnů s krytím žaludeční sliznice PPI.</li><li>Dlouhodobá léčba (DMT): Včasné zahájení chorobu modifikující léčby v RS centru (zvolení vysoce účinné terapie HET – např. anti-CD20 monoklonální protilátky Ocrelizumab/Ofatumumab nebo perorální Cladribin/Fingolimod) k potlačení další zánětlivé i neurodegenerativní aktivity.</li><li>Dispenzarizace: Pravidelné sledování neurologického nálezu (EDSS skóre) a kontrolní MRI mozku v intervalu 6–12 měsíců.</li></ul>",
+            "question": "26letá žena přichází pro týden trvající zamlžené vidění levého oka s bolestí za okem při pohybu a poruchou vnímání červené barvy. Před rokem prodělala přechodné 3týdenní brnění obou dolních končetin od pasu dolů. MRI mozku prokazuje 4 T2-hyperintenzní oválné léze v periventrikulární bílé hmotě orientované kolmo na komory (Dawsonovy prsty), z nichž jedna vychytává gadolinium, a lumbální punkce prokazuje 6 specifických oligoklonálních IgG pásů v likvoru (typ 2).\n\n\n\nKlinický úkol: Stanovte diagnózu dle McDonaldových kritérií, popište okamžitou léčbu oční ataky a doporučte dlouhodobou strategii.",
+            "answer": "• Diagnóza: Klinicky definitivní roztroušená skleróza (relabující-remitentní forma - RRRS).\n• Splnění McDonaldových kritérií: Splněna diseminace v prostoru (periventrikulární léze + n. opticus), diseminace v čase je prokázána přítomností současně enhancující a neenhancující léze na MRI i pozitivitou oligoklonálních IgG pásů (OCB typ 2).\n• Okamžitá léčba ataky (retrobulbární neuritidy): Metylprednizolon (Solu-Medrol) 1 g i.v. denně v infuzi po dobu 3–5 dnů s krytím žaludeční sliznice PPI.\n• Dlouhodobá léčba (DMT): Včasné zahájení chorobu modifikující léčby v RS centru (zvolení vysoce účinné terapie HET – např. anti-CD20 monoklonální protilátky Ocrelizumab/Ofatumumab nebo perorální Cladribin/Fingolimod) k potlačení další zánětlivé i neurodegenerativní aktivity.\n• Dispenzarizace: Pravidelné sledování neurologického nálezu (EDSS skóre) a kontrolní MRI mozku v intervalu 6–12 měsíců.",
             "keyPoints": [
               "Diagnóza: Klinicky definitivní roztroušená skleróza (relabující-remitentní forma - RRRS).",
               "Splnění McDonaldových kritérií: Splněna diseminace v prostoru (periventrikulární léze + n. opticus), diseminace v čase je prokázána přítomností současně enhancující a neenhancující léze na MRI i pozitivitou oligoklonálních IgG pásů (OCB typ 2).",
@@ -4824,19 +4823,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-S24-1",
           "front": "Jaký je standardní léčebný protokol pro akutní ataku (relaps) roztroušené sklerózy?",
           "back": "Vysokodávkovaný Metylprednizolon (Solu-Medrol) v dávce 3–5 g i.v. celkově, podávaný jako 1 g i.v. v infuzi denně po dobu 3 až 5 po sobě jdoucích dnů s krytím inhibitorem protonové pumpy (PPI).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Diseminace v prostoru (DIS) a diseminace v čase (DIT) - McDonaldova kritéria."
         },
         {
           "id": "fc-S24-2",
           "front": "Co znamená Uhthoffův fenomén u pacientů s roztroušenou sklerózou?",
           "back": "Přechodné zhoršení stávajících neurologických symptomů nebo dočasný návrat dřívějšího deficitu vyvolaný zvýšením tělesné teploty (např. při horké koupeli, cvičení, sauně nebo horečce) v důsledku teplotní blokády vedení vzruchu v demyelinizovaných nervových vláknech.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Solumedrol 3-5 g i.v. v akutní atace RS."
         },
         {
           "id": "fc-S24-3",
           "front": "Které čtyři anatomické oblasti CNS hodnotí McDonaldova kritéria pro průkaz diseminace v prostoru (DIS) na MRI?",
           "back": "1. Periventrikulární oblast, 2. Kortikální nebo juxtakortikální oblast, 3. Infratentoriální oblast (kmen a mozeček), 4. Mícha.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Lhermitteův příznak - elektrický výboj podél páteře při předklonu hlavy."
         }
       ],
       "quiz": [
@@ -4903,8 +4902,8 @@ const NEUROLOGY_DATA = {
           {
             "id": "sc-S25-1",
             "title": "Klinická kazuistika – Jiná nutriční a karenční postižení nervového systému",
-            "question": "<strong>Kazuistika:</strong> 59letá veganka s anamnézou resekce ilea pro Crohnovu chorobu vyšetřována pro 4 měsíce progredující nejistotu při chůzi ve tmě a pálivé brnění chodidel. Při vyšetření: těžká porucha polohocitu na prstcích nohou, nulové vnímání vibrace ladičkou na kotnících i kolenou, Rombergův příznak prudce pozitivní se zavřenýma očima, spastická chůze, reflex šlachy Achillovy nevýbavný, ale oboustranně pozitivní Babinského jev.<br><br><strong>Klinický úkol:</strong> Stanovte diagnózu, vysvětlete disociaci reflexů a navrhněte laboratorní a substituční terapii.",
-            "answer": "<ul style='margin: 6px 0 0 18px; padding: 0; line-height: 1.5;'><li>Diagnóza: Subakutní kombinovaná degenerace míchy (funikulární myelóza) s periferní polyneuropatií při těžkém deficitu vitaminu B12 (kombinace veganství a malabsorpce po resekci ilea).</li><li>Vysvětlení reflexního nálezu: Pozitivní Babinski svědčí pro centrální lézi pyramidové dráhy v postranních provazcích míchy, zatímco vyhaslý reflex šlachy Achillovy (RŠA) odráží současnou axonální periferní polyneuropatii.</li><li>Laboratorní potvrzení: Hladina vitaminu B12 v séru, kyselina metylmalonová (MMA), homocystein, krevní obraz (MCV > 100 fl).</li><li>MRI nález: T2 hyperintenzita zadních provazců cervikální míchy (obraz obráceného písmene V).</li><li>Léčba: Intramuskulární aplikace Kyanokobalaminu 1000 µ g i.m. denně po dobu 10–14 dnů, následně 1x týdně a dále celoživotně 1x měsíčně i.m. (perorální podání je kvůli resekci ilea neúčinné).</li></ul>",
+            "question": "59letá veganka s anamnézou resekce ilea pro Crohnovu chorobu vyšetřována pro 4 měsíce progredující nejistotu při chůzi ve tmě a pálivé brnění chodidel. Při vyšetření: těžká porucha polohocitu na prstcích nohou, nulové vnímání vibrace ladičkou na kotnících i kolenou, Rombergův příznak prudce pozitivní se zavřenýma očima, spastická chůze, reflex šlachy Achillovy nevýbavný, ale oboustranně pozitivní Babinského jev.\n\n\n\nKlinický úkol: Stanovte diagnózu, vysvětlete disociaci reflexů a navrhněte laboratorní a substituční terapii.",
+            "answer": "• Diagnóza: Subakutní kombinovaná degenerace míchy (funikulární myelóza) s periferní polyneuropatií při těžkém deficitu vitaminu B12 (kombinace veganství a malabsorpce po resekci ilea).\n• Vysvětlení reflexního nálezu: Pozitivní Babinski svědčí pro centrální lézi pyramidové dráhy v postranních provazcích míchy, zatímco vyhaslý reflex šlachy Achillovy (RŠA) odráží současnou axonální periferní polyneuropatii.\n• Laboratorní potvrzení: Hladina vitaminu B12 v séru, kyselina metylmalonová (MMA), homocystein, krevní obraz (MCV > 100 fl).\n• MRI nález: T2 hyperintenzita zadních provazců cervikální míchy (obraz obráceného písmene V).\n• Léčba: Intramuskulární aplikace Kyanokobalaminu 1000 µ g i.m. denně po dobu 10–14 dnů, následně 1x týdně a dále celoživotně 1x měsíčně i.m. (perorální podání je kvůli resekci ilea neúčinné).",
             "keyPoints": [
               "Diagnóza: Subakutní kombinovaná degenerace míchy (funikulární myelóza) s periferní polyneuropatií při těžkém deficitu vitaminu B12 (kombinace veganství a malabsorpce po resekci ilea).",
               "Vysvětlení reflexního nálezu: Pozitivní Babinski svědčí pro centrální lézi pyramidové dráhy v postranních provazcích míchy, zatímco vyhaslý reflex šlachy Achillovy (RŠA) odráží současnou axonální periferní polyneuropatii.",
@@ -4921,19 +4920,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-S25-1",
           "front": "Které míšní dráhy jsou selektivně postiženy u funikulární myelózy při deficitu vitaminu B12?",
           "back": "Zadní provazce míchy (fasciculus gracilis et cuneatus – výpadek vibrace a hluboké propriocepce se spinální ataxií) a postranní provazce míchy (tractus corticospinalis – spastická paraparéza).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Subakutní kombinovaná degenerace míchy (funikulární myelóza) - deficit B12."
         },
         {
           "id": "fc-S25-2",
           "front": "Které dva vysoce citlivé metabolity v krvi stoupají při tkáňovém deficitu vitaminu B12 ještě před poklesem sérové hladiny vitaminu B12?",
           "back": "Kyselina metylmalonová (MMA) a homocystein.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Pellagra - deficit niacinu (vitamín B3) - 3D: Dermatitida, Diaria, Demence."
         },
         {
           "id": "fc-S25-3",
           "front": "Proč je nebezpečné léčit pacienta s nejasnou makrocytární anémií samotnou kyselinou listovou bez vyšetření vitaminu B12?",
           "back": "Kyselina listová upraví krevní obraz a hematologické parametry makrocytární anémie, ale nezabrání progresi neurologického poškození míchy (funikulární myelózy), které se může při neléčeném deficitu B12 stát ireverzibilním.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Pontinní myelinolýza při příliš rychlé korekci hyponatrémie."
         }
       ],
       "quiz": [
@@ -5008,8 +5007,8 @@ const NEUROLOGY_DATA = {
           {
             "id": "sc-S26-1",
             "title": "Klinická kazuistika – Hydrocephalus (včetně Normotenzního hydrocefalu dospělých)",
-            "question": "<strong>Kazuistika:</strong> 71letý důchodce přichází v doprovodu rodiny pro rok trvající zhoršování chůze – chodí pomalu, 'šourá nohama, jako by je měl přilepené k zemi', a opakovaně upadl. V posledních měsících je zpomalený, málo mluví a objevily se epizody pomočování cestou na toaletu. Vleže na lůžku má svalovou sílu DK i hybnost plně intaktní. Na MRI mozku je patrná masivní dilatace postranních i III. komory (Evansův index 0,38) se zúžením subarachnoidálních prostor na vertexu.<br><br><strong>Klinický úkol:</strong> Stanovte diagnózu syndromu, navrhněte potvrzující zátěžový test a definitivní neurochirurgický výkon.",
-            "answer": "<ul style='margin: 6px 0 0 18px; padding: 0; line-height: 1.5;'><li>Diagnóza: Normotenzní hydrocefalus dospělých (NPH - syndrom Hakim-Adams s kompletní klinickou triádou: magnetická chůze, demence a urgentní inkontinence).</li><li>Potvrzení diagnózy a predikce efektu léčby: Provedení likvorového tap-testu (evakuace 40–50 ml moku lumbální punkcí s videozáznamem a měřením parametrů chůze v TUG testu před a po zákroku).</li><li>Definitivní léčebná metoda: Neurochirurgická implantace ventrikuloperitoneálního shuntu (VP shunt) s nastavitelným programovatelným gravitačním ventilem.</li><li>Očekávaný výsledek: Výrazné zlepšení nebo úplná úprava poruchy chůze a inkontinence a stabilizace kognitivních funkcí.</li></ul>",
+            "question": "71letý důchodce přichází v doprovodu rodiny pro rok trvající zhoršování chůze – chodí pomalu, 'šourá nohama, jako by je měl přilepené k zemi', a opakovaně upadl. V posledních měsících je zpomalený, málo mluví a objevily se epizody pomočování cestou na toaletu. Vleže na lůžku má svalovou sílu DK i hybnost plně intaktní. Na MRI mozku je patrná masivní dilatace postranních i III. komory (Evansův index 0,38) se zúžením subarachnoidálních prostor na vertexu.\n\n\n\nKlinický úkol: Stanovte diagnózu syndromu, navrhněte potvrzující zátěžový test a definitivní neurochirurgický výkon.",
+            "answer": "• Diagnóza: Normotenzní hydrocefalus dospělých (NPH - syndrom Hakim-Adams s kompletní klinickou triádou: magnetická chůze, demence a urgentní inkontinence).\n• Potvrzení diagnózy a predikce efektu léčby: Provedení likvorového tap-testu (evakuace 40–50 ml moku lumbální punkcí s videozáznamem a měřením parametrů chůze v TUG testu před a po zákroku).\n• Definitivní léčebná metoda: Neurochirurgická implantace ventrikuloperitoneálního shuntu (VP shunt) s nastavitelným programovatelným gravitačním ventilem.\n• Očekávaný výsledek: Výrazné zlepšení nebo úplná úprava poruchy chůze a inkontinence a stabilizace kognitivních funkcí.",
             "keyPoints": [
               "Diagnóza: Normotenzní hydrocefalus dospělých (NPH - syndrom Hakim-Adams s kompletní klinickou triádou: magnetická chůze, demence a urgentní inkontinence).",
               "Potvrzení diagnózy a predikce efektu léčby: Provedení likvorového tap-testu (evakuace 40–50 ml moku lumbální punkcí s videozáznamem a měřením parametrů chůze v TUG testu před a po zákroku).",
@@ -5025,19 +5024,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-S26-1",
           "front": "Které příznaky tvoří klasickou Hakim-Adamsovu triádu u normotenzního hydrocefalu (NPH)?",
           "back": "1. Apraxie a porucha chůze (magnetická šouravá chůze o široké bázi), 2. subkortikální demence (bradypsychismus, apatie), 3. močová urgentní inkontinence.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Magnetická apraktická chůze u NPH."
         },
         {
           "id": "fc-S26-2",
           "front": "Jak se provádí a hodnotí likvorový tap-test u pacienta s podezřením na normotenzní hydrocefalus?",
           "back": "Provede se lumbální punkce s jednorázovým vypuštěním 30–50 ml likvoru. Před punkcí a po ní se kvantitativně hodnotí rychlost a stabilita chůze (např. TUG test). Významné zlepšení chůze potvrdí diagnózu a predikuje úspěch trvalé shuntové operace.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Ventrikuloperitoneální (VP) shunt."
         },
         {
           "id": "fc-S26-3",
           "front": "Jak je definován Evansův index na CT/MRI mozku a jaká hodnota svědčí pro ventrikulomegalii?",
           "back": "Evansův index je poměr mezi maximální šířkou čelních rohů postranních komor a maximálním vnitřním průměrem kalvy lební na stejném axiálním řezu. Hodnota > 0,30 svědčí pro patologické rozšíření komorového systému.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Trikotetický hydrocephalus - obstrukce Sylviova mokovodu."
         }
       ],
       "quiz": [
@@ -5112,8 +5111,8 @@ const NEUROLOGY_DATA = {
           {
             "id": "sc-S27-1",
             "title": "Klinická kazuistika – Mozková smrt",
-            "question": "<strong>Kazuistika:</strong> 40letý pacient po těžkém kraniocerebrálním traumatu s masivní bitemporální kontuzí a dekompresivní kraniektomii je 4. den na neuroJIP v hlubokém bezvědomí na UPV. Sedace (propofol + sufentanil) byla vysazena před 36 hodinami, tělesná teplota 36,8 °C, TK 125/75 mmHg na nízké dávce noradrenalinu. Neurolog konstatuje oboustrannou mydriázu bez fotoreakce, areflexii korneální, okulovestibulární i kašlací a GCS 3.<br><br><strong>Klinický úkol:</strong> Popište následující nutné kroky k validnímu stanovení mozkové smrti podle platného transplantačního protokolu.",
-            "answer": "<ul style='margin: 6px 0 0 18px; padding: 0; line-height: 1.5;'><li>Ověření předpokladů: Strukturální nevratná léze prokázána na CT, normotermie, hemodynamická stabilita, dostatečný interval od vysazení sedativ k eliminaci látek.</li><li>Klinické vyšetření kmenové areflexie: Provedení kompletního protokolu kmenových reflexů nezávisle dvěma atestovanými lékaři.</li><li>Apnoický test: Provedení apnoického testu s insuflací kyslíku a odběrem krevních plynů k potvrzení absence dechu při pCO₂ ≥ 8,0 kPa.</li><li>Konfirmační instrumentální vyšetření: Indikace CT angiografie mozkových tepen (CTA) k průkazu úplné zástavy intrakraniální perfuze nad bází lební.</li><li>Právní a etický závěr: Po potvrzení zástavy perfuze na CTA sepsání Protokolu o stanovení mozkové smrti, oficiální konstatování času smrti pacienta a kontaktování transplantačního koordinátora.</li></ul>",
+            "question": "40letý pacient po těžkém kraniocerebrálním traumatu s masivní bitemporální kontuzí a dekompresivní kraniektomii je 4. den na neuroJIP v hlubokém bezvědomí na UPV. Sedace (propofol + sufentanil) byla vysazena před 36 hodinami, tělesná teplota 36,8 °C, TK 125/75 mmHg na nízké dávce noradrenalinu. Neurolog konstatuje oboustrannou mydriázu bez fotoreakce, areflexii korneální, okulovestibulární i kašlací a GCS 3.\n\n\n\nKlinický úkol: Popište následující nutné kroky k validnímu stanovení mozkové smrti podle platného transplantačního protokolu.",
+            "answer": "• Ověření předpokladů: Strukturální nevratná léze prokázána na CT, normotermie, hemodynamická stabilita, dostatečný interval od vysazení sedativ k eliminaci látek.\n• Klinické vyšetření kmenové areflexie: Provedení kompletního protokolu kmenových reflexů nezávisle dvěma atestovanými lékaři.\n• Apnoický test: Provedení apnoického testu s insuflací kyslíku a odběrem krevních plynů k potvrzení absence dechu při pCO₂ ≥ 8,0 kPa.\n• Konfirmační instrumentální vyšetření: Indikace CT angiografie mozkových tepen (CTA) k průkazu úplné zástavy intrakraniální perfuze nad bází lební.\n• Právní a etický závěr: Po potvrzení zástavy perfuze na CTA sepsání Protokolu o stanovení mozkové smrti, oficiální konstatování času smrti pacienta a kontaktování transplantačního koordinátora.",
             "keyPoints": [
               "Ověření předpokladů: Strukturální nevratná léze prokázána na CT, normotermie, hemodynamická stabilita, dostatečný interval od vysazení sedativ k eliminaci látek.",
               "Klinické vyšetření kmenové areflexie: Provedení kompletního protokolu kmenových reflexů nezávisle dvěma atestovanými lékaři.",
@@ -5130,19 +5129,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-S27-1",
           "front": "Které základní reverzibilní faktory a vlivy musí být striktně vyloučeny před zahájením vyšetření mozkové smrti?",
           "back": "1. Vliv tlumivých léků (sedativa, analgetika, myorelaxancia) a intoxikací, 2. hypotermie (teplota musí být ≥ 35–36 °C), 3. těžká hypotenze (systolický TK musí být ≥ 90–100 mmHg), 4. těžký elektrolytový a metabolicko-endokrinní rozvrat.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Ireverzibilní zástava všech funkcí celého mozku včetně kmene."
         },
         {
           "id": "fc-S27-2",
           "front": "Jaké jsou laboratorní podmínky pro úspěšné a platné ukončení apnoického testu potvrzujícího zástavu dýchacího centra?",
           "back": "Absence jakéhokoliv spontánního dechového pokusu při vzestupu arteriálního pCO2 na hodnotu ≥ 8,0 kPa (≥ 60 mmHg) nebo vzestupu pCO2 o více než 2,7 kPa (20 mmHg) nad výchozí hodnotu při poklesu pH ≤ 7,25.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Kmenové reflexy: pupilární, korneální, okulovestibulární, dávivý, kašlací."
         },
         {
           "id": "fc-S27-3",
           "front": "Které instrumentální konfirmační metody prokazující zástavu intrakraniální cirkulace jsou uznávány legislativou ČR pro potvrzení mozkové smrti?",
           "back": "CT angiografie mozkových tepen (CTA), digitální subtrakční angiografie (DSA 4 mozkových tepen), transkraniální dopplerovská sonografie (TCD) a mozková perfuzní scintigrafie (99mTc-HMPAO SPECT).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Čtyřtepenná panangiografie nebo CT angiografie k průkazu zástavy perfuze."
         }
       ],
       "quiz": [
@@ -5217,8 +5216,8 @@ const NEUROLOGY_DATA = {
           {
             "id": "sc-S28-1",
             "title": "Klinická kazuistika – Syringomyelie a Syringobulbie",
-            "question": "<strong>Kazuistika:</strong> 31letá kadeřnice si všimla, že se opakovaně nebolestivě popálila o kulmu na prstech a předloktích obou horních končetin a necítila horkou vodu. Při vyšetření: plášťovitá ztráta vnímání tepla a bolesti v dermatomech C3–Th2 oboustranně, polohocit a vibrační čití na rukou jsou plně normální, na obou rukách mírná atrofie interoseálních svalů a živé patelární reflexy s pozitivním Babinským vpravo.<br><br><strong>Klinický úkol:</strong> Stanovte diagnózu, popište očekávaný nález na MRI a navrhněte neurochirurgické řešení.",
-            "answer": "<ul style='margin: 6px 0 0 18px; padding: 0; line-height: 1.5;'><li>Diagnóza: Cervikální syringomyelie s typickou disociovanou poruchou čití v plášťovité distribuci (C3–Th2) a počínající amyotrofií rukou.</li><li>Podezření na etiologii: Chiariho malformace typu I (blokáda cirkulace likvoru na kraniocervikálním přechodu).</li><li>MRI nález: T1 hypointenzní a T2 výrazně hyperintenzní centrální tekutinová kavita v krční míše a kaudální protruze cerebelárních tonzil ≥ 5 mm pod foramen magnum.</li><li>Neurochirurgická léčba: Subokcipitální dekomprese zadní jámy (kraniektomie foramen magnum, laminektomie C1 a duroplastika) k obnovení průchodnosti likvorových cest.</li><li>Prognóza: Včasná dekomprese zabrání progresi neurologického deficitu a vede ke zmenšení syrinx.</li></ul>",
+            "question": "31letá kadeřnice si všimla, že se opakovaně nebolestivě popálila o kulmu na prstech a předloktích obou horních končetin a necítila horkou vodu. Při vyšetření: plášťovitá ztráta vnímání tepla a bolesti v dermatomech C3–Th2 oboustranně, polohocit a vibrační čití na rukou jsou plně normální, na obou rukách mírná atrofie interoseálních svalů a živé patelární reflexy s pozitivním Babinským vpravo.\n\n\n\nKlinický úkol: Stanovte diagnózu, popište očekávaný nález na MRI a navrhněte neurochirurgické řešení.",
+            "answer": "• Diagnóza: Cervikální syringomyelie s typickou disociovanou poruchou čití v plášťovité distribuci (C3–Th2) a počínající amyotrofií rukou.\n• Podezření na etiologii: Chiariho malformace typu I (blokáda cirkulace likvoru na kraniocervikálním přechodu).\n• MRI nález: T1 hypointenzní a T2 výrazně hyperintenzní centrální tekutinová kavita v krční míše a kaudální protruze cerebelárních tonzil ≥ 5 mm pod foramen magnum.\n• Neurochirurgická léčba: Subokcipitální dekomprese zadní jámy (kraniektomie foramen magnum, laminektomie C1 a duroplastika) k obnovení průchodnosti likvorových cest.\n• Prognóza: Včasná dekomprese zabrání progresi neurologického deficitu a vede ke zmenšení syrinx.",
             "keyPoints": [
               "Diagnóza: Cervikální syringomyelie s typickou disociovanou poruchou čití v plášťovité distribuci (C3–Th2) a počínající amyotrofií rukou.",
               "Podezření na etiologii: Chiariho malformace typu I (blokáda cirkulace likvoru na kraniocervikálním přechodu).",
@@ -5235,19 +5234,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-S28-1",
           "front": "Proč dochází u syringomyelie k disociované poruše čití (ztráta bolesti a tepla se zachováním hlubokého čití)?",
           "back": "Centrálně uložená kavita (syrinx) v míše nejprve utlačí a přeruší commissura alba anterior, kde se kříží vlákna tractus spinothalamicus (vedoucí bolest a teplotu). Zadní provazce (vedoucí propriocepci a vibraci) leží dorzálně mimo centrum a zůstávají dlouho nepostiženy.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Chiariho malformace typ I (herniace tonzil mozečku pod foramen magnum)."
         },
         {
           "id": "fc-S28-2",
           "front": "Jaká vrozená vývojová vada kraniocervikálního přechodu je nejčastěji asociována se vznikem syringomyelie?",
           "back": "Chiariho malformace I. typu (herniace mozečkových tonzil přes foramen magnum o ≥ 5 mm pod úroveň baze lební blokující tok likvoru).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Disociovaná porucha čití v plášťové distribuci na HK."
         },
         {
           "id": "fc-S28-3",
           "front": "Jaký neurochirurgický výkon je kauzální léčbou syringomyelie asociované s Chiari I malformací?",
           "back": "Dekomprese foramen magnum (subokcipitální kraniektomie s resekcí zadního oblouku atlasu C1 a expanzivní plastikou tvrdé pleny – duroplastikou) k obnovení volné cirkulace likvoru.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Syringobulbie - postižení jader dolních hlavových nervů."
         }
       ],
       "quiz": [
@@ -5318,8 +5317,8 @@ const NEUROLOGY_DATA = {
           {
             "id": "sc-S29-1",
             "title": "Klinická kazuistika – Hereditární spastická paraparéza (Strümpell-Lorrain)",
-            "question": "<strong>Kazuistika:</strong> 35letý programátor přichází pro 5 let pozvolna se zhoršující ztuhlost nohou při chůzi, zakopávání špičkami a občasné prudké nutkání na močení. Pacientův otec a dědeček měli podobné obtíže s chůzí od středního věku. Při vyšetření: nůžkovitá spastická chůze po špičkách, patelární reflexy polykinetické, klonus obou nohou, oboustranně pozitivní Babinského jev. Svalová síla a reflexy na horních končetinách i citlivost celého těla jsou normální. MRI celé páteře a mozku bez patologie.<br><br><strong>Klinický úkol:</strong> Stanovte nejpravděpodobnější diagnózu, typ dědičnosti a navrhněte genetické a farmakologické řešení.",
-            "answer": "<ul style='margin: 6px 0 0 18px; padding: 0; line-height: 1.5;'><li>Diagnóza: Hereditární spastická paraparéza (HSP / morbus Strümpell-Lorrain) – čistá nekomplikovaná forma.</li><li>Typ dědičnosti: Autozomálně dominantní (postižení ve 3 po sobě jdoucích generacích u mužů i žen).</li><li>Potvrzení diagnózy: Molekulárně-genetické vyšetření DNA (panel pro HSP se zaměřením na gen SPAST / SPG4).</li><li>Symptomatická léčba spasticity: Titrace perorálního Baklofenu (začít 5 mg 3x denně, postupně navyšovat) nebo Tizanidinu, v případě lokální spasticity lýtek aplikace botulotoxinu A.</li><li>Péče o močový měchýř a rehabilitace: Urologické vyšetření s nasazením parasympatolytik (solifenacin) na urgentní mikci a intenzivní denní fyzioterapie zaměřená na protahování šlach a nácvik chůze.</li></ul>",
+            "question": "35letý programátor přichází pro 5 let pozvolna se zhoršující ztuhlost nohou při chůzi, zakopávání špičkami a občasné prudké nutkání na močení. Pacientův otec a dědeček měli podobné obtíže s chůzí od středního věku. Při vyšetření: nůžkovitá spastická chůze po špičkách, patelární reflexy polykinetické, klonus obou nohou, oboustranně pozitivní Babinského jev. Svalová síla a reflexy na horních končetinách i citlivost celého těla jsou normální. MRI celé páteře a mozku bez patologie.\n\n\n\nKlinický úkol: Stanovte nejpravděpodobnější diagnózu, typ dědičnosti a navrhněte genetické a farmakologické řešení.",
+            "answer": "• Diagnóza: Hereditární spastická paraparéza (HSP / morbus Strümpell-Lorrain) – čistá nekomplikovaná forma.\n• Typ dědičnosti: Autozomálně dominantní (postižení ve 3 po sobě jdoucích generacích u mužů i žen).\n• Potvrzení diagnózy: Molekulárně-genetické vyšetření DNA (panel pro HSP se zaměřením na gen SPAST / SPG4).\n• Symptomatická léčba spasticity: Titrace perorálního Baklofenu (začít 5 mg 3x denně, postupně navyšovat) nebo Tizanidinu, v případě lokální spasticity lýtek aplikace botulotoxinu A.\n• Péče o močový měchýř a rehabilitace: Urologické vyšetření s nasazením parasympatolytik (solifenacin) na urgentní mikci a intenzivní denní fyzioterapie zaměřená na protahování šlach a nácvik chůze.",
             "keyPoints": [
               "Diagnóza: Hereditární spastická paraparéza (HSP / morbus Strümpell-Lorrain) – čistá nekomplikovaná forma.",
               "Typ dědičnosti: Autozomálně dominantní (postižení ve 3 po sobě jdoucích generacích u mužů i žen).",
@@ -5336,19 +5335,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-S29-1",
           "front": "Který gen a protein je nejčastěji mutován u autozomálně dominantní čisté formy hereditární spastické paraparézy?",
           "back": "Gen SPAST kódující protein spastin (forma SPG4), který tvoří téměř polovinu všech AD případů čisté hereditární spastické paraparézy.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Strümpell-Lorrainova choroba (HSP)."
         },
         {
           "id": "fc-S29-2",
           "front": "Jak se klinicky projevuje 'čistá' (pure) forma hereditární spastické paraparézy?",
           "back": "Pomalu progredující spasticitou a slabostí dolních končetin (spasticko-paretická nůžkovitá chůze, hyperreflexie, oboustranný Babinski) a urgentní inkontinencí, přičemž horní končetiny, řeč, hlavové nervy a kognice jsou zcela ušetřeny.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Spastický močový měchýř (urgentní inkontinence)."
         },
         {
           "id": "fc-S29-3",
           "front": "Která terapeutická modalita se využívá u pacientů s HSP a těžkou invalidizující spasticitou dolních končetin refrakterní na perorální léky?",
           "back": "Intratekální baklofenová pumpa (ITB) kontinuálně dávkující baklofen přímo do likvorového prostoru bederní páteře.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Baklofen v léčbě spasticity."
         }
       ],
       "quiz": [
@@ -5427,8 +5426,8 @@ const NEUROLOGY_DATA = {
           {
             "id": "sc-S30-1",
             "title": "Klinická kazuistika – Amyotrofická laterální skleróza (ALS)",
-            "question": "<strong>Kazuistika:</strong> 58letý zedník vyšetřován pro 6 měsíců progredující slabost a úbytek svaloviny pravé ruky (nemůže otočit klíčem v zámku), záškuby svalů na hrudníku a ramenou a poslední měsíc váznoucí polykání tekutin. Při vyšetření: těžká atrofie interoseálních svalů a thenaru pravé ruky s difuzními svalovými fascikulacemi, bicipitální i tricipitální reflexy na této atrofické končetině jsou paradoxně živé, na dolních končetinách oboustranně pozitivní Babinského jev, na vyplazeném jazyku patrné jemné fascikulace. Citlivost je všude intaktní.<br><br><strong>Klinický úkol:</strong> Stanovte diagnózu, interpretujte současné známky léze 1. i 2. motoneuronu a navrhněte diagnostický a paliativně-terapeutický plán.",
-            "answer": "<ul style='margin: 6px 0 0 18px; padding: 0; line-height: 1.5;'><li>Diagnóza: Amyotrofická laterální skleróza (ALS) – smíšená spinální a bulbární forma splňující Gold Coast kritéria.</li><li>Průkaz kombinace motoneuronů: Léze 2. periferního motoneuronu (chabá paréza ruky, svalové atrofie, fascikulace na těle a jazyku) SOUČASNĚ s lézí 1. centrálního motoneuronu (hyperreflexie na atrofické končetině, pozitivní Babinski).</li><li>Potvrzení diagnózy: Jehlová elektromyografie (EMG) k průkazu difuzní akutní denervace (fibrilace, pozitivní ostré vlny, fascikulace) a chronické reinervace ve 3 oblastech (bulbární, cervikální, lumbální), MRI krční páteře k vyloučení spondylogenní myelopatie.</li><li>Medikamentózní léčba: Zahájení léčby Riluzolem 50 mg 2x denně po kontrole jaterních testů.</li><li>Komplexní péče a dispenzarizace: Pravidelné monitorování vitální kapacity plic (FVC), při poklesu FVC pod 50–80 % včasné zavedení neinvazivní ventilace (NIV/BiPAP) a včasná indikace perkutánní endoskopické gastrostomie (PEG) před rozvojem těžké malnutrice.</li></ul>",
+            "question": "58letý zedník vyšetřován pro 6 měsíců progredující slabost a úbytek svaloviny pravé ruky (nemůže otočit klíčem v zámku), záškuby svalů na hrudníku a ramenou a poslední měsíc váznoucí polykání tekutin. Při vyšetření: těžká atrofie interoseálních svalů a thenaru pravé ruky s difuzními svalovými fascikulacemi, bicipitální i tricipitální reflexy na této atrofické končetině jsou paradoxně živé, na dolních končetinách oboustranně pozitivní Babinského jev, na vyplazeném jazyku patrné jemné fascikulace. Citlivost je všude intaktní.\n\n\n\nKlinický úkol: Stanovte diagnózu, interpretujte současné známky léze 1. i 2. motoneuronu a navrhněte diagnostický a paliativně-terapeutický plán.",
+            "answer": "• Diagnóza: Amyotrofická laterální skleróza (ALS) – smíšená spinální a bulbární forma splňující Gold Coast kritéria.\n• Průkaz kombinace motoneuronů: Léze 2. periferního motoneuronu (chabá paréza ruky, svalové atrofie, fascikulace na těle a jazyku) SOUČASNĚ s lézí 1. centrálního motoneuronu (hyperreflexie na atrofické končetině, pozitivní Babinski).\n• Potvrzení diagnózy: Jehlová elektromyografie (EMG) k průkazu difuzní akutní denervace (fibrilace, pozitivní ostré vlny, fascikulace) a chronické reinervace ve 3 oblastech (bulbární, cervikální, lumbální), MRI krční páteře k vyloučení spondylogenní myelopatie.\n• Medikamentózní léčba: Zahájení léčby Riluzolem 50 mg 2x denně po kontrole jaterních testů.\n• Komplexní péče a dispenzarizace: Pravidelné monitorování vitální kapacity plic (FVC), při poklesu FVC pod 50–80 % včasné zavedení neinvazivní ventilace (NIV/BiPAP) a včasná indikace perkutánní endoskopické gastrostomie (PEG) před rozvojem těžké malnutrice.",
             "keyPoints": [
               "Diagnóza: Amyotrofická laterální skleróza (ALS) – smíšená spinální a bulbární forma splňující Gold Coast kritéria.",
               "Průkaz kombinace motoneuronů: Léze 2. periferního motoneuronu (chabá paréza ruky, svalové atrofie, fascikulace na těle a jazyku) SOUČASNĚ s lézí 1. centrálního motoneuronu (hyperreflexie na atrofické končetině, pozitivní Babinski).",
@@ -5445,19 +5444,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-S30-1",
           "front": "Které funkce a anatomické struktury zůstávají u ALS typicky ušetřeny až do pozdních stádií?",
           "back": "Okohybná inervace (hlavové nervy III, IV, VI), senzitivní systém (všechny modality čití) a sfinkterové funkce močového měchýře a rekta (Onufovo jádro).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Kombinace léze 1. i 2. motoneuronu bez poruchy citlivosti."
         },
         {
           "id": "fc-S30-2",
           "front": "Jaký klinický nález je typický pro postižení bulbárního svalstva u ALS?",
           "back": "Progresivní dysfagie, bulbární setřelá dysartrie, atrofie jazyka s masivními svalovými fascikulacemi (obraz 'hemžení červů') a záchvaty nekontrolovatelného pláče/smíchu (pseudobulbární afekt).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Riluzol - inhibitor uvolňování glutamátu."
         },
         {
           "id": "fc-S30-3",
           "front": "Který lék je standardem kauzálně modifikující léčby ALS a jaký je jeho mechanismus účinku?",
           "back": "Riluzol v dávce 50 mg p.o. 2x denně, který působí jako antiglutamátergní látka (inhibuje presynaptické uvolňování glutamátu a blokuje napěťově řízené sodíkové kanály).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Příčina úmrtí: respirační selhání."
         }
       ],
       "quiz": [
@@ -5532,8 +5531,8 @@ const NEUROLOGY_DATA = {
           {
             "id": "sc-S31-1",
             "title": "Klinická kazuistika – Vertebrogenní onemocnění krční páteře (Cervikální syndromy a myelopatie)",
-            "question": "<strong>Kazuistika:</strong> 46letý automechanik přichází pro týden trvající krutou vystřelující bolest z krku po zadní straně pravé paže až do prostředního prstu, která se zhoršuje při záklonu a rotaci hlavy doprava (Spurlingův test pozitivní). Při vyšetření: oslabení extenze v pravém lokti proti odporu (síla 3/5), nevýbavný pravý tricipitální reflex a snížená citlivost na dorzální straně 3. prstu.<br><br><strong>Klinický úkol:</strong> Určete konkrétní kořenový syndrom, navrhněte zobrazovací metodu a sestavte plán konzervativní terapie.",
-            "answer": "<ul style='margin: 6px 0 0 18px; padding: 0; line-height: 1.5;'><li>Diagnóza: Akutní kompresivní krční radikulopatie C7 vpravo (nejčastěji způsobená foraminální herniací disku C6/C7).</li><li>Klinické koreláty: Oslabení m. triceps brachii, výpadek tricipitálního reflexu a dermatomu C7 (3. prst).</li><li>Zobrazovací vyšetření: MRI krční páteře (k vizualizaci výhřezu ploténky C6/C7 a míry útlaku nervového kořene ve foramen intervertebrale).</li><li>Akutní konzervativní léčba: Krátkodobá imobilizace měkkým krčním límcem, klidový režim, nesteroidní antiflogistika (např. diklofenak/etoricoxib) + myorelaxancia, gabapentinoidy (pregabalin) na neuropatickou bolest, popř. cílený periradikulární obstřik (PRT) pod CT.</li><li>Chirurgická indikace: Pokud by došlo k progresi motorické parézy m. triceps brachii (< 3/5) nebo selhání konzervativní terapie po 6 týdnech, je indikována přední cervikální diskektomie a fúze (ACDF).</li></ul>",
+            "question": "46letý automechanik přichází pro týden trvající krutou vystřelující bolest z krku po zadní straně pravé paže až do prostředního prstu, která se zhoršuje při záklonu a rotaci hlavy doprava (Spurlingův test pozitivní). Při vyšetření: oslabení extenze v pravém lokti proti odporu (síla 3/5), nevýbavný pravý tricipitální reflex a snížená citlivost na dorzální straně 3. prstu.\n\n\n\nKlinický úkol: Určete konkrétní kořenový syndrom, navrhněte zobrazovací metodu a sestavte plán konzervativní terapie.",
+            "answer": "• Diagnóza: Akutní kompresivní krční radikulopatie C7 vpravo (nejčastěji způsobená foraminální herniací disku C6/C7).\n• Klinické koreláty: Oslabení m. triceps brachii, výpadek tricipitálního reflexu a dermatomu C7 (3. prst).\n• Zobrazovací vyšetření: MRI krční páteře (k vizualizaci výhřezu ploténky C6/C7 a míry útlaku nervového kořene ve foramen intervertebrale).\n• Akutní konzervativní léčba: Krátkodobá imobilizace měkkým krčním límcem, klidový režim, nesteroidní antiflogistika (např. diklofenak/etoricoxib) + myorelaxancia, gabapentinoidy (pregabalin) na neuropatickou bolest, popř. cílený periradikulární obstřik (PRT) pod CT.\n• Chirurgická indikace: Pokud by došlo k progresi motorické parézy m. triceps brachii (< 3/5) nebo selhání konzervativní terapie po 6 týdnech, je indikována přední cervikální diskektomie a fúze (ACDF).",
             "keyPoints": [
               "Diagnóza: Akutní kompresivní krční radikulopatie C7 vpravo (nejčastěji způsobená foraminální herniací disku C6/C7).",
               "Klinické koreláty: Oslabení m. triceps brachii, výpadek tricipitálního reflexu a dermatomu C7 (3. prst).",
@@ -5550,19 +5549,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-S31-1",
           "front": "Jaký klinický deficit (motorika, dermatom, šlachový reflex) charakterizuje nejčastější cervikální radikulopatii C7?",
           "back": "Slabost m. triceps brachii (váznoucí extenze předloktí) a flexorů zápěstí, hypestezie v dermatomu prostředníku (3. prstu) a vyhasnutí či oslabení tricipitálního reflexu.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Radikulopatie C7 - m. triceps brachii, reflex C7, 3. prst."
         },
         {
           "id": "fc-S31-2",
           "front": "Jaký neurologický syndrom vzniká při cervikální spondylogenní myelopatii (CSM)?",
           "back": "Smíšený syndrom: periferní (chabá) paréza a atrofie drobných svalů horních končetin s neobratností prstů (v úrovni krční léze) KOMBINOVANÁ se spastickou paraparézou dolních končetin, hyperreflexií a poruchou stability chůze (pod úrovní léze).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Cervikální spondylogenní myelopatie (CSM) - spastická paraparéza DKK."
         },
         {
           "id": "fc-S31-3",
           "front": "Který míšní kořen je postižen u pacienta s vyhaslým bicipitálním reflexem, oslabením flexe v lokti a necitlivostí palce a ukazováku?",
           "back": "Míšní kořen C6 (radikulární syndrom C6).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Kořen C6 - reflex bicipitový, radiální strana předloktí a palec."
         }
       ],
       "quiz": [
@@ -5633,8 +5632,8 @@ const NEUROLOGY_DATA = {
           {
             "id": "sc-S32-1",
             "title": "Klinická kazuistika – Vertebrogenní onemocnění hrudní páteře (Torakalgie a dif. dg.)",
-            "question": "<strong>Kazuistika:</strong> 54letý kuřák a hypertonik přichází na pohotovost pro 4 hodiny trvající ostrou pálivou bolest pod levým prsem vystřelující podél mezižebří do zad, která začala po zvednutí těžkého břemene. Bolest se zhoršuje při hlubokém nádechu a rotaci trupu. Pacient se obává infarktu myokardu.<br><br><strong>Klinický úkol:</strong> Sestavte bezpečný diagnostický postup krok za krokem a navrhněte léčbu po vyloučení interní patologie.",
-            "answer": "<ul style='margin: 6px 0 0 18px; padding: 0; line-height: 1.5;'><li>Okamžité vyloučení kardiopulmonální urgence: Statimové 12svodové EKG, odběr krve na kardiální troponin T/I a D-dimery, změření krevního tlaku na obou pažích (vyloučení disekce aorty) a fyzikální vyšetření plic.</li><li>Cílené vertebrogenní vyšetření: Po negativitě kardiálních markerů palpace hrudní páteře, žeber a mezižeberních prostorů – zjištění palpační citlivosti 5. levého kostovertebrálního skloubení a reflexního spasmu mezižeberních svalů.</li><li>Inspekce kůže: Kontrola kůže v dermatomu Th5 k vyloučení incipientního herpetického výsevu (herpes zoster).</li><li>Stanovení diagnózy: Funkční vertebrogenní torakalgie s blokádou kostovertebrálního skloubení Th5 vlevo a interkostální neuralgií.</li><li>Léčebný plán: Jemná myoskeletální mobilizace blokovaného žebra, aplikace lokálního NSAID gelu, krátkodobě perorální nesteroidní antiflogistikum (Ibuprofen 400 mg) a nácvik správného dechového stereotypu.</li></ul>",
+            "question": "54letý kuřák a hypertonik přichází na pohotovost pro 4 hodiny trvající ostrou pálivou bolest pod levým prsem vystřelující podél mezižebří do zad, která začala po zvednutí těžkého břemene. Bolest se zhoršuje při hlubokém nádechu a rotaci trupu. Pacient se obává infarktu myokardu.\n\n\n\nKlinický úkol: Sestavte bezpečný diagnostický postup krok za krokem a navrhněte léčbu po vyloučení interní patologie.",
+            "answer": "• Okamžité vyloučení kardiopulmonální urgence: Statimové 12svodové EKG, odběr krve na kardiální troponin T/I a D-dimery, změření krevního tlaku na obou pažích (vyloučení disekce aorty) a fyzikální vyšetření plic.\n• Cílené vertebrogenní vyšetření: Po negativitě kardiálních markerů palpace hrudní páteře, žeber a mezižeberních prostorů – zjištění palpační citlivosti 5. levého kostovertebrálního skloubení a reflexního spasmu mezižeberních svalů.\n• Inspekce kůže: Kontrola kůže v dermatomu Th5 k vyloučení incipientního herpetického výsevu (herpes zoster).\n• Stanovení diagnózy: Funkční vertebrogenní torakalgie s blokádou kostovertebrálního skloubení Th5 vlevo a interkostální neuralgií.\n• Léčebný plán: Jemná myoskeletální mobilizace blokovaného žebra, aplikace lokálního NSAID gelu, krátkodobě perorální nesteroidní antiflogistikum (Ibuprofen 400 mg) a nácvik správného dechového stereotypu.",
             "keyPoints": [
               "Okamžité vyloučení kardiopulmonální urgence: Statimové 12svodové EKG, odběr krve na kardiální troponin T/I a D-dimery, změření krevního tlaku na obou pažích (vyloučení disekce aorty) a fyzikální vyšetření plic.",
               "Cílené vertebrogenní vyšetření: Po negativitě kardiálních markerů palpace hrudní páteře, žeber a mezižeberních prostorů – zjištění palpační citlivosti 5. levého kostovertebrálního skloubení a reflexního spasmu mezižeberních svalů.",
@@ -5651,19 +5650,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-S32-1",
           "front": "Proč je u každého pacienta s nově vzniklou bolestí v oblasti hrudní páteře a hrudníku nutné provést EKG a laboratorní vyšetření před stanovením vertebrogenní diagnózy?",
           "back": "K bezpečnému vyloučení akutního infarktu myokardu a akutního koronárního syndromu, které se mohou manifestovat bolestí na hrudi imitující blokádu páteře či mezižebří.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Vyloučení AKS (akutního koronárního syndromu) - 12svodové EKG."
         },
         {
           "id": "fc-S32-2",
           "front": "Která infekční neurologická diagnóza se typicky manifestuje krutou pásovitou pálivou bolestí v hrudním dermatomu ještě několik dní před vznikem kožních projevů?",
           "back": "Herpes zoster (pásový opar) v preeruptivní fázi, reaktivace VZV v senzitivním spinálním gangliu.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Herpes zoster (pásový opar) v preeruptivní fázi."
         },
         {
           "id": "fc-S32-3",
           "front": "Které dermatomy odpovídají orientačním bodům prsních bradavek a pupku při vyšetření hrudní radikulopatie?",
           "back": "Dermatom Th4 odpovídá úrovni prsních bradavek; dermatom Th10 odpovídá úrovni pupku.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Th4 odpovídá prsním bradavkám, Th10 odpovídá pupku."
         }
       ],
       "quiz": [
@@ -5734,8 +5733,8 @@ const NEUROLOGY_DATA = {
           {
             "id": "sc-S33-1",
             "title": "Klinická kazuistika – Vertebrogenní onemocnění bederní páteře a Syndrom cauda equina",
-            "question": "<strong>Kazuistika:</strong> 49letý skladník po zvednutí těžké palety pocítil náhlé křupnutí v kříži s propagací bolesti do obou dolních končetin. Po 12 hodinách si všiml, že se nemůže sám vymočit, má necitlivé hýždě při sezení na toaletě a zakopává oběma nohama. Při vyšetření: močový měchýř hmatný 3 prsty nad symfýzou (retence 800 ml na UZ), nulová citlivost na dotyk v perianální krajině, atonický anální svěrač a oboustranně oslabená flexe nohou a prstů.<br><br><strong>Klinický úkol:</strong> Stanovte urgentní diagnózu, zhodnoťte riziko prodlení a popište okamžitý management.",
-            "answer": "<ul style='margin: 6px 0 0 18px; padding: 0; line-height: 1.5;'><li>Diagnóza: Syndrom cauda equina (masivní mediální herniace disku L-páteře) se sedlovitou anestezií S3–S5, sfinkterovou parézou a chabou paraparézou.</li><li>Zhodnocení naléhavosti: Absolutní neurochirurgická a neurologická pohotovost – hrozí trvalá močová/anální inkontinence a ireverzibilní motorický deficit při dekompresi provedené po více než 48 hodinách.</li><li>Zajištění pacienta: Okamžité zavedení permanentního močového katétru k derivaci moči a prevenci poškození detruzoru a ledvin.</li><li>Diagnostika: Statimové urgentní MRI lumbosakrální páteře k potvrzení lokalizace a velikosti výhřezu (nebo urgentní CT páteře).</li><li>Operace: Okamžitý transport na neurochirurgii a urgentní operační revize (laminektomie / sekvestrektomie a dekomprese durálního vaku).</li></ul>",
+            "question": "49letý skladník po zvednutí těžké palety pocítil náhlé křupnutí v kříži s propagací bolesti do obou dolních končetin. Po 12 hodinách si všiml, že se nemůže sám vymočit, má necitlivé hýždě při sezení na toaletě a zakopává oběma nohama. Při vyšetření: močový měchýř hmatný 3 prsty nad symfýzou (retence 800 ml na UZ), nulová citlivost na dotyk v perianální krajině, atonický anální svěrač a oboustranně oslabená flexe nohou a prstů.\n\n\n\nKlinický úkol: Stanovte urgentní diagnózu, zhodnoťte riziko prodlení a popište okamžitý management.",
+            "answer": "• Diagnóza: Syndrom cauda equina (masivní mediální herniace disku L-páteře) se sedlovitou anestezií S3–S5, sfinkterovou parézou a chabou paraparézou.\n• Zhodnocení naléhavosti: Absolutní neurochirurgická a neurologická pohotovost – hrozí trvalá močová/anální inkontinence a ireverzibilní motorický deficit při dekompresi provedené po více než 48 hodinách.\n• Zajištění pacienta: Okamžité zavedení permanentního močového katétru k derivaci moči a prevenci poškození detruzoru a ledvin.\n• Diagnostika: Statimové urgentní MRI lumbosakrální páteře k potvrzení lokalizace a velikosti výhřezu (nebo urgentní CT páteře).\n• Operace: Okamžitý transport na neurochirurgii a urgentní operační revize (laminektomie / sekvestrektomie a dekomprese durálního vaku).",
             "keyPoints": [
               "Diagnóza: Syndrom cauda equina (masivní mediální herniace disku L-páteře) se sedlovitou anestezií S3–S5, sfinkterovou parézou a chabou paraparézou.",
               "Zhodnocení naléhavosti: Absolutní neurochirurgická a neurologická pohotovost – hrozí trvalá močová/anální inkontinence a ireverzibilní motorický deficit při dekompresi provedené po více než 48 hodinách.",
@@ -5752,19 +5751,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-S33-1",
           "front": "Jak se klinicky odliší radikulární syndrom L5 od radikulárního syndromu S1 při funkčním motorickém testování chůze?",
           "back": "U radikulopatie L5 vázne chůze po patách (oslabení m. extensor hallucis longus a m. tibialis anterior – padající špička), zatímco u radikulopatie S1 vázne chůze po špičkách (oslabení m. triceps surae s vyhaslým reflexem šlachy Achillovy).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "L5 = chůze po patách; S1 = chůze po špičkách."
         },
         {
           "id": "fc-S33-2",
           "front": "Které příznaky tvoří klinický obraz syndromu cauda equina a jaké je časové okno pro urgentní chirurgický výkon?",
           "back": "Sedlovitá anestezie (S3–S5 perianogenitálně), sfinkterové poruchy (retence moči s paradoxní ischiurií, atonie análního svěrače) a chabá paraparéza DK. Urgentní neurochirurgická dekomprese musí být provedena do 24–48 hodin od vzniku.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Syndrom cauda equina - urgentní dekomprese do 24-48 hodin."
         },
         {
           "id": "fc-S33-3",
           "front": "Který míšní kořen je nejčastěji utlačen při běžném dorzolaterálním výhřezu meziobratlové ploténky L4/L5?",
           "back": "Míšní kořen L5 (v bederní oblasti dorzolaterální výhřez disku utlačuje kořen probíhající páteřním kanálem do nižšího foramina).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Výhřez L4/L5 utlačuje kořen L5."
         }
       ],
       "quiz": [
@@ -5843,8 +5842,8 @@ const NEUROLOGY_DATA = {
           {
             "id": "sc-S34-1",
             "title": "Klinická kazuistika – Syndrom karpálního tunelu (a úžinové syndromy horní končetiny)",
-            "question": "<strong>Kazuistika:</strong> 52letá švadlena se budí každou noc kolem 3. hodiny ranní pro nesnesitelné brnění a pálení palce, ukazováku a prostředníku pravé ruky. Ruku musí svěsit a protřepat, aby mohla znovu usnout. Poslední měsíc pozoruje, že jí vypadávají jehly z ruky a palcový val (thenar) je viditelně plošší než na levé ruce. Phalenův test je do 15 sekund silně pozitivní.<br><br><strong>Klinický úkol:</strong> Stanovte diagnózu včetně stádia závažnosti, navrhněte konfirmační vyšetření a optimální definitivní léčebný výkon.",
-            "answer": "<ul style='margin: 6px 0 0 18px; padding: 0; line-height: 1.5;'><li>Diagnóza: Syndrom karpálního tunelu (CTS) pravé ruky v pokročilém / těžkém stádiu (přítomnost nočních parestezií, výpadku jemné motoriky a atrofie thenaru).</li><li>Potvrzení diagnózy: EMG kondukční studie n. medianus (očekává se výrazné prodloužení DML > 5,5 ms, snížení SCV a jehlová EMG prokazující známky aktivní denervace v m. abductor pollicis brevis) + ultrazvuk zápěstí (CSA ≥ 12 mm²).</li><li>Zhodnocení konzervativní léčby: Vzhledem k přítomnosti atrofie thenaru a motorického deficitu je konzervativní postup (dlahy, obstřiky) již nepostačující.</li><li>Definitivní léčba: Indikace k chirurgickému výkonu – otevřená nebo endoskopická dekomprese karpálního tunelu s kompletním protětím ligamentum carpi transversum v lokální anestezii.</li><li>Pooperační péče: Časné polohování, rehabilitace úchopu a šetření ruky po dobu hojení.</li></ul>",
+            "question": "52letá švadlena se budí každou noc kolem 3. hodiny ranní pro nesnesitelné brnění a pálení palce, ukazováku a prostředníku pravé ruky. Ruku musí svěsit a protřepat, aby mohla znovu usnout. Poslední měsíc pozoruje, že jí vypadávají jehly z ruky a palcový val (thenar) je viditelně plošší než na levé ruce. Phalenův test je do 15 sekund silně pozitivní.\n\n\n\nKlinický úkol: Stanovte diagnózu včetně stádia závažnosti, navrhněte konfirmační vyšetření a optimální definitivní léčebný výkon.",
+            "answer": "• Diagnóza: Syndrom karpálního tunelu (CTS) pravé ruky v pokročilém / těžkém stádiu (přítomnost nočních parestezií, výpadku jemné motoriky a atrofie thenaru).\n• Potvrzení diagnózy: EMG kondukční studie n. medianus (očekává se výrazné prodloužení DML > 5,5 ms, snížení SCV a jehlová EMG prokazující známky aktivní denervace v m. abductor pollicis brevis) + ultrazvuk zápěstí (CSA ≥ 12 mm²).\n• Zhodnocení konzervativní léčby: Vzhledem k přítomnosti atrofie thenaru a motorického deficitu je konzervativní postup (dlahy, obstřiky) již nepostačující.\n• Definitivní léčba: Indikace k chirurgickému výkonu – otevřená nebo endoskopická dekomprese karpálního tunelu s kompletním protětím ligamentum carpi transversum v lokální anestezii.\n• Pooperační péče: Časné polohování, rehabilitace úchopu a šetření ruky po dobu hojení.",
             "keyPoints": [
               "Diagnóza: Syndrom karpálního tunelu (CTS) pravé ruky v pokročilém / těžkém stádiu (přítomnost nočních parestezií, výpadku jemné motoriky a atrofie thenaru).",
               "Potvrzení diagnózy: EMG kondukční studie n. medianus (očekává se výrazné prodloužení DML > 5,5 ms, snížení SCV a jehlová EMG prokazující známky aktivní denervace v m. abductor pollicis brevis) + ultrazvuk zápěstí (CSA ≥ 12 mm²).",
@@ -5861,19 +5860,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-S34-1",
           "front": "Které prsty ruky mají poruchu citlivosti a parestezie při syndromu karpálního tunelu?",
           "back": "Palec, ukazovák, prostředník a radiální polovina prsteníku (1., 2., 3. a laterální polovina 4. prstu) na dlaňové straně ruky (inervační oblast n. medianus).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "N. medianus inervuje 1., 2., 3. a radiální polovinu 4. prstu."
         },
         {
           "id": "fc-S34-2",
           "front": "Jaké jsou dva nejznámější klinické provokační testy pro syndrom karpálního tunelu a jak se provádějí?",
           "back": "1. Phalenův test (maximální pasivní flexe v obou zápěstích po dobu 60 sekund vyvolá parestezie), 2. Tinelův test (poklep na volární stranu zápěstí nad n. medianus vyvolá elektrické brnění do prstů).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Phalenův test (flexe v zápěstí) a Tinelův příznak (poklep)."
         },
         {
           "id": "fc-S34-3",
           "front": "Který klíčový elektrofyziologický parametr v kondukční studii n. medianus prokazuje motorické postižení u syndromu karpálního tunelu?",
           "back": "Prodloužení distální motorické latence (DML) přes karpální tunel na m. abductor pollicis brevis nad 4,2–4,5 ms.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "EMG - prodloužení distální motorické latence (DML)."
         }
       ],
       "quiz": [
@@ -5944,8 +5943,8 @@ const NEUROLOGY_DATA = {
           {
             "id": "sc-S35-1",
             "title": "Klinická kazuistika – Syndrom brachiálního plexu a Diferenciálně diagnostická rozvaha",
-            "question": "<strong>Kazuistika:</strong> 65letý silný kuřák odeslán pro 2 měsíce progredující krutou tupou bolest v pravém rameni a pod lopatkou vyzařující po vnitřní straně paže do malíku. Při vyšetření: těžká atrofie svalů pravé ruky (interoseální prostory propadlé, plochý thenar i hypothenar, vázne sevření pěsti), hypestezie ulnární strany předloktí a 4.–5. prstu a na pravém oku patrná ptóza víčka a mióza (Hornerův syndrom). RTG krční páteře bez významné patologie.<br><br><strong>Klinický úkol:</strong> Stanovte diagnózu syndromu, vyslovte podezření na závažnou etiologii a navrhněte okamžité vyšetření.",
-            "answer": "<ul style='margin: 6px 0 0 18px; padding: 0; line-height: 1.5;'><li>Diagnóza syndromu: Dolní typ parézy brachiálního plexu (truncus inferior C8–Th1) kombinovaný s ipsilaterálním Hornerovým syndromem.</li><li>Etiologické podezření: Pancoastův tumor (apikální bronchogenní karcinom hrotu pravé plíce) prorůstající do horní hrudní apertury a infiltrující plexus brachialis a truncus sympathicus.</li><li>Zobrazovací diagnostika: Statimové CT / MRI plic a hrudníku a brachiálního plexu (k průkazu tumoru plicního hrotu, destrukce žeber a obratlů Th1/Th2).</li><li>Další postup: Bronchoskopie / CT navigovaná biopsie ložiska pro histopatologickou verifikaci a okamžité předání do péče pneumoonkologického týmu (chemoradioterapie / resekce).</li><li>Symptomatická terapie: Agresivní léčba neuropatické a nociceptivní bolesti (silné opioidy + pregabalin/duloxetin).</li></ul>",
+            "question": "65letý silný kuřák odeslán pro 2 měsíce progredující krutou tupou bolest v pravém rameni a pod lopatkou vyzařující po vnitřní straně paže do malíku. Při vyšetření: těžká atrofie svalů pravé ruky (interoseální prostory propadlé, plochý thenar i hypothenar, vázne sevření pěsti), hypestezie ulnární strany předloktí a 4.–5. prstu a na pravém oku patrná ptóza víčka a mióza (Hornerův syndrom). RTG krční páteře bez významné patologie.\n\n\n\nKlinický úkol: Stanovte diagnózu syndromu, vyslovte podezření na závažnou etiologii a navrhněte okamžité vyšetření.",
+            "answer": "• Diagnóza syndromu: Dolní typ parézy brachiálního plexu (truncus inferior C8–Th1) kombinovaný s ipsilaterálním Hornerovým syndromem.\n• Etiologické podezření: Pancoastův tumor (apikální bronchogenní karcinom hrotu pravé plíce) prorůstající do horní hrudní apertury a infiltrující plexus brachialis a truncus sympathicus.\n• Zobrazovací diagnostika: Statimové CT / MRI plic a hrudníku a brachiálního plexu (k průkazu tumoru plicního hrotu, destrukce žeber a obratlů Th1/Th2).\n• Další postup: Bronchoskopie / CT navigovaná biopsie ložiska pro histopatologickou verifikaci a okamžité předání do péče pneumoonkologického týmu (chemoradioterapie / resekce).\n• Symptomatická terapie: Agresivní léčba neuropatické a nociceptivní bolesti (silné opioidy + pregabalin/duloxetin).",
             "keyPoints": [
               "Diagnóza syndromu: Dolní typ parézy brachiálního plexu (truncus inferior C8–Th1) kombinovaný s ipsilaterálním Hornerovým syndromem.",
               "Etiologické podezření: Pancoastův tumor (apikální bronchogenní karcinom hrotu pravé plíce) prorůstající do horní hrudní apertury a infiltrující plexus brachialis a truncus sympathicus.",
@@ -5962,19 +5961,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-S35-1",
           "front": "Jaké držení končetiny a svalový výpadek charakterizuje horní typ parézy brachiálního plexu (Erb-Duchenne, C5–C6)?",
           "back": "Vázne abdukce a zevní rotace v rameni a flexe v lokti. Paže visí podél těla v addukci, vnitřní rotaci a pronaci předloktí ('postoj číšníka žádajícího spropitné'), přičemž pohyby prstů a zápěstí jsou zachovány.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Erb-Duchenne (C5-C6) - číšnické držení ruky."
         },
         {
           "id": "fc-S35-2",
           "front": "Proč je u dolního typu parézy brachiálního plexu (Klumpke, C8–Th1) často přítomen Hornerův syndrom?",
           "back": "Protože v předním kořeni Th1 probíhají pregangliová sympatická vlákna míšního ciliospinálního centra (Budgeovo centrum) pro inervaci oka (m. dilatator pupillae, m. tarsalis).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Hornerův syndrom při lézi Th1 kořene."
         },
         {
           "id": "fc-S35-3",
           "front": "Co je to syndrom Parsonage-Turner (neuralgická amyotrofie)?",
           "back": "Akutní autoimunitní zánět brachiálního plexu manifestující se náhlou krutou noční bolestí ramenního pletence, po jejímž ústupu se rozvíjí těžká periferní paréza a atrofie svalů pletence (např. m. serratus anterior s odstávající lopatkou - scapula alata).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Parsonage-Turnerův syndrom - neuralgická amyotrofie ramene."
         }
       ],
       "quiz": [
@@ -6045,8 +6044,8 @@ const NEUROLOGY_DATA = {
           {
             "id": "sc-S36-1",
             "title": "Klinická kazuistika – Onemocnění autonomního (vegetativního) nervstva",
-            "question": "<strong>Kazuistika:</strong> 24letá studentka přichází pro rok trvající bušení srdce, závratě, pocit na omdlení a rozmazané vidění, které se objevují výhradně při delším stání ve frontě nebo při vaření. Vleže se cítí zcela zdráva. Při testu na nakloněné rovině (HUTT): v poloze vleže TK 115/75 mmHg, TF 68/min; v 5. minutě pasivního stoje TK 118/78 mmHg, TF 112/min (vzestup o 44 tepů/min) s reprodukcí závratí a palpitací.<br><br><strong>Klinický úkol:</strong> Stanovte diagnózu, vylučte ortostatickou hypotenzi a navrhněte komplexní režimová a farmakologická opatření.",
-            "answer": "<ul style='margin: 6px 0 0 18px; padding: 0; line-height: 1.5;'><li>Diagnóza: Syndrom posturální ortostatické tachykardie (POTS - Postural Orthostatic Tachycardia Syndrome).</li><li>Zdůvodnění: Pacientka splňuje kritérium vzestupu TF o ≥ 30 tepů/min do 10 minut vertikalizace bez současného poklesu krevního tlaku (tlak zůstává stabilní, nejde tedy o ortostatickou hypotenzi).</li><li>Režimová a dietní opatření: Navýšení příjmu tekutin na 2,5–3 litry denně, zvýšení příjmu soli (až 8–10 g NaCl denně), nošení kompresních stehenních punčoch.</li><li>Pohybový režim: Pravidelný aerobní trénink v horizontální či sedící poloze (rotoped, veslařský trenažér, plavání) pro posílení svalové pumpy dolních končetin.</li><li>Farmakoterapie při selhání režimu: Ivabradin (ke snížení tepové frekvence bez vlivu na TK) nebo nízká dávka neselektivního beta-blokátoru (Propranolol 10–20 mg).</li></ul>",
+            "question": "24letá studentka přichází pro rok trvající bušení srdce, závratě, pocit na omdlení a rozmazané vidění, které se objevují výhradně při delším stání ve frontě nebo při vaření. Vleže se cítí zcela zdráva. Při testu na nakloněné rovině (HUTT): v poloze vleže TK 115/75 mmHg, TF 68/min; v 5. minutě pasivního stoje TK 118/78 mmHg, TF 112/min (vzestup o 44 tepů/min) s reprodukcí závratí a palpitací.\n\n\n\nKlinický úkol: Stanovte diagnózu, vylučte ortostatickou hypotenzi a navrhněte komplexní režimová a farmakologická opatření.",
+            "answer": "• Diagnóza: Syndrom posturální ortostatické tachykardie (POTS - Postural Orthostatic Tachycardia Syndrome).\n• Zdůvodnění: Pacientka splňuje kritérium vzestupu TF o ≥ 30 tepů/min do 10 minut vertikalizace bez současného poklesu krevního tlaku (tlak zůstává stabilní, nejde tedy o ortostatickou hypotenzi).\n• Režimová a dietní opatření: Navýšení příjmu tekutin na 2,5–3 litry denně, zvýšení příjmu soli (až 8–10 g NaCl denně), nošení kompresních stehenních punčoch.\n• Pohybový režim: Pravidelný aerobní trénink v horizontální či sedící poloze (rotoped, veslařský trenažér, plavání) pro posílení svalové pumpy dolních končetin.\n• Farmakoterapie při selhání režimu: Ivabradin (ke snížení tepové frekvence bez vlivu na TK) nebo nízká dávka neselektivního beta-blokátoru (Propranolol 10–20 mg).",
             "keyPoints": [
               "Diagnóza: Syndrom posturální ortostatické tachykardie (POTS - Postural Orthostatic Tachycardia Syndrome).",
               "Zdůvodnění: Pacientka splňuje kritérium vzestupu TF o ≥ 30 tepů/min do 10 minut vertikalizace bez současného poklesu krevního tlaku (tlak zůstává stabilní, nejde tedy o ortostatickou hypotenzi).",
@@ -6063,19 +6062,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-S36-1",
           "front": "Jaká jsou diagnostická kritéria pro ortostatickou hypotenzi při ortostatickém testu?",
           "back": "Pokles systolického krevního tlaku o ≥ 20 mmHg a/nebo pokles diastolického krevního tlaku o ≥ 10 mmHg do 3 minut po postavení z horizontální polohy.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Ortostatická hypotenze: pokles systoly ≥ 20 mmHg a/nebo diastoly ≥ 10 mmHg."
         },
         {
           "id": "fc-S36-2",
           "front": "Co tvoří klinickou triádu Hornerova syndromu a která patologie krku/hrudníku ho může vyvolat?",
           "back": "Ptóza víčka, mióza zornice a zdánlivý enoftalmus (často s anhidrózou poloviny obličeje). Může být vyvolán disekcí vnitřní karotidy, Pancoastovým tumorem plicního hrotu nebo lézí krčního sympatiku.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Hornerova triáda: ptóza, mióza, enoftalmus."
         },
         {
           "id": "fc-S36-3",
           "front": "Co je to autonomní dysreflexie u pacientů po transverzální míšní lézi nad Th6 a jaký je nejčastější spouštěč?",
           "back": "Akutní život ohrožující sympatická bouře vyvolávající extrémní hypertenzi a reflexní bradykardii, nejčastěji spuštěná přeplněním močového měchýře (např. při ucpání permanentního katétru) nebo impakcí stolice.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Autonomní dysreflexie u míšních lézí nad Th6 - spouštěčem je retence moči."
         }
       ],
       "quiz": [
@@ -6150,8 +6149,8 @@ const NEUROLOGY_DATA = {
           {
             "id": "sc-S37-1",
             "title": "Klinická kazuistika – Polyneuropatie",
-            "question": "<strong>Kazuistika:</strong> 16letý chlapec vyšetřován pro obtíže při tělocviku – často zakopává, nemůže běhat po patách a má nápadně štíhlá lýtka ve srovnání se stehny. Při vyšetření: bilaterální pes cavus s kladívkovitými prsty, chůze po patách nemožná, svalová slabost a atrofie peroneálního svalstva ('čapí nohy'), šlachové reflexy na dolních končetinách zcela vyhaslé, vibrační čití na kotnících snížené. Matka chlapce má podobný tvar nohou a byla v mládí operována pro pes cavus.<br><br><strong>Klinický úkol:</strong> Stanovte diagnózu, popište dědičnost a genetický defekt a uveďte typický nález na EMG.",
-            "answer": "<ul style='margin: 6px 0 0 18px; padding: 0; line-height: 1.5;'><li>Diagnóza: Hereditární motoricko-senzitivní neuropatie (HMSN typ 1 / Charcot-Marie-Tooth choroba typ 1A).</li><li>Genetika a dědičnost: Autozomálně dominantní onemocnění způsobené duplikací genu PMP22 na chromozomu 17p11.2 (pozitivní rodinná anamnéza u matky).</li><li>Typické klinické znaky: Pes cavus, kladívkovité prsty, atrofie distálního bérce (čapí nohy), areflexie a senzitivní výpadek.</li><li>EMG nález: Difuzní, uniformní a symetrické zpomalení motorických i senzitivních rychlostí vedení (motorická NCV na n. medianus a n. ulnaris < 38 m/s, typicky kolem 20–25 m/s) svědčící pro primární demyelinizaci.</li><li>Management: Genetická konfirmace, ortopedické vložky a dlahy, rehabilitace a posilování svalů trupu a končetin, genetické poradenství pro rodinu.</li></ul>",
+            "question": "16letý chlapec vyšetřován pro obtíže při tělocviku – často zakopává, nemůže běhat po patách a má nápadně štíhlá lýtka ve srovnání se stehny. Při vyšetření: bilaterální pes cavus s kladívkovitými prsty, chůze po patách nemožná, svalová slabost a atrofie peroneálního svalstva ('čapí nohy'), šlachové reflexy na dolních končetinách zcela vyhaslé, vibrační čití na kotnících snížené. Matka chlapce má podobný tvar nohou a byla v mládí operována pro pes cavus.\n\n\n\nKlinický úkol: Stanovte diagnózu, popište dědičnost a genetický defekt a uveďte typický nález na EMG.",
+            "answer": "• Diagnóza: Hereditární motoricko-senzitivní neuropatie (HMSN typ 1 / Charcot-Marie-Tooth choroba typ 1A).\n• Genetika a dědičnost: Autozomálně dominantní onemocnění způsobené duplikací genu PMP22 na chromozomu 17p11.2 (pozitivní rodinná anamnéza u matky).\n• Typické klinické znaky: Pes cavus, kladívkovité prsty, atrofie distálního bérce (čapí nohy), areflexie a senzitivní výpadek.\n• EMG nález: Difuzní, uniformní a symetrické zpomalení motorických i senzitivních rychlostí vedení (motorická NCV na n. medianus a n. ulnaris < 38 m/s, typicky kolem 20–25 m/s) svědčící pro primární demyelinizaci.\n• Management: Genetická konfirmace, ortopedické vložky a dlahy, rehabilitace a posilování svalů trupu a končetin, genetické poradenství pro rodinu.",
             "keyPoints": [
               "Diagnóza: Hereditární motoricko-senzitivní neuropatie (HMSN typ 1 / Charcot-Marie-Tooth choroba typ 1A).",
               "Genetika a dědičnost: Autozomálně dominantní onemocnění způsobené duplikací genu PMP22 na chromozomu 17p11.2 (pozitivní rodinná anamnéza u matky).",
@@ -6168,19 +6167,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-S37-1",
           "front": "Jaký je hlavní rozdíl v EMG nálezu mezi axonální a demyelinizační polyneuropatií?",
           "back": "Axonální má primárně výrazně snížené amplitudy akčních potenciálů (CMAP, SNAP) při zachovalé rychlosti vedení. Demyelinizační má výrazně zpomalenou rychlost vedení (NCV < 70 % normy) a prodloužené distální latence.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Axonální (pokles amplitud) vs. Demyelinizační (zpomalení rychlosti vedení)."
         },
         {
           "id": "fc-S37-2",
           "front": "Která genetická aberace je nejčastější příčinou hereditární neuropatie Charcot-Marie-Tooth typ 1A (CMT1A)?",
           "back": "Duplikace genu pro periferní myelinový protein 22 (PMP22) na krátkém raménku 17. chromozomu (17p11.2).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Charcot-Marie-Tooth typ 1A (CMT1A) - duplikace genu PMP22."
         },
         {
           "id": "fc-S37-3",
           "front": "Co je to mononeuritis multiplex a o jaké základní onemocnění nejčastěji svědčí?",
           "back": "Akutní nebo subakutní asymetrické postižení alespoň dvou různých, anatomicky nesouvisejících periferních nervů současně, které nejčastěji svědčí pro systémovou vaskulitidu s ischemií vasa nervorum.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Mononeuritis multiplex - asymetrické postižení více nervů při vaskulitidě."
         }
       ],
       "quiz": [
@@ -6259,8 +6258,8 @@ const NEUROLOGY_DATA = {
           {
             "id": "sc-S38-1",
             "title": "Klinická kazuistika – Onemocnění nervosvalového přenosu (Myasthenia gravis, LEMS a Botulismus)",
-            "question": "<strong>Kazuistika:</strong> 28letá žena přichází pro 3 měsíce progredující padání obou očních víček a dvojité vidění, které je nejhorší večer po celém dni v práci nebo po delším čtení. Ráno po probuzení se cítí zcela v pořádku. Poslední 2 týdny má pocit unavených žvýkacích svalů při kousání tuhého masa. Zornice jsou izokorické s normální fotoreakcí, citlivost i šlachové reflexy na všech končetinách jsou výbavné.<br><br><strong>Klinický úkol:</strong> Stanovte diagnózu, popište diagnostický algoritmus a navrhněte iniciální symptomatickou a kauzální léčbu.",
-            "answer": "<ul style='margin: 6px 0 0 18px; padding: 0; line-height: 1.5;'><li>Diagnóza: Myasthenia gravis (forma s okulárním a incipientním bulbárním postižením).</li><li>Klinické ověření u lůžka: Pozitivní Simpsonův test (vyvolání ptózy po 60s pohledu vzhůru) a pozitivní ledový test (ústup ptózy po 2 min aplikace ledu).</li><li>Laboratorní a elektrofyziologická diagnostika: Náběr autoprotilátek proti acetylcholinovým receptorům (anti-AChR) a anti-MuSK; repetitivní nízkofrekvenční stimulace (RNS) na EMG k průkazu patologického dekrementu amplitudy CMAP (> 10 %).</li><li>Zobrazovací vyšetření mediastina: CT nebo MRI hrudníku k vyloučení patologie thymu (thymom vs. hyperplazie).</li><li>Terapeutický plán: Zahájení symptomatické léčby inhibitorem acetylcholinesterázy – Pyridostigmin (Mestinon 60 mg p.o. 3–4x denně), v případě nedostatečného efektu nasazení prednisonu a indikace k elektivní thymektomii.</li></ul>",
+            "question": "28letá žena přichází pro 3 měsíce progredující padání obou očních víček a dvojité vidění, které je nejhorší večer po celém dni v práci nebo po delším čtení. Ráno po probuzení se cítí zcela v pořádku. Poslední 2 týdny má pocit unavených žvýkacích svalů při kousání tuhého masa. Zornice jsou izokorické s normální fotoreakcí, citlivost i šlachové reflexy na všech končetinách jsou výbavné.\n\n\n\nKlinický úkol: Stanovte diagnózu, popište diagnostický algoritmus a navrhněte iniciální symptomatickou a kauzální léčbu.",
+            "answer": "• Diagnóza: Myasthenia gravis (forma s okulárním a incipientním bulbárním postižením).\n• Klinické ověření u lůžka: Pozitivní Simpsonův test (vyvolání ptózy po 60s pohledu vzhůru) a pozitivní ledový test (ústup ptózy po 2 min aplikace ledu).\n• Laboratorní a elektrofyziologická diagnostika: Náběr autoprotilátek proti acetylcholinovým receptorům (anti-AChR) a anti-MuSK; repetitivní nízkofrekvenční stimulace (RNS) na EMG k průkazu patologického dekrementu amplitudy CMAP (> 10 %).\n• Zobrazovací vyšetření mediastina: CT nebo MRI hrudníku k vyloučení patologie thymu (thymom vs. hyperplazie).\n• Terapeutický plán: Zahájení symptomatické léčby inhibitorem acetylcholinesterázy – Pyridostigmin (Mestinon 60 mg p.o. 3–4x denně), v případě nedostatečného efektu nasazení prednisonu a indikace k elektivní thymektomii.",
             "keyPoints": [
               "Diagnóza: Myasthenia gravis (forma s okulárním a incipientním bulbárním postižením).",
               "Klinické ověření u lůžka: Pozitivní Simpsonův test (vyvolání ptózy po 60s pohledu vzhůru) a pozitivní ledový test (ústup ptózy po 2 min aplikace ledu).",
@@ -6277,19 +6276,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-S38-1",
           "front": "Jaký elektrofyziologický nález při repetitivní stimulaci periferního nervu na EMG odliší Myasthenii gravis od Lambert-Eatonova syndromu (LEMS)?",
           "back": "Myasthenia gravis prokazuje při nízkofrekvenční stimulaci (3 Hz) dekrement (pokles amplitudy CMAP o > 10 %). LEMS prokazuje nízkou výchozí amplitudu s masivním inkrementem (vzestupem amplitudy o > 100 %) při vysokofrekvenční stimulaci nebo po maximální volní kontrakci.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Myastenie: dekrement při nízké frekvenci; LEMS: inkrement při vysoké frekvenci."
         },
         {
           "id": "fc-S38-2",
           "front": "Který jednoduchý klinický test u lůžka má vysokou senzitivitu pro potvrzení okulární myastenie při přítomnosti ptózy víčka?",
           "back": "Ledový test (Ice-pack test) – přiložení ledu na ptotické víčko na 2 minuty vede k rychlému vymizení nebo výraznému zmenšení ptózy víčka (chlad zpomaluje funkci acetylcholinesterázy).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Ledový test (Ice-pack test) na 2 minuty zmírní myastenickou ptózu."
         },
         {
           "id": "fc-S38-3",
           "front": "S jakým nádorovým onemocněním je v 60 % případů asociován Lambert-Eatonův myastenický syndrom (LEMS)?",
           "back": "S malobuněčným bronchogenním karcinomem plic (SCLC - Small Cell Lung Cancer) jako paraneoplastický projev tvorby protilátek proti napěťově řízeným vápníkovým kanálům (anti-VGCC).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Lambert-Eatonův syndrom (LEMS) asociován s malobuněčným karcinomem plic (SCLC)."
         }
       ],
       "quiz": [
@@ -6364,8 +6363,8 @@ const NEUROLOGY_DATA = {
           {
             "id": "sc-S39-1",
             "title": "Klinická kazuistika – Onemocnění kosterního svalstva (Svalové dystrofie, myotonie a myositidy)",
-            "question": "<strong>Kazuistika:</strong> 4letý chlapec vyšetřován pro neobratnost při chůzi, neschopnost běhat a časté pády. Při vstávání z podlahy se přetočí na břicho a postupně se zvedá šplháním rukama po svých holeních a stehnech. Lýtka má nápadně objemná a tuhá. Laboratoř odhaluje hodnotu sérové kreatinkinázy (CK) 38 000 IU/l (norma do 3,0 IU/l).<br><br><strong>Klinický úkol:</strong> Stanovte diagnózu, popište genetickou podstatu a navrhněte diagnostické potvrzení a léčebný management.",
-            "answer": "<ul style='margin: 6px 0 0 18px; padding: 0; line-height: 1.5;'><li>Diagnóza: Duchenneova svalová dystrofie (DMD) s typickým Gowersovým znamením a pseudohypertrofií lýtek.</li><li>Genetická podstata: Gonozomálně recesivní onemocnění (X-vázané) způsobené mutací genu pro dystrofin (Xp21) vedoucí k úplné absenci funkčního dystrofinu v sarkolemě.</li><li>Potvrzení diagnózy: Molekulárně-genetické vyšetření DNA z krve (metoda MLPA k detekci delecí/duplikací v genu DMD, případně sekvenování), svalová biopsie s imunohistochemickým barvením na dystrofin.</li><li>Farmakoterapie: Zahájení léčby kortikoidy (Prednison 0,75 mg/kg/den nebo Deflazakort) – prokazatelně prodlužují schopnost samostatné chůze o 2–3 roky a chrání kardiopulmonální funkce.</li><li>Komplexní péče: Pravidelné kardiologické sledování (echokardiografie, Holter EKG), fyzioterapie k prevenci kontraktur Achillových šlach, genetické poradenství pro matku a rodinu.</li></ul>",
+            "question": "4letý chlapec vyšetřován pro neobratnost při chůzi, neschopnost běhat a časté pády. Při vstávání z podlahy se přetočí na břicho a postupně se zvedá šplháním rukama po svých holeních a stehnech. Lýtka má nápadně objemná a tuhá. Laboratoř odhaluje hodnotu sérové kreatinkinázy (CK) 38 000 IU/l (norma do 3,0 IU/l).\n\n\n\nKlinický úkol: Stanovte diagnózu, popište genetickou podstatu a navrhněte diagnostické potvrzení a léčebný management.",
+            "answer": "• Diagnóza: Duchenneova svalová dystrofie (DMD) s typickým Gowersovým znamením a pseudohypertrofií lýtek.\n• Genetická podstata: Gonozomálně recesivní onemocnění (X-vázané) způsobené mutací genu pro dystrofin (Xp21) vedoucí k úplné absenci funkčního dystrofinu v sarkolemě.\n• Potvrzení diagnózy: Molekulárně-genetické vyšetření DNA z krve (metoda MLPA k detekci delecí/duplikací v genu DMD, případně sekvenování), svalová biopsie s imunohistochemickým barvením na dystrofin.\n• Farmakoterapie: Zahájení léčby kortikoidy (Prednison 0,75 mg/kg/den nebo Deflazakort) – prokazatelně prodlužují schopnost samostatné chůze o 2–3 roky a chrání kardiopulmonální funkce.\n• Komplexní péče: Pravidelné kardiologické sledování (echokardiografie, Holter EKG), fyzioterapie k prevenci kontraktur Achillových šlach, genetické poradenství pro matku a rodinu.",
             "keyPoints": [
               "Diagnóza: Duchenneova svalová dystrofie (DMD) s typickým Gowersovým znamením a pseudohypertrofií lýtek.",
               "Genetická podstata: Gonozomálně recesivní onemocnění (X-vázané) způsobené mutací genu pro dystrofin (Xp21) vedoucí k úplné absenci funkčního dystrofinu v sarkolemě.",
@@ -6382,19 +6381,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-S39-1",
           "front": "Co je to Gowersovo znamení a pro které onemocnění je typické?",
           "back": "Způsob vstávání dítěte ze země 'šplháním po vlastním těle' (opíráním rukou o kolena a stehna) kvůli těžké slabosti gluteálního a pánevního svalstva. Je typické pro Duchenneovu svalovou dystrofii (DMD).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Duchennova svalová dystrofie (DMD) - gonosomálně recesivní (X-vázaná) mutace dystrofinu."
         },
         {
           "id": "fc-S39-2",
           "front": "Které typické kožní příznaky charakterizují dermatomyositidu?",
           "back": "Heliotropní exantém (fialové zbarvení a periorbitální edém horních víček) a Gottronovy papuly / Gottronovo znamení (šupinaté fialovočervené papuly nad drobnými klouby rukou a lokty).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Heliotropní exantém víček a Gottronovy papuly u dermatomyositidy."
         },
         {
           "id": "fc-S39-3",
           "front": "Jaké orgánové komplikace mimo svalový systém bezprostředně ohrožují život pacientů s Myotonickou dystrofií 1. typu (DM1)?",
           "back": "Převodní poruchy srdečního rytmu (prodloužení PQ, AV blokády, komorové arytmie s rizikem náhlé kardiální smrti) a respirační insuficience s noční hypoventilací.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Myotonická dystrofie DM1 (Steinertova choroba) - srdeční arytmie a katarakta."
         }
       ],
       "quiz": [
@@ -6469,8 +6468,8 @@ const NEUROLOGY_DATA = {
           {
             "id": "sc-S40-1",
             "title": "Klinická kazuistika – Dětská mozková obrna (DMO / Infantile Cerebral Palsy)",
-            "question": "<strong>Kazuistika:</strong> 14měsíční chlapec narozený ve 30. gestačním týdnu s porodní hmotností 1350 g je sledován v rizikové poradně. Matka uvádí, že chlapec dosud samostatně neleze ani nestojí. Při pokusu o vertikalizaci se staví výhradně na špičky s vnitřní rotací nohou a křížením kolínek přes sebe (nůžkovité postavení). Na dolních končetinách je vyjádřena těžká spasticita adduktorů a m. triceps surae s klonem čéšek a oboustranným Babinským. Horní končetiny a orofaciální oblast jsou intaktní, chlapec žvatlá a komunikuje.<br><br><strong>Klinický úkol:</strong> Stanovte diagnózu a klinickou formu DMO, popište neuropatologický podklad a navrhněte terapeutický plán.",
-            "answer": "<ul style='margin: 6px 0 0 18px; padding: 0; line-height: 1.5;'><li>Diagnóza: Dětská mozková obrna (DMO) – spastická diparetická forma (diplegie / Littleova choroba).</li><li>Neuropatologický korelát: Periventrikulární leukomalacie (PVL) v povodí terminálních zón zásobení bílé hmoty kolem postranních komor v důsledku nezralosti a nedonošenosti.</li><li>Zobrazovací potvrzení: MRI mozku k průkazu ložisek gliózy a redukce periventrikulární bílé hmoty v parietookcipitální oblasti.</li><li>Rehabilitační léčba: Okamžité zintenzivnění neurofyziologické rehabilitace (Vojtova metoda, Bobath koncept) k nácviku fyziologických vzorců a protahování kontraktur.</li><li>Spastická léčba a protetika: Lokální aplikace Botulotoxinu A do spastických adduktorů stehen a m. gastrocnemius k umožnění nášlapu na celé chodidlo, ortézy na noc (polohovací dlahy) a nácvik vertikalizace a chůze v chodítku.</li></ul>",
+            "question": "14měsíční chlapec narozený ve 30. gestačním týdnu s porodní hmotností 1350 g je sledován v rizikové poradně. Matka uvádí, že chlapec dosud samostatně neleze ani nestojí. Při pokusu o vertikalizaci se staví výhradně na špičky s vnitřní rotací nohou a křížením kolínek přes sebe (nůžkovité postavení). Na dolních končetinách je vyjádřena těžká spasticita adduktorů a m. triceps surae s klonem čéšek a oboustranným Babinským. Horní končetiny a orofaciální oblast jsou intaktní, chlapec žvatlá a komunikuje.\n\n\n\nKlinický úkol: Stanovte diagnózu a klinickou formu DMO, popište neuropatologický podklad a navrhněte terapeutický plán.",
+            "answer": "• Diagnóza: Dětská mozková obrna (DMO) – spastická diparetická forma (diplegie / Littleova choroba).\n• Neuropatologický korelát: Periventrikulární leukomalacie (PVL) v povodí terminálních zón zásobení bílé hmoty kolem postranních komor v důsledku nezralosti a nedonošenosti.\n• Zobrazovací potvrzení: MRI mozku k průkazu ložisek gliózy a redukce periventrikulární bílé hmoty v parietookcipitální oblasti.\n• Rehabilitační léčba: Okamžité zintenzivnění neurofyziologické rehabilitace (Vojtova metoda, Bobath koncept) k nácviku fyziologických vzorců a protahování kontraktur.\n• Spastická léčba a protetika: Lokální aplikace Botulotoxinu A do spastických adduktorů stehen a m. gastrocnemius k umožnění nášlapu na celé chodidlo, ortézy na noc (polohovací dlahy) a nácvik vertikalizace a chůze v chodítku.",
             "keyPoints": [
               "Diagnóza: Dětská mozková obrna (DMO) – spastická diparetická forma (diplegie / Littleova choroba).",
               "Neuropatologický korelát: Periventrikulární leukomalacie (PVL) v povodí terminálních zón zásobení bílé hmoty kolem postranních komor v důsledku nezralosti a nedonošenosti.",
@@ -6487,19 +6486,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-S40-1",
           "front": "Co je to periventrikulární leukomalacie (PVL) a kterou klinickou formu DMO nejčastěji způsobuje?",
           "back": "Ischemické poškození a nekróza bílé hmoty v okolí postranních mozkových komor u nedonošených novorozenců, které selektivně poškozuje pyramidová vlákna pro dolní končetiny a vede ke vzniku spastické diplegie (Littleovy choroby).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Periventrikulární leukomalacie (PVL) u nedonošenců způsobuje spastickou diparézu."
         },
         {
           "id": "fc-S40-2",
           "front": "Proč je nápadná dominance/preference jedné horní končetiny u kojence mladšího než 12 měsíců varovným neurologickým příznakem?",
           "back": "Fyziologicky je motorický vývoj kojenců do 1 roku věku symetrický. Časná jednostranná preference ruky bývá prvním známkou spastické hemiparézy druhé, opomíjené končetiny.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Předčasná stranová preference ruky před 12. měsícem značí parézu."
         },
         {
           "id": "fc-S40-3",
           "front": "Které dvě hlavní fyzioterapeutické metody tvoří základ včasné rehabilitace u dětí s DMO?",
           "back": "1. Vojtova metoda (reflexní lokomoce aktivující geneticky zakódované pohybové vzorce tlakem na spoušťové body), 2. Bobath koncept (neurovývojová terapie zaměřená na potlačení patologického svalového tonu a nácvik funkčních denních aktivit).",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Vojtova metoda reflexní lokomoce."
         }
       ],
       "quiz": [
@@ -6578,8 +6577,8 @@ const NEUROLOGY_DATA = {
           {
             "id": "sc-S41-1",
             "title": "Klinická kazuistika – Akutní a chronické zánětlivé polyradikuloneuritidy (Guillain-Barré syndrom a CIDP)",
-            "question": "<strong>Kazuistika:</strong> 36letý muž přichází pro 3 dny progredující slabost a těžké nohy, které mu znemožňují chůzi do schodů, a brnění v prstech rukou. Před 10 dny prodělal horečnatý průjem po konzumaci kuřecího masa na grilu. Při vyšetření: chabá kvadruparezéza s převahou na dolních končetinách (síla DK 2/5, HK 4/5), šlachové reflexy na všech končetinách zcela nevýbavné, oboustranná lehká paréza n. facialis, vitální kapacita plic (FVC) klesá k 22 ml/kg.<br><br><strong>Klinický úkol:</strong> Stanovte diagnózu včetně patogenu, popište okamžitá diagnostická vyšetření a zahajte správnou kauzální a intenzivní péči.",
-            "answer": "<ul style='margin: 6px 0 0 18px; padding: 0; line-height: 1.5;'><li>Diagnóza: Akutní zánětlivá demyelinizační polyradikuloneuropatie (Guillain-Barré syndrom / AIDP) spuštěná enteritidou způsobenou Campylobacter jejuni.</li><li>Diagnostika: Statimová lumbální punkce k průkazu proteinocytologické disociace (vysoký protein, normální buňky) a EMG kondukční studie (prodloužení latence F-vln, demyelinizační bloky).</li><li>Imunoterapie: Okamžité zahájení aplikace intravenózních imunoglobulinů (IVIG) v dávce 0,4 g/kg/den i.v. po dobu 5 dnů (nebo plazmaferéza).</li><li>Zákaz kortikoidů: Vyvarovat se podání solumedrolu/prednisonu (kontraindikace u GBS!).</li><li>Intenzivní monitorace: Hospitalizace na neuroJIP, kontinuální monitorace EKG a TK (riziko letálních autonomních arytmií), měření vitální kapacity plic (FVC) po 4 hodinách – při poklesu FVC < 20 ml/kg včasná orotracheální intubace a zahájení UPV.</li></ul>",
+            "question": "36letý muž přichází pro 3 dny progredující slabost a těžké nohy, které mu znemožňují chůzi do schodů, a brnění v prstech rukou. Před 10 dny prodělal horečnatý průjem po konzumaci kuřecího masa na grilu. Při vyšetření: chabá kvadruparezéza s převahou na dolních končetinách (síla DK 2/5, HK 4/5), šlachové reflexy na všech končetinách zcela nevýbavné, oboustranná lehká paréza n. facialis, vitální kapacita plic (FVC) klesá k 22 ml/kg.\n\n\n\nKlinický úkol: Stanovte diagnózu včetně patogenu, popište okamžitá diagnostická vyšetření a zahajte správnou kauzální a intenzivní péči.",
+            "answer": "• Diagnóza: Akutní zánětlivá demyelinizační polyradikuloneuropatie (Guillain-Barré syndrom / AIDP) spuštěná enteritidou způsobenou Campylobacter jejuni.\n• Diagnostika: Statimová lumbální punkce k průkazu proteinocytologické disociace (vysoký protein, normální buňky) a EMG kondukční studie (prodloužení latence F-vln, demyelinizační bloky).\n• Imunoterapie: Okamžité zahájení aplikace intravenózních imunoglobulinů (IVIG) v dávce 0,4 g/kg/den i.v. po dobu 5 dnů (nebo plazmaferéza).\n• Zákaz kortikoidů: Vyvarovat se podání solumedrolu/prednisonu (kontraindikace u GBS!).\n• Intenzivní monitorace: Hospitalizace na neuroJIP, kontinuální monitorace EKG a TK (riziko letálních autonomních arytmií), měření vitální kapacity plic (FVC) po 4 hodinách – při poklesu FVC < 20 ml/kg včasná orotracheální intubace a zahájení UPV.",
             "keyPoints": [
               "Diagnóza: Akutní zánětlivá demyelinizační polyradikuloneuropatie (Guillain-Barré syndrom / AIDP) spuštěná enteritidou způsobenou Campylobacter jejuni.",
               "Diagnostika: Statimová lumbální punkce k průkazu proteinocytologické disociace (vysoký protein, normální buňky) a EMG kondukční studie (prodloužení latence F-vln, demyelinizační bloky).",
@@ -6596,19 +6595,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-S41-1",
           "front": "Co znamená termín proteinocytologická disociace v mozkomíšním moku u Guillain-Barré syndromu?",
           "back": "Výrazné zvýšení koncentrace bílkoviny v moku (proteinorachie > 1–3 g/l) při normálním počtu buněk (cytologie < 10–50 buněk/µl) v důsledku zánětlivého prosakování z míšních kořenů bez pleocytózy.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Proteinocytologická disociace v moku (bílkovina > 1 g/l, buňky v normě)."
         },
         {
           "id": "fc-S41-2",
           "front": "Jaká je klinická triáda Miller-Fisherova syndromu a jaké specifické protilátky se u něj prokazují?",
           "back": "1. Oftalmoplegie (obrna okohybných svalů), 2. senzorická ataxie, 3. areflexie. Jsou přítomny specifické autoprotilátky anti-GQ1b.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Miller-Fisherův syndrom: oftalmoplegie, ataxie, areflexie (anti-GQ1b)."
         },
         {
           "id": "fc-S41-3",
           "front": "Proč se u akutního Guillain-Barré syndromu (AIDP) nesmí podávat kortikoidy, na rozdíl od CIDP?",
           "back": "Rozsáhlé randomizované studie prokázaly, že kortikoidy u akutního GBS nemají žádný pozitivní efekt, oddalují regeneraci a mohou zhoršit konečný funkční stav pacienta. U chronické CIDP jsou naopak kortikoidy lékem první volby.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Kortikoidy jsou u akutního GBS neúčinné (lékem je IVIG nebo plazmaferéza)."
         }
       ],
       "quiz": [
@@ -6679,8 +6678,8 @@ const NEUROLOGY_DATA = {
           {
             "id": "sc-S42-1",
             "title": "Klinická kazuistika – Kraniocerebrální traumata - Komoce, kontuze a Difuzní axonální poranění (DAP)",
-            "question": "<strong>Kazuistika:</strong> 22letý spolujezdec po autonehodě ve vysoké rychlosti přivezen RZP v hlubokém bezvědomí (GCS 4 - E1V1M2). Zornice jsou izokorické s pomalou fotoreakcí, na bolestivý podnět reaguje decerebrační extenční posturou. Nativní CT mozku provedené bezprostředně po příjezdu ukazuje pouze jedno drobné 3mm tečkovité hyperdenzní ložisko ve spleniu corpus callosum a lehkou kompresi bazálních cisteren, bez expanzivního hematomu či fraktury kalvy.<br><br><strong>Klinický úkol:</strong> Vysvětlete diskrepanci mezi hlubokým komatem a minimálním nálezem na CT, stanovte diagnózu a navrhněte přesnější dovyšetření.",
-            "answer": "<ul style='margin: 6px 0 0 18px; padding: 0; line-height: 1.5;'><li>Diagnóza: Těžké difuzní axonální poranění (DAP / DAI grade 2–3) vzniklé v důsledku vysokoenergetických střižných rotačních sil.</li><li>Vysvětlení diskrepance: Nativní CT vyšetření má nízkou rozlišovací schopnost pro mikroskopická poškození axonů a drobná mikrokrvácení v bílé hmotě. Přítomnost i jediného drobného krvácení ve spleniu corpus callosum na CT je typickým markerem těžkého difuzního střižného poranění hlubokých struktur mozku.</li><li>Zobrazovací vyšetření volby: Po kardiopulmonální stabilizaci provedení MRI mozku včetně vysoce senzitivních sekvencí SWI (Susceptibility-Weighted Imaging) a DTI (Diffusion Tensor Imaging) k přesnému zobrazení rozsahu axonálních transekcí v bílé hmotě, corpus callosum a mozkovém kmeni.</li><li>Neurointenzivní terapie: Monitorace a kontrola nitrolebního tlaku (zavedení čidla ICP, udržení ICP < 20–22 mmHg a CPP 60–70 mmHg), mírná analgosedace, normotermie, prevence hypoxie a hypotenze.</li><li>Prognóza: Vysoké riziko dlouhodobé poruchy vědomí (apallický syndrom) a trvalého těžkého neurologického deficitu.</li></ul>",
+            "question": "22letý spolujezdec po autonehodě ve vysoké rychlosti přivezen RZP v hlubokém bezvědomí (GCS 4 - E1V1M2). Zornice jsou izokorické s pomalou fotoreakcí, na bolestivý podnět reaguje decerebrační extenční posturou. Nativní CT mozku provedené bezprostředně po příjezdu ukazuje pouze jedno drobné 3mm tečkovité hyperdenzní ložisko ve spleniu corpus callosum a lehkou kompresi bazálních cisteren, bez expanzivního hematomu či fraktury kalvy.\n\n\n\nKlinický úkol: Vysvětlete diskrepanci mezi hlubokým komatem a minimálním nálezem na CT, stanovte diagnózu a navrhněte přesnější dovyšetření.",
+            "answer": "• Diagnóza: Těžké difuzní axonální poranění (DAP / DAI grade 2–3) vzniklé v důsledku vysokoenergetických střižných rotačních sil.\n• Vysvětlení diskrepance: Nativní CT vyšetření má nízkou rozlišovací schopnost pro mikroskopická poškození axonů a drobná mikrokrvácení v bílé hmotě. Přítomnost i jediného drobného krvácení ve spleniu corpus callosum na CT je typickým markerem těžkého difuzního střižného poranění hlubokých struktur mozku.\n• Zobrazovací vyšetření volby: Po kardiopulmonální stabilizaci provedení MRI mozku včetně vysoce senzitivních sekvencí SWI (Susceptibility-Weighted Imaging) a DTI (Diffusion Tensor Imaging) k přesnému zobrazení rozsahu axonálních transekcí v bílé hmotě, corpus callosum a mozkovém kmeni.\n• Neurointenzivní terapie: Monitorace a kontrola nitrolebního tlaku (zavedení čidla ICP, udržení ICP < 20–22 mmHg a CPP 60–70 mmHg), mírná analgosedace, normotermie, prevence hypoxie a hypotenze.\n• Prognóza: Vysoké riziko dlouhodobé poruchy vědomí (apallický syndrom) a trvalého těžkého neurologického deficitu.",
             "keyPoints": [
               "Diagnóza: Těžké difuzní axonální poranění (DAP / DAI grade 2–3) vzniklé v důsledku vysokoenergetických střižných rotačních sil.",
               "Vysvětlení diskrepance: Nativní CT vyšetření má nízkou rozlišovací schopnost pro mikroskopická poškození axonů a drobná mikrokrvácení v bílé hmotě. Přítomnost i jediného drobného krvácení ve spleniu corpus callosum na CT je typickým markerem těžkého difuzního střižného poranění hlubokých struktur mozku.",
@@ -6697,19 +6696,19 @@ const NEUROLOGY_DATA = {
           "id": "fc-S42-1",
           "front": "Jak se liší komoce mozku (commotio cerebri) od kontuze mozku (contusio cerebri) z hlediska patologie a CT nálezu?",
           "back": "Komoce je čistě reverzibilní funkční porucha neuronů s normálním nálezem na CT mozku a bezvědomím < 15 minut. Kontuze je makroskopické strukturální poškození s nekrózou tkáně, edémem a petechiálním prokrvácením viditelným na CT (obraz 'soli a pepře').",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Komoce: reverzibilní bez morfologického nálezu na CT."
         },
         {
           "id": "fc-S42-2",
           "front": "Které anatomické struktury mozku jsou nejčastěji postiženy mikroskopickým střižným poškozením při difuzním axonálním poranění (DAP)?",
           "back": "1. Rozhraní šedé a bílé hmoty mozkových hemisfér, 2. corpus callosum (zejména splenium), 3. dorzolaterální kvadranty mozkového kmene.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "Difuzní axonální poranění (DAP) - střižné poškození axonu."
         },
         {
           "id": "fc-S42-3",
           "front": "Která sekvence na MRI mozku je nejcitlivější pro diagnostické zobrazení difuzního axonálního poranění (DAP)?",
           "back": "Susceptibilitně vážené zobrazení (SWI - Susceptibility-Weighted Imaging) nebo T2* gradientní echo (GRE), které zobrazí i nepatrná mikroskopická ložiska krvácení a depozita hemosiderinu po přerušení axonů a kapilár.",
-          "hint": "Speciální neurologie LF OU"
+          "hint": "MRI v sekvenci SWI / T2* gradientní echo detekuje mikrohemoragie u DAP."
         }
       ],
       "quiz": [
@@ -6741,3 +6740,7 @@ const NEUROLOGY_DATA = {
     }
   ]
 };
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = NEUROLOGY_DATA;
+}
