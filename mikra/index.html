@@ -156,6 +156,16 @@
             <option value="unstudied">Nestudované</option>
           </select>
         </div>
+        <div class="filter-group">
+          <label for="source-filter">Typ otázky:</label>
+          <select id="source-filter" class="select-custom">
+            <option value="all">Všechny otázky</option>
+            <option value="reported">⚡ Jen vynesené</option>
+          </select>
+        </div>
+        <button id="study-reported-btn" class="btn btn-reported-study" title="Zobrazit a procvičit pouze studentsky zaznamenané zkouškové otázky">
+          ⚡ Procvičit vynesené
+        </button>
       </div>
     </section>
 
@@ -406,6 +416,7 @@
   </div>
 
   <!-- Skripty -->
+  <script src="reported_questions.js"></script>
   <script src="data_mikra.js"></script>
   <script src="app.js"></script>
   <script src="../feedback.js"></script>

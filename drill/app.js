@@ -467,9 +467,10 @@
     showToast(`${updating ? 'Aktualizuji' : 'Stahuji'} ${subMeta.title}...`, 'info');
 
     try {
-      const res = await fetch(subMeta.file);
+      const res = await fetch(subMeta.file, { cache: 'reload' });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
+      await prefetchSubjectMedia(data);
 
       await window.drillStorage.saveSubject(data, {
         contentRevision: subMeta.revision,
@@ -491,6 +492,22 @@
       console.error('Chyba při stahování předmětu:', err);
       showToast(`Nelze stáhnout ${subMeta.title}. Zkontrolujte připojení.`, 'error');
       return false;
+    }
+  }
+
+  async function prefetchSubjectMedia(subjectData) {
+    const mediaUrls = [...new Set(
+      (subjectData.questions || [])
+        .map(question => question && question.media && question.media.src)
+        .filter(url => typeof url === 'string' && url.startsWith('/drill/'))
+    )];
+
+    if (!mediaUrls.length) return;
+
+    const results = await Promise.allSettled(mediaUrls.map(url => fetch(url, { cache: 'reload' })));
+    const failed = results.filter(result => result.status === 'rejected' || !result.value.ok);
+    if (failed.length) {
+      throw new Error(`Nepodařilo se připravit ${failed.length} obrazových podkladů pro offline použití.`);
     }
   }
 
@@ -524,9 +541,10 @@
     let successCount = 0;
     for (const sub of toDownload) {
       try {
-        const res = await fetch(sub.file);
+        const res = await fetch(sub.file, { cache: 'reload' });
         if (res.ok) {
           const data = await res.json();
+          await prefetchSubjectMedia(data);
           await window.drillStorage.saveSubject(data, {
             contentRevision: sub.revision,
             contentVersion: state.manifest.version
@@ -678,6 +696,15 @@
         if (s.isStarred) starredCount++;
       });
       starredPill.textContent = `${starredCount} označených`;
+    }
+
+    const reportedMikraPill = document.getElementById('reported-mikra-count-pill');
+    if (reportedMikraPill) {
+      const mikra = state.downloadedSubjects.get('mikra');
+      const reportedCount = mikra && Array.isArray(mikra.questions)
+        ? mikra.questions.filter(q => q.reported === true).length
+        : 0;
+      reportedMikraPill.textContent = reportedCount ? `${reportedCount} vynesených otázek` : 'Stáhněte Mikrobiologii';
     }
 
     const daily = window.MedDrillCore.getDailySelection(getAllDownloadedQuestions(), state.userStates);
@@ -900,6 +927,14 @@
         showToast('Zatím jste si neoznačili žádnou otázku hvězdičkou ★.', 'info');
         return;
       }
+    } else if (mode === 'reported-mikra') {
+      title = '⚡ Vynesené otázky z mikrobiologie';
+      filtered = allQuestions.filter(q => q.subjectId === 'mikra' && q.reported === true);
+
+      if (filtered.length === 0) {
+        showToast('Nejdřív si stáhněte aktuální balíček Mikrobiologie.', 'info');
+        return;
+      }
     }
 
     // Denní SRS musí ponechat nejdříve nejdéle čekající opakování.
@@ -1036,6 +1071,24 @@
 
     const subBadge = document.getElementById('question-subject-badge');
     subBadge.textContent = `${q.subjectTitle || ''} • ${q.topicTitle || ''}`;
+
+    const reportedBadge = document.getElementById('question-reported-badge');
+    if (reportedBadge) reportedBadge.hidden = q.reported !== true;
+
+    const mediaBox = document.getElementById('question-media');
+    const mediaImage = document.getElementById('question-media-image');
+    const mediaCaption = document.getElementById('question-media-caption');
+    if (mediaBox && mediaImage && q.media && q.media.src) {
+      mediaImage.src = q.media.src;
+      mediaImage.alt = q.media.alt || 'Obrázková otázka z mikrobiologie';
+      if (mediaCaption) mediaCaption.textContent = q.media.kind === 'supplied'
+        ? 'Obrázek z dodaného studentského sešitu.'
+        : 'Reprezentativní výukový obrázek.';
+      mediaBox.hidden = false;
+    } else if (mediaBox) {
+      mediaBox.hidden = true;
+      if (mediaImage) mediaImage.removeAttribute('src');
+    }
 
     // Hvězdička
     const starBtn = document.getElementById('btn-star-active-question');
@@ -1967,6 +2020,7 @@
     document.getElementById('card-cases-deck')?.addEventListener('click', () => startSmartDrill('cases'));
     document.getElementById('card-timed-exam')?.addEventListener('click', () => startSmartDrill('timed'));
     document.getElementById('card-starred-deck')?.addEventListener('click', () => startSmartDrill('starred'));
+    document.getElementById('card-reported-mikra')?.addEventListener('click', () => startSmartDrill('reported-mikra'));
 
     // Tlačítko ukončení testu
     document.getElementById('btn-exit-drill')?.addEventListener('click', () => {

@@ -1,6 +1,6 @@
 {
-  "version": "2026.3.0",
-  "lastUpdated": "2026-10-09T16:30:22.980Z",
+  "version": "2026.4.0",
+  "lastUpdated": "2026-10-09T16:45:43.125Z",
   "subjects": [
     {
       "id": "patola",
@@ -38,19 +38,19 @@
     },
     {
       "id": "mikra",
-      "revision": "2026.3.0-c8a708ad204f",
+      "revision": "2026.4.0-a6a30ff81d33",
       "title": "Mikrobiologie",
       "grade": 3,
       "icon": "🦠",
       "color": "#14b8a6",
-      "totalQuestions": 195,
+      "totalQuestions": 250,
       "counts": {
-        "single_choice": 178,
+        "single_choice": 233,
         "case_study": 17,
         "fill_in": 0
       },
-      "sizeBytes": 185731,
-      "sizeFormatted": "181 kB",
+      "sizeBytes": 262877,
+      "sizeFormatted": "257 kB",
       "file": "/drill/data/modules/mikra.json"
     },
     {

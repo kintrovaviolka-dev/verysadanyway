@@ -30,7 +30,7 @@ test('sprint ends at the time limit without recording unanswered cards as mistak
 
   await page.clock.runFor(20 * 60 * 1000);
   await expect(page.getByRole('heading', { name: 'Čas vypršel!' })).toBeVisible();
-  await expect(page.getByText(/Nezodpovězeno 20/i)).toBeVisible();
+  await expect(page.locator('.results-stat-card').first().locator('.results-stat-val')).toHaveText('0 / 20');
   const history = await page.evaluate(() => window.drillStorage.getHistory());
   expect(history).toHaveLength(1);
   expect(history[0]).toMatchObject({ totalAnswered: 0, unansweredCount: 20, timedOut: true });
@@ -76,4 +76,17 @@ test('backup import restores session history used by statistics', async ({ page 
   await expect(page.getByText(/Záloha byla úspěšně a bezpečně obnovena/i)).toBeVisible();
   await page.getByRole('button', { name: 'Statistiky' }).click();
   await expect(page.locator('#stats-total-answered')).toHaveText('8');
+});
+
+test('reported microbiology deck shows the provenance badge and serves its local media', async ({ page }) => {
+  await page.locator('[data-onboard-grade="3"]').click();
+  await expect(page.locator('#reported-mikra-count-pill')).toHaveText(/vynesených otázek/);
+
+  await page.locator('#card-reported-mikra').click();
+  await expect(page.locator('#question-reported-badge')).toBeVisible();
+  await expect(page.locator('#drill-counter')).toHaveText(/1 \/ \d+/);
+
+  const imageResponse = await page.request.get('/drill/assets/mikra/calcofluor-fungal-fluorescence.png');
+  expect(imageResponse.ok()).toBeTruthy();
+  expect(imageResponse.headers()['content-type']).toContain('image/');
 });

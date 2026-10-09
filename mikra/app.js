@@ -10,6 +10,7 @@ let appState = {
   search: '',
   groupFilter: 'all',
   statusFilter: 'all',
+  sourceFilter: 'all',
   currentQuestion: null,
   currentPart: 'A',
   currentTab: { A: 'study', B: 'study' }
@@ -200,6 +201,13 @@ function getFilteredQuestions() {
       if (gf === 'Diagnostika' && q.skupina_b !== 'Diagnostika') return false;
     }
 
+    // Zdroj otázky – vynesené znamená studentsky zaznamenanou otázku,
+    // nikoli oficiálně zveřejněnou fakultní banku.
+    if (appState.sourceFilter === 'reported') {
+      const quizzes = [...(q.cast_a.quiz || []), ...(q.cast_b.quiz || [])];
+      if (!quizzes.some(item => item.reported === true)) return false;
+    }
+
     // Status filter
     const sf = appState.statusFilter;
     if (sf !== 'all') {
@@ -229,6 +237,10 @@ function createCard(q, boxA, boxB) {
 
   const keywordsA = (q.cast_a.keywords || []).slice(0, 3).map(k => `<span class="keyword-chip">${escapeHTML(k)}</span>`).join('');
   const keywordsB = (q.cast_b.keywords || []).slice(0, 2).map(k => `<span class="keyword-chip">${escapeHTML(k)}</span>`).join('');
+  const reportedCount = [...(q.cast_a.quiz || []), ...(q.cast_b.quiz || [])].filter(item => item.reported === true).length;
+  const reportedBadge = reportedCount > 0
+    ? `<span class="reported-count-badge" title="Studentsky zaznamenané zkouškové otázky">⚡ ${reportedCount} vynesen${reportedCount === 1 ? 'á' : 'é'}</span>`
+    : '';
 
   card.innerHTML = `
     <div class="card-header">
@@ -245,6 +257,7 @@ function createCard(q, boxA, boxB) {
     <div class="card-footer">
       <span class="card-num-badge">OTÁZKA ${escapeHTML(q.cislo)}</span>
       <div class="card-status-badges">
+        ${reportedBadge}
         ${statusBadgeA}
         ${statusBadgeB}
       </div>
@@ -419,26 +432,41 @@ function renderQuiz(part, quizData, questionId) {
   const el = document.getElementById(`quiz-container-${part.toLowerCase()}`);
   if (!el) return;
 
-  if (!quizData || quizData.length === 0) {
+  const visibleQuizData = appState.sourceFilter === 'reported'
+    ? quizData.filter(item => item.reported === true)
+    : quizData;
+
+  if (!visibleQuizData || visibleQuizData.length === 0) {
     el.innerHTML = '<p style="color:var(--text-muted);font-size:0.875rem;padding:1rem 0;">Pro tuto část zatím nejsou kvízové otázky.</p>';
     return;
   }
 
-  el.innerHTML = quizData.map((item, i) => `
+  el.innerHTML = visibleQuizData.map((item, i) => {
+    const media = item.media && item.media.src ? `
+      <figure class="quiz-media">
+        <img src="${escapeHTML(item.media.src)}" alt="${escapeHTML(item.media.alt || 'Obrázková otázka z mikrobiologie')}" loading="lazy">
+        <figcaption>${escapeHTML(item.media.kind === 'supplied' ? 'Obrázek z dodaného studentského sešitu.' : 'Reprezentativní obrázek.')}</figcaption>
+      </figure>` : '';
+    const reportedBadge = item.reported
+      ? '<span class="reported-question-badge" title="Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.">⚡ Vynesená otázka</span>'
+      : '';
+    return `
     <div class="quiz-question-block" id="quiz-${part}-${i}">
-      <p class="quiz-q-text">${i + 1}. ${item.q}</p>
+      <div class="quiz-question-heading">${reportedBadge}<p class="quiz-q-text">${i + 1}. ${escapeHTML(item.q)}</p></div>
+      ${media}
       <div class="quiz-options">
         ${item.options.map((opt, j) => `
           <button class="quiz-option" data-part="${part}" data-qi="${i}" data-oi="${j}" data-correct="${item.correct}">
-            ${['A', 'B', 'C', 'D'][j]}. ${opt}
+            ${['A', 'B', 'C', 'D'][j]}. ${escapeHTML(opt)}
           </button>
         `).join('')}
       </div>
       <div class="quiz-explanation" id="quiz-exp-${part}-${i}">
-        💡 ${item.explanation || ''}
+        💡 ${escapeHTML(item.explanation || '')}
       </div>
     </div>
-  `).join('');
+  `;
+  }).join('');
 
   // Bind quiz option clicks
   el.querySelectorAll('.quiz-option').forEach(btn => {
@@ -549,6 +577,24 @@ function bindEvents() {
     statusFilter.addEventListener('change', e => {
       appState.statusFilter = e.target.value;
       renderCards();
+    });
+  }
+
+  const sourceFilter = document.getElementById('source-filter');
+  if (sourceFilter) {
+    sourceFilter.addEventListener('change', e => {
+      appState.sourceFilter = e.target.value;
+      renderCards();
+    });
+  }
+
+  const studyReportedBtn = document.getElementById('study-reported-btn');
+  if (studyReportedBtn) {
+    studyReportedBtn.addEventListener('click', () => {
+      appState.sourceFilter = 'reported';
+      if (sourceFilter) sourceFilter.value = 'reported';
+      renderCards();
+      document.getElementById('cards-grid')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   }
 

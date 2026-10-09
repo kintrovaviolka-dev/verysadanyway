@@ -201,6 +201,23 @@
               <span style="color: #fbbf24; font-weight: 700; font-size: 0.85rem;">Otevřít →</span>
             </div>
           </div>
+
+          <div class="deck-card" id="card-reported-mikra">
+            <div class="deck-card-top">
+              <div class="deck-icon-badge" style="background: rgba(251, 191, 36, 0.15); color: #fbbf24;">⚡</div>
+              <span class="deck-grade-badge">Mikrobiologie</span>
+            </div>
+            <div>
+              <h3 class="deck-card-title">Vynesené z mikry</h3>
+              <p class="deck-card-desc">Studentsky zaznamenané zkouškové otázky včetně obrazové diagnostiky. Nejde o oficiální fakultní banku.</p>
+            </div>
+            <div class="deck-card-footer">
+              <div class="deck-counts">
+                <span class="deck-count-pill" id="reported-mikra-count-pill">Stáhněte Mikrobiologii</span>
+              </div>
+              <span style="color: #fbbf24; font-weight: 700; font-size: 0.85rem;">Procvičit →</span>
+            </div>
+          </div>
         </div>
 
         <!-- Sekce Oborových balíčků -->
@@ -263,9 +280,17 @@
         <div class="question-card-container" id="question-card">
           <!-- Metadata otázky -->
           <div class="question-meta-bar">
-            <span class="question-badge single_choice" id="question-type-badge">Single Choice</span>
+            <div class="question-meta-left">
+              <span class="question-badge single_choice" id="question-type-badge">Single Choice</span>
+              <span class="reported-question-badge" id="question-reported-badge" hidden>⚡ Vynesená otázka</span>
+            </div>
             <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;" id="question-subject-badge">Kardiologie</span>
           </div>
+
+          <figure class="drill-question-media" id="question-media" hidden>
+            <img id="question-media-image" alt="">
+            <figcaption id="question-media-caption"></figcaption>
+          </figure>
 
           <!-- Kazuistika Vignette (pokud jde o kazuistiku) -->
           <div class="case-vignette-box" id="case-vignette-box" style="display: none;">

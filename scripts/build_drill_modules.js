@@ -30,7 +30,12 @@ function cleanHtml(html) {
 const OUT_DIR = path.join(__dirname, '..', 'drill', 'data', 'modules');
 fs.mkdirSync(OUT_DIR, { recursive: true });
 
-const releaseVersion = process.env.MEDDRILL_VERSION || '2026.3.0';
+const releaseVersion = process.env.MEDDRILL_VERSION || '2026.4.0';
+const requestedSubject = process.argv.find(arg => arg.startsWith('--subject='))?.split('=')[1] || null;
+const existingManifestPath = path.join(__dirname, '..', 'drill', 'data', 'manifest.json');
+const existingManifest = requestedSubject && fs.existsSync(existingManifestPath)
+  ? JSON.parse(fs.readFileSync(existingManifestPath, 'utf8'))
+  : null;
 const manifest = {
   version: releaseVersion,
   lastUpdated: new Date().toISOString(),
@@ -175,7 +180,8 @@ if (Array.isArray(kardioPractice)) {
 console.log('Processing Neurologie...');
 const neuroData = evalJsFile(path.join(__dirname, '..', 'neuro', 'data.js'), 'NEUROLOGY_DATA');
 const neuroQuestions = [];
-const curatedNeuroDefs = require(path.join(__dirname, '..', 'drill', 'curated_neuro_fill_ins.json'));
+const curatedNeuroPath = path.join(__dirname, '..', 'drill', 'curated_neuro_fill_ins.json');
+const curatedNeuroDefs = fs.existsSync(curatedNeuroPath) ? require(curatedNeuroPath) : {};
 
 if (neuroData && neuroData.modules) {
   neuroData.modules.forEach(mod => {
@@ -413,6 +419,7 @@ if (Array.isArray(dermaData)) {
 // -------------------------------------------------------------
 console.log('Processing Mikrobiologie...');
 const mikraData = evalJsFile(path.join(__dirname, '..', 'mikra', 'data_mikra.js'), 'MIKRA_QUESTIONS');
+const mikraReportedData = evalJsFile(path.join(__dirname, '..', 'mikra', 'reported_questions.js'), 'MIKRA_REPORTED_QUESTIONS');
 const mikraQuestions = [];
 
 if (Array.isArray(mikraData)) {
@@ -478,6 +485,35 @@ if (Array.isArray(mikraData)) {
         tags: ['Klinický rozbor', 'Infekce']
       });
     }
+  });
+}
+
+if (Array.isArray(mikraReportedData)) {
+  const topicsById = new Map((mikraData || []).map(item => [item.id, item]));
+  mikraReportedData.forEach(q => {
+    const topic = topicsById.get(q.topicId);
+    const partData = topic && (q.part === 'B' ? topic.cast_b : topic.cast_a);
+    const group = topic && (q.part === 'B' ? topic.skupina_b : topic.skupina_a);
+    mikraQuestions.push({
+      id: `mikra-${q.id}`,
+      subjectId: 'mikra',
+      subjectTitle: 'Mikrobiologie',
+      grade: 3,
+      topicId: `${q.topicId}-${String(q.part || 'A').toLowerCase()}`,
+      topicTitle: `${partData ? partData.title : 'Mikrobiologie'} (${group || 'Mikrobiologie'})`,
+      type: 'single_choice',
+      question: q.q,
+      options: q.options,
+      correctIndex: q.correct,
+      explanation: q.explanation,
+      pearl: q.reportedEvidence ? q.reportedEvidence.note : '',
+      reported: q.reported === true,
+      reportedEvidence: q.reportedEvidence || null,
+      source: q.source || '',
+      reviewedAt: q.reviewedAt || '',
+      media: q.media || null,
+      tags: ['Single Choice', 'Vynesená otázka', group || 'Mikrobiologie']
+    });
   });
 }
 
@@ -706,6 +742,7 @@ const allSubjects = [
 ];
 
 allSubjects.forEach(sub => {
+  if (requestedSubject && sub.id !== requestedSubject) return;
   const filePath = path.join(OUT_DIR, `${sub.id}.json`);
   const jsonContent = JSON.stringify({
     id: sub.id,
@@ -744,8 +781,23 @@ allSubjects.forEach(sub => {
   console.log(`✅ [${sub.title}] ${sub.questions.length} otázek (${singleChoiceCount} SCQ, ${caseStudyCount} Kazuistik, ${fillInCount} Fill-in) -> ${Math.round(sizeBytes / 1024)} kB`);
 });
 
-const manifestPath = path.join(__dirname, '..', 'drill', 'data', 'manifest.json');
-fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2), 'utf8');
+const manifestPath = existingManifestPath;
+if (requestedSubject && existingManifest) {
+  const updatedSubject = manifest.subjects[0];
+  if (!updatedSubject) {
+    throw new Error(`Neznámý předmět pro cílený build: ${requestedSubject}`);
+  }
+  const subjectIndex = existingManifest.subjects.findIndex(subject => subject.id === requestedSubject);
+  if (subjectIndex === -1) {
+    throw new Error(`Předmět ${requestedSubject} v manifestu neexistuje.`);
+  }
+  existingManifest.version = releaseVersion;
+  existingManifest.lastUpdated = manifest.lastUpdated;
+  existingManifest.subjects[subjectIndex] = updatedSubject;
+  fs.writeFileSync(manifestPath, JSON.stringify(existingManifest, null, 2), 'utf8');
+} else {
+  fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2), 'utf8');
+}
 const serviceWorkerPath = path.join(__dirname, '..', 'drill', 'sw.js');
 const serviceWorker = fs.readFileSync(serviceWorkerPath, 'utf8');
 if (!/const RELEASE_VERSION = '[^']+';/.test(serviceWorker)) {
@@ -760,5 +812,5 @@ const validator = path.join(__dirname, '..', 'drill', 'scripts', 'validate-conte
 const validation = spawnSync(process.execPath, [validator], { stdio: 'inherit' });
 if (validation.status !== 0) process.exit(validation.status || 1);
 console.log(`\n🎉 Hotovo! Celkový manifest uložen do ${manifestPath}`);
-console.log(`Celkem témat: ${manifest.subjects.length}`);
-console.log(`Celkem otázek v bance: ${manifest.subjects.reduce((sum, s) => sum + s.totalQuestions, 0)}`);
+console.log(`Celkem témat ve výstupu: ${manifest.subjects.length}`);
+console.log(`Celkem otázek ve výstupu: ${manifest.subjects.reduce((sum, s) => sum + s.totalQuestions, 0)}`);

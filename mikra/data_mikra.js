@@ -3208,6 +3208,20 @@ const MIKRA_QUESTIONS = [
 }
 ];
 
+// Vynesené otázky jsou udržované v samostatné auditovatelné vrstvě. Portál je
+// připojí ke stávajícím tematickým kartám, zatímco build pro MedDrill je čte
+// přímo z téže vrstvy.
+if (typeof MIKRA_REPORTED_QUESTIONS !== 'undefined' && Array.isArray(MIKRA_REPORTED_QUESTIONS)) {
+    MIKRA_REPORTED_QUESTIONS.forEach(reportedQuestion => {
+        const topic = MIKRA_QUESTIONS.find(item => item.id === reportedQuestion.topicId);
+        const partKey = reportedQuestion.part === 'B' ? 'cast_b' : 'cast_a';
+        if (topic && topic[partKey]) {
+            topic[partKey].quiz = topic[partKey].quiz || [];
+            topic[partKey].quiz.push(reportedQuestion);
+        }
+    });
+}
+
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = MIKRA_QUESTIONS;
 }

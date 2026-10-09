@@ -53,6 +53,7 @@ for (const subject of manifest.subjects || []) {
       if (!Array.isArray(question.options) || question.options.length < 2 || !question.options.every(isText)) fail(`${prefix}: single-choice musí mít alespoň dvě odpovědi.`);
       if (!Number.isInteger(question.correctIndex) || question.correctIndex < 0 || question.correctIndex >= question.options.length) fail(`${prefix}: correctIndex je mimo možnosti.`);
       if (!isText(question.question)) fail(`${prefix}: chybí text otázky.`);
+      if (question.reported === true && question.options.length !== 4) fail(`${prefix}: vynesená otázka musí mít přesně čtyři odpovědi.`);
     }
     if (question && question.type === 'fill_in') {
       if (!isText(question.question)) fail(`${prefix}: chybí text otázky.`);
@@ -66,6 +67,23 @@ for (const subject of manifest.subjects || []) {
     const hasReview = isText(question && question.reviewedAt);
     if (hasSource !== hasReview) fail(`${prefix}: source a reviewedAt musí být vyplněny společně.`);
     if (requireReview && (!hasSource || !hasReview)) fail(`${prefix}: pro nově publikovaný obsah je povinný source a reviewedAt.`);
+
+    if (question && question.reported === true) {
+      if (!question.reportedEvidence || !isText(question.reportedEvidence.note) || !Array.isArray(question.reportedEvidence.references) || question.reportedEvidence.references.length === 0) {
+        fail(`${prefix}: vynesená otázka musí mít auditní stopu.`);
+      }
+    }
+
+    if (question && question.media) {
+      if (!isText(question.media.src) || !isText(question.media.alt)) {
+        fail(`${prefix}: obrázek musí mít lokální cestu a alternativní popis.`);
+      } else if (!question.media.src.startsWith('/drill/')) {
+        fail(`${prefix}: obrázek nesmí používat externí hotlink.`);
+      } else {
+        const mediaPath = path.join(ROOT, question.media.src.replace(/^\/drill\//, ''));
+        if (!fs.existsSync(mediaPath)) fail(`${prefix}: chybí asset obrázku ${question.media.src}.`);
+      }
+    }
   }
 
   if (subject.totalQuestions !== questions.length) fail(`${subject.id}: totalQuestions neodpovídá souboru.`);
