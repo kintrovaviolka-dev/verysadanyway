@@ -999,7 +999,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
   },
   {
     "id": 84,
-    "question": "Koncentrace fenylalaninu v séru dítěte po narození byla normální. Ve dvou letech má fenylketonurii s ireverzibilním počkozením mozku. Situace je pravděpodobně příkladem:",
+    "question": "Koncentrace fenylalaninu v séru dítěte po narození byla normální. Ve dvou letech má fenylketonurii s ireverzibilním poškozením mozku. Situace je pravděpodobně příkladem:",
     "options": [
       "Falešně negativního výsledku testu",
       "Analytické chyby",
@@ -2601,7 +2601,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
   },
   {
     "id": 218,
-    "question": "Fetus maceratus je príklad",
+    "question": "Fetus maceratus je příklad",
     "options": [
       "Vlivu chladu na těhotenství",
       "Posmrtných změn po intoxikaci",
