@@ -882,26 +882,93 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // Helper for screen reader announcements
+  const announceToScreenReader = (message) => {
+    let announcer = document.getElementById("a11y-announcer");
+    if (!announcer) {
+      announcer = document.createElement("div");
+      announcer.id = "a11y-announcer";
+      announcer.setAttribute("aria-live", "polite");
+      announcer.style.position = "absolute";
+      announcer.style.width = "1px";
+      announcer.style.height = "1px";
+      announcer.style.padding = "0";
+      announcer.style.margin = "-1px";
+      announcer.style.overflow = "hidden";
+      announcer.style.clip = "rect(0, 0, 0, 0)";
+      announcer.style.whiteSpace = "nowrap";
+      announcer.style.border = "0";
+      document.body.appendChild(announcer);
+    }
+    // Briefly clear and re-set to ensure repeated messages are read
+    announcer.textContent = "";
+    setTimeout(() => {
+      announcer.textContent = message;
+    }, 50);
+  };
+
   // Save/Clear key locally
   chatbotSaveKeyBtn.addEventListener("click", () => {
+    if (chatbotSaveKeyBtn.disabled) return;
+
     const key = chatbotApiKeyInput.value.trim();
     if (key) {
       localStorage.setItem("gemini_chat_local_key", key);
-      alert("API klíč byl uložen do vašeho prohlížeče.");
-      chatbotSettingsOverlay.classList.remove("open");
-      chatbotSettingsBtn.setAttribute("aria-expanded", "false");
-      chatbotSettingsBtn.focus();
+
+      // Non-blocking visual feedback instead of alert
+      chatbotSaveKeyBtn.disabled = true;
+      const originalText = chatbotSaveKeyBtn.dataset.originalText || chatbotSaveKeyBtn.textContent;
+      chatbotSaveKeyBtn.dataset.originalText = originalText;
+
+      chatbotSaveKeyBtn.textContent = "Uloženo ✓";
+      chatbotSaveKeyBtn.style.backgroundColor = "#10b981"; // success green
+      chatbotSaveKeyBtn.style.borderColor = "#10b981";
+
+      announceToScreenReader("API klíč byl uložen do vašeho prohlížeče.");
+
+      setTimeout(() => {
+        chatbotSaveKeyBtn.textContent = originalText;
+        chatbotSaveKeyBtn.style.backgroundColor = "";
+        chatbotSaveKeyBtn.style.borderColor = "";
+        chatbotSaveKeyBtn.disabled = false;
+        chatbotSettingsOverlay.classList.remove("open");
+        chatbotSettingsBtn.setAttribute("aria-expanded", "false");
+        chatbotSettingsBtn.focus();
+      }, 1000);
+
     } else {
-      alert("Prosím zadejte platný klíč.");
+      // Visual error feedback
+      chatbotApiKeyInput.classList.add("shake");
+      chatbotApiKeyInput.style.borderColor = "#ef4444"; // error red
+      announceToScreenReader("Prosím zadejte platný klíč.");
+
+      setTimeout(() => {
+        chatbotApiKeyInput.classList.remove("shake");
+        chatbotApiKeyInput.style.borderColor = "";
+      }, 500);
       chatbotApiKeyInput.focus();
     }
   });
 
   chatbotClearKeyBtn.addEventListener("click", () => {
+    if (chatbotClearKeyBtn.disabled) return;
+
     localStorage.removeItem("gemini_chat_local_key");
     chatbotApiKeyInput.value = "";
-    alert("API klíč byl vymazán. Nyní se dotazy posílají přes proxy server.");
-    chatbotApiKeyInput.focus();
+
+    // Non-blocking visual feedback
+    chatbotClearKeyBtn.disabled = true;
+    const originalText = chatbotClearKeyBtn.dataset.originalText || chatbotClearKeyBtn.textContent;
+    chatbotClearKeyBtn.dataset.originalText = originalText;
+
+    chatbotClearKeyBtn.textContent = "Vymazáno ✓";
+    announceToScreenReader("API klíč byl vymazán. Nyní se dotazy posílají přes proxy server.");
+
+    setTimeout(() => {
+      chatbotClearKeyBtn.textContent = originalText;
+      chatbotClearKeyBtn.disabled = false;
+      chatbotApiKeyInput.focus();
+    }, 1500);
   });
 
   // Simple Markdown Parser for UI Bubble rendering
