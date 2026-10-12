@@ -883,16 +883,37 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Save/Clear key locally
+  const showSettingsFeedback = (message, isError = false) => {
+    const feedbackEl = document.getElementById("chatbot-settings-feedback");
+    if (!feedbackEl) return;
+    feedbackEl.textContent = message;
+
+    if (isError) {
+      feedbackEl.style.background = "rgba(248, 113, 113, 0.1)";
+      feedbackEl.style.color = "#f87171";
+      feedbackEl.style.border = "1px solid rgba(248, 113, 113, 0.2)";
+    } else {
+      feedbackEl.style.background = "rgba(16, 185, 129, 0.1)";
+      feedbackEl.style.color = "#10b981";
+      feedbackEl.style.border = "1px solid rgba(16, 185, 129, 0.2)";
+    }
+
+    feedbackEl.style.display = "block";
+    setTimeout(() => { feedbackEl.style.display = "none"; }, 3000);
+  };
+
   chatbotSaveKeyBtn.addEventListener("click", () => {
     const key = chatbotApiKeyInput.value.trim();
     if (key) {
       localStorage.setItem("gemini_chat_local_key", key);
-      alert("API klíč byl uložen do vašeho prohlížeče.");
-      chatbotSettingsOverlay.classList.remove("open");
-      chatbotSettingsBtn.setAttribute("aria-expanded", "false");
-      chatbotSettingsBtn.focus();
+      showSettingsFeedback("API klíč byl uložen do vašeho prohlížeče.", false);
+      setTimeout(() => {
+        chatbotSettingsOverlay.classList.remove("open");
+        chatbotSettingsBtn.setAttribute("aria-expanded", "false");
+        chatbotSettingsBtn.focus();
+      }, 1500);
     } else {
-      alert("Prosím zadejte platný klíč.");
+      showSettingsFeedback("Prosím zadejte platný klíč.", true);
       chatbotApiKeyInput.focus();
     }
   });
@@ -900,7 +921,7 @@ document.addEventListener("DOMContentLoaded", () => {
   chatbotClearKeyBtn.addEventListener("click", () => {
     localStorage.removeItem("gemini_chat_local_key");
     chatbotApiKeyInput.value = "";
-    alert("API klíč byl vymazán. Nyní se dotazy posílají přes proxy server.");
+    showSettingsFeedback("API klíč byl vymazán. Nyní se dotazy posílají přes proxy server.", false);
     chatbotApiKeyInput.focus();
   });
 
