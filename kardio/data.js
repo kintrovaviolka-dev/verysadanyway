@@ -1207,7 +1207,7 @@ theory: {
               <div class="grid sm:grid-cols-2 gap-3 text-xs text-slate-300">
                 <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
                   <span class="font-bold text-amber-400">Hyperkalémie (K+ &gt; 5,5 mmol/l)</span>
-                  <p class="mt-1">1. Vysoké, hrotnaté, symetrické vlny T (tzv. stanové T). 2. Oploštění a vymizení vlny P, prodloužení PQ. 3. Široký bizardní QRS komplex (sinusoidální křivka -> hrozí asystolie či komorová fibrilace). <strong>Léčba: Calcium gluconicum i.v. k membránové stabilizaci!</strong></p>
+                  <p class="mt-1">1. Vysoké, hrotnaté, symetrické vlny T (tzv. stanové T). 2. Oploštění a vymizení vlny P, prodloužení PQ. 3. Široký bizarní QRS komplex (sinusoidální křivka -> hrozí asystolie či komorová fibrilace). <strong>Léčba: Calcium gluconicum i.v. k membránové stabilizaci!</strong></p>
                 </div>
                 <div class="p-3 bg-slate-900 border border-slate-700 rounded-xl">
                   <span class="font-bold text-cyan-400">Hypokalémie (K+ &lt; 3,5 mmol/l)</span>
@@ -1781,7 +1781,7 @@ flashcards: [
       moduleId: "ekg",
       category: "EKG diagnostika",
       question: "Jaké EKG změny provázejí těžkou hyperkalémii?",
-      answer: "1. Vysoké hrotnaté symetrické vlny T ('stanové T'), 2. Oploštění a vymizení vln P, 3. Široký bizardní QRS komplex přecházející do sinusoidální křivky.",
+      answer: "1. Vysoké hrotnaté symetrické vlny T ('stanové T'), 2. Oploštění a vymizení vln P, 3. Široký bizarní QRS komplex přecházející do sinusoidální křivky.",
       highYield: "Hyperkalémie: Stanové T -> vymizení P -> široký QRS -> zástava."
     },
     {
