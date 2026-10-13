@@ -492,6 +492,17 @@
 
     // 9. Nastavit listenery
     setupEventListeners();
+
+    // 10. Automatická aktualizace zastaralých offline dat na pozadí při online připojení
+    if (state.manifest && navigator.onLine) {
+      const outdated = state.manifest.subjects.filter(s => isSubjectUpdateAvailable(s));
+      if (outdated.length > 0) {
+        Promise.all(outdated.map(s => downloadSubject(s.id, { silent: true }))).then(() => {
+          refreshUserStatesAndStats();
+          renderDecksCatalog();
+        }).catch(err => console.warn('Chyba při auto-aktualizaci témat na pozadí:', err));
+      }
+    }
   }
 
   async function refreshDownloadedSubjects() {
@@ -513,13 +524,14 @@
   }
 
   // --- STAHENÍ PŘEDMĚTU DO INDEXEDDB ---
-  async function downloadSubject(subjectId) {
+  async function downloadSubject(subjectId, options = {}) {
     if (!state.manifest) return false;
     const subMeta = state.manifest.subjects.find(s => s.id === subjectId);
     if (!subMeta) return false;
 
+    const silent = Boolean(options.silent);
     const updating = isSubjectUpdateAvailable(subMeta);
-    showToast(`${updating ? 'Aktualizuji' : 'Stahuji'} ${subMeta.title}...`, 'info');
+    if (!silent) showToast(`${updating ? 'Aktualizuji' : 'Stahuji'} ${subMeta.title}...`, 'info');
 
     try {
       const res = await fetch(subMeta.file, { cache: 'reload' });
@@ -539,13 +551,13 @@
       };
       state.downloadedSubjects.set(subjectId, storedData);
 
-      showToast(`✅ ${subMeta.title} ${updating ? 'byla aktualizována' : 'úspěšně uložena'} offline!`, 'success');
+      if (!silent) showToast(`✅ ${subMeta.title} ${updating ? 'byla aktualizována' : 'úspěšně uložena'} offline!`, 'success');
       renderDecksCatalog();
       renderStorageManager();
       return true;
     } catch (err) {
       console.error('Chyba při stahování předmětu:', err);
-      showToast(`Nelze stáhnout ${subMeta.title}. Zkontrolujte připojení.`, 'error');
+      if (!silent) showToast(`Nelze stáhnout ${subMeta.title}. Zkontrolujte připojení.`, 'error');
       return false;
     }
   }

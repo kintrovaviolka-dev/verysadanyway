@@ -100,9 +100,25 @@ if (kardioData && kardioData.modules) {
       });
     }
 
+const cardioClassThreeClozes = {
+  aks: ['Doplňte jedno slovo: U AKS se SpO2 ≥ 90 % rutinně nepodává ______.', 'Správné doplnění: kyslík. U pacienta s AKS a saturací SpO2 ≥ 90 % se kyslík rutinně nepodává.', ['kyslík', 'kyslik', 'oxygen'], 'Kyslík.'],
+  midef: ['Doplňte číslo: Izolovaně zvýšený troponin bez důkazu ischémie automaticky neznamená infarkt myokardu typu ______.', 'Správné doplnění: 1. Izolovaně zvýšený troponin bez důkazu ischémie automaticky neznamená infarkt myokardu typu 1.', ['1', 'i', 'typ 1'], 'Číslo 1.'],
+  hf: ['Doplňte číslo: Po vysazení ACE inhibitoru čekáme před nasazením ARNI alespoň ______ hodin.', 'Správné doplnění: 36. Po vysazení ACE inhibitoru čekáme před nasazením ARNI alespoň 36 hodin.', ['36', 'třicet šest', 'tricet sest'], '36 hodin.'],
+  htn: ['Doplňte zkratku: Kombinace ACE inhibitoru a sartanu je zakázaná duální blokáda systému ______.', 'Správné doplnění: RAAS. Kombinace ACE inhibitoru a sartanu je zakázaná duální blokáda systému RAAS.', ['raas', 'renin angiotenzin aldosteron', 'renin-angiotenzin-aldosteron'], 'Zkratka pro renin–angiotenzin–aldosteronový systém.'],
+  afib: ['Doplňte zkratku: U mechanické chlopně se místo VKA nepodávají ______.', 'Správné doplnění: NOAC. U mechanické chlopně se místo VKA nepodávají NOAC.', ['noac', 'doac', 'přímá perorální antikoagulancia', 'prima peroralni antikoagulancia'], 'Zkratka pro přímá perorální antikoagulancia.'],
+  arytmie: ['Doplňte jeden lék: U nejasné širokokomplexové tachykardie nepodáváme i.v. ______.', 'Správné doplnění: verapamil. U nejasné širokokomplexové tachykardie nepodáváme i.v. verapamil ani diltiazem.', ['verapamil', 'diltiazem'], 'Verapamil (alternativně diltiazem).'],
+  chlopne: ['Doplňte zkratku: U mechanické srdeční chlopně jsou kontraindikována ______.', 'Správné doplnění: NOAC. U mechanické srdeční chlopně jsou kontraindikována NOAC.', ['noac', 'doac', 'přímá perorální antikoagulancia', 'prima peroralni antikoagulancia'], 'Zkratka pro přímá perorální antikoagulancia.'],
+  kmp: ['Doplňte jeden lék: U obstrukční hypertrofické kardiomyopatie nepodáváme ______ pro jeho pozitivně inotropní účinek.', 'Správné doplnění: digoxin. U obstrukční hypertrofické kardiomyopatie nepodáváme digoxin pro jeho pozitivně inotropní účinek.', ['digoxin'], 'Digoxin.'],
+  zanety: ['Doplňte jeden typ léku: U akutní perikarditidy nejsou ______ lékem první volby.', 'Správné doplnění: kortikoidy. U akutní perikarditidy nejsou kortikoidy lékem první volby.', ['kortikoidy', 'kortikosteroidy', 'glukokortikoidy'], 'Kortikoidy.'],
+  pe: ['Doplňte jeden typ léčby: U hemodynamicky stabilní nízkorizikové PE rutinně nepodáváme systémovou ______.', 'Správné doplnění: trombolýzu. U hemodynamicky stabilní nízkorizikové PE rutinně nepodáváme systémovou trombolýzu.', ['trombolýzu', 'trombolyzu', 'fibrinolýzu', 'fibrinolyzu'], 'Trombolýza.'],
+  ccs: ['Doplňte dvě slova: U těžké arytmie a vysoké nekontrolované TF má CT koronarografie nízkou ______.', 'Správné doplnění: výtěžnost. U těžké arytmie a vysoké nekontrolované TF má CT koronarografie nízkou diagnostickou výtěžnost.', ['výtěžnost', 'vyteznost', 'diagnostickou výtěžnost', 'diagnostickou vyteznost'], 'Výtěžnost.'],
+  ekg: ['Doplňte jednu skupinu léků: U STEMI spodní stěny s infarktem pravé komory nepodáváme ______, protože snižují preload.', 'Správné doplnění: nitráty. U STEMI spodní stěny s infarktem pravé komory nepodáváme nitráty ani diuretika, protože snižují preload.', ['nitráty', 'nitraty', 'diuretika'], 'Nitráty (alternativně diuretika).']
+};
+
     // 3. Dopisovací otázky z Breakdown & Theory (High-Yield Pearls)
     if (mod.breakdown && Array.isArray(mod.breakdown.classThree) && mod.breakdown.classThree.length > 0) {
       const c3 = cleanHtml(mod.breakdown.classThree[0]);
+      const cloze = cardioClassThreeClozes[mod.id];
       kardioQuestions.push({
         id: `kardio-${mod.id}-fill`,
         subjectId: 'kardio',
@@ -111,12 +127,12 @@ if (kardioData && kardioData.modules) {
         topicId: mod.id,
         topicTitle: mod.title,
         type: 'fill_in',
-        question: `Co patří mezi postupy Třídy III (kontraindikace / nedoporučeno) u tématu ${mod.title}?`,
-        sentence: `Podle doporučení ESC je u ${mod.title} třídou III: ${c3}`,
-        acceptedAnswers: ['kontraindikace', 'nedoporučeno', 'třída III', 'trida iii', 'trida 3'],
-        hint: `Třída III - kontraindikace u ${mod.title}`,
-        explanation: `Kontraindikace dle ESC Guidelines: ${c3}`,
-        pearl: 'Postupy Třídy III nemají klinický prospěch a mohou pacienta přímo poškodit.',
+        question: cloze ? cloze[0] : `Co patří mezi postupy Třídy III (kontraindikace / nedoporučeno) u tématu ${mod.title}?`,
+        sentence: cloze ? cloze[1] : `Podle doporučení ESC je u ${mod.title} třídou III: ${c3}`,
+        acceptedAnswers: cloze ? cloze[2] : [c3.slice(0, 25).toLowerCase()],
+        hint: cloze ? cloze[3] : `Třída III - nedoporučeno u ${mod.title}`,
+        explanation: `Kontraindikace dle ESC 2023–2026: ${c3}`,
+        pearl: 'Doporučení Třídy III značí postup, který neprospívá nebo může pacienta přímo poškodit.',
         tags: ['Dopisovací', 'Třída III ESC']
       });
     }

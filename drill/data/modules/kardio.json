@@ -99,18 +99,16 @@
       "topicId": "aks",
       "topicTitle": "Akutní koronární syndromy (AKS)",
       "type": "fill_in",
-      "question": "Co patří mezi postupy Třídy III (kontraindikace / nedoporučeno) u tématu Akutní koronární syndromy (AKS)?",
-      "sentence": "Podle doporučení ESC je u Akutní koronární syndromy (AKS) třídou III: Rutinní podávání kyslíku pacientům s AKS, pokud je saturace SpO2 ≥ 90 %.",
+      "question": "Doplňte jedno slovo: U AKS se SpO2 ≥ 90 % rutinně nepodává ______.",
+      "sentence": "Správné doplnění: kyslík. U pacienta s AKS a saturací SpO2 ≥ 90 % se kyslík rutinně nepodává.",
       "acceptedAnswers": [
-        "kontraindikace",
-        "nedoporučeno",
-        "třída III",
-        "trida iii",
-        "trida 3"
+        "kyslík",
+        "kyslik",
+        "oxygen"
       ],
-      "hint": "Třída III - kontraindikace u Akutní koronární syndromy (AKS)",
-      "explanation": "Kontraindikace dle ESC Guidelines: Rutinní podávání kyslíku pacientům s AKS, pokud je saturace SpO2 ≥ 90 %.",
-      "pearl": "Postupy Třídy III nemají klinický prospěch a mohou pacienta přímo poškodit.",
+      "hint": "Kyslík.",
+      "explanation": "Kontraindikace dle ESC 2023–2026: Rutinní podávání kyslíku pacientům s AKS, pokud je saturace SpO2 ≥ 90 %.",
+      "pearl": "Doporučení Třídy III značí postup, který neprospívá nebo může pacienta přímo poškodit.",
       "tags": [
         "Dopisovací",
         "Třída III ESC"
@@ -189,18 +187,16 @@
       "topicId": "midef",
       "topicTitle": "5. Univerzální definice infarktu myokardu (2026)",
       "type": "fill_in",
-      "question": "Co patří mezi postupy Třídy III (kontraindikace / nedoporučeno) u tématu 5. Univerzální definice infarktu myokardu (2026)?",
-      "sentence": "Podle doporučení ESC je u 5. Univerzální definice infarktu myokardu (2026) třídou III: Nepovažovat každé izolované zvýšení troponinu automaticky za akutní koronární trombózu (Typ 1 IM) indikovanou k urgentní katetrizaci.",
+      "question": "Doplňte číslo: Izolovaně zvýšený troponin bez důkazu ischémie automaticky neznamená infarkt myokardu typu ______.",
+      "sentence": "Správné doplnění: 1. Izolovaně zvýšený troponin bez důkazu ischémie automaticky neznamená infarkt myokardu typu 1.",
       "acceptedAnswers": [
-        "kontraindikace",
-        "nedoporučeno",
-        "třída III",
-        "trida iii",
-        "trida 3"
+        "1",
+        "i",
+        "typ 1"
       ],
-      "hint": "Třída III - kontraindikace u 5. Univerzální definice infarktu myokardu (2026)",
-      "explanation": "Kontraindikace dle ESC Guidelines: Nepovažovat každé izolované zvýšení troponinu automaticky za akutní koronární trombózu (Typ 1 IM) indikovanou k urgentní katetrizaci.",
-      "pearl": "Postupy Třídy III nemají klinický prospěch a mohou pacienta přímo poškodit.",
+      "hint": "Číslo 1.",
+      "explanation": "Kontraindikace dle ESC 2023–2026: Nepovažovat každé izolované zvýšení troponinu automaticky za akutní koronární trombózu (Typ 1 IM) indikovanou k urgentní katetrizaci.",
+      "pearl": "Doporučení Třídy III značí postup, který neprospívá nebo může pacienta přímo poškodit.",
       "tags": [
         "Dopisovací",
         "Třída III ESC"
@@ -279,18 +275,16 @@
       "topicId": "hf",
       "topicTitle": "Srdeční selhání (2026 ESC Guidelines)",
       "type": "fill_in",
-      "question": "Co patří mezi postupy Třídy III (kontraindikace / nedoporučeno) u tématu Srdeční selhání (2026 ESC Guidelines)?",
-      "sentence": "Podle doporučení ESC je u Srdeční selhání (2026 ESC Guidelines) třídou III: Podání ARNI do 36 hodin od poslední dávky ACE inhibitoru (riziko angioedému).",
+      "question": "Doplňte číslo: Po vysazení ACE inhibitoru čekáme před nasazením ARNI alespoň ______ hodin.",
+      "sentence": "Správné doplnění: 36. Po vysazení ACE inhibitoru čekáme před nasazením ARNI alespoň 36 hodin.",
       "acceptedAnswers": [
-        "kontraindikace",
-        "nedoporučeno",
-        "třída III",
-        "trida iii",
-        "trida 3"
+        "36",
+        "třicet šest",
+        "tricet sest"
       ],
-      "hint": "Třída III - kontraindikace u Srdeční selhání (2026 ESC Guidelines)",
-      "explanation": "Kontraindikace dle ESC Guidelines: Podání ARNI do 36 hodin od poslední dávky ACE inhibitoru (riziko angioedému).",
-      "pearl": "Postupy Třídy III nemají klinický prospěch a mohou pacienta přímo poškodit.",
+      "hint": "36 hodin.",
+      "explanation": "Kontraindikace dle ESC 2023–2026: Podání ARNI do 36 hodin od poslední dávky ACE inhibitoru (riziko angioedému).",
+      "pearl": "Doporučení Třídy III značí postup, který neprospívá nebo může pacienta přímo poškodit.",
       "tags": [
         "Dopisovací",
         "Třída III ESC"
@@ -369,18 +363,16 @@
       "topicId": "htn",
       "topicTitle": "Arteriální hypertenze (2024 ESC Guidelines)",
       "type": "fill_in",
-      "question": "Co patří mezi postupy Třídy III (kontraindikace / nedoporučeno) u tématu Arteriální hypertenze (2024 ESC Guidelines)?",
-      "sentence": "Podle doporučení ESC je u Arteriální hypertenze (2024 ESC Guidelines) třídou III: Současná kombinace dvou blokátorů RAAS (ACE inhibitor + sartan / přímý inhibitor reninu).",
+      "question": "Doplňte zkratku: Kombinace ACE inhibitoru a sartanu je zakázaná duální blokáda systému ______.",
+      "sentence": "Správné doplnění: RAAS. Kombinace ACE inhibitoru a sartanu je zakázaná duální blokáda systému RAAS.",
       "acceptedAnswers": [
-        "kontraindikace",
-        "nedoporučeno",
-        "třída III",
-        "trida iii",
-        "trida 3"
+        "raas",
+        "renin angiotenzin aldosteron",
+        "renin-angiotenzin-aldosteron"
       ],
-      "hint": "Třída III - kontraindikace u Arteriální hypertenze (2024 ESC Guidelines)",
-      "explanation": "Kontraindikace dle ESC Guidelines: Současná kombinace dvou blokátorů RAAS (ACE inhibitor + sartan / přímý inhibitor reninu).",
-      "pearl": "Postupy Třídy III nemají klinický prospěch a mohou pacienta přímo poškodit.",
+      "hint": "Zkratka pro renin–angiotenzin–aldosteronový systém.",
+      "explanation": "Kontraindikace dle ESC 2023–2026: Současná kombinace dvou blokátorů RAAS (ACE inhibitor + sartan / přímý inhibitor reninu).",
+      "pearl": "Doporučení Třídy III značí postup, který neprospívá nebo může pacienta přímo poškodit.",
       "tags": [
         "Dopisovací",
         "Třída III ESC"
@@ -459,18 +451,17 @@
       "topicId": "afib",
       "topicTitle": "Fibrilace a flutter síní (2024 ESC Guidelines)",
       "type": "fill_in",
-      "question": "Co patří mezi postupy Třídy III (kontraindikace / nedoporučeno) u tématu Fibrilace a flutter síní (2024 ESC Guidelines)?",
-      "sentence": "Podle doporučení ESC je u Fibrilace a flutter síní (2024 ESC Guidelines) třídou III: Podávání NOAC pacientům s mechanickou srdeční chlopní nebo významnou mitrální stenózou.",
+      "question": "Doplňte zkratku: U mechanické chlopně se místo VKA nepodávají ______.",
+      "sentence": "Správné doplnění: NOAC. U mechanické chlopně se místo VKA nepodávají NOAC.",
       "acceptedAnswers": [
-        "kontraindikace",
-        "nedoporučeno",
-        "třída III",
-        "trida iii",
-        "trida 3"
+        "noac",
+        "doac",
+        "přímá perorální antikoagulancia",
+        "prima peroralni antikoagulancia"
       ],
-      "hint": "Třída III - kontraindikace u Fibrilace a flutter síní (2024 ESC Guidelines)",
-      "explanation": "Kontraindikace dle ESC Guidelines: Podávání NOAC pacientům s mechanickou srdeční chlopní nebo významnou mitrální stenózou.",
-      "pearl": "Postupy Třídy III nemají klinický prospěch a mohou pacienta přímo poškodit.",
+      "hint": "Zkratka pro přímá perorální antikoagulancia.",
+      "explanation": "Kontraindikace dle ESC 2023–2026: Podávání NOAC pacientům s mechanickou srdeční chlopní nebo významnou mitrální stenózou.",
+      "pearl": "Doporučení Třídy III značí postup, který neprospívá nebo může pacienta přímo poškodit.",
       "tags": [
         "Dopisovací",
         "Třída III ESC"
@@ -549,18 +540,15 @@
       "topicId": "arytmie",
       "topicTitle": "Ostatní arytmie a převodní poruchy",
       "type": "fill_in",
-      "question": "Co patří mezi postupy Třídy III (kontraindikace / nedoporučeno) u tématu Ostatní arytmie a převodní poruchy?",
-      "sentence": "Podle doporučení ESC je u Ostatní arytmie a převodní poruchy třídou III: Podávání Verapamilu nebo Diltiazemu u nejasné tachykardie se širokým QRS komplexem (hrozí asystolie či kolaps při KT).",
+      "question": "Doplňte jeden lék: U nejasné širokokomplexové tachykardie nepodáváme i.v. ______.",
+      "sentence": "Správné doplnění: verapamil. U nejasné širokokomplexové tachykardie nepodáváme i.v. verapamil ani diltiazem.",
       "acceptedAnswers": [
-        "kontraindikace",
-        "nedoporučeno",
-        "třída III",
-        "trida iii",
-        "trida 3"
+        "verapamil",
+        "diltiazem"
       ],
-      "hint": "Třída III - kontraindikace u Ostatní arytmie a převodní poruchy",
-      "explanation": "Kontraindikace dle ESC Guidelines: Podávání Verapamilu nebo Diltiazemu u nejasné tachykardie se širokým QRS komplexem (hrozí asystolie či kolaps při KT).",
-      "pearl": "Postupy Třídy III nemají klinický prospěch a mohou pacienta přímo poškodit.",
+      "hint": "Verapamil (alternativně diltiazem).",
+      "explanation": "Kontraindikace dle ESC 2023–2026: Podávání Verapamilu nebo Diltiazemu u nejasné tachykardie se širokým QRS komplexem (hrozí asystolie či kolaps při KT).",
+      "pearl": "Doporučení Třídy III značí postup, který neprospívá nebo může pacienta přímo poškodit.",
       "tags": [
         "Dopisovací",
         "Třída III ESC"
@@ -639,18 +627,17 @@
       "topicId": "chlopne",
       "topicTitle": "Chlopenní vady",
       "type": "fill_in",
-      "question": "Co patří mezi postupy Třídy III (kontraindikace / nedoporučeno) u tématu Chlopenní vady?",
-      "sentence": "Podle doporučení ESC je u Chlopenní vady třídou III: Použití NOAC u pacientů s mechanickou srdeční chlopní (vedlo k vyššímu počtu trombóz a krvácení než Warfarin).",
+      "question": "Doplňte zkratku: U mechanické srdeční chlopně jsou kontraindikována ______.",
+      "sentence": "Správné doplnění: NOAC. U mechanické srdeční chlopně jsou kontraindikována NOAC.",
       "acceptedAnswers": [
-        "kontraindikace",
-        "nedoporučeno",
-        "třída III",
-        "trida iii",
-        "trida 3"
+        "noac",
+        "doac",
+        "přímá perorální antikoagulancia",
+        "prima peroralni antikoagulancia"
       ],
-      "hint": "Třída III - kontraindikace u Chlopenní vady",
-      "explanation": "Kontraindikace dle ESC Guidelines: Použití NOAC u pacientů s mechanickou srdeční chlopní (vedlo k vyššímu počtu trombóz a krvácení než Warfarin).",
-      "pearl": "Postupy Třídy III nemají klinický prospěch a mohou pacienta přímo poškodit.",
+      "hint": "Zkratka pro přímá perorální antikoagulancia.",
+      "explanation": "Kontraindikace dle ESC 2023–2026: Použití NOAC u pacientů s mechanickou srdeční chlopní (vedlo k vyššímu počtu trombóz a krvácení než Warfarin).",
+      "pearl": "Doporučení Třídy III značí postup, který neprospívá nebo může pacienta přímo poškodit.",
       "tags": [
         "Dopisovací",
         "Třída III ESC"
@@ -729,18 +716,14 @@
       "topicId": "kmp",
       "topicTitle": "Kardiomyopatie (KMP)",
       "type": "fill_in",
-      "question": "Co patří mezi postupy Třídy III (kontraindikace / nedoporučeno) u tématu Kardiomyopatie (KMP)?",
-      "sentence": "Podle doporučení ESC je u Kardiomyopatie (KMP) třídou III: Podávání Digoxinu, Nitrátů a dihydropyridinových BKK u hypertrofické obstrukční kardiomyopatie (HOCM).",
+      "question": "Doplňte jeden lék: U obstrukční hypertrofické kardiomyopatie nepodáváme ______ pro jeho pozitivně inotropní účinek.",
+      "sentence": "Správné doplnění: digoxin. U obstrukční hypertrofické kardiomyopatie nepodáváme digoxin pro jeho pozitivně inotropní účinek.",
       "acceptedAnswers": [
-        "kontraindikace",
-        "nedoporučeno",
-        "třída III",
-        "trida iii",
-        "trida 3"
+        "digoxin"
       ],
-      "hint": "Třída III - kontraindikace u Kardiomyopatie (KMP)",
-      "explanation": "Kontraindikace dle ESC Guidelines: Podávání Digoxinu, Nitrátů a dihydropyridinových BKK u hypertrofické obstrukční kardiomyopatie (HOCM).",
-      "pearl": "Postupy Třídy III nemají klinický prospěch a mohou pacienta přímo poškodit.",
+      "hint": "Digoxin.",
+      "explanation": "Kontraindikace dle ESC 2023–2026: Podávání Digoxinu, Nitrátů a dihydropyridinových BKK u hypertrofické obstrukční kardiomyopatie (HOCM).",
+      "pearl": "Doporučení Třídy III značí postup, který neprospívá nebo může pacienta přímo poškodit.",
       "tags": [
         "Dopisovací",
         "Třída III ESC"
@@ -819,18 +802,16 @@
       "topicId": "zanety",
       "topicTitle": "Zánětlivá a perikardiální onemocnění",
       "type": "fill_in",
-      "question": "Co patří mezi postupy Třídy III (kontraindikace / nedoporučeno) u tématu Zánětlivá a perikardiální onemocnění?",
-      "sentence": "Podle doporučení ESC je u Zánětlivá a perikardiální onemocnění třídou III: Rutinní podávání kortikoidů jako léčba 1. volby u akutní perikarditidy (zvyšují riziko relapsu).",
+      "question": "Doplňte jeden typ léku: U akutní perikarditidy nejsou ______ lékem první volby.",
+      "sentence": "Správné doplnění: kortikoidy. U akutní perikarditidy nejsou kortikoidy lékem první volby.",
       "acceptedAnswers": [
-        "kontraindikace",
-        "nedoporučeno",
-        "třída III",
-        "trida iii",
-        "trida 3"
+        "kortikoidy",
+        "kortikosteroidy",
+        "glukokortikoidy"
       ],
-      "hint": "Třída III - kontraindikace u Zánětlivá a perikardiální onemocnění",
-      "explanation": "Kontraindikace dle ESC Guidelines: Rutinní podávání kortikoidů jako léčba 1. volby u akutní perikarditidy (zvyšují riziko relapsu).",
-      "pearl": "Postupy Třídy III nemají klinický prospěch a mohou pacienta přímo poškodit.",
+      "hint": "Kortikoidy.",
+      "explanation": "Kontraindikace dle ESC 2023–2026: Rutinní podávání kortikoidů jako léčba 1. volby u akutní perikarditidy (zvyšují riziko relapsu).",
+      "pearl": "Doporučení Třídy III značí postup, který neprospívá nebo může pacienta přímo poškodit.",
       "tags": [
         "Dopisovací",
         "Třída III ESC"
@@ -909,18 +890,17 @@
       "topicId": "pe",
       "topicTitle": "Plicní embolie & Plicní hypertenze",
       "type": "fill_in",
-      "question": "Co patří mezi postupy Třídy III (kontraindikace / nedoporučeno) u tématu Plicní embolie & Plicní hypertenze?",
-      "sentence": "Podle doporučení ESC je u Plicní embolie & Plicní hypertenze třídou III: Podávání systémové trombolýzy u hemodynamicky stabilních pacientů s PE s nízkým rizikem.",
+      "question": "Doplňte jeden typ léčby: U hemodynamicky stabilní nízkorizikové PE rutinně nepodáváme systémovou ______.",
+      "sentence": "Správné doplnění: trombolýzu. U hemodynamicky stabilní nízkorizikové PE rutinně nepodáváme systémovou trombolýzu.",
       "acceptedAnswers": [
-        "kontraindikace",
-        "nedoporučeno",
-        "třída III",
-        "trida iii",
-        "trida 3"
+        "trombolýzu",
+        "trombolyzu",
+        "fibrinolýzu",
+        "fibrinolyzu"
       ],
-      "hint": "Třída III - kontraindikace u Plicní embolie & Plicní hypertenze",
-      "explanation": "Kontraindikace dle ESC Guidelines: Podávání systémové trombolýzy u hemodynamicky stabilních pacientů s PE s nízkým rizikem.",
-      "pearl": "Postupy Třídy III nemají klinický prospěch a mohou pacienta přímo poškodit.",
+      "hint": "Trombolýza.",
+      "explanation": "Kontraindikace dle ESC 2023–2026: Podávání systémové trombolýzy u hemodynamicky stabilních pacientů s PE s nízkým rizikem.",
+      "pearl": "Doporučení Třídy III značí postup, který neprospívá nebo může pacienta přímo poškodit.",
       "tags": [
         "Dopisovací",
         "Třída III ESC"
@@ -999,18 +979,17 @@
       "topicId": "ccs",
       "topicTitle": "Chronické koronární syndromy (CCS)",
       "type": "fill_in",
-      "question": "Co patří mezi postupy Třídy III (kontraindikace / nedoporučeno) u tématu Chronické koronární syndromy (CCS)?",
-      "sentence": "Podle doporučení ESC je u Chronické koronární syndromy (CCS) třídou III: Provádění CT koronarografie u pacientů s těžkou arytmií, vysokou nekontrolovanou TF nebo masivními kalcifikacemi (nízká výtěžnost a artefakty).",
+      "question": "Doplňte dvě slova: U těžké arytmie a vysoké nekontrolované TF má CT koronarografie nízkou ______.",
+      "sentence": "Správné doplnění: výtěžnost. U těžké arytmie a vysoké nekontrolované TF má CT koronarografie nízkou diagnostickou výtěžnost.",
       "acceptedAnswers": [
-        "kontraindikace",
-        "nedoporučeno",
-        "třída III",
-        "trida iii",
-        "trida 3"
+        "výtěžnost",
+        "vyteznost",
+        "diagnostickou výtěžnost",
+        "diagnostickou vyteznost"
       ],
-      "hint": "Třída III - kontraindikace u Chronické koronární syndromy (CCS)",
-      "explanation": "Kontraindikace dle ESC Guidelines: Provádění CT koronarografie u pacientů s těžkou arytmií, vysokou nekontrolovanou TF nebo masivními kalcifikacemi (nízká výtěžnost a artefakty).",
-      "pearl": "Postupy Třídy III nemají klinický prospěch a mohou pacienta přímo poškodit.",
+      "hint": "Výtěžnost.",
+      "explanation": "Kontraindikace dle ESC 2023–2026: Provádění CT koronarografie u pacientů s těžkou arytmií, vysokou nekontrolovanou TF nebo masivními kalcifikacemi (nízká výtěžnost a artefakty).",
+      "pearl": "Doporučení Třídy III značí postup, který neprospívá nebo může pacienta přímo poškodit.",
       "tags": [
         "Dopisovací",
         "Třída III ESC"
@@ -1089,18 +1068,16 @@
       "topicId": "ekg",
       "topicTitle": "EKG diagnostický kompas v kardiologii",
       "type": "fill_in",
-      "question": "Co patří mezi postupy Třídy III (kontraindikace / nedoporučeno) u tématu EKG diagnostický kompas v kardiologii?",
-      "sentence": "Podle doporučení ESC je u EKG diagnostický kompas v kardiologii třídou III: Podávání nitrátů a diuretik u STEMI spodní stěny se současným infarktem pravé komory (V4R elevace).",
+      "question": "Doplňte jednu skupinu léků: U STEMI spodní stěny s infarktem pravé komory nepodáváme ______, protože snižují preload.",
+      "sentence": "Správné doplnění: nitráty. U STEMI spodní stěny s infarktem pravé komory nepodáváme nitráty ani diuretika, protože snižují preload.",
       "acceptedAnswers": [
-        "kontraindikace",
-        "nedoporučeno",
-        "třída III",
-        "trida iii",
-        "trida 3"
+        "nitráty",
+        "nitraty",
+        "diuretika"
       ],
-      "hint": "Třída III - kontraindikace u EKG diagnostický kompas v kardiologii",
-      "explanation": "Kontraindikace dle ESC Guidelines: Podávání nitrátů a diuretik u STEMI spodní stěny se současným infarktem pravé komory (V4R elevace).",
-      "pearl": "Postupy Třídy III nemají klinický prospěch a mohou pacienta přímo poškodit.",
+      "hint": "Nitráty (alternativně diuretika).",
+      "explanation": "Kontraindikace dle ESC 2023–2026: Podávání nitrátů a diuretik u STEMI spodní stěny se současným infarktem pravé komory (V4R elevace).",
+      "pearl": "Doporučení Třídy III značí postup, který neprospívá nebo může pacienta přímo poškodit.",
       "tags": [
         "Dopisovací",
         "Třída III ESC"

@@ -1,6 +1,6 @@
 {
   "version": "2026.4.0",
-  "lastUpdated": "2026-10-09T17:16:29.487Z",
+  "lastUpdated": "2026-10-13T17:38:09.060Z",
   "subjects": [
     {
       "id": "patola",
@@ -72,7 +72,7 @@
     },
     {
       "id": "kardio",
-      "revision": "2026.3.0-2580f36a4098",
+      "revision": "2026.4.0-361d6430494b",
       "title": "Kardiologie",
       "grade": 4,
       "icon": "🫀",
@@ -83,13 +83,13 @@
         "case_study": 25,
         "fill_in": 32
       },
-      "sizeBytes": 127250,
-      "sizeFormatted": "124 kB",
+      "sizeBytes": 125365,
+      "sizeFormatted": "122 kB",
       "file": "/drill/data/modules/kardio.json"
     },
     {
       "id": "neuro",
-      "revision": "2026.3.0-7e5a3959cf3b",
+      "revision": "2026.4.0-7e5a3959cf3b",
       "title": "Neurologie",
       "grade": 4,
       "icon": "⚡",
