@@ -1541,8 +1541,8 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
     "id": 129,
     "question": "Které z následujících spojení není správné?",
     "options": [
-      "Myastenia gravis ≈ thymom",
-      "Myastenia gravis ≈ hyperplazie thymu",
+      "Myasthenia gravis ≈ thymom",
+      "Myasthenia gravis ≈ hyperplazie thymu",
       "Periferní neuropatie ≈ skupinová atrofie svalových vláken",
       "Dermatomyositis ≈ polymorfonukleární infiltrace svalu",
       "Dlouhodobé znehybnění končetiny ≈ atrofie svalových vláken II.typu"
@@ -1567,7 +1567,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
     "options": [
       "Dermatomyositis",
       "Amyotrofickou laterální sklerózu",
-      "Myastenia gravis",
+      "Myasthenia gravis",
       "Svalovou dystrofii Duchenne",
       "Atrofii z nečinnosti"
     ],
@@ -4069,7 +4069,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
     "options": [
       "Duchenneova muskulární dystrofie",
       "Dermatomyositis",
-      "Myastenia gravis",
+      "Myasthenia gravis",
       "Amyotrofická laterální skleróza",
       "Infantilní spinální svalová atrofie Werding-Hoffman"
     ],
