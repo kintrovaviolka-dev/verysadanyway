@@ -60,9 +60,10 @@ function validateAccess(req, res, next) {
     try {
       const url = new URL(source);
       const hostname = url.hostname;
-      const allowed = ['localhost', '127.0.0.1', '::1'];
+      const allowed = ['localhost', '127.0.0.1', '::1', 'kintrovav.vercel.app', 'kintrovav.github.io', 'patfyz.vercel.app', 'patolka.vercel.app', 'verysadanyway.vercel.app'];
       const isLocal = allowed.some(domain => hostname === domain);
-      const isVercel = hostname === 'vercel.app' || hostname.endsWith('.vercel.app');
+      const isVercel = allowed.includes(hostname);
+      if (hostname.endsWith('.localhost')) return true;
       return isLocal || isVercel;
     } catch (e) {
       return false;
