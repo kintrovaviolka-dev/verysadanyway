@@ -161,6 +161,19 @@ async function createPlanItem(db, item) {
   `).bind(crypto.randomUUID(), item.planDate, item.kind, item.topicId ?? null, item.label, item.minutes, item.passNumber ?? 1, item.originDate ?? item.planDate, new Date().toISOString()).run();
 }
 
+async function createPlanItems(db, items) {
+  if (!items.length) return;
+  const now = new Date().toISOString();
+  const BATCH_SIZE = 100;
+  for (let i = 0; i < items.length; i += BATCH_SIZE) {
+    const chunk = items.slice(i, i + BATCH_SIZE);
+    await db.batch(chunk.map(item => db.prepare(`
+      INSERT INTO plan_items (id, plan_date, kind, topic_id, label, estimated_minutes, pass_number, status, origin_date, created_at)
+      VALUES (?, ?, ?, ?, ?, ?, ?, 'pending', ?, ?)
+    `).bind(crypto.randomUUID(), item.planDate, item.kind, item.topicId ?? null, item.label, item.minutes, item.passNumber ?? 1, item.originDate ?? item.planDate, now)));
+  }
+}
+
 async function freeLaterBlockSlot(db, { currentBlock, blocksBySubject, usedByDate, capacityByDate }) {
   const { results: candidates } = await db.prepare(`
     SELECT p.*, t.subject
@@ -230,6 +243,7 @@ async function scheduleSemester(db, today) {
     const { results: topics } = await db.prepare(`
       SELECT * FROM topics WHERE subject = ? AND is_active = 1 ORDER BY id
     `).bind(block.subject).all();
+    const itemsToInsert = [];
     for (const topic of topics) {
       const key = `${topic.id}:1`;
       if (planned.has(key)) continue;
@@ -237,12 +251,16 @@ async function scheduleSemester(db, today) {
         startDate: start, endDate: block.ends_on, minutes: topic.estimated_minutes, usedByDate, capacityByDate
       });
       if (!date) continue;
-      await createPlanItem(db, { planDate: date, kind: 'topic', topicId: topic.id, label: topic.title, minutes: topic.estimated_minutes });
+      itemsToInsert.push({ planDate: date, kind: 'topic', topicId: topic.id, label: topic.title, minutes: topic.estimated_minutes });
       usedByDate.set(date, (usedByDate.get(date) ?? 0) + topic.estimated_minutes);
       planned.add(key);
       scheduled += 1;
     }
+    if (itemsToInsert.length > 0) {
+      await createPlanItems(db, itemsToInsert);
+    }
     const keyTopics = KEY_TOPICS.filter((topic) => topic.subject === block.subject);
+    const keyItemsToInsert = [];
     for (const keyTopic of keyTopics) {
       const key = `${keyTopic.topicId}:2`;
       if (planned.has(key)) continue;
@@ -263,7 +281,7 @@ async function scheduleSemester(db, today) {
         });
       }
       if (!date) { keyUnplanned.push(keyTopic); continue; }
-      await createPlanItem(db, {
+      keyItemsToInsert.push({
         planDate: date, kind: 'topic', topicId: keyTopic.topicId,
         label: `↺ ${keyTopic.title} — klíčové opakování`, minutes: Math.min(KEY_REVIEW_MINUTES, firstPass.estimated_minutes),
         passNumber: 2
@@ -271,6 +289,9 @@ async function scheduleSemester(db, today) {
       usedByDate.set(date, (usedByDate.get(date) ?? 0) + firstPass.estimated_minutes);
       planned.add(key);
       scheduled += 1;
+    }
+    if (keyItemsToInsert.length > 0) {
+      await createPlanItems(db, keyItemsToInsert);
     }
   }
   const { results: unplanned } = await db.prepare(`
