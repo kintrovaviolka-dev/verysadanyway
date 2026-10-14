@@ -756,7 +756,8 @@
   // ==========================================
   // 5. LIKVOROVÝ INTERPRETÁTOR (CSF ANALYZER)
   // ==========================================
-  function renderCsfView() {
+
+  function renderCsfPresetsBar() {
     return `
       <!-- Rychlé presety vzorků likvoru -->
       <div class="topical-presets-bar">
@@ -770,9 +771,11 @@
           <button class="csf-preset-btn" data-preset="gbs">⚡ Guillain-Barré (AIDP)</button>
         </div>
       </div>
+    `;
+  }
 
-      <div class="calc-grid-layout">
-        
+  function renderCsfFormPanel() {
+    return `
         <!-- Levý formulář: Vstupní parametry CSF -->
         <div class="calc-form-panel">
           <div class="panel-header-row">
@@ -834,14 +837,26 @@
 
           </div>
         </div>
+    `;
+  }
 
+  function renderCsfSummaryPanel() {
+    return `
         <!-- Pravý sloupec: Diagnostický výsledek a protokol -->
         <div class="calc-summary-panel">
           <div class="summary-sticky-card" id="csf-result-card">
             <!-- Dynamický report -->
           </div>
         </div>
+    `;
+  }
 
+  function renderCsfView() {
+    return `
+${renderCsfPresetsBar()}
+      <div class="calc-grid-layout">
+${renderCsfFormPanel()}
+${renderCsfSummaryPanel()}
       </div>
     `;
   }
