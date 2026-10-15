@@ -23,11 +23,9 @@ function checkDomain(source) {
     const url = new URL(source);
     const hostname = url.hostname;
     
-    const allowedExact = ['localhost', '127.0.0.1', '::1', 'kintrovav.vercel.app', 'kintrovav.github.io'];
+    const allowedExact = ['localhost', '127.0.0.1', '::1', 'kintrovav.vercel.app', 'kintrovav.github.io', 'patfyz.vercel.app', 'patolka.vercel.app', 'verysadanyway.vercel.app'];
     if (allowedExact.includes(hostname)) return true;
     if (hostname.endsWith('.localhost')) return true;
-    if (hostname.endsWith('.vercel.app')) return true;
-    if (hostname.endsWith('.github.io')) return true;
     
     return false;
   } catch (e) {
