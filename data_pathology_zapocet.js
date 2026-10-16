@@ -4653,7 +4653,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
   },
   {
     "id": 389,
-    "question": "U polycyteamia vera nebývá",
+    "question": "U polycytaemia vera nebývá",
     "options": [
       "Vysoký počet krevních destiček",
       "Vysoký hematokrit",
@@ -4725,7 +4725,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
   },
   {
     "id": 395,
-    "question": "Pacient (49), delirium tremens. Je anemický, zvýšená objem erytrocytů, větší obsah hemoglobinu v erytrocytech. Pravděpodobnou příčinou anémie je chybění",
+    "question": "Pacient (49), delirium tremens. Je anemický, zvýšený objem erytrocytů, větší obsah hemoglobinu v erytrocytech. Pravděpodobnou příčinou anémie je chybění",
     "options": [
       "Vitamínu C",
       "Kyseliny listové",
