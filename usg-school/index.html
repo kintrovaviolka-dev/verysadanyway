@@ -2,328 +2,117 @@
 <html lang="cs">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>USG School – Echokardiografický Trenažér</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0b111b">
+  <title>USG School – Echokardiografický trenažér</title>
   <link rel="stylesheet" href="style.css">
-  <!-- PeerJS for WebRTC -->
-  <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
-  <!-- QRCode.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script defer src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script defer src="usg-engine.js"></script>
+  <script defer src="connection.js"></script>
+  <script defer src="station.js"></script>
 </head>
-<body>
+<body class="station-body">
+  <a class="skip-link" href="#mainContent">Přejít k simulátoru</a>
   <div class="station-layout">
-    <!-- Header / Clinical Bar -->
     <header class="usg-header">
-      <div class="brand-badge">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan)">
-          <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-        </svg>
-        USG<span>SCHOOL</span> <small style="font-weight: 500; font-size: 11px; color: var(--text-dim); margin-left: 4px;">| PLAX Simulator</small>
-      </div>
-
-      <div class="patient-info">
-        <div class="patient-tag"><span class="lbl">ID:</span> <span class="val">USG-2026-88</span></div>
-        <div class="patient-tag"><span class="lbl">SONDA:</span> <span class="val">S5-1 Cardiac Phased</span></div>
-        <div class="patient-tag"><span class="lbl">PRESET:</span> <span class="val">TTE Adult / PLAX</span></div>
-        <div class="patient-tag"><span class="lbl">HR:</span> <span class="val" style="color: var(--accent-green);">72 bpm</span></div>
-      </div>
-
-      <div class="device-stats">
-        <div class="status-pill">
-          <div class="status-dot" id="connDot"></div>
-          <span id="connStatusText">Čekám na sondu...</span>
-        </div>
-      </div>
+      <a class="brand-badge" href="../" aria-label="USG School – zpět na rozcestník">
+        <span class="brand-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </span>
+        <span>USG <strong>SCHOOL</strong><small>ECHOKARDIOGRAFICKÝ TRENAŽÉR</small></span>
+      </a>
+      <div class="header-meta"><span class="tag">TTE / PLAX</span><span class="heart-rate">72 <small>bpm</small></span></div>
+      <a class="back-link" href="../">Zpět na rozcestník <span aria-hidden="true">↗</span></a>
     </header>
 
-    <!-- Main Workspace -->
-    <main class="usg-workspace">
-      <!-- Ultrasound Viewport -->
-      <div class="usg-viewport-container">
-        <canvas id="usgCanvas"></canvas>
-
-        <!-- Viewport Metadata HUD -->
-        <div class="viewport-overlay">
-          <div class="preset-title" id="activeCaseTitle">1. Fyziologický nález – PLAX</div>
-          <div>Freq: 3.5 MHz</div>
-          <div>Depth: 16.0 cm</div>
-          <div>FPS: 60 Hz</div>
-          <div>MI: 1.1 &nbsp; TIS: 0.4</div>
-          <div id="gainDisplay">Gain: 50 dB</div>
+    <main class="usg-workspace" id="mainContent" tabindex="-1">
+      <section class="scan-panel" aria-label="Ultrazvukový monitor">
+        <div class="scan-heading">
+          <div><p class="eyebrow">VAŠE VIRTUÁLNÍ VYŠETŘOVNA</p><h1 id="activeCaseTitle">Fyziologický PLAX</h1></div>
+          <span class="scan-state" id="scanState" role="status">Živý obraz</span>
         </div>
 
-        <div class="acoustic-index">
-          <div>INDEX MARKER: VPRAVO</div>
-          <div style="font-size: 10px; color: var(--text-dim);">Pravé rameno pacienta</div>
+        <div class="usg-viewport-container">
+          <canvas id="usgCanvas" tabindex="0" aria-label="Simulovaný ultrazvukový obraz. Tažením nebo šipkami naklánějte sondu." aria-describedby="canvasHelp"></canvas>
+          <div class="viewport-overlay" aria-hidden="true">
+            <span class="preset-title">PLAX <span class="muted">/ B-MODE</span></span>
+            <span>S5-1 · 3.5 MHz</span><span>Hloubka 16 cm</span><span id="gainDisplay">Gain 50 dB</span>
+          </div>
+          <div class="acoustic-index" aria-hidden="true"><span class="marker-dot"></span> MARKER VPRAVO</div>
+          <span class="viewport-caption">VÝUKOVÁ SIMULACE · NENÍ URČENO K DIAGNOSTICE</span>
         </div>
 
-        <!-- Target Guidance Card / Tutor Feedback -->
-        <div class="target-guidance-card">
-          <div class="guide-header">
-            <span>PLAX VYROVNÁNÍ SONDY</span>
-            <span id="accuracyPercent" style="color: var(--accent-green); font-size: 14px;">100%</span>
-          </div>
-          <div class="accuracy-bar-container">
-            <div class="accuracy-bar" id="accuracyBar" style="width: 100%;"></div>
-          </div>
-          <div class="guide-feedback" id="guideFeedback">Optimální PLAX zobrazení (všechny struktury v ose).</div>
-        </div>
-      </div>
-
-      <!-- Sidebar Controls & Connection -->
-      <aside class="usg-sidebar">
-        <!-- QR Code Connection Box -->
-        <div class="panel-section">
-          <div class="panel-title">
-            <span>iPhone Sonda</span>
-            <span id="roomIdBadge" style="font-size: 10px; color: var(--accent-cyan); font-family: var(--font-mono);">---</span>
-          </div>
-          <div class="qr-container">
-            <div class="qr-box" id="qrcode"></div>
-            <div class="qr-hint">Naskenujte fotoaparátem iPhonu a použijte telefon jako sondu</div>
-            <div id="probeDirectUrlText" style="font-size: 10px; font-family: var(--font-mono); color: var(--accent-cyan); word-break: break-all; margin-top: 2px;"></div>
-            <div style="display: flex; gap: 6px; margin-top: 4px; width: 100%;">
-              <button class="qr-link-copy" id="copyProbeUrlBtn" style="flex: 1;" onclick="copyProbeLink()">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                Kopírovat odkaz
-              </button>
-              <button class="qr-link-copy" id="toggleHttpsBtn" style="color: var(--accent-green); border-color: rgba(0, 255, 136, 0.3);" onclick="toggleHttpsTunnel()">
-                🔒 HTTPS Mód
-              </button>
+        <div class="guidance-panel">
+          <div class="accuracy-score"><strong id="accuracyPercent">100%</strong><span>vyrovnání</span></div>
+          <div class="guidance-copy">
+            <div class="guide-header">Poloha sondy <span class="muted">Cíl: neutrální poloha</span></div>
+            <div class="accuracy-bar-container" id="accuracyMeter" role="progressbar" aria-label="Vyrovnání sondy" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
+              <div class="accuracy-bar" id="accuracyBar"></div>
             </div>
+            <p class="guide-feedback" id="guideFeedback">Optimální PLAX zobrazení.</p>
           </div>
         </div>
 
-        <!-- Case Selector -->
-        <div class="panel-section">
-          <div class="panel-title">Klinický Scénář</div>
-          <div class="case-tabs">
-            <button class="case-btn active" id="casePhys" onclick="switchCase('physiological')">
-              <span class="case-title">1. Fyziologický PLAX</span>
-              <span class="case-desc">Normální kinetika stěn, normální separace cípů MV & AV, bez výpotku.</span>
+        <div class="scan-controls">
+          <button class="control-button primary-control" id="stationFreezeBtn" aria-pressed="false" aria-keyshortcuts="F">
+            <span id="freezeIcon" aria-hidden="true">Ⅱ</span><span id="freezeText">Zmrazit obraz</span><kbd>F</kbd>
+          </button>
+          <button class="control-button" id="calibrateBtn" aria-keyshortcuts="R"><span aria-hidden="true">◎</span><span id="calibrateText">Vyrovnat sondu</span><kbd>R</kbd></button>
+          <div class="gain-control">
+            <label for="stationGain">Jas obrazu <span class="muted">/ gain</span></label>
+            <div class="range-row"><input type="range" id="stationGain" min="0.5" max="1.6" step="0.05" value="1"><output id="stationGainValue" for="stationGain">50 dB</output></div>
+          </div>
+        </div>
+        <p class="input-hint" id="canvasHelp">Táhněte po obrazu myší nebo prstem. Po zaměření obrazu klávesou Tab: šipky = náklon a rotace, A/D = vychýlení, F = zmrazit, R = vyrovnat.</p>
+      </section>
+
+      <aside class="usg-sidebar" aria-label="Nastavení vyšetření">
+        <section class="panel-section">
+          <div class="panel-title"><h2>Klinický scénář</h2><span class="step-label">01</span></div>
+          <div class="case-tabs" role="group" aria-label="Klinický scénář">
+            <button class="case-btn active" id="casePhys" data-case="physiological" aria-pressed="true">
+              <span class="case-number">01</span><span><span class="case-title">Fyziologický PLAX</span><span class="case-desc">Normální kinetika a chlopně, bez výpotku.</span></span><span class="case-check" aria-hidden="true">✓</span>
             </button>
-            <button class="case-btn" id="caseEffusion" onclick="switchCase('pericardial_effusion')">
-              <span class="case-title" style="color: var(--accent-amber);">2. Masivní výpotek (Tamponáda)</span>
-              <span class="case-desc">Anechogenní lem tekutiny, vlající srdce (swinging heart), kolaps RV.</span>
+            <button class="case-btn" id="caseEffusion" data-case="pericardial_effusion" aria-pressed="false">
+              <span class="case-number">02</span><span><span class="case-title">Perikardiální výpotek</span><span class="case-desc">Výrazný výpotek se simulovanými známkami tamponády.</span></span><span class="case-check" aria-hidden="true">✓</span>
             </button>
           </div>
-        </div>
+        </section>
 
-        <!-- 3D Probe Orientation & Telemetry -->
-        <div class="panel-section">
-          <div class="panel-title">Orientace Sondy (3D)</div>
-          <div class="gizmo-wrapper">
-            <canvas id="gizmoCanvas"></canvas>
+        <section class="panel-section">
+          <div class="panel-title"><h2>Ovládání sondy</h2><span class="step-label">02</span></div>
+          <div class="segmented-control" role="group" aria-label="Zdroj ovládání">
+            <button id="localModeBtn" aria-pressed="true">Na tomto zařízení</button>
+            <button id="phoneModeBtn" aria-pressed="false">Telefon jako sonda</button>
           </div>
-          <div class="angle-stats-grid">
-            <div class="angle-box">
-              <div class="lbl">Pitch (Fan)</div>
-              <div class="val" id="valPitch">0.0°</div>
-            </div>
-            <div class="angle-box">
-              <div class="lbl">Roll (Rot)</div>
-              <div class="val" id="valRoll">0.0°</div>
-            </div>
-            <div class="angle-box">
-              <div class="lbl">Yaw (Rock)</div>
-              <div class="val" id="valYaw">0.0°</div>
-            </div>
-          </div>
-        </div>
+          <p class="panel-help" id="controlModeHelp">Bez párování. Použijte obraz nebo posuvníky níže.</p>
+          <fieldset class="angle-controls" id="angleControls">
+            <legend class="sr-only">Ruční nastavení polohy sondy</legend>
+            <div class="angle-control"><label for="pitchSlider">Náklon <span>Pitch / fan</span></label><div class="range-row"><input id="pitchSlider" type="range" min="-25" max="25" step="0.5" value="0"><output id="valPitch" for="pitchSlider">0.0°</output></div></div>
+            <div class="angle-control"><label for="rollSlider">Rotace <span>Roll</span></label><div class="range-row"><input id="rollSlider" type="range" min="-25" max="25" step="0.5" value="0"><output id="valRoll" for="rollSlider">0.0°</output></div></div>
+            <div class="angle-control"><label for="yawSlider">Vychýlení <span>Yaw / rock</span></label><div class="range-row"><input id="yawSlider" type="range" min="-25" max="25" step="0.5" value="0"><output id="valYaw" for="yawSlider">0.0°</output></div></div>
+          </fieldset>
+          <details class="orientation-details">
+            <summary>Prostorová orientace sondy</summary>
+            <div class="gizmo-wrapper"><canvas id="gizmoCanvas" aria-label="Prostorová orientace sondy"></canvas></div>
+          </details>
+        </section>
 
-        <!-- Quick Controls (Test on PC) -->
-        <div class="panel-section">
-          <div class="panel-title">Rychlé Ovládání</div>
-          <div style="display: flex; gap: 8px;">
-            <button class="case-btn" style="flex: 1; text-align: center; font-weight: 700;" onclick="engine.calibrateZero()">
-              🎯 Kalibrace 0°
-            </button>
-            <button class="case-btn" id="stationFreezeBtn" style="flex: 1; text-align: center; font-weight: 700;" onclick="toggleFreeze()">
-              ❄️ Freeze
-            </button>
-          </div>
-          <div style="margin-top: 10px; font-size: 11px; color: var(--text-muted); line-height: 1.4;">
-            💡 <em>Tip pro test na PC bez mobilu: Můžete hýbat myší se stisknutým tlačítkem nad obrazovkou pro simulaci náklonu sondy!</em>
-          </div>
-        </div>
+        <section class="panel-section connection-panel" id="phonePanel" hidden>
+          <div class="panel-title"><h2>Připojte telefon</h2><span id="roomIdBadge" class="room-badge">---</span></div>
+          <div class="status-pill" role="status"><span class="status-dot" id="connDot"></span><span id="connStatusText">Připravuji připojení…</span></div>
+          <div class="qr-container"><div class="qr-box" id="qrcode"></div><p class="qr-hint">Otevřete fotoaparát telefonu a naskenujte kód. Pak zvolte gyroskop nebo dotykové ovládání.</p></div>
+          <a id="probeDirectUrlText" class="probe-link" target="_blank" rel="noopener"></a>
+          <button class="control-button copy-button" id="copyProbeUrlBtn" disabled>Kopírovat odkaz na sondu</button>
+          <p class="panel-help" id="connectionHelp">Pro gyroskop je potřeba HTTPS. V místní síti lze použít dotykové ovládání.</p>
+          <p class="action-message" id="copyStatus" role="status"></p>
+        </section>
+        <p class="sidebar-note">Nejprve vyrovnejte sondu, potom sledujte, jak se řez při náklonu mění.</p>
       </aside>
     </main>
 
-    <!-- Footer / Live ECG -->
-    <footer class="usg-footer">
-      <div style="font-family: var(--font-mono); font-size: 11px; color: var(--accent-green); font-weight: 700; white-space: nowrap;">
-        LEAD II (ECG)
-      </div>
-      <div class="ecg-monitor-container">
-        <canvas id="ecgCanvas"></canvas>
-      </div>
-      <div style="font-family: var(--font-mono); font-size: 11px; color: var(--text-dim); white-space: nowrap;">
-        SWEEP: 25 mm/s
-      </div>
-    </footer>
+    <footer class="usg-footer"><span class="ecg-label">EKG <span>II</span></span><div class="ecg-monitor-container"><canvas id="ecgCanvas" aria-label="Simulované EKG, 72 tepů za minutu"></canvas></div><span class="sweep-label">25 mm/s</span></footer>
   </div>
-
-  <script src="usg-engine.js"></script>
-  <script src="connection.js"></script>
-  <script>
-    // Initialize Engine & Connection
-    let engine;
-    let connection;
-    let probeUrl = '';
-
-    window.addEventListener('DOMContentLoaded', () => {
-      engine = new UsgEngine('usgCanvas', 'ecgCanvas', 'gizmoCanvas');
-
-      // Setup Connection Bridge
-      connection = new UsgConnection('station', (state, roomId) => {
-        const dot = document.getElementById('connDot');
-        const text = document.getElementById('connStatusText');
-        const idBadge = document.getElementById('roomIdBadge');
-
-        if (state === 'ready') {
-          idBadge.textContent = roomId;
-          generateQrCode(roomId);
-        } else if (state === 'connected') {
-          dot.classList.add('connected');
-          text.textContent = 'Sonda připojena (iPhone 16 Pro)';
-          text.style.color = 'var(--accent-green)';
-        } else if (state === 'disconnected') {
-          dot.classList.remove('connected');
-          text.textContent = 'Sonda odpojena';
-          text.style.color = 'var(--accent-rose)';
-        }
-      }, (data) => {
-        // Data received from iPhone Probe
-        engine.setProbeData(data);
-        updateTelemetryUI();
-      });
-
-      connection.initStation();
-
-      // UI Update Interval for guidance & angles
-      setInterval(updateTelemetryUI, 50);
-
-      // Setup Mouse Simulation on Canvas for testing on PC
-      setupMouseSimulation();
-    });
-
-    let useHttpsTunnel = false;
-    const httpsTunnelHost = 'large-weeks-yawn.loca.lt';
-
-    function toggleHttpsTunnel() {
-      useHttpsTunnel = !useHttpsTunnel;
-      const btn = document.getElementById('toggleHttpsBtn');
-      btn.textContent = useHttpsTunnel ? '📶 Lokální Wi-Fi' : '🔒 HTTPS Mód';
-      btn.style.color = useHttpsTunnel ? 'var(--accent-cyan)' : 'var(--accent-green)';
-      if (connection && connection.roomId) {
-        generateQrCode(connection.roomId);
-      }
-    }
-
-    async function generateQrCode(roomId) {
-      let host = window.location.host;
-      let protocol = window.location.protocol;
-
-      if (useHttpsTunnel) {
-        protocol = 'https:';
-        host = httpsTunnelHost;
-      } else if (host.includes('localhost') || host.includes('127.0.0.1')) {
-        try {
-          const res = await fetch('/api/lan-ip');
-          const data = await res.json();
-          if (data && data.ip && data.ip !== '127.0.0.1') {
-            host = `${data.ip}:${data.port || 3000}`;
-          }
-        } catch (e) {
-          console.warn('Could not fetch LAN IP', e);
-        }
-      }
-
-      const loc = window.location;
-      const baseUrl = protocol + '//' + host + loc.pathname.replace('index.html', '').replace(/\/$/, '') + '/probe.html';
-      probeUrl = baseUrl + '?room=' + roomId;
-
-      const qrContainer = document.getElementById('qrcode');
-      qrContainer.innerHTML = '';
-      new QRCode(qrContainer, {
-        text: probeUrl,
-        width: 140,
-        height: 140,
-        colorDark: "#000000",
-        colorLight: "#ffffff",
-        correctLevel: QRCode.CorrectLevel.M
-      });
-
-      const urlDisplay = document.getElementById('probeDirectUrlText');
-      if (urlDisplay) {
-        urlDisplay.textContent = probeUrl;
-      }
-    }
-
-    function copyProbeLink() {
-      if (probeUrl) {
-        navigator.clipboard.writeText(probeUrl);
-        const btn = document.getElementById('copyProbeUrlBtn');
-        btn.textContent = '✓ Odkaz zkopírován!';
-        setTimeout(() => {
-          btn.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Kopírovat odkaz na sondu`;
-        }, 2000);
-      }
-    }
-
-    function switchCase(caseType) {
-      engine.activeCase = caseType;
-      document.getElementById('casePhys').classList.toggle('active', caseType === 'physiological');
-      document.getElementById('caseEffusion').classList.toggle('active', caseType === 'pericardial_effusion');
-      document.getElementById('activeCaseTitle').textContent =
-        caseType === 'physiological' ? '1. Fyziologický nález – PLAX' : '2. Masivní perikardiální výpotek s tamponádou';
-    }
-
-    function toggleFreeze() {
-      engine.isFrozen = !engine.isFrozen;
-      const btn = document.getElementById('stationFreezeBtn');
-      btn.textContent = engine.isFrozen ? '▶️ Unfreeze' : '❄️ Freeze';
-      btn.style.borderColor = engine.isFrozen ? 'var(--accent-rose)' : 'var(--border-subtle)';
-    }
-
-    function updateTelemetryUI() {
-      if (!engine) return;
-      document.getElementById('valPitch').textContent = engine.currentOrientation.pitch.toFixed(1) + '°';
-      document.getElementById('valRoll').textContent = engine.currentOrientation.roll.toFixed(1) + '°';
-      document.getElementById('valYaw').textContent = engine.currentOrientation.yaw.toFixed(1) + '°';
-      document.getElementById('accuracyPercent').textContent = engine.accuracyScore + '%';
-      document.getElementById('accuracyBar').style.width = engine.accuracyScore + '%';
-      document.getElementById('guideFeedback').textContent = engine.guidanceText;
-      document.getElementById('gainDisplay').textContent = `Gain: ${Math.round(engine.gain * 50)} dB`;
-    }
-
-    // Mouse drag simulation for easy PC desktop testing
-    function setupMouseSimulation() {
-      let isDragging = false;
-      let startX = 0, startY = 0;
-      const canvas = document.getElementById('usgCanvas');
-
-      canvas.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        startX = e.clientX;
-        startY = e.clientY;
-      });
-
-      window.addEventListener('mousemove', (e) => {
-        if (!isDragging) return;
-        const dx = (e.clientX - startX) * 0.15;
-        const dy = (e.clientY - startY) * 0.15;
-        engine.setProbeData({
-          pitch: Math.max(-25, Math.min(25, dy)),
-          roll: Math.max(-25, Math.min(25, dx)),
-          yaw: Math.max(-25, Math.min(25, dx * 0.5))
-        });
-      });
-
-      window.addEventListener('mouseup', () => {
-        isDragging = false;
-      });
-    }
-  </script>
 </body>
 </html>

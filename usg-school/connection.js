@@ -1,6 +1,6 @@
 /**
  * USG School - Connection Bridge (WebRTC / PeerJS + BroadcastChannel Fallback)
- * Ultra-low latency communication between iPhone Probe & Station Display
+ * Communication between the phone probe and station display.
  */
 
 class UsgConnection {
@@ -13,12 +13,20 @@ class UsgConnection {
     this.roomId = null;
     this.isConnected = false;
     this.broadcastChannel = null;
+    this.localActive = false;
+  }
 
-    // Initialize local BroadcastChannel (for fast local dev/testing on same machine)
+  initLocalChannel() {
+    if (this.broadcastChannel) this.broadcastChannel.close();
+    this.localActive = false;
     try {
-      this.broadcastChannel = new BroadcastChannel('usg_school_sync');
+      this.broadcastChannel = new BroadcastChannel(`usg_school_sync_${this.roomId}`);
       this.broadcastChannel.onmessage = (event) => {
         if (event.data && this.onData) {
+          if (!this.isConnected && !this.localActive) {
+            this.localActive = true;
+            if (this.onStateChange) this.onStateChange('local-data', this.roomId);
+          }
           this.onData(event.data);
         }
       };
@@ -30,6 +38,8 @@ class UsgConnection {
   // Initialize Station (creates room & waits for probe)
   initStation(customRoomId = null) {
     this.roomId = customRoomId || 'usg-' + Math.random().toString(36).substring(2, 8).toUpperCase();
+    this.initLocalChannel();
+    if (this.onStateChange) this.onStateChange('ready', this.roomId);
     
     // Using PeerJS CDN
     if (typeof Peer !== 'undefined') {
@@ -45,7 +55,6 @@ class UsgConnection {
 
       this.peer.on('open', (id) => {
         console.log('[USG-Station] Room created with ID:', id);
-        if (this.onStateChange) this.onStateChange('ready', id);
       });
 
       this.peer.on('connection', (conn) => {
@@ -58,18 +67,22 @@ class UsgConnection {
         console.warn('[USG-Station] Peer error, retrying with random ID:', err);
         // Fallback room ID if collision
         if (err.type === 'unavailable-id') {
+          this.peer.destroy();
           this.initStation('usg-' + Math.random().toString(36).substring(2, 9).toUpperCase());
+        } else if (this.onStateChange) {
+          this.onStateChange('error', err);
         }
       });
     } else {
       console.log('[USG-Station] PeerJS not loaded, operating in local Broadcast mode');
-      if (this.onStateChange) this.onStateChange('ready', this.roomId);
+      if (this.onStateChange) this.onStateChange('local', this.roomId);
     }
   }
 
   // Initialize Probe (connects to Station room)
   initProbe(roomId) {
     this.roomId = roomId;
+    this.initLocalChannel();
     if (typeof Peer !== 'undefined') {
       this.peer = new Peer(null, {
         debug: 1,
@@ -83,7 +96,7 @@ class UsgConnection {
 
       this.peer.on('open', (id) => {
         console.log('[USG-Probe] Connecting to room:', roomId);
-        this.conn = this.peer.connect(roomId, { reliable: false }); // false for fastest UDP-like delivery
+        this.conn = this.peer.connect(roomId, { reliable: true });
         this.setupConnectionHandlers();
       });
 
@@ -91,6 +104,8 @@ class UsgConnection {
         console.error('[USG-Probe] Connection error:', err);
         if (this.onStateChange) this.onStateChange('error', err);
       });
+    } else if (this.onStateChange) {
+      this.onStateChange('local', roomId);
     }
   }
 
@@ -109,18 +124,17 @@ class UsgConnection {
 
     this.conn.on('close', () => {
       this.isConnected = false;
+      this.localActive = false;
       console.log('[USG-Sync] Connection closed');
       if (this.onStateChange) this.onStateChange('disconnected', this.roomId);
     });
   }
 
-  // Send orientation & telemetry packet (called from Probe at 60Hz)
+  // Use one transport to avoid applying control commands twice.
   sendTelemetry(payload) {
     if (this.conn && this.conn.open) {
       this.conn.send(payload);
-    }
-    // Also dispatch to local broadcast channel
-    if (this.broadcastChannel) {
+    } else if (this.broadcastChannel) {
       this.broadcastChannel.postMessage(payload);
     }
   }
