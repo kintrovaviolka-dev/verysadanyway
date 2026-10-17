@@ -148,6 +148,38 @@ npm install
 npm run dev
 ```
 
+### USG School
+
+Echokardiografický trenažér je dostupný na `/usg-school/`. Jde o výukovou
+simulaci PLAX, nikoli nástroj pro diagnostiku. Rozložení se přizpůsobuje
+počítači, tabletu i telefonu a na malých displejích lze stránku posouvat.
+
+- **Na tomto zařízení:** táhněte po obrazu myší nebo prstem, případně použijte
+  posuvníky náklonu, rotace a vychýlení. Jas obrazu, zmrazení a scénáře
+  jsou dostupné přímo na monitoru.
+- **Klávesnice:** zaměřte obraz klávesou Tab. Šipky mění náklon a rotaci,
+  A/D vychýlení, F zmrazí nebo obnoví obraz a R vyrovná sondu.
+  Klávesové zkratky nezasahují do ovládání posuvníků.
+- **Telefon jako sonda:** přepněte zdroj ovládání a naskenujte QR kód nebo
+  otevřete zobrazený odkaz. Na telefonu zvolte gyroskop či dotykové ovládání.
+  Jas, zmrazení a scénář se v tomto režimu synchronizují mezi zařízeními.
+  Gyroskop vyžaduje HTTPS a souhlas s použitím senzorů; dotykový režim je
+  dostupný i bez nich. Adresa monitoru musí být dostupná z telefonu
+  (`localhost` na telefonu neodkazuje na počítač).
+
+Přenos mezi zařízeními používá PeerJS/WebRTC. Místní záložní přenos přes
+BroadcastChannel funguje pouze mezi kartami stejného původu v jednom
+prohlížeči, odděleně pro každou místnost. Když se nepodaří načíst QR
+knihovnu, zůstává k dispozici přímý odkaz; simulátor lze používat i bez telefonu.
+
+Testy rozložení a ovládání využívají existující Playwright runner v `drill/`:
+
+```bash
+npm --prefix drill ci
+npm --prefix drill exec -- playwright install chromium
+npm --prefix drill run test:e2e -- usg-school.spec.js
+```
+
 ## Build a testy
 
 Hlavní repozitář obsahuje základní skripty:

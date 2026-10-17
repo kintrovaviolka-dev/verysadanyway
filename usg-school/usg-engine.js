@@ -17,8 +17,8 @@ class UsgEngine {
     this.cycleDuration = (60 / this.bpm) * 1000; // ~833 ms
     this.startTime = performance.now();
     this.isFrozen = false;
-    this.frozenTime = 0;
-    this.gain = 1.0; // 0.5 to 1.8
+    this.frozenTime = this.startTime;
+    this.gain = 1.0; // 0.5 to 1.6
     this.activeCase = 'physiological'; // 'physiological' | 'pericardial_effusion'
 
     // Probe Orientation (Smoothed)
@@ -37,6 +37,10 @@ class UsgEngine {
     // Resize listeners
     this.handleResize();
     window.addEventListener('resize', () => this.handleResize());
+    this.resizeObserver = new ResizeObserver(() => this.handleResize());
+    [this.canvas, this.ecgCanvas, this.gizmoCanvas].filter(Boolean).forEach((canvas) => {
+      this.resizeObserver.observe(canvas);
+    });
 
     // Generate static speckle noise pattern for performance
     this.initSpeckleTexture();
@@ -47,18 +51,16 @@ class UsgEngine {
   }
 
   handleResize() {
-    if (this.canvas) {
-      this.width = this.canvas.width = this.canvas.parentElement.clientWidth;
-      this.height = this.canvas.height = this.canvas.parentElement.clientHeight;
-    }
-    if (this.ecgCanvas) {
-      this.ecgWidth = this.ecgCanvas.width = this.ecgCanvas.clientWidth;
-      this.ecgHeight = this.ecgCanvas.height = this.ecgCanvas.clientHeight;
-    }
-    if (this.gizmoCanvas) {
-      this.gizmoCanvas.width = this.gizmoCanvas.clientWidth;
-      this.gizmoCanvas.height = this.gizmoCanvas.clientHeight;
-    }
+    const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+    [this.canvas, this.ecgCanvas, this.gizmoCanvas].filter(Boolean).forEach((canvas) => {
+      canvas.width = Math.round(canvas.clientWidth * pixelRatio);
+      canvas.height = Math.round(canvas.clientHeight * pixelRatio);
+      canvas.getContext('2d').setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+    });
+    this.width = this.canvas.clientWidth;
+    this.height = this.canvas.clientHeight;
+    this.ecgWidth = this.ecgCanvas.clientWidth;
+    this.ecgHeight = this.ecgCanvas.clientHeight;
   }
 
   initSpeckleTexture() {
@@ -80,12 +82,12 @@ class UsgEngine {
   }
 
   setProbeData(data) {
-    if (data.pitch !== undefined) this.targetOrientation.pitch = data.pitch - this.zeroOffset.pitch;
-    if (data.roll !== undefined) this.targetOrientation.roll = data.roll - this.zeroOffset.roll;
-    if (data.yaw !== undefined) this.targetOrientation.yaw = data.yaw - this.zeroOffset.yaw;
-    if (data.gain !== undefined) this.gain = data.gain;
-    if (data.frozen !== undefined) this.isFrozen = data.frozen;
-    if (data.activeCase !== undefined) this.activeCase = data.activeCase;
+    for (const axis of ['pitch', 'roll', 'yaw']) {
+      if (Number.isFinite(data[axis])) this.targetOrientation[axis] = data[axis] - this.zeroOffset[axis];
+    }
+    if (Number.isFinite(data.gain)) this.gain = Math.max(0.5, Math.min(1.6, data.gain));
+    if (typeof data.frozen === 'boolean') this.isFrozen = data.frozen;
+    if (['physiological', 'pericardial_effusion'].includes(data.activeCase)) this.activeCase = data.activeCase;
   }
 
   calibrateZero() {
@@ -178,7 +180,7 @@ class UsgEngine {
     }
     const simTime = this.isFrozen ? this.frozenTime : now;
 
-    this.updateOrientation();
+    if (!this.isFrozen) this.updateOrientation();
 
     const ctx = this.ctx;
     ctx.clearRect(0, 0, this.width, this.height);
@@ -557,9 +559,9 @@ class UsgEngine {
       v = Math.sin(((phase - 0.40) / 0.18) * Math.PI) * 0.4;
     }
 
-    this.ecgPoints.push(v);
-    if (this.ecgPoints.length > w) {
-      this.ecgPoints.shift();
+    if (!this.isFrozen) {
+      this.ecgPoints.push(v);
+      if (this.ecgPoints.length > w) this.ecgPoints.splice(0, this.ecgPoints.length - w);
     }
 
     // Render Waveform
@@ -583,8 +585,8 @@ class UsgEngine {
   // Draw 3D Orientation Gizmo in Station Sidebar
   draw3DGizmo() {
     const ctx = this.gizmoCtx;
-    const w = this.gizmoCanvas.width;
-    const h = this.gizmoCanvas.height;
+    const w = this.gizmoCanvas.clientWidth;
+    const h = this.gizmoCanvas.clientHeight;
     ctx.clearRect(0, 0, w, h);
 
     const cx = w / 2;
