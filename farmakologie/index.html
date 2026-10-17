@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Farmakologie SPA - 4. ročník Všeobecného lékařství</title>
-  <meta name="description" content="Interaktivní studijní portál farmakologie pro 4. ročník všeobecného lékařství. Obsahuje interaktivní PK/TDM trenažér, modelování koncentrací a vypracované otázky.">
+  <title>Farmakologie | 4. ročník</title>
+  <meta name="description" content="Farmakologie pro 4. ročník: zkouškové okruhy, PK/TDM trenažér, klíčové mechanismy, receptorová farmakologie a bezpečnost léčiv.">
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="pk_sim.css">
+  <link rel="stylesheet" href="../ctvrtak/portal.css">
+  <script type="module" src="../ctvrtak/portal.mjs"></script>
   <!-- Google Fonts — preconnect for faster initial load -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -88,6 +90,11 @@
         </button>
       </div>
     </header>
+
+    <section id="study-v2" class="study-v2" data-subject="farmakologie" lang="cs" aria-label="Klíčové mechanismy k pochopení">
+      <p>Načítání výukových mechanismů. <a href="#cards-grid">Přejít na okruhy a procvičování.</a></p>
+      <noscript>Nový výukový blok vyžaduje JavaScript.</noscript>
+    </section>
 
     <!-- Banner klávesových zkratek -->
     <div id="kbd-shortcuts-banner" class="kbd-shortcuts-banner" style="display: none;" role="region" aria-label="Přehled klávesových zkratek">

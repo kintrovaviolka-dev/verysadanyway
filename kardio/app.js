@@ -51,8 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- I18N TRANSLATIONS DICTIONARY ---
   const I18N = {
     cs: {
-      title: "Kardiologie | Lékařský Studijní Portál 4. ročníku",
-      metaDesc: "Interaktivní studijní portál kardiologie pro studenty 4. ročníku všeobecného lékařství. Třífázová metodika Learn-Recall-Breakdown, nejnovější ESC Guidelines (2023–2026) a Spaced Repetition banka s 115+ kartičkami.",
+      title: "Kardiologie | 4. ročník",
+      metaDesc: "Kardiologie pro 4. ročník: EKG, průvodce, opakování a klíčové mechanismy EF a srdečního výdeje.",
       skipLink: "Přeskočit na obsah",
       brandTitle: "Kardiologie",
       brandTag: "4. ročník",
@@ -141,8 +141,8 @@ document.addEventListener("DOMContentLoaded", () => {
       footerText: "© 2026 Viola Kintrová • Kardiologický výukový portál pro 4. ročník Všeobecného lékařství."
     },
     es: {
-      title: "Cardiología | Portal de Estudio Médico de 4.º Curso",
-      metaDesc: "Portal interactivo de estudio de cardiología para estudiantes de 4.º curso de medicina. Metodología Learn-Recall-Breakdown en 3 fases, últimas guías ESC (2023–2026) y banco de repaso espaciado con 115+ tarjetas.",
+      title: "Cardiología | 4.º curso",
+      metaDesc: "Cardiología: módulos, ECG y tarjetas en español. Mecanismos y ejercicios de volumen cardíaco en checo.",
       skipLink: "Saltar al contenido",
       brandTitle: "Cardiología",
       brandTag: "4.º curso",
@@ -2305,8 +2305,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const handleHashRouting = () => {
     const hash = window.location.hash || "#temata";
 
-    if (hash === "#temata" || hash === "" || hash === "#") {
+    if (hash === "#temata" || hash === "#modules-view" || hash === "" || hash === "#") {
       switchView("modules", false);
+      if (hash === "#modules-view") modulesView.scrollIntoView({ block: "start" });
     } else if (hash.startsWith("#ekg")) {
       switchView("ekg", false);
       if (hash === "#ekg-anatomy") switchEkgSubpane("anatomy");
