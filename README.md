@@ -180,6 +180,61 @@ npm --prefix drill exec -- playwright install chromium
 npm --prefix drill run test:e2e -- usg-school.spec.js
 ```
 
+## 4. ročník — klíčové mechanismy
+
+Všech šest předmětů označených na rozcestníku jako 4. ročník má sekci
+**Klíčové mechanismy k pochopení** přímo na své stránce. Ve výchozím stavu
+je sbalená do kompaktního řádku, aby neposouvala kartičky daleko od záhlaví.
+Seznam lekcí, výklad a interaktivní prvky se zobrazí až po rozkliknutí.
+Sekce obsahuje celkem
+36 původních českých lekcí (šest na předmět): vysvětlení mechanismu, postup
+uvažování, důležité rozdíly, častou chybu, otázku pro vybavení a rozbalitelné
+vysvětlení. Psychiatrie je obsahově a vzhledově aktualizovaná bez nové laboratoře.
+
+| Předmět | Nový interaktivní prvek |
+| --- | --- |
+| Farmakologie | Receptorová laboratoř: koncentrace, EC50, Emax, kompetitivní a nepřekonatelný antagonismus, parciální agonismus |
+| Dermatologie | Ambulance v čase: tři postupné kazuistiky, devět rozhodnutí a zdůvodnění každé možnosti |
+| Kardiologie | Objemová laboratoř: EDV, ESV, frekvence, EF, tepový objem a výdej; srovnání malé a dilatované komory |
+| Radiologie | Nastavení CT okna na syntetickém HU fantomu včetně předvoleb a číselné škály odstínů |
+| Neurologie | Zorná pole při lézích nervu, chiasmatu, traktu, Meyerovy kličky a parietální radiace na obou stranách |
+
+Rozhraní podporuje telefon i počítač, původní přepínače motivu, klávesnici,
+textové alternativy diagramů a omezení animací. V nových lekcích lze hledat
+i bez diakritiky a filtrovat vlastní označení „Ještě zopakovat“. Záložka
+„Zdroje a limity“ vysvětluje výuková zjednodušení a odkazuje na podklady;
+nejde o klinický rozhodovací ani dávkovací nástroj.
+
+Původní okruhy, atlasy, kvízy, poznámky a Leitnerův systém zůstávají dostupné.
+Nové sebehodnocení a poslední otevřená lekce používají samostatný localStorage
+klíč `ctvrtak-v2:<složka-předmětu>`; jejich změna neznámkuje původní kartičky.
+Chyba čtení či zápisu úložiště se zobrazuje přímo ve výukovém bloku.
+Přímé odkazy `#v2-<id-lekce>`, `#v2-lab` a `#v2-sources` sekci automaticky
+rozbalí na příslušném obsahu. Samotný `#study-v2` ji pouze označí na stránce.
+Identifikátory a klíče úložiště zůstávají stejné kvůli kompatibilitě.
+Nový blok je česky, včetně kardiologie; její původní španělská verze funguje
+nezávisle.
+
+Implementace je ve `ctvrtak/`: data jednotlivých předmětů v `courses/`,
+rozhraní v `portal.mjs` a `portal.css`, laboratoře v `labs.mjs`,
+výpočty v `models.mjs` a postupné případy v `skin-cases.mjs`.
+Jde o statické ES moduly bez nových produkčních závislostí či build kroku.
+Spouštějte přes HTTP (`npm start` nebo lokální statický server), nikoli
+přímo přes `file://`. Tento blok nemění ani negeneruje obsah MedDrill PWA.
+
+```bash
+npm run test:ctvrtak
+npm --prefix drill ci
+npm --prefix drill exec -- playwright install chromium
+npm run test:ctvrtak:e2e
+```
+
+První příkaz ověřuje obsah a matematické/anatomické invarianty modelů.
+Prohlížečové testy používají existující Playwright konfiguraci a kontrolují
+všech šest předmětů v šířkách 320, 390 a 1440 px, laboratoře, navigaci,
+motivy, oddělené ukládání a dostupnost původního obsahu. Původní portály
+nadále používají své externí knihovny; nový blok je na nich nezávislý.
+
 ## Build a testy
 
 Hlavní repozitář obsahuje základní skripty:
