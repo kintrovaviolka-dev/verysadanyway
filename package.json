@@ -11,7 +11,8 @@
     "build:drill": "node scripts/build_drill_modules.js",
     "start": "node server.js",
     "dev": "node --env-file=.env server.js",
-    "build": "cd clinical-learning-portal && npm install --legacy-peer-deps && npm run build && cp -r dist/* . && cd ../urgentni-prijem && npm install --legacy-peer-deps && npm run build && cp -r dist/* ."
+    "build": "cd clinical-learning-portal && npm install --legacy-peer-deps && npm run build && cp -r dist/* . && cd ../urgentni-prijem && npm install --legacy-peer-deps && npm run build && cp -r dist/* . && cd .. && npm run build:public",
+    "build:public": "node scripts/build_public.cjs"
   },
   "dependencies": {
     "@google/genai": "^2.12.0",

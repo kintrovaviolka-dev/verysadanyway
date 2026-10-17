@@ -246,6 +246,32 @@ npm run build
 
 `npm run build` zajišťuje build specializovaných podaplikací pro klinický portál a urgentní příjem.
 
+### Cloudflare Workers – nasazení z GitHubu
+
+V Cloudflare Workers Builds zvolte produkční větev `main` a kořenový adresář
+repozitáře. Build příkaz je `npm run build`, deploy příkaz `npx wrangler deploy`.
+Nasazujte nový commit z této větve; opakování starého buildu použije jeho původní
+soubory bez opravy.
+
+Kořenový `wrangler.jsonc` nastavuje `assets.directory` na `.public-build`.
+Build do tohoto adresáře připraví hlavní portál, předmětové weby včetně modulů
+`ctvrtak/` a sestavené aplikace `clinical-learning-portal/` a `urgentni-prijem/`.
+Wrangler proto při nasazení nemusí automaticky konfigurovat Vite.
+Repozitář samotný není adresářem veřejných souborů.
+
+Kontrola bez publikování:
+
+```bash
+npm run build
+npx wrangler deploy --dry-run
+```
+
+Tento Worker obsluhuje statický web; Node/Express server `server.js`, funkce
+`api/*` a přepisy z `vercel.json` se v něm nespouštějí. AI funkce vyžadující API
+potřebují samostatný backend nebo adaptaci pro Workers. Konfigurace pro Vercel
+zůstává v `vercel.json`. Chybějící stránky vracejí 404, protože portál obsahuje
+více samostatných HTML aplikací.
+
 ## Generování PDF
 
 K vygenerování studijních PDF z Markdown/LaTeX zdrojů slouží:
