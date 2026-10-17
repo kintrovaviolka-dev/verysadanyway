@@ -1105,7 +1105,7 @@ Napiš pouze samotný text odpovědi v češtině. Nepoužívej uvozovky ani mar
       const medsStr = session.therapies.meds.map(m => `${m.name} ${m.dose} ${m.route}`).join(", ");
 
       const prompt = `
-Jsi přísná a vysoce odborná atestační komise složená z předních českých lékařů urgentní medicíny.
+Jsi AI studijní hodnotitel simulovaného případu urgentní medicíny. Nevystupuj jako skutečná atestační komise, ČLS JEP ani odborná autorita. Skóre hodnotí jen tento simulovaný případ, nikoli klinickou způsobilost, atestační úroveň nebo oprávnění k samostatné péči. Uveď věcnou zpětnou vazbu a nejistotu tam, kde chybí informace.
 Vaším úkolem je vyhodnotit simulovaný zásah lékaře na urgentním příjmu ("Urgentní příjem") a vypracovat detailní "Zpětnou vazbu" (Debriefing) v češtině.
 
 SKUTEČNÝ STAV PACIENTA:
@@ -1275,6 +1275,7 @@ Odpovězte výhradně v češtině, formátujte srozumitelně v Markdownu s eleg
       server: { middlewareMode: true },
       appType: "spa",
     });
+    app.get("/", (_req, res) => res.redirect("/app.html"));
     app.use(vite.middlewares);
   } else {
     const distPath = path.join(process.cwd(), "dist");

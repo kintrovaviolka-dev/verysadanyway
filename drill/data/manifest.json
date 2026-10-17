@@ -1,6 +1,6 @@
 {
   "version": "2026.3.0",
-  "lastUpdated": "2026-10-07T15:55:00.000Z",
+  "lastUpdated": "2026-10-17T08:51:17.527Z",
   "subjects": [
     {
       "id": "patola",
@@ -140,19 +140,19 @@
     },
     {
       "id": "urgent",
-      "revision": "2026.3.0",
+      "revision": "2026.3.0-0550e5f8d6fa",
       "title": "Urgentní příjem",
       "grade": 5,
       "icon": "🚨",
       "color": "#ef4444",
-      "totalQuestions": 103,
+      "totalQuestions": 120,
       "counts": {
-        "single_choice": 85,
+        "single_choice": 102,
         "case_study": 18,
         "fill_in": 0
       },
-      "sizeBytes": 158662,
-      "sizeFormatted": "155 kB",
+      "sizeBytes": 182766,
+      "sizeFormatted": "178 kB",
       "file": "/drill/data/modules/urgent.json"
     }
   ]

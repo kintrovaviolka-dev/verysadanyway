@@ -31,16 +31,16 @@ export const ANESTHESIA_QUIZ_CS: QuizQuestion[] = [
   },
   {
     id: 'q3',
-    caseContext: 'Pacient o hmotnosti 70 kg (ideální tělesná hmotnost) s normální funkcí jater a ledvin je uváděn do rutinní anestezie pro ortopedickou operaci. Anesteziolog podává rokuronium 50 mg IV (cca 0,7 mg/kg) k usnadnění intubace.',
-    question: 'Během zajišťování dýchacích cest se anesteziolog 2 minuty po podání léku setká se scénářem "Can\'t Intubate, Can\'t Oxygenate" (CICO). Jaký je nejvhodnější záchranný "reversal" režim?',
+    caseContext: 'Po úvodu do anestezie a podání rokuronia nelze dospělého pacienta intubovat ani oxygenovat optimalizovanou ventilací maskou či supraglotickou pomůckou.',
+    question: 'Byl vyhlášen stav CICO (nelze intubovat, nelze oxygenovat). Jaký postup má prioritu?',
     options: [
       'Podat Neostigmin 0,05 mg/kg IV v kombinaci s glykopyrrolátem',
       'Vyčkat 30-40 minut na přirozenou redistribuci a clearance rokuronia',
-      'Okamžitě podat Sugammadex 16,0 mg/kg IV',
-      'Okamžitě podat Sugammadex 2,0 mg/kg IV'
+      'Přivolat pomoc a bez prodlení přejít k urgentnímu přístupu přes přední stranu krku (eFONA)',
+      'Podat sugammadex a vyčkat na obnovení spontánního dýchání'
     ],
     correctAnswerIndex: 2,
-    explanation: 'Pro nouzový záchranný reverz hluboké neuromuskulární blokády rokuroniem krátce po podání úvodní dávky 1,2 mg/kg nebo 0,6 mg/kg je požadovaná dávka Sugammadexu 16,0 mg/kg IV. Tato dávka kompletně enkapsuluje cirkulující molekuly rokuronia v plazmě, čímž obnoví nervosvalový přenos a spontánní dýchání za méně než 3 minuty, což může u krize "Can\'t Intubate, Can\'t Oxygenate" (CICO) zachránit život. Dávka 2,0 mg/kg je určena pouze pro mírný blok (při TOF 2) a Neostigmin nedokáže zrušit hluboký, bezprostřední blok.',
+    explanation: 'Při CICO je prioritou okamžitá záchrana oxygenace pomocí eFONA podle nacvičeného algoritmu. Nečeká se na konkrétní hodnotu SpO2. Reverze rokuronia sugammadexem neodstraňuje anatomickou obstrukci a nezaručuje obnovení ventilace; nesmí oddálit eFONA. Neostigmin ani čekání na spontánní odeznění hlubokého bloku nejsou řešením. Zdroj: DAS 2025, https://www.bjanaesthesia.org/article/S0007-0912(25)00862-1/fulltext.',
     medicationId: 'sugammadex'
   },
   {

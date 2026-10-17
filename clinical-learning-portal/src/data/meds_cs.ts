@@ -311,9 +311,9 @@ export const ANESTHESIA_MEDS_CS: Medication[] = [
     mechanism: 'Modifikovaný gama-cyklodextrin, který enkapsuluje neuromuskulární blokátory (rokuronium > vekuronium) v plazmě, čímž jim brání ve vazbě na receptory a posouvá koncentrační gradient pryč z neuromuskulární ploténky.',
     indications: [
       'Reverz mírné nebo hluboké neuromuskulární blokády vyvolané rokuroniem nebo vekuroniem.',
-      'Okamžitý reverz rokuronia po scénáři "Can\'t Intubate, Can\'t Oxygenate" (CICO).'
+      'Okamžitá reverze po rokuroniu ve specifické situaci podle SPC; není náhradou záchranného zajištění DC při CICO.'
     ],
-    dosageInduction: '2,0 mg/kg IV pro mírný blok (návrat TOF 2); 4,0 mg/kg pro hluboký blok (post-tetanický počet 1-2); 16,0 mg/kg pro okamžitý záchranný reverz rokuronia v naléhavé situaci.',
+    dosageInduction: 'Dospělí, dle skutečné tělesné hmotnosti: 2 mg/kg IV při návratu T2; 4 mg/kg při TOF count 0 a PTC 1–2; 16 mg/kg pro okamžitou reverzi přibližně 3 minuty po rokuroniu 1,2 mg/kg dle SPC. Jde o různé indikace, nikoli rozsah k libovolné titraci.',
     standardPrep: '100 mg/mL roztok ve 2mL nebo 5mL lahvičkách.',
     onset: '1 - 3 minuty (ruší svalový blok výrazně rychleji a kompletněji než kombinace anticholinesteráz a antimuskarinik).',
     duration: 'Vysoce stabilní. Vylučován nezměněn ledvinami.',
@@ -327,8 +327,8 @@ export const ANESTHESIA_MEDS_CS: Medication[] = [
       'Interakce s perorální antikoncepcí: váže se na progesteron, což činí jednu dávku ekvivalentní vynechání jedné denní pilulky (pacientky musí po dobu 7 dnů používat doplňkovou antikoncepci).'
     ],
     pearls: [
-      'Absolutní revoluce v bezpečnosti anestezie! Nemá žádné autonomní vedlejší účinky — zcela obchází riziko těžké bradykardie a bronchospasmu, které hrozí u reverzu Neostigminem.',
-      'Dokáže zrušit hluboký, vysokodávkový blok rokuroniem (1,2 mg/kg) za méně než 3 minuty — rychleji než přirozené zotavení ze sukcinylcholinu, což řeší bezpečnostní dilemata u RSI.',
+      'Při CICO nesmí podání sugammadexu oddálit eFONA: reverze blokády nezaručuje průchodnost DC ani oxygenaci.',
+      'Po podání nadále monitorujte ventilaci a kvantitativní TOF. Může nastat závažná bradykardie nebo anafylaxe. Dávkování a omezení ověřte v aktuálním SPC EMA: https://www.ema.europa.eu/en/medicines/human/EPAR/bridion.',
       'Neruší depolarizující látky (sukcinylcholin) ani benzylisochinoliny (cisatrakurium).'
     ]
   },

@@ -20,7 +20,7 @@ const TRANSLATIONS: Record<Language, Record<string, string>> = {
     online: 'ONLINE (Gemini 3.5)',
     localOnly: 'LOCAL ONLY',
     checking: 'Checking...',
-    academicFooter: 'LF OU Clinical Study Guide Engine • Compliant with American Heart Association (AHA) ACLS Standards & American Society of Anesthesiologists (ASA) Pharmacological Practice Guidelines.',
+    academicFooter: 'Clinical study simulations. Educational content, not certification of clinical competence or a substitute for current local protocols.',
     academicOnly: 'Academic Study Only',
     privacyAndTerms: 'Privacy and Terms',
     supportText: 'Has my portal helped you? Buy me a Monster! (please) ',
@@ -44,8 +44,8 @@ const TRANSLATIONS: Record<Language, Record<string, string>> = {
     masteredTitle: 'Mastered',
     guidelineCoverage: 'Guideline Coverage',
     guidelineList: 'AHA ACLS & Anaphylaxis',
-    standardsVersion: 'Standards Version',
-    standardsList: 'AHA 2026 / ASA Framework',
+    standardsVersion: 'Reference versions',
+    standardsList: 'Check the sources for each topic',
     
     // Modules Box
     emergencyTitle: 'Emergency Resuscitation Arena',
@@ -106,7 +106,7 @@ const TRANSLATIONS: Record<Language, Record<string, string>> = {
     online: 'ONLINE (Gemini 3.5)',
     localOnly: 'LOKÁLNÍ REŽIM',
     checking: 'Ověřování...',
-    academicFooter: 'LF OU Výukový portál klinických simulací • V souladu s doporučenými postupy American Heart Association (AHA) ACLS, ČSARIM a ČSIM.',
+    academicFooter: 'Výukový portál klinických simulací. Obsah nepotvrzuje klinickou způsobilost a nenahrazuje aktuální pracovištní protokoly.',
     academicOnly: 'Pouze pro akademické účely',
     privacyAndTerms: 'Soukromí a podmínky',
     supportText: 'Pomohl ti můj portál? Buy me a Monster! (please) ',
@@ -130,8 +130,8 @@ const TRANSLATIONS: Record<Language, Record<string, string>> = {
     masteredTitle: 'Zvládnuto',
     guidelineCoverage: 'Pokrytí doporučení',
     guidelineList: 'AHA ACLS, ASA & ČSARIM/ČSIM',
-    standardsVersion: 'Aktuální standardy',
-    standardsList: 'AHA 2026 / ASA / ČSARIM',
+    standardsVersion: 'Verze podkladů',
+    standardsList: 'Ověřte zdroje u konkrétního tématu',
     
     // Modules Box
     emergencyTitle: 'Resuscitační aréna',

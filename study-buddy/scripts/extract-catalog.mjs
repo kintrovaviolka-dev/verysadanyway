@@ -48,13 +48,11 @@ function toQuestions(subject, sourcePath, entries) {
 const radiology = evaluate('radiolka/data.js', 'window.DATA_RADIOLOGIE');
 const dermatology = evaluate('derma/data.js', 'DATA_DERMATOLOGIE');
 const neurology = evaluate('neuro/data.js', 'NEUROLOGY_DATA.modules');
-const anesthesiaSource = readFileSync(resolve(root, 'clinical-learning-portal/src/data/quizzes.ts'), 'utf8')
-  .replace(/^import[^\n]+\n/, '')
-  .replace(/export const ANESTHESIA_QUIZ\s*:\s*QuizQuestion\[\]\s*=/, 'globalThis.ANESTHESIA_QUIZ =');
-const anesthesiaContext = { globalThis: {} };
-vm.createContext(anesthesiaContext);
-vm.runInContext(anesthesiaSource, anesthesiaContext, { timeout: 5_000 });
-const anesthesia = anesthesiaContext.globalThis.ANESTHESIA_QUIZ;
+const urgentBank = JSON.parse(readFileSync(resolve(root, 'drill/data/modules/urgent.json'), 'utf8'));
+const anesthesia = urgentBank.questions
+  .filter(item => item.id.startsWith('urgent-anest-'))
+  .map(item => ({ ...item, id: item.id.replace('urgent-anest-', '') }));
+const essentials = urgentBank.questions.filter(item => item.id.startsWith('urgent-essentials-'));
 const catalog = [
   ...toTopics('radiology', '/radiolka/', radiology),
   ...toTopics('dermatology', '/derma/', dermatology),
@@ -64,7 +62,12 @@ const questions = [
   ...toQuestions('radiology', '/radiolka/', radiology),
   ...toQuestions('dermatology', '/derma/', dermatology),
   ...toQuestions('neurology', '/neuro/', neurology),
-  ...toQuestions('urgent', '/clinical-portal/', [{ id: 'anesthesia', title: 'Urgentní medicína a anesteziologie', quiz: anesthesia }])
+  ...toQuestions('urgent', '/clinical-learning-portal/#pharmacology', [{ id: 'anesthesia', title: 'Urgentní medicína a anesteziologie', quiz: anesthesia }]),
+  ...essentials.flatMap(item => toQuestions('urgent', item.studyPath, [{
+    id: item.topicId,
+    title: item.topicTitle,
+    quiz: [item]
+  }]))
 ];
 
 const destination = resolve(root, 'study-buddy/src/catalog.generated.js');
@@ -79,5 +82,5 @@ writeFileSync(destination, `// Generated from the local study modules; do not ha
   { id: 'urgent-hyperk', title: 'Hyperkalémie s EKG změnami', minutes: 10 }
 ], null, 2)};\n`);
 const questionDestination = resolve(root, 'study-buddy/src/questions.generated.js');
-writeFileSync(questionDestination, `// Generated from existing verified quizzes; do not hand-edit.\nexport const QUESTION_CATALOG = ${JSON.stringify(questions, null, 2)};\n`);
+writeFileSync(questionDestination, `// Generated from local study quizzes; not a certification of clinical accuracy. Do not hand-edit.\nexport const QUESTION_CATALOG = ${JSON.stringify(questions, null, 2)};\n`);
 console.log(`Vytvořen katalog: ${catalog.length} témat a ${questions.length} otázek.`);

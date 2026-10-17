@@ -18,10 +18,27 @@ import { ANESTHESIA_MEDS } from './data/meds';
 import SupportButton from './components/SupportButton';
 import FeedbackButton from './components/FeedbackButton';
 import PatientSimulator from './components/PatientSimulator';
+import EssentialsModule from './components/EssentialsModule';
+
+type Module = 'home' | 'emergency' | 'pharmacology' | 'ventilation' | 'simulator' | 'essentials';
+function moduleFromHash(): Module {
+  const module = window.location.hash.slice(1).split('/')[0];
+  return module === 'emergency' || module === 'pharmacology' || module === 'ventilation' ||
+    module === 'simulator' || module === 'essentials' ? module : 'home';
+}
 
 function AppContent() {
   const { language, setLanguage, t } = useLanguage();
-  const [activeModule, setActiveModule] = useState<'home' | 'emergency' | 'pharmacology' | 'ventilation' | 'simulator'>('home');
+  const [activeModule, setModule] = useState<Module>(moduleFromHash);
+  const setActiveModule = (module: Module) => {
+    setModule(module);
+    window.location.hash = module === 'home' ? '' : module;
+  };
+  useEffect(() => {
+    const update = () => setModule(moduleFromHash());
+    window.addEventListener('hashchange', update);
+    return () => window.removeEventListener('hashchange', update);
+  }, []);
   const [masteredCount, setMasteredCount] = useState(0);
   const [apiHealth, setApiHealth] = useState<{ configured: boolean; checking: boolean }>({
     configured: false,
@@ -89,7 +106,7 @@ function AppContent() {
           </div>
 
           {/* Core Navigation controls */}
-          <nav className="hidden md:flex items-center gap-2">
+          <nav className="hidden 2xl:flex items-center gap-2">
             <button
               onClick={() => setActiveModule('home')}
               className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all border ${
@@ -121,6 +138,14 @@ function AppContent() {
               }`}
             >
               {t('ventilationHub')}
+            </button>
+            <button
+              onClick={() => setActiveModule('essentials')}
+              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all border ${
+                activeModule === 'essentials' ? 'bg-teal-500/20 text-teal-300 border-teal-500/30' : 'text-slate-400 hover:text-white border-transparent hover:bg-white/5'
+              }`}
+            >
+              {language === 'cs' ? 'Praktické základy' : 'Clinical essentials'}
             </button>
             <button
               onClick={() => setActiveModule('simulator')}
@@ -173,6 +198,21 @@ function AppContent() {
             </div>
           </div>
         </div>
+        <nav aria-label={language === 'cs' ? 'Moduly portálu' : 'Portal modules'} className="2xl:hidden flex flex-wrap gap-2 px-4 pb-3">
+          {([
+            ['home', t('homePortal')],
+            ['essentials', language === 'cs' ? 'Praktické základy' : 'Clinical essentials'],
+            ['pharmacology', t('pharmacologyHub')],
+            ['ventilation', t('ventilationHub')],
+            ['emergency', t('resuscitationArena')],
+            ['simulator', 'AI Patient'],
+          ] satisfies [Module, string][]).map(([module, label]) => (
+            <button key={module} onClick={() => setActiveModule(module)} aria-current={activeModule === module ? 'page' : undefined}
+              className={`px-3 py-2 rounded-lg text-xs border ${activeModule === module ? 'border-teal-400 bg-teal-500/15 text-teal-100' : 'border-white/15 text-slate-300'}`}>
+              {label}
+            </button>
+          ))}
+        </nav>
       </header>
 
       {/* Main Container */}
@@ -233,6 +273,17 @@ function AppContent() {
             </div>
 
             {/* Portal Module Entry Choices */}
+            <section className="glass-card rounded-2xl p-6 border border-teal-400/30">
+              <h3 className="text-xl font-bold text-teal-200">{language === 'cs' ? 'Praktické základy anesteziologie' : 'Practical anesthesia essentials'}</h3>
+              <p className="text-sm text-slate-300 mt-3 leading-6">
+                {language === 'cs'
+                  ? 'LAST, obtížné dýchací cesty, krevní plyny, regionální a inhalační anestezie a perioperační péče. Vysvětlení, postupy a 17 kazuistik s odbornými zdroji — bez potřeby AI.'
+                  : 'LAST, difficult airway, blood gases, regional and inhalational anesthesia, and perioperative care. Explanations, workflows and 17 cases with references — no AI required.'}
+              </p>
+              <button onClick={() => setActiveModule('essentials')} className="mt-4 px-5 py-3 rounded-xl bg-teal-500/20 border border-teal-400/40 text-teal-100 font-bold">
+                {language === 'cs' ? 'Otevřít praktický kurz' : 'Open practical course'}
+              </button>
+            </section>
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
               {/* Emergency medicine box */}
               <div className="group glass-card glass-card-hover rounded-2xl p-6 shadow-sm flex flex-col justify-between">
@@ -392,6 +443,7 @@ function AppContent() {
         )}
 
         {/* 3. MODULAR VIEWS */}
+        {activeModule === 'essentials' && <EssentialsModule />}
         {activeModule === 'emergency' && (
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
             <EmergencyModule />

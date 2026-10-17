@@ -96,7 +96,7 @@ export const CLINICAL_QUIZZES: QuizItem[] = [
   {
     id: "an_3",
     specialty: "Anesthesia",
-    question: "Během úvodu do anestezie nastane situace 'nemohu intubovat, nemohu oxygenovat' (cannot intubate, cannot oxygenate - CICO). Pokusy o intubaci i zavedení supraglotické pomůcky selhaly a saturace klesá pod 60 %. Jaký je další doporučený postup?",
+    question: "Po neúspěšné intubaci nelze oxygenovat ani optimalizovanou ventilací maskou, ani supraglotickou pomůckou. Byl vyhlášen CICO. Jaký postup má prioritu bez čekání na konkrétní hodnotu SpO2?",
     options: [
       "Okamžité provedení krikotyreoidotomie (chirurgické zajištění dýchacích cest)",
       "Pokračování v pokusech o intubaci s jiným typem laryngoskopu",
@@ -104,7 +104,7 @@ export const CLINICAL_QUIZZES: QuizItem[] = [
       "Zahájení nepřímé masáže srdce a resuscitace"
     ],
     correctIndex: 0,
-    explanation: "CICO situace je nejzávažnější komplikací v anesteziologii. Pokud nelze pacienta intubovat ani ventilovat maskou či laryngeální maskou, dochází k rychlé hypoxické zástavě oběhu. Jediným řešením je okamžitý front-of-neck přístup přes lig. cricothyroideum (krikotyreoidotomie).",
+    explanation: "CICO vyžaduje okamžité přivolání pomoci a eFONA podle nacvičeného algoritmu. Nečeká se na pokles SpO2 pod stanovenou hranici. Sugammadex nezaručuje obnovení oxygenace a nesmí eFONA oddálit; další neúčinné pokusy o intubaci zvyšují riziko traumatu a zdržení. Zdroj: DAS 2025. Výklad a kazuistiky: /clinical-learning-portal/#essentials/airway.",
     severity: "high"
   },
   {
