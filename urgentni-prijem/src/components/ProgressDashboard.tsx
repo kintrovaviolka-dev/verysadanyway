@@ -228,7 +228,7 @@ export default function ProgressDashboard({ onClose }: ProgressDashboardProps) {
             <h2 className="text-2xl font-black text-white flex items-center gap-2 uppercase tracking-wide">
               <Award className="w-6 h-6 text-[#adc6ff]" /> Osobní Výkonnostní Panel
             </h2>
-            <p className="text-xs text-[#c2c6d6]">Kompletní atestační statistiky a historie klinického rozhodování.</p>
+            <p className="text-xs text-[#c2c6d6]">Studijní statistiky z procvičených případů a otázek, nikoli hodnocení klinické způsobilosti.</p>
           </div>
         </div>
 
@@ -323,7 +323,7 @@ export default function ProgressDashboard({ onClose }: ProgressDashboardProps) {
             {/* Specialty comparison insight */}
             <div className="p-4 bg-[#191b23]/50 rounded-xl border border-[#424754]/30 text-xs text-[#c2c6d6] leading-relaxed space-y-2">
               <span className="font-extrabold text-white block uppercase tracking-wider text-[10px] text-[#adc6ff]">
-                Klinické doporučení atestačního modulu:
+                Doporučení pro další procvičování:
               </span>
               {mastery.Emergency < 50 || mastery.Anesthesia < 50 ? (
                 <p>
@@ -331,9 +331,12 @@ export default function ProgressDashboard({ onClose }: ProgressDashboardProps) {
                 </p>
               ) : (
                 <p>
-                  Vynikající výkon. Oba klíčové obory držíte na pokročilé atestační úrovni. Můžete bez obav přistoupit ke generování obtížnějších klinických scénářů stupně 3.
+                  V procvičeném obsahu jste dosáhli alespoň 50 % u obou oborů. Zopakujte si chyby a doplňte neprocvičená témata; tento index nepotvrzuje atestační úroveň ani připravenost k samostatné klinické práci.
                 </p>
               )}
+              <a href="/clinical-learning-portal/#essentials" className="block text-[#adc6ff] underline">
+                Doplnit praktické základy: LAST, dýchací cesty, krevní plyny a perioperační péče
+              </a>
             </div>
           </div>
 

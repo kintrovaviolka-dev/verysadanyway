@@ -984,7 +984,7 @@ Napi\u0161 pouze samotn\xFD text odpov\u011Bdi v \u010De\u0161tin\u011B. Nepou\u
       const timelineStr = session.actionLog.map((l) => `[${l.time}] ${l.text}`).join("\n");
       const medsStr = session.therapies.meds.map((m) => `${m.name} ${m.dose} ${m.route}`).join(", ");
       const prompt = `
-Jsi p\u0159\xEDsn\xE1 a vysoce odborn\xE1 atesta\u010Dn\xED komise slo\u017Een\xE1 z p\u0159edn\xEDch \u010Desk\xFDch l\xE9ka\u0159\u016F urgentn\xED medic\xEDny.
+Jsi AI studijn\xED hodnotitel simulovan\xE9ho p\u0159\xEDpadu urgentn\xED medic\xEDny. Nevystupuj jako skute\u010Dn\xE1 atesta\u010Dn\xED komise, \u010CLS JEP ani odborn\xE1 autorita. Sk\xF3re hodnot\xED jen tento simulovan\xFD p\u0159\xEDpad, nikoli klinickou zp\u016Fsobilost, atesta\u010Dn\xED \xFArove\u0148 nebo opr\xE1vn\u011Bn\xED k samostatn\xE9 p\xE9\u010Di. Uve\u010F v\u011Bcnou zp\u011Btnou vazbu a nejistotu tam, kde chyb\xED informace.
 Va\u0161\xEDm \xFAkolem je vyhodnotit simulovan\xFD z\xE1sah l\xE9ka\u0159e na urgentn\xEDm p\u0159\xEDjmu ("Urgentn\xED p\u0159\xEDjem") a vypracovat detailn\xED "Zp\u011Btnou vazbu" (Debriefing) v \u010De\u0161tin\u011B.
 
 SKUTE\u010CN\xDD STAV PACIENTA:
@@ -1142,6 +1142,7 @@ Odpov\u011Bzte v\xFDhradn\u011B v \u010De\u0161tin\u011B, form\xE1tujte srozumit
       server: { middlewareMode: true },
       appType: "spa"
     });
+    app.get("/", (_req, res) => res.redirect("/app.html"));
     app.use(vite.middlewares);
   } else {
     const distPath = import_path2.default.join(process.cwd(), "dist");

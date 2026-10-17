@@ -114,6 +114,9 @@ export default function WelcomeScreen({
           Pokročilý klinický trenažér a simulátor rozhodování v reálném čase. Otestujte své diagnostické schopnosti, rychlost a dodržování standardů <strong>ČLS JEP</strong>.
         </p>
         <div className="pt-3 flex flex-wrap justify-center gap-4">
+          <a href="/clinical-learning-portal/#essentials" className="px-6 py-2.5 rounded-xl border border-teal-400/40 text-teal-200 font-bold text-sm">
+            Praktické základy anesteziologie
+          </a>
           <button
             onClick={onLaunchEkgQuiz}
             className="px-6 py-2.5 bg-gradient-to-r from-emerald-600 to-teal-500 hover:brightness-110 text-white font-extrabold rounded-xl shadow-lg hover:shadow-teal-500/20 active:scale-95 transition-all text-xs flex items-center gap-2 cursor-pointer uppercase tracking-wider font-mono border border-emerald-400/20"
@@ -170,7 +173,7 @@ export default function WelcomeScreen({
             Vyhodnocovací modul
           </h2>
           <p className="text-sm text-[#c2c6d6] leading-relaxed">
-            Na konci případu po stanovení definitivní dispozice a sepsání <strong>epikrízy</strong> provede atestační komise složená z primářů urgentních příjmů přísný debriefing pokrývající:
+            Na konci případu po stanovení dispozice a sepsání <strong>epikrízy</strong> poskytne AI studijní zpětnou vazbu. Nejde o skutečnou atestační komisi ani odborné schválení; výstup může obsahovat chyby. Hodnocení pokrývá:
           </p>
           <div className="grid grid-cols-2 gap-3 text-xs text-[#c2c6d6]">
             <div className="flex items-center gap-2 bg-[#1d2027] p-2 rounded border border-[#424754]/30">

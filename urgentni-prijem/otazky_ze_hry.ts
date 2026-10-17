@@ -1,20 +1,29 @@
-import { MedicalQuestion } from '../types';
+export interface MedicalQuestion {
+    id: string;
+    category: string;
+    difficulty: string;
+    question: string;
+    options: string[];
+    correctIndex: number;
+    rationale: string;
+    clinicalSource: string;
+}
 
 export const MEDICAL_QUESTIONS: MedicalQuestion[] = [
     {
         id: 'aim_q01',
         category: 'Krizové stavy na sále & Toxikologie',
         difficulty: 'Pokročilá',
-        question: 'Jaká je doporučená úvodní bolusová dávka 20% lipidové emulze (Intralipid) při systémové toxicitě lokálními anestetiky (LAST) s oběhovým selháním?',
+        question: 'Jaká je podle ASRA 2020 úvodní bolusová dávka 20% lipidové emulze při LAST s oběhovým selháním u dospělého pod 70 kg?',
         options: [
-            '1,5 ml/kg intravenózně během 1 minuty',
+            'Přibližně 1,5 ml/kg intravenózně během 2–3 minut',
             '0,5 ml/kg intravenózně během 10 minut',
             '5,0 ml/kg jako rychlý přetlakový bolus',
             '100 ml fixně bez ohledu na hmotnost pacienta'
         ],
         correctIndex: 0,
-        rationale: 'Při LAST je standardním doporučeným postupem (ASRA/ESRA) iniciální bolus 20% lipidové emulze v dávce 1,5 ml/kg během 1 minuty, následovaný kontinuální infuzí 0,25 ml/kg/min (až 0,5 ml/kg/min při přetrvávající nestabilitě). Bolus lze při neúspěchu resuscitace 1-2x zopakovat.',
-        clinicalSource: 'ASRA Practice Advisory on Local Anesthetic Systemic Toxicity / ČSARIM'
+        rationale: 'ASRA 2020 pro hmotnost pod 70 kg uvádí přibližně 1,5 ml/kg 20% emulze během 2–3 minut a následně přibližně 0,25 ml/kg/min. Při nestabilitě opakovat bolus a zdvojnásobit infuzi. Pokračovat déle než 15 minut po stabilizaci, maximální celková dávka 12 ml/kg. Nad 70 kg checklist uvádí přibližně 100 ml a následně 250 ml během 15–20 minut. Propofol není náhradou lipidové léčby.',
+        clinicalSource: 'ASRA LAST checklist 2020 — https://asra.com/news-publications/asra-updates/blog-landing/guidelines/2020/11/01/checklist-for-treatment-of-local-anesthetic-systemic-toxicity'
     },
     {
         id: 'aim_q02',
@@ -35,7 +44,7 @@ export const MEDICAL_QUESTIONS: MedicalQuestion[] = [
         id: 'aim_q03',
         category: 'Farmakologie & Indukce',
         difficulty: 'Pokročilá',
-        question: 'Jaká dávka Sugammadexu je indikována pro okamžitou reverzi (rescue reversal) hluboké nervosvalové blokády 3 minuty po podání rokuronia v dávce 1,2 mg/kg (např. při situaci Can not intubate, can not oxygenate)?',
+        question: 'Dospělého lze bezpečně oxygenovat. Jaká dávka sugammadexu dle SPC odpovídá indikaci okamžité reverze přibližně 3 minuty po rokuroniu 1,2 mg/kg?',
         options: [
             '16 mg/kg i.v.',
             '4 mg/kg i.v.',
@@ -43,8 +52,8 @@ export const MEDICAL_QUESTIONS: MedicalQuestion[] = [
             '8 mg/kg i.v.'
         ],
         correctIndex: 0,
-        rationale: 'Pro okamžitou reverzi po intubační dávce rokuronia (1,2 mg/kg) je doporučena dávka 16 mg/kg Sugammadexu. Běžná reverze při návratu 1-2 záškubů na PTC (post-tetanic count) vyžaduje 4 mg/kg, při návratu T2 na TOF stačí 2 mg/kg.',
-        clinicalSource: 'ESAIC Guidelines on Neuromuscular Blockade Reversal'
+        rationale: 'Pro tuto konkrétní indikaci SPC uvádí 16 mg/kg ze skutečné tělesné hmotnosti. Jiná indikace je hluboký blok s TOF 0 a PTC 1–2 (4 mg/kg) nebo návrat T2 (2 mg/kg). Pokud nelze oxygenovat a nastane CICO, prioritou je eFONA; sugammadex nezaručuje oxygenaci a nesmí výkon oddálit.',
+        clinicalSource: 'EMA Bridion SPC — https://www.ema.europa.eu/en/medicines/human/EPAR/bridion'
     },
     {
         id: 'aim_q04',

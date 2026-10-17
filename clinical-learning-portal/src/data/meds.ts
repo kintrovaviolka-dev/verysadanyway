@@ -311,9 +311,9 @@ export const ANESTHESIA_MEDS: Medication[] = [
     mechanism: 'A modified gamma-cyclodextrin that encapsulates neuromuscular blockers (Rocuronium > Vecuronium) in plasma, preventing them from binding to receptors and shifting concentration gradient away from neuromuscular junction.',
     indications: [
       'Reversal of moderate or deep rocuronium or vecuronium-induced neuromuscular blockade.',
-      'Immediate reversal of rocuronium after a "Can\'t Intubate, Can\'t Oxygenate" (CICO) scenario.'
+      'Immediate reversal after rocuronium in the specific product-label setting; not a substitute for rescue airway management in CICO.'
     ],
-    dosageInduction: '2.0 mg/kg IV for moderate block (reappearance of TOF 2); 4.0 mg/kg for deep block (post-tetanic count 1-2); 16.0 mg/kg for immediate emergency rescue reversal of rocuronium.',
+    dosageInduction: 'Adults, using actual body weight: 2 mg/kg IV at reappearance of T2; 4 mg/kg with TOF count 0 and PTC 1–2; 16 mg/kg for immediate reversal approximately 3 minutes after rocuronium 1.2 mg/kg according to the product label. These are separate indications, not a freely titratable dose range.',
     standardPrep: '100 mg/mL solution in 2mL or 5mL vials.',
     onset: '1 - 3 minutes (reverses muscle block significantly faster and more completely than anticholinisterase/antimuscarinic combinations).',
     duration: 'Highly stable. Eliminated unchanged by kidneys.',
@@ -327,8 +327,8 @@ export const ANESTHESIA_MEDS: Medication[] = [
       'Interaction with oral contraceptives: binds to progesterone, making a single dose equivalent to missing one daily pill (patients must use backup contraception for 7 days).'
     ],
     pearls: [
-      'An absolute revolution in anesthesia safety! It has no autonomic side effects—completely bypassing the severe bradycardia/bronchospasm risk of Neostigmine reversal.',
-      'Can reverse a profound, high-dose rocuronium block (1.2 mg/kg) in under 3 minutes—faster than the natural recovery time of succinylcholine, solving safety dilemmas for RSI.',
+      'In CICO, sugammadex must not delay eFONA: reversal does not guarantee airway patency or oxygenation.',
+      'Continue ventilation and quantitative TOF monitoring after administration. Severe bradycardia or anaphylaxis can occur. Check dosing and restrictions in the current EMA product information: https://www.ema.europa.eu/en/medicines/human/EPAR/bridion.',
       'Does not reverse depolarizing agents (succinylcholine) or benzylisoquinoliniums (cisatracurium).'
     ]
   },

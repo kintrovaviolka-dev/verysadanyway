@@ -1,4 +1,4 @@
-// Generated from existing verified quizzes; do not hand-edit.
+// Generated from local study quizzes; not a certification of clinical accuracy. Do not hand-edit.
 export const QUESTION_CATALOG = [
   {
     "id": "radiology:radio-1:1",
@@ -4600,7 +4600,7 @@ export const QUESTION_CATALOG = [
     "caseContext": null,
     "question": "Bilateralní internukleární oftalmoplegie (INO) u mladého dospělého je vysoce suspektní z:",
     "options": [
-      "Roztroušené sklerózy (demylinizace FLM)",
+      "Roztroušené sklerózy (demyelinizace FLM)",
       "Myasthenia gravis",
       "Nedostatku thiaminu (Wernickeova encefalopatie)",
       "Meningeomu sulcus olfactorius"
@@ -5398,7 +5398,7 @@ export const QUESTION_CATALOG = [
       "Střední deficit s lehkou parézou končetiny"
     ],
     "correctIndex": 0,
-    "explanation": "Intrakraniální hemoragie na CT je absolutní kontraindikací trombolýzy, protože podání rtPA by způsobilo fatální progresi krvácení."
+    "explanation": "Intrakraniální hemoragie na CT je absolutní kontraindikací trombolýzy, protože podání rtPA by způsobilo fatální progresi krvácení (věk nad 80 let dnes již není kontraindikací dle aktuálních doporučení ESO)."
   },
   {
     "id": "neurology:s04-subduralni-epiduralni-krvaceni:s04-test1",
@@ -5912,15 +5912,15 @@ export const QUESTION_CATALOG = [
     "section": "specialni",
     "sourcePath": "/neuro/",
     "caseContext": null,
-    "question": "Který kognitivní test je výrazně citlivější než MMSE pro včasnou detekci mírné kognitivní poruchy (MCI) a exekutivních dysfunkcí?",
+    "question": "Který typický nález v mozkomíšním moku svědčí pro diagnózu Alzheimerovy nemoci v rámci biomarkerového profilu A/T/N?",
     "options": [
-      "Glasgow Coma Scale",
-      "Montreal Cognitive Assessment (MoCA)",
-      "Barthelův index všedních činností",
-      "NIHSS skóre"
+      "Pokles amyloid-beta 42 (Aβ42) a vzestup fosforylovaného tau proteinu (p-tau)",
+      "Zvýšení amyloid-beta 42 a normální hladina tau proteinu",
+      "Izolovaná pozitivita 14-3-3 proteinu bez změn tau",
+      "Masivní neutrofilní pleocytóza a laktát > 4 mmol/l"
     ],
-    "correctIndex": 1,
-    "explanation": "Montreal Cognitive Assessment (MoCA) testuje široké spektrum funkcí včetně exekutivních, zrakově-prostorových a pozornostních a je podstatně senzitivnější pro záchyt MCI a časné fáze demence než MMSE."
+    "correctIndex": 0,
+    "explanation": "Pro Alzheimerovu nemoc je v likvoru typický pokles hladiny Aβ42 (v důsledku ukládání amyloidu do senilních plak v mozku) a současná elevace celkového tau (t-tau – marker neuronálního rozpadu) a fosforylovaného tau proteinu (p-tau – korelát neurofibrilárních klubek)."
   },
   {
     "id": "neurology:s18-demence-a-alzheimerova-nemoc:pq-S18-2",
@@ -5934,7 +5934,7 @@ export const QUESTION_CATALOG = [
     "options": [
       "Inhibice acetylcholinesterázy a butyrylcholinesterázy",
       "Necholeretická stimulace dopaminových D2 receptorů",
-      "Nekompeticionální antagonismus NMDA glutamátových receptorů bránící excitotoxicitě",
+      "Nekompetitivní antagonismus NMDA glutamátových receptorů bránící excitotoxicitě",
       "Blokáda CGRP receptorů"
     ],
     "correctIndex": 2,
@@ -6810,17 +6810,17 @@ export const QUESTION_CATALOG = [
     "topicId": "urgent:anesthesia",
     "topicTitle": "Urgentní medicína a anesteziologie",
     "section": null,
-    "sourcePath": "/clinical-portal/",
-    "caseContext": "A 68-year-old male with a history of severe aortic stenosis and severe hypovolemic shock due to an active upper GI bleed requires immediate endotracheal intubation. His blood pressure is currently 78/42 mmHg and heart rate is 112 bpm.",
-    "question": "Which induction agent is the most hemodynamically stable and suitable choice for this patient?",
+    "sourcePath": "/clinical-learning-portal/#pharmacology",
+    "caseContext": null,
+    "question": "68letý muž s anamnézou těžké aortální stenózy a těžkého hypovolemického šoku v důsledku aktivního krvácení z horní části zažívacího traktu vyžaduje okamžitou endotracheální intubaci. Jeho krevní tlak je aktuálně 78/42 mmHg a srdeční frekvence je 112 bpm.\n\nKteré indukční anestetikum je pro tohoto pacienta hemodynamicky nejstabilnější a nejvhodnější volbou?",
     "options": [
       "Propofol 2 mg/kg IV",
-      "Ketamine 2 mg/kg IV",
-      "Etomidate 0.3 mg/kg IV",
-      "Midazolam 0.1 mg/kg IV"
+      "Ketamin 2 mg/kg IV",
+      "Etomidát 0,3 mg/kg IV",
+      "Midazolam 0,1 mg/kg IV"
     ],
     "correctIndex": 2,
-    "explanation": "Etomidate (0.2 - 0.3 mg/kg IV) is the drug of choice in hemodynamically unstable shock patients, particularly those with valvular disorders like aortic stenosis. Etomidate has negligible effects on myocardial contractility and systemic vascular resistance, making it uniquely stable. Propofol is highly contraindicated here as it causes profound vasodilation and myocardial depression. While Ketamine is also used in shock, its sympathetic stimulation increases heart rate and myocardial oxygen demand, which is highly dangerous in severe aortic stenosis."
+    "explanation": "Etomidát (0,2 - 0,3 mg/kg IV) je lékem volby u hemodynamicky nestabilních pacientů v šoku, zejména u pacientů s chlopenními vadami jako aortální stenóza. Má zanedbatelný vliv na kontraktilitu myokardu a systémovou cévní rezistenci. Propofol je zde kontraindikován, protože způsobuje hlubokou vazodilataci a depresi myokardu. I když se ketamin u šoku rovněž používá, jeho sympatická stimulace zvyšuje srdeční frekvenci a nároky myokardu na kyslík, což je při těžké aortální stenóze velmi nebezpečné."
   },
   {
     "id": "urgent:anesthesia:q2",
@@ -6828,17 +6828,17 @@ export const QUESTION_CATALOG = [
     "topicId": "urgent:anesthesia",
     "topicTitle": "Urgentní medicína a anesteziologie",
     "section": null,
-    "sourcePath": "/clinical-portal/",
-    "caseContext": "An obese 42-year-old female is scheduled for emergency laparoscopic cholecystectomy. She has a history of gastroesophageal reflux disease (GERD) and requires a Rapid Sequence Induction (RSI). You are planning to use Succinylcholine to facilitate rapid intubation.",
-    "question": "In which of the following patient scenarios would Succinylcholine be ABSOLUTELY contraindicated?",
+    "sourcePath": "/clinical-learning-portal/#pharmacology",
+    "caseContext": null,
+    "question": "Obézní 42letá žena je plánována k urgentní laparoskopické cholecystektomii. Má anamnézu gastroesofageálního refluxu (GERD) a vyžaduje Rapid Sequence Induction (RSI) a intubaci. K usnadnění rychlé intubace plánujete použít sukcinylcholin.\n\nVe které z následujících klinických situací by byl sukcinylcholin ABSOLUTNĚ kontraindikován?",
     "options": [
-      "Patient with an estimated GFR of 45 mL/min (moderate chronic kidney disease)",
-      "Patient with a complete T6 spinal cord transaction injury sustained 12 months ago",
-      "Patient with a history of severe post-operative nausea and vomiting (PONV)",
-      "Patient with a documented allergy to penicillin and egg"
+      "Pacient s odhadovaným GFR 45 mL/min (středně těžké chronické onemocnění ledvin)",
+      "Pacient s kompletním přerušením míchy v úrovni T6 utrpěným před 12 měsíci",
+      "Pacient s anamnézou těžké pooperační nevolnosti a zvracení (PONV)",
+      "Pacient s dokumentovanou alergií na penicilin a vejce"
     ],
     "correctIndex": 1,
-    "explanation": "Succinylcholine is absolutely contraindicated in patients with chronic spinal cord injuries (typically beginning 24-48 hours after injury, lasting up to 1-2 years or indefinitely). Denervation of muscle leads to up-regulation of extrajunctional nicotinic acetylcholine receptors. If Succinylcholine binds to these receptors, it causes massive potassium release, resulting in hyperkalemia, ventricular fibrillation, and cardiac arrest. Mild-to-moderate CKD is not a contraindication unless active severe hyperkalemia is present."
+    "explanation": "Sukcinylcholin je absolutně kontraindikován u pacientů s chronickým poškozením míchy (typicky od 24-48 hodin po úrazu až do 1-2 let či trvale). Denervace svalu vede k \"up-regulation\" extrajunkčních nikotinových acetylcholinových receptorů. Pokud se sukcinylcholin na tyto receptory naváže, způsobí masivní uvolnění draslíku, což vede k hyperkalémii, komorové fibrilaci a srdeční zástavě. Lehká až střední porucha ledvin není kontraindikací, pokud není přítomna aktivní těžká hyperkalémie."
   },
   {
     "id": "urgent:anesthesia:q3",
@@ -6846,17 +6846,17 @@ export const QUESTION_CATALOG = [
     "topicId": "urgent:anesthesia",
     "topicTitle": "Urgentní medicína a anesteziologie",
     "section": null,
-    "sourcePath": "/clinical-portal/",
-    "caseContext": "A 70kg (Ideal Body Weight) patient with normal liver and renal function is induced for routine orthopaedic surgery. The anesthetist administers Rocuronium 50mg IV (approx. 0.7 mg/kg) to facilitate intubation.",
-    "question": "During airway management, the anesthetist encounters a \"Can't Intubate, Can't Oxygenate\" (CICO) scenario 2 minutes after drug administration. What is the most appropriate rescue reversal regimen?",
+    "sourcePath": "/clinical-learning-portal/#pharmacology",
+    "caseContext": null,
+    "question": "Po úvodu do anestezie a podání rokuronia nelze dospělého pacienta intubovat ani oxygenovat optimalizovanou ventilací maskou či supraglotickou pomůckou.\n\nByl vyhlášen stav CICO (nelze intubovat, nelze oxygenovat). Jaký postup má prioritu?",
     "options": [
-      "Administer Neostigmine 0.05 mg/kg IV combined with Glycopyrrolate",
-      "Wait 30-40 minutes for natural Rocuronium redistribution and clearance",
-      "Administer Sugammadex 16.0 mg/kg IV immediately",
-      "Administer Sugammadex 2.0 mg/kg IV immediately"
+      "Podat Neostigmin 0,05 mg/kg IV v kombinaci s glykopyrrolátem",
+      "Vyčkat 30-40 minut na přirozenou redistribuci a clearance rokuronia",
+      "Přivolat pomoc a bez prodlení přejít k urgentnímu přístupu přes přední stranu krku (eFONA)",
+      "Podat sugammadex a vyčkat na obnovení spontánního dýchání"
     ],
     "correctIndex": 2,
-    "explanation": "For emergency rescue reversal of profound, deep rocuronium blockade shortly after an induction dose of 1.2 mg/kg or 0.6 mg/kg, the required dose of Sugammadex is 16.0 mg/kg IV. This dose completely encapsulates the circulating rocuronium molecules in plasma, restoring neuromuscular transmission and spontaneous ventilation in less than 3 minutes, which can be life-saving in a CICO crisis. 2.0 mg/kg is only for moderate blocks (reappearance of TOF 2), and Neostigmine cannot reverse a deep, immediate block."
+    "explanation": "Při CICO je prioritou okamžitá záchrana oxygenace pomocí eFONA podle nacvičeného algoritmu. Nečeká se na konkrétní hodnotu SpO2. Reverze rokuronia sugammadexem neodstraňuje anatomickou obstrukci a nezaručuje obnovení ventilace; nesmí oddálit eFONA. Neostigmin ani čekání na spontánní odeznění hlubokého bloku nejsou řešením. Zdroj: DAS 2025, https://www.bjanaesthesia.org/article/S0007-0912(25)00862-1/fulltext."
   },
   {
     "id": "urgent:anesthesia:q4",
@@ -6864,17 +6864,17 @@ export const QUESTION_CATALOG = [
     "topicId": "urgent:anesthesia",
     "topicTitle": "Urgentní medicína a anesteziologie",
     "section": null,
-    "sourcePath": "/clinical-portal/",
-    "caseContext": "A 28-year-old male with a history of severe brittle asthma is brought to the OR for emergency appendectomy. He is actively wheezing and has an expiratory wheeze in all lung fields.",
-    "question": "Which induction agent is the most beneficial for this patient due to its active bronchodilating properties?",
+    "sourcePath": "/clinical-learning-portal/#pharmacology",
+    "caseContext": null,
+    "question": "28letý muž s anamnézou těžkého \"brittle asthma\" je přivezen na sál k urgentní appendektomii. Aktivně sípá a poslechově má expirační pískoty ve všech plicních polích.\n\nKteré indukční anestetikum je pro tohoto pacienta nejvýhodnější díky svým aktivním bronchodilatačním účinkům?",
     "options": [
       "Propofol",
-      "Ketamine",
-      "Etomidate",
+      "Ketamin",
+      "Etomidát",
       "Midazolam"
     ],
     "correctIndex": 1,
-    "explanation": "Ketamine is highly beneficial in patients with active asthma or bronchospasm. It stimulates the sympathetic nervous system, causing the release of endogenous catecholamines, which directly stimulate beta-2 receptors in the lungs to produce smooth muscle relaxation and bronchodilation. It also relaxes airway smooth muscle directly. Propofol also has some bronchodilating effects, but Ketamine is uniquely powerful and preferred in active asthmatic crises requiring intubation."
+    "explanation": "Ketamin je vysoce přínosný u pacientů s aktivním astmatem nebo bronchospasmem. Stimuluje sympatický nervový systém, což způsobuje uvolňování endogenních katecholaminů, které přímo stimulují beta-2 receptory v plicích k relaxaci hladké svaloviny a bronchodilataci. Působí také přímo relaxačně na hladkou svalovinu dýchacích cest. Propofol má také určité bronchodilatační účinky, ale Ketamin je jedinečně silný a preferovaný u aktivních astmatických krizí vyžadujících intubaci."
   },
   {
     "id": "urgent:anesthesia:q5",
@@ -6882,17 +6882,17 @@ export const QUESTION_CATALOG = [
     "topicId": "urgent:anesthesia",
     "topicTitle": "Urgentní medicína a anesteziologie",
     "section": null,
-    "sourcePath": "/clinical-portal/",
-    "caseContext": "During induction of general anesthesia with Propofol 150mg and Fentanyl 100mcg in a 65-year-old female, the patient's blood pressure drops from 128/76 mmHg to 82/48 mmHg. Her heart rate also slows from 74 bpm to 52 bpm.",
-    "question": "Which vasoactive drug and dose is the most appropriate first-line treatment to restore her hemodynamics?",
+    "sourcePath": "/clinical-learning-portal/#pharmacology",
+    "caseContext": null,
+    "question": "Během úvodu do celkové anestezie pomocí Propofolu 150 mg a Fentanylu 100 mcg u 65leté ženy klesá krevní tlak pacienta ze 128/76 mmHg na 82/48 mmHg. Její srdeční frekvence se také zpomaluje ze 74 bpm na 52 bpm.\n\nKterá vasoaktivní látka a dávka je nejvhodnější první volbou k obnovení její hemodynamiky?",
     "options": [
-      "Phenylephrine 50-100 mcg IV bolus",
-      "Ephedrine 5-10 mg IV bolus",
-      "Atropine 0.5 mg IV bolus",
-      "Epinephrine 1 mg IV push"
+      "Fenyleftrin 50-100 mcg IV bolus",
+      "Efedrin 5-10 mg IV bolus",
+      "Atropin 0,5 mg IV bolus",
+      "Epinefrin 1 mg IV push"
     ],
     "correctIndex": 1,
-    "explanation": "Ephedrine (5-10 mg IV bolus) is the ideal drug here because the patient is suffering from BOTH hypotension (BP 82/48) and bradycardia (HR 52 bpm), typical of combined propofol and opioid side effects. Ephedrine stimulates alpha and beta receptors, which increases systemic vascular resistance (raising BP) and increases heart rate. Phenylephrine is a pure alpha-1 agonist that would raise BP but would cause a further decrease in heart rate via reflex bradycardia, making it less suitable for bradycardic patients."
+    "explanation": "Efedrin (5-10 mg IV bolus) je zde ideálním lékem, protože pacientka trpí hypotenzí (TK 82/48) i bradykardií (SF 52 bpm), což je typický kombinovaný nežádoucí účinek propofolu a opioidů. Efedrin stimuluje alpha a beta receptory, což zvyšuje systémovou cévní rezistenci (zvyšuje TK) a zvyšuje srdeční frekvenci. Fenyleftrin je čistý alpha-1 agonista, který by sice zvýšil TK, ale způsobil by další pokles SF reflexní bradykardií, což je u bradykardického pacienta nevhodné."
   },
   {
     "id": "urgent:anesthesia:q6",
@@ -6900,17 +6900,17 @@ export const QUESTION_CATALOG = [
     "topicId": "urgent:anesthesia",
     "topicTitle": "Urgentní medicína a anesteziologie",
     "section": null,
-    "sourcePath": "/clinical-portal/",
-    "caseContext": "You are preparing an induction dose of Propofol for a stable 80-year-old female (weighing 60kg) undergoing an elective hernia repair. She has a history of controlled hypertension and osteoarthritis.",
-    "question": "What is the most appropriate adjusted induction dose of Propofol for this elderly patient?",
+    "sourcePath": "/clinical-learning-portal/#pharmacology",
+    "caseContext": null,
+    "question": "Připravujete indukční dávku Propofolu pro stabilní 80letou ženu (vážící 60 kg) podstupující plánovanou operaci kýly. V anamnéze má kompenzovanou hypertenzi a osteoartrózu.\n\nJaká je nejvhodnější upravená indukční dávka Propofolu pro tuto geriatrickou pacientku?",
     "options": [
-      "120 mg to 150 mg IV bolus (2.0 - 2.5 mg/kg)",
-      "60 mg to 90 mg IV bolus (1.0 - 1.5 mg/kg)",
-      "30 mg to 40 mg IV bolus (0.5 mg/kg)",
-      "180 mg to 210 mg IV bolus (3.0 - 3.5 mg/kg)"
+      "120 mg až 150 mg IV bolus (2,0 - 2,5 mg/kg)",
+      "60 mg až 90 mg IV bolus (1,0 - 1,5 mg/kg)",
+      "30 mg až 40 mg IV bolus (0,5 mg/kg)",
+      "180 mg až 210 mg IV bolus (3,0 - 3,5 mg/kg)"
     ],
     "correctIndex": 1,
-    "explanation": "In elderly patients (typically over age 65-70), the required induction dose of Propofol is reduced by 30-50% (to approximately 1.0 - 1.5 mg/kg IV). Elderly patients have a reduced volume of distribution, slower clearance, and increased sensitivity to the cardiovascular depressant effects (significant hypotension) of Propofol. For a 60kg patient, 60-90mg is the correct adjusted dose range."
+    "explanation": "U starších pacientů (typicky nad 65-70 let) se požadovaná indukční dávka Propofolu snižuje o 30-50 % (na přibližně 1,0 - 1,5 mg/kg IV). Starší pacienti mají snížený distribuční objem, pomalejší clearance a zvýšenou citlivost ke kardiodepresivním účinkům Propofolu (riziko těžké hypotenze). Pro 60kg pacienta je správné rozmezí 60-90 mg."
   },
   {
     "id": "urgent:anesthesia:q7",
@@ -6918,17 +6918,17 @@ export const QUESTION_CATALOG = [
     "topicId": "urgent:anesthesia",
     "topicTitle": "Urgentní medicína a anesteziologie",
     "section": null,
-    "sourcePath": "/clinical-portal/",
-    "caseContext": "A patient is being managed under spinal anesthesia for a cesarean section. Immediately after the intrathecal block, the patient becomes lightheaded, and her blood pressure drops to 88/44 mmHg. Her heart rate is 98 bpm.",
-    "question": "Which vasoactive agent is preferred in obstetric spinal anesthesia to treat hypotension without causing fetal acidosis or maternal tachycardia?",
+    "sourcePath": "/clinical-learning-portal/#pharmacology",
+    "caseContext": null,
+    "question": "Pacientka je vedena v míšní (spinální) anestezii pro císařský řez. Bezprostředně po intrathekálním bloku se pacientce zatočí hlava a krevní tlak klesá na 88/44 mmHg. Její srdeční frekvence je 98 bpm.\n\nKterá vasoaktivní látka je preferována v porodnické spinální anestezii k léčbé hypotenze, aniž by způsobovala acidózu plodu nebo mateřskou tachykardii?",
     "options": [
-      "Norepinephrine",
-      "Ephedrine",
-      "Phenylephrine",
-      "Dopamine"
+      "Noradrenalin",
+      "Efedrin",
+      "Fenyleftrin",
+      "Dopamin"
     ],
     "correctIndex": 2,
-    "explanation": "Phenylephrine (40 - 100 mcg IV boluses or continuous infusion) is the preferred drug of choice for treating spinal anesthesia-induced hypotension in obstetric anesthesia. Extensive clinical studies have shown that phenylephrine maintains uterine blood flow and is associated with a more favorable fetal acid-base status (less fetal acidosis) compared to ephedrine. It also controls maternal heart rate, preventing excessive tachycardia. Ephedrine is an alternative but is associated with more fetal metabolic activity and lower umbilical artery pH."
+    "explanation": "Fenyleftrin (40 - 100 mcg IV bolusy nebo kontinuální infuze) je preferovaným lékem volby pro léčbu hypotenze vyvolané spinální anestezií u porodů. Rozsáhlé klinické studie ukázaly, že fenyleftrin udržuje průtok krve dělohou a je spojen s příznivějším acidobazickým stavem plodu (méně acidózy plodu) ve srovnání s efedrinem. Rovněž koriguje tepovou frekvenci matky, čímž předchází nadměrné tachykardii."
   },
   {
     "id": "urgent:anesthesia:q8",
@@ -6936,17 +6936,17 @@ export const QUESTION_CATALOG = [
     "topicId": "urgent:anesthesia",
     "topicTitle": "Urgentní medicína a anesteziologie",
     "section": null,
-    "sourcePath": "/clinical-portal/",
-    "caseContext": "A 28-year-old female is scheduled for elective laparoscopic surgery. During anesthesia counseling, she discloses that her sister suffered from a life-threatening, massive spike in body temperature, rigid muscles, and high carbon dioxide levels during a minor knee surgery under general anesthesia.",
-    "question": "Which of the following medications is a potential trigger for this suspected genetic condition (Malignant Hyperthermia) and must be strictly avoided?",
+    "sourcePath": "/clinical-learning-portal/#pharmacology",
+    "caseContext": null,
+    "question": "28letá žena je plánována k elektivní laparoskopické operaci. Během anesteziologické konzultace uvádí, že její sestra prodělala život ohrožující, masivní nárůst tělesné teploty, svalovou rigiditu a vysokou hladinu CO2 během drobné operace kolene v celkové anestezii.\n\nKterý z následujících léků je potenciálním spouštěčem tohoto podezření na dědičné onemocnění (Maligní hypertermie) a musí být přísně vyvarován?",
     "options": [
       "Propofol",
-      "Rocuronium",
-      "Succinylcholine",
-      "Ketamine"
+      "Rokuronium",
+      "Sukcinylcholin",
+      "Ketamin"
     ],
     "correctIndex": 2,
-    "explanation": "Malignant Hyperthermia (MH) is a rare, life-threatening genetic hypermetabolic crisis triggered by exposure to volatile inhalational anesthetic gases (e.g. Sevoflurane, Isoflurane) or the depolarizing muscle relaxant Succinylcholine. It causes uncontrolled calcium release from the sarcoplasmic reticulum, causing severe muscle rigidity, hyperthermia, metabolic acidosis, rhabdomyolysis, and tachycardia. Non-depolarizing paralytics like Rocuronium and induction agents like Propofol/Ketamine are completely safe in MH-susceptible patients."
+    "explanation": "Maligní hypertermie (MH) je vzácná, život ohrožující dědičná hypermetabolická krize spouštěná expozicí volatilním inhalačním anestetikům (např. Sevofluran, Isofluran) nebo depolarizujícímu svalovému relaxanciu sukcinylcholinu. Způsobuje nekontrolované uvolňování vápníku ze sarkoplazmatického retikula, což vede k těžké svalové rigiditě, hypertermii, metabolické acidóze, rhabdomyolýze a tachykardii. Nedepolarizující relaxancia jako Rokuronium a indukční látky jako Propofol/Ketamin jsou u MH-susceptibilních pacientů zcela bezpečné."
   },
   {
     "id": "urgent:anesthesia:q9",
@@ -6954,17 +6954,17 @@ export const QUESTION_CATALOG = [
     "topicId": "urgent:anesthesia",
     "topicTitle": "Urgentní medicína a anesteziologie",
     "section": null,
-    "sourcePath": "/clinical-portal/",
-    "caseContext": "A 32-year-old female is scheduled for elective laparoscopic appendectomy. During pre-op assessment, she mentions a history of acute intermittent porphyria (AIP) in her family. The resident anesthesiologist prepares Thiopental for induction.",
-    "question": "What is the most appropriate safety action regarding the use of Thiopental in this patient?",
+    "sourcePath": "/clinical-learning-portal/#pharmacology",
+    "caseContext": null,
+    "question": "32letá žena je plánována k elektivní laparoskopické appendektomii. Během předoperačního vyšetření zmíní, že se v její rodině vyskytuje akutní intermitentní porfyrie (AIP). Rezidentní anesteziolog připravuje Thiopental k úvodu do anestezie.\n\nJaký je nejvhodnější postup ohledně použití Thiopentalu u této pacientky?",
     "options": [
-      "Administer Thiopental as planned; AIP is not a contraindication.",
-      "Avoid Thiopental completely; it is a potent inducer of ALA synthetase and can trigger a life-threatening crisis.",
-      "Administer Thiopental but co-administer high-dose Fentanyl to prevent the crisis.",
-      "Avoid Thiopental only if the patient has active abdominal pain at the time of surgery."
+      "Podat Thiopental podle plánu; AIP není kontraindikací.",
+      "Zcela se vyhnout Thiopentalu; je to silný induktor ALA syntetázy a může vyvolat život ohrožující krizi.",
+      "Podat Thiopental, ale kombinovat jej s vysokou dávkou Fentanylu k prevenci porfyrické krize.",
+      "Vyhnout se Thiopentalu pouze tehdy, pokud má pacientka v době operace aktivní bolesti břicha."
     ],
     "correctIndex": 1,
-    "explanation": "Thiopental (and all barbiturates) are absolutely contraindicated in patients with acute intermittent porphyria (AIP) or other hepatic porphyrias. Barbiturates induce the enzyme delta-aminolevulinic acid (ALA) synthetase, which leads to a massive accumulation of porphyrins. This can trigger a severe, life-threatening porphyric crisis characterized by severe abdominal pain, psychiatric symptoms, autonomic instability, and ascending motor paralysis. Propofol or Ketamine are safe alternatives."
+    "explanation": "Thiopental (a všechny barbituráty) jsou absolutně kontraindikovány u pacientů s akutní intermitentní porfyrií (AIP) nebo jinými jaterními porfyriemi. Barbituráty indukují enzym delta-aminolevulinovou kyselinu (ALA) syntetázu, což vede k masivní akumulaci porfyrinů. To může vyvolat těžkou, život ohrožující porfyrickou krizi charakterizovanou krutými bolestmi břicha, psychiatrickými příznaky, autonomní nestabilitou a vzestupnou motorickou paralýzou. Bezpečnými alternativami jsou Propofol nebo Ketamin."
   },
   {
     "id": "urgent:anesthesia:q10",
@@ -6972,17 +6972,17 @@ export const QUESTION_CATALOG = [
     "topicId": "urgent:anesthesia",
     "topicTitle": "Urgentní medicína a anesteziologie",
     "section": null,
-    "sourcePath": "/clinical-portal/",
-    "caseContext": "A 45-year-old male with severe COPD is in the ICU, recovering from emergency abdominal surgery. He is extubated but highly agitated, tachycardic, and refusing his non-invasive ventilation mask, putting him at high risk for re-intubation.",
-    "question": "Which sedative agent is the most appropriate to manage his agitation without compromising his respiratory drive?",
+    "sourcePath": "/clinical-learning-portal/#pharmacology",
+    "caseContext": null,
+    "question": "45letý muž s těžkou CHOPN je na JIP po urgentní operaci břicha. Je extubovaný, ale vysoce neklidný, tachykardický a odmítá masku neinvazivní ventilace (NIV), což ho vystavuje vysokému riziku reintubace.\n\nKteré sedativum je nejvhodnější k léčbě jeho neklidu, aniž by byl ohrožen jeho dechový pohon?",
     "options": [
-      "Propofol continuous infusion",
-      "Midazolam IV boluses as needed",
-      "Dexmedetomidine continuous infusion",
-      "Fentanyl continuous infusion"
+      "Kontinuální infuze Propofolu",
+      "Bolusové podávání Midazolamu podle potřeby",
+      "Kontinuální infuze Dexmedetomidinu",
+      "Kontinuální infuze Fentanylu"
     ],
     "correctIndex": 2,
-    "explanation": "Dexmedetomidine is unique among sedatives because it provides \"cooperative sedation\" and does not cause respiratory depression (unlike propofol, benzodiazepines, or opioids). It acts on presynaptic alpha-2 receptors in the locus coeruleus, preserving the patient's respiratory drive and response to hypercapnia. This makes it the ideal agent for patients who are agitated but need to maintain spontaneous ventilation, such as those on non-invasive ventilation (NIV/BiPAP) or undergoing weaning from mechanical ventilation."
+    "explanation": "Dexmedetomin je mezi sedativy jedinečný tím, že poskytuje \"kooperativní sedaci\" a nezpůsobuje depresi dýchání (na rozdíl od propofolu, benzodiazepinů nebo opioidů). Působí na presynaptické alpha-2 receptory v locus coeruleus a zachovává pacientův dechový pohon a reakci na hyperkapnii. Díky tomu je ideálním lékem pro neklidné pacienty, kteří musí udržet spontánní dýchání, např. při neinvazivní ventilaci (NIV/BiPAP) nebo při odpojování od ventilátoru."
   },
   {
     "id": "urgent:anesthesia:q11",
@@ -6990,17 +6990,17 @@ export const QUESTION_CATALOG = [
     "topicId": "urgent:anesthesia",
     "topicTitle": "Urgentní medicína a anesteziologie",
     "section": null,
-    "sourcePath": "/clinical-portal/",
-    "caseContext": "A patient in septic shock is receiving a continuous infusion of Norepinephrine via a temporary peripheral IV line in the forearm. During your rounds, you notice that the insertion site is swollen, cold, and pale, and the patient complains of severe burning pain.",
-    "question": "What is the most immediate and appropriate action to take?",
+    "sourcePath": "/clinical-learning-portal/#pharmacology",
+    "caseContext": null,
+    "question": "Pacient v septickém šoku dostává kontinuální infuzi Noradrenalinu přes dočasnou periferní kanylu na předloktí. Během vizity si všimnete, že místo vpichu je oteklé, chladné a bledé a pacient si stěžuje na silnou pálivou bolest.\n\nJaký je nejrychlejší a nejvhodnější postup?",
     "options": [
-      "Increase the infusion rate to maintain the target MAP, and apply a warm compress.",
-      "Stop the infusion immediately, aspirate residual drug from the catheter, and administer subcutaneous Phentolamine locally.",
-      "Apply ice packs to the area and flush the catheter with 10 mL of heparinized saline.",
-      "Slow the infusion rate by half and elevate the arm above the level of the heart."
+      "Zvýšit rychlost infuze k udržení cílového tlaku a přiložit teplý obklad.",
+      "Okamžitě zastavit infuzi, aspirovat zbytky léčiva z kanyly a lokálně aplikovat subkutánně Phentolamin.",
+      "Přiložit ledové obklady a propláchnout kanylu 10 mL heparinizovaného fyziologického roztoku.",
+      "Snížit rychlost infuze na polovinu a zvednout ruku nad úroveň srdce."
     ],
     "correctIndex": 1,
-    "explanation": "Norepinephrine extravasation is a medical emergency because local vasoconstriction can cause severe ischemic tissue necrosis and sloughing. The infusion must be stopped immediately. You should leave the cannula in place to attempt to aspirate any remaining drug, then inject the antidote Phentolamine (an alpha-receptor antagonist, usually 5-10 mg diluted in 10 mL saline) through the catheter and subcutaneously around the infiltrated area to reverse the vasoconstriction."
+    "explanation": "Extravazace Noradrenalinu je urgentní stav, protože lokální vazokonstrikce může způsobit těžkou ischemickou nekrózu a rozpad tkáně. Infuze musí být okamžitě zastavena. Kanylu ponechte na místě k pokusu o aspiraci zbytku léčiva, poté aplikujte antidotum Phentolamin (alpha-blokátor, obvykle 5-10 mg zředěných v 10 mL fyziologického roztoku) přes kanylu a infiltrujte subkutánně okolí kanyly k potlačení vazokonstrikce."
   },
   {
     "id": "urgent:anesthesia:q12",
@@ -7008,17 +7008,17 @@ export const QUESTION_CATALOG = [
     "topicId": "urgent:anesthesia",
     "topicTitle": "Urgentní medicína a anesteziologie",
     "section": null,
-    "sourcePath": "/clinical-portal/",
-    "caseContext": "An anesthetist is treating a 75-year-old male who develops severe sinus bradycardia (HR 32 bpm) and hypotension (BP 72/40 mmHg) during surgery. The resident prepares Atropine but administers a very small dose of 0.1 mg IV, fearing tachycardia.",
-    "question": "What is the likely pharmacological consequence of administering this sub-therapeutic dose of Atropine?",
+    "sourcePath": "/clinical-learning-portal/#pharmacology",
+    "caseContext": null,
+    "question": "Anesteziolog léčí 75letého muže, u kterého se během operace rozvinula těžká sinusová bradykardie (SF 32 bpm) a hypotenze (TK 72/40 mmHg). Rezident připravuje Atropin, ale z obavy před tachykardií podá velmi nízkou dávku 0,1 mg IV.\n\nJaký je pravděpodobný farmakologický důsledek podání této sub-terapeutické dávky Atropinu?",
     "options": [
-      "A mild but adequate increase in heart rate to around 50 bpm.",
-      "No change in heart rate; 0.1 mg is completely inert in adults.",
-      "A paradoxical worsening of the bradycardia and potential heart block.",
-      "Immediate severe sinus tachycardia and myocardial ischemia."
+      "Mírné, ale dostatečné zvýšení srdeční frekvence na přibližně 50 bpm.",
+      "Žádná změna srdeční frekvence; 0,1 mg je u dospělých zcela neúčinné.",
+      "Paradoxní zhoršení bradykardie a riziko srdeční blokády.",
+      "Okamžitá těžká sinusová tachykardie a ischémie myokardu."
     ],
     "correctIndex": 2,
-    "explanation": "Low doses of Atropine (less than 0.5 mg in adults or 0.1 mg in children) can cause a paradoxical worsening of bradycardia. This occurs because low doses block presynaptic inhibitory muscarinic (M1) receptors on vagal nerve endings, which increases acetylcholine release, or due to direct central vagal stimulation. Therefore, the standard adult ACLS dose of Atropine is 1.0 mg IV, and lower doses should be strictly avoided."
+    "explanation": "Nízké dávky Atropinu (méně než 0,5 mg u dospělých nebo 0,1 mg u dětí) mohou způsobit paradoxní zhoršení bradykardie. K tomu dochází proto, že nízké dávky blokují presynaptické inhibitory muskarinových (M1) receptorů na zakončeních bloudivého nervu (nervus vagus), což zvyšuje uvolňování acetylcholinu, případně přímou centrální stimulací vagu. Proto je standardní dávka Atropinu u dospělých dle ACLS 1,0 mg IV a nižším dávkám je třeba se striktně vyhnout."
   },
   {
     "id": "urgent:anesthesia:q13",
@@ -7026,17 +7026,17 @@ export const QUESTION_CATALOG = [
     "topicId": "urgent:anesthesia",
     "topicTitle": "Urgentní medicína a anesteziologie",
     "section": null,
-    "sourcePath": "/clinical-portal/",
-    "caseContext": "You successfully reverse respiratory depression (RR 4/min, SpO2 78%) in a post-operative patient in the recovery room by administering Naloxone 0.2 mg IV. The patient is now awake, alert, and breathing at 14 breaths/min with SpO2 98%.",
-    "question": "What is the most critical monitoring requirement for this patient following Naloxone administration?",
+    "sourcePath": "/clinical-learning-portal/#pharmacology",
+    "caseContext": null,
+    "question": "Úspěšně jste zrušili (reverzovali) depresi dýchání (dechová frekvence 4/min, SpO2 78 %) u pooperačního pacienta na dospávacím pokoji podáním Naloxonu 0,2 mg IV. Pacient je nyní bdělý, orientovaný a dýchá frekvencí 14/min se SpO2 98 %.\n\nJaký je nejvýznamnější požadavek na sledování tohoto pacienta po podání Naloxonu?",
     "options": [
-      "Discharge the patient immediately to the ward as the airway is safe.",
-      "Monitor the patient closely for at least 1-2 hours, as the duration of Naloxone is shorter than most opioids, risking recurrent respiratory depression.",
-      "Check the patient's pupils every 5 minutes; if dilated, administer another dose of Naloxone.",
-      "Start a continuous Naloxone infusion immediately in all reversed patients."
+      "Pacienta lze okamžitě propustit na standardní oddělení, protože dýchací cesty jsou zajištěné.",
+      "Pacienta pečlivě sledovat po dobu alespoň 1-2 hodin, protože účinek Naloxonu je kratší než u většiny opioidů, což hrozí návratem útlumu dýchání.",
+      "Kontrolovat zornice pacienta každých 5 minut; pokud jsou rozšířené (mydriáza), podat další dávku Naloxonu.",
+      "U všech pacientů po podání Naloxonu okamžitě zahájit kontinuální infuzi Naloxonu."
     ],
     "correctIndex": 1,
-    "explanation": "The duration of action of Naloxone (approx. 30-90 minutes) is significantly shorter than the duration of action of most clinical opioids (e.g. morphine, fentanyl, hydromorphone). Once Naloxone is metabolized and cleared, the remaining opioid molecules can re-bind to the receptors, causing recurrent respiratory depression and sedation (\"re-narcotization\"). Therefore, patients must be observed for at least 1-2 hours after the last dose of Naloxone."
+    "explanation": "Doba účinku Naloxonu (přibližně 30-90 minut) je výrazně kratší než doba účinku většiny klinicky používaných opioidů (např. morfin, fentanyl). Jakmile se Naloxon metabolizuje a vyloučí, zbývající molekuly opioidů se mohou znovu navázat na receptory a způsobit opakovaný útlum dýchání a sedaci (\"renarkotizaci\"). Proto musí být pacienti sledováni po dobu nejméně 1-2 hodin po poslední dávce Naloxonu."
   },
   {
     "id": "urgent:anesthesia:q14",
@@ -7044,17 +7044,17 @@ export const QUESTION_CATALOG = [
     "topicId": "urgent:anesthesia",
     "topicTitle": "Urgentní medicína a anesteziologie",
     "section": null,
-    "sourcePath": "/clinical-portal/",
-    "caseContext": "At the end of a surgery, the surgical team requests reversal of Rocuronium. The patient has a Train-of-Four (TOF) count of 3. The anesthesia resident decides to administer Neostigmine 2.5 mg IV.",
-    "question": "What other pharmacological action MUST the resident take when administering Neostigmine?",
+    "sourcePath": "/clinical-learning-portal/#pharmacology",
+    "caseContext": null,
+    "question": "Na konci operace chirurgický tým požaduje zrušení (reverz) blokády rokuroniem. Pacient má počet záškubů na Train-of-Four (TOF) 3. Rezident anesteziologie se rozhodne podat Neostigmin 2,5 mg IV.\n\nJaký další farmakologický krok MUSÍ rezident při podání Neostigminu učinit?",
     "options": [
-      "Administer Neostigmine alone; no adjunct is required.",
-      "Co-administer an anticholinergic agent (such as Glycopyrrolate or Atropine) to block severe muscarinic side effects.",
-      "Co-administer Sugammadex to double the speed of reversal.",
-      "Administer a beta-blocker to prevent severe tachycardia caused by Neostigmine."
+      "Podat Neostigmin samostatně; žádná další látka není nutná.",
+      "Společně podat anticholinergikum (např. glykopyrrolát nebo atropin) k zablokování závažných muskarinových nežádoucích účinků.",
+      "Společně podat Sugammadex k zdvojnásobení rychlosti odeznění blokády.",
+      "Podat beta-blokátor k prevenci těžké tachykardie způsobené Neostigminem."
     ],
     "correctIndex": 1,
-    "explanation": "Neostigmine is an acetylcholinesterase inhibitor that increases acetylcholine levels at BOTH nicotinic receptors (reversing neuromuscular blockade) and muscarinic receptors. Muscarinic stimulation causes severe bradycardia, AV block, bronchospasm, hypersalivation, and increased GI motility. To prevent these life-threatening parasympathetic side effects, Neostigmine must ALWAYS be co-administered with an antimuscarinic/anticholinergic drug (such as Glycopyrrolate or Atropine)."
+    "explanation": "Neostigmin je inhibitor acetylcholinesterázy, který zvyšuje hladinu acetylcholinu na nikotinových receptorech (čímž ruší svalovou blokádu) i na muskarinových receptorech. Muskarinová stimulace způsobuje těžkou bradykardii, AV blokády, bronchospasmus, hypersalivaci a zvýšenou motilitu střev. Aby se zabránilo těmto život ohrožujícím parasympatickým účinkům, musí být Neostigmin VŽDY podáván společně s anticholinergikem (glykopyrrolát nebo atropin)."
   },
   {
     "id": "urgent:anesthesia:q15",
@@ -7062,16 +7062,305 @@ export const QUESTION_CATALOG = [
     "topicId": "urgent:anesthesia",
     "topicTitle": "Urgentní medicína a anesteziologie",
     "section": null,
-    "sourcePath": "/clinical-portal/",
-    "caseContext": "A 60-year-old male is scheduled for a major orthopedic surgery. He has a high risk of postoperative nausea and vomiting (PONV) based on his Apfel score. The anesthesiologist decides to administer Dexamethasone shortly after induction.",
-    "question": "What is the primary mechanism and clinical advantage of Dexamethasone in this scenario?",
+    "sourcePath": "/clinical-learning-portal/#pharmacology",
+    "caseContext": null,
+    "question": "60letý muž podstupuje rozsáhlý ortopedický operační výkon. Má vysoké riziko pooperační nevolnosti a zvracení (PONV) podle skóre Apfel. Anesteziolog se rozhodne podat Dexamethason krátce po úvodu do anestezie.\n\nJaký je hlavní mechanismus a klinická výhoda Dexamethasonu v této situaci?",
     "options": [
-      "It acts as an immediate sedative, reducing the requirement for Propofol.",
-      "It is a potent antiemetic that reduces prostaglandin synthesis and central serotonin levels, working synergistically with Ondansetron.",
-      "It reverses neuromuscular blockade by accelerating acetylcholine release.",
-      "It is a pure analgesic that completely replaces the need for intraoperative opioids."
+      "Působí jako okamžité sedativum, čímž snižuje potřebu Propofolu.",
+      "Je to silné antiemetikum, které snižuje syntézu prostaglandinů a centrální hladinu serotoninu a působí synergicky s Ondansetronem.",
+      "Zvrátí nervosvalovou blokádu urychlením uvolňování acetylcholinu.",
+      "Je to čisté analgetikum, které zcela nahrazuje potřebu intraoperačních opioidů."
     ],
     "correctIndex": 1,
-    "explanation": "Dexamethasone (4-10 mg IV) is a highly effective antiemetic used for PONV prophylaxis. It acts by reducing prostaglandin synthesis and decreasing central serotonin levels. When combined with a 5-HT3 receptor antagonist like Ondansetron, it exhibits significant synergy. It is administered shortly after induction due to its delayed onset (1-2 hours). Awake patients should be warned of temporary perineal pruritus/burning if injected rapidly."
+    "explanation": "Dexamethason (4-10 mg IV) je vysoce účinné antiemetikum používané k profylaxi PONV. Působí snížením syntézy prostaglandinů a poklesem centrálního serotoninu. V kombinaci s antagonistou receptoru 5-HT3, jako je Ondansetron, vykazuje významný synergický efekt. Podává se krátce po úvodu kvůli pomalejšímu nástupu (1-2 hodiny). Bdělé pacienty je třeba před rychlým podáním varovat před přechodným svěděním/pálením v perineální oblasti."
+  },
+  {
+    "id": "urgent:urgent-essentials-last:urgent-essentials-last-recognition",
+    "subject": "urgent",
+    "topicId": "urgent:urgent-essentials-last",
+    "topicTitle": "LAST: toxicita lokálních anestetik",
+    "section": null,
+    "sourcePath": "/clinical-learning-portal/#essentials/last",
+    "caseContext": null,
+    "question": "Během periferního bloku pacient udává kovovou chuť a tinnitus, následně začne mít křeče.\n\nJaká je správná bezprostřední reakce?",
+    "options": [
+      "Dokončit blok, protože nebyla překročena maximální dávka.",
+      "Zastavit injekci, přivolat pomoc, zajistit ABC a zahájit postup pro podezření na LAST.",
+      "Vyčkat na stanovení plazmatické koncentrace anestetika."
+    ],
+    "correctIndex": 1,
+    "explanation": "Časová souvislost a neurologické projevy podporují LAST. Nečekáme na laboratorní potvrzení ani na oběhovou zástavu. Pokračování injekce může stav zhoršit; tabulková maximální dávka nezaručuje bezpečnost."
+  },
+  {
+    "id": "urgent:urgent-essentials-last:urgent-essentials-last-lipid",
+    "subject": "urgent",
+    "topicId": "urgent:urgent-essentials-last",
+    "topicTitle": "LAST: toxicita lokálních anestetik",
+    "section": null,
+    "sourcePath": "/clinical-learning-portal/#essentials/last",
+    "caseContext": null,
+    "question": "Dospělý pacient váží 60 kg a má závažnou LAST. Tým používá checklist ASRA 2020.\n\nKterý úvodní režim 20% lipidové emulze odpovídá checklistu?",
+    "options": [
+      "90 ml během 2–3 minut, následně 15 ml/min.",
+      "90 mg rychle i.v., další podání není potřeba.",
+      "Podat propofol místo lipidové emulze."
+    ],
+    "correctIndex": 0,
+    "explanation": "1,5 ml/kg × 60 kg = 90 ml; 0,25 ml/kg/min × 60 kg = 15 ml/min. Počítá se objem 20% emulze, nikoli mg. Sledujte celkový podaný objem, odpověď a limit 12 ml/kg; propofol lipidovou léčbu nenahrazuje."
+  },
+  {
+    "id": "urgent:urgent-essentials-last:urgent-essentials-last-resuscitation",
+    "subject": "urgent",
+    "topicId": "urgent:urgent-essentials-last",
+    "topicTitle": "LAST: toxicita lokálních anestetik",
+    "section": null,
+    "sourcePath": "/clinical-learning-portal/#essentials/last",
+    "caseContext": null,
+    "question": "Po lipidové léčbě se oběh stabilizoval. Kolega chce pacienta ihned propustit.\n\nCo je správně?",
+    "options": [
+      "Úprava tlaku vylučuje návrat toxicity.",
+      "Stačí ukončit infuzi v okamžiku prvního normálního tlaku.",
+      "Pokračovat dle checklistu a zajistit monitorované sledování po kardiovaskulární nestabilitě."
+    ],
+    "correctIndex": 2,
+    "explanation": "ASRA uvádí pokračování lipidové infuze déle než 15 minut po stabilizaci a sledování 4–6 hodin po kardiovaskulární nestabilitě. Po zástavě je potřebná individualizovaná intenzivní péče. Okamžité propuštění je nevhodné."
+  },
+  {
+    "id": "urgent:urgent-essentials-airway:urgent-essentials-airway-oxygenated",
+    "subject": "urgent",
+    "topicId": "urgent:urgent-essentials-airway",
+    "topicTitle": "Obtížné dýchací cesty a CICO",
+    "section": null,
+    "sourcePath": "/clinical-learning-portal/#essentials/airway",
+    "caseContext": null,
+    "question": "Intubace se nezdařila, ale supraglotickou pomůckou lze spolehlivě ventilovat a oxygenovat.\n\nJde o CICO?",
+    "options": [
+      "Ano, každá neúspěšná intubace je CICO.",
+      "Je nutná další okamžitá laryngoskopie bez změny podmínek.",
+      "Ne. Udržovat oxygenaci, přivolat seniora a rozhodnout o probuzení či bezpečném dalším plánu."
+    ],
+    "correctIndex": 2,
+    "explanation": "CICO znamená nemožnost intubace i oxygenace. Funkční záchranná oxygenace poskytuje čas k rozvaze; neznamená automatické svolení pokračovat v operaci. Opakované traumatizující pokusy mohou situaci zhoršit."
+  },
+  {
+    "id": "urgent:urgent-essentials-airway:urgent-essentials-airway-cico",
+    "subject": "urgent",
+    "topicId": "urgent:urgent-essentials-airway",
+    "topicTitle": "Obtížné dýchací cesty a CICO",
+    "section": null,
+    "sourcePath": "/clinical-learning-portal/#essentials/airway",
+    "caseContext": null,
+    "question": "U dospělého nelze intubovat ani oxygenovat optimalizovanou ventilací maskou či supraglotickou pomůckou. Sugammadex je na stole.\n\nCo má prioritu?",
+    "options": [
+      "Vyhlásit CICO a bez prodlení přejít k eFONA.",
+      "Podat sugammadex a tři minuty vyčkat.",
+      "Čekat, až SpO2 klesne pod 60 %."
+    ],
+    "correctIndex": 0,
+    "explanation": "Rozhoduje nemožnost oxygenace, nikoli konkrétní hodnota saturace. Sugammadex nemusí obnovit průchodnost DC ani ventilaci a nesmí odložit eFONA. Výkon vyžaduje praktický nácvik a připravené vybavení."
+  },
+  {
+    "id": "urgent:urgent-essentials-airway:urgent-essentials-airway-capnography",
+    "subject": "urgent",
+    "topicId": "urgent:urgent-essentials-airway",
+    "topicTitle": "Obtížné dýchací cesty a CICO",
+    "section": null,
+    "sourcePath": "/clinical-learning-portal/#essentials/airway",
+    "caseContext": null,
+    "question": "Po zavedení kanyly se hrudník zdánlivě zvedá, ale není přítomna trvalá kapnografická křivka.\n\nJak interpretovat nález?",
+    "options": [
+      "Zamlžení kanyly bezpečně potvrzuje intubaci.",
+      "Polohu nelze považovat za potvrzenou; okamžitě ověřit DC, ventilaci a vyloučit jícnovou intubaci.",
+      "Stačí zvýšit FiO2 a pokračovat v operaci."
+    ],
+    "correctIndex": 1,
+    "explanation": "Trvalá křivka vydechovaného CO2 je zásadním potvrzením ventilace plic. Absenci signálu nesmíme bez ověření připsat technické závadě. Současně zhodnotíme oběh, okruh a možnou obstrukci."
+  },
+  {
+    "id": "urgent:urgent-essentials-blood-gas:urgent-essentials-abg-ventilation",
+    "subject": "urgent",
+    "topicId": "urgent:urgent-essentials-blood-gas",
+    "topicTitle": "Krevní plyny a acidobazická rovnováha",
+    "section": null,
+    "sourcePath": "/clinical-learning-portal/#essentials/blood-gas",
+    "caseContext": null,
+    "question": "Po opioidu: arteriální pH 7,25, PaCO2 8,0 kPa (60 mmHg), HCO3 26 mmol/l. Pacient dýchá pomalu.\n\nJaká je hlavní porucha?",
+    "options": [
+      "Metabolická alkalóza.",
+      "Akutní respirační acidóza; prioritou je zhodnocení a podpora ventilace.",
+      "Normální nález, protože HCO3 je v rozmezí."
+    ],
+    "correctIndex": 1,
+    "explanation": "Acidémii vysvětluje zvýšené CO2. Při akutním vzestupu CO2 ze 40 na 60 mmHg odpovídá HCO3 přibližně 26. Samotné zvýšení FiO2 neodstraní hypoventilaci; posuzujeme DC, dechový útlum a potřebu jeho léčby."
+  },
+  {
+    "id": "urgent:urgent-essentials-blood-gas:urgent-essentials-abg-winter",
+    "subject": "urgent",
+    "topicId": "urgent:urgent-essentials-blood-gas",
+    "topicTitle": "Krevní plyny a acidobazická rovnováha",
+    "section": null,
+    "sourcePath": "/clinical-learning-portal/#essentials/blood-gas",
+    "caseContext": null,
+    "question": "Arteriální pH 7,10, HCO3 12 mmol/l, PaCO2 40 mmHg (5,3 kPa).\n\nJe PaCO2 adekvátní kompenzací?",
+    "options": [
+      "Ano, protože 40 mmHg je normální hodnota.",
+      "Jde jen o respirační alkalózu.",
+      "Ne. Očekáváme 24–28 mmHg; je přítomna i respirační acidóza."
+    ],
+    "correctIndex": 2,
+    "explanation": "Winter: 1,5 × 12 + 8 = 26 ± 2 mmHg. Naměřených 40 je vzhledem k metabolické acidóze příliš mnoho. „Normální CO2“ zde představuje nedostatečnou ventilaci vůči potřebě kompenzace, nikoli normální ABR."
+  },
+  {
+    "id": "urgent:urgent-essentials-blood-gas:urgent-essentials-abg-sample",
+    "subject": "urgent",
+    "topicId": "urgent:urgent-essentials-blood-gas",
+    "topicTitle": "Krevní plyny a acidobazická rovnováha",
+    "section": null,
+    "sourcePath": "/clinical-learning-portal/#essentials/blood-gas",
+    "caseContext": null,
+    "question": "Venózní krev má pO2 5 kPa. SpO2 je 97 % na vzduchu, pacient bez dechové tísně.\n\nCo z výsledku plyne?",
+    "options": [
+      "Venózní pO2 nelze vykládat jako arteriální hypoxemii; hodnotit kliniku a podle potřeby ověřit arteriální oxygenaci.",
+      "Arteriální PaO2 je určitě také 5 kPa.",
+      "Každý pacient s tímto venózním výsledkem musí být intubován."
+    ],
+    "correctIndex": 0,
+    "explanation": "Venózní pO2 odráží také extrakci kyslíku tkáněmi a místo odběru. Není zaměnitelné s PaO2. O další diagnostice rozhoduje klinický stav, spolehlivost oxymetrie a konkrétní otázka."
+  },
+  {
+    "id": "urgent:urgent-essentials-blood-gas:urgent-essentials-abg-gap",
+    "subject": "urgent",
+    "topicId": "urgent:urgent-essentials-blood-gas",
+    "topicTitle": "Krevní plyny a acidobazická rovnováha",
+    "section": null,
+    "sourcePath": "/clinical-learning-portal/#essentials/blood-gas",
+    "caseContext": null,
+    "question": "Na 140, Cl 110, HCO3 18 mmol/l; albumin 20 g/l (= 2 g/dl).\n\nJaká je orientační hodnota AG korigovaného na albumin?",
+    "options": [
+      "12 mmol/l; albumin nemá význam.",
+      "17 mmol/l; hypoalbuminémie může skrýt zvýšený AG.",
+      "−28 mmol/l, protože albumin dosadíme jako 20."
+    ],
+    "correctIndex": 1,
+    "explanation": "AG = 140 − (110 + 18) = 12. Korekce = 12 + 2,5 × (4 − 2) = 17 mmol/l. V této podobě vzorce patří albumin v g/dl, ne g/l. Výsledek vede k hledání příčiny, sám ji neurčuje."
+  },
+  {
+    "id": "urgent:urgent-essentials-regional:urgent-essentials-regional-high-block",
+    "subject": "urgent",
+    "topicId": "urgent:urgent-essentials-regional",
+    "topicTitle": "Regionální anestezie: bezpečné základy",
+    "section": null,
+    "sourcePath": "/clinical-learning-portal/#essentials/regional",
+    "caseContext": null,
+    "question": "Po spinální anestezii prudce klesá tlak, pacient má slabé ruce a obtížně dýchá.\n\nJak postupovat?",
+    "options": [
+      "Přidat sedativum a pokračovat, jde o běžnou úzkost.",
+      "Vyčkat, dokud se nezastaví dech.",
+      "Přivolat pomoc a ihned podpořit DC, ventilaci a oběh při podezření na vysoký blok."
+    ],
+    "correctIndex": 2,
+    "explanation": "Stoupající blok s motorickou slabostí horních končetin a dechovými obtížemi je varovný. Nelze jej bezpečně označit za úzkost. Prioritou je ABC; podle průběhu může být nutná intubace a oběhová podpora."
+  },
+  {
+    "id": "urgent:urgent-essentials-regional:urgent-essentials-regional-anticoagulation",
+    "subject": "urgent",
+    "topicId": "urgent:urgent-essentials-regional",
+    "topicTitle": "Regionální anestezie: bezpečné základy",
+    "section": null,
+    "sourcePath": "/clinical-learning-portal/#essentials/regional",
+    "caseContext": null,
+    "question": "Pacient má epidurální katétr a má dostat další dávku antikoagulancia. Čas poslední dávky není znám.\n\nJaké rozhodnutí je bezpečné?",
+    "options": [
+      "Před podáním či odstraněním katétru ověřit léčivo, dávku, časy a renální funkci a domluvit postup dle aktuálního doporučení.",
+      "Katétr vždy vyjmout hned; riziko se týká pouze zavádění.",
+      "Pro všechna antikoagulancia platí stejný odstup."
+    ],
+    "correctIndex": 0,
+    "explanation": "Krvácivé riziko se týká i odstranění katétru. Bez znalosti přípravku a časování nelze bezpečný interval určit; rozhodnutí musí zohlednit také trombotické riziko a seniorní plán."
+  },
+  {
+    "id": "urgent:urgent-essentials-inhalational:urgent-essentials-inhalational-mac",
+    "subject": "urgent",
+    "topicId": "urgent:urgent-essentials-inhalational",
+    "topicTitle": "Inhalační anestezie a maligní hypertermie",
+    "section": null,
+    "sourcePath": "/clinical-learning-portal/#essentials/inhalational",
+    "caseContext": null,
+    "question": "Monitor ukazuje 1,0 MAC. Pacient je relaxovaný a nemůže se pohybovat.\n\nCo lze bezpečně tvrdit?",
+    "options": [
+      "Pacient má zaručeně dostatečnou hypnózu i analgezii.",
+      "MAC je populační ukazatel účinku na pohyb; vyžaduje kontext věku, dalších léků a monitorace.",
+      "MAC je koncentrace kyslíku ve směsi."
+    ],
+    "correctIndex": 1,
+    "explanation": "MAC nevyjadřuje přímo vědomí ani analgezii jednotlivce. Relaxace navíc odstraní pohyb jako varovný příznak. Hodnotíme podávanou anestezii a monitoraci jako celek."
+  },
+  {
+    "id": "urgent:urgent-essentials-inhalational:urgent-essentials-inhalational-mh",
+    "subject": "urgent",
+    "topicId": "urgent:urgent-essentials-inhalational",
+    "topicTitle": "Inhalační anestezie a maligní hypertermie",
+    "section": null,
+    "sourcePath": "/clinical-learning-portal/#essentials/inhalational",
+    "caseContext": null,
+    "question": "Při sevofluranu rychle roste EtCO2 navzdory zvýšení ventilace; přidává se tachykardie a rigidita. Teplota je zatím 37,2 °C.\n\nJe bezpečné čekat na hypertermii?",
+    "options": [
+      "Ne. Při podezření zahájit MH protokol, zastavit spouštěče, volat pomoc a připravit dantrolen.",
+      "Ano, MH vyžaduje teplotu nad 40 °C.",
+      "Stačí podat další sukcinylcholin proti rigiditě."
+    ],
+    "correctIndex": 0,
+    "explanation": "Hypertermie může být pozdní. Kombinace nevysvětlitelné hyperkapnie a rigidity při expozici spouštěči je varovná. Sukcinylcholin je sám spouštěč, ne léčba MH."
+  },
+  {
+    "id": "urgent:urgent-essentials-perioperative:urgent-essentials-perioperative-tof",
+    "subject": "urgent",
+    "topicId": "urgent:urgent-essentials-perioperative",
+    "topicTitle": "Od předoperačního vyšetření k předání",
+    "section": null,
+    "sourcePath": "/clinical-learning-portal/#essentials/perioperative",
+    "caseContext": null,
+    "question": "Pacient zvedne hlavu a má čtyři záškuby, kvantitativní TOF ratio je 0,65.\n\nJe nervosvalové zotavení dostatečně potvrzeno pro extubaci?",
+    "options": [
+      "Ano, čtyři záškuby vždy znamenají plné zotavení.",
+      "Ne; řešit reziduální blok a kvantitativně potvrdit TOF ratio alespoň 0,9, spolu s ostatními podmínkami extubace.",
+      "Stačí odhad podle času od podání rokuronia."
+    ],
+    "correctIndex": 1,
+    "explanation": "TOF count a TOF ratio nejsou totéž. Reziduální slabost může být přítomna i při čtyřech odpovědích a zvednutí hlavy. Ani dosažení 0,9 nenahrazuje ostatní podmínky bezpečné extubace."
+  },
+  {
+    "id": "urgent:urgent-essentials-perioperative:urgent-essentials-perioperative-hypotension",
+    "subject": "urgent",
+    "topicId": "urgent:urgent-essentials-perioperative",
+    "topicTitle": "Od předoperačního vyšetření k předání",
+    "section": null,
+    "sourcePath": "/clinical-learning-portal/#essentials/perioperative",
+    "caseContext": null,
+    "question": "Při operaci klesá tlak, roste krevní ztráta a pacient je tachykardický.\n\nCo je vhodné?",
+    "options": [
+      "Jen opakovat vazopresor bez komunikace s chirurgem.",
+      "Ignorovat trend, pokud je SpO2 normální.",
+      "Volat pomoc, ověřit příčinu, komunikovat o kontrole krvácení a zahájit cílenou resuscitaci dle protokolu."
+    ],
+    "correctIndex": 2,
+    "explanation": "Normální saturace nezaručuje perfuzi ani dostatečný obsah kyslíku. Vazopresor může být součástí podpory, ale nenahrazuje kontrolu krvácení a adekvátní objemovou/transfuzní strategii."
+  },
+  {
+    "id": "urgent:urgent-essentials-perioperative:urgent-essentials-perioperative-handover",
+    "subject": "urgent",
+    "topicId": "urgent:urgent-essentials-perioperative",
+    "topicTitle": "Od předoperačního vyšetření k předání",
+    "section": null,
+    "sourcePath": "/clinical-learning-portal/#essentials/perioperative",
+    "caseContext": null,
+    "question": "Po naloxonu je pacient bdělý a chce okamžitě odejít z dospávacího pokoje.\n\nJaká informace je pro další péči zásadní?",
+    "options": [
+      "Může se vrátit dechový útlum; předat léky a časy a pokračovat v monitoraci dle průběhu.",
+      "Naloxon trvale ruší všechny účinky jakéhokoli opioidu.",
+      "Bdělost sama prokazuje připravenost k propuštění."
+    ],
+    "correctIndex": 0,
+    "explanation": "Některé opioidy působí déle než naloxon. Rozhoduje trvalá stabilita dechu, vědomí a oběhu i další kritéria propuštění, nikoli okamžitá odpověď na antidotum."
   }
 ];

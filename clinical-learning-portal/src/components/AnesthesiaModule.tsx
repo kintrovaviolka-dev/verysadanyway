@@ -306,6 +306,10 @@ export const getBroselowData = (weight: number): BroselowData => {
       exacylDose: `${(w * 15).toFixed(0)} mg (i.v./i.o. infuze)`,
       glucoseDose: `${(w * 5).toFixed(0)} ml (G10% pomalu i.v./i.o.)`
     };
+  }
+};
+
+type SugammadexBlock = 'moderate' | 'deep' | 'immediate';
 
 export default function AnesthesiaModule() {
   const { language, t } = useLanguage();
@@ -332,6 +336,7 @@ export default function AnesthesiaModule() {
   const [calcWeight, setCalcWeight] = useState<number>(70);
   const [calcMedId, setCalcMedId] = useState<string>('propofol');
   const [patientStatus, setPatientStatus] = useState<'standard' | 'elderly' | 'shock' | 'pediatric'>('standard');
+  const [sugammadexBlock, setSugammadexBlock] = useState<SugammadexBlock>('moderate');
 
   // Quiz state
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -427,7 +432,7 @@ export default function AnesthesiaModule() {
 
   const generateTrainerQuestion = () => {
     const eligibleMeds = medsData.filter(m => 
-      ['propofol', 'ketamine', 'etomidate', 'succinylcholine', 'rocuronium', 'sugammadex', 'thiopental', 'midazolam', 'fentanyl', 'dexmedetomidine', 'norepinephrine', 'atropine', 'naloxone', 'neostigmine', 'dexamethasone', 'ephedrine', 'phenylephrine'].includes(m.id)
+      ['propofol', 'ketamine', 'etomidate', 'succinylcholine', 'rocuronium', 'thiopental', 'midazolam', 'fentanyl', 'dexmedetomidine', 'norepinephrine', 'atropine', 'naloxone', 'neostigmine', 'dexamethasone', 'ephedrine', 'phenylephrine'].includes(m.id)
     );
     const randomMed = eligibleMeds[Math.floor(Math.random() * eligibleMeds.length)];
     
@@ -547,7 +552,7 @@ export default function AnesthesiaModule() {
   });
 
   // Calculate induction dosages based on weight & clinical state
-  const calculateDose = (medId: string, weight: number, status: 'standard' | 'elderly' | 'shock' | 'pediatric') => {
+  const calculateDose = (medId: string, weight: number, status: 'standard' | 'elderly' | 'shock' | 'pediatric', block: SugammadexBlock = 'moderate') => {
     const med = medsData.find(m => m.id === medId);
     if (!med) return null;
 
@@ -664,11 +669,11 @@ export default function AnesthesiaModule() {
           : 'Muscle relaxation: 0.6 mg/kg for standard intubation. 1.0 - 1.2 mg/kg for Rapid Sequence Induction (RSI) to achieve identical paralysis speed to succinylcholine (~60 seconds onset). Duration is ~45 minutes.';
       }
     } else if (medId === 'sugammadex') {
-      doseMgMin = weight * 2.0;
-      doseMgMax = weight * 16.0;
+      doseMgMin = weight * ({ moderate: 2, deep: 4, immediate: 16 }[block]);
+      doseMgMax = doseMgMin;
       comments = language === 'cs'
-        ? 'Enkapsulační reverzní látka: Dávkování závisí na hloubce bloku. Návrat TOF 2: použijte 2 mg/kg IV. Hluboký blok (post-tetanic count 1-2): použijte 4 mg/kg IV. Urgentní zrušení hluboké blokády (krátce po RSI): použijte okamžitě bolus 16 mg/kg IV.'
-        : 'SRBA: Dose varies by block depth. Re reappearance of TOF 2: use 2 mg/kg IV. For deep post-tetanic count 1-2 block: use 4 mg/kg IV. For emergency rescue of profound block (RSI rescue): use 16 mg/kg IV bolus immediately.';
+        ? 'Výpočet pro dospělého ze skutečné tělesné hmotnosti podle vybrané indikace: T2 = 2 mg/kg; TOF 0 a PTC 1–2 = 4 mg/kg; okamžitá reverze asi 3 minuty po rokuroniu 1,2 mg/kg = 16 mg/kg dle SPC. Není to rozsah k titraci. Při CICO nečekat na účinek a neoddalovat eFONA. Ověřit kvantitativní TOF, renální funkci a aktuální SPC.'
+        : 'Adult calculation using actual body weight for the selected indication: T2 = 2 mg/kg; TOF 0 and PTC 1–2 = 4 mg/kg; immediate reversal about 3 minutes after rocuronium 1.2 mg/kg = 16 mg/kg per product label. Not a titration range. In CICO, do not wait for reversal or delay eFONA. Check quantitative TOF, renal function and current product information.';
     } else if (medId === 'fentanyl') {
       if (status === 'elderly' || status === 'shock') {
         doseMgMin = weight * 0.5;
@@ -891,7 +896,7 @@ export default function AnesthesiaModule() {
     };
   };
 
-  const currentCalc = calculateDose(calcMedId, calcWeight, patientStatus);
+  const currentCalc = calculateDose(calcMedId, calcWeight, patientStatus, sugammadexBlock);
   const doseUnit = ['fentanyl', 'dexmedetomidine', 'norepinephrine', 'phenylephrine'].includes(calcMedId) ? 'mcg' : 'mg';
 
   // Quiz progression
@@ -1346,6 +1351,24 @@ export default function AnesthesiaModule() {
                 {language === 'cs' ? 'Parametry kalkulátoru dávek' : 'Dose Calculator Parameters'}
               </h3>
 
+              {calcMedId === 'sugammadex' && (
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="sugammadex-block" className="text-sm font-bold text-teal-200">
+                    {language === 'cs' ? 'Indikace reverze — pouze dospělí' : 'Reversal indication — adults only'}
+                  </label>
+                  <select id="sugammadex-block" value={sugammadexBlock}
+                    onChange={event => {
+                      const value = event.target.value;
+                      if (value === 'moderate' || value === 'deep' || value === 'immediate') setSugammadexBlock(value);
+                    }}
+                    className="w-full min-w-0 bg-slate-900 border border-white/20 rounded-lg p-3 text-sm">
+                    <option value="moderate">{language === 'cs' ? 'Návrat T2 — 2 mg/kg' : 'Reappearance of T2 — 2 mg/kg'}</option>
+                    <option value="deep">TOF 0, PTC 1–2 — 4 mg/kg</option>
+                    <option value="immediate">{language === 'cs' ? 'Asi 3 min po rokuroniu 1,2 mg/kg — 16 mg/kg' : 'About 3 min after rocuronium 1.2 mg/kg — 16 mg/kg'}</option>
+                  </select>
+                  <p className="text-sm text-amber-200">{language === 'cs' ? 'Použijte skutečnou hmotnost. Sugammadex nesmí při CICO oddálit eFONA.' : 'Use actual body weight. Sugammadex must not delay eFONA in CICO.'}</p>
+                </div>
+              )}
               <div className="flex flex-col gap-1.5">
                 <label className="text-xs font-bold text-slate-400 uppercase tracking-wide">
                   {language === 'cs' ? 'Vyberte lék k natažení' : 'Select Drug to Draw'}
@@ -1402,7 +1425,7 @@ export default function AnesthesiaModule() {
                     { id: 'elderly', label_en: 'Elderly / Frail', label_cs: 'Starší / křehký pacient' },
                     { id: 'shock', label_en: 'Unstable Shock', label_cs: 'Nestabilní šok' },
                     { id: 'pediatric', label_en: 'Pediatric / Infant', label_cs: 'Pediatrický / kojenec' }
-                  ].map(prof => (
+                  ].filter(prof => calcMedId !== 'sugammadex' || prof.id !== 'pediatric').map(prof => (
                     <button
                       key={prof.id}
                       onClick={() => setPatientStatus(prof.id as any)}
@@ -1421,7 +1444,11 @@ export default function AnesthesiaModule() {
 
             {/* Results card display */}
             <div className="lg:col-span-7 flex flex-col gap-6">
-              {currentCalc ? (
+              {calcMedId === 'sugammadex' && patientStatus === 'pediatric' ? (
+                <p role="alert" className="p-5 border border-amber-400/40 rounded-xl text-amber-100">
+                  {language === 'cs' ? 'Tento výpočet sugammadexu je pouze pro dospělé. Zvolte dospělý profil; pediatrické dávkování ověřte v aktuálním SPC.' : 'This sugammadex calculator is for adults only. Select an adult profile; check current product information for paediatric dosing.'}
+                </p>
+              ) : currentCalc ? (
                 <div className="bg-white/5 border border-white/10 rounded-xl p-6 text-white shadow-xl flex flex-col justify-between h-full backdrop-blur-xl">
                   <div className="flex flex-col gap-5">
                     <div className="flex justify-between items-start border-b border-white/10 pb-3">
@@ -1740,7 +1767,7 @@ export default function AnesthesiaModule() {
               })()}
             </div>
           </div>
-        )}}
+        )}
 
         {activeTab === 'quiz' && (
           <div className="max-w-2xl mx-auto bg-white/5 border border-white/10 rounded-xl p-6 shadow-lg font-sans backdrop-blur-xl" id="anesthesia-quiz-board">
@@ -1805,7 +1832,7 @@ export default function AnesthesiaModule() {
                 {/* Question progress header */}
                 <div className="flex justify-between items-center text-xs text-slate-400 border-b border-white/10 pb-3">
                   <span>
-                    {language === 'cs' ? 'Odborná zkouška z klinické anesteziologie' : 'Anesthesia Medication Board Examination'}
+                    {language === 'cs' ? 'Studijní kvíz z anesteziologické farmakologie' : 'Anesthesia pharmacology practice quiz'}
                   </span>
                   <span className="font-bold text-slate-300">
                     {language === 'cs'

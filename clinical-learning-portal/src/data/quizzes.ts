@@ -31,16 +31,16 @@ export const ANESTHESIA_QUIZ: QuizQuestion[] = [
   },
   {
     id: 'q3',
-    caseContext: 'A 70kg (Ideal Body Weight) patient with normal liver and renal function is induced for routine orthopaedic surgery. The anesthetist administers Rocuronium 50mg IV (approx. 0.7 mg/kg) to facilitate intubation.',
-    question: 'During airway management, the anesthetist encounters a "Can\'t Intubate, Can\'t Oxygenate" (CICO) scenario 2 minutes after drug administration. What is the most appropriate rescue reversal regimen?',
+    caseContext: 'After induction and rocuronium administration, an adult cannot be intubated or oxygenated with optimised facemask ventilation or a supraglottic airway device.',
+    question: 'CICO (cannot intubate, cannot oxygenate) has been declared. What takes priority?',
     options: [
       'Administer Neostigmine 0.05 mg/kg IV combined with Glycopyrrolate',
       'Wait 30-40 minutes for natural Rocuronium redistribution and clearance',
-      'Administer Sugammadex 16.0 mg/kg IV immediately',
-      'Administer Sugammadex 2.0 mg/kg IV immediately'
+      'Call for help and proceed immediately to an emergency front-of-neck airway (eFONA)',
+      'Give sugammadex and wait for spontaneous breathing to return'
     ],
     correctAnswerIndex: 2,
-    explanation: 'For emergency rescue reversal of profound, deep rocuronium blockade shortly after an induction dose of 1.2 mg/kg or 0.6 mg/kg, the required dose of Sugammadex is 16.0 mg/kg IV. This dose completely encapsulates the circulating rocuronium molecules in plasma, restoring neuromuscular transmission and spontaneous ventilation in less than 3 minutes, which can be life-saving in a CICO crisis. 2.0 mg/kg is only for moderate blocks (reappearance of TOF 2), and Neostigmine cannot reverse a deep, immediate block.',
+    explanation: 'CICO requires immediate rescue oxygenation by eFONA using the rehearsed algorithm. Do not wait for a specific SpO2 threshold. Sugammadex reversal does not remove anatomical obstruction or guarantee ventilation and must not delay eFONA. Neostigmine and waiting for spontaneous recovery from deep block are not solutions. Source: DAS 2025, https://www.bjanaesthesia.org/article/S0007-0912(25)00862-1/fulltext.',
     medicationId: 'sugammadex'
   },
   {

@@ -720,6 +720,12 @@ const nextServiceWorker = serviceWorker.replace(
   `const RELEASE_VERSION = '${releaseVersion}';`
 );
 if (nextServiceWorker !== serviceWorker) fs.writeFileSync(serviceWorkerPath, nextServiceWorker, 'utf8');
+const clinicalRoot = path.join(__dirname, '..', 'clinical-learning-portal');
+const syncAnesthesia = spawnSync(process.execPath, [
+  '--import', require.resolve('tsx', { paths: [clinicalRoot] }),
+  path.join(clinicalRoot, 'scripts', 'sync-anesthesia.ts')
+], { stdio: 'inherit' });
+if (syncAnesthesia.status !== 0) process.exit(syncAnesthesia.status || 1);
 const validator = path.join(__dirname, '..', 'drill', 'scripts', 'validate-content.js');
 const validation = spawnSync(process.execPath, [validator], { stdio: 'inherit' });
 if (validation.status !== 0) process.exit(validation.status || 1);

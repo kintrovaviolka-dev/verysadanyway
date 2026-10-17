@@ -200,7 +200,7 @@ export default function DispositionScreen({
           </div>
           <div>
             <h2 className="text-2xl font-bold text-white">Ukončení případu & Definitivní dispozice</h2>
-            <p className="text-xs text-[#c2c6d6]">Vyplňte finální hlášení pro atestační komisi ČLS JEP.</p>
+            <p className="text-xs text-[#c2c6d6]">Vyplňte závěrečné hlášení pro studijní AI zpětnou vazbu, nikoli pro skutečnou atestační komisi.</p>
           </div>
         </div>
         {session.isCompleted && (
@@ -335,7 +335,7 @@ export default function DispositionScreen({
               </div>
               <h3 className="text-3xl font-extrabold text-[#e1e2ec]">Atestační protokol</h3>
               <p className="text-sm text-[#c2c6d6]">
-                Vyhodnocení klinické komise ČLS JEP pro případ: <span className="font-semibold text-white">{session.patient.name}</span>
+                Studijní AI vyhodnocení případu: <span className="font-semibold text-white">{session.patient.name}</span>
               </p>
             </div>
 
