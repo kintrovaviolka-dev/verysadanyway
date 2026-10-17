@@ -1,0 +1,10 @@
+This product includes adapted data from:
+nisten/opus5-5-doctor-patient-conversations-all-human-diseases
+https://huggingface.co/datasets/nisten/opus5-5-doctor-patient-conversations-all-human-diseases
+Revision 9277244e642a8ba02cb8c1d26408e5792932045b
+Author: nisten. Upstream declared license: Apache License, Version 2.0.
+
+Modifications: selected 30 records, translated and shortened into Czech educational
+case facts, removed solution disclosure from patient-facing presentation, added
+topic rubrics and Czech diagnosis aliases. Original selected records are preserved.
+No independent clinical certification is implied by editorial or automated checks.

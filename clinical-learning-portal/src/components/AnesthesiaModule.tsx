@@ -307,6 +307,9 @@ export const getBroselowData = (weight: number): BroselowData => {
       glucoseDose: `${(w * 5).toFixed(0)} ml (G10% pomalu i.v./i.o.)`
     };
 
+  }
+};
+
 export default function AnesthesiaModule() {
   const { language, t } = useLanguage();
 
@@ -1740,7 +1743,7 @@ export default function AnesthesiaModule() {
               })()}
             </div>
           </div>
-        )}}
+        )}
 
         {activeTab === 'quiz' && (
           <div className="max-w-2xl mx-auto bg-white/5 border border-white/10 rounded-xl p-6 shadow-lg font-sans backdrop-blur-xl" id="anesthesia-quiz-board">

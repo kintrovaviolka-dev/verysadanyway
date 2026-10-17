@@ -1,5 +1,7 @@
 .env
 node_modules/
+.wrangler/
+.public-build/
 .DS_Store
 .Jules/
 # Mikra - interní skripta (pouze pro agenta, ne pro studenty ani repo)

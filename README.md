@@ -159,6 +159,30 @@ npm run build
 
 `npm run build` zajišťuje build specializovaných podaplikací pro klinický portál a urgentní příjem.
 
+### Cloudflare Workers – statický web
+
+V Cloudflare Workers Builds nastavte kořen projektu na tento adresář, build příkaz
+na `npm run build` a deploy příkaz na `npx wrangler deploy`.
+Kořenový `wrangler.jsonc` určuje název Workeru `verysadanyway` a adresář
+statických souborů `.public-build`, který vytváří build. Konfiguraci přidejte
+do repozitáře spolu s `scripts/build_public.cjs` a změnami build příkazu
+v `package.json`. Wrangler pak nebude při nasazení automaticky nastavovat Vite
+ani hledat neexistující kořenový `dist`.
+
+Lokální kontrola bez publikování:
+
+```bash
+npm run build
+npx wrangler deploy --dry-run
+```
+
+Tato konfigurace nasazuje statickou část portálu. Node/Express server
+`server.js`, Vercel funkce `api/*` a přepisy z `vercel.json` se v tomto Workeru
+nespouštějí. AI funkce a simulace vyžadující API potřebují samostatný backend
+nebo adaptaci pro Workers. Adresář `private-patient` není součástí veřejných
+souborů. Chybějící stránky vracejí 404; portál obsahuje více samostatných HTML
+aplikací, proto nepoužívá globální SPA fallback na hlavní rozcestník.
+
 ## Generování PDF
 
 K vygenerování studijních PDF z Markdown/LaTeX zdrojů slouží:
