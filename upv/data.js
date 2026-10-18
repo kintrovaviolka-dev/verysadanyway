@@ -1124,5 +1124,10 @@ const UPV_DATA = {
   }
 };
 
-// Export dat pro použití v app.js
-window.UPV_DATA = UPV_DATA;
+// Export dat pro použití v app.js a Node.js
+if (typeof window !== 'undefined') {
+  window.UPV_DATA = UPV_DATA;
+}
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = UPV_DATA;
+}
