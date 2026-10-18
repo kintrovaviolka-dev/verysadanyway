@@ -22,6 +22,7 @@ function evalJsFile(filePath, varName) {
 }
 
 function cleanHtml(html) {
+  if (typeof html !== "string") return "";
   if (!html) return '';
   return html.replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&').trim();
 }
@@ -29,7 +30,12 @@ function cleanHtml(html) {
 const OUT_DIR = path.join(__dirname, '..', 'drill', 'data', 'modules');
 fs.mkdirSync(OUT_DIR, { recursive: true });
 
-const releaseVersion = process.env.MEDDRILL_VERSION || '2026.3.0';
+const releaseVersion = process.env.MEDDRILL_VERSION || '2026.4.0';
+const requestedSubject = process.argv.find(arg => arg.startsWith('--subject='))?.split('=')[1] || null;
+const existingManifestPath = path.join(__dirname, '..', 'drill', 'data', 'manifest.json');
+const existingManifest = requestedSubject && fs.existsSync(existingManifestPath)
+  ? JSON.parse(fs.readFileSync(existingManifestPath, 'utf8'))
+  : null;
 const manifest = {
   version: releaseVersion,
   lastUpdated: new Date().toISOString(),
@@ -88,15 +94,31 @@ if (kardioData && kardioData.modules) {
         question: q.prompt || q.title || '',
         options: options.length ? options : ['Správná volba dle ESC', 'Nevhodný postup', 'Kontraindikace', 'Chybná dávka'],
         correctIndex: correctIdx >= 0 ? correctIdx : 0,
-        explanation: q.explanation || '',
+        explanation: cleanHtml(q.explanation || ''),
         pearl: (mod.breakdown && mod.breakdown.mustKnow && mod.breakdown.mustKnow[0]) || '',
         tags: ['Single Choice', mod.badge || 'ESC']
       });
     }
 
+const cardioClassThreeClozes = {
+  aks: ['Doplňte jedno slovo: U AKS se SpO2 ≥ 90 % rutinně nepodává ______.', 'Správné doplnění: kyslík. U pacienta s AKS a saturací SpO2 ≥ 90 % se kyslík rutinně nepodává.', ['kyslík', 'kyslik', 'oxygen'], 'Kyslík.'],
+  midef: ['Doplňte číslo: Izolovaně zvýšený troponin bez důkazu ischémie automaticky neznamená infarkt myokardu typu ______.', 'Správné doplnění: 1. Izolovaně zvýšený troponin bez důkazu ischémie automaticky neznamená infarkt myokardu typu 1.', ['1', 'i', 'typ 1'], 'Číslo 1.'],
+  hf: ['Doplňte číslo: Po vysazení ACE inhibitoru čekáme před nasazením ARNI alespoň ______ hodin.', 'Správné doplnění: 36. Po vysazení ACE inhibitoru čekáme před nasazením ARNI alespoň 36 hodin.', ['36', 'třicet šest', 'tricet sest'], '36 hodin.'],
+  htn: ['Doplňte zkratku: Kombinace ACE inhibitoru a sartanu je zakázaná duální blokáda systému ______.', 'Správné doplnění: RAAS. Kombinace ACE inhibitoru a sartanu je zakázaná duální blokáda systému RAAS.', ['raas', 'renin angiotenzin aldosteron', 'renin-angiotenzin-aldosteron'], 'Zkratka pro renin–angiotenzin–aldosteronový systém.'],
+  afib: ['Doplňte zkratku: U mechanické chlopně se místo VKA nepodávají ______.', 'Správné doplnění: NOAC. U mechanické chlopně se místo VKA nepodávají NOAC.', ['noac', 'doac', 'přímá perorální antikoagulancia', 'prima peroralni antikoagulancia'], 'Zkratka pro přímá perorální antikoagulancia.'],
+  arytmie: ['Doplňte jeden lék: U nejasné širokokomplexové tachykardie nepodáváme i.v. ______.', 'Správné doplnění: verapamil. U nejasné širokokomplexové tachykardie nepodáváme i.v. verapamil ani diltiazem.', ['verapamil', 'diltiazem'], 'Verapamil (alternativně diltiazem).'],
+  chlopne: ['Doplňte zkratku: U mechanické srdeční chlopně jsou kontraindikována ______.', 'Správné doplnění: NOAC. U mechanické srdeční chlopně jsou kontraindikována NOAC.', ['noac', 'doac', 'přímá perorální antikoagulancia', 'prima peroralni antikoagulancia'], 'Zkratka pro přímá perorální antikoagulancia.'],
+  kmp: ['Doplňte jeden lék: U obstrukční hypertrofické kardiomyopatie nepodáváme ______ pro jeho pozitivně inotropní účinek.', 'Správné doplnění: digoxin. U obstrukční hypertrofické kardiomyopatie nepodáváme digoxin pro jeho pozitivně inotropní účinek.', ['digoxin'], 'Digoxin.'],
+  zanety: ['Doplňte jeden typ léku: U akutní perikarditidy nejsou ______ lékem první volby.', 'Správné doplnění: kortikoidy. U akutní perikarditidy nejsou kortikoidy lékem první volby.', ['kortikoidy', 'kortikosteroidy', 'glukokortikoidy'], 'Kortikoidy.'],
+  pe: ['Doplňte jeden typ léčby: U hemodynamicky stabilní nízkorizikové PE rutinně nepodáváme systémovou ______.', 'Správné doplnění: trombolýzu. U hemodynamicky stabilní nízkorizikové PE rutinně nepodáváme systémovou trombolýzu.', ['trombolýzu', 'trombolyzu', 'fibrinolýzu', 'fibrinolyzu'], 'Trombolýza.'],
+  ccs: ['Doplňte dvě slova: U těžké arytmie a vysoké nekontrolované TF má CT koronarografie nízkou ______.', 'Správné doplnění: výtěžnost. U těžké arytmie a vysoké nekontrolované TF má CT koronarografie nízkou diagnostickou výtěžnost.', ['výtěžnost', 'vyteznost', 'diagnostickou výtěžnost', 'diagnostickou vyteznost'], 'Výtěžnost.'],
+  ekg: ['Doplňte jednu skupinu léků: U STEMI spodní stěny s infarktem pravé komory nepodáváme ______, protože snižují preload.', 'Správné doplnění: nitráty. U STEMI spodní stěny s infarktem pravé komory nepodáváme nitráty ani diuretika, protože snižují preload.', ['nitráty', 'nitraty', 'diuretika'], 'Nitráty (alternativně diuretika).']
+};
+
     // 3. Dopisovací otázky z Breakdown & Theory (High-Yield Pearls)
     if (mod.breakdown && Array.isArray(mod.breakdown.classThree) && mod.breakdown.classThree.length > 0) {
       const c3 = cleanHtml(mod.breakdown.classThree[0]);
+      const cloze = cardioClassThreeClozes[mod.id];
       kardioQuestions.push({
         id: `kardio-${mod.id}-fill`,
         subjectId: 'kardio',
@@ -105,10 +127,10 @@ if (kardioData && kardioData.modules) {
         topicId: mod.id,
         topicTitle: mod.title,
         type: 'fill_in',
-        question: `Co patří mezi postupy Třídy III (kontraindikace / nedoporučeno) u tématu ${mod.title}?`,
-        sentence: `Podle doporučení ESC je u ${mod.title} třídou III: ${c3}`,
-        acceptedAnswers: [c3.slice(0, 25).toLowerCase(), mod.title.toLowerCase()],
-        hint: `Třída III - nedoporučeno u ${mod.title}`,
+        question: cloze ? cloze[0] : `Co patří mezi postupy Třídy III (kontraindikace / nedoporučeno) u tématu ${mod.title}?`,
+        sentence: cloze ? cloze[1] : `Podle doporučení ESC je u ${mod.title} třídou III: ${c3}`,
+        acceptedAnswers: cloze ? cloze[2] : [c3.slice(0, 25).toLowerCase()],
+        hint: cloze ? cloze[3] : `Třída III - nedoporučeno u ${mod.title}`,
         explanation: `Kontraindikace dle ESC 2023–2026: ${c3}`,
         pearl: 'Doporučení Třídy III značí postup, který neprospívá nebo může pacienta přímo poškodit.',
         tags: ['Dopisovací', 'Třída III ESC']
@@ -128,31 +150,41 @@ if (Array.isArray(kardioPractice)) {
         subjectTitle: 'Kardiologie',
         grade: 4,
         topicId: `kardio-${slugCat}`,
-        topicTitle: `Kardiologie: ${q.category}`,
+        topicTitle: `Kardiologie: ${cleanHtml(q.category)}`,
         type: 'single_choice',
-        question: q.question,
-        options: q.options || [],
+        question: cleanHtml(q.question),
+        options: (q.options || []).map(opt => cleanHtml(opt)),
         correctIndex: typeof q.correct === 'number' ? q.correct : 0,
-        explanation: q.explanation || '',
-        pearl: q.explanation ? (q.explanation.length > 160 ? q.explanation.slice(0, 160) + '...' : q.explanation) : '',
-        tags: ['Single Choice', q.category || 'Kardiologie', 'ESC Guidelines']
+        explanation: cleanHtml(q.explanation || 'Správná volba dle ESC Guidelines.'),
+        pearl: 'Důraz na stratifikaci kardiovaskulárního rizika a včasnou léčbu.',
+        tags: ['Single Choice', cleanHtml(q.category) || 'Kardiologie', 'ESC Guidelines']
       });
     } else if (q.type === 'type-in') {
+      const answersClean = (q.answers || [])
+        .map(a => cleanHtml(a).toLowerCase().trim())
+        .filter(a => a && a.split(/\s+/).length <= 2);
+
+      const labelWords = cleanHtml(q.answerLabel || '').toLowerCase().split(/\s+/);
+      if (answersClean.length === 0 && labelWords.length > 0) {
+        answersClean.push(labelWords.slice(0, 2).join(' '));
+        answersClean.push(labelWords[0]);
+      }
+
       kardioQuestions.push({
         id: `kardio-practice-${q.id}`,
         subjectId: 'kardio',
         subjectTitle: 'Kardiologie',
         grade: 4,
         topicId: `kardio-${slugCat}`,
-        topicTitle: `Kardiologie: ${q.category}`,
+        topicTitle: `Kardiologie: ${cleanHtml(q.category)}`,
         type: 'fill_in',
-        question: q.question,
-        sentence: `Správné doplnění: ${q.answerLabel || ''}. ${q.explanation || ''}`,
-        acceptedAnswers: (q.answers || []).map(a => a.toLowerCase().trim()),
-        hint: `${q.category} (${(q.answerLabel || '').slice(0, 1)}...)`,
-        explanation: q.explanation || '',
-        pearl: `Klíčový fakt (${q.category}): ${q.answerLabel} – ${q.explanation}`,
-        tags: ['Dopisovací', q.category || 'Kardiologie', 'ESC Guidelines']
+        question: cleanHtml(q.question),
+        sentence: `Správné doplnění: ${cleanHtml(q.answerLabel || '')}. ${cleanHtml(q.explanation || '')}`,
+        acceptedAnswers: Array.from(new Set(answersClean)).filter(a => a && a.split(/\s+/).length <= 2),
+        hint: `${cleanHtml(q.category)} (${(cleanHtml(q.answerLabel || '')).slice(0, 1)}...)`,
+        explanation: cleanHtml(q.explanation || ''),
+        pearl: 'Důraz na přesnou interpretaci nálezu a bezpečnost pacienta.',
+        tags: ['Dopisovací', cleanHtml(q.category) || 'Kardiologie', 'ESC Guidelines']
       });
     }
   });
@@ -164,12 +196,18 @@ if (Array.isArray(kardioPractice)) {
 console.log('Processing Neurologie...');
 const neuroData = evalJsFile(path.join(__dirname, '..', 'neuro', 'data.js'), 'NEUROLOGY_DATA');
 const neuroQuestions = [];
+const curatedNeuroPath = path.join(__dirname, '..', 'drill', 'curated_neuro_fill_ins.json');
+const curatedNeuroDefs = fs.existsSync(curatedNeuroPath) ? require(curatedNeuroPath) : {};
 
 if (neuroData && neuroData.modules) {
   neuroData.modules.forEach(mod => {
     // 1. Single Choice testy z quiz
     if (Array.isArray(mod.quiz)) {
       mod.quiz.forEach((q, idx) => {
+        let pearl = (mod.recall && mod.recall.scenarios && mod.recall.scenarios[0] && mod.recall.scenarios[0].pearl) || '';
+        if (!pearl || pearl.includes('LF OU') || pearl.includes('Speciální') || pearl.includes('Obecná')) {
+          pearl = (curatedNeuroDefs[mod.id] && curatedNeuroDefs[mod.id][0] && curatedNeuroDefs[mod.id][0].pearl) || '';
+        }
         neuroQuestions.push({
           id: `neuro-${mod.id}-sc-${idx + 1}`,
           subjectId: 'neuro',
@@ -178,11 +216,11 @@ if (neuroData && neuroData.modules) {
           topicId: mod.id,
           topicTitle: mod.title,
           type: 'single_choice',
-          question: q.question,
-          options: q.options || [],
+          question: cleanHtml(q.question),
+          options: (q.options || []).map(opt => cleanHtml(opt)),
           correctIndex: typeof q.correctIndex === 'number' ? q.correctIndex : (q.correct || 0),
-          explanation: q.explanation || '',
-          pearl: (mod.recall && mod.recall.scenarios && mod.recall.scenarios[0] && mod.recall.scenarios[0].pearl) || '',
+          explanation: cleanHtml(q.explanation || ''),
+          pearl: cleanHtml(pearl),
           tags: ['Single Choice', mod.badge || 'Neurologie']
         });
       });
@@ -191,6 +229,17 @@ if (neuroData && neuroData.modules) {
     // 2. Kazuistiky z recall.scenarios
     if (mod.recall && Array.isArray(mod.recall.scenarios)) {
       mod.recall.scenarios.forEach((sc, idx) => {
+        let pearl = sc.pearl || (curatedNeuroDefs[mod.id] && curatedNeuroDefs[mod.id][0] && curatedNeuroDefs[mod.id][0].pearl) || '';
+        if (pearl.includes('LF OU') || pearl.includes('Speciální') || pearl.includes('Obecná')) {
+          pearl = (curatedNeuroDefs[mod.id] && curatedNeuroDefs[mod.id][0] && curatedNeuroDefs[mod.id][0].pearl) || '';
+        }
+        
+        const cleanScenario = cleanHtml(sc.question)
+          .replace(/^Kazuistika:\s*/i, '')
+          .replace(/Klinický úkol:\s*/i, '\n\nKlinický úkol: ');
+
+        const cleanSolution = cleanHtml(sc.answer);
+
         neuroQuestions.push({
           id: `neuro-${mod.id}-case-${idx + 1}`,
           subjectId: 'neuro',
@@ -199,27 +248,23 @@ if (neuroData && neuroData.modules) {
           topicId: mod.id,
           topicTitle: mod.title,
           type: 'case_study',
-          title: sc.title || `Kazuistika: ${mod.title}`,
+          title: cleanHtml(sc.title || `Kazuistika: ${mod.title}`),
           vignette: {
-            scenario: sc.question,
-            solution: sc.answer,
-            keyTakeaway: sc.pearl || ''
+            scenario: cleanScenario,
+            solution: cleanSolution,
+            keyTakeaway: cleanHtml(pearl)
           },
-          explanation: sc.answer,
-          pearl: sc.pearl || '',
+          explanation: cleanSolution,
+          pearl: cleanHtml(pearl),
           tags: ['Kazuistika', 'Neurologie']
         });
       });
     }
 
-    // 3. Dopisovací otázky z cards (Flashcards -> Fill-in)
-    if (Array.isArray(mod.cards) && mod.cards.length > 0) {
-      mod.cards.forEach((card, idx) => {
-        const rawFront = cleanHtml(card.front);
-        const rawBack = cleanHtml(card.back);
-        const words = rawBack.split(/\s+/).filter(w => w.length > 4);
-        const keyword = words[0] || rawBack;
-        
+    // 3. Dopisovací otázky z vysoce kvalitní kurátorované banky (1-2 slova)
+    const defs = curatedNeuroDefs[mod.id];
+    if (Array.isArray(defs)) {
+      defs.forEach((def, idx) => {
         neuroQuestions.push({
           id: `neuro-${mod.id}-fill-${idx + 1}`,
           subjectId: 'neuro',
@@ -228,20 +273,19 @@ if (neuroData && neuroData.modules) {
           topicId: mod.id,
           topicTitle: mod.title,
           type: 'fill_in',
-          question: rawFront,
-          sentence: `Klíčový fakt: ${rawBack}`,
-          acceptedAnswers: [keyword.toLowerCase().replace(/[,.:;]/g, ''), rawBack.slice(0, 30).toLowerCase()],
-          hint: card.hint || 'Neurologický pojem',
-          explanation: rawBack,
-          pearl: card.hint || '',
-          tags: ['Dopisovací', 'Flashcard']
+          question: cleanHtml(def.question),
+          sentence: `Klíčový fakt: ${cleanHtml(def.explanation || (mod.cards && mod.cards[idx] && mod.cards[idx].back) || def.pearl)}`,
+          acceptedAnswers: def.acceptedAnswers,
+          hint: cleanHtml(def.hint),
+          explanation: cleanHtml(def.explanation || (mod.cards && mod.cards[idx] && mod.cards[idx].back) || def.pearl),
+          pearl: cleanHtml(def.pearl),
+          tags: ['Dopisovací', 'Neurologie']
         });
       });
     }
   });
 }
 
-// -------------------------------------------------------------
 // 3. PSYCHIATRIE (4. ročník)
 // -------------------------------------------------------------
 console.log('Processing Psychiatrie...');
@@ -265,7 +309,7 @@ if (psychData && psychData.modules) {
           options: q.options || [],
           correctIndex: typeof q.correctIndex === 'number' ? q.correctIndex : (q.correct || 0),
           explanation: q.explanation || '',
-          pearl: (mod.recall && mod.recall.scenarios && mod.recall.scenarios[0] && mod.recall.scenarios[0].pearl) || '',
+          pearl: (mod.recall && mod.recall.scenarios && mod.recall.scenarios[0] && mod.recall.scenarios[0].pearl && !mod.recall.scenarios[0].pearl.includes('LF OU') && !mod.recall.scenarios[0].pearl.includes('učebnice')) ? mod.recall.scenarios[0].pearl : 'Důraz na diferenciální diagnostiku a komplexní biopsychosociální přístup.',
           tags: ['Single Choice', mod.badge || 'Psychiatrie']
         });
       });
@@ -303,6 +347,12 @@ if (psychData && psychData.modules) {
         const words = rawBack.split(/\s+/).filter(w => w.length > 3);
         const keyword = words[0] || rawBack;
 
+        const kw = keyword.toLowerCase().replace(/[,.:;]/g, '').trim();
+        const shortKw = kw.split(/\s+/).slice(0, 2).join(' ');
+        const cardHintClean = (card.hint && !card.hint.includes('LF OU') && !card.hint.includes('učebnice')) ? card.hint : 'Klíčový psychiatrický pojem.';
+        let distinctPearl = (cardHintClean && cardHintClean !== rawBack && cardHintClean.length >= 15) ? cardHintClean : 'Důraz na včasnou diagnostiku a komplexní biopsychosociální přístup.';
+        if (distinctPearl.length < 15) distinctPearl = `Klíčový fakt: ${distinctPearl} – včasná diagnostika a adekvátní terapie.`;
+
         psychQuestions.push({
           id: `psych-${mod.id}-fill-${idx + 1}`,
           subjectId: 'psych',
@@ -313,11 +363,11 @@ if (psychData && psychData.modules) {
           type: 'fill_in',
           question: rawFront,
           sentence: `Klíčový fakt: ${rawBack}`,
-          acceptedAnswers: [keyword.toLowerCase().replace(/[,.:;]/g, ''), rawBack.slice(0, 30).toLowerCase()],
-          hint: card.hint || 'Psychiatrický pojem',
+          acceptedAnswers: Array.from(new Set([shortKw, kw])).filter(a => a && a.split(/\s+/).length <= 2),
+          hint: cardHintClean.length < 5 ? `Klíčový pojem: ${cardHintClean}` : cardHintClean,
           explanation: rawBack,
-          pearl: card.hint || '',
-          tags: ['Dopisovací', 'Flashcard']
+          pearl: distinctPearl,
+          tags: ['Dopisovací', 'Psychiatrie']
         });
       });
     }
@@ -335,20 +385,21 @@ if (Array.isArray(dermaData)) {
   dermaData.forEach(item => {
     if (Array.isArray(item.quiz)) {
       item.quiz.forEach((q, idx) => {
+        const clinPearl = (item.content && item.content.clinical) ? cleanHtml(item.content.clinical).slice(0, 160) + '...' : 'Důraz na morfologický popis eflorescencí a včasnou diagnostiku.';
         dermaQuestions.push({
           id: `derma-${item.id}-sc-${idx + 1}`,
           subjectId: 'derma',
           subjectTitle: 'Dermatologie',
           grade: 4,
           topicId: item.id,
-          topicTitle: item.title,
+          topicTitle: cleanHtml(item.title),
           type: 'single_choice',
-          question: q.question,
-          options: q.options || [],
+          question: cleanHtml(q.question),
+          options: (q.options || []).map(opt => cleanHtml(opt)),
           correctIndex: typeof q.correct === 'number' ? q.correct : (q.correctIndex || 0),
-          explanation: q.explanation || '',
-          pearl: (item.content && item.content.clinical) ? cleanHtml(item.content.clinical).slice(0, 160) + '...' : '',
-          tags: ['Single Choice', item.section || 'Dermatologie']
+          explanation: cleanHtml(q.explanation || 'Správná volba dle dermatovenerologických doporučení.'),
+          pearl: cleanHtml(clinPearl),
+          tags: ['Single Choice', cleanHtml(item.section) || 'Dermatologie']
         });
       });
     }
@@ -362,17 +413,17 @@ if (Array.isArray(dermaData)) {
           subjectTitle: 'Dermatologie',
           grade: 4,
           topicId: item.id,
-          topicTitle: item.title,
+          topicTitle: cleanHtml(item.title),
           type: 'case_study',
-          title: `Klinický obraz: ${item.title}`,
+          title: `Klinický obraz: ${cleanHtml(item.title)}`,
           vignette: {
-            scenario: `Jaké jsou typické klinické manifestace, diferenciální diagnostika a rizika u tématu: ${item.title}?`,
+            scenario: `Jaké jsou typické klinické manifestace, diferenciální diagnostika a rizika u tématu: ${cleanHtml(item.title)}?`,
             solution: clinText,
-            keyTakeaway: item.keywords ? item.keywords.join(', ') : ''
+            keyTakeaway: item.keywords ? item.keywords.map(k => cleanHtml(k)).join(', ') : 'Důraz na včasné rozpoznání kožních lézí.'
           },
           explanation: clinText,
-          pearl: item.keywords ? `Klíčové pojmy: ${item.keywords.join(', ')}` : '',
-          tags: ['Klinický rozbor', item.section || 'Dermatologie']
+          pearl: item.keywords ? `Klíčové pojmy: ${item.keywords.map(k => cleanHtml(k)).join(', ')}` : 'Důraz na včasné rozpoznání kožních lézí.',
+          tags: ['Klinický rozbor', cleanHtml(item.section) || 'Dermatologie']
         });
       }
     }
@@ -384,6 +435,7 @@ if (Array.isArray(dermaData)) {
 // -------------------------------------------------------------
 console.log('Processing Mikrobiologie...');
 const mikraData = evalJsFile(path.join(__dirname, '..', 'mikra', 'data_mikra.js'), 'MIKRA_QUESTIONS');
+const mikraReportedData = evalJsFile(path.join(__dirname, '..', 'mikra', 'reported_questions.js'), 'MIKRA_REPORTED_QUESTIONS');
 const mikraQuestions = [];
 
 if (Array.isArray(mikraData)) {
@@ -452,6 +504,35 @@ if (Array.isArray(mikraData)) {
   });
 }
 
+if (Array.isArray(mikraReportedData)) {
+  const topicsById = new Map((mikraData || []).map(item => [item.id, item]));
+  mikraReportedData.forEach(q => {
+    const topic = topicsById.get(q.topicId);
+    const partData = topic && (q.part === 'B' ? topic.cast_b : topic.cast_a);
+    const group = topic && (q.part === 'B' ? topic.skupina_b : topic.skupina_a);
+    mikraQuestions.push({
+      id: `mikra-${q.id}`,
+      subjectId: 'mikra',
+      subjectTitle: 'Mikrobiologie',
+      grade: 3,
+      topicId: `${q.topicId}-${String(q.part || 'A').toLowerCase()}`,
+      topicTitle: `${partData ? partData.title : 'Mikrobiologie'} (${group || 'Mikrobiologie'})`,
+      type: 'single_choice',
+      question: q.q,
+      options: q.options,
+      correctIndex: q.correct,
+      explanation: q.explanation,
+      pearl: q.reportedEvidence ? q.reportedEvidence.note : '',
+      reported: q.reported === true,
+      reportedEvidence: q.reportedEvidence || null,
+      source: q.source || '',
+      reviewedAt: q.reviewedAt || '',
+      media: q.media || null,
+      tags: ['Single Choice', 'Vynesená otázka', group || 'Mikrobiologie']
+    });
+  });
+}
+
 // -------------------------------------------------------------
 // 6. FARMAKOLOGIE (4. ročník)
 // -------------------------------------------------------------
@@ -494,6 +575,13 @@ if (pharmDetails) {
 
     if (item.pearl) {
       const pearlText = cleanHtml(item.pearl);
+      const explText = cleanHtml(item.definition || item.clinical || pearlText) || pearlText;
+      const distinctPearl = (explText !== pearlText) ? pearlText : 'Důraz na bezpečné dávkování a prevenci lékových interakcí.';
+      const shortTopic = cleanHtml(topicTitle).toLowerCase().split(/[,(]/)[0].trim();
+      const topicWords = shortTopic.split(/\s+/);
+      const ans1 = topicWords.slice(0, 2).join(' ');
+      const ans2 = topicWords[0];
+
       farmaQuestions.push({
         id: `farma-${key}-fill`,
         subjectId: 'farma',
@@ -502,12 +590,12 @@ if (pharmDetails) {
         topicId: key,
         topicTitle: topicTitle,
         type: 'fill_in',
-        question: `Klinická zásada pro téma: ${topicTitle}`,
-        sentence: `Pamatujte: ${pearlText}`,
-        acceptedAnswers: [topicTitle.slice(0, 20).toLowerCase(), 'ano', 'ne'],
-        hint: 'Základní pravidlo bezpečné farmakoterapie',
-        explanation: pearlText,
-        pearl: pearlText,
+        question: `Jakého farmakologického okruhu se týká zásada: "${pearlText.slice(0, 100)}..."?`,
+        sentence: `Klíčový fakt: ${pearlText}`,
+        acceptedAnswers: Array.from(new Set([ans1, ans2, shortTopic.slice(0, 25)])).filter(a => a && a.split(/\s+/).length <= 2),
+        hint: 'Farmakologická léková skupina / téma.',
+        explanation: explText,
+        pearl: distinctPearl,
         tags: ['Dopisovací', 'Bezpečnost léčiv']
       });
     }
@@ -670,6 +758,7 @@ const allSubjects = [
 ];
 
 allSubjects.forEach(sub => {
+  if (requestedSubject && sub.id !== requestedSubject) return;
   const filePath = path.join(OUT_DIR, `${sub.id}.json`);
   const jsonContent = JSON.stringify({
     id: sub.id,
@@ -708,8 +797,23 @@ allSubjects.forEach(sub => {
   console.log(`✅ [${sub.title}] ${sub.questions.length} otázek (${singleChoiceCount} SCQ, ${caseStudyCount} Kazuistik, ${fillInCount} Fill-in) -> ${Math.round(sizeBytes / 1024)} kB`);
 });
 
-const manifestPath = path.join(__dirname, '..', 'drill', 'data', 'manifest.json');
-fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2), 'utf8');
+const manifestPath = existingManifestPath;
+if (requestedSubject && existingManifest) {
+  const updatedSubject = manifest.subjects[0];
+  if (!updatedSubject) {
+    throw new Error(`Neznámý předmět pro cílený build: ${requestedSubject}`);
+  }
+  const subjectIndex = existingManifest.subjects.findIndex(subject => subject.id === requestedSubject);
+  if (subjectIndex === -1) {
+    throw new Error(`Předmět ${requestedSubject} v manifestu neexistuje.`);
+  }
+  existingManifest.version = releaseVersion;
+  existingManifest.lastUpdated = manifest.lastUpdated;
+  existingManifest.subjects[subjectIndex] = updatedSubject;
+  fs.writeFileSync(manifestPath, JSON.stringify(existingManifest, null, 2), 'utf8');
+} else {
+  fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2), 'utf8');
+}
 const serviceWorkerPath = path.join(__dirname, '..', 'drill', 'sw.js');
 const serviceWorker = fs.readFileSync(serviceWorkerPath, 'utf8');
 if (!/const RELEASE_VERSION = '[^']+';/.test(serviceWorker)) {
@@ -730,5 +834,5 @@ const validator = path.join(__dirname, '..', 'drill', 'scripts', 'validate-conte
 const validation = spawnSync(process.execPath, [validator], { stdio: 'inherit' });
 if (validation.status !== 0) process.exit(validation.status || 1);
 console.log(`\n🎉 Hotovo! Celkový manifest uložen do ${manifestPath}`);
-console.log(`Celkem témat: ${manifest.subjects.length}`);
-console.log(`Celkem otázek v bance: ${manifest.subjects.reduce((sum, s) => sum + s.totalQuestions, 0)}`);
+console.log(`Celkem témat ve výstupu: ${manifest.subjects.length}`);
+console.log(`Celkem otázek ve výstupu: ${manifest.subjects.reduce((sum, s) => sum + s.totalQuestions, 0)}`);

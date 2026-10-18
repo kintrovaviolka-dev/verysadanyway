@@ -32,4 +32,12 @@ for (const name of ['clinical-learning-portal', 'urgentni-prijem']) {
   if (!fs.existsSync(path.join(source, 'index.html'))) throw new Error(`Build ${name} before staging public assets`);
   copyTree(source, path.join(output, name));
 }
-console.log('Public assets staged for Cloudflare; server sources and reference materials excluded.');
+if (fs.existsSync(path.join(root, 'private-patient', 'LICENSE'))) {
+  fs.mkdirSync(path.join(output, 'third-party/ai-patient'), { recursive: true });
+  for (const name of ['LICENSE', 'NOTICE']) {
+    if (fs.existsSync(path.join(root, 'private-patient', name))) {
+      fs.copyFileSync(path.join(root, 'private-patient', name), path.join(output, 'third-party/ai-patient', `${name}.txt`));
+    }
+  }
+}
+console.log('Public assets staged for deployment; server sources and reference materials excluded.');

@@ -82,15 +82,14 @@
       "topicId": "pharm-1",
       "topicTitle": "Lékové formy pro enterální podání",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: Lékové formy pro enterální podání",
-      "sentence": "Pamatujte: U tablet s modifikovaným uvolňováním (např. retardované formy) je přísně zakázáno jejich drcení či půlení, pokud to výrobce výslovně neumožňuje. Drcením dojde k okamžitému uvolnění celé dávky (dose dumping) a riziku toxicity!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"U tablet s modifikovaným uvolňováním (např. retardované formy) je přísně zakázáno jejich drcení či p...\"?",
+      "sentence": "Klíčový fakt: U tablet s modifikovaným uvolňováním (např. retardované formy) je přísně zakázáno jejich drcení či půlení, pokud to výrobce výslovně neumožňuje. Drcením dojde k okamžitému uvolnění celé dávky (dose dumping) a riziku toxicity!",
       "acceptedAnswers": [
-        "lékové formy pro ent",
-        "ano",
-        "ne"
+        "lékové formy",
+        "lékové"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "U tablet s modifikovaným uvolňováním (např. retardované formy) je přísně zakázáno jejich drcení či půlení, pokud to výrobce výslovně neumožňuje. Drcením dojde k okamžitému uvolnění celé dávky (dose dumping) a riziku toxicity!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Lékové formy pro enterální podání jsou určeny pro aplikaci léčiv do gastrointestinálního traktu (ústní dutina, žaludek, střevo, konečník) s cílem dosáhnout lokálního nebo systémového účinku po vstřebání.",
       "pearl": "U tablet s modifikovaným uvolňováním (např. retardované formy) je přísně zakázáno jejich drcení či půlení, pokud to výrobce výslovně neumožňuje. Drcením dojde k okamžitému uvolnění celé dávky (dose dumping) a riziku toxicity!",
       "tags": [
         "Dopisovací",
@@ -174,15 +173,14 @@
       "topicId": "pharm-2",
       "topicTitle": "Lékové formy pro parenterální podání",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: Lékové formy pro parenterální podání",
-      "sentence": "Pamatujte: Intramuskulární podání je přísně kontraindikováno u pacientů na antikoagulační léčbě (např. warfarin, LMWH) nebo s trombocytopenií. Hrozí vznik rozsáhlých a život ohrožujících intramuskulárních hematomů!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Intramuskulární podání je přísně kontraindikováno u pacientů na antikoagulační léčbě (např. warfarin...\"?",
+      "sentence": "Klíčový fakt: Intramuskulární podání je přísně kontraindikováno u pacientů na antikoagulační léčbě (např. warfarin, LMWH) nebo s trombocytopenií. Hrozí vznik rozsáhlých a život ohrožujících intramuskulárních hematomů!",
       "acceptedAnswers": [
-        "lékové formy pro par",
-        "ano",
-        "ne"
+        "lékové formy",
+        "lékové"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Intramuskulární podání je přísně kontraindikováno u pacientů na antikoagulační léčbě (např. warfarin, LMWH) nebo s trombocytopenií. Hrozí vznik rozsáhlých a život ohrožujících intramuskulárních hematomů!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Lékové formy pro parenterální podání obcházejí gastrointestinální trakt a aplikují se injekčně, infúzně nebo implantací přímo do tkání či cévního řečiště.",
       "pearl": "Intramuskulární podání je přísně kontraindikováno u pacientů na antikoagulační léčbě (např. warfarin, LMWH) nebo s trombocytopenií. Hrozí vznik rozsáhlých a život ohrožujících intramuskulárních hematomů!",
       "tags": [
         "Dopisovací",
@@ -266,15 +264,14 @@
       "topicId": "pharm-3",
       "topicTitle": "Elektrolytové infúzní roztoky",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: Elektrolytové infúzní roztoky",
-      "sentence": "Pamatujte: Takzvaný fyziologický roztok (0.9% NaCl) není biologicky fyziologický! Obsahuje 154 mmol/l Na+ a 154 mmol/l Cl-. Koncentrace chloridů je výrazně vyšší než v plazmě (100 mmol/l), což vede k renální vazokonstrikci a hyperchloremické acidóze. Preferujte balancované krystaloidy!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Takzvaný fyziologický roztok (0.9% NaCl) není biologicky fyziologický! Obsahuje 154 mmol/l Na+ a 154...\"?",
+      "sentence": "Klíčový fakt: Takzvaný fyziologický roztok (0.9% NaCl) není biologicky fyziologický! Obsahuje 154 mmol/l Na+ a 154 mmol/l Cl-. Koncentrace chloridů je výrazně vyšší než v plazmě (100 mmol/l), což vede k renální vazokonstrikci a hyperchloremické acidóze. Preferujte balancované krystaloidy!",
       "acceptedAnswers": [
-        "elektrolytové infúzn",
-        "ano",
-        "ne"
+        "elektrolytové infúzní",
+        "elektrolytové"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Takzvaný fyziologický roztok (0.9% NaCl) není biologicky fyziologický! Obsahuje 154 mmol/l Na+ a 154 mmol/l Cl-. Koncentrace chloridů je výrazně vyšší než v plazmě (100 mmol/l), což vede k renální vazokonstrikci a hyperchloremické acidóze. Preferujte balancované krystaloidy!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Elektrolytové infúzní roztoky (krystaloidy) jsou vodné roztoky anorganických solí určené k intravenóznímu hrazení ztrát vody a iontů, úpravě osmolarity a volumoterapii v extracelulárním prostoru.",
       "pearl": "Takzvaný fyziologický roztok (0.9% NaCl) není biologicky fyziologický! Obsahuje 154 mmol/l Na+ a 154 mmol/l Cl-. Koncentrace chloridů je výrazně vyšší než v plazmě (100 mmol/l), což vede k renální vazokonstrikci a hyperchloremické acidóze. Preferujte balancované krystaloidy!",
       "tags": [
         "Dopisovací",
@@ -358,15 +355,14 @@
       "topicId": "pharm-4",
       "topicTitle": "Přípravky ke korekci poruch iontové a acidobazické rovnováhy",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: Přípravky ke korekci poruch iontové a acidobazické rovnováhy",
-      "sentence": "Pamatujte: Koncentrovaný roztok chloridu draselného (7.45% KCl) se NIKDY nesmí podat jako přímý i.v. bolus! Působí jako kardioplegický roztok (depolarizuje srdeční membrány a způsobí okamžitou asystolii). Vždy musí být naředěn do infuze a podáván kontrolovanou rychlostí!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Koncentrovaný roztok chloridu draselného (7.45% KCl) se NIKDY nesmí podat jako přímý i.v. bolus! Půs...\"?",
+      "sentence": "Klíčový fakt: Koncentrovaný roztok chloridu draselného (7.45% KCl) se NIKDY nesmí podat jako přímý i.v. bolus! Působí jako kardioplegický roztok (depolarizuje srdeční membrány a způsobí okamžitou asystolii). Vždy musí být naředěn do infuze a podáván kontrolovanou rychlostí!",
       "acceptedAnswers": [
-        "přípravky ke korekci",
-        "ano",
-        "ne"
+        "přípravky ke",
+        "přípravky"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Koncentrovaný roztok chloridu draselného (7.45% KCl) se NIKDY nesmí podat jako přímý i.v. bolus! Působí jako kardioplegický roztok (depolarizuje srdeční membrány a způsobí okamžitou asystolii). Vždy musí být naředěn do infuze a podáván kontrolovanou rychlostí!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Přípravky ke korekci poruch iontové a acidobazické rovnováhy jsou specifické roztoky elektrolytů (draslík, vápník, hořčík, hydrogenuhličitan sodný) určené k léčbě závažných život ohrožujících metabolických a elektrolytových dysbalancí.",
       "pearl": "Koncentrovaný roztok chloridu draselného (7.45% KCl) se NIKDY nesmí podat jako přímý i.v. bolus! Působí jako kardioplegický roztok (depolarizuje srdeční membrány a způsobí okamžitou asystolii). Vždy musí být naředěn do infuze a podáván kontrolovanou rychlostí!",
       "tags": [
         "Dopisovací",
@@ -450,15 +446,14 @@
       "topicId": "pharm-5",
       "topicTitle": "Infúzní roztoky cukrů, volumexpandéry",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: Infúzní roztoky cukrů, volumexpandéry",
-      "sentence": "Pamatujte: Hydroxyethylškroby (HES) se již nesmějí v klinické praxi v EU používat pro resuscitaci oběhu. Rozsáhlé studie prokázaly, že u pacientů v sepsi a kritickém stavu způsobují akutní poškození ledvin vyžadující dialýzu a zvyšují riziko úmrtí!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Hydroxyethylškroby (HES) se již nesmějí v klinické praxi v EU používat pro resuscitaci oběhu. Rozsáh...\"?",
+      "sentence": "Klíčový fakt: Hydroxyethylškroby (HES) se již nesmějí v klinické praxi v EU používat pro resuscitaci oběhu. Rozsáhlé studie prokázaly, že u pacientů v sepsi a kritickém stavu způsobují akutní poškození ledvin vyžadující dialýzu a zvyšují riziko úmrtí!",
       "acceptedAnswers": [
-        "infúzní roztoky cukr",
-        "ano",
-        "ne"
+        "infúzní roztoky",
+        "infúzní"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Hydroxyethylškroby (HES) se již nesmějí v klinické praxi v EU používat pro resuscitaci oběhu. Rozsáhlé studie prokázaly, že u pacientů v sepsi a kritickém stavu způsobují akutní poškození ledvin vyžadující dialýzu a zvyšují riziko úmrtí!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Infúzní roztoky cukrů a volumexpandéry jsou přípravky určené k dodání volné vody a energie (glukóza) nebo k udržení a doplnění intravaskulárního objemu krve (koloidní volumexpandéry).",
       "pearl": "Hydroxyethylškroby (HES) se již nesmějí v klinické praxi v EU používat pro resuscitaci oběhu. Rozsáhlé studie prokázaly, že u pacientů v sepsi a kritickém stavu způsobují akutní poškození ledvin vyžadující dialýzu a zvyšují riziko úmrtí!",
       "tags": [
         "Dopisovací",
@@ -542,15 +537,14 @@
       "topicId": "pharm-6",
       "topicTitle": "Topické lékové formy pro užití v dermatologii a jejich terapeutické použití",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: Topické lékové formy pro užití v dermatologii a jejich terapeutické použití",
-      "sentence": "Pamatujte: Při aplikaci silných lokálních kortikosteroidů (např. clobetasol) na velké plochy kůže nebo pod okluzní obvaz může dojít k tak významné systémové absorpci, že se vyvine iatrogenní Cushingův syndrom a supresi nadledvin! Vždy aplikujte v tenké vrstvě.",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Při aplikaci silných lokálních kortikosteroidů (např. clobetasol) na velké plochy kůže nebo pod oklu...\"?",
+      "sentence": "Klíčový fakt: Při aplikaci silných lokálních kortikosteroidů (např. clobetasol) na velké plochy kůže nebo pod okluzní obvaz může dojít k tak významné systémové absorpci, že se vyvine iatrogenní Cushingův syndrom a supresi nadledvin! Vždy aplikujte v tenké vrstvě.",
       "acceptedAnswers": [
-        "topické lékové formy",
-        "ano",
-        "ne"
+        "topické lékové",
+        "topické"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Při aplikaci silných lokálních kortikosteroidů (např. clobetasol) na velké plochy kůže nebo pod okluzní obvaz může dojít k tak významné systémové absorpci, že se vyvine iatrogenní Cushingův syndrom a supresi nadledvin! Vždy aplikujte v tenké vrstvě.",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Topické lékové formy pro užití v dermatologii jsou přípravky určené k aplikaci na kůži za účelem dosažení lokálního terapeutického účinku (protizánětlivý, antimikrobiální, hydratační, protektivní).",
       "pearl": "Při aplikaci silných lokálních kortikosteroidů (např. clobetasol) na velké plochy kůže nebo pod okluzní obvaz může dojít k tak významné systémové absorpci, že se vyvine iatrogenní Cushingův syndrom a supresi nadledvin! Vždy aplikujte v tenké vrstvě.",
       "tags": [
         "Dopisovací",
@@ -634,15 +628,14 @@
       "topicId": "pharm-7",
       "topicTitle": "Lékové formy pro transdermální a slizniční aplikaci systémově působících látek a jejich terapeutické použití",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: Lékové formy pro transdermální a slizniční aplikaci systémově působících látek a jejich terapeutické použití",
-      "sentence": "Pamatujte: TTS náplasti s obsahem opioidů (fentanyl, buprenorfin) se nesmějí vystavovat přímému působení tepla (horká koupel, vyhřívací dečky, vysoká horečka). Teplo výrazně zvyšuje prokrvení kůže a vasodilataci, což vede k prudkému zvýšení absorpce a riziku fatálního útlumu dýchání!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"TTS náplasti s obsahem opioidů (fentanyl, buprenorfin) se nesmějí vystavovat přímému působení tepla ...\"?",
+      "sentence": "Klíčový fakt: TTS náplasti s obsahem opioidů (fentanyl, buprenorfin) se nesmějí vystavovat přímému působení tepla (horká koupel, vyhřívací dečky, vysoká horečka). Teplo výrazně zvyšuje prokrvení kůže a vasodilataci, což vede k prudkému zvýšení absorpce a riziku fatálního útlumu dýchání!",
       "acceptedAnswers": [
-        "lékové formy pro tra",
-        "ano",
-        "ne"
+        "lékové formy",
+        "lékové"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "TTS náplasti s obsahem opioidů (fentanyl, buprenorfin) se nesmějí vystavovat přímému působení tepla (horká koupel, vyhřívací dečky, vysoká horečka). Teplo výrazně zvyšuje prokrvení kůže a vasodilataci, což vede k prudkému zvýšení absorpce a riziku fatálního útlumu dýchání!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Lékové formy pro transdermální a slizniční aplikaci systémově působících látek jsou navrženy tak, aby po lokální aplikaci na kůži nebo sliznici (sublingvální, nosní, vaginální) došlo k průniku léčiva do krevního oběhu s celkovým účinkem.",
       "pearl": "TTS náplasti s obsahem opioidů (fentanyl, buprenorfin) se nesmějí vystavovat přímému působení tepla (horká koupel, vyhřívací dečky, vysoká horečka). Teplo výrazně zvyšuje prokrvení kůže a vasodilataci, což vede k prudkému zvýšení absorpce a riziku fatálního útlumu dýchání!",
       "tags": [
         "Dopisovací",
@@ -726,15 +719,14 @@
       "topicId": "pharm-8",
       "topicTitle": "Lékové formy pro inhalační aplikaci a jejich terapeutické použití",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: Lékové formy pro inhalační aplikaci a jejich terapeutické použití",
-      "sentence": "Pamatujte: Po každé inhalaci inhalačního kortikosteroidu (IKS) si pacient musí důkladně vypláchnout ústa vodou a vodu vyplivnout (případně se najíst). Tím se odstraní zbytek steroidu ulpělého na sliznici orofaryngu, což předchází vzniku orofaryngeální kandidózy (moučnivky) a chropotu (dysfonii)!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Po každé inhalaci inhalačního kortikosteroidu (IKS) si pacient musí důkladně vypláchnout ústa vodou ...\"?",
+      "sentence": "Klíčový fakt: Po každé inhalaci inhalačního kortikosteroidu (IKS) si pacient musí důkladně vypláchnout ústa vodou a vodu vyplivnout (případně se najíst). Tím se odstraní zbytek steroidu ulpělého na sliznici orofaryngu, což předchází vzniku orofaryngeální kandidózy (moučnivky) a chropotu (dysfonii)!",
       "acceptedAnswers": [
-        "lékové formy pro inh",
-        "ano",
-        "ne"
+        "lékové formy",
+        "lékové"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Po každé inhalaci inhalačního kortikosteroidu (IKS) si pacient musí důkladně vypláchnout ústa vodou a vodu vyplivnout (případně se najíst). Tím se odstraní zbytek steroidu ulpělého na sliznici orofaryngu, což předchází vzniku orofaryngeální kandidózy (moučnivky) a chropotu (dysfonii)!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Lékové formy pro inhalační aplikaci jsou určeny k vdechování plynů, par nebo aerosolů (kapky, prášky) s cílem dosáhnout lokálního účinku v dýchacích cestách nebo systémového účinku po vstřebání plicními alveoly.",
       "pearl": "Po každé inhalaci inhalačního kortikosteroidu (IKS) si pacient musí důkladně vypláchnout ústa vodou a vodu vyplivnout (případně se najíst). Tím se odstraní zbytek steroidu ulpělého na sliznici orofaryngu, což předchází vzniku orofaryngeální kandidózy (moučnivky) a chropotu (dysfonii)!",
       "tags": [
         "Dopisovací",
@@ -818,15 +810,13 @@
       "topicId": "pharm-9",
       "topicTitle": "Oční, nosní a ušní topické lékové formy a jejich terapeutické použití",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: Oční, nosní a ušní topické lékové formy a jejich terapeutické použití",
-      "sentence": "Pamatujte: Při aplikaci beta-blokátorů (např. timololu) ve formě očních kapek u pacientů s astmatem nebo těžkou bradykardií může dojít k systémové resorpci slzným kanálkem a vyvolání život ohrožujícího bronchospasmu či srdečního bloku. Vždy stlačte vnitřní koutek oka po aplikaci!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Při aplikaci beta-blokátorů (např. timololu) ve formě očních kapek u pacientů s astmatem nebo těžkou...\"?",
+      "sentence": "Klíčový fakt: Při aplikaci beta-blokátorů (např. timololu) ve formě očních kapek u pacientů s astmatem nebo těžkou bradykardií může dojít k systémové resorpci slzným kanálkem a vyvolání život ohrožujícího bronchospasmu či srdečního bloku. Vždy stlačte vnitřní koutek oka po aplikaci!",
       "acceptedAnswers": [
-        "oční, nosní a ušní t",
-        "ano",
-        "ne"
+        "oční"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Při aplikaci beta-blokátorů (např. timololu) ve formě očních kapek u pacientů s astmatem nebo těžkou bradykardií může dojít k systémové resorpci slzným kanálkem a vyvolání život ohrožujícího bronchospasmu či srdečního bloku. Vždy stlačte vnitřní koutek oka po aplikaci!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Oční, nosní a ušní topické lékové formy jsou kapalné, polotuhé nebo tuhé přípravky určené k aplikaci na sliznici oka (spojivkový vak), nosní sliznici nebo do vnějšího zvukovodu k dosažení lokálního účinku.",
       "pearl": "Při aplikaci beta-blokátorů (např. timololu) ve formě očních kapek u pacientů s astmatem nebo těžkou bradykardií může dojít k systémové resorpci slzným kanálkem a vyvolání život ohrožujícího bronchospasmu či srdečního bloku. Vždy stlačte vnitřní koutek oka po aplikaci!",
       "tags": [
         "Dopisovací",
@@ -910,15 +900,14 @@
       "topicId": "pharm-10",
       "topicTitle": "Lékové formy k topické rektální a vaginální aplikaci a jejich terapeutické použití",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: Lékové formy k topické rektální a vaginální aplikaci a jejich terapeutické použití",
-      "sentence": "Pamatujte: Rektální čípky se nesmí zavádět příliš hluboko do konečníku, pokud cílíme na systémový účinek bez first-pass efektu. Hluboké zavedení posune čípek do oblasti drénované v. rectalis superior, která ústí do portálního oběhu, a lék tak bude metabolizován v játrech!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Rektální čípky se nesmí zavádět příliš hluboko do konečníku, pokud cílíme na systémový účinek bez fi...\"?",
+      "sentence": "Klíčový fakt: Rektální čípky se nesmí zavádět příliš hluboko do konečníku, pokud cílíme na systémový účinek bez first-pass efektu. Hluboké zavedení posune čípek do oblasti drénované v. rectalis superior, která ústí do portálního oběhu, a lék tak bude metabolizován v játrech!",
       "acceptedAnswers": [
-        "lékové formy k topic",
-        "ano",
-        "ne"
+        "lékové formy",
+        "lékové"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Rektální čípky se nesmí zavádět příliš hluboko do konečníku, pokud cílíme na systémový účinek bez first-pass efektu. Hluboké zavedení posune čípek do oblasti drénované v. rectalis superior, která ústí do portálního oběhu, a lék tak bude metabolizován v játrech!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Lékové formy k topické rektální a vaginální aplikaci jsou pevné (supozitoria, globule), polotuhé (masti, krémy) nebo tekuté (klyzmata, pěny) přípravky určené k zavedení do konečníku nebo pochvy k dosažení lokálního účinku.",
       "pearl": "Rektální čípky se nesmí zavádět příliš hluboko do konečníku, pokud cílíme na systémový účinek bez first-pass efektu. Hluboké zavedení posune čípek do oblasti drénované v. rectalis superior, která ústí do portálního oběhu, a lék tak bude metabolizován v játrech!",
       "tags": [
         "Dopisovací",
@@ -1002,15 +991,14 @@
       "topicId": "pharm-11",
       "topicTitle": "Absorpce léčiv, biologická dostupnost, faktory ovlivňující absorpci",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: Absorpce léčiv, biologická dostupnost, faktory ovlivňující absorpci",
-      "sentence": "Pamatujte: U léčiv s úzkým terapeutickým indexem (např. cyklosporin, digoxin) může i malá změna biologické dostupnosti vyvolaná záměnou přípravků (generická substituce s jinou pomocnou látkou) vést k terapeutickému selhání nebo naopak k toxickému předávkování!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"U léčiv s úzkým terapeutickým indexem (např. cyklosporin, digoxin) může i malá změna biologické dost...\"?",
+      "sentence": "Klíčový fakt: U léčiv s úzkým terapeutickým indexem (např. cyklosporin, digoxin) může i malá změna biologické dostupnosti vyvolaná záměnou přípravků (generická substituce s jinou pomocnou látkou) vést k terapeutickému selhání nebo naopak k toxickému předávkování!",
       "acceptedAnswers": [
-        "absorpce léčiv, biol",
-        "ano",
-        "ne"
+        "absorpce léčiv",
+        "absorpce"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "U léčiv s úzkým terapeutickým indexem (např. cyklosporin, digoxin) může i malá změna biologické dostupnosti vyvolaná záměnou přípravků (generická substituce s jinou pomocnou látkou) vést k terapeutickému selhání nebo naopak k toxickému předávkování!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Absorpce (vstřebávání) je proces průniku léčiva z místa podání do systémové cirkulace. Biologická dostupnost (F) vyjadřuje podíl podané dávky, který se dostane v nezměněné formě do systémového oběhu.",
       "pearl": "U léčiv s úzkým terapeutickým indexem (např. cyklosporin, digoxin) může i malá změna biologické dostupnosti vyvolaná záměnou přípravků (generická substituce s jinou pomocnou látkou) vést k terapeutickému selhání nebo naopak k toxickému předávkování!",
       "tags": [
         "Dopisovací",
@@ -1094,15 +1082,14 @@
       "topicId": "pharm-12",
       "topicTitle": "Distribuce léčiv, kompartmenty, vazba na plazmatické proteiny, faktory ovlivňující distribuci",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: Distribuce léčiv, kompartmenty, vazba na plazmatické proteiny, faktory ovlivňující distribuci",
-      "sentence": "Pamatujte: Distribuční objem ($V_d$) přímo určuje velikost nasycovací dávky (loading dose). U léků s obrovským $V_d$ (např. digoxin, amiodaron) musíme podat na začátku léčby vysokou nasycovací dávku, abychom saturovali tkáňové rezervoáry a rychle dosáhli terapeutické hladiny v plazmě!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Distribuční objem ($V_d$) přímo určuje velikost nasycovací dávky (loading dose). U léků s obrovským ...\"?",
+      "sentence": "Klíčový fakt: Distribuční objem ($V_d$) přímo určuje velikost nasycovací dávky (loading dose). U léků s obrovským $V_d$ (např. digoxin, amiodaron) musíme podat na začátku léčby vysokou nasycovací dávku, abychom saturovali tkáňové rezervoáry a rychle dosáhli terapeutické hladiny v plazmě!",
       "acceptedAnswers": [
-        "distribuce léčiv, ko",
-        "ano",
-        "ne"
+        "distribuce léčiv",
+        "distribuce"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Distribuční objem ($V_d$) přímo určuje velikost nasycovací dávky (loading dose). U léků s obrovským $V_d$ (např. digoxin, amiodaron) musíme podat na začátku léčby vysokou nasycovací dávku, abychom saturovali tkáňové rezervoáry a rychle dosáhli terapeutické hladiny v plazmě!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Distribuce je reverzibilní prostup léčiva ze systémové cirkulace do tkání a orgánů. Distribuční objem ($V_d$) je teoretický objem tělesné vody, ve kterém by se léčivo muselo rovnoměrně rozpustit, aby dosáhlo stejné koncentrace jako v plazmě.",
       "pearl": "Distribuční objem ($V_d$) přímo určuje velikost nasycovací dávky (loading dose). U léků s obrovským $V_d$ (např. digoxin, amiodaron) musíme podat na začátku léčby vysokou nasycovací dávku, abychom saturovali tkáňové rezervoáry a rychle dosáhli terapeutické hladiny v plazmě!",
       "tags": [
         "Dopisovací",
@@ -1186,15 +1173,14 @@
       "topicId": "pharm-13",
       "topicTitle": "Metabolismus léčiv, metabolity, cytochrom P450, faktory ovlivňující metabolismus",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: Metabolismus léčiv, metabolity, cytochrom P450, faktory ovlivňující metabolismus",
-      "sentence": "Pamatujte: Grapefruitový džus je silným a ireversibilním inhibitorem střevního CYP3A4. Vypití pouhé jedné sklenice džusu může zablokovat metabolismus běžně užívaných statinů (simvastatin, atorvastatin) nebo blokátorů vápníkových kanálků, což vede k mnohonásobnému zvýšení plazmatických hladin a riziku rhabdomyolýzy či těžké hypotenze!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Grapefruitový džus je silným a ireversibilním inhibitorem střevního CYP3A4. Vypití pouhé jedné sklen...\"?",
+      "sentence": "Klíčový fakt: Grapefruitový džus je silným a ireversibilním inhibitorem střevního CYP3A4. Vypití pouhé jedné sklenice džusu může zablokovat metabolismus běžně užívaných statinů (simvastatin, atorvastatin) nebo blokátorů vápníkových kanálků, což vede k mnohonásobnému zvýšení plazmatických hladin a riziku rhabdomyolýzy či těžké hypotenze!",
       "acceptedAnswers": [
-        "metabolismus léčiv, ",
-        "ano",
-        "ne"
+        "metabolismus léčiv",
+        "metabolismus"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Grapefruitový džus je silným a ireversibilním inhibitorem střevního CYP3A4. Vypití pouhé jedné sklenice džusu může zablokovat metabolismus běžně užívaných statinů (simvastatin, atorvastatin) nebo blokátorů vápníkových kanálků, což vede k mnohonásobnému zvýšení plazmatických hladin a riziku rhabdomyolýzy či těžké hypotenze!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Metabolismus (biotransformace) je enzymatická přeměna léčiv v organismu, jejímž cílem je převést lipofilní látky na hydrofilnější metabolity, které lze snadno vyloučit ledvinami či žlučí.",
       "pearl": "Grapefruitový džus je silným a ireversibilním inhibitorem střevního CYP3A4. Vypití pouhé jedné sklenice džusu může zablokovat metabolismus běžně užívaných statinů (simvastatin, atorvastatin) nebo blokátorů vápníkových kanálků, což vede k mnohonásobnému zvýšení plazmatických hladin a riziku rhabdomyolýzy či těžké hypotenze!",
       "tags": [
         "Dopisovací",
@@ -1278,15 +1264,14 @@
       "topicId": "pharm-14",
       "topicTitle": "Eliminace léčiv, biologický poločas, faktory ovlivňující eliminaci",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: Eliminace léčiv, biologický poločas, faktory ovlivňující eliminaci",
-      "sentence": "Pamatujte: K dosažení ustáleného stavu (steady state) při kontinuálním podávání léčiva je vždy potřeba 4 až 5 biologických poločasů ($t_{1/2}$), a to bez ohledu na velikost dávky nebo interval podávání! Stejná doba (4-5 poločasů) je nutná k vymizení léčiva z organismu po vysazení.",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"K dosažení ustáleného stavu (steady state) při kontinuálním podávání léčiva je vždy potřeba 4 až 5 b...\"?",
+      "sentence": "Klíčový fakt: K dosažení ustáleného stavu (steady state) při kontinuálním podávání léčiva je vždy potřeba 4 až 5 biologických poločasů ($t_{1/2}$), a to bez ohledu na velikost dávky nebo interval podávání! Stejná doba (4-5 poločasů) je nutná k vymizení léčiva z organismu po vysazení.",
       "acceptedAnswers": [
-        "eliminace léčiv, bio",
-        "ano",
-        "ne"
+        "eliminace léčiv",
+        "eliminace"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "K dosažení ustáleného stavu (steady state) při kontinuálním podávání léčiva je vždy potřeba 4 až 5 biologických poločasů ($t_{1/2}$), a to bez ohledu na velikost dávky nebo interval podávání! Stejná doba (4-5 poločasů) je nutná k vymizení léčiva z organismu po vysazení.",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Eliminace je nevratné odstranění léčiva z těla, které zahrnuje biotransformaci (metabolismus v játrech) a exkreci (vylučování ledvinami, žlučí, plícemi atd.). Biologický poločas ($t_{1/2}$) je čas potřebný k poklesu koncentrace léčiva v plazmě o polovinu.",
       "pearl": "K dosažení ustáleného stavu (steady state) při kontinuálním podávání léčiva je vždy potřeba 4 až 5 biologických poločasů ($t_{1/2}$), a to bez ohledu na velikost dávky nebo interval podávání! Stejná doba (4-5 poločasů) je nutná k vymizení léčiva z organismu po vysazení.",
       "tags": [
         "Dopisovací",
@@ -1370,15 +1355,14 @@
       "topicId": "pharm-15",
       "topicTitle": "Nespecifické a specifické účinky léčiv, základy receptové teorie",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: Nespecifické a specifické účinky léčiv, základy receptové teorie",
-      "sentence": "Pamatujte: Parciální agonista může působit jako agonista (při absenci plného agonisty) nebo jako funkční antagonista (při přítomnosti plného agonisty, kterého vytěsní z vazby, čímž sníží celkovou odpověď systému). Tento princip se využívá u antipsychotik (aripiprazol) nebo léčby závislosti (buprenorfin)!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Parciální agonista může působit jako agonista (při absenci plného agonisty) nebo jako funkční antago...\"?",
+      "sentence": "Klíčový fakt: Parciální agonista může působit jako agonista (při absenci plného agonisty) nebo jako funkční antagonista (při přítomnosti plného agonisty, kterého vytěsní z vazby, čímž sníží celkovou odpověď systému). Tento princip se využívá u antipsychotik (aripiprazol) nebo léčby závislosti (buprenorfin)!",
       "acceptedAnswers": [
-        "nespecifické a speci",
-        "ano",
-        "ne"
+        "nespecifické a",
+        "nespecifické"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Parciální agonista může působit jako agonista (při absenci plného agonisty) nebo jako funkční antagonista (při přítomnosti plného agonisty, kterého vytěsní z vazby, čímž sníží celkovou odpověď systému). Tento princip se využívá u antipsychotik (aripiprazol) nebo léčby závislosti (buprenorfin)!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Nespecifický účinek léčiv je dán jejich fyzikálně-chemickými vlastnostmi (osmolarita, pH, adsorpce). Specifický účinek je zprostředkován vazbou na konkrétní cílové struktury - receptory.",
       "pearl": "Parciální agonista může působit jako agonista (při absenci plného agonisty) nebo jako funkční antagonista (při přítomnosti plného agonisty, kterého vytěsní z vazby, čímž sníží celkovou odpověď systému). Tento princip se využívá u antipsychotik (aripiprazol) nebo léčby závislosti (buprenorfin)!",
       "tags": [
         "Dopisovací",
@@ -1462,15 +1446,14 @@
       "topicId": "pharm-16",
       "topicTitle": "Vztah léčiva a receptoru (atomismus atd.; selektivita a stereospecifita a jejich praktický význam)",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: Vztah léčiva a receptoru (atomismus atd.; selektivita a stereospecifita a jejich praktický význam)",
-      "sentence": "Pamatujte: Tragédie s thalidomidem (Contergan) v 60. letech 20. století byla způsobena teratogenitou S-enantiomeru, který způsoboval amélii a fokomélii u dětí. R-enantiomer byl bezpečné sedativum. Protože však oba enantiomery v těle podléhají rychlé vzájemné přeměně (racemizují in vivo), podání samotného čistého R-enantiomeru by tragédii nezabránilo!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Tragédie s thalidomidem (Contergan) v 60. letech 20. století byla způsobena teratogenitou S-enantiom...\"?",
+      "sentence": "Klíčový fakt: Tragédie s thalidomidem (Contergan) v 60. letech 20. století byla způsobena teratogenitou S-enantiomeru, který způsoboval amélii a fokomélii u dětí. R-enantiomer byl bezpečné sedativum. Protože však oba enantiomery v těle podléhají rychlé vzájemné přeměně (racemizují in vivo), podání samotného čistého R-enantiomeru by tragédii nezabránilo!",
       "acceptedAnswers": [
-        "vztah léčiva a recep",
-        "ano",
-        "ne"
+        "vztah léčiva",
+        "vztah"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Tragédie s thalidomidem (Contergan) v 60. letech 20. století byla způsobena teratogenitou S-enantiomeru, který způsoboval amélii a fokomélii u dětí. R-enantiomer byl bezpečné sedativum. Protože však oba enantiomery v těle podléhají rychlé vzájemné přeměně (racemizují in vivo), podání samotného čistého R-enantiomeru by tragédii nezabránilo!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Vztah léčiva a receptoru popisuje molekulární interakce určující selektivitu (schopnost vázat se na jeden subtyp receptoru) a stereospecifitu (optické izomery vykazují odlišnou biologickou aktivitu).",
       "pearl": "Tragédie s thalidomidem (Contergan) v 60. letech 20. století byla způsobena teratogenitou S-enantiomeru, který způsoboval amélii a fokomélii u dětí. R-enantiomer byl bezpečné sedativum. Protože však oba enantiomery v těle podléhají rychlé vzájemné přeměně (racemizují in vivo), podání samotného čistého R-enantiomeru by tragédii nezabránilo!",
       "tags": [
         "Dopisovací",
@@ -1554,15 +1537,14 @@
       "topicId": "pharm-17",
       "topicTitle": "Typy receptorů, přenos signálu receptory",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: Typy receptorů, přenos signálu receptory",
-      "sentence": "Pamatujte: Dlouhodobé podávání beta-2 agonistů (např. salbutamolu u astmatu) bez doprovodné protizánětlivé terapie vede k down-regulaci a desenzitizaci beta-2 receptorů v průduškách. Pacient pak může v případě akutního astmatického záchvatu zjistit, že lék ztratil svou bronchodilatační účinnost!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Dlouhodobé podávání beta-2 agonistů (např. salbutamolu u astmatu) bez doprovodné protizánětlivé tera...\"?",
+      "sentence": "Klíčový fakt: Dlouhodobé podávání beta-2 agonistů (např. salbutamolu u astmatu) bez doprovodné protizánětlivé terapie vede k down-regulaci a desenzitizaci beta-2 receptorů v průduškách. Pacient pak může v případě akutního astmatického záchvatu zjistit, že lék ztratil svou bronchodilatační účinnost!",
       "acceptedAnswers": [
-        "typy receptorů, přen",
-        "ano",
-        "ne"
+        "typy receptorů",
+        "typy"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Dlouhodobé podávání beta-2 agonistů (např. salbutamolu u astmatu) bez doprovodné protizánětlivé terapie vede k down-regulaci a desenzitizaci beta-2 receptorů v průduškách. Pacient pak může v případě akutního astmatického záchvatu zjistit, že lék ztratil svou bronchodilatační účinnost!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Receptory jsou proteiny specializované na příjem chemického signálu. Dělí se na 4 základní typy: 1. Ionotropní (ligandem řízené kanály), 2. Metabotropní (spřažené s G-proteiny), 3. Receptory s vlastní enzymatickou aktivitou (tyrosinkinázy) a 4. Intracelulární (jaderné) receptory.",
       "pearl": "Dlouhodobé podávání beta-2 agonistů (např. salbutamolu u astmatu) bez doprovodné protizánětlivé terapie vede k down-regulaci a desenzitizaci beta-2 receptorů v průduškách. Pacient pak může v případě akutního astmatického záchvatu zjistit, že lék ztratil svou bronchodilatační účinnost!",
       "tags": [
         "Dopisovací",
@@ -1646,15 +1628,14 @@
       "topicId": "pharm-18",
       "topicTitle": "Dávkování léčiv, typy dávek, terapeutická šíře a terapeutický index",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: Dávkování léčiv, typy dávek, terapeutická šíře a terapeutický index",
-      "sentence": "Pamatujte: Při renálním selhání se nasycovací dávka ($LD$) NIKDY neupravuje (nesnižuje)! Distribuční objem pacienta zůstává stejný a my musíme naplnit tento objem k dosažení terapeutické hladiny. Upravuje se až následná udržovací dávka ($MD$), která závisí na snížené clearance!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Při renálním selhání se nasycovací dávka ($LD$) NIKDY neupravuje (nesnižuje)! Distribuční objem paci...\"?",
+      "sentence": "Klíčový fakt: Při renálním selhání se nasycovací dávka ($LD$) NIKDY neupravuje (nesnižuje)! Distribuční objem pacienta zůstává stejný a my musíme naplnit tento objem k dosažení terapeutické hladiny. Upravuje se až následná udržovací dávka ($MD$), která závisí na snížené clearance!",
       "acceptedAnswers": [
-        "dávkování léčiv, typ",
-        "ano",
-        "ne"
+        "dávkování léčiv",
+        "dávkování"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Při renálním selhání se nasycovací dávka ($LD$) NIKDY neupravuje (nesnižuje)! Distribuční objem pacienta zůstává stejný a my musíme naplnit tento objem k dosažení terapeutické hladiny. Upravuje se až následná udržovací dávka ($MD$), která závisí na snížené clearance!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Dávkování určuje množství léčiva podané v jednom časovém intervalu. Terapeutická šíře je rozmezí mezi minimální terapeutickou a minimální toxickou koncentrací. Terapeutický index ($TI$) kvantifikuje bezpečnost léčiva ($TI = TD_{50} / ED_{50}$).",
       "pearl": "Při renálním selhání se nasycovací dávka ($LD$) NIKDY neupravuje (nesnižuje)! Distribuční objem pacienta zůstává stejný a my musíme naplnit tento objem k dosažení terapeutické hladiny. Upravuje se až následná udržovací dávka ($MD$), která závisí na snížené clearance!",
       "tags": [
         "Dopisovací",
@@ -1738,15 +1719,14 @@
       "topicId": "pharm-19",
       "topicTitle": "Terapeutické monitorování léčiv (TDM)",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: Terapeutické monitorování léčiv (TDM)",
-      "sentence": "Pamatujte: Odběr krve na stanovení minimální (údolní, trough) koncentrace vankomycinu či digoxinu se musí provést těsně před podáním další plánované dávky (typicky 10-30 minut před). Odběr provedený dříve (např. uprostřed intervalu) poskytne falešně vysoké hodnoty a povede k chybnému snížení dávky!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Odběr krve na stanovení minimální (údolní, trough) koncentrace vankomycinu či digoxinu se musí prové...\"?",
+      "sentence": "Klíčový fakt: Odběr krve na stanovení minimální (údolní, trough) koncentrace vankomycinu či digoxinu se musí provést těsně před podáním další plánované dávky (typicky 10-30 minut před). Odběr provedený dříve (např. uprostřed intervalu) poskytne falešně vysoké hodnoty a povede k chybnému snížení dávky!",
       "acceptedAnswers": [
-        "terapeutické monitor",
-        "ano",
-        "ne"
+        "terapeutické monitorování",
+        "terapeutické"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Odběr krve na stanovení minimální (údolní, trough) koncentrace vankomycinu či digoxinu se musí provést těsně před podáním další plánované dávky (typicky 10-30 minut před). Odběr provedený dříve (např. uprostřed intervalu) poskytne falešně vysoké hodnoty a povede k chybnému snížení dávky!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Terapeutické monitorování léčiv (TDM) je klinická metoda měření koncentrace léčiva v séru k optimalizaci farmakoterapie u pacientů s vysokou farmakokinetickou variabilitou nebo úzkým terapeutickým oknem.",
       "pearl": "Odběr krve na stanovení minimální (údolní, trough) koncentrace vankomycinu či digoxinu se musí provést těsně před podáním další plánované dávky (typicky 10-30 minut před). Odběr provedený dříve (např. uprostřed intervalu) poskytne falešně vysoké hodnoty a povede k chybnému snížení dávky!",
       "tags": [
         "Dopisovací",
@@ -1830,15 +1810,14 @@
       "topicId": "pharm-20",
       "topicTitle": "Volba léků, změny farmakokinetiky a terapeutické riziko u starých lidí",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: Volba léků, změny farmakokinetiky a terapeutické riziko u starých lidí",
-      "sentence": "Pamatujte: U starších pacientů může hladina sérového kreatininu zůstat ve 'fyziologickém' rozmezí i při závažném poklesu renálních funkcí. Je to dáno úbytkem svalové hmoty (sarkopenií), která produkuje méně kreatininu. K odhadu GFR se proto musí vždy vypočítat clearance kreatininu matematicky (např. vzorcem Cockcroft-Gault)!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"U starších pacientů může hladina sérového kreatininu zůstat ve 'fyziologickém' rozmezí i při závažné...\"?",
+      "sentence": "Klíčový fakt: U starších pacientů může hladina sérového kreatininu zůstat ve 'fyziologickém' rozmezí i při závažném poklesu renálních funkcí. Je to dáno úbytkem svalové hmoty (sarkopenií), která produkuje méně kreatininu. K odhadu GFR se proto musí vždy vypočítat clearance kreatininu matematicky (např. vzorcem Cockcroft-Gault)!",
       "acceptedAnswers": [
-        "volba léků, změny fa",
-        "ano",
-        "ne"
+        "volba léků",
+        "volba"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "U starších pacientů může hladina sérového kreatininu zůstat ve 'fyziologickém' rozmezí i při závažném poklesu renálních funkcí. Je to dáno úbytkem svalové hmoty (sarkopenií), která produkuje méně kreatininu. K odhadu GFR se proto musí vždy vypočítat clearance kreatininu matematicky (např. vzorcem Cockcroft-Gault)!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Farmakoterapie ve stáří (geriatrická farmakologie) řeší změny chování léčiv u pacientů nad 65 let v důsledku orgánového stárnutí, přítomnosti polymorbidity a vysokého rizika polypragmázie.",
       "pearl": "U starších pacientů může hladina sérového kreatininu zůstat ve 'fyziologickém' rozmezí i při závažném poklesu renálních funkcí. Je to dáno úbytkem svalové hmoty (sarkopenií), která produkuje méně kreatininu. K odhadu GFR se proto musí vždy vypočítat clearance kreatininu matematicky (např. vzorcem Cockcroft-Gault)!",
       "tags": [
         "Dopisovací",
@@ -1922,15 +1901,14 @@
       "topicId": "pharm-21",
       "topicTitle": "Volba léků, dávkování, zvláštnosti farmakokinetiky a terapeutické riziko u dětí",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: Volba léků, dávkování, zvláštnosti farmakokinetiky a terapeutické riziko u dětí",
-      "sentence": "Pamatujte: Podání kyseliny acetylsalicylové (acylpyrinu, aspirinu) dětem při horečnatém virovém onemocnění (např. chřipka, plané neštovice) je přísně kontraindikováno. Hrozí rozvoj vzácného, ale z 30-40 % fatálního Reyeova syndromu, který se projevuje akutním selháním jater (mikrovezikulární steatózou) a těžkou encefalopatií!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Podání kyseliny acetylsalicylové (acylpyrinu, aspirinu) dětem při horečnatém virovém onemocnění (nap...\"?",
+      "sentence": "Klíčový fakt: Podání kyseliny acetylsalicylové (acylpyrinu, aspirinu) dětem při horečnatém virovém onemocnění (např. chřipka, plané neštovice) je přísně kontraindikováno. Hrozí rozvoj vzácného, ale z 30-40 % fatálního Reyeova syndromu, který se projevuje akutním selháním jater (mikrovezikulární steatózou) a těžkou encefalopatií!",
       "acceptedAnswers": [
-        "volba léků, dávkován",
-        "ano",
-        "ne"
+        "volba léků",
+        "volba"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Podání kyseliny acetylsalicylové (acylpyrinu, aspirinu) dětem při horečnatém virovém onemocnění (např. chřipka, plané neštovice) je přísně kontraindikováno. Hrozí rozvoj vzácného, ale z 30-40 % fatálního Reyeova syndromu, který se projevuje akutním selháním jater (mikrovezikulární steatózou) a těžkou encefalopatií!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Pediatrická farmakologie se zabývá specifiky účinku a chování léčiv u dětí od novorozeneckého věku do dospívání, kdy organismus prochází dynamickým vývojem a zráním orgánových systémů.",
       "pearl": "Podání kyseliny acetylsalicylové (acylpyrinu, aspirinu) dětem při horečnatém virovém onemocnění (např. chřipka, plané neštovice) je přísně kontraindikováno. Hrozí rozvoj vzácného, ale z 30-40 % fatálního Reyeova syndromu, který se projevuje akutním selháním jater (mikrovezikulární steatózou) a těžkou encefalopatií!",
       "tags": [
         "Dopisovací",
@@ -2014,15 +1992,14 @@
       "topicId": "pharm-22",
       "topicTitle": "Volba léků, změny farmakokinetiky a terapeutické riziko v graviditě a laktaci",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: Volba léků, změny farmakokinetiky a terapeutické riziko v graviditě a laktaci",
-      "sentence": "Pamatujte: Užívání nesteroidních antiflogistik (NSAIDs - např. ibuprofenu, diklofenaku) ve třetím trimestru těhotenství je přísně zakázáno. Blokáda syntézy prostaglandinů (zejména PGE2) může vyvolat předčasný uzávěr Botallovy dučeje (ductus arteriosus) u plodu, což vede k fatální plicní hypertenzi novorozence a oligohydramniu!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Užívání nesteroidních antiflogistik (NSAIDs - např. ibuprofenu, diklofenaku) ve třetím trimestru těh...\"?",
+      "sentence": "Klíčový fakt: Užívání nesteroidních antiflogistik (NSAIDs - např. ibuprofenu, diklofenaku) ve třetím trimestru těhotenství je přísně zakázáno. Blokáda syntézy prostaglandinů (zejména PGE2) může vyvolat předčasný uzávěr Botallovy dučeje (ductus arteriosus) u plodu, což vede k fatální plicní hypertenzi novorozence a oligohydramniu!",
       "acceptedAnswers": [
-        "volba léků, změny fa",
-        "ano",
-        "ne"
+        "volba léků",
+        "volba"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Užívání nesteroidních antiflogistik (NSAIDs - např. ibuprofenu, diklofenaku) ve třetím trimestru těhotenství je přísně zakázáno. Blokáda syntézy prostaglandinů (zejména PGE2) může vyvolat předčasný uzávěr Botallovy dučeje (ductus arteriosus) u plodu, což vede k fatální plicní hypertenzi novorozence a oligohydramniu!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Farmakoterapie v těhotenství a laktaci řeší bezpečnost léčiv pro vyvíjející se plod (teratogenita) a kojence (prostup do mateřského mléka) s ohledem na těhotenské změny farmakokinetiky matky.",
       "pearl": "Užívání nesteroidních antiflogistik (NSAIDs - např. ibuprofenu, diklofenaku) ve třetím trimestru těhotenství je přísně zakázáno. Blokáda syntézy prostaglandinů (zejména PGE2) může vyvolat předčasný uzávěr Botallovy dučeje (ductus arteriosus) u plodu, což vede k fatální plicní hypertenzi novorozence a oligohydramniu!",
       "tags": [
         "Dopisovací",
@@ -2106,15 +2083,14 @@
       "topicId": "pharm-23",
       "topicTitle": "Názvy léčiv, hromadně vyráběné a individuálně připravované léčivé přípravky, označování léčiv",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: Názvy léčiv, hromadně vyráběné a individuálně připravované léčivé přípravky, označování léčiv",
-      "sentence": "Pamatujte: Vždy pište na recepty generické názvy (INN) léčiv, zejména u hospitalizovaných pacientů. Zabraňuje to duplicitnímu podání stejné účinné látky pod dvěma různými komerčními názvy (např. podání Paralenu a Panadolu současně), což je častá příčina fatálního předávkování paracetamolem a selhání jater!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Vždy pište na recepty generické názvy (INN) léčiv, zejména u hospitalizovaných pacientů. Zabraňuje t...\"?",
+      "sentence": "Klíčový fakt: Vždy pište na recepty generické názvy (INN) léčiv, zejména u hospitalizovaných pacientů. Zabraňuje to duplicitnímu podání stejné účinné látky pod dvěma různými komerčními názvy (např. podání Paralenu a Panadolu současně), což je častá příčina fatálního předávkování paracetamolem a selhání jater!",
       "acceptedAnswers": [
-        "názvy léčiv, hromadn",
-        "ano",
-        "ne"
+        "názvy léčiv",
+        "názvy"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Vždy pište na recepty generické názvy (INN) léčiv, zejména u hospitalizovaných pacientů. Zabraňuje to duplicitnímu podání stejné účinné látky pod dvěma různými komerčními názvy (např. podání Paralenu a Panadolu současně), což je častá příčina fatálního předávkování paracetamolem a selhání jater!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Názvosloví léčiv zahrnuje názvy chemické, generické (mezinárodní nechráněné názvy - INN) a obchodní (chráněné značky). Hromadně vyráběné léčivé přípravky (HVLP) jsou vyráběny průmyslově; individuálně připravované (IPLP, magistraliter) se připravují v lékárně.",
       "pearl": "Vždy pište na recepty generické názvy (INN) léčiv, zejména u hospitalizovaných pacientů. Zabraňuje to duplicitnímu podání stejné účinné látky pod dvěma různými komerčními názvy (např. podání Paralenu a Panadolu současně), což je častá příčina fatálního předávkování paracetamolem a selhání jater!",
       "tags": [
         "Dopisovací",
@@ -2198,15 +2174,14 @@
       "topicId": "pharm-24",
       "topicTitle": "Omamné a psychotropní látky, zásady předepisování a nakládání s OL a PL",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: Omamné a psychotropní látky, zásady předepisování a nakládání s OL a PL",
-      "sentence": "Pamatujte: Recept s modrým pruhem se v ČR vyžaduje pro silné opioidy (morfin, fentanyl, oxykodon) a stimulancia (methylfenidát). Naopak slabé opioidy (tramadol, kodein) a běžné benzodiazepiny se předepisují na klasický recept, i když spadají pod regulaci zneužívání návykových látek!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Recept s modrým pruhem se v ČR vyžaduje pro silné opioidy (morfin, fentanyl, oxykodon) a stimulancia...\"?",
+      "sentence": "Klíčový fakt: Recept s modrým pruhem se v ČR vyžaduje pro silné opioidy (morfin, fentanyl, oxykodon) a stimulancia (methylfenidát). Naopak slabé opioidy (tramadol, kodein) a běžné benzodiazepiny se předepisují na klasický recept, i když spadají pod regulaci zneužívání návykových látek!",
       "acceptedAnswers": [
-        "omamné a psychotropn",
-        "ano",
-        "ne"
+        "omamné a",
+        "omamné"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Recept s modrým pruhem se v ČR vyžaduje pro silné opioidy (morfin, fentanyl, oxykodon) a stimulancia (methylfenidát). Naopak slabé opioidy (tramadol, kodein) a běžné benzodiazepiny se předepisují na klasický recept, i když spadají pod regulaci zneužívání návykových látek!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Omamné a psychotropní látky (OPL) jsou přípravky s vysokým rizikem vzniku závislosti a zneužívání. Nakládání s nimi a jejich předepisování podléhá přísné zákonné regulaci (zákon o návykových látkách).",
       "pearl": "Recept s modrým pruhem se v ČR vyžaduje pro silné opioidy (morfin, fentanyl, oxykodon) a stimulancia (methylfenidát). Naopak slabé opioidy (tramadol, kodein) a běžné benzodiazepiny se předepisují na klasický recept, i když spadají pod regulaci zneužívání návykových látek!",
       "tags": [
         "Dopisovací",
@@ -2290,15 +2265,14 @@
       "topicId": "pharm-25",
       "topicTitle": "Základní právní předpisy o léčivech, lékopis, zdroje informací o lécích",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: Základní právní předpisy o léčivech, lékopis, zdroje informací o lécích",
-      "sentence": "Pamatujte: Souhrn údajů o přípravku (SPC) je právně závazný dokument schválený při registraci léčiva. Obsahuje nejspolehlivější, vědecky ověřené informace o dávkování, kinetice a interakcích. Používání léků v rozporu s SPC se nazývá 'off-label' použití a lékař za něj nese plnou právní odpovědnost!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Souhrn údajů o přípravku (SPC) je právně závazný dokument schválený při registraci léčiva. Obsahuje ...\"?",
+      "sentence": "Klíčový fakt: Souhrn údajů o přípravku (SPC) je právně závazný dokument schválený při registraci léčiva. Obsahuje nejspolehlivější, vědecky ověřené informace o dávkování, kinetice a interakcích. Používání léků v rozporu s SPC se nazývá 'off-label' použití a lékař za něj nese plnou právní odpovědnost!",
       "acceptedAnswers": [
-        "základní právní před",
-        "ano",
-        "ne"
+        "základní právní",
+        "základní"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Souhrn údajů o přípravku (SPC) je právně závazný dokument schválený při registraci léčiva. Obsahuje nejspolehlivější, vědecky ověřené informace o dávkování, kinetice a interakcích. Používání léků v rozporu s SPC se nazývá 'off-label' použití a lékař za něj nese plnou právní odpovědnost!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Právní předpisy o léčivech (zákon o léčivech) upravují výzkum, výrobu, registraci, distribuci a výdej léčivých přípravků. Český lékopis (Pharmacopoea Bohemoica) je závazná norma definující kvalitu, přípravu, zkoušení a uchovávání léčiv.",
       "pearl": "Souhrn údajů o přípravku (SPC) je právně závazný dokument schválený při registraci léčiva. Obsahuje nejspolehlivější, vědecky ověřené informace o dávkování, kinetice a interakcích. Používání léků v rozporu s SPC se nazývá 'off-label' použití a lékař za něj nese plnou právní odpovědnost!",
       "tags": [
         "Dopisovací",
@@ -2382,15 +2356,14 @@
       "topicId": "pharm-26",
       "topicTitle": "Závislost na tabáku",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: Závislost na tabáku",
-      "sentence": "Pamatujte: Vareniklin (Champix) je parciální agonista alfa-4-beta-2 nikotinových receptorů. Působí duálně: 1. Mírně stimuluje receptory k potlačení abstinenčních příznaků (agonismus), 2. Zároveň blokuje plnou stimulaci receptorů při případném kouření (antagonismus), čímž kuřákovi bere pocit uspokojení z cigarety!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Vareniklin (Champix) je parciální agonista alfa-4-beta-2 nikotinových receptorů. Působí duálně: 1. M...\"?",
+      "sentence": "Klíčový fakt: Vareniklin (Champix) je parciální agonista alfa-4-beta-2 nikotinových receptorů. Působí duálně: 1. Mírně stimuluje receptory k potlačení abstinenčních příznaků (agonismus), 2. Zároveň blokuje plnou stimulaci receptorů při případném kouření (antagonismus), čímž kuřákovi bere pocit uspokojení z cigarety!",
       "acceptedAnswers": [
-        "závislost na tabáku",
-        "ano",
-        "ne"
+        "závislost na",
+        "závislost"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Vareniklin (Champix) je parciální agonista alfa-4-beta-2 nikotinových receptorů. Působí duálně: 1. Mírně stimuluje receptory k potlačení abstinenčních příznaků (agonismus), 2. Zároveň blokuje plnou stimulaci receptorů při případném kouření (antagonismus), čímž kuřákovi bere pocit uspokojení z cigarety!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Závislost na tabáku je chronické, recidivující onemocnění (diagnóza F17) charakterizované fyzickou závislostí na nikotinu a silnou psychosociální vazbou na rituál kouření.",
       "pearl": "Vareniklin (Champix) je parciální agonista alfa-4-beta-2 nikotinových receptorů. Působí duálně: 1. Mírně stimuluje receptory k potlačení abstinenčních příznaků (agonismus), 2. Zároveň blokuje plnou stimulaci receptorů při případném kouření (antagonismus), čímž kuřákovi bere pocit uspokojení z cigarety!",
       "tags": [
         "Dopisovací",
@@ -2474,15 +2447,14 @@
       "topicId": "pharm-27",
       "topicTitle": "Léková závislost, hlavní typy lékových závislostí a skupiny léků rizikové pro rozvoj závislosti",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: Léková závislost, hlavní typy lékových závislostí a skupiny léků rizikové pro rozvoj závislosti",
-      "sentence": "Pamatujte: Benzodiazepiny by se neměly z důvodu vysokého rizika závislosti předepisovat kontinuálně na dobu delší než 4 až 6 týdnů (včetně fáze vysazování). U hypnotik (Z-látky jako zolpidem) je bezpečný limit pouze 2 až 4 týdny! Dlouhodobá léčba chronické nespavosti či úzkosti benzodiazepiny je non-lege artis.",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Benzodiazepiny by se neměly z důvodu vysokého rizika závislosti předepisovat kontinuálně na dobu del...\"?",
+      "sentence": "Klíčový fakt: Benzodiazepiny by se neměly z důvodu vysokého rizika závislosti předepisovat kontinuálně na dobu delší než 4 až 6 týdnů (včetně fáze vysazování). U hypnotik (Z-látky jako zolpidem) je bezpečný limit pouze 2 až 4 týdny! Dlouhodobá léčba chronické nespavosti či úzkosti benzodiazepiny je non-lege artis.",
       "acceptedAnswers": [
-        "léková závislost, hl",
-        "ano",
-        "ne"
+        "léková závislost",
+        "léková"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Benzodiazepiny by se neměly z důvodu vysokého rizika závislosti předepisovat kontinuálně na dobu delší než 4 až 6 týdnů (včetně fáze vysazování). U hypnotik (Z-látky jako zolpidem) je bezpečný limit pouze 2 až 4 týdny! Dlouhodobá léčba chronické nespavosti či úzkosti benzodiazepiny je non-lege artis.",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Léková závislost (diagnóza F11-F19) je stav charakterizovaný nutkavou potřebou opakovaně užívat psychoaktivní látku (craving), ztrátou kontroly nad jejím užíváním, rozvojem tolerance a vznikem fyzického či psychického abstinenčního syndromu po vysazení.",
       "pearl": "Benzodiazepiny by se neměly z důvodu vysokého rizika závislosti předepisovat kontinuálně na dobu delší než 4 až 6 týdnů (včetně fáze vysazování). U hypnotik (Z-látky jako zolpidem) je bezpečný limit pouze 2 až 4 týdny! Dlouhodobá léčba chronické nespavosti či úzkosti benzodiazepiny je non-lege artis.",
       "tags": [
         "Dopisovací",
@@ -2566,15 +2538,14 @@
       "topicId": "pharm-28",
       "topicTitle": "Interakce léčiv ve fázi absorpce a distribuce",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: Interakce léčiv ve fázi absorpce a distribuce",
-      "sentence": "Pamatujte: Chelatační interakce v žaludku jsou naprosto spolehlivé - pokud pacient zapije ciprofloxacin (nebo doxycyklin) mlékem či užije antacidum s vápníkem/hořčíkem, biologická dostupnost antibiotika klesne pod 20 %. Hrozí kritické selhání antimikrobiální léčby a rozvoj bakteriální rezistence!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Chelatační interakce v žaludku jsou naprosto spolehlivé - pokud pacient zapije ciprofloxacin (nebo d...\"?",
+      "sentence": "Klíčový fakt: Chelatační interakce v žaludku jsou naprosto spolehlivé - pokud pacient zapije ciprofloxacin (nebo doxycyklin) mlékem či užije antacidum s vápníkem/hořčíkem, biologická dostupnost antibiotika klesne pod 20 %. Hrozí kritické selhání antimikrobiální léčby a rozvoj bakteriální rezistence!",
       "acceptedAnswers": [
-        "interakce léčiv ve f",
-        "ano",
-        "ne"
+        "interakce léčiv",
+        "interakce"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Chelatační interakce v žaludku jsou naprosto spolehlivé - pokud pacient zapije ciprofloxacin (nebo doxycyklin) mlékem či užije antacidum s vápníkem/hořčíkem, biologická dostupnost antibiotika klesne pod 20 %. Hrozí kritické selhání antimikrobiální léčby a rozvoj bakteriální rezistence!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Interakce léčiv ve fázi absorpce a distribuce jsou typy farmakokinetických interakcí, kdy jedno léčivo mění rychlost nebo rozsah vstřebávání anebo vazebný profil a rozdělení druhého léčiva v těle.",
       "pearl": "Chelatační interakce v žaludku jsou naprosto spolehlivé - pokud pacient zapije ciprofloxacin (nebo doxycyklin) mlékem či užije antacidum s vápníkem/hořčíkem, biologická dostupnost antibiotika klesne pod 20 %. Hrozí kritické selhání antimikrobiální léčby a rozvoj bakteriální rezistence!",
       "tags": [
         "Dopisovací",
@@ -2658,15 +2629,14 @@
       "topicId": "pharm-29",
       "topicTitle": "Interakce léčiv ve fázi biotransformace a eliminace",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: Interakce léčiv ve fázi biotransformace a eliminace",
-      "sentence": "Pamatujte: Kombinace methotrexátu a NSAIDs (např. ibuprofenu) je vysoce riziková. NSAIDs inhibují renální syntézu prostaglandinů (snižují GFR) a zároveň kompetitivně blokují OAT transportéry v tubulech, které vylučují methotrexát. Výsledkem je prudký vzestup toxicity methotrexátu s útlumem kostní dřeně (myelotoxicitou) a mukositidou!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Kombinace methotrexátu a NSAIDs (např. ibuprofenu) je vysoce riziková. NSAIDs inhibují renální synté...\"?",
+      "sentence": "Klíčový fakt: Kombinace methotrexátu a NSAIDs (např. ibuprofenu) je vysoce riziková. NSAIDs inhibují renální syntézu prostaglandinů (snižují GFR) a zároveň kompetitivně blokují OAT transportéry v tubulech, které vylučují methotrexát. Výsledkem je prudký vzestup toxicity methotrexátu s útlumem kostní dřeně (myelotoxicitou) a mukositidou!",
       "acceptedAnswers": [
-        "interakce léčiv ve f",
-        "ano",
-        "ne"
+        "interakce léčiv",
+        "interakce"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Kombinace methotrexátu a NSAIDs (např. ibuprofenu) je vysoce riziková. NSAIDs inhibují renální syntézu prostaglandinů (snižují GFR) a zároveň kompetitivně blokují OAT transportéry v tubulech, které vylučují methotrexát. Výsledkem je prudký vzestup toxicity methotrexátu s útlumem kostní dřeně (myelotoxicitou) a mukositidou!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Interakce léčiv ve fázi biotransformace a eliminace jsou nejvýznamnější farmakokinetické interakce, při nichž jedno léčivo mění aktivitu metabolických enzymů (zejména CYP450) nebo ovlivňuje renální a biliární vylučování druhého léčiva.",
       "pearl": "Kombinace methotrexátu a NSAIDs (např. ibuprofenu) je vysoce riziková. NSAIDs inhibují renální syntézu prostaglandinů (snižují GFR) a zároveň kompetitivně blokují OAT transportéry v tubulech, které vylučují methotrexát. Výsledkem je prudký vzestup toxicity methotrexátu s útlumem kostní dřeně (myelotoxicitou) a mukositidou!",
       "tags": [
         "Dopisovací",
@@ -2750,15 +2720,14 @@
       "topicId": "pharm-30",
       "topicTitle": "Lékové alergie, rizikové skupiny léků",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: Lékové alergie, rizikové skupiny léků",
-      "sentence": "Pamatujte: Při podání amoxicilinu (nebo ampicilinu) pacientovi s infekční mononukleózou (způsobenou virem EBV) dojde v 80 až 90 % případů k rozvoji makulopapulárního exantému po celém těle. Nejedná se o pravou lékovou alergii, ale o imunopatologickou reakci spojenou s virovou infekcí!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Při podání amoxicilinu (nebo ampicilinu) pacientovi s infekční mononukleózou (způsobenou virem EBV) ...\"?",
+      "sentence": "Klíčový fakt: Při podání amoxicilinu (nebo ampicilinu) pacientovi s infekční mononukleózou (způsobenou virem EBV) dojde v 80 až 90 % případů k rozvoji makulopapulárního exantému po celém těle. Nejedná se o pravou lékovou alergii, ale o imunopatologickou reakci spojenou s virovou infekcí!",
       "acceptedAnswers": [
-        "lékové alergie, rizi",
-        "ano",
-        "ne"
+        "lékové alergie",
+        "lékové"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Při podání amoxicilinu (nebo ampicilinu) pacientovi s infekční mononukleózou (způsobenou virem EBV) dojde v 80 až 90 % případů k rozvoji makulopapulárního exantému po celém těle. Nejedná se o pravou lékovou alergii, ale o imunopatologickou reakci spojenou s virovou infekcí!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Léková alergie je imunologicky zprostředkovaná nežádoucí reakce na léčivo (antigen), která nevykazuje závislost na dávce a vyžaduje předchozí senzibilizaci organismu.",
       "pearl": "Při podání amoxicilinu (nebo ampicilinu) pacientovi s infekční mononukleózou (způsobenou virem EBV) dojde v 80 až 90 % případů k rozvoji makulopapulárního exantému po celém těle. Nejedná se o pravou lékovou alergii, ale o imunopatologickou reakci spojenou s virovou infekcí!",
       "tags": [
         "Dopisovací",
@@ -2842,15 +2811,14 @@
       "topicId": "pharm-31",
       "topicTitle": "Typy nežádoucích účinků léčiv",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: Typy nežádoucích účinků léčiv",
-      "sentence": "Pamatujte: Polékové prodloužení intervalu QTc na EKG je závažným nežádoucím účinkem typu A (blokáda draslíkového hERG kanálu). Léčiva jako clarithromycin, haloperidol, amiodaron nebo sotalol zvyšují riziko maligní komorové arytmie typu torsade de pointes a náhlé smrti, zejména u pacientů s hypokalémií!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Polékové prodloužení intervalu QTc na EKG je závažným nežádoucím účinkem typu A (blokáda draslíkovéh...\"?",
+      "sentence": "Klíčový fakt: Polékové prodloužení intervalu QTc na EKG je závažným nežádoucím účinkem typu A (blokáda draslíkového hERG kanálu). Léčiva jako clarithromycin, haloperidol, amiodaron nebo sotalol zvyšují riziko maligní komorové arytmie typu torsade de pointes a náhlé smrti, zejména u pacientů s hypokalémií!",
       "acceptedAnswers": [
-        "typy nežádoucích úči",
-        "ano",
-        "ne"
+        "typy nežádoucích",
+        "typy"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Polékové prodloužení intervalu QTc na EKG je závažným nežádoucím účinkem typu A (blokáda draslíkového hERG kanálu). Léčiva jako clarithromycin, haloperidol, amiodaron nebo sotalol zvyšují riziko maligní komorové arytmie typu torsade de pointes a náhlé smrti, zejména u pacientů s hypokalémií!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Nežádoucí účinek léčiva (NÚL) je jakákoliv nepříznivá a nezamýšlená odezva na léčivo, která se objeví při dávkách běžně používaných k profylaxi, diagnostice nebo léčbě.",
       "pearl": "Polékové prodloužení intervalu QTc na EKG je závažným nežádoucím účinkem typu A (blokáda draslíkového hERG kanálu). Léčiva jako clarithromycin, haloperidol, amiodaron nebo sotalol zvyšují riziko maligní komorové arytmie typu torsade de pointes a náhlé smrti, zejména u pacientů s hypokalémií!",
       "tags": [
         "Dopisovací",
@@ -2934,15 +2902,14 @@
       "topicId": "pharm-32",
       "topicTitle": "Vývoj a registrace nových léčiv, jednotlivé fáze hodnocení nových léčiv, hodnocení bioekvivalence",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: Vývoj a registrace nových léčiv, jednotlivé fáze hodnocení nových léčiv, hodnocení bioekvivalence",
-      "sentence": "Pamatujte: Fáze IV (post-marketingové sledování) je klíčová pro odhalení vzácných nežádoucích účinků (s frekvencí např. 1 z 10 000 pacientů), které nelze odhalit v předchozích fázích z důvodu limitovaného počtu účastníků (tisíce). Příkladem je stažení rofecoxibu (Vioxx) z trhu kvůli zvýšenému riziku infarktů až po registraci!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Fáze IV (post-marketingové sledování) je klíčová pro odhalení vzácných nežádoucích účinků (s frekven...\"?",
+      "sentence": "Klíčový fakt: Fáze IV (post-marketingové sledování) je klíčová pro odhalení vzácných nežádoucích účinků (s frekvencí např. 1 z 10 000 pacientů), které nelze odhalit v předchozích fázích z důvodu limitovaného počtu účastníků (tisíce). Příkladem je stažení rofecoxibu (Vioxx) z trhu kvůli zvýšenému riziku infarktů až po registraci!",
       "acceptedAnswers": [
-        "vývoj a registrace n",
-        "ano",
-        "ne"
+        "vývoj a",
+        "vývoj"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Fáze IV (post-marketingové sledování) je klíčová pro odhalení vzácných nežádoucích účinků (s frekvencí např. 1 z 10 000 pacientů), které nelze odhalit v předchozích fázích z důvodu limitovaného počtu účastníků (tisíce). Příkladem je stažení rofecoxibu (Vioxx) z trhu kvůli zvýšenému riziku infarktů až po registraci!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Vývoj a registrace nových léčiv je komplexní proces testování bezpečnosti a účinnosti molekuly. Skládá se z preklinického zkoumání (in vitro, in vivo na zvířatech) a čtyř fází klinického hodnocení na lidech.",
       "pearl": "Fáze IV (post-marketingové sledování) je klíčová pro odhalení vzácných nežádoucích účinků (s frekvencí např. 1 z 10 000 pacientů), které nelze odhalit v předchozích fázích z důvodu limitovaného počtu účastníků (tisíce). Příkladem je stažení rofecoxibu (Vioxx) z trhu kvůli zvýšenému riziku infarktů až po registraci!",
       "tags": [
         "Dopisovací",
@@ -3026,15 +2993,14 @@
       "topicId": "pharm-33",
       "topicTitle": "CYP 3A4 a jeho význam pro farmakologii",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: CYP 3A4 a jeho význam pro farmakologii",
-      "sentence": "Pamatujte: Kombinace klarithromycinu (silný inhibitor CYP3A4) se simvastatinem je přísně kontraindikována. Blokáda metabolismu zvýší koncentraci simvastatinové kyseliny v plazmě více než 5násobně, což dramaticky zvyšuje riziko život ohrožující rabdomyolýzy a akutního poškození ledvin!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Kombinace klarithromycinu (silný inhibitor CYP3A4) se simvastatinem je přísně kontraindikována. Blok...\"?",
+      "sentence": "Klíčový fakt: Kombinace klarithromycinu (silný inhibitor CYP3A4) se simvastatinem je přísně kontraindikována. Blokáda metabolismu zvýší koncentraci simvastatinové kyseliny v plazmě více než 5násobně, což dramaticky zvyšuje riziko život ohrožující rabdomyolýzy a akutního poškození ledvin!",
       "acceptedAnswers": [
-        "cyp 3a4 a jeho význa",
-        "ano",
-        "ne"
+        "cyp 3a4",
+        "cyp"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Kombinace klarithromycinu (silný inhibitor CYP3A4) se simvastatinem je přísně kontraindikována. Blokáda metabolismu zvýší koncentraci simvastatinové kyseliny v plazmě více než 5násobně, což dramaticky zvyšuje riziko život ohrožující rabdomyolýzy a akutního poškození ledvin!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Cytochrom P450 3A4 (CYP3A4) je nejvýznamnější a nejhojnější izoenzym biotransformace v lidském těle. Nachází se v hepatocytech a enterocytech tenkého střeva a metabolizuje přibližně 50 % všech klinicky užívaných léčiv.",
       "pearl": "Kombinace klarithromycinu (silný inhibitor CYP3A4) se simvastatinem je přísně kontraindikována. Blokáda metabolismu zvýší koncentraci simvastatinové kyseliny v plazmě více než 5násobně, což dramaticky zvyšuje riziko život ohrožující rabdomyolýzy a akutního poškození ledvin!",
       "tags": [
         "Dopisovací",
@@ -3118,15 +3084,14 @@
       "topicId": "pharm-34",
       "topicTitle": "CYP 2D6 a jeho význam pro farmakologii",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: CYP 2D6 a jeho význam pro farmakologii",
-      "sentence": "Pamatujte: Kodein je v pediatrii přísně kontraindikován pro léčbu bolesti a kašle. Pokud je dítě ultra-rychlým metabolizátorem CYP2D6, i malá dávka kodeinu se v jeho játrech okamžitě přemění na toxické množství morfinu, což vedlo k několika zdokumentovaným úmrtím dětí na zástavu dechu ve spánku!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Kodein je v pediatrii přísně kontraindikován pro léčbu bolesti a kašle. Pokud je dítě ultra-rychlým ...\"?",
+      "sentence": "Klíčový fakt: Kodein je v pediatrii přísně kontraindikován pro léčbu bolesti a kašle. Pokud je dítě ultra-rychlým metabolizátorem CYP2D6, i malá dávka kodeinu se v jeho játrech okamžitě přemění na toxické množství morfinu, což vedlo k několika zdokumentovaným úmrtím dětí na zástavu dechu ve spánku!",
       "acceptedAnswers": [
-        "cyp 2d6 a jeho význa",
-        "ano",
-        "ne"
+        "cyp 2d6",
+        "cyp"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Kodein je v pediatrii přísně kontraindikován pro léčbu bolesti a kašle. Pokud je dítě ultra-rychlým metabolizátorem CYP2D6, i malá dávka kodeinu se v jeho játrech okamžitě přemění na toxické množství morfinu, což vedlo k několika zdokumentovaným úmrtím dětí na zástavu dechu ve spánku!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Cytochrom P450 2D6 (CYP2D6) je vysoce polymorfní jaterní enzym zodpovědný za metabolismus cca 25 % léčiv, včetně beta-blokátorů, antidepresiv, antipsychotik a opioidů.",
       "pearl": "Kodein je v pediatrii přísně kontraindikován pro léčbu bolesti a kašle. Pokud je dítě ultra-rychlým metabolizátorem CYP2D6, i malá dávka kodeinu se v jeho játrech okamžitě přemění na toxické množství morfinu, což vedlo k několika zdokumentovaným úmrtím dětí na zástavu dechu ve spánku!",
       "tags": [
         "Dopisovací",
@@ -3210,15 +3175,14 @@
       "topicId": "pharm-35",
       "topicTitle": "CYP 1A2 a jeho význam pro farmakologii",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: CYP 1A2 a jeho význam pro farmakologii",
-      "sentence": "Pamatujte: Tabákový kouř indukuje CYP1A2, nikoli samotný nikotin! Proto u pacientů, kteří přejdou z cigaret na nikotinové náplasti či elektronické cigarety, dochází k poklesu indukce (clearance klesá a hladiny léků jako clozapin či olanzapin v plazmě stoupají) stejně jako u úplných nekuřáků!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Tabákový kouř indukuje CYP1A2, nikoli samotný nikotin! Proto u pacientů, kteří přejdou z cigaret na ...\"?",
+      "sentence": "Klíčový fakt: Tabákový kouř indukuje CYP1A2, nikoli samotný nikotin! Proto u pacientů, kteří přejdou z cigaret na nikotinové náplasti či elektronické cigarety, dochází k poklesu indukce (clearance klesá a hladiny léků jako clozapin či olanzapin v plazmě stoupají) stejně jako u úplných nekuřáků!",
       "acceptedAnswers": [
-        "cyp 1a2 a jeho význa",
-        "ano",
-        "ne"
+        "cyp 1a2",
+        "cyp"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Tabákový kouř indukuje CYP1A2, nikoli samotný nikotin! Proto u pacientů, kteří přejdou z cigaret na nikotinové náplasti či elektronické cigarety, dochází k poklesu indukce (clearance klesá a hladiny léků jako clozapin či olanzapin v plazmě stoupají) stejně jako u úplných nekuřáků!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Cytochrom P450 1A2 (CYP1A2) je jaterní enzym metabolizující kofein, theofylin (bronchodilatans), některá antipsychotika (clozapin, olanzapin) a melatonin. Je významný svou citlivostí k indukci látkami z cigaretového kouře.",
       "pearl": "Tabákový kouř indukuje CYP1A2, nikoli samotný nikotin! Proto u pacientů, kteří přejdou z cigaret na nikotinové náplasti či elektronické cigarety, dochází k poklesu indukce (clearance klesá a hladiny léků jako clozapin či olanzapin v plazmě stoupají) stejně jako u úplných nekuřáků!",
       "tags": [
         "Dopisovací",
@@ -3302,15 +3266,14 @@
       "topicId": "pharm-36",
       "topicTitle": "CYP 2C9, 2C19 a jejich význam pro farmakologii",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: CYP 2C9, 2C19 a jejich význam pro farmakologii",
-      "sentence": "Pamatujte: Užívání omeprazolu společně s antiagreganciem clopidogrelem zvyšuje riziko kardiovaskulárních příhod (např. restenózy stentu). Omeprazol kompetitivně inhibuje CYP2C19, který je nezbytný pro přeměnu clopidogrelu na jeho aktivní formu. Pokud pacient potřebuje PPI, předepište pantoprazol, který CYP2C19 neinhibuje!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Užívání omeprazolu společně s antiagreganciem clopidogrelem zvyšuje riziko kardiovaskulárních příhod...\"?",
+      "sentence": "Klíčový fakt: Užívání omeprazolu společně s antiagreganciem clopidogrelem zvyšuje riziko kardiovaskulárních příhod (např. restenózy stentu). Omeprazol kompetitivně inhibuje CYP2C19, který je nezbytný pro přeměnu clopidogrelu na jeho aktivní formu. Pokud pacient potřebuje PPI, předepište pantoprazol, který CYP2C19 neinhibuje!",
       "acceptedAnswers": [
-        "cyp 2c9, 2c19 a jeji",
-        "ano",
-        "ne"
+        "cyp 2c9",
+        "cyp"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Užívání omeprazolu společně s antiagreganciem clopidogrelem zvyšuje riziko kardiovaskulárních příhod (např. restenózy stentu). Omeprazol kompetitivně inhibuje CYP2C19, který je nezbytný pro přeměnu clopidogrelu na jeho aktivní formu. Pokud pacient potřebuje PPI, předepište pantoprazol, který CYP2C19 neinhibuje!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Cytochromy P450 2C9 a 2C19 (CYP2C9, CYP2C19) jsou významné jaterní enzymy. CYP2C9 metabolizuje kyselá léčiva s úzkým terapeutickým indexem (S-warfarin, fenytoin). CYP2C19 metabolizuje clopidogrel (aktivace), inhibitory protonové pumpy (PPI) a diazepam.",
       "pearl": "Užívání omeprazolu společně s antiagreganciem clopidogrelem zvyšuje riziko kardiovaskulárních příhod (např. restenózy stentu). Omeprazol kompetitivně inhibuje CYP2C19, který je nezbytný pro přeměnu clopidogrelu na jeho aktivní formu. Pokud pacient potřebuje PPI, předepište pantoprazol, který CYP2C19 neinhibuje!",
       "tags": [
         "Dopisovací",
@@ -3394,15 +3357,14 @@
       "topicId": "pharm-37",
       "topicTitle": "Význam TDM pro klinickou praxi",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: Význam TDM pro klinickou praxi",
-      "sentence": "Pamatujte: TDM se nepoužívá u léčiv, která mají snadno měřitelný klinický nebo laboratorní parametr účinku. Například u antihypertenziv měříme krevní tlak, u antikoagulancií INR (warfarin) nebo aPTT (heparin), u antidiabetik glykémii a glykovaný hemoglobin. Měření hladin těchto léků v krvi nemá žádný klinický přínos!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"TDM se nepoužívá u léčiv, která mají snadno měřitelný klinický nebo laboratorní parametr účinku. Nap...\"?",
+      "sentence": "Klíčový fakt: TDM se nepoužívá u léčiv, která mají snadno měřitelný klinický nebo laboratorní parametr účinku. Například u antihypertenziv měříme krevní tlak, u antikoagulancií INR (warfarin) nebo aPTT (heparin), u antidiabetik glykémii a glykovaný hemoglobin. Měření hladin těchto léků v krvi nemá žádný klinický přínos!",
       "acceptedAnswers": [
-        "význam tdm pro klini",
-        "ano",
-        "ne"
+        "význam tdm",
+        "význam"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "TDM se nepoužívá u léčiv, která mají snadno měřitelný klinický nebo laboratorní parametr účinku. Například u antihypertenziv měříme krevní tlak, u antikoagulancií INR (warfarin) nebo aPTT (heparin), u antidiabetik glykémii a glykovaný hemoglobin. Měření hladin těchto léků v krvi nemá žádný klinický přínos!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Význam TDM (Terapeutického monitorování léčiv) spočívá v optimalizaci terapeutického režimu pacienta měřením koncentrací léčiv v krvi k zajištění maximální účinnosti a minimální toxicity.",
       "pearl": "TDM se nepoužívá u léčiv, která mají snadno měřitelný klinický nebo laboratorní parametr účinku. Například u antihypertenziv měříme krevní tlak, u antikoagulancií INR (warfarin) nebo aPTT (heparin), u antidiabetik glykémii a glykovaný hemoglobin. Měření hladin těchto léků v krvi nemá žádný klinický přínos!",
       "tags": [
         "Dopisovací",
@@ -3486,15 +3448,14 @@
       "topicId": "pharm-38",
       "topicTitle": "Základní předpoklady pro TDM léčiv",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: Základní předpoklady pro TDM léčiv",
-      "sentence": "Pamatujte: Pro provádění TDM musí být k dispozici definované referenční (terapeutické) rozmezí koncentrací. Pokud laboratoř naměří hodnotu, ale klinické studie neurčily, jaká hladina je účinná a jaká toxická, je výsledek pro klinické rozhodování lékaře nepoužitelný!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Pro provádění TDM musí být k dispozici definované referenční (terapeutické) rozmezí koncentrací. Pok...\"?",
+      "sentence": "Klíčový fakt: Pro provádění TDM musí být k dispozici definované referenční (terapeutické) rozmezí koncentrací. Pokud laboratoř naměří hodnotu, ale klinické studie neurčily, jaká hladina je účinná a jaká toxická, je výsledek pro klinické rozhodování lékaře nepoužitelný!",
       "acceptedAnswers": [
         "základní předpoklady",
-        "ano",
-        "ne"
+        "základní"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Pro provádění TDM musí být k dispozici definované referenční (terapeutické) rozmezí koncentrací. Pokud laboratoř naměří hodnotu, ale klinické studie neurčily, jaká hladina je účinná a jaká toxická, je výsledek pro klinické rozhodování lékaře nepoužitelný!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Základní předpoklady pro TDM léčiv definují podmínky, za kterých má měření koncentrací v krvi smysl a přináší klinický prospěch pro management pacienta.",
       "pearl": "Pro provádění TDM musí být k dispozici definované referenční (terapeutické) rozmezí koncentrací. Pokud laboratoř naměří hodnotu, ale klinické studie neurčily, jaká hladina je účinná a jaká toxická, je výsledek pro klinické rozhodování lékaře nepoužitelný!",
       "tags": [
         "Dopisovací",
@@ -3578,15 +3539,14 @@
       "topicId": "pharm-39",
       "topicTitle": "TDM digoxinu",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: TDM digoxinu",
-      "sentence": "Pamatujte: Hypokalémie dramaticky zvyšuje toxicitu digoxinu, a to i při zcela 'normálních' plazmatických hladinách digoxinu! Draslík soutěží s digoxinem o vazebné místo na Na+/K+ ATPáze. Snížená hladina draslíku v séru uvolní vazebná místa pro digoxin, což vede k jeho nadměrné vazbě a toxicitě. Vždy kontrolujte kalémii!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Hypokalémie dramaticky zvyšuje toxicitu digoxinu, a to i při zcela 'normálních' plazmatických hladin...\"?",
+      "sentence": "Klíčový fakt: Hypokalémie dramaticky zvyšuje toxicitu digoxinu, a to i při zcela 'normálních' plazmatických hladinách digoxinu! Draslík soutěží s digoxinem o vazebné místo na Na+/K+ ATPáze. Snížená hladina draslíku v séru uvolní vazebná místa pro digoxin, což vede k jeho nadměrné vazbě a toxicitě. Vždy kontrolujte kalémii!",
       "acceptedAnswers": [
         "tdm digoxinu",
-        "ano",
-        "ne"
+        "tdm"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Hypokalémie dramaticky zvyšuje toxicitu digoxinu, a to i při zcela 'normálních' plazmatických hladinách digoxinu! Draslík soutěží s digoxinem o vazebné místo na Na+/K+ ATPáze. Snížená hladina draslíku v séru uvolní vazebná místa pro digoxin, což vede k jeho nadměrné vazbě a toxicitě. Vždy kontrolujte kalémii!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Digoxin je kardiotonikum (srdeční glykosid) s úzkým terapeutickým indexem užívaný k léčbě chronického srdečního selhání a ke kontrole komorové frekvence u fibrilace síní.",
       "pearl": "Hypokalémie dramaticky zvyšuje toxicitu digoxinu, a to i při zcela 'normálních' plazmatických hladinách digoxinu! Draslík soutěží s digoxinem o vazebné místo na Na+/K+ ATPáze. Snížená hladina draslíku v séru uvolní vazebná místa pro digoxin, což vede k jeho nadměrné vazbě a toxicitě. Vždy kontrolujte kalémii!",
       "tags": [
         "Dopisovací",
@@ -3670,15 +3630,14 @@
       "topicId": "pharm-40",
       "topicTitle": "TDM vankomycinu",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: TDM vankomycinu",
-      "sentence": "Pamatujte: Red Man syndrom (syndrom červeného muže - zrudnutí obličeje, krku a trupu, doprovázené hypotenzí a svěděním) není pravá IgE alergická reakce! Jedná se o přímé uvolnění histaminu z mastocytů způsobené příliš rychlou infuzí vankomycinu. Prevencí je podávání infuze pomalu (minimálně po dobu 60 minut na každých 1000 mg)!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Red Man syndrom (syndrom červeného muže - zrudnutí obličeje, krku a trupu, doprovázené hypotenzí a s...\"?",
+      "sentence": "Klíčový fakt: Red Man syndrom (syndrom červeného muže - zrudnutí obličeje, krku a trupu, doprovázené hypotenzí a svěděním) není pravá IgE alergická reakce! Jedná se o přímé uvolnění histaminu z mastocytů způsobené příliš rychlou infuzí vankomycinu. Prevencí je podávání infuze pomalu (minimálně po dobu 60 minut na každých 1000 mg)!",
       "acceptedAnswers": [
         "tdm vankomycinu",
-        "ano",
-        "ne"
+        "tdm"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Red Man syndrom (syndrom červeného muže - zrudnutí obličeje, krku a trupu, doprovázené hypotenzí a svěděním) není pravá IgE alergická reakce! Jedná se o přímé uvolnění histaminu z mastocytů způsobené příliš rychlou infuzí vankomycinu. Prevencí je podávání infuze pomalu (minimálně po dobu 60 minut na každých 1000 mg)!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Vankomycin je glykopeptidové antibiotikum s úzkým terapeutickým indexem, určené k léčbě závažných infekcí způsobených grampozitivními bakteriemi (zejména MRSA).",
       "pearl": "Red Man syndrom (syndrom červeného muže - zrudnutí obličeje, krku a trupu, doprovázené hypotenzí a svěděním) není pravá IgE alergická reakce! Jedná se o přímé uvolnění histaminu z mastocytů způsobené příliš rychlou infuzí vankomycinu. Prevencí je podávání infuze pomalu (minimálně po dobu 60 minut na každých 1000 mg)!",
       "tags": [
         "Dopisovací",
@@ -3762,15 +3721,14 @@
       "topicId": "pharm-41",
       "topicTitle": "TDM aminoglykosidů",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: TDM aminoglykosidů",
-      "sentence": "Pamatujte: Dávkování aminoglykosidů jednou denně (pulzní podání) je bezpečnější a účinnější než rozdělení dávky do 3 denních dávek. Vysoký vrchol (peak) zajistí silný baktericidní účinek, zatímco dlouhé období velmi nízkých koncentrací na konci intervalu umožní ledvinám vyloučit lék z tubulárních buněk, což dramaticky snižuje nefrotoxicitu!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Dávkování aminoglykosidů jednou denně (pulzní podání) je bezpečnější a účinnější než rozdělení dávky...\"?",
+      "sentence": "Klíčový fakt: Dávkování aminoglykosidů jednou denně (pulzní podání) je bezpečnější a účinnější než rozdělení dávky do 3 denních dávek. Vysoký vrchol (peak) zajistí silný baktericidní účinek, zatímco dlouhé období velmi nízkých koncentrací na konci intervalu umožní ledvinám vyloučit lék z tubulárních buněk, což dramaticky snižuje nefrotoxicitu!",
       "acceptedAnswers": [
         "tdm aminoglykosidů",
-        "ano",
-        "ne"
+        "tdm"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Dávkování aminoglykosidů jednou denně (pulzní podání) je bezpečnější a účinnější než rozdělení dávky do 3 denních dávek. Vysoký vrchol (peak) zajistí silný baktericidní účinek, zatímco dlouhé období velmi nízkých koncentrací na konci intervalu umožní ledvinám vyloučit lék z tubulárních buněk, což dramaticky snižuje nefrotoxicitu!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Aminoglykosidy (gentamicin, amikacin, tobramycin) jsou baktericidní antibiotika s úzkým terapeutickým indexem určená k léčbě závažných gramnegativních infekcí.",
       "pearl": "Dávkování aminoglykosidů jednou denně (pulzní podání) je bezpečnější a účinnější než rozdělení dávky do 3 denních dávek. Vysoký vrchol (peak) zajistí silný baktericidní účinek, zatímco dlouhé období velmi nízkých koncentrací na konci intervalu umožní ledvinám vyloučit lék z tubulárních buněk, což dramaticky snižuje nefrotoxicitu!",
       "tags": [
         "Dopisovací",
@@ -3854,15 +3812,14 @@
       "topicId": "pharm-42",
       "topicTitle": "TDM teofylinu",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: TDM teofylinu",
-      "sentence": "Pamatujte: U kuřáků s CHOPN, kteří jsou hospitalizováni pro exacerbaci a přestanou v nemocnici kouřit, dochází k rychlému poklesu clearance theofylinu (de-indukci CYP1A2). Pokud se dávka theofylinu včas nesníží, hrozí rozvoj těžké intoxikace s maligními arytmiemi a křečemi!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"U kuřáků s CHOPN, kteří jsou hospitalizováni pro exacerbaci a přestanou v nemocnici kouřit, dochází ...\"?",
+      "sentence": "Klíčový fakt: U kuřáků s CHOPN, kteří jsou hospitalizováni pro exacerbaci a přestanou v nemocnici kouřit, dochází k rychlému poklesu clearance theofylinu (de-indukci CYP1A2). Pokud se dávka theofylinu včas nesníží, hrozí rozvoj těžké intoxikace s maligními arytmiemi a křečemi!",
       "acceptedAnswers": [
         "tdm teofylinu",
-        "ano",
-        "ne"
+        "tdm"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "U kuřáků s CHOPN, kteří jsou hospitalizováni pro exacerbaci a přestanou v nemocnici kouřit, dochází k rychlému poklesu clearance theofylinu (de-indukci CYP1A2). Pokud se dávka theofylinu včas nesníží, hrozí rozvoj těžké intoxikace s maligními arytmiemi a křečemi!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Teofylin (methylxantin) je bronchodilatační a protizánětlivé léčivo s úzkým terapeutickým indexem, užívané k doplňkové léčbě těžkého astmatu a CHOPN.",
       "pearl": "U kuřáků s CHOPN, kteří jsou hospitalizováni pro exacerbaci a přestanou v nemocnici kouřit, dochází k rychlému poklesu clearance theofylinu (de-indukci CYP1A2). Pokud se dávka theofylinu včas nesníží, hrozí rozvoj těžké intoxikace s maligními arytmiemi a křečemi!",
       "tags": [
         "Dopisovací",
@@ -3946,15 +3903,14 @@
       "topicId": "pharm-43",
       "topicTitle": "TDM antiepileptik",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: TDM antiepileptik",
-      "sentence": "Pamatujte: Fenytoin má jedinečnou farmakokinetiku s nasycováním jaterních enzymů (CYP2C9) již v běžném terapeutickém rozmezí (10-20 mg/l). Jakmile se enzymy nasytí, kinetika se mění z 1. řádu na 0. řád - clearance klesá a i minimální navýšení dávky (např. o 10 %) může zdvojnásobit plazmatickou hladinu a vyvolat těžkou cerebelární toxicitu (ataxii, nystagmus, dysartrii)!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Fenytoin má jedinečnou farmakokinetiku s nasycováním jaterních enzymů (CYP2C9) již v běžném terapeut...\"?",
+      "sentence": "Klíčový fakt: Fenytoin má jedinečnou farmakokinetiku s nasycováním jaterních enzymů (CYP2C9) již v běžném terapeutickém rozmezí (10-20 mg/l). Jakmile se enzymy nasytí, kinetika se mění z 1. řádu na 0. řád - clearance klesá a i minimální navýšení dávky (např. o 10 %) může zdvojnásobit plazmatickou hladinu a vyvolat těžkou cerebelární toxicitu (ataxii, nystagmus, dysartrii)!",
       "acceptedAnswers": [
         "tdm antiepileptik",
-        "ano",
-        "ne"
+        "tdm"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Fenytoin má jedinečnou farmakokinetiku s nasycováním jaterních enzymů (CYP2C9) již v běžném terapeutickém rozmezí (10-20 mg/l). Jakmile se enzymy nasytí, kinetika se mění z 1. řádu na 0. řád - clearance klesá a i minimální navýšení dávky (např. o 10 %) může zdvojnásobit plazmatickou hladinu a vyvolat těžkou cerebelární toxicitu (ataxii, nystagmus, dysartrii)!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "TDM antiepileptik (např. fenytoinu, karbamazepinu, kyseliny valproové, levetiracetamu) se provádí k individualizaci léčby, kontrole compliance a minimalizaci neurotoxicity.",
       "pearl": "Fenytoin má jedinečnou farmakokinetiku s nasycováním jaterních enzymů (CYP2C9) již v běžném terapeutickém rozmezí (10-20 mg/l). Jakmile se enzymy nasytí, kinetika se mění z 1. řádu na 0. řád - clearance klesá a i minimální navýšení dávky (např. o 10 %) může zdvojnásobit plazmatickou hladinu a vyvolat těžkou cerebelární toxicitu (ataxii, nystagmus, dysartrii)!",
       "tags": [
         "Dopisovací",
@@ -4038,15 +3994,14 @@
       "topicId": "pharm-44",
       "topicTitle": "TDM antidepresiv",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: TDM antidepresiv",
-      "sentence": "Pamatujte: Předávkování tricyklickými antidepresivy (např. amitriptylinem v suicidálním pokusu) je život ohrožující emergency. Blokáda sodíkových kanálů v srdci vede k rozšíření komplexu QRS (> 100-120 ms) a maligním arytmiím. Lékem první volby je podání hydrogenuhličitanu sodného (NaHCO3) i.v., který zvýšením pH a koncentrace sodíku antagonizuje blokádu kanálů!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Předávkování tricyklickými antidepresivy (např. amitriptylinem v suicidálním pokusu) je život ohrožu...\"?",
+      "sentence": "Klíčový fakt: Předávkování tricyklickými antidepresivy (např. amitriptylinem v suicidálním pokusu) je život ohrožující emergency. Blokáda sodíkových kanálů v srdci vede k rozšíření komplexu QRS (> 100-120 ms) a maligním arytmiím. Lékem první volby je podání hydrogenuhličitanu sodného (NaHCO3) i.v., který zvýšením pH a koncentrace sodíku antagonizuje blokádu kanálů!",
       "acceptedAnswers": [
         "tdm antidepresiv",
-        "ano",
-        "ne"
+        "tdm"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Předávkování tricyklickými antidepresivy (např. amitriptylinem v suicidálním pokusu) je život ohrožující emergency. Blokáda sodíkových kanálů v srdci vede k rozšíření komplexu QRS (> 100-120 ms) a maligním arytmiím. Lékem první volby je podání hydrogenuhličitanu sodného (NaHCO3) i.v., který zvýšením pH a koncentrace sodíku antagonizuje blokádu kanálů!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "TDM antidepresiv (zejména tricyklických antidepresiv - TCA) se provádí k prevenci závažné kardiotoxicity a neurotoxicity, ověření compliance a optimalizaci dávky u pacientů s pomalým metabolismem (polymorfismy CYP2D6).",
       "pearl": "Předávkování tricyklickými antidepresivy (např. amitriptylinem v suicidálním pokusu) je život ohrožující emergency. Blokáda sodíkových kanálů v srdci vede k rozšíření komplexu QRS (> 100-120 ms) a maligním arytmiím. Lékem první volby je podání hydrogenuhličitanu sodného (NaHCO3) i.v., který zvýšením pH a koncentrace sodíku antagonizuje blokádu kanálů!",
       "tags": [
         "Dopisovací",
@@ -4130,15 +4085,14 @@
       "topicId": "pharm-45",
       "topicTitle": "TDM antipsychotik",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: TDM antipsychotik",
-      "sentence": "Pamatujte: Clozapin (Leponex) je indikován u schizofrenie rezistentní na léčbu. Vyžaduje přísný monitoring: 1. TDM (cíl > 350 ug/l), 2. Pravidelný odběr krevního obrazu (každý týden v prvních 18 týdnech) z důvodu rizika život ohrožující agranulocytózy (pokles neutrofilů pod 1.5 x 10^9/l)!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Clozapin (Leponex) je indikován u schizofrenie rezistentní na léčbu. Vyžaduje přísný monitoring: 1. ...\"?",
+      "sentence": "Klíčový fakt: Clozapin (Leponex) je indikován u schizofrenie rezistentní na léčbu. Vyžaduje přísný monitoring: 1. TDM (cíl > 350 ug/l), 2. Pravidelný odběr krevního obrazu (každý týden v prvních 18 týdnech) z důvodu rizika život ohrožující agranulocytózy (pokles neutrofilů pod 1.5 x 10^9/l)!",
       "acceptedAnswers": [
         "tdm antipsychotik",
-        "ano",
-        "ne"
+        "tdm"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Clozapin (Leponex) je indikován u schizofrenie rezistentní na léčbu. Vyžaduje přísný monitoring: 1. TDM (cíl > 350 ug/l), 2. Pravidelný odběr krevního obrazu (každý týden v prvních 18 týdnech) z důvodu rizika život ohrožující agranulocytózy (pokles neutrofilů pod 1.5 x 10^9/l)!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "TDM antipsychotik se zaměřuje na sledování koncentrací neuroleptik v séru k ověření compliance pacienta, minimalizaci extrapyramidových nežádoucích účinků a optimalizaci léčby u rezistentní schizofrenie (zejména u clozapinu).",
       "pearl": "Clozapin (Leponex) je indikován u schizofrenie rezistentní na léčbu. Vyžaduje přísný monitoring: 1. TDM (cíl > 350 ug/l), 2. Pravidelný odběr krevního obrazu (každý týden v prvních 18 týdnech) z důvodu rizika život ohrožující agranulocytózy (pokles neutrofilů pod 1.5 x 10^9/l)!",
       "tags": [
         "Dopisovací",
@@ -4222,15 +4176,15 @@
       "topicId": "pharm-46",
       "topicTitle": "Personalizovaná farmakoterapie",
       "type": "fill_in",
-      "question": "Klinická zásada pro téma: Personalizovaná farmakoterapie",
-      "sentence": "Pamatujte: Před předepsáním abakaviru (lék na HIV) je povinné vyšetřit přítomnost alely HLA-B*5701. Pokud je pacient nositelem této alely, podání abakaviru u něj vyvolá generalizovanou systémovou alergickou reakci (horečka, exantém, dušnost, GIT potíže), která může být při opětovné expozici (rechallenge) fatální!",
+      "question": "Jakého farmakologického okruhu se týká zásada: \"Před předepsáním abakaviru (lék na HIV) je povinné vyšetřit přítomnost alely HLA-B*5701. Pokud je pa...\"?",
+      "sentence": "Klíčový fakt: Před předepsáním abakaviru (lék na HIV) je povinné vyšetřit přítomnost alely HLA-B*5701. Pokud je pacient nositelem této alely, podání abakaviru u něj vyvolá generalizovanou systémovou alergickou reakci (horečka, exantém, dušnost, GIT potíže), která může být při opětovné expozici (rechallenge) fatální!",
       "acceptedAnswers": [
-        "personalizovaná farm",
-        "ano",
-        "ne"
+        "personalizovaná farmakoterapie",
+        "personalizovaná",
+        "personalizovaná farmakote"
       ],
-      "hint": "Základní pravidlo bezpečné farmakoterapie",
-      "explanation": "Před předepsáním abakaviru (lék na HIV) je povinné vyšetřit přítomnost alely HLA-B*5701. Pokud je pacient nositelem této alely, podání abakaviru u něj vyvolá generalizovanou systémovou alergickou reakci (horečka, exantém, dušnost, GIT potíže), která může být při opětovné expozici (rechallenge) fatální!",
+      "hint": "Farmakologická léková skupina / téma.",
+      "explanation": "Personalizovaná farmakoterapie (precision medicine) je moderní lékařský přístup přizpůsobující výběr léčiva a jeho dávkování individuálním vlastnostem pacienta na základě jeho klinického stavu, biomarkerů, TDM a farmakogenomiky (PGx).",
       "pearl": "Před předepsáním abakaviru (lék na HIV) je povinné vyšetřit přítomnost alely HLA-B*5701. Pokud je pacient nositelem této alely, podání abakaviru u něj vyvolá generalizovanou systémovou alergickou reakci (horečka, exantém, dušnost, GIT potíže), která může být při opětovné expozici (rechallenge) fatální!",
       "tags": [
         "Dopisovací",
@@ -4242,7 +4196,7 @@
       "subjectId": "farma",
       "subjectTitle": "Farmakologie",
       "grade": 4,
-      "topicId": "farma-kardiovaskularni-farmakologie",
+      "topicId": "farma-kardiovaskul-rn-farmakologie",
       "topicTitle": "Kazuistika: Kardiovaskulární farmakologie",
       "type": "case_study",
       "title": "Intoxikace digoxinem při hypokalémii vyvolané diuretiky",
@@ -4410,7 +4364,7 @@
       "subjectId": "farma",
       "subjectTitle": "Farmakologie",
       "grade": 4,
-      "topicId": "farma-antiinfektiva-metabolicke-interakce",
+      "topicId": "farma-antiinfektiva-metabolick-interakce",
       "topicTitle": "Kazuistika: Antiinfektiva & Metabolické interakce",
       "type": "case_study",
       "title": "Disulfiramová (antabusová) reakce po metronidazolu a alkoholu",
@@ -4440,10 +4394,10 @@
       "title": "Opioidní intoxikace a fenomén renarkotizace po naloxonu",
       "vignette": {
         "scenario": "28letý muž je nalezen na toaletě v bezvědomí. RZP zjišťuje: GCS 3, cyanóza, dechová frekvence 4 dechy za minutu, chrčivé dýchání, zornice špendlíkovité (mystická mióza 1 mm, fotoreakce minimální), TK 90/50 mmHg. Lékař RZP aplikoval naloxon 0,4 mg i.v. Během 90 sekund pacient procitá k plnému vědomí, je plně orientován a odmítá transport do nemocnice s tím, že se cítí naprosto zdráv. Proč lékař NESMÍ pacienta ponechat na místě bez hospitalizace?",
-        "solution": "1. Fenomén renarkotizace: Naloxon je čistý kompetitivní antagonista na všech typech opioidních receptorů (především µ-receptorech). Má však velmi krátký biologický poločas eliminace ($T_{1/2} \\\\approx 30–60\\\\text{ minut}$), zatímco většina zneužívaných opioidů (např. heroin, morfin, oxykodon, a zejména syntetické opioidy jako metadon či fentanyl s depotním efektem) má poločas eliminace 3–24 hodin.\n2. Důsledek: Po odeznění účinku naloxonu (cca za 45–60 minut) se molekuly opioidu, které zůstaly v organismu, znovu naváží na uvolněné µ-opioidní receptory. U pacienta dojde k opětovnému rozvoji hlubokého bezvědomí, zástavě dechu a asfyxii (renarkotizace).\n3. Správný postup: Pacient musí být observován na monitorovaném lůžku minimálně 4–6 hodin (u dlouhodobě působících opioidů jako metadon 24 hodin) s připraveností podat opakované dávky naloxonu nebo zahájit kontinuální infuzi.",
+        "solution": "1. Fenomén renarkotizace: Naloxon je čistý kompetitivní antagonista na všech typech opioidních receptorů (především µ-receptorech). Má však velmi krátký biologický poločas eliminace ($T_{1/2} \\approx 30–60\\text{ minut}$), zatímco většina zneužívaných opioidů (např. heroin, morfin, oxykodon, a zejména syntetické opioidy jako metadon či fentanyl s depotním efektem) má poločas eliminace 3–24 hodin.\n2. Důsledek: Po odeznění účinku naloxonu (cca za 45–60 minut) se molekuly opioidu, které zůstaly v organismu, znovu naváží na uvolněné µ-opioidní receptory. U pacienta dojde k opětovnému rozvoji hlubokého bezvědomí, zástavě dechu a asfyxii (renarkotizace).\n3. Správný postup: Pacient musí být observován na monitorovaném lůžku minimálně 4–6 hodin (u dlouhodobě působících opioidů jako metadon 24 hodin) s připraveností podat opakované dávky naloxonu nebo zahájit kontinuální infuzi.",
         "keyTakeaway": "Poločas eliminace naloxonu (30–60 min) je výrazně kratší než poločas většiny opioidů. Hrozí fatální renarkotizace po odeznění antidota."
       },
-      "explanation": "1. Fenomén renarkotizace: Naloxon je čistý kompetitivní antagonista na všech typech opioidních receptorů (především µ-receptorech). Má však velmi krátký biologický poločas eliminace ($T_{1/2} \\\\approx 30–60\\\\text{ minut}$), zatímco většina zneužívaných opioidů (např. heroin, morfin, oxykodon, a zejména syntetické opioidy jako metadon či fentanyl s depotním efektem) má poločas eliminace 3–24 hodin.\n2. Důsledek: Po odeznění účinku naloxonu (cca za 45–60 minut) se molekuly opioidu, které zůstaly v organismu, znovu naváží na uvolněné µ-opioidní receptory. U pacienta dojde k opětovnému rozvoji hlubokého bezvědomí, zástavě dechu a asfyxii (renarkotizace).\n3. Správný postup: Pacient musí být observován na monitorovaném lůžku minimálně 4–6 hodin (u dlouhodobě působících opioidů jako metadon 24 hodin) s připraveností podat opakované dávky naloxonu nebo zahájit kontinuální infuzi.",
+      "explanation": "1. Fenomén renarkotizace: Naloxon je čistý kompetitivní antagonista na všech typech opioidních receptorů (především µ-receptorech). Má však velmi krátký biologický poločas eliminace ($T_{1/2} \\approx 30–60\\text{ minut}$), zatímco většina zneužívaných opioidů (např. heroin, morfin, oxykodon, a zejména syntetické opioidy jako metadon či fentanyl s depotním efektem) má poločas eliminace 3–24 hodin.\n2. Důsledek: Po odeznění účinku naloxonu (cca za 45–60 minut) se molekuly opioidu, které zůstaly v organismu, znovu naváží na uvolněné µ-opioidní receptory. U pacienta dojde k opětovnému rozvoji hlubokého bezvědomí, zástavě dechu a asfyxii (renarkotizace).\n3. Správný postup: Pacient musí být observován na monitorovaném lůžku minimálně 4–6 hodin (u dlouhodobě působících opioidů jako metadon 24 hodin) s připraveností podat opakované dávky naloxonu nebo zahájit kontinuální infuzi.",
       "pearl": "Klasická triáda intoxikace opioidy: mióza (špendlíkovité zornice), deprese dechu (bradypnoe/apnoe) a bezvědomí. Rychlé probuzení po naloxonu je zároveň diagnostickým testem.",
       "tags": [
         "Kazuistika",

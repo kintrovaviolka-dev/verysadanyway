@@ -4455,6 +4455,2009 @@
         "Single Choice",
         "Parazitologie"
       ]
+    },
+    {
+      "id": "mikra-reported-maldi-tof",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-14-b",
+      "topicTitle": "Sekvenování DNA, 16S rRNA, taxonomie bakterií (Diagnostika)",
+      "type": "single_choice",
+      "question": "Jaký princip využívá MALDI-TOF při rutinní identifikaci bakterie z kolonie?",
+      "options": [
+        "Sekvenaci genu pro 16S rRNA",
+        "Hmotnostní spektrometrii proteinového profilu",
+        "Průkaz antigenu latexovou aglutinací",
+        "Stanovení MIC v mikrodiluční metodě"
+      ],
+      "correctIndex": 1,
+      "explanation": "MALDI-TOF porovnává hmotnostní spektrum hlavně ribozomálních proteinů izolované kolonie s databází.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A6/B6",
+          "Test!A62/B62",
+          "Test!A247/B247"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Diagnostika"
+      ]
+    },
+    {
+      "id": "mikra-reported-calcofluor-binding",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-17-b",
+      "topicTitle": "Laboratorní techniky přímého a nepřímého průkazu mykotických nákaz (Mykologie)",
+      "type": "single_choice",
+      "question": "Na kterou součást buněčné stěny hub se váže calcofluor white při fluorescenčním průkazu?",
+      "options": [
+        "Chitin",
+        "Peptidoglykan",
+        "Lipopolysacharid",
+        "Mykolové kyseliny"
+      ],
+      "correctIndex": 0,
+      "explanation": "Calcofluor white se váže na polysacharidy buněčné stěny hub, zejména chitin a celulózu, a zvýrazní je fluorescencí.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A52/B52",
+          "Test!L112"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": {
+        "src": "/drill/assets/mikra/calcofluor-fungal-fluorescence.png",
+        "alt": "Fluorescenčně svítící buněčné stěny hub po barvení calcofluorem.",
+        "kind": "supplied",
+        "source": "Vložený obrázek v dodaném sešitu, Test!L112."
+      },
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Mykologie"
+      ]
+    },
+    {
+      "id": "mikra-reported-sabouraud",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-15-b",
+      "topicTitle": "Kvasinky a kvasinkové mikroorganismy (Candida, Cryptococcus) (Mykologie)",
+      "type": "single_choice",
+      "question": "Která půda se standardně používá pro kultivaci kvasinek a vláknitých hub?",
+      "options": [
+        "Sabouraudův agar",
+        "MacConkeyho agar",
+        "Thayerův-Martinův agar",
+        "Löwensteinův–Jensenův agar"
+      ],
+      "correctIndex": 0,
+      "explanation": "Sabouraudův agar s kyselým pH je klasická kultivační půda pro kvasinky a plísně.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A17/B17",
+          "Test!A253/B253"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Mykologie"
+      ]
+    },
+    {
+      "id": "mikra-reported-aspergillus-galactomannan",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-16-b",
+      "topicTitle": "Aspergilové infekce (Mykologie)",
+      "type": "single_choice",
+      "question": "Průkaz galaktomananu v séru nebo BAL podporuje diagnózu které invazivní mykózy?",
+      "options": [
+        "Invazivní aspergilózy",
+        "Kryptokokózy",
+        "Kandidémie",
+        "Pneumocystové pneumonie"
+      ],
+      "correctIndex": 0,
+      "explanation": "Galaktomanan je buněčná složka Aspergillus spp. používaná jako podpůrný marker invazivní aspergilózy.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A131/B131"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Mykologie"
+      ]
+    },
+    {
+      "id": "mikra-reported-aspergilloma-ct",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-16-b",
+      "topicTitle": "Aspergilové infekce (Mykologie)",
+      "type": "single_choice",
+      "question": "Co nejlépe odpovídá nálezu na CT: kulovitý útvar v preexistující plicní dutině, kolem něhož je patrný srpek vzduchu?",
+      "options": [
+        "Aspergilom s air-crescent sign",
+        "Pneumotorax",
+        "Miliární tuberkulóza",
+        "Pleurální empyém"
+      ],
+      "correctIndex": 0,
+      "explanation": "Aspergilom je kolonie hub v dutině; vzduch mezi mycetomem a stěnou dutiny vytváří typický moon/air-crescent vzhled.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Vzpomínka po testu: CT aspergilomu – moon crescent sign"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": {
+        "src": "/drill/assets/mikra/ct-aspergilloma-moon-crescent.png",
+        "alt": "CT plic s kulovitou lézí oddělenou od stěny dutiny srpkem vzduchu.",
+        "kind": "supplied",
+        "source": "Vložený obrázek v dodaném sešitu, Test!A74."
+      },
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Mykologie"
+      ]
+    },
+    {
+      "id": "mikra-reported-fluorescent-yeast",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-15-b",
+      "topicTitle": "Kvasinky a kvasinkové mikroorganismy (Candida, Cryptococcus) (Mykologie)",
+      "type": "single_choice",
+      "question": "Na fluorescenčním preparátu jsou patrné pučící oválné buňky. Který z následujících původců je kvasinka?",
+      "options": [
+        "Cryptococcus neoformans",
+        "Nocardia farcinica",
+        "Actinomyces israelii",
+        "Gardnerella vaginalis"
+      ],
+      "correctIndex": 0,
+      "explanation": "Cryptococcus neoformans je zapouzdřená kvasinka; ostatní možnosti jsou bakterie.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Vzpomínka po testu: fluorescenční barvení hub – jediná kvasinka"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Mykologie"
+      ]
+    },
+    {
+      "id": "mikra-reported-voriconazole",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-24-a",
+      "topicTitle": "Antimykotika – klasifikace a mechanizmus účinku (Farmakoterapie)",
+      "type": "single_choice",
+      "question": "Které antimykotikum patří mezi standardní léky první volby u invazivní aspergilózy?",
+      "options": [
+        "Vorikonazol",
+        "Flukonazol",
+        "Nystatin",
+        "Terbinafin"
+      ],
+      "correctIndex": 0,
+      "explanation": "Vorikonazol je základní systémové antimykotikum pro léčbu invazivní aspergilózy.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A97/B97"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Farmakoterapie"
+      ]
+    },
+    {
+      "id": "mikra-reported-fluconazole-use",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-24-a",
+      "topicTitle": "Antimykotika – klasifikace a mechanizmus účinku (Farmakoterapie)",
+      "type": "single_choice",
+      "question": "Pro kterou skupinu infekcí je flukonazol typicky využíván?",
+      "options": [
+        "Kvasinkové infekce včetně kandidóz",
+        "Invazivní aspergilóza jako první volba",
+        "Dermatofytózy pouze lokálně",
+        "Infekce způsobené Mucorales"
+      ],
+      "correctIndex": 0,
+      "explanation": "Flukonazol má aktivitu zejména proti mnoha druhům Candida, nikoli spolehlivě proti Aspergillus nebo Mucorales.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A98/B98"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Farmakoterapie"
+      ]
+    },
+    {
+      "id": "mikra-reported-zn-acid-fast",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-21-a",
+      "topicTitle": "Mycobacterium tuberculosis (Bakteriologie)",
+      "type": "single_choice",
+      "question": "K průkazu acidorezistentních tyčinek v preparátu se používá především které barvení?",
+      "options": [
+        "Ziehlovo–Neelsenovo",
+        "Gramovo",
+        "Giemsovo",
+        "India ink"
+      ],
+      "correctIndex": 0,
+      "explanation": "Ziehlovo–Neelsenovo barvení využívá acidorezistenci mykobakterií danou mykolovými kyselinami.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A215/B215",
+          "Vzpomínka po testu: mykobakterie nabarvené Ziehl–Neelsen"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": {
+        "src": "/drill/assets/mikra/acid-fast-stain.png",
+        "alt": "Acidorezistentní tyčinky v kontrastně dobarveném preparátu.",
+        "kind": "supplied",
+        "source": "Vložený obrázek v dodaném sešitu, Test!A99."
+      },
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-reported-mycobacteria-gram",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-21-a",
+      "topicTitle": "Mycobacterium tuberculosis (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Proč nejsou mykobakterie spolehlivě hodnotitelné běžným Gramovým barvením?",
+      "options": [
+        "Mají stěnu bohatou na mykolové kyseliny",
+        "Nemají buněčnou stěnu",
+        "Tvoří endospory",
+        "Jsou obligátně intracelulární"
+      ],
+      "correctIndex": 0,
+      "explanation": "Lipidy a mykolové kyseliny v obalu mykobakterií zhoršují průnik běžných barviv; používá se acidorezistentní barvení.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A249/B249"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-reported-mycobacterium-culture",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-21-a",
+      "topicTitle": "Mycobacterium tuberculosis (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Jak dlouho může trvat kultivace Mycobacterium tuberculosis na pevných médiích?",
+      "options": [
+        "3–6 týdnů",
+        "6–12 hodin",
+        "24 hodin",
+        "2–3 dny"
+      ],
+      "correctIndex": 0,
+      "explanation": "M. tuberculosis roste pomalu; kultivace na pevném médiu se hodnotí v řádu týdnů.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A211/B211"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-reported-ntm-disease",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-22-a",
+      "topicTitle": "Atypická (netuberkulózní) mykobakteria (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Které tvrzení nejlépe vystihuje netuberkulózní mykobakteria?",
+      "options": [
+        "Mohou vyvolávat chronická onemocnění, zejména u vnímavých hostitelů",
+        "Jsou vždy součástí běžné střevní flóry",
+        "Způsobují pouze akutní virové infekce",
+        "Nelze je kultivovat"
+      ],
+      "correctIndex": 0,
+      "explanation": "Netuberkulózní mykobakteria jsou environmentální druhy a mohou vyvolávat zejména chronické plicní či diseminované infekce.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A129/B129",
+          "Test!A130/B130"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-reported-bovis-nodes",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-21-a",
+      "topicTitle": "Mycobacterium tuberculosis (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Infekce Mycobacterium bovis se po alimentárním přenosu může projevit zejména postižením kterých uzlin?",
+      "options": [
+        "Krčních a mezenteriálních",
+        "Axilárních a inguinálních výhradně",
+        "Jen mediastinálních",
+        "Žádných lymfatických uzlin"
+      ],
+      "correctIndex": 0,
+      "explanation": "Alimentární infekce M. bovis může postihovat mezenteriální i krční mízní uzliny.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A88/B88"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-reported-enterobius-tape",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-36-b",
+      "topicTitle": "Střevní nematodózy (Enterobius, Ascaris, Strongyloides, Ancylostoma) (Parazitologie)",
+      "type": "single_choice",
+      "question": "Jaký materiál se odebírá pro průkaz vajíček Enterobius vermicularis?",
+      "options": [
+        "Ranní otisk perianální oblasti lepící páskou",
+        "Hemokultura při horečce",
+        "Sputum do sterilní nádoby",
+        "Likvor do transportního média"
+      ],
+      "correctIndex": 0,
+      "explanation": "Samice roupu klade vajíčka perianálně, proto se provádí ranní otisk lepící páskou před hygienou a defekací.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A99",
+          "Test!A219/B219",
+          "Vzpomínka po testu: Enterobius na lepící pásce"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": {
+        "src": "/drill/assets/mikra/enterobius-eggs.png",
+        "alt": "Oválná vajíčka Enterobius vermicularis s typickou asymetrií.",
+        "kind": "supplied",
+        "source": "Vložený obrázek v dodaném sešitu, Test!A99."
+      },
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-reported-trichomonas-identification",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-28-b",
+      "topicTitle": "Trichomonas vaginalis a urogenitální bičíkovci (Parazitologie)",
+      "type": "single_choice",
+      "question": "Který původce odpovídá zobrazenému pohyblivému bičíkovci z urogenitálního materiálu?",
+      "options": [
+        "Trichomonas vaginalis",
+        "Giardia intestinalis",
+        "Entamoeba histolytica",
+        "Toxoplasma gondii"
+      ],
+      "correctIndex": 0,
+      "explanation": "Trichomonas vaginalis je urogenitální bičíkovec přenášený převážně pohlavním stykem.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A19/B19",
+          "Test!A76",
+          "Test!A260/B260",
+          "Vzpomínka po testu: Trichomonas vaginalis"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": {
+        "src": "/drill/assets/mikra/trichomonas-vaginalis.png",
+        "alt": "Hruškovitý bičíkovec Trichomonas vaginalis s bičíky.",
+        "kind": "supplied",
+        "source": "Vložený obrázek v dodaném sešitu, Test!A76."
+      },
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-reported-trichomonas-transmission",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-28-b",
+      "topicTitle": "Trichomonas vaginalis a urogenitální bičíkovci (Parazitologie)",
+      "type": "single_choice",
+      "question": "Jaký je hlavní způsob přenosu Trichomonas vaginalis?",
+      "options": [
+        "Pohlavní styk",
+        "Fekálně-orální cesta",
+        "Klíštětem",
+        "Inhalací aerosolu"
+      ],
+      "correctIndex": 0,
+      "explanation": "T. vaginalis se přenáší téměř výhradně pohlavním stykem.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A19/B19",
+          "Test!A260/B260"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-reported-mic-dilution",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-29-a",
+      "topicTitle": "Karbapenemy a karbapenemázy (Farmakoterapie)",
+      "type": "single_choice",
+      "question": "Co stanovuje diluční metoda se sérií zkumavek s klesající koncentrací antibiotika?",
+      "options": [
+        "Minimální inhibiční koncentraci (MIC)",
+        "Hemolytickou aktivitu bakterie",
+        "Počet leukocytů ve vzorku",
+        "Sérologický titr protilátek"
+      ],
+      "correctIndex": 0,
+      "explanation": "MIC je nejnižší koncentrace antimikrobiální látky, která za definovaných podmínek inhibuje viditelný růst bakterie.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Vzpomínka po testu: diluční metoda",
+          "Test!A79"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": {
+        "src": "/drill/assets/mikra/dilution-mic-tubes.png",
+        "alt": "Řada zkumavek s postupně klesající koncentrací antimikrobiální látky pro stanovení MIC.",
+        "kind": "supplied",
+        "source": "Vložený obrázek v dodaném sešitu, Test!A112."
+      },
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Farmakoterapie"
+      ]
+    },
+    {
+      "id": "mikra-reported-streptococcus-pyogenes-hemolysis",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-14-a",
+      "topicTitle": "Beta-hemolytické (pyogenní) streptokoky (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Jaký typ hemolýzy je typický pro Streptococcus pyogenes na krevním agaru?",
+      "options": [
+        "Úplná beta-hemolýza",
+        "Částečná alfa-hemolýza",
+        "Žádná gama-hemolýza",
+        "Dvojitá zóna hemolýzy"
+      ],
+      "correctIndex": 0,
+      "explanation": "S. pyogenes je beta-hemolytický streptokok, tedy kolem kolonií působí úplné projasnění agaru.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!I75",
+          "Vzpomínka po testu: S. pyogenes s beta-hemolýzou"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": {
+        "src": "/drill/assets/mikra/streptococcus-culture-hemolysis.png",
+        "alt": "Krevní agar s kultivací streptokoků a změnou hemolýzy v okolí kolonií.",
+        "kind": "supplied",
+        "source": "Vložený obrázek v dodaném sešitu, Test!I75."
+      },
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-reported-pneumococcus-optochin",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-15-a",
+      "topicTitle": "Viridující streptokoky a Pneumokoky (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Který nález pomáhá odlišit Streptococcus pneumoniae od viridujících streptokoků na krevním agaru?",
+      "options": [
+        "Citlivost k optochinu se zónou inhibice",
+        "Růst na Sabouraudově agaru",
+        "Pozitivní oxidázová reakce",
+        "Tvorba endospor"
+      ],
+      "correctIndex": 0,
+      "explanation": "Pneumokok je typicky alfa-hemolytický a citlivý k optochinu; viridující streptokoky citlivé nebývají.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Vzpomínka po testu: S. pneumoniae – alfa hemolýza a zóna okolo disku"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-reported-haemophilus-satellitism",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-10-a",
+      "topicTitle": "Pasteurella, Haemophilus (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Satelitní růst malých kolonií kolem Staphylococcus aureus na krevním agaru je charakteristický pro který rod?",
+      "options": [
+        "Haemophilus",
+        "Salmonella",
+        "Clostridium",
+        "Mycobacterium"
+      ],
+      "correctIndex": 0,
+      "explanation": "Haemophilus influenzae může růst satelitně kolem S. aureus, který poskytuje V faktor (NAD).",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A83"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-reported-wound-swab",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-37-a",
+      "topicTitle": "Infekce kůže a měkkých tkání, normální flóra (Diagnostika)",
+      "type": "single_choice",
+      "question": "Který odběr je pro kultivaci z povrchové hnisající rány obvykle nejvhodnější?",
+      "options": [
+        "Stěr z vyčištěné spodiny rány do vhodného transportního média",
+        "Suchý tampon ponechaný na vzduchu do druhého dne",
+        "Nesrážlivá krev do EDTA",
+        "Moč do sterilní zkumavky"
+      ],
+      "correctIndex": 0,
+      "explanation": "Pro mikrobiologii rány se preferuje kvalitní stěr z vyčištěné spodiny do transportního média; povrchový zaschlý sekret je méně výtěžný.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Vzpomínka po testu: stěr z rány",
+          "Test!A162/B162"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": {
+        "src": "/drill/assets/mikra/wound-smear-gram-stain.png",
+        "alt": "Mikroskopický preparát z hnisavé rány s bakteriemi a leukocyty.",
+        "kind": "supplied",
+        "source": "Vložený obrázek v dodaném sešitu, Test!A112."
+      },
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Diagnostika"
+      ]
+    },
+    {
+      "id": "mikra-reported-respiratory-smear",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-36-a",
+      "topicTitle": "Infekce dýchacích cest a odběry (Diagnostika)",
+      "type": "single_choice",
+      "question": "Materiál s převahou neutrofilů a drobnými koky v párech ve sputu nejlépe odpovídá odběru z kterého systému?",
+      "options": [
+        "Dolní dýchací cesty",
+        "Močové cesty",
+        "Likvorový prostor",
+        "Krevní řečiště"
+      ],
+      "correctIndex": 0,
+      "explanation": "Sputum je materiál z dolních dýchacích cest; kvalita vzorku se posuzuje i podle buněčného obrazu.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A82",
+          "Test!A112",
+          "Vzpomínka po testu: stěr z DC"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Diagnostika"
+      ]
+    },
+    {
+      "id": "mikra-reported-amies",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-36-a",
+      "topicTitle": "Infekce dýchacích cest a odběry (Diagnostika)",
+      "type": "single_choice",
+      "question": "K čemu slouží odběrová souprava s Amiesovým transportním médiem?",
+      "options": [
+        "K transportu výtěrů na bakteriologickou kultivaci",
+        "K odběru hemokultur",
+        "K dlouhodobému uchování likvoru",
+        "K měření virové nálože v plazmě"
+      ],
+      "correctIndex": 0,
+      "explanation": "Amiesovo médium chrání mikroorganismy ve výtěru během transportu do laboratoře.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A54/B54",
+          "Test!A174/B174",
+          "Test!A221/B221"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Diagnostika"
+      ]
+    },
+    {
+      "id": "mikra-reported-hemoculture-bottles",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-35-a",
+      "topicTitle": "Diagnostika sepse a infekcí krevního řečiště (Diagnostika)",
+      "type": "single_choice",
+      "question": "Do čeho se standardně odebírá krev pro hemokultivaci?",
+      "options": [
+        "Do hemokultivačních lahviček",
+        "Do zkumavky s EDTA",
+        "Na suchý tampon",
+        "Do nádoby na sputum"
+      ],
+      "correctIndex": 0,
+      "explanation": "Hemokultura se odebírá asepticky přímo do připravených aerobních a anaerobních hemokultivačních lahviček.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A12/B12",
+          "Test!A169/B169"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Diagnostika"
+      ]
+    },
+    {
+      "id": "mikra-reported-endocarditis-sets",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-35-a",
+      "topicTitle": "Diagnostika sepse a infekcí krevního řečiště (Diagnostika)",
+      "type": "single_choice",
+      "question": "Kolik samostatných hemokulturních odběrů se obvykle provádí při podezření na infekční endokarditidu před zahájením antibiotik?",
+      "options": [
+        "Tři sady",
+        "Jedna sada",
+        "Pětnáct kapilárních odběrů",
+        "Žádný odběr, pouze sérologie"
+      ],
+      "correctIndex": 0,
+      "explanation": "Pro diagnostiku infekční endokarditidy se standardně odebírají tři sady hemokultur z oddělených vpichů.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A59/B59"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Diagnostika"
+      ]
+    },
+    {
+      "id": "mikra-reported-likvor-container",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-39-a",
+      "topicTitle": "Infekce centrálního nervového systému a likvor (Diagnostika)",
+      "type": "single_choice",
+      "question": "Do jaké nádoby se odebírá likvor pro urgentní mikrobiologické vyšetření?",
+      "options": [
+        "Do sterilní zkumavky bez transportního média",
+        "Do Amiesova výtěrového média",
+        "Do hemokultivační lahvičky jako jediného vzorku",
+        "Na sklíčko s lepící páskou"
+      ],
+      "correctIndex": 0,
+      "explanation": "Likvor se odebírá do sterilních zkumavek a rychle se transportuje do laboratoře.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A139/B139"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Diagnostika"
+      ]
+    },
+    {
+      "id": "mikra-reported-pcr-steps",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-13-b",
+      "topicTitle": "PCR – polymerázová řetězová reakce (Diagnostika)",
+      "type": "single_choice",
+      "question": "Která posloupnost nejlépe popisuje polymerázovou řetězovou reakci?",
+      "options": [
+        "Denaturace – nasednutí primerů – elongace",
+        "Fixace – Gramovo barvení – odečet",
+        "Inokulace – inkubace – hemolýza",
+        "Filtrace – centrifugace – aglutinace"
+      ],
+      "correctIndex": 0,
+      "explanation": "PCR cyklicky střídá denaturaci DNA, nasednutí primerů a syntézu nových vláken polymerázou.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A257/B257"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Diagnostika"
+      ]
+    },
+    {
+      "id": "mikra-reported-primers",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-13-b",
+      "topicTitle": "PCR – polymerázová řetězová reakce (Diagnostika)",
+      "type": "single_choice",
+      "question": "Co jsou primery v PCR?",
+      "options": [
+        "Krátké oligonukleotidy vymezující amplifikovaný úsek",
+        "Antibiotika blokující polymerázu",
+        "Barviva pro Gramovo barvení",
+        "Proteiny tvořící virový obal"
+      ],
+      "correctIndex": 0,
+      "explanation": "Primery jsou krátké nukleotidové sekvence, na které se váže polymeráza při zahájení syntézy.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A69/B69",
+          "Test!A125/B125"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Diagnostika"
+      ]
+    },
+    {
+      "id": "mikra-reported-sixteen-s-rrna",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-14-b",
+      "topicTitle": "Sekvenování DNA, 16S rRNA, taxonomie bakterií (Diagnostika)",
+      "type": "single_choice",
+      "question": "K čemu slouží sekvenace genu pro 16S rRNA?",
+      "options": [
+        "K identifikaci a taxonomickému zařazení bakterie",
+        "K průkazu hemolýzy",
+        "K měření koncentrace antibiotika v séru",
+        "K průkazu virového antigenu"
+      ],
+      "correctIndex": 0,
+      "explanation": "Částečná sekvence genu pro 16S rRNA se porovnává s referenčními databázemi a pomáhá určit bakteriální druh.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A61/B61",
+          "Test!A246/B246"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Diagnostika"
+      ]
+    },
+    {
+      "id": "mikra-reported-influenza-antigens",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-3-b",
+      "topicTitle": "Chřipka a chřipkové viry (Virologie)",
+      "type": "single_choice",
+      "question": "Které dva povrchové antigeny se používají pro označení subtypů viru chřipky A?",
+      "options": [
+        "Hemaglutinin a neuraminidáza",
+        "Kapsida a matrix protein",
+        "NS1 a NS2",
+        "DNA polymeráza a integráza"
+      ],
+      "correctIndex": 0,
+      "explanation": "Subtypy chřipky A se označují kombinací H (hemaglutinin) a N (neuraminidáza).",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A46/B46",
+          "Test!A134/B134"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Virologie"
+      ]
+    },
+    {
+      "id": "mikra-reported-latent-virus",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-7-b",
+      "topicTitle": "Herpetické viry (Virologie)",
+      "type": "single_choice",
+      "question": "Co nejlépe popisuje latentní virovou infekci?",
+      "options": [
+        "Virus perzistuje bez aktivní produkce nových virionů a může se reaktivovat",
+        "Virus se vždy rychle množí a je vyloučen do 24 hodin",
+        "Jde o infekci bez genomu viru v hostiteli",
+        "Jde výhradně o bakteriální biofilm"
+      ],
+      "correctIndex": 0,
+      "explanation": "V latenci virus v hostiteli přetrvává bez produktivní replikace, ale může se při vhodném podnětu reaktivovat.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A30/B30",
+          "Test!A180/B180",
+          "Test!A226/B226"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Virologie"
+      ]
+    },
+    {
+      "id": "mikra-reported-direct-virus-pcr",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-1-b",
+      "topicTitle": "Přímá diagnostika virů (Diagnostika)",
+      "type": "single_choice",
+      "question": "Která metoda patří mezi přímý průkaz virové infekce?",
+      "options": [
+        "PCR průkaz virové nukleové kyseliny",
+        "Průkaz IgG v jednom séru",
+        "Stanovení ASLO",
+        "Kožní prick test"
+      ],
+      "correctIndex": 0,
+      "explanation": "PCR přímo prokazuje nukleovou kyselinu viru ve vzorku pacienta.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A227/B227"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Diagnostika"
+      ]
+    },
+    {
+      "id": "mikra-reported-hepatitis-a-route",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-10-b",
+      "topicTitle": "Virové hepatitidy (Virologie)",
+      "type": "single_choice",
+      "question": "Jaká je typická cesta přenosu hepatitidy A?",
+      "options": [
+        "Fekálně-orální",
+        "Transplacentární jako hlavní cesta",
+        "Přes klíště",
+        "Výhradně parenterální"
+      ],
+      "correctIndex": 0,
+      "explanation": "Virus hepatitidy A se šíří fekálně-orální cestou, zejména kontaminovanou potravou, vodou či kontaktem.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A18/B18",
+          "Test!A185/B185"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Virologie"
+      ]
+    },
+    {
+      "id": "mikra-reported-hepatitis-b-route",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-10-b",
+      "topicTitle": "Virové hepatitidy (Virologie)",
+      "type": "single_choice",
+      "question": "Který způsob přenosu je typický pro hepatitidu B?",
+      "options": [
+        "Sexuální a parenterální kontakt s krví či tělními tekutinami",
+        "Fekálně-orální cesta jako jediná",
+        "Přenos komárem",
+        "Inhalace aerosolu"
+      ],
+      "correctIndex": 0,
+      "explanation": "HBV se přenáší krví a dalšími tělními tekutinami, mimo jiné sexuálně a vertikálně.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A186/B186"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Virologie"
+      ]
+    },
+    {
+      "id": "mikra-reported-rs-virus-infants",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-4-b",
+      "topicTitle": "Respirační viry (jiné než chřipka) (Virologie)",
+      "type": "single_choice",
+      "question": "Který respirační virus je významným původcem závažné bronchiolitidy u kojenců?",
+      "options": [
+        "RSV",
+        "Norovirus",
+        "Virus hepatitidy A",
+        "Papilomavirus"
+      ],
+      "correctIndex": 0,
+      "explanation": "Respirační syncytiální virus je častou příčinou bronchiolitidy a pneumonie u malých dětí.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A182/B182",
+          "Test!A229/B229"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Virologie"
+      ]
+    },
+    {
+      "id": "mikra-reported-norovirus",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-5-b",
+      "topicTitle": "Virové gastroenteritidy (Virologie)",
+      "type": "single_choice",
+      "question": "Jaký klinický syndrom nejčastěji vyvolávají norovirus a sapovirus?",
+      "options": [
+        "Akutní gastroenteritidu s průjmem a zvracením",
+        "Hnisavou meningitidu",
+        "Kožní mykózu",
+        "Hemolytickou anémii"
+      ],
+      "correctIndex": 0,
+      "explanation": "Norovirus i sapovirus jsou častými původci akutních virových gastroenteritid.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A22/B22",
+          "Test!A232/B232"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Virologie"
+      ]
+    },
+    {
+      "id": "mikra-reported-staph-aureus-mrsa",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-13-a",
+      "topicTitle": "Stafylokoky (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Co vyjadřuje zkratka MRSA?",
+      "options": [
+        "Meticilin-rezistentní Staphylococcus aureus",
+        "Makrolid-rezistentní Streptococcus agalactiae",
+        "Multirezistentní rod Mycobacterium",
+        "Mikroskopicky rezistentní spirochéta"
+      ],
+      "correctIndex": 0,
+      "explanation": "MRSA je Staphylococcus aureus rezistentní k oxacilinu/metilicilinu a prakticky k většině beta-laktamových antibiotik.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A53/B53"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-reported-aslo",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-14-a",
+      "topicTitle": "Beta-hemolytické (pyogenní) streptokoky (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Co prokazuje vyšetření ASLO?",
+      "options": [
+        "Protilátky proti streptolyzinu O",
+        "Antigen viru chřipky",
+        "Toxin Clostridium difficile",
+        "Rezistenci k vankomycinu"
+      ],
+      "correctIndex": 0,
+      "explanation": "ASLO je titr protilátek proti streptolyzinu O a pomáhá doložit recentní infekci Streptococcus pyogenes.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A70/B70",
+          "Test!A126/B126"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-reported-pvl",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-13-a",
+      "topicTitle": "Stafylokoky (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Jaký význam má Pantonův–Valentinův leukocidin u Staphylococcus aureus?",
+      "options": [
+        "Poškozuje leukocyty a souvisí se závažnými infekcemi kůže a plic",
+        "Je nezbytný pro sporulaci",
+        "Zajišťuje beta-hemolýzu pneumokoka",
+        "Inaktivuje karbapenemy"
+      ],
+      "correctIndex": 0,
+      "explanation": "PVL je cytotoxin poškozující leukocyty a přispívá k patogenezi některých závažných stafylokokových infekcí.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A196/B196"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-reported-tuberculosis-therapy",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-21-a",
+      "topicTitle": "Mycobacterium tuberculosis (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Proč se v úvodní fázi léčby tuberkulózy kombinuje více antituberkulotik?",
+      "options": [
+        "Snižuje se riziko vzniku rezistence a pokrývají se různé subpopulace bacilů",
+        "Aby se zabránilo růstu virů",
+        "Protože jedno léčivo nikdy nemá účinek",
+        "Pouze kvůli zbarvení sputa"
+      ],
+      "correctIndex": 0,
+      "explanation": "Kombinace léčiv omezuje selekci rezistentních mutant a zvyšuje účinnost proti různým metabolickým populacím mykobakterií.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A36/B36",
+          "Test!A72/B72",
+          "Test!A128/B128"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-reported-carbapenem-spectrum",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-29-a",
+      "topicTitle": "Karbapenemy a karbapenemázy (Farmakoterapie)",
+      "type": "single_choice",
+      "question": "Které tvrzení o karbapenemech je nejpřesnější?",
+      "options": [
+        "Mají široké spektrum včetně mnoha G− bakterií a některé působí na Pseudomonas aeruginosa",
+        "Působí pouze na viry",
+        "Jsou určeny výhradně pro mykózy",
+        "Nemají účinek na bakterie s buněčnou stěnou"
+      ],
+      "correctIndex": 0,
+      "explanation": "Karbapenemy jsou širokospektrá beta-laktamová antibiotika; aktivita se liší mezi jednotlivými zástupci.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A87/B87"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Farmakoterapie"
+      ]
+    },
+    {
+      "id": "mikra-reported-penicillin-growth",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-27-a",
+      "topicTitle": "Peniciliny – základní a kombinované (Farmakoterapie)",
+      "type": "single_choice",
+      "question": "Kdy je účinek penicilinů na bakterii nejvýraznější?",
+      "options": [
+        "Během aktivního růstu a syntézy buněčné stěny",
+        "Pouze v dormantní fázi",
+        "Pouze po sporulaci",
+        "Při virové replikaci"
+      ],
+      "correctIndex": 0,
+      "explanation": "Beta-laktamy blokují syntézu peptidoglykanu, a proto nejlépe působí na aktivně rostoucí bakterie.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A31/B31",
+          "Test!A188/B188"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Farmakoterapie"
+      ]
+    },
+    {
+      "id": "mikra-reported-antibiotic-combination",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-27-a",
+      "topicTitle": "Peniciliny – základní a kombinované (Farmakoterapie)",
+      "type": "single_choice",
+      "question": "Jaký je rozumný důvod kombinovat antibiotika u vybraných infekcí?",
+      "options": [
+        "Synergie, rozšíření spektra a omezení vzniku rezistence",
+        "Zkrácení inkubační doby viru",
+        "Zvýšení tvorby spor",
+        "Nahrazení odběru kultivace"
+      ],
+      "correctIndex": 0,
+      "explanation": "Kombinace antibiotik může přinést synergii, širší empirické krytí nebo snížit pravděpodobnost vzniku rezistence.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A187/B187"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Farmakoterapie"
+      ]
+    },
+    {
+      "id": "mikra-reported-lipid-a",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-6-a",
+      "topicTitle": "Enterobakterie (kromě E. coli) (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Která část lipopolysacharidu gramnegativních bakterií nese hlavní endotoxinovou aktivitu?",
+      "options": [
+        "Lipid A",
+        "O-specifický polysacharid",
+        "Kapsula",
+        "Peptidoglykan"
+      ],
+      "correctIndex": 0,
+      "explanation": "Lipid A je biologicky aktivní endotoxinová složka LPS gramnegativních bakterií.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A41/B41"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-reported-vre",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-16-a",
+      "topicTitle": "Enterokoky, Leuconostoc, Pediococcus, nutričně variantní streptokoky (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Co znamená zkratka VRE?",
+      "options": [
+        "Vankomycin-rezistentní enterokok",
+        "Virus rezistentní k erythromycinu",
+        "Viridující respirační enterobakterie",
+        "Virový reaktivační enzym"
+      ],
+      "correctIndex": 0,
+      "explanation": "VRE označuje enterokoky s rezistencí k vankomycinu, nejčastěji Enterococcus faecium nebo E. faecalis.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A43/B43"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-reported-gonorrhoea",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-11-a",
+      "topicTitle": "Neisserie (Bakteriologie)",
+      "type": "single_choice",
+      "question": "Který mikroorganismus je původcem kapavky?",
+      "options": [
+        "Neisseria gonorrhoeae",
+        "Treponema pallidum",
+        "Chlamydia psittaci",
+        "Haemophilus ducreyi"
+      ],
+      "correctIndex": 0,
+      "explanation": "Kapavku vyvolává Neisseria gonorrhoeae, gramnegativní diplokok.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A51/B51",
+          "Test!A244/B244"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Bakteriologie"
+      ]
+    },
+    {
+      "id": "mikra-reported-filariasis-loa-loa",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-38-b",
+      "topicTitle": "Filárie – Wuchereria, Brugia, Loa Loa, Onchocerca (Parazitologie)",
+      "type": "single_choice",
+      "question": "Který parazit patří mezi filárie a může migrovat pod spojivkou oka?",
+      "options": [
+        "Loa loa",
+        "Enterobius vermicularis",
+        "Taenia saginata",
+        "Giardia intestinalis"
+      ],
+      "correctIndex": 0,
+      "explanation": "Loa loa je tkáňová filárie přenášená ovády rodu Chrysops; dospělec může migrovat pod spojivkou.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A3/B3",
+          "Test!A77/C77"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-reported-naegleria",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-29-b",
+      "topicTitle": "Volně žijící améby (Naegleria, Acanthamoeba, Balamuthia) (Parazitologie)",
+      "type": "single_choice",
+      "question": "Který volně žijící prvok může po průniku nosem při koupání vyvolat fulminantní primární amébovou meningoencefalitidu?",
+      "options": [
+        "Naegleria fowleri",
+        "Giardia intestinalis",
+        "Trichomonas vaginalis",
+        "Cryptosporidium parvum"
+      ],
+      "correctIndex": 0,
+      "explanation": "Naegleria fowleri může přes nosní sliznici proniknout do CNS a vyvolat rychle probíhající meningoencefalitidu.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A28/B28"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-reported-giardia-infective-stage",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-27-b",
+      "topicTitle": "Střevní protozoární nákazy (Giardia, Entamoeba, Cryptosporidium) (Parazitologie)",
+      "type": "single_choice",
+      "question": "Které stadium Giardia intestinalis je infekční pro dalšího hostitele?",
+      "options": [
+        "Cysta",
+        "Pouze trofozoit v krvi",
+        "Oocysta v komářím žaludku",
+        "Sporozoit v plazmodiu"
+      ],
+      "correctIndex": 0,
+      "explanation": "Cysty giardií jsou odolné ve vnějším prostředí a jsou infekční po vyloučení stolicí.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A258/B258"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-reported-leishmania-vector",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-26-b",
+      "topicTitle": "Leishmanie – kožní, slizniční a viscerální leishmanióza (Parazitologie)",
+      "type": "single_choice",
+      "question": "Jaký vektor přenáší leishmanie?",
+      "options": [
+        "Koutule rodu Phlebotomus",
+        "Klíště rodu Ixodes",
+        "Komár rodu Anopheles",
+        "Veš šatní"
+      ],
+      "correctIndex": 0,
+      "explanation": "Leishmanie přenášejí samičky koutulí rodu Phlebotomus.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A141/B141",
+          "Test!A262/B262"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-reported-malaria-smear",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-31-b",
+      "topicTitle": "Malárie – Plasmodium sp. (Parazitologie)",
+      "type": "single_choice",
+      "question": "Které vyšetření se používá pro přímý mikroskopický průkaz malárie?",
+      "options": [
+        "Tlustá kapka a krevní nátěr",
+        "Perianální otisk lepící páskou",
+        "Kultivace na Sabouraudově agaru",
+        "Výtěr do Amiesova média"
+      ],
+      "correctIndex": 0,
+      "explanation": "Tlustá kapka zvyšuje citlivost průkazu, krevní nátěr umožňuje druhovou diagnostiku a stanovení parazitémie.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A218/B218"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-reported-echinococcus-types",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-35-b",
+      "topicTitle": "Echinokokózy – Echinococcus granulosus a multilocularis (Parazitologie)",
+      "type": "single_choice",
+      "question": "Který druh Echinococcus je typický pro alveolární, invazivně rostoucí echinokokózu?",
+      "options": [
+        "Echinococcus multilocularis",
+        "Echinococcus granulosus",
+        "Taenia solium",
+        "Diphyllobothrium latum"
+      ],
+      "correctIndex": 0,
+      "explanation": "E. multilocularis vyvolává alveolární echinokokózu s infiltrativním růstem; E. granulosus tvoří cystickou formu.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A68/B68"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-reported-scabies-diagnosis",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-40-b",
+      "topicTitle": "Zákožka svrabová a vši (Parazitologie)",
+      "type": "single_choice",
+      "question": "Jak se laboratorně prokazuje zákožka svrabová?",
+      "options": [
+        "Mikroskopií seškrabu kůže z chodbičky",
+        "Hemokulturou",
+        "PCR z moči",
+        "Sérologií párových sér"
+      ],
+      "correctIndex": 0,
+      "explanation": "Svrab se prokazuje mikroskopickým průkazem zákožek, vajíček nebo scybaly ve seškrabu z kůže.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A133/B133"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Parazitologie"
+      ]
+    },
+    {
+      "id": "mikra-reported-dermatophytes",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-22-b",
+      "topicTitle": "Dermatomykózy a povrchové mykózy (Mykologie)",
+      "type": "single_choice",
+      "question": "Jakou vlastnost mají dermatofyty?",
+      "options": [
+        "Jsou keratinofilní a napadají kůži, vlasy či nehty",
+        "Jsou obligátně intracelulární viry",
+        "Tvoří endotoxin LPS",
+        "Rostou jen v hemokultuře"
+      ],
+      "correctIndex": 0,
+      "explanation": "Dermatofyty využívají keratin a vyvolávají povrchové mykózy kůže, vlasů a nehtů.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A50/B50"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Mykologie"
+      ]
+    },
+    {
+      "id": "mikra-reported-tinea-sites",
+      "subjectId": "mikra",
+      "subjectTitle": "Mikrobiologie",
+      "grade": 3,
+      "topicId": "mikra-22-b",
+      "topicTitle": "Dermatomykózy a povrchové mykózy (Mykologie)",
+      "type": "single_choice",
+      "question": "Které přiřazení dermatomykózy a lokalizace je správné?",
+      "options": [
+        "Tinea cruris – třísla",
+        "Tinea pedis – trup",
+        "Tinea corporis – nehty",
+        "Tinea unguium – kštice"
+      ],
+      "correctIndex": 0,
+      "explanation": "Tinea cruris postihuje třísla, tinea pedis nohy, tinea corporis trup a tinea unguium nehty.",
+      "pearl": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+      "reported": true,
+      "reportedEvidence": {
+        "label": "Vynesená otázka",
+        "note": "Téma zaznamenali studenti po zkouškovém testu; nejde o oficiální fakultní banku.",
+        "references": [
+          "Test!A37/B37",
+          "Test!A142/B142",
+          "Test!A143/B143",
+          "Test!A144/B144"
+        ]
+      },
+      "source": "Studentský zápis zkouškových otázek (sešit Test / vzpomínka po testu)",
+      "reviewedAt": "2026-10-09",
+      "media": null,
+      "tags": [
+        "Single Choice",
+        "Vynesená otázka",
+        "Mykologie"
+      ]
     }
   ]
 }

@@ -311,6 +311,9 @@ export const getBroselowData = (weight: number): BroselowData => {
 
 type SugammadexBlock = 'moderate' | 'deep' | 'immediate';
 
+  }
+};
+
 export default function AnesthesiaModule() {
   const { language, t } = useLanguage();
 

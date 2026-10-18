@@ -1,7 +1,7 @@
 // drill/sw.js - Service Worker pro PWA MedDrill
 // The Node content build keeps this value in sync with data/manifest.json.
 // A new release gives every deployment a fresh shell without touching IndexedDB.
-const RELEASE_VERSION = '2026.3.0';
+const RELEASE_VERSION = '2026.4.0';
 const CACHE_NAME = `meddrill-core-v${RELEASE_VERSION}`;
 const DATA_CACHE_NAME = `meddrill-data-v${RELEASE_VERSION}`;
 
@@ -62,6 +62,21 @@ self.addEventListener('fetch', event => {
   if (url.pathname.includes('/drill/data/modules/')) {
     event.respondWith(
       caches.open(DATA_CACHE_NAME).then(async cache => {
+        // Vědomá aktualizace balíčku musí vrátit čerstvý modul, jinak by se
+        // do IndexedDB zapsala stará stale-while-revalidate odpověď.
+        if (event.request.cache === 'reload') {
+          try {
+            const networkResponse = await fetch(event.request);
+            if (networkResponse && networkResponse.status === 200) {
+              cache.put(event.request, networkResponse.clone());
+            }
+            return networkResponse;
+          } catch (err) {
+            return new Response(JSON.stringify({ error: 'Offline - nelze aktualizovat balíček' }), {
+              headers: { 'Content-Type': 'application/json' }
+            });
+          }
+        }
         const cachedResponse = await cache.match(event.request);
         if (cachedResponse) {
           // Na pozadí zkusit aktualizovat pokud jsme online

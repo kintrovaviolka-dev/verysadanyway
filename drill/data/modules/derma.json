@@ -1897,7 +1897,7 @@
         "SJS se hojí hlubokými jizvami, zatímco TEN se hojí ad integrum; patogenezí je akantolýza zprostředkovaná protilátkami proti desmogleinu"
       ],
       "correctIndex": 1,
-      "explanation": "SJS a TEN jsou spektrem téže závažné bulózní polékové reakce. Klasifikace je dána procentem povrchu těla s odloučenou epidermis: SJS < 10 %, překryv SJS/TEN 10-30 %, TEN > 30 %. Hlavním patogenetickým mechanismem je cytotoxická reakce zprostředkovaná T-lymfocyty (CD8+) a NK buňkami, které uvolňují granulysin a aktivují Fas/FasL receptor, což vede k rozsáhlé nekróze keratinocytů.",
+      "explanation": "SJS a TEN jsou spektrem téže závažné bulózní polékové reakce. Klasifikace je dána procentem povrchu těla s odloučenou epidermis: SJS  30 %. Hlavním patogenetickým mechanismem je cytotoxická reakce zprostředkovaná T-lymfocyty (CD8+) a NK buňkami, které uvolňují granulysin a aktivují Fas/FasL receptor, což vede k rozsáhlé nekróze keratinocytů.",
       "pearl": "Základem diagnostiky je pečlivá léková anamnéza (časová souvislost s nasazením léku, obvykle 1-3 týdny). Diferenciální diagnostika zahrnuje infekční exantémy a ...",
       "tags": [
         "Single Choice",
@@ -1982,7 +1982,7 @@
       "question": "Které patofyziologické faktory se nejvíce podílejí na vzniku plenkové dermatitidy (dermatitis ammoniacalis) u kojenců?",
       "options": [
         "Autoimunitní reakce proti kolagenu VII vyvolaná nedostatkem vitaminu D",
-        "Macerace kůže v mikroklimatu vlhka pod plenou, dráždění amoniakem uvolněným z moči bakteriální ureázou, poškození kožní bariéry a sekundární kolonizace kvasinkami (<em>Candida albicans</em>)",
+        "Macerace kůže v mikroklimatu vlhka pod plenou, dráždění amoniakem uvolněným z moči bakteriální ureázou, poškození kožní bariéry a sekundární kolonizace kvasinkami (Candida albicans)",
         "Genetická mutace genu pro filaggrin vedoucí k hyperkeratóze",
         "Systémová alergická reakce I. typu na kravské mléko"
       ],
@@ -3438,7 +3438,7 @@
         "Perthesův test"
       ],
       "correctIndex": 1,
-      "explanation": "<strong>Stemmerovo znamení</strong> (neschopnost vytvořit kožní řasu na dorsu druhého prstu nohy nebo ruky) je vysoce specifické pro lymfedém. Homansovo znamení testuje hlubokou žilní trombózu (bolest v lýtku při dorzální flexi nohy). Trendelenburgův a Perthesův test hodnotí chlopenní insuficienci a průchodnost hlubokých žil u varixů.",
+      "explanation": "Stemmerovo znamení (neschopnost vytvořit kožní řasu na dorsu druhého prstu nohy nebo ruky) je vysoce specifické pro lymfedém. Homansovo znamení testuje hlubokou žilní trombózu (bolest v lýtku při dorzální flexi nohy). Trendelenburgův a Perthesův test hodnotí chlopenní insuficienci a průchodnost hlubokých žil u varixů.",
       "pearl": "Onemocnění probíhá ve 4 klinických stadiích:\n* Stadium 1 (latentní): Pacient pociťuje tíhu a napětí v končetině, ale otok není objektivně znatelný.\n* Stadium 2 ...",
       "tags": [
         "Single Choice",
@@ -3461,7 +3461,7 @@
         "Impetigo"
       ],
       "correctIndex": 1,
-      "explanation": "Nejzávažnější komplikací je <strong>erysipel (růže)</strong>. Streptokoky snadno pronikají narušenou kožní bariérou a v bílkovinami bohaté lymfě nacházejí ideální kultivační médium. Každá nová ataka erysipelu způsobuje obliteraci lymfatických cév, což vede k prohloubení lymfedému (začarovaný kruh).",
+      "explanation": "Nejzávažnější komplikací je erysipel (růže). Streptokoky snadno pronikají narušenou kožní bariérou a v bílkovinami bohaté lymfě nacházejí ideální kultivační médium. Každá nová ataka erysipelu způsobuje obliteraci lymfatických cév, což vede k prohloubení lymfedému (začarovaný kruh).",
       "pearl": "Onemocnění probíhá ve 4 klinických stadiích:\n* Stadium 1 (latentní): Pacient pociťuje tíhu a napětí v končetině, ale otok není objektivně znatelný.\n* Stadium 2 ...",
       "tags": [
         "Single Choice",
@@ -3528,7 +3528,7 @@
         "Mnohočetné café-au-lait skvrny, Lischovy uzlíky a neurofibromy"
       ],
       "correctIndex": 1,
-      "explanation": "<strong>Sturge-Weberův syndrom</strong> se projevuje jednostranným naevus flammeus v obličeji (V1 a V2 dermatom), leptomeningeálním angiomem (způsobuje epilepsii, neurologické deficity) a glaukomem. První možnost popisuje Klippel-Trenaunayův syndrom. Poslední možnost popisuje Neurofibromatózu typu 1.",
+      "explanation": "Sturge-Weberův syndrom se projevuje jednostranným naevus flammeus v obličeji (V1 a V2 dermatom), leptomeningeálním angiomem (způsobuje epilepsii, neurologické deficity) a glaukomem. První možnost popisuje Klippel-Trenaunayův syndrom. Poslední možnost popisuje Neurofibromatózu typu 1.",
       "pearl": "Vaskulární névy jsou přítomny od narození a rostou proporcionálně s dítětem. V dospělosti perzistují. Mohou být součástí závažných syndromů:\n* Sturge-Weberův sy...",
       "tags": [
         "Single Choice",
@@ -3572,7 +3572,7 @@
         "Naevus Suttonův (halo névus)"
       ],
       "correctIndex": 2,
-      "explanation": "<strong>Obří kongenitální melanocytární névus</strong> (definovaný velikostí nad 20 cm v dospělosti) představuje nejvyšší riziko maligního zvratu, které se odhaduje na 5-10 %. Beckerův névus neobsahuje névové buňky (jde o epidermální hamartom). Lentigo simplex a Suttonův névus mají minimální až nulový potenciál k maligní transformaci.",
+      "explanation": "Obří kongenitální melanocytární névus (definovaný velikostí nad 20 cm v dospělosti) představuje nejvyšší riziko maligního zvratu, které se odhaduje na 5-10 %. Beckerův névus neobsahuje névové buňky (jde o epidermální hamartom). Lentigo simplex a Suttonův névus mají minimální až nulový potenciál k maligní transformaci.",
       "pearl": "Hlavní význam melanocytárních névů spočívá v diferenciální diagnostice a riziku maligní transformace v maligní melanom. Nejrizikovější jsou **obří kongenitální ...",
       "tags": [
         "Single Choice",
@@ -3595,7 +3595,7 @@
         "Intraepidermální mikroabscesy u mycosis fungoides"
       ],
       "correctIndex": 1,
-      "explanation": "<strong>Kamino tělíska</strong> jsou eozinofilní, PAS-pozitivní globulární tělíska nacházející se v epidermis u <strong>naevus Spitzové</strong> (vřetenobuněčný névus). Pomáhají odlišit tento névus od maligního melanomu, který histologicky velmi připomíná.",
+      "explanation": "Kamino tělíska jsou eozinofilní, PAS-pozitivní globulární tělíska nacházející se v epidermis u naevus Spitzové (vřetenobuněčný névus). Pomáhají odlišit tento névus od maligního melanomu, který histologicky velmi připomíná.",
       "pearl": "Hlavní význam melanocytárních névů spočívá v diferenciální diagnostice a riziku maligní transformace v maligní melanom. Nejrizikovější jsou **obří kongenitální ...",
       "tags": [
         "Single Choice",
@@ -3639,7 +3639,7 @@
         "Fakultativní prekanceróza vznikající výhradně v jizvách po popáleninách"
       ],
       "correctIndex": 2,
-      "explanation": "<strong>Morbus Bowen</strong> je definován jako <strong>carcinoma in situ</strong> kůže. Atypické dysplastické keratinocyty a mitózy postihují celou tloušťku epidermis, ale proces je ohraničen na epidermis a neproniká přes bazální membránu do dermis. Nejedná se o zánět ani o melanocytární lézi.",
+      "explanation": "Morbus Bowen je definován jako carcinoma in situ kůže. Atypické dysplastické keratinocyty a mitózy postihují celou tloušťku epidermis, ale proces je ohraničen na epidermis a neproniká přes bazální membránu do dermis. Nejedná se o zánět ani o melanocytární lézi.",
       "pearl": "Prekancerózy a karcinomy in situ představují riziko přechodu do invazivního spinocelulárního karcinomu (spinaliomu). U keratosis actinica dochází k progresi v c...",
       "tags": [
         "Single Choice",
@@ -3662,7 +3662,7 @@
         "Bílým dvorcem v okolí získaného melanocytárního névu"
       ],
       "correctIndex": 2,
-      "explanation": "<strong>Queyratova erytroplazie</strong> je histologický ekvivalent morbus Bowen (carcinoma in situ) lokalizovaný na sliznici glans penis nebo vnitřním listu předkožky. Projevuje se jako sytě červené, ostře ohraničené ložisko se sametovým či lesklým povrchem, které může snadno erodovat.",
+      "explanation": "Queyratova erytroplazie je histologický ekvivalent morbus Bowen (carcinoma in situ) lokalizovaný na sliznici glans penis nebo vnitřním listu předkožky. Projevuje se jako sytě červené, ostře ohraničené ložisko se sametovým či lesklým povrchem, které může snadno erodovat.",
       "pearl": "Prekancerózy a karcinomy in situ představují riziko přechodu do invazivního spinocelulárního karcinomu (spinaliomu). U keratosis actinica dochází k progresi v c...",
       "tags": [
         "Single Choice",
@@ -3706,7 +3706,7 @@
         "Fibroma molle"
       ],
       "correctIndex": 2,
-      "explanation": "<strong>Keloid</strong> je charakterizován nekontrolovanou produkcí kolagenu, přičemž se šíří za hranice původního traumatu a spontánně neregreduje. Na rozdíl od něj se hypertrofická jizva drží v mezích původní rány a časem má tendenci se oplošťovat.",
+      "explanation": "Keloid je charakterizován nekontrolovanou produkcí kolagenu, přičemž se šíří za hranice původního traumatu a spontánně neregreduje. Na rozdíl od něj se hypertrofická jizva drží v mezích původní rány a časem má tendenci se oplošťovat.",
       "pearl": "Klinicky se projevují estetickým handicapem, svěděním nebo mechanickou iritací (např. krvácení u granuloma pyogenicum, bolestivost u leiomyomu za chladu). Difer...",
       "tags": [
         "Single Choice",
@@ -3729,7 +3729,7 @@
         "Keratoakantom"
       ],
       "correctIndex": 1,
-      "explanation": "Tento histologický obraz (ostrůvky bazaloidních buněk obklopené silnou PAS-pozitivní hyalinní membránou) je patognomický pro <strong>cylindrom</strong>. Cylindrom se klinicky může manifestovat jako turbanový tumor kštice.",
+      "explanation": "Tento histologický obraz (ostrůvky bazaloidních buněk obklopené silnou PAS-pozitivní hyalinní membránou) je patognomický pro cylindrom. Cylindrom se klinicky může manifestovat jako turbanový tumor kštice.",
       "pearl": "Klinicky se projevují estetickým handicapem, svěděním nebo mechanickou iritací (např. krvácení u granuloma pyogenicum, bolestivost u leiomyomu za chladu). Difer...",
       "tags": [
         "Single Choice",
@@ -3773,7 +3773,7 @@
         "Carcinoma verrucosum"
       ],
       "correctIndex": 1,
-      "explanation": "<strong>Bazaliom</strong> (carcinoma basocellulare) je charakterizován palisádovitým řazením bazaloidních buněk na periferii čepů a retrakčním zářezem od okolního stromatu. Tento nádor roste lokálně invazivně a destruktivně, ale metastazuje pouze v naprosto raritních případech.",
+      "explanation": "Bazaliom (carcinoma basocellulare) je charakterizován palisádovitým řazením bazaloidních buněk na periferii čepů a retrakčním zářezem od okolního stromatu. Tento nádor roste lokálně invazivně a destruktivně, ale metastazuje pouze v naprosto raritních případech.",
       "pearl": "Bazaliom roste lokálně destruktivně, ale téměř **nemetastazuje** (mortalita je nízká, ale morbidita při pozdní dg vysoká). Spinaliom má metastatický potenciál (...",
       "tags": [
         "Single Choice",
@@ -3796,7 +3796,7 @@
         "Sturge-Weberův syndrom"
       ],
       "correctIndex": 2,
-      "explanation": "<strong>Gorlinův syndrom</strong> (syndrom névoidních bazaliomů) je autozomálně dominantní onemocnění způsobené mutací genu PTCH1. Projevuje se časným vývojem stovek bazaliomů, odontogenními keratocystami čelistí, kalcifikací falx cerebri a skeletálními vadami.",
+      "explanation": "Gorlinův syndrom (syndrom névoidních bazaliomů) je autozomálně dominantní onemocnění způsobené mutací genu PTCH1. Projevuje se časným vývojem stovek bazaliomů, odontogenními keratocystami čelistí, kalcifikací falx cerebri a skeletálními vadami.",
       "pearl": "Bazaliom roste lokálně destruktivně, ale téměř **nemetastazuje** (mortalita je nízká, ale morbidita při pozdní dg vysoká). Spinaliom má metastatický potenciál (...",
       "tags": [
         "Single Choice",
@@ -3840,7 +3840,7 @@
         "Barva a stupeň pigmentace nádoru"
       ],
       "correctIndex": 1,
-      "explanation": "<strong>Breslowův index</strong> (vertikální tloušťka nádoru v milimetrech) je nejdůležitějším a nejobjektivnějším prognostickým faktorem primárního melanomu. Clarkovo schéma (invaze podle anatomických struktur) je zatíženo subjektivitou a v moderní AJCC klasifikaci má menší význam.",
+      "explanation": "Breslowův index (vertikální tloušťka nádoru v milimetrech) je nejdůležitějším a nejobjektivnějším prognostickým faktorem primárního melanomu. Clarkovo schéma (invaze podle anatomických struktur) je zatíženo subjektivitou a v moderní AJCC klasifikaci má menší význam.",
       "pearl": "Maligní melanom má obrovský sklon k metastazování do regionálních lymfatických uzlin a hematogenně do jakéhokoli orgánu (plíce, mozek, játra, kůže, tenké střevo...",
       "tags": [
         "Single Choice",
@@ -3863,7 +3863,7 @@
         "5 cm"
       ],
       "correctIndex": 2,
-      "explanation": "U melanomů s tloušťkou podle Breslowa 1,0 mm and více (tedy i 1,5 mm) se doporučuje provést excizi s <strong>bezpečnostním lemem 2 cm</strong>. Pro melanomy pod 1,0 mm stačí lem 1 cm, pro melanom in situ lem 0,5 cm. Větší lem než 2 cm podle studií nezlepšuje přežití pacienta.",
+      "explanation": "U melanomů s tloušťkou podle Breslowa 1,0 mm and více (tedy i 1,5 mm) se doporučuje provést excizi s bezpečnostním lemem 2 cm. Pro melanomy pod 1,0 mm stačí lem 1 cm, pro melanom in situ lem 0,5 cm. Větší lem než 2 cm podle studií nezlepšuje přežití pacienta.",
       "pearl": "Maligní melanom má obrovský sklon k metastazování do regionálních lymfatických uzlin a hematogenně do jakéhokoli orgánu (plíce, mozek, játra, kůže, tenké střevo...",
       "tags": [
         "Single Choice",
@@ -3907,7 +3907,7 @@
         "Onychoschisis"
       ],
       "correctIndex": 1,
-      "explanation": "<strong>Onycholysis</strong> označuje částečné odloučení ploténky od lůžka, začínající distálně a postupující proximálně. Naproti tomu <em>onychomadesis</em> je kompletní odloučení celé ploténky od nehtové matrix, vedoucí k jejímu úplnému odhojení a vypadnutí.",
+      "explanation": "Onycholysis označuje částečné odloučení ploténky od lůžka, začínající distálně a postupující proximálně. Naproti tomu onychomadesis je kompletní odloučení celé ploténky od nehtové matrix, vedoucí k jejímu úplnému odhojení a vypadnutí.",
       "pearl": "Onychopatie způsobují pacientům výrazný kosmetický a funkční handicap (bolestivost při chůzi či manuální práci). Časté je postižení nehtů u **psoriázy** (tzv. o...",
       "tags": [
         "Single Choice",
@@ -3930,7 +3930,7 @@
         "Infekce lidským papilomavirem (HPV)"
       ],
       "correctIndex": 2,
-      "explanation": "<strong>Paronychium chronicum</strong> je nejčastěji způsobeno kvasinkou <strong>Candida albicans</strong> v kombinaci s mechanickým a chemickým poškozením (saponáty, voda). Typicky postihuje profese jako kuchaři, uklízeči nebo cukráři. Akutní paronychium (paronychium acutum) bývá vyvoláno spíše bakteriálně (např. <em>Staphylococcus aureus</em>).",
+      "explanation": "Paronychium chronicum je nejčastěji způsobeno kvasinkou Candida albicans v kombinaci s mechanickým a chemickým poškozením (saponáty, voda). Typicky postihuje profese jako kuchaři, uklízeči nebo cukráři. Akutní paronychium (paronychium acutum) bývá vyvoláno spíše bakteriálně (např. Staphylococcus aureus).",
       "pearl": "Onychopatie způsobují pacientům výrazný kosmetický a funkční handicap (bolestivost při chůzi či manuální práci). Časté je postižení nehtů u **psoriázy** (tzv. o...",
       "tags": [
         "Single Choice",
@@ -3974,7 +3974,7 @@
         "CD30+, CD56+, CD3-"
       ],
       "correctIndex": 0,
-      "explanation": "Mycosis fungoides je primárně kožní T-lymfom vycházející ze zralých helperových (pomocných) T-lymfocytů. Pro ty je typický imunofenotyp <strong>CD3+, CD4+, CD8-</strong>. CD19+ a CD20+ jsou markery B-lymfocytů.",
+      "explanation": "Mycosis fungoides je primárně kožní T-lymfom vycházející ze zralých helperových (pomocných) T-lymfocytů. Pro ty je typický imunofenotyp CD3+, CD4+, CD8-. CD19+ a CD20+ jsou markery B-lymfocytů.",
       "pearl": "Průběh mycosis fungoides je chronický, pozvolný a trvá i desítky let. Sézaryho syndrom má naopak velmi agresivní průbeh s přežitím 2-4 roky, pacienti umírají ne...",
       "tags": [
         "Single Choice",
@@ -3997,7 +3997,7 @@
         "Mnohočetné bazaliomy, keratocysty čelistí a skolióza"
       ],
       "correctIndex": 1,
-      "explanation": "<strong>Sézaryho syndrom</strong> je charakterizován triádou: generalizovaná <strong>erytrodermie</strong> (zarudnutí celého těla), generalizovaná <strong>lymfadenopatie</strong> a přítomnost atypických T-lymfocytů s cerebriformním jádrem (Sézaryho buněk) v periferní krvi a kůži.",
+      "explanation": "Sézaryho syndrom je charakterizován triádou: generalizovaná erytrodermie (zarudnutí celého těla), generalizovaná lymfadenopatie a přítomnost atypických T-lymfocytů s cerebriformním jádrem (Sézaryho buněk) v periferní krvi a kůži.",
       "pearl": "Průběh mycosis fungoides je chronický, pozvolný a trvá i desítky let. Sézaryho syndrom má naopak velmi agresivní průbeh s přežitím 2-4 roky, pacienti umírají ne...",
       "tags": [
         "Single Choice",
@@ -4041,7 +4041,7 @@
         "Hypotyreóza"
       ],
       "correctIndex": 2,
-      "explanation": "U <strong>polycythaemia vera</strong> (myeloproliferativní onemocnění) dochází k nadprodukci erytrocytů a degranulaci mastocytů. Projevuje se typickým úporným <strong>akvagenním pruritem</strong> (svěděním po koupeli nebo sprchování v teplé vodě).",
+      "explanation": "U polycythaemia vera (myeloproliferativní onemocnění) dochází k nadprodukci erytrocytů a degranulaci mastocytů. Projevuje se typickým úporným akvagenním pruritem (svěděním po koupeli nebo sprchování v teplé vodě).",
       "pearl": "Chronický pruritus a prurigo výrazně snižují kvalitu života pacientů (deprese, nespavost). U nejasného generalizovaného pruritu je nutné provést screening k vyl...",
       "tags": [
         "Single Choice",
@@ -4064,7 +4064,7 @@
         "Subepidermální puchýře a leukocytoklastická vaskulitida"
       ],
       "correctIndex": 2,
-      "explanation": "Pro <strong>prurigo nodularis</strong> je typická reaktivní hyperplazie epidermis (pseudoepiteliomatózní hyperplazie) v reakci na chronické škrábání, doprovázená proliferací a zbytněním periferních nervových vláken v dermis.",
+      "explanation": "Pro prurigo nodularis je typická reaktivní hyperplazie epidermis (pseudoepiteliomatózní hyperplazie) v reakci na chronické škrábání, doprovázená proliferací a zbytněním periferních nervových vláken v dermis.",
       "pearl": "Chronický pruritus a prurigo výrazně snižují kvalitu života pacientů (deprese, nespavost). U nejasného generalizovaného pruritu je nutné provést screening k vyl...",
       "tags": [
         "Single Choice",
@@ -4108,7 +4108,7 @@
         "Anafylaktický šok"
       ],
       "correctIndex": 1,
-      "explanation": "<strong>Hoigného syndrom</strong> je pseudoanafylaktická reakce způsobená náhlým proniknutím prokain penicilinu do krevního oběhu při i.m. aplikaci. Projevuje se panickým strachem, halucinacemi a kardiovaskulární excitací (tachykardie, hypertenze). Jarischova-Herxheimova reakce je způsobena rozpadem spirochet a projevuje se horečkou a chřipkovými příznaky.",
+      "explanation": "Hoigného syndrom je pseudoanafylaktická reakce způsobená náhlým proniknutím prokain penicilinu do krevního oběhu při i.m. aplikaci. Projevuje se panickým strachem, halucinacemi a kardiovaskulární excitací (tachykardie, hypertenze). Jarischova-Herxheimova reakce je způsobena rozpadem spirochet a projevuje se horečkou a chřipkovými příznaky.",
       "pearl": "Klinicky se syfilis dělí na: 1) Časnou syfilis (do 2 let od infekce, vysoce infekční) – zahrnuje primární, sekundární a časnou latentní syfilis. 2) Pozdní syfil...",
       "tags": [
         "Single Choice",
@@ -4131,7 +4131,7 @@
         "3,0 IU/ml"
       ],
       "correctIndex": 1,
-      "explanation": "Při léčbě syfilis je klíčové udržet penicilinemii nad <strong>0,03 IU/ml</strong> po dobu minimálně 7 dní, což odpovídá dlouhému replikačnímu cyklu Treponema pallidum (cca 33 hodin).",
+      "explanation": "Při léčbě syfilis je klíčové udržet penicilinemii nad 0,03 IU/ml po dobu minimálně 7 dní, což odpovídá dlouhému replikačnímu cyklu Treponema pallidum (cca 33 hodin).",
       "pearl": "Klinicky se syfilis dělí na: 1) Časnou syfilis (do 2 let od infekce, vysoce infekční) – zahrnuje primární, sekundární a časnou latentní syfilis. 2) Pozdní syfil...",
       "tags": [
         "Single Choice",
@@ -4175,7 +4175,7 @@
         "Western blot"
       ],
       "correctIndex": 2,
-      "explanation": "<strong>VDRL</strong> (a RPR) je netreponemový test, který detekuje nespecifické antilipidové protilátky. Jeho titr koreluje s aktivitou infekce, a proto se využívá k monitorování úspěšnosti terapie (pokles titru). Specifické treponemové testy (TPHA, FTA-ABS, Western blot) zůstávají pozitivní doživotně.",
+      "explanation": "VDRL (a RPR) je netreponemový test, který detekuje nespecifické antilipidové protilátky. Jeho titr koreluje s aktivitou infekce, a proto se využívá k monitorování úspěšnosti terapie (pokles titru). Specifické treponemové testy (TPHA, FTA-ABS, Western blot) zůstávají pozitivní doživotně.",
       "pearl": "V klinické praxi se sérologie dělí na: 1) Netreponemové testy (VDRL, RPR) – pozitivní od 5.–6. týdne, slouží k hodnocení aktivity onemocnění a monitoraci úspěšn...",
       "tags": [
         "Single Choice",
@@ -4198,7 +4198,7 @@
         "Kultivace na selektivních čokoládových půdách"
       ],
       "correctIndex": 1,
-      "explanation": "<strong>Zástinová mikroskopie</strong> využívá odrazu světla od spirochet do objektivu, díky čemuž bakterie svítí na temném poli. Tímto způsobem lze pozorovat živé, pohybující se Treponemy přímo ze sekretu vředu.",
+      "explanation": "Zástinová mikroskopie využívá odrazu světla od spirochet do objektivu, díky čemuž bakterie svítí na temném poli. Tímto způsobem lze pozorovat živé, pohybující se Treponemy přímo ze sekretu vředu.",
       "pearl": "V klinické praxi se sérologie dělí na: 1) Netreponemové testy (VDRL, RPR) – pozitivní od 5.–6. týdne, slouží k hodnocení aktivity onemocnění a monitoraci úspěšn...",
       "tags": [
         "Single Choice",
@@ -4242,7 +4242,7 @@
         "Gumma a postižení zadních provazců míšních"
       ],
       "correctIndex": 1,
-      "explanation": "<strong>Primární komplex</strong> u syfilis se skládá z lokální léze (<strong>ulcus durum</strong> / tvrdý vřed) a spádové, regionální, jednostranné, charakteristicky nebolestivé lymfadenitidy (lymphadenitis specifica).",
+      "explanation": "Primární komplex u syfilis se skládá z lokální léze (ulcus durum / tvrdý vřed) a spádové, regionální, jednostranné, charakteristicky nebolestivé lymfadenitidy (lymphadenitis specifica).",
       "pearl": "Klinický obraz tvoří primární komplex (ulcus durum + regionální nebolestivá lymfadenitida). Nejčastější lokalizace (90 %) je genitální (glans penis, sulcus coro...",
       "tags": [
         "Single Choice",
@@ -4265,7 +4265,7 @@
         "Vřed u pacienta s koinfekcí HIV a syfilis"
       ],
       "correctIndex": 1,
-      "explanation": "<strong>Ulcus mixtum</strong> (smíšený vřed) vzniká při simultánní inokulaci Treponema pallidum a Haemophilus ducreyi. Zpočátku se projevuje jako bolestivý měkký vřed (chancroid) a později získává tuhou konzistenci typickou pro tvrdý vřed (ulcus durum).",
+      "explanation": "Ulcus mixtum (smíšený vřed) vzniká při simultánní inokulaci Treponema pallidum a Haemophilus ducreyi. Zpočátku se projevuje jako bolestivý měkký vřed (chancroid) a později získává tuhou konzistenci typickou pro tvrdý vřed (ulcus durum).",
       "pearl": "Klinický obraz tvoří primární komplex (ulcus durum + regionální nebolestivá lymfadenitida). Nejčastější lokalizace (90 %) je genitální (glans penis, sulcus coro...",
       "tags": [
         "Single Choice",
@@ -4309,7 +4309,7 @@
         "Eczema herpeticatum"
       ],
       "correctIndex": 1,
-      "explanation": "<strong>Condylomata lata</strong> jsou ploché, mokvavé papuly v intertriginózních oblastech typické pro sekundární syfilis. Jsou vysoce infekční. Condylomata acuminata jsou způsobeny HPV a mají užší, papilomatózní strukturu.",
+      "explanation": "Condylomata lata jsou ploché, mokvavé papuly v intertriginózních oblastech typické pro sekundární syfilis. Jsou vysoce infekční. Condylomata acuminata jsou způsobeny HPV a mají užší, papilomatózní strukturu.",
       "pearl": "Začátek je typicky v **9. týdnu** po infekci. Často doprovázen celkovými chřipkovými příznaky (horečka, bolesti svalů, kloubů, cefalea, polyadenitida). Slizničn...",
       "tags": [
         "Single Choice",
@@ -4332,7 +4332,7 @@
         "Bělavý povlak na sliznici dutiny ústní při syfilitické angíně"
       ],
       "correctIndex": 1,
-      "explanation": "<strong>Biettův límeček</strong> je prstenec šupinaté kůže (deskvamace) obklopující periferii červenohnědých lesklých papul, které se typicky tvoří na dlaních a ploskách u sekundární syfilis.",
+      "explanation": "Biettův límeček je prstenec šupinaté kůže (deskvamace) obklopující periferii červenohnědých lesklých papul, které se typicky tvoří na dlaních a ploskách u sekundární syfilis.",
       "pearl": "Začátek je typicky v **9. týdnu** po infekci. Často doprovázen celkovými chřipkovými příznaky (horečka, bolesti svalů, kloubů, cefalea, polyadenitida). Slizničn...",
       "tags": [
         "Single Choice",
@@ -4376,7 +4376,7 @@
         "Syringomyelie"
       ],
       "correctIndex": 1,
-      "explanation": "<strong>Tabes dorsalis</strong> je pozdní neurosyfilitický syndrom postihující zadní provazce a kořeny míšní. Projevuje se poruchami hluboké citlivosti (ataxie, Rombergovo znamení), lancinujícími (bodavými) bolestmi a vymizením šlachových reflexů. Paralysis progressiva postihuje mozkovou kůru a projevuje se demencí.",
+      "explanation": "Tabes dorsalis je pozdní neurosyfilitický syndrom postihující zadní provazce a kořeny míšní. Projevuje se poruchami hluboké citlivosti (ataxie, Rombergovo znamení), lancinujícími (bodavými) bolestmi a vymizením šlachových reflexů. Paralysis progressiva postihuje mozkovou kůru a projevuje se demencí.",
       "pearl": "Manifestuje se za **3–7 i více let** (neurosyfilis a KVS syfilis až za 5–35 let) po infekci. Orgánové projevy: aortální insuficience, aneurysma aortálního oblou...",
       "tags": [
         "Single Choice",
@@ -4399,7 +4399,7 @@
         "Zornice vykazuje rytmické stahování a rozšiřování nezávisle na podnětech"
       ],
       "correctIndex": 2,
-      "explanation": "U <strong>Argyll-Robertsonovy zornice</strong> dochází k disociaci reakce zornic: zornice jsou úzké (miotické), chybí reakce na osvit (světlo), ale <strong>reakce na konvergenci a akomodaci je plně zachována</strong>.",
+      "explanation": "U Argyll-Robertsonovy zornice dochází k disociaci reakce zornic: zornice jsou úzké (miotické), chybí reakce na osvit (světlo), ale reakce na konvergenci a akomodaci je plně zachována.",
       "pearl": "Manifestuje se za **3–7 i více let** (neurosyfilis a KVS syfilis až za 5–35 let) po infekci. Orgánové projevy: aortální insuficience, aneurysma aortálního oblou...",
       "tags": [
         "Single Choice",
@@ -4443,7 +4443,7 @@
         "Pemphigus syphiliticus, lakové patičky, coryza syphilitica"
       ],
       "correctIndex": 1,
-      "explanation": "Klasická <strong>Hutchinsonova triáda</strong> u pozdní vrozené syfilis (syphilis congenita tarda) zahrnuje: <strong>Hutchinsonovy zuby</strong> (deformované, soudkovité řezáky), <strong>intersticiální keratitidu</strong> (zánět rohovky vedoucí k slepotě) a <strong>labyrintovou hluchotu</strong> (poškození sluchového nervu).",
+      "explanation": "Klasická Hutchinsonova triáda u pozdní vrozené syfilis (syphilis congenita tarda) zahrnuje: Hutchinsonovy zuby (deformované, soudkovité řezáky), intersticiální keratitidu (zánět rohovky vedoucí k slepotě) a labyrintovou hluchotu (poškození sluchového nervu).",
       "pearl": "1) Syphilis congenita recens (projevy do 2 let věku): vysoce infekční, doprovázená krvavou rýmou (coryza syphilitica), osteochondritidou (bolestivost vede k Par...",
       "tags": [
         "Single Choice",
@@ -4466,7 +4466,7 @@
         "Rozsáhlá nekróza příčně pruhovaného svalstva"
       ],
       "correctIndex": 2,
-      "explanation": "<strong>Parrotova pseudoparalýza</strong> u syphilis congenita recens je způsobena bolestivou syfilitickou <strong>osteochondritidou</strong> (zánětem růstových zón dlouhých kostí, typicky ulny). Dítě kvůli intenzivní bolesti odmítá končetinou pohybovat, což imituje obrnu (paralýzu).",
+      "explanation": "Parrotova pseudoparalýza u syphilis congenita recens je způsobena bolestivou syfilitickou osteochondritidou (zánětem růstových zón dlouhých kostí, typicky ulny). Dítě kvůli intenzivní bolesti odmítá končetinou pohybovat, což imituje obrnu (paralýzu).",
       "pearl": "1) Syphilis congenita recens (projevy do 2 let věku): vysoce infekční, doprovázená krvavou rýmou (coryza syphilitica), osteochondritidou (bolestivost vede k Par...",
       "tags": [
         "Single Choice",
@@ -4510,7 +4510,7 @@
         "Lymphogranuloma venereum"
       ],
       "correctIndex": 2,
-      "explanation": "<strong>Chancroid (měkký vřed)</strong>, vyvolaný Haemophilus ducreyi, se vyznačuje <strong>výraznou bolestivostí</strong> primárního vředu i spádových lymfatických uzlin (bubo), které mohou kolikvovat a perforovat. Syfilitický vřed i granuloma inguinale jsou typicky nebolestivé.",
+      "explanation": "Chancroid (měkký vřed), vyvolaný Haemophilus ducreyi, se vyznačuje výraznou bolestivostí primárního vředu i spádových lymfatických uzlin (bubo), které mohou kolikvovat a perforovat. Syfilitický vřed i granuloma inguinale jsou typicky nebolestivé.",
       "pearl": "Léčba se liší: u chancroidu se podává azitromycin (1 g p.o. jednorázově) nebo ceftriaxon (250 mg i.m. jednorázově). U LGV je lékem volby doxycyklin 100 mg 2x de...",
       "tags": [
         "Single Choice",
@@ -4533,7 +4533,7 @@
         "Vícejaderné obrovské buňky s inkluzemi v Tzanckově testu"
       ],
       "correctIndex": 1,
-      "explanation": "Pro <strong>granuloma inguinale</strong> je specifickým nálezem přítomnost <strong>Donovanových tělísek</strong>. Jedná se o bakterie Klebsiella granulomatis nahromaděné v cytoplazmatických vakuolách makrofágů, které při barvení Wright-Giemsa připomínají zavírací špendlíky.",
+      "explanation": "Pro granuloma inguinale je specifickým nálezem přítomnost Donovanových tělísek. Jedná se o bakterie Klebsiella granulomatis nahromaděné v cytoplazmatických vakuolách makrofágů, které při barvení Wright-Giemsa připomínají zavírací špendlíky.",
       "pearl": "Léčba se liší: u chancroidu se podává azitromycin (1 g p.o. jednorázově) nebo ceftriaxon (250 mg i.m. jednorázově). U LGV je lékem volby doxycyklin 100 mg 2x de...",
       "tags": [
         "Single Choice",
@@ -4577,7 +4577,7 @@
         "70-80 %"
       ],
       "correctIndex": 3,
-      "explanation": "U žen probíhá kapavka až v <strong>70–80 % asymptomaticky</strong>. Tyto ženy často nevyhledají lékaře, stávají se rezervoárem infekce a jsou ohroženy pozdními komplikacemi (PID, tubární sterilita). U mužů je asymptomatický průběh vzácnější (10–25 %).",
+      "explanation": "U žen probíhá kapavka až v 70–80 % asymptomaticky. Tyto ženy často nevyhledají lékaře, stávají se rezervoárem infekce a jsou ohroženy pozdními komplikacemi (PID, tubární sterilita). U mužů je asymptomatický průběh vzácnější (10–25 %).",
       "pearl": "Inkubační doba je **2–7 dní**. U mužů se manifestuje jako urethritis gonorrhoica acuta anterior s dysurií (pálení, řezání) a hnisavým výtokem. Komplikace: epidi...",
       "tags": [
         "Single Choice",
@@ -4600,7 +4600,7 @@
         "Zduření sliznice močové trubice u mužů"
       ],
       "correctIndex": 1,
-      "explanation": "<strong>Macula gonorrhoica Sängeri</strong> je drobná, ostře červená skvrna obklopující vyústění vývodu Bartholiniho žlázy na vnitřní ploše malých stydkých pysků. Je typickým příznakem chronické nebo subakutní kapavčité bartholinitidy.",
+      "explanation": "Macula gonorrhoica Sängeri je drobná, ostře červená skvrna obklopující vyústění vývodu Bartholiniho žlázy na vnitřní ploše malých stydkých pysků. Je typickým příznakem chronické nebo subakutní kapavčité bartholinitidy.",
       "pearl": "Inkubační doba je **2–7 dní**. U mužů se manifestuje jako urethritis gonorrhoica acuta anterior s dysurií (pálení, řezání) a hnisavým výtokem. Komplikace: epidi...",
       "tags": [
         "Single Choice",
@@ -4644,7 +4644,7 @@
         "Endův agar"
       ],
       "correctIndex": 1,
-      "explanation": "<strong>Thayer-Martinův agar</strong> je modifikovaný čokoládový agar obsahující antimikrobiální přísady (např. vankomycin, kolistin, nystatin), které potlačují růst doprovodné grampozitivní a gramnegativní flóry a kvasinek, což umožňuje selektivní růst gonokoků.",
+      "explanation": "Thayer-Martinův agar je modifikovaný čokoládový agar obsahující antimikrobiální přísady (např. vankomycin, kolistin, nystatin), které potlačují růst doprovodné grampozitivní a gramnegativní flóry a kvasinek, což umožňuje selektivní růst gonokoků.",
       "pearl": "Diagnostika první volby u symptomatických pacientů kombinuje mikroskopii, kultivaci a NAAT (PCR). Léčba nekomplikované kapavky: kombinace ceftriaxon 500 mg i.m....",
       "tags": [
         "Single Choice",
@@ -4667,7 +4667,7 @@
         "Až za 3 měsíce po vyléčení"
       ],
       "correctIndex": 2,
-      "explanation": "Kontrolní vyšetření metodou <strong>NAAT (PCR)</strong> se doporučuje provádět <strong>nejdříve za 2 týdny</strong> po ukončení léčby. Při dřívějším odběru může dojít k detekci DNA z již usmrcených bakterií, což vede k falešné pozitivitě. Kultivační kontrolu lze provést dříve (za 3–7 dní).",
+      "explanation": "Kontrolní vyšetření metodou NAAT (PCR) se doporučuje provádět nejdříve za 2 týdny po ukončení léčby. Při dřívějším odběru může dojít k detekci DNA z již usmrcených bakterií, což vede k falešné pozitivitě. Kultivační kontrolu lze provést dříve (za 3–7 dní).",
       "pearl": "Diagnostika první volby u symptomatických pacientů kombinuje mikroskopii, kultivaci a NAAT (PCR). Léčba nekomplikované kapavky: kombinace ceftriaxon 500 mg i.m....",
       "tags": [
         "Single Choice",
@@ -4711,7 +4711,7 @@
         "Zinsserův syndrom"
       ],
       "correctIndex": 2,
-      "explanation": "<strong>Fitz-Hugh-Curtisův syndrom</strong> je perihepatitida vznikající ascendentním šířením Chlamydia trachomatis (nebo N. gonorrhoeae) z pánve do podžebří. Projevuje se ostrou bolestí pod pravým žeberním obloukem a tvorbou adhezí (\"struny houslí\").",
+      "explanation": "Fitz-Hugh-Curtisův syndrom je perihepatitida vznikající ascendentním šířením Chlamydia trachomatis (nebo N. gonorrhoeae) z pánve do podžebří. Projevuje se ostrou bolestí pod pravým žeberním obloukem a tvorbou adhezí (\"struny houslí\").",
       "pearl": "Inkubační doba je **10–20 dní**. Infekce je často asymptomatická (70–90 % žen, 25 % mužů). Muži: mukopurulentní uretritida, proktitida. Komplikace: epididymitis...",
       "tags": [
         "Single Choice",
@@ -4734,7 +4734,7 @@
         "Chlamydie adherují pouze na erytrocyty, které je třeba mechanicky uvolnit"
       ],
       "correctIndex": 1,
-      "explanation": "Jelikož je <strong>Chlamydia trachomatis</strong> obligátním <strong>intracelulárním patogenem</strong>, žije a množí se výhradně uvnitř hostitelských buněk. Pouhý odběr sekretu (hnisu) neobsahuje dostatek buněk, proto je nezbytná razantní abraze sliznice k získání epitelových buněk.",
+      "explanation": "Jelikož je Chlamydia trachomatis obligátním intracelulárním patogenem, žije a množí se výhradně uvnitř hostitelských buněk. Pouhý odběr sekretu (hnisu) neobsahuje dostatek buněk, proto je nezbytná razantní abraze sliznice k získání epitelových buněk.",
       "pearl": "Inkubační doba je **10–20 dní**. Infekce je často asymptomatická (70–90 % žen, 25 % mužů). Muži: mukopurulentní uretritida, proktitida. Komplikace: epididymitis...",
       "tags": [
         "Single Choice",
@@ -4778,7 +4778,7 @@
         "Pseudomycelia a blastospory kvasinek"
       ],
       "correctIndex": 1,
-      "explanation": "<strong>Clue cells</strong> (klíčové buňky) jsou vaginální epitelové buňky, na jejichž povrch adheruje velké množství bakterií (Gardnerella vaginalis a anaeroby), což stírá jejich ostré ohraničení. Jsou typickým a diagnostickým znakem bakteriální vaginózy (MOP II).",
+      "explanation": "Clue cells (klíčové buňky) jsou vaginální epitelové buňky, na jejichž povrch adheruje velké množství bakterií (Gardnerella vaginalis a anaeroby), což stírá jejich ostré ohraničení. Jsou typickým a diagnostickým znakem bakteriální vaginózy (MOP II).",
       "pearl": "Diagnostika se opírá o MOP, pH pochvy (nad 4.5 u vaginózy a trichomonázy, normální metronidazol (u trichomonózy nutno léčit partnery!). Kandidóza – lokální či c...",
       "tags": [
         "Single Choice",
@@ -4801,7 +4801,7 @@
         "Urogenitální chlamydióza"
       ],
       "correctIndex": 2,
-      "explanation": "<strong>Trichomoniáza</strong>, způsobená bičíkatým prvokem Trichomonas vaginalis, se typicky prezentuje hojným, žlutozeleným, <strong>zpěněným výtokem</strong> (často popisovaným jako pivní pěna), zvýšeným pH vaginy a tečkovitým krvácením na děložním čípku (\"jahodový čípek\").",
+      "explanation": "Trichomoniáza, způsobená bičíkatým prvokem Trichomonas vaginalis, se typicky prezentuje hojným, žlutozeleným, zpěněným výtokem (často popisovaným jako pivní pěna), zvýšeným pH vaginy a tečkovitým krvácením na děložním čípku (\"jahodový čípek\").",
       "pearl": "Diagnostika se opírá o MOP, pH pochvy (nad 4.5 u vaginózy a trichomonázy, normální metronidazol (u trichomonózy nutno léčit partnery!). Kandidóza – lokální či c...",
       "tags": [
         "Single Choice",
