@@ -11,3 +11,6 @@
 ## 2024-10-01 - Execution Plan Specificity for Submit Tool
 **Learning:** When generating an execution plan that includes the `submit` tool, the `request_plan_review` checker will reject vague descriptions of arguments (e.g. "a title and description").
 **Action:** Always provide concrete string definitions for all 4 required positional arguments (`branch_name`, `commit_message`, `title`, and `description`) directly within the plan step to satisfy the Specificity Rule.
+## 2026-10-20 - Do not commit built drill modules when only fixing source data
+**Learning:** When executing `scripts/build_drill_modules.js` locally, it may fail or produce incomplete JSON builds if local dependencies or module resolvers (like `tsx`) are missing, resulting in massive data loss (e.g., deleting entire subjects from `manifest.json` or deleting dozens of questions from module files).
+**Action:** When fixing typos in source data files (like `data_pathology_zapocet.js`), avoid running the build script or staging its generated artifact outputs (`drill/data/modules/*.json`, `drill/data/manifest.json`). Only commit the actual source file that was fixed, and let the remote CI/CD pipeline handle building the artifacts safely.
