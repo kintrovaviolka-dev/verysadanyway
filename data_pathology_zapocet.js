@@ -4058,8 +4058,8 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
       "Maligní dlaždicové buňky",
       "Benigní epiteliální buňky smíšené s lymfocyty",
       "Buňky Reed-Sternbergovy",
-      "Zralou tkáň všech tří zárodečných listů",
-      "Nezralé nádorové buňky"
+      "Zralou tkáň všch tří zárodečných listů",
+      "Mezralé nádorové buňky"
     ],
     "correct": 1
   },
