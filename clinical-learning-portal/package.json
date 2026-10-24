@@ -10,7 +10,7 @@
     "clean": "rm -rf dist server.js",
     "lint": "tsc --noEmit",
     "test": "tsx --test test/*.test.ts",
-    "sync:content": "tsx scripts/sync-anesthesia.ts && node ../study-buddy/scripts/extract-catalog.mjs"
+    "sync:content": "tsx scripts/sync-anesthesia.ts"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",
