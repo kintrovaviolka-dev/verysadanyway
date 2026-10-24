@@ -3336,7 +3336,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
     "question": "Kryptorchizmus",
     "options": [
       "Je vždy bilaterální",
-      "Je způsoben zpravidna infertilitou",
+      "Je způsoben zpravidla infertilitou",
       "Varle je bolestivé",
       "Frekence nádorů varlete bývá zvýšená",
       "Je typický pro Klinefelterův syndrom"
@@ -3357,7 +3357,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
   },
   {
     "id": 281,
-    "question": "Kolik Barrových tělísek je zpravidla přtomno u osoby s klasickou formou Klinefelterova sy.?",
+    "question": "Kolik Barrových tělísek je zpravidla přítomno u osoby s klasickou formou Klinefelterova sy.?",
     "options": [
       "0",
       "1",
@@ -3443,7 +3443,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
     "id": 288,
     "question": "Nejdůležitější role PAP cytologického vyšetření je",
     "options": [
-      "Screening asymtomatických pacientek pro možné preinvazivní nebo invazivní karcinomy čípku",
+      "Screening asymptomatických pacientek pro možné preinvazivní nebo invazivní karcinomy čípku",
       "Potvrzení dg. Podezřelých afekcí čípku děložního",
       "Sledování a vyhodnocování vaginálních infekcí",
       "Vyhledávání maligních buněk pocházejících z nádorů uložených výše v genitálním traktu, které není možno vizualizovat prostou kolposkopií",
@@ -3609,7 +3609,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
   },
   {
     "id": 302,
-    "question": "Muž (60) si stěžuje na námahovou bolest hrudníku. Poslední dobou několikrát zkolaboval. Systolický ejekční šelšst s propagací do karotidy. EKG – hypertrofie levé komory. Nejpravděpodobnější souvislost je?",
+    "question": "Muž (60) si stěžuje na námahovou bolest hrudníku. Poslední dobou několikrát zkolaboval. Systolický ejekční šelest s propagací do karotidy. EKG – hypertrofie levé komory. Nejpravděpodobnější souvislost je?",
     "options": [
       "Infarkt myokardu",
       "Ztuštělá a zvápenatělá aortální chlopeň",
@@ -3866,7 +3866,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
       "Karcinom žaludku – karcinom kolon",
       "Tromboembolus do a.mesenterrca inf. – tromboembolus do a.mesenterica sup",
       "Hepatitis A – Hepatitis B",
-      "Stafylokoková enterotoxikóza – pseudomembranózní enterokoliktis",
+      "Stafylokoková enterotoxikóza – pseudomembranózní enterokolitida",
       "Léčená celiakie – léčená cystická fibróza pankreatu"
     ],
     "correct": 0
@@ -3933,7 +3933,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
   },
   {
     "id": 329,
-    "question": "Žena (32), rektální krvácení, četné polypy na sliznici kolon i rekta. Biopsie odpovídá tublárnímu adenomu. Dĺe izolována tumorózní hmota v sigmoideu, histologicky odpovídající invazivnímu adenokarcinomu. Které tvrzení není správné?",
+    "question": "Žena (32), rektální krvácení, četné polypy na sliznici kolon i rekta. Biopsie odpovídá tubulárnímu adenomu. Dále izolována tumorózní hmota v sigmoideu, histologicky odpovídající invazivnímu adenokarcinomu. Které tvrzení není správné?",
     "options": [
       "Onemocnění je autozomálně dominantní",
       "Maligní transformace některých polypů je velmi častá po třetí dekádě",
