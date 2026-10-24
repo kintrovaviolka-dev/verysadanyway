@@ -1332,7 +1332,7 @@ vysokofrekvenční US
 Akutní pankreatitida:
 
 ●  edematózní zvětšení slinivky, neostré okraje, infiltrace okolní
-●  nekrotizující pankratitida → rozpad tkáně + pseudocysty → RTG reflexní
+●  nekrotizující pankreatitida → rozpad tkáně + pseudocysty → RTG reflexní
 
 meteorismus v místě slinivky, na snímku plic je vyšší postavení bránice + pleurální
 tekutina
@@ -1350,7 +1350,7 @@ kalcifikace, pseudocysty
 Nádory:
 
 ●  nejsou vzácné, jen pozdě diagnostikované (často již v neoperabilní fázi)
-●  adenokarcinom 90%, převážně v hlavě pankratu
+●  adenokarcinom 90%, převážně v hlavě pankreatu
 ●  neuroendokrinní nádory
 ●  UZ:  hypoechogenní nepravidelné útvary mnohdy obtížně odlišitelné od střev či uzlin.
 
