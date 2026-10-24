@@ -11,3 +11,6 @@
 ## 2024-10-01 - Execution Plan Specificity for Submit Tool
 **Learning:** When generating an execution plan that includes the `submit` tool, the `request_plan_review` checker will reject vague descriptions of arguments (e.g. "a title and description").
 **Action:** Always provide concrete string definitions for all 4 required positional arguments (`branch_name`, `commit_message`, `title`, and `description`) directly within the plan step to satisfy the Specificity Rule.
+## 2026-10-20 - Vite/esbuild syntax error resolution
+**Learning:** During the build process (`pnpm run build`), Vite's esbuild reported a syntax error (`Unexpected }`) in `AnesthesiaModule.tsx`. This was caused by stray curly braces (`} }`) incorrectly placed before the default component export.
+**Action:** Always verify the syntax of TypeScript/TSX files by running `npm run lint` (which maps to `tsc --noEmit`) in the respective directory (`clinical-learning-portal`) before committing to ensure there are no stray brackets causing build failures.
