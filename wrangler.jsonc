@@ -3,7 +3,7 @@
   "name": "verysadanyway",
   "compatibility_date": "2026-10-17",
   "build": {
-    "command": "pnpm run build:public"
+    "command": "pnpm run build"
   },
   "assets": {
     "directory": "./.public-build",

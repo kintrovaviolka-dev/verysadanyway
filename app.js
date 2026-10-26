@@ -883,13 +883,15 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Save/Clear key locally
+  let settingsFeedbackTimeout = null;
   function showSettingsFeedback(message) {
     const feedbackEl = document.getElementById("chatbot-settings-feedback");
     const announcer = document.getElementById("a11y-announcer");
     if (feedbackEl) {
       feedbackEl.textContent = message;
       feedbackEl.style.display = "block";
-      setTimeout(() => { feedbackEl.style.display = "none"; }, 3000);
+      if (settingsFeedbackTimeout) clearTimeout(settingsFeedbackTimeout);
+      settingsFeedbackTimeout = setTimeout(() => { feedbackEl.style.display = "none"; }, 3000);
     }
     if (announcer) {
       announcer.textContent = message;
