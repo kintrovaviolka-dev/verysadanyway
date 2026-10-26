@@ -29,6 +29,3 @@
 ## 2024-11-20 - Restoring Focus on Modal Exit Paths and Form Actions
 **Learning:** Found that custom settings modals often omit programmatic focus restoration for form action buttons (like "Save" or "Clear") that alter state or dismiss the modal. When users click these buttons and they don't explicitly return focus to a logical element (like the trigger button if closing, or an input if staying open), keyboard users lose their navigational place and fall back to the document root, forcing them to tab back through the entire page.
 **Action:** Always ensure that *every* action button in a modal or form that causes a significant state change or dismisses the overlay explicitly manages focus (`.focus()`) afterwards. For example, a successful "Save" that closes a modal should return focus to the modal's trigger button. "Clear" or "Error" actions that keep the modal open should return focus to the relevant input field.
-## 2025-02-18 - Non-blocking Alerts
-**Learning:** Native alert() calls disrupt the UX flow and provide poor accessibility context. Using inline visual feedback combined with a visually hidden aria-live="polite" element provides a smoother experience while maintaining screen reader compatibility.
-**Action:** Replace simple state change alerts with custom inline UI updates and route the message text to an aria-live announcer.
