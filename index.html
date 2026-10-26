@@ -15,6 +15,7 @@
 </head>
 
 <body>
+  <div id="a11y-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
   <!-- Skip-to-content for keyboard users -->
   <a class="skip-link" href="#main-content">Přeskočit na obsah</a>
   <div class="container">
@@ -257,6 +258,7 @@
           <input type="password" id="chatbot-api-key-input" placeholder="AIzaSy..." aria-label="API klíč pro Gemini" />
           <button class="btn btn-primary btn-sm" id="chatbot-save-key-btn">Uložit</button>
         </div>
+        <div id="chatbot-settings-feedback" style="display: none; color: #00f0ff; font-size: 0.85rem; margin-top: 8px;" role="status"></div>
         <button class="btn btn-secondary btn-sm" id="chatbot-clear-key-btn" style="margin-top: 8px;">Smazat uložený klíč</button>
         <button class="chatbot-settings-close" id="chatbot-settings-close-btn">Zpět do chatu</button>
       </div>
