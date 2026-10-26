@@ -2607,7 +2607,7 @@ const NEUROLOGY_DATA = {
         {
           "id": "fc-s02-2",
           "front": "Jaký je EEG korelát typických dětských absencí (Petit Mal)?",
-          "back": "Generalizované, synchronní a symetrické <strong>komplexy hrot-vlna o frekvenci přesně 3 Hz</strong> (provokovatelné hyperventilací).",
+          "back": "Generalizované, synchronní a symetrické <strong>komplexy hrot-vlna o frekvenci přesně 3 Hz</strong> (provokovatelné hyperventilací). Hyperventilace proto patří mezi aktivační postupy při EEG; mimo záchvat bývá základní aktivita zachována.",
           "hint": "Frekvence hrot-vlna 3 Hz při absencích."
         },
         {
@@ -2787,13 +2787,13 @@ const NEUROLOGY_DATA = {
         {
           "id": "fc-s04-1",
           "front": "Jaký je anatomický zdroj krvácení a typický tvar na CT u epidurálního hematomu?",
-          "back": "Zdroj: <strong>Arteria meningea media</strong>.<br>Tvar na CT: <strong>Bikonvexní (čočkovitý)</strong> hyperdenzní útvar, který <em>nepřekračuje lebeční švy</em>.",
+          "back": "Zdroj: <strong>Arteria meningea media</strong>.<br>Tvar na CT: <strong>bikonvexní (čočkovitý)</strong> hyperdenzní útvar, který <em>nepřekračuje lebeční švy</em>. Často vzniká po fraktuře spánkové kosti; lucidní interval se může objevit, ale jeho nepřítomnost diagnózu nevylučuje.",
           "hint": "Arteria meningea media (bikonvexní čočkovitý tvar)."
         },
         {
           "id": "fc-s04-2",
           "front": "Jaký je anatomický zdroj krvácení a typický tvar na CT u subdurálního hematomu?",
-          "back": "Zdroj: <strong>Přemosťující žíly (bridging veins)</strong>.<br>Tvar na CT: <strong>Konkavokonvexní (srpkovitý / poloměsíčitý)</strong> lem, který <em>volně překračuje lebeční švy</em>.",
+          "back": "Zdroj: <strong>přemosťující žíly (bridging veins)</strong>.<br>Tvar na CT: <strong>konkavokonvexní (srpkovitý / poloměsíčitý)</strong> lem, který může <em>překračovat lebeční švy</em>. U starších lidí nebo při antikoagulační léčbě se může po nenápadném úrazu rozvíjet pozvolna.",
           "hint": "Přemosťující vény (srpkovitý konkavokonvexní tvar)."
         },
         {
@@ -2880,19 +2880,19 @@ const NEUROLOGY_DATA = {
         {
           "id": "fc-s05-1",
           "front": "Jaká je nejčastější příčina netraumatického subarachnoidálního krvácení (SAB)?",
-          "back": "<strong>Ruptura intrakraniálního sakulárního aneuryzmatu</strong> na Willisově okruhu (nejčastěji a. communicans anterior a a. communicans posterior).",
+          "back": "<strong>Ruptura intrakraniálního sakulárního aneuryzmatu</strong> na Willisově okruhu (nejčastěji a. communicans anterior a a. communicans posterior). Typicky se projeví náhle vzniklou „bleskovou“ bolestí hlavy a vyžaduje urgentní zobrazení cév.",
           "hint": "Ruptura vakovitého aneuryzmatu Willisova okruhu."
         },
         {
           "id": "fc-s05-2",
           "front": "Jaký je diagnostický postup při podezření na SAB při negativním nativním CT mozku?",
-          "back": "Provedení <strong>lumbální punkce s odstupem 6–12 hodin</strong> a vyšetření moku na <strong>xantochromii po centrifugaci</strong> (spektrofotometrie bilirubinu).",
+          "back": "Při přetrvávajícím podezření následuje <strong>lumbální punkce</strong> a vyšetření moku na <strong>xantochromii po centrifugaci</strong> (spektrofotometrie bilirubinu); při časném odběru se obvykle vyčkává alespoň 6–12 hodin od začátku příznaků. Xantochromie vzniká rozpadem erytrocytů a CT ji nezachytí.",
           "hint": "CT mozku nativně + lumbální punkce při negativitě."
         },
         {
           "id": "fc-s05-3",
           "front": "Který lék je standardně podáván jako prevence mozkových vazospazmů po SAB?",
-          "back": "<strong>Nimodipin</strong> (specifický cerebrovaskulární blokátor kalciových kanálů) podávaný po dobu 21 dní.",
+          "back": "<strong>Nimodipin</strong> (blokátor kalciových kanálů) se podává po dobu 21 dní. Cílem je snížit riziko opožděné mozkové ischemie po SAB; samotné aneuryzma je zároveň nutné co nejdříve zajistit.",
           "hint": "Nimodipin jako prevence vazospazmů."
         }
       ],
@@ -2979,13 +2979,13 @@ const NEUROLOGY_DATA = {
         {
           "id": "fc-s06-2",
           "front": "Jaký klinický nález na zornicích a motorice je typický pro masivní pontinní krvácení?",
-          "back": "<strong>Špendlíkovité zornice (pin-point pupils)</strong> reagující na světlo pouze pod lupou + <strong>kvadruplegie / decerebrační rigidita</strong>, hyperpyrexie a hluboké kóma.",
+          "back": "<strong>Špendlíkovité zornice (pin-point pupils)</strong> reagující na světlo jen obtížně, <strong>kvadruplegie nebo decerebrační rigidita</strong>, hyperpyrexie a hluboké kóma. Kombinace odráží postižení pontinních struktur a představuje kritický stav.",
           "hint": "Cerebrální amyloidová angiopatie (CAA) u seniorů."
         },
         {
           "id": "fc-s06-3",
           "front": "Kdy je jednoznačně indikována neurochirurgická evakuace intracerebrálního hematomu?",
-          "back": "U <strong>mozečkového hematomu s průměrem > 3 cm</strong> (nebo s útlakem mozkového kmene a obstrukcí IV. komory).",
+          "back": "U <strong>mozečkového hematomu s průměrem > 3 cm</strong>, zejména při útlaku mozkového kmene nebo obstrukci IV. komory. V zadní jámě je málo prostoru, proto hrozí rychlý rozvoj hydrocefalu a zhoršení vědomí.",
           "hint": "Mozečkový hematom nad 3 cm je indikací k urgentní operaci."
         }
       ],
@@ -3696,7 +3696,7 @@ const NEUROLOGY_DATA = {
         {
           "id": "fc-S13-1",
           "front": "Jaký lék je lékem volby k rychlému zmírnění vazogenního edému mozku u pacientů s intrakraniálním nádorem?",
-          "back": "Dexamethason (syntetický kortikoid) ve vysoké dávce (např. 8–16 mg i.v./p.o. denně), který stabilizuje permeabilitu hematoencefalické bariéry.",
+          "back": "<strong>Dexamethason</strong> (kortikoid; dávka se volí podle klinického stavu, často např. 8–16 mg denně i.v. nebo p.o.) snižuje permeabilitu hematoencefalické bariéry a vazogenní edém. Zmírňuje příznaky útlaku, ale neléčí samotný nádor.",
           "hint": "Glioblastom (WHO Grade 4) - nejzhoubnější primární tumor."
         },
         {
@@ -4014,7 +4014,7 @@ const NEUROLOGY_DATA = {
         {
           "id": "fc-S16-3",
           "front": "Do kterých mozkových struktur se nejčastěji zavádějí stimulační elektrody při hluboké mozkové stimulaci (DBS) u pacientů s pokročilou Parkinsonovou nemocí?",
-          "back": "Nejčastějším cílem je nucleus subthalamicus (STN), alternativně globus pallidus internus (GPi).",
+          "back": "Nejčastějším cílem je <strong>nucleus subthalamicus (STN)</strong>, alternativně <strong>globus pallidus internus (GPi)</strong>. U vhodně vybraných pacientů může DBS zmírnit motorické fluktuace a dyskineze; volba cíle závisí na klinickém profilu.",
           "hint": "Hluboká mozková stimulace (DBS) nucleus subthalamicus."
         }
       ],
@@ -4109,13 +4109,13 @@ const NEUROLOGY_DATA = {
         {
           "id": "fc-S17-2",
           "front": "Která mozková struktura podléhá u Huntingtonovy nemoci nejčasnější a nejvýraznější atrofii viditelné na MRI mozku?",
-          "back": "Hlava ocasatého jádra (caput nuclei caudati) a putamen ve striatu, což na MRI vede k typickému rozšíření čelních rohů postranních mozkových komor.",
+          "back": "Nejčasněji atrofuje <strong>hlava ocasatého jádra (caput nuclei caudati)</strong>, později i putamen ve striatu. Úbytek tkáně se na MRI projeví rozšířením čelních rohů postranních mozkových komor; klinicky se často objevují choreatické pohyby a změny chování.",
           "hint": "Chorea minor (Sydenhamova chorea) po streptokokové infekci."
         },
         {
           "id": "fc-S17-3",
           "front": "Poškození které anatomické struktury vede k rozvoji hemibalismu (prudkých házivých pohybů končetin)?",
-          "back": "Nucleus subthalamicus Luysi (subthalamické jádro), nejčastěji na podkladě akutního lakunárního ischemického infarktu nebo drobného krvácení.",
+          "back": "<strong>Nucleus subthalamicus Luysi (subthalamické jádro)</strong>, nejčastěji při akutním lakunárním infarktu nebo drobném krvácení. Léze bývá kontralaterální k postiženým končetinám a vyvolá výrazné mimovolní házivé pohyby.",
           "hint": "Tetrabenazin - depletor dopaminu (inhibitor VMAT2)."
         }
       ],
@@ -4313,7 +4313,7 @@ const NEUROLOGY_DATA = {
         {
           "id": "fc-S19-1",
           "front": "Jaká je okamžitá léčba první volby při akutním záchvatu Cluster headache?",
-          "back": "Inhalace 100% kyslíku obličejovou maskou s rezervoárem průtokem 12–15 litrů/minutu po dobu 15–20 minut a/nebo aplikace Sumatriptanu 6 mg subkutánně.",
+          "back": "Inhalace <strong>100% kyslíku maskou s rezervoárem</strong> (průtok obvykle 12–15 l/min po 15–20 minut) a/nebo <strong>sumatriptan 6 mg subkutánně</strong>. Jde o rychlou akutní léčbu; tablety bývají kvůli rychlému nástupu ataky příliš pomalé.",
           "hint": "Tenzní bolest hlavy - tupá, svíravá oboustranná cefalea."
         },
         {
@@ -4628,7 +4628,7 @@ const NEUROLOGY_DATA = {
         {
           "id": "fc-S22-3",
           "front": "Jaká iatrogenní chyba vede k rozvoji osmotického demyelinizačního syndromu (centrální pontinní myelinolýzy)?",
-          "back": "Příliš rychlá nitrožilní korekce chronické hyponatrémie (překročení rychlosti vzestupu natrémie o více než 8–10 mmol/l za 24 hodin).",
+          "back": "Příliš rychlá korekce <strong>chronické hyponatrémie</strong> (orientačně vzestup natrémie o více než 8–10 mmol/l za 24 hodin). Mozek se při chronicky nízkém sodíku adaptuje a rychlá změna osmolality může poškodit myelin, zejména v oblasti pontu.",
           "hint": "Delirium tremens - život ohrožující abstinenční stav."
         }
       ],
@@ -4729,7 +4729,7 @@ const NEUROLOGY_DATA = {
         {
           "id": "fc-S23-3",
           "front": "Které dvě lékové skupiny jsou první volbou v symptomatické léčbě bolestivé diabetické polyneuropatie?",
-          "back": "1. SNRI antidepresiva (Duloxetin), 2. Gabapentinoidy (Pregabalin nebo Gabapentin).",
+          "back": "1. <strong>SNRI</strong> (např. duloxetin), 2. <strong>gabapentinoidy</strong> (pregabalin nebo gabapentin). Volba se řídí komorbiditami a snášenlivostí; léčba tlumí neuropatickou bolest, ale neodstraňuje její příčinu.",
           "hint": "Pregabalin, gabapentin nebo duloxetin na neuropatickou bolest."
         }
       ],
@@ -4834,7 +4834,7 @@ const NEUROLOGY_DATA = {
         {
           "id": "fc-S24-3",
           "front": "Které čtyři anatomické oblasti CNS hodnotí McDonaldova kritéria pro průkaz diseminace v prostoru (DIS) na MRI?",
-          "back": "1. Periventrikulární oblast, 2. Kortikální nebo juxtakortikální oblast, 3. Infratentoriální oblast (kmen a mozeček), 4. Mícha.",
+          "back": "1. Periventrikulární, 2. kortikální/juxtakortikální, 3. infratentoriální oblast (kmen a mozeček) a 4. mícha. Diseminace v prostoru znamená postižení více typických oblastí; posuzuje se odděleně od diseminace v čase.",
           "hint": "Lhermitteův příznak - elektrický výboj podél páteře při předklonu hlavy."
         }
       ],
@@ -4925,7 +4925,7 @@ const NEUROLOGY_DATA = {
         {
           "id": "fc-S25-2",
           "front": "Které dva vysoce citlivé metabolity v krvi stoupají při tkáňovém deficitu vitaminu B12 ještě před poklesem sérové hladiny vitaminu B12?",
-          "back": "Kyselina metylmalonová (MMA) a homocystein.",
+          "back": "Zvyšují se <strong>kyselina metylmalonová (MMA)</strong> a <strong>homocystein</strong>. Jde o funkční metabolické ukazatele deficitu B12, které pomáhají zejména při hraniční nebo zdánlivě normální sérové hladině.",
           "hint": "Pellagra - deficit niacinu (vitamín B3) - 3D: Dermatitida, Diaria, Demence."
         },
         {
@@ -5239,7 +5239,7 @@ const NEUROLOGY_DATA = {
         {
           "id": "fc-S28-2",
           "front": "Jaká vrozená vývojová vada kraniocervikálního přechodu je nejčastěji asociována se vznikem syringomyelie?",
-          "back": "Chiariho malformace I. typu (herniace mozečkových tonzil přes foramen magnum o ≥ 5 mm pod úroveň baze lební blokující tok likvoru).",
+          "back": "<strong>Chiariho malformace I. typu</strong> (sestup mozečkových tonzil přes foramen magnum, klasicky alespoň 5 mm). Narušení proudění likvoru v oblasti kraniocervikálního přechodu může přispět ke vzniku syringomyelické dutiny v míše.",
           "hint": "Disociovaná porucha čití v plášťové distribuci na HK."
         },
         {
@@ -5334,7 +5334,7 @@ const NEUROLOGY_DATA = {
         {
           "id": "fc-S29-1",
           "front": "Který gen a protein je nejčastěji mutován u autozomálně dominantní čisté formy hereditární spastické paraparézy?",
-          "back": "Gen SPAST kódující protein spastin (forma SPG4), který tvoří téměř polovinu všech AD případů čisté hereditární spastické paraparézy.",
+          "back": "Gen <strong>SPAST</strong> kódující spastin (forma SPG4) patří k nejčastějším příčinám autozomálně dominantní čisté HSP. Spastin se podílí na dynamice mikrotubulů; jeho porucha vede zejména k postupnému postižení dlouhých kortikospinálních drah.",
           "hint": "Strümpell-Lorrainova choroba (HSP)."
         },
         {
@@ -5346,7 +5346,7 @@ const NEUROLOGY_DATA = {
         {
           "id": "fc-S29-3",
           "front": "Která terapeutická modalita se využívá u pacientů s HSP a těžkou invalidizující spasticitou dolních končetin refrakterní na perorální léky?",
-          "back": "Intratekální baklofenová pumpa (ITB) kontinuálně dávkující baklofen přímo do likvorového prostoru bederní páteře.",
+          "back": "<strong>Intratekální baklofenová pumpa (ITB)</strong> podává kontinuálně baklofen do likvorového prostoru. Zvažuje se u těžké spasticity nereagující na perorální léčbu; před zavedením se obvykle ověřuje účinek testovací dávkou.",
           "hint": "Baklofen v léčbě spasticity."
         }
       ],
@@ -5560,7 +5560,7 @@ const NEUROLOGY_DATA = {
         {
           "id": "fc-S31-3",
           "front": "Který míšní kořen je postižen u pacienta s vyhaslým bicipitálním reflexem, oslabením flexe v lokti a necitlivostí palce a ukazováku?",
-          "back": "Míšní kořen C6 (radikulární syndrom C6).",
+          "back": "Nejpravděpodobněji jde o <strong>kořen C6</strong>. Odpovídá tomu porucha čití na radiální straně předloktí a palci; bicipitální reflex má převážně segmenty C5–C6, takže nález je třeba hodnotit spolu s dalšími příznaky.",
           "hint": "Kořen C6 - reflex bicipitový, radiální strana předloktí a palec."
         }
       ],
@@ -5655,13 +5655,13 @@ const NEUROLOGY_DATA = {
         {
           "id": "fc-S32-2",
           "front": "Která infekční neurologická diagnóza se typicky manifestuje krutou pásovitou pálivou bolestí v hrudním dermatomu ještě několik dní před vznikem kožních projevů?",
-          "back": "Herpes zoster (pásový opar) v preeruptivní fázi, reaktivace VZV v senzitivním spinálním gangliu.",
+          "back": "<strong>Herpes zoster (pásový opar)</strong> v preeruptivní fázi – reaktivace VZV v senzitivním spinálním gangliu. Jednostranná dermatomální bolest může kožní výsev předcházet o několik dní, což zpočátku komplikuje rozpoznání příčiny.",
           "hint": "Herpes zoster (pásový opar) v preeruptivní fázi."
         },
         {
           "id": "fc-S32-3",
           "front": "Které dermatomy odpovídají orientačním bodům prsních bradavek a pupku při vyšetření hrudní radikulopatie?",
-          "back": "Dermatom Th4 odpovídá úrovni prsních bradavek; dermatom Th10 odpovídá úrovni pupku.",
+          "back": "Dermatom <strong>Th4</strong> odpovídá přibližně úrovni prsních bradavek a <strong>Th10</strong> úrovni pupku. Jde o orientační body, které pomáhají klinicky zmapovat hranici poruchy čití na trupu.",
           "hint": "Th4 odpovídá prsním bradavkám, Th10 odpovídá pupku."
         }
       ],
@@ -5762,7 +5762,7 @@ const NEUROLOGY_DATA = {
         {
           "id": "fc-S33-3",
           "front": "Který míšní kořen je nejčastěji utlačen při běžném dorzolaterálním výhřezu meziobratlové ploténky L4/L5?",
-          "back": "Míšní kořen L5 (v bederní oblasti dorzolaterální výhřez disku utlačuje kořen probíhající páteřním kanálem do nižšího foramina).",
+          "back": "Nejčastěji kořen <strong>L5</strong>, který prochází kolem disku L4/L5 směrem k nižšímu foramenu. Klinicky může být oslabena dorzální flexe palce nebo nohy a porucha čití na nártu.",
           "hint": "Výhřez L4/L5 utlačuje kořen L5."
         }
       ],
@@ -5871,7 +5871,7 @@ const NEUROLOGY_DATA = {
         {
           "id": "fc-S34-3",
           "front": "Který klíčový elektrofyziologický parametr v kondukční studii n. medianus prokazuje motorické postižení u syndromu karpálního tunelu?",
-          "back": "Prodloužení distální motorické latence (DML) přes karpální tunel na m. abductor pollicis brevis nad 4,2–4,5 ms.",
+          "back": "Prodloužení distální motorické latence (DML) n. medianus přes karpální tunel, měřené při záznamu z m. abductor pollicis brevis (orientačně nad 4,2–4,5 ms). Výsledek se hodnotí podle metodiky laboratoře a v kontextu dalších neurografických nálezů.",
           "hint": "EMG - prodloužení distální motorické latence (DML)."
         }
       ],
@@ -6061,7 +6061,7 @@ const NEUROLOGY_DATA = {
         {
           "id": "fc-S36-1",
           "front": "Jaká jsou diagnostická kritéria pro ortostatickou hypotenzi při ortostatickém testu?",
-          "back": "Pokles systolického krevního tlaku o ≥ 20 mmHg a/nebo pokles diastolického krevního tlaku o ≥ 10 mmHg do 3 minut po postavení z horizontální polohy.",
+          "back": "Pokles systolického tlaku o <strong>≥ 20 mmHg</strong> a/nebo diastolického tlaku o <strong>≥ 10 mmHg</strong> do 3 minut po postavení z horizontální polohy. Při testu se sledují také příznaky, například závratě, slabost nebo presynkopa.",
           "hint": "Ortostatická hypotenze: pokles systoly ≥ 20 mmHg a/nebo diastoly ≥ 10 mmHg."
         },
         {
@@ -6172,7 +6172,7 @@ const NEUROLOGY_DATA = {
         {
           "id": "fc-S37-2",
           "front": "Která genetická aberace je nejčastější příčinou hereditární neuropatie Charcot-Marie-Tooth typ 1A (CMT1A)?",
-          "back": "Duplikace genu pro periferní myelinový protein 22 (PMP22) na krátkém raménku 17. chromozomu (17p11.2).",
+          "back": "Duplikace genu <strong>PMP22</strong> pro periferní myelinový protein 22 v oblasti 17p11.2. Zvyšuje dávku genu a vede k demyelinizační neuropatii; delece PMP22 je naopak typická pro hereditární neuropatii s tlakovými parézami (HNPP).",
           "hint": "Charcot-Marie-Tooth typ 1A (CMT1A) - duplikace genu PMP22."
         },
         {
@@ -6600,7 +6600,7 @@ const NEUROLOGY_DATA = {
         {
           "id": "fc-S41-2",
           "front": "Jaká je klinická triáda Miller-Fisherova syndromu a jaké specifické protilátky se u něj prokazují?",
-          "back": "1. Oftalmoplegie (obrna okohybných svalů), 2. senzorická ataxie, 3. areflexie. Jsou přítomny specifické autoprotilátky anti-GQ1b.",
+          "back": "Triáda: <strong>oftalmoplegie, senzorická ataxie a areflexie</strong>; typické jsou protilátky <strong>anti-GQ1b</strong>. Jde o variantu spektra Guillainova–Barrého syndromu, často s vazbou na předchozí infekci.",
           "hint": "Miller-Fisherův syndrom: oftalmoplegie, ataxie, areflexie (anti-GQ1b)."
         },
         {
@@ -6701,7 +6701,7 @@ const NEUROLOGY_DATA = {
         {
           "id": "fc-S42-2",
           "front": "Které anatomické struktury mozku jsou nejčastěji postiženy mikroskopickým střižným poškozením při difuzním axonálním poranění (DAP)?",
-          "back": "1. Rozhraní šedé a bílé hmoty mozkových hemisfér, 2. corpus callosum (zejména splenium), 3. dorzolaterální kvadranty mozkového kmene.",
+          "back": "Typicky rozhraní šedé a bílé hmoty hemisfér, <strong>corpus callosum</strong> (zejména splenium) a dorzolaterální kvadranty mozkového kmene. Léze vznikají při rotačních a akceleračně-deceleračních silách; porucha vědomí může být nepoměrná k nálezu na časném CT.",
           "hint": "Difuzní axonální poranění (DAP) - střižné poškození axonu."
         },
         {
