@@ -883,16 +883,31 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Save/Clear key locally
+  function showSettingsFeedback(message) {
+    const feedbackEl = document.getElementById("chatbot-settings-feedback");
+    const announcer = document.getElementById("a11y-announcer");
+    if (feedbackEl) {
+      feedbackEl.textContent = message;
+      feedbackEl.style.display = "block";
+      setTimeout(() => { feedbackEl.style.display = "none"; }, 3000);
+    }
+    if (announcer) {
+      announcer.textContent = message;
+    }
+  }
+
   chatbotSaveKeyBtn.addEventListener("click", () => {
     const key = chatbotApiKeyInput.value.trim();
     if (key) {
       localStorage.setItem("gemini_chat_local_key", key);
-      alert("API klíč byl uložen do vašeho prohlížeče.");
-      chatbotSettingsOverlay.classList.remove("open");
-      chatbotSettingsBtn.setAttribute("aria-expanded", "false");
-      chatbotSettingsBtn.focus();
+      showSettingsFeedback("API klíč byl uložen do vašeho prohlížeče.");
+      setTimeout(() => {
+        chatbotSettingsOverlay.classList.remove("open");
+        chatbotSettingsBtn.setAttribute("aria-expanded", "false");
+        chatbotSettingsBtn.focus();
+      }, 1500);
     } else {
-      alert("Prosím zadejte platný klíč.");
+      showSettingsFeedback("Prosím zadejte platný klíč.");
       chatbotApiKeyInput.focus();
     }
   });
@@ -900,7 +915,7 @@ document.addEventListener("DOMContentLoaded", () => {
   chatbotClearKeyBtn.addEventListener("click", () => {
     localStorage.removeItem("gemini_chat_local_key");
     chatbotApiKeyInput.value = "";
-    alert("API klíč byl vymazán. Nyní se dotazy posílají přes proxy server.");
+    showSettingsFeedback("API klíč byl vymazán. Nyní se dotazy posílají přes proxy server.");
     chatbotApiKeyInput.focus();
   });
 
