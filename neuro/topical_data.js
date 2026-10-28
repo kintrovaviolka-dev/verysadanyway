@@ -192,7 +192,7 @@ const TOPICAL_DATA = {
       description: "Léze ventrální části mezencefala zasahující fascikulus n. oculomotorius a tractus corticospinalis.",
       requiredAny: ["cn3_palsy"],
       typicalSymptoms: ["cn3_palsy", "hemiparesis_spastic", "facial_central", "pyramidal_signs_pos"],
-      etiology: ["Ischemický iktus v povodí a. cerebri posterior / paramediálních větví a. basilaris", "Tentoriální herniace (únikový kužel uncus gyri hippocampi) utlačující n. III a pedunculus cerebri", "Mezencefalický gliom"],
+      etiology: ["Ischemický iktus v povodí a. cerebri posterior / paramediálních větví a. basilaris", "Tentoriální (unkální) herniace uncus gyri hippocampi utlačující n. III a pedunculus cerebri", "Mezencefalický gliom"],
       differentiatingPearls: "Klasická alternující hemiplegie: HOMOLATERÁLNÍ obrna n. III (ptóza, mydriáza, divergentní strabismus) + KONTRALATERÁLNÍ spastická hemiparéza!",
       investigationOfChoice: "Akutní MRI mozku (T1, T2, FLAIR, DWI) nebo urgentní CT mozku."
     },

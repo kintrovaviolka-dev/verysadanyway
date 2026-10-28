@@ -63,7 +63,7 @@ const ATLAS_DATA = {
       normalFinding: "Izokorie (zornice stejně široké 2–4 mm), rychlá a symetrická mióza obou zornic na světlo (přímá i nepřímá) a zúžení při pohledu na blízko.",
       pathologicalFinding: "Anizokorie (asymetrie šíře zornic), jednostranná mydriáza s areflexií (útlak n. III při temporálním kónusu), amaurotická areflexie (léze n. II – oko nereaguje na přímé světlo, ale reaguje konsenzuálně z druhého oka), Argyll-Robertsonova zornice (mióza nereaguje na světlo, ale reaguje na akomodaci – neurosyfilis).",
       clinicalSignificance: "Topika mozkového kmene, intrakraniální hypertenze s herniací uncus gyri hippocampi, léze optiku a okulomotoriky.",
-      pearl: "Jednostranně široká nereagující zornice (mydriáza) u pacienta s traumatem hlavy a poruchou vědomí = Hrozící zástava oběhu z unkální herniace (únikový kužel tlačí na n. III v tentoriu) → STATIM dekomprese / Manitol!"
+      pearl: "Jednostranně široká nereagující zornice (mydriáza) u pacienta s traumatem hlavy a poruchou vědomí = Hrozící zástava oběhu z unkální herniace (unkální kužel tlačí na n. III v tentoriu) → STATIM dekomprese / Manitol!"
     },
     {
       id: "cn_facial",
