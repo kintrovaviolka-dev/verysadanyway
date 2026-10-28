@@ -679,7 +679,7 @@ const NEUROLOGY_DATA = {
         },
         {
           "id": "q06-test2",
-          "question": "Bilateralní internukleární oftalmoplegie (INO) u mladého dospělého je vysoce suspektní z:",
+          "question": "Bilaterální internukleární oftalmoplegie (INO) u mladého dospělého je vysoce suspektní z:",
           "options": [
             "Roztroušené sklerózy (demyelinizace FLM)",
             "Myasthenia gravis",
@@ -4246,7 +4246,7 @@ const NEUROLOGY_DATA = {
           "question": "Který mechanismus účinku má lék Memantin používaný v terapii středně těžké a těžké Alzheimerovy nemoci?",
           "options": [
             "Inhibice acetylcholinesterázy a butyrylcholinesterázy",
-            "Necholeretická stimulace dopaminových D2 receptorů",
+            "Přímá stimulace dopaminových D2 receptorů",
             "Nekompetitivní antagonismus NMDA glutamátových receptorů bránící excitotoxicitě",
             "Blokáda CGRP receptorů"
           ],

@@ -232,15 +232,15 @@
       {
         "idx": 2,
         "id": "q06-test2",
-        "question": "Bilateralní internukleární oftalmoplegie (INO) u mladého dospělého je vysoce suspektní z:",
+        "question": "Bilaterální internukleární oftalmoplegie (INO) u mladého dospělého je vysoce suspektní z:",
         "options": [
-          "Roztroušené sklerózy (demylinizace FLM)",
+          "Roztroušené sklerózy (demyelinizace FLM)",
           "Myasthenia gravis",
           "Nedostatku thiaminu (Wernickeova encefalopatie)",
           "Meningeomu sulcus olfactorius"
         ],
         "correctIndex": 0,
-        "correctAnswer": "Roztroušené sklerózy (demylinizace FLM)",
+        "correctAnswer": "Roztroušené sklerózy (demyelinizace FLM)",
         "explanation": "U mladých dospělých je bilaterální INO klasickým a typickým příznakem roztroušené sklerózy (RS) v důsledku demyelinizační léze ve fasciculus longitudinalis medialis v mozkovém kmeni."
       }
     ]
@@ -1772,12 +1772,12 @@
         "question": "Který mechanismus účinku má lék Memantin používaný v terapii středně těžké a těžké Alzheimerovy nemoci?",
         "options": [
           "Inhibice acetylcholinesterázy a butyrylcholinesterázy",
-          "Necholeretická stimulace dopaminových D2 receptorů",
-          "Nekompeticionální antagonismus NMDA glutamátových receptorů bránící excitotoxicitě",
+          "Přímá stimulace dopaminových D2 receptorů",
+          "Nekompetitivní antagonismus NMDA glutamátových receptorů bránící excitotoxicitě",
           "Blokáda CGRP receptorů"
         ],
         "correctIndex": 2,
-        "correctAnswer": "Nekompeticionální antagonismus NMDA glutamátových receptorů bránící excitotoxicitě",
+        "correctAnswer": "Nekompetitivní antagonismus NMDA glutamátových receptorů bránící excitotoxicitě",
         "explanation": "Memantin je středně afinitní nekompetitivní antagonista NMDA receptorů, který chrání neurony před chronickým toxickým působením nadbytku glutamátu (excitotoxicitou) a zlepšuje synaptický přenos signálu."
       }
     ]
