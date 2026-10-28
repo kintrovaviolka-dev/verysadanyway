@@ -105,7 +105,7 @@ theory: {
           {
             id: "aks-r2",
             title: "Pregunta 2: Fibrilación Auricular + SCA (Estrategia antitrombótica)",
-            question: "Paciente de 72 años tras ICP exitosa con implante de stent farmacoactivo (DES) por NSTEMI. Presenta fibrilación auricular crónica en tratamiento con Apixabán (CHA2DS2-VASc = 4). ¿Cuál es la pauta antitrombótica recomendada al alta?",
+            question: "Paciente de 72 años tras ICP exitosa con implante de stent farmacoactivo (DES) por NSTEMI. Presenta fibrilación auricular crónica en tratamiento con Apixabán (CHA2DS2-VA = 4). ¿Cuál es la pauta antitrombótica recomendada al alta?",
             answer: "Terapia triple (TAT: ACOD + Aspirina + Clopidogrel) únicamente durante el ingreso hospitalario / hasta 1 semana, seguida de Terapia Doble (DAT: ACOD a dosis completa + Clopidogrel 75 mg) durante 12 meses. A partir del mes 12, se continúa únicamente con monoterapia de ACOD.",
             pearl: "Nunca combine un ACOD con Prasugrel o Ticagrelor en el régimen triple (Clase III) por el riesgo prohibitivo de hemorragia mortal."
           },
@@ -596,6 +596,15 @@ theory: {
                   <span class="font-bold text-blue-400">Síndrome de WPW (Wolff-Parkinson-White / AVRT)</span>
                   <p class="mt-1">Vía accesoria auriculoventricular (haz de Kent). EKG basal: PR corto (&lt; 120 ms), <strong>onda delta</strong>, QRS ensanchado.</p>
                   <p class="mt-1 text-rose-300"><strong>Peligro: Fibrilación auricular en WPW (taquicardia FBI - Fast, Broad, Irregular):</strong> La conducción anterógrada por la vía accesoria puede superar los 300 lpm y degenerar en fibrilación ventricular. ¡Los frenadores del nodo AV (verapamilo, digoxina, adenosina) están PROHIBIDOS! Tratamiento: cardioversión eléctrica o Ibutilida / Procainamida i.v.</p>
+                </div>
+                <div class="p-3 bg-sky-950/40 border border-sky-500/40 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mt-3">
+                  <div>
+                    <span class="font-bold text-sky-400">⚡ Módulo Interactivo: Taquicardias Paroxísticas Supraventriculares (TSVP)</span>
+                    <p class="text-[11px] text-slate-300 mt-0.5">Simulador clínico con osciloscopio de EKG, AVNRT vs. AVRT/WPW, maniobra de Valsalva modificada y 6 casos clínicos reales.</p>
+                  </div>
+                  <a href="paroxysmalni_supraventrikularni_tachykardie.html?lang=es" class="px-3.5 py-1.5 bg-sky-600 hover:bg-sky-500 text-white font-bold rounded-lg text-xs whitespace-nowrap transition-colors inline-flex items-center gap-1.5" style="text-decoration: none;">
+                    <span>🫀</span> Abrir simulador TSVP →
+                  </a>
                 </div>
               </div>
             `

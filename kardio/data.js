@@ -105,7 +105,7 @@ theory: {
           {
             id: "aks-r2",
             title: "Otázka 2: Fibrilace síní + AKS (Antitrombotická strategie)",
-            question: "72letý pacient po úspěšné PCI s implantací DES pro NSTEMI má chronickou fibrilaci síní a bere Apixaban (CHA2DS2-VASc = 4). Jaká je doporučená standardní kombinace antitrombotik při propuštění?",
+            question: "72letý pacient po úspěšné PCI s implantací DES pro NSTEMI má chronickou fibrilaci síní a bere Apixaban (CHA2DS2-VA = 4). Jaká je doporučená standardní kombinace antitrombotik při propuštění?",
             answer: "Trojitá terapie (TAT: NOAC + Aspirin + Clopidogrel) pouze po dobu hospitalizace / do 1 týdne, následovaná Duální terapií (DAT: NOAC v plné dávce + Clopidogrel 75 mg) po dobu do 12 měsíců. Od 12. měsíce zůstává pouze monoterapie NOAC.",
             pearl: "Nikdy nekombinujte NOAC s Prasugrelem nebo Ticagrelorem v rámci trojité kombinace (Třída III) kvůli extrémnímu riziku fatálního krvácení."
           },
@@ -596,6 +596,15 @@ theory: {
                   <span class="font-bold text-blue-400">WPW syndrom (Wolff-Parkinson-White / AVRT)</span>
                   <p class="mt-1">Přídatná Kentova dráha. EKG v klidu: krátký PQ (&lt; 120 ms), <strong>delta vlna</strong>, rozšířený QRS.</p>
                   <p class="mt-1 text-rose-300"><strong>Pozor na fibrilaci síní u WPW (FBI tachykardie - Fast, Broad, Irregular):</strong> Převod přes přídatnou dráhu může dosáhnout frekvence &gt; 250–300/min a přejít do fibrilace komor! Blokátory AV uzlu (verapamil, digoxin, adenosin) jsou ZAKÁZÁNY! Lék volby: elektrická kardioverze nebo i.v. Ibutilid / prokainamid.</p>
+                </div>
+                <div class="p-3 bg-sky-950/40 border border-sky-500/40 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mt-3">
+                  <div>
+                    <span class="font-bold text-sky-400">⚡ Interaktivní modul: Paroxysmální SVT (pSVT / TSVP)</span>
+                    <p class="text-[11px] text-slate-300 mt-0.5">Kompletní klinický simulátor s EKG osciloskopem, AVNRT vs. AVRT/WPW, modifikovaným Valsalvou a 6 kazuistikami.</p>
+                  </div>
+                  <a href="paroxysmalni_supraventrikularni_tachykardie.html" class="px-3.5 py-1.5 bg-sky-600 hover:bg-sky-500 text-white font-bold rounded-lg text-xs whitespace-nowrap transition-colors inline-flex items-center gap-1.5" style="text-decoration: none;">
+                    <span>🫀</span> Otevřít pSVT simulátor →
+                  </a>
                 </div>
               </div>
             `

@@ -736,8 +736,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       `;
       cardEl.addEventListener("click", () => {
-        window.location.hash = `#modul-${mod.id}`;
-        openModuleDetail(mod.id);
+        navigateTo(`#modul-${mod.id}`);
       });
       modulesGrid.appendChild(cardEl);
     });
@@ -794,7 +793,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("btn-next-to-recall")?.addEventListener("click", () => {
       switchTopicStep("recall");
-      window.scrollTo({ top: 300, behavior: "smooth" });
+      moduleDetailView?.scrollIntoView({ behavior: "smooth", block: "start" });
     });
 
     // 2. Active Recall
@@ -868,12 +867,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("btn-back-to-theory")?.addEventListener("click", () => {
       switchTopicStep("theory");
-      window.scrollTo({ top: 300, behavior: "smooth" });
+      moduleDetailView?.scrollIntoView({ behavior: "smooth", block: "start" });
     });
 
     document.getElementById("btn-next-to-summary")?.addEventListener("click", () => {
       switchTopicStep("summary");
-      window.scrollTo({ top: 300, behavior: "smooth" });
+      moduleDetailView?.scrollIntoView({ behavior: "smooth", block: "start" });
     });
 
     // Reveal buttons
@@ -986,8 +985,8 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
 
     document.getElementById("btn-back-to-modules")?.addEventListener("click", () => {
-      window.location.hash = "#temata";
-      switchView("modules", false);
+      state.selectedModuleId = null;
+      navigateTo("#temata");
     });
 
     document.getElementById("btn-start-topic-sr")?.addEventListener("click", () => {
@@ -1028,8 +1027,8 @@ document.addEventListener("DOMContentLoaded", () => {
   detailStepRecallBtn?.addEventListener("click", () => switchTopicStep("recall"));
   detailStepSummaryBtn?.addEventListener("click", () => switchTopicStep("summary"));
   detailBackBtn?.addEventListener("click", () => {
-    window.location.hash = "#temata";
-    switchView("modules", false);
+    state.selectedModuleId = null;
+    navigateTo("#temata");
   });
 
   // --- SPACED REPETITION ENGINE ---
@@ -1082,7 +1081,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateSrCategoryFilter();
 
     renderCurrentSrCard();
-    switchView("spaced-repetition", false);
+    switchView("spaced-repetition", true);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -1187,7 +1186,11 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   srBackBtn.addEventListener("click", () => {
-    window.location.hash = "#temata";
+    if (state.selectedModuleId) {
+      navigateTo(`#modul-${state.selectedModuleId}`);
+    } else {
+      navigateTo("#temata");
+    }
   });
 
   // --- NÁHODNÉ PROCVIČOVÁNÍ (40 single-choice + 20 doplňovaček) ---
@@ -2265,6 +2268,14 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- ROUTING & VIEW SWITCHING ---
   // =========================================================================
 
+  function navigateTo(targetHash) {
+    if (window.location.hash === targetHash) {
+      handleHashRouting();
+    } else {
+      window.location.hash = targetHash;
+    }
+  }
+
   const switchView = (viewName, updateHash = true) => {
     state.activeView = viewName;
     [modulesView, ekgView, moduleDetailView, srView, practiceView].forEach((v) => v?.classList.remove("active"));
@@ -2287,6 +2298,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     } else if (viewName === "module-detail") {
       moduleDetailView.classList.add("active");
+      navModulesBtn.classList.add("active");
     } else if (viewName === "spaced-repetition") {
       srView.classList.add("active");
       navSrBtn.classList.add("active");
@@ -2302,7 +2314,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  const handleHashRouting = () => {
+  function handleHashRouting() {
     const hash = window.location.hash || "#temata";
 
     if (hash === "#temata" || hash === "#modules-view" || hash === "" || hash === "#") {
@@ -2323,34 +2335,42 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (hash.startsWith("#modul-")) {
       const modId = hash.replace("#modul-", "");
       openModuleDetail(modId);
+    } else {
+      switchView("modules", false);
     }
-  };
+  }
 
   window.addEventListener("hashchange", handleHashRouting);
 
   navModulesBtn?.addEventListener("click", (e) => {
     e.preventDefault();
-    window.location.hash = "#temata";
+    state.selectedModuleId = null;
+    navigateTo("#temata");
   });
 
   navEkgBtn?.addEventListener("click", (e) => {
     e.preventDefault();
-    window.location.hash = "#ekg";
+    navigateTo("#ekg");
   });
 
   navSrBtn?.addEventListener("click", (e) => {
     e.preventDefault();
-    window.location.hash = "#leitner";
+    navigateTo("#leitner");
   });
 
   navPracticeBtn?.addEventListener("click", (e) => {
     e.preventDefault();
-    window.location.hash = "#procvicej";
+    navigateTo("#procvicej");
   });
 
-  startDueBtn?.addEventListener("click", () => startSpacedRepetition("all", true));
-  startAllSrBtn?.addEventListener("click", () => {
-    window.location.hash = "#leitner";
+  startDueBtn?.addEventListener("click", (e) => {
+    e.preventDefault();
+    startSpacedRepetition("all", true);
+  });
+
+  startAllSrBtn?.addEventListener("click", (e) => {
+    e.preventDefault();
+    navigateTo("#leitner");
   });
 
   // Search input binding

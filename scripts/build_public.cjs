@@ -24,7 +24,7 @@ function copyTree(source, target) {
   }
 }
 for (const name of ['index.html', 'style.css', 'app.js', 'feedback.js', 'cases.js', 'data_pathology.js', 'data_pathology_zapocet.js', 'data_patfyz_bridge.js']) fs.copyFileSync(path.join(root, name), path.join(output, name));
-for (const name of ['ctvrtak', 'derma', 'drill', 'farmakologie', 'imunologie-test', 'insuficiencia-cardiaca', 'kardio', 'mikra', 'neuro', 'oset', 'podcast', 'psych', 'radiolka', 'upv', 'usg-school']) {
+for (const name of ['aro', 'ctvrtak', 'derma', 'drill', 'farmakologie', 'imunologie-test', 'kardio', 'mikra', 'neuro', 'oset', 'podcast', 'psych', 'radiolka', 'upv', 'usg-school']) {
   if (fs.existsSync(path.join(root, name))) copyTree(path.join(root, name), path.join(output, name));
 }
 for (const name of ['clinical-learning-portal', 'urgentni-prijem']) {
