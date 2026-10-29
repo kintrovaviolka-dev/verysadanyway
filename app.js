@@ -161,6 +161,8 @@ document.addEventListener("DOMContentLoaded", () => {
       destination = isLocal ? "./patolka-main/index.html" : "https://patolka.vercel.app/";
     } else if (subject === "oset") {
       destination = "./oset/index.html";
+    } else if (subject === "aro") {
+      destination = "./aro/index.html";
     } else if (subject === "farmakologie") {
       destination = "./farmakologie/index.html";
     } else if (subject === "dermatologie") {

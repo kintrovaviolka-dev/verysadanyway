@@ -311,3 +311,23 @@ Tento repozitář má v současné podobě primárně osobní a vzdělávací ch
 ## Kontakt
 
 Pro dotazy, návrhy či zpětnou vazbu kontaktujte autora nebo správce repozitáře přes GitHub profil / repository settings.
+
+## ARO — příprava k ústní zkoušce
+
+Nový statický portál je na `/aro/` a v rozcestníku 5. ročníku. Obsahuje
+55 otázek, losování jedné otázky z každého okruhu, časovač,
+poznámky, sebehodnocení a export přípravy. A04 (komplikace celkové anestezie), A07 (regionální anestezie), A18 (dětská a novorozenecká KPR),
+A20 (dýchací cesty), B04 (anafylaxe), B05 (krvácení), B06 (polytrauma), B11 (sepse), B12 (antibiotická léčba), B17 (ARDS), B18 (UPV), B19 (ABR), B20 (ionty a osmolalita), B21 (výživa), B22 (analgosedace), B23/B24 (levostranné a pravostranné srdeční selhání), B25 (plicní embolie), B26 (renální a jaterní selhání), B27 (akutní diabetologie), B28 (obecná toxikologie), B29 (vybrané intoxikace) a B30 (dětská obstrukce) mají zpracované
+zkouškové odpovědi s citacemi a kontrolními otázkami. Pět tematických dodatků
+je připojeno k sedmi otázkám (A04 a B11 už mají i odpověď); pět otázek má pouze
+osnovu s dodatkem a ostatních 27 zatím obsahuje jen osnovu.
+Pokrok se ukládá lokálně pod `aro-study-v1`. Portál nevolá AI ani placené API.
+
+Stav a pokračování: [docs/ARO_HANDOFF.md](docs/ARO_HANDOFF.md).
+Obsahový plán a zdroje: [docs/ARO_CONTENT_PLAN.md](docs/ARO_CONTENT_PLAN.md).
+
+```bash
+node --test test/aro.test.mjs
+npm --prefix drill run test:e2e -- aro.spec.js
+npm run build:public
+```

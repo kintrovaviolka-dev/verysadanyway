@@ -2,6 +2,7 @@
 node_modules/
 .wrangler/
 .public-build/
+clinical-learning-portal/test-results/
 .DS_Store
 .Jules/
 # Mikra - interní skripta (pouze pro agenta, ne pro studenty ani repo)
@@ -29,3 +30,7 @@ neuro/raw/
 
 # Radiologie - referenční zdrojové materiály (pouze portál a extrahované snímky do gitu)
 radiolka/img_src/
+
+# ARO - referenční zdrojové materiály (pouze portál do gitu)
+aro_materialy/
+
