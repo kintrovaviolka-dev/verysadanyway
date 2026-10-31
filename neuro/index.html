@@ -276,7 +276,16 @@
           <div class="flashcard" id="active-flashcard" tabindex="0" role="button" aria-label="Otočit kartičku">
             <div class="flashcard-badge" id="fc-category-badge">Kategorie</div>
             <div class="flashcard-text" id="fc-text-content">Klikněte pro otočení</div>
-            <div class="flashcard-hint" id="fc-hint-content">Nápověda...</div>
+            
+            <button type="button" class="fc-hint-toggle" id="fc-hint-toggle" style="display: none;">💡 Zobrazit nápovědu</button>
+            <div class="fc-hint-box" id="fc-hint-box" style="display: none;"></div>
+            
+            <div class="flashcard-hint" id="fc-hint-content">Klikněte nebo stiskněte mezerník pro otočení</div>
+          </div>
+          <div style="display: flex; justify-content: center; margin-top: 14px;">
+            <button type="button" class="btn btn-secondary fc-flip-btn" id="fc-flip-btn">
+              <span>🔄 Otočit kartičku / Zobrazit odpověď (Mezerník)</span>
+            </button>
           </div>
           <div class="flashcard-actions" id="fc-actions">
             <button class="grade-btn again" data-grade="again" title="Zcela nevím – zopakovat dnes">Znovu (1)</button>

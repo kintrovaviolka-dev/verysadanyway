@@ -105,12 +105,14 @@ document.addEventListener("DOMContentLoaded", () => {
     flashcardList: [...allCards],
     currentCardIndex: 0,
     isCardFlipped: false,
+    isHintShown: false,
 
     // Modál a coupling stav
     currentModalModuleId: null,
     currentModalTab: "study", // 'study' | 'recall' | 'flashcards' | 'quiz'
     currentModCardIdx: 0,
     isModCardFlipped: false,
+    isModHintShown: false,
     modalCaseNotes: {} // id -> poznámka
   };
 
@@ -196,6 +198,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const fcCategoryBadge = getEl("fc-category-badge");
   const fcTextContent = getEl("fc-text-content");
   const fcHintContent = getEl("fc-hint-content");
+  const fcHintToggle = getEl("fc-hint-toggle");
+  const fcHintBox = getEl("fc-hint-box");
+  const fcFlipBtn = getEl("fc-flip-btn");
   const fcCurrentIdx = getEl("fc-current-idx");
   const fcTotalCount = getEl("fc-total-count");
   const fcActions = getEl("fc-actions");
@@ -485,6 +490,9 @@ document.addEventListener("DOMContentLoaded", () => {
       fcCategoryBadge.textContent = "Hotovo";
       fcTextContent.textContent = "Všechny karty jsou zopakované!";
       fcHintContent.textContent = "Skvělá práce. Můžete si spustit test nebo opakovat znovu.";
+      if (fcHintToggle) fcHintToggle.style.display = "none";
+      if (fcHintBox) fcHintBox.style.display = "none";
+      if (fcFlipBtn) fcFlipBtn.style.display = "none";
       fcCurrentIdx.textContent = "0";
       fcTotalCount.textContent = "0";
       return;
@@ -493,31 +501,76 @@ document.addEventListener("DOMContentLoaded", () => {
     const card = state.flashcardList[state.currentCardIndex];
     const sr = state.srCards[card.id] || { box: 1 };
 
-    fcCategoryBadge.textContent = `${card.modulePrefix || ('Otázka ' + card.moduleNumber)} • Box ${sr.box}`;
+    fcCategoryBadge.textContent = `${card.modulePrefix || ('Otázka ' + card.moduleNumber)} • Box ${sr.box} • ${state.isCardFlipped ? 'ODPOVĚĎ (BACK)' : 'OTÁZKA (FRONT)'}`;
     fcCurrentIdx.textContent = String(state.currentCardIndex + 1);
     fcTotalCount.textContent = String(state.flashcardList.length);
 
     if (state.isCardFlipped) {
+      activeFlashcard.classList.add("flipped");
       fcTextContent.innerHTML = card.back;
-      fcHintContent.textContent = "Odpověď (ohodnoťte, jak přesně jste odpověď znali)";
+      fcHintContent.textContent = "✓ Odpověď zobrazena. Níže ohodnoťte, jak dobře jste ji znali:";
       activeFlashcard.style.borderColor = "var(--primary-light)";
+      if (fcFlipBtn) {
+        fcFlipBtn.style.display = "inline-flex";
+        fcFlipBtn.innerHTML = "<span>🔄 Otočit zpět na otázku</span>";
+      }
+      if (fcHintToggle) fcHintToggle.style.display = "none";
+      if (fcHintBox) fcHintBox.style.display = "none";
     } else {
+      activeFlashcard.classList.remove("flipped");
       fcTextContent.innerHTML = card.front;
-      fcHintContent.textContent = card.hint ? `Nápověda: ${card.hint}` : "Klikněte nebo stiskněte mezerník pro otočení";
+      fcHintContent.textContent = "Klikněte pro otočení nebo stiskněte Mezerník";
       activeFlashcard.style.borderColor = "var(--border-color)";
+      if (fcFlipBtn) {
+        fcFlipBtn.style.display = "inline-flex";
+        fcFlipBtn.innerHTML = "<span>🔄 Otočit kartičku / Zobrazit odpověď (Mezerník)</span>";
+      }
+
+      if (card.hint) {
+        if (fcHintToggle) {
+          fcHintToggle.style.display = "inline-flex";
+          fcHintToggle.innerHTML = state.isHintShown ? "<span>🙈 Skrýt nápovědu</span>" : "<span>💡 Zobrazit nápovědu</span>";
+        }
+        if (fcHintBox) {
+          fcHintBox.style.display = state.isHintShown ? "block" : "none";
+          fcHintBox.innerHTML = `<strong>💡 Nápověda:</strong> ${card.hint}`;
+        }
+      } else {
+        if (fcHintToggle) fcHintToggle.style.display = "none";
+        if (fcHintBox) fcHintBox.style.display = "none";
+      }
     }
   };
 
-  activeFlashcard.addEventListener("click", () => {
+  const flipActiveFlashcard = () => {
     state.isCardFlipped = !state.isCardFlipped;
     renderActiveFlashcard();
+  };
+
+  activeFlashcard.addEventListener("click", (e) => {
+    if (e.target.closest("#fc-hint-toggle") || e.target.closest("#fc-hint-box")) return;
+    flipActiveFlashcard();
   });
+
+  if (fcFlipBtn) {
+    fcFlipBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      flipActiveFlashcard();
+    });
+  }
+
+  if (fcHintToggle) {
+    fcHintToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      state.isHintShown = !state.isHintShown;
+      renderActiveFlashcard();
+    });
+  }
 
   activeFlashcard.addEventListener("keydown", (e) => {
     if (e.key === " " || e.key === "Enter") {
       e.preventDefault();
-      state.isCardFlipped = !state.isCardFlipped;
-      renderActiveFlashcard();
+      flipActiveFlashcard();
     }
   });
 
@@ -556,6 +609,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Další karta
     state.isCardFlipped = false;
+    state.isHintShown = false;
     state.currentCardIndex = (state.currentCardIndex + 1) % state.flashcardList.length;
     renderActiveFlashcard();
   };
@@ -724,6 +778,7 @@ document.addEventListener("DOMContentLoaded", () => {
       state.currentModalModuleId = moduleId;
       state.currentModCardIdx = 0;
       state.isModCardFlipped = false;
+      state.isModHintShown = false;
     }
 
     // Označit jako prozkoumané
@@ -1031,6 +1086,8 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const renderModalFlashcardsTab = (mod) => {
+    modalModuleBody.innerHTML = "";
+
     const cards = mod.cards || [];
     if (cards.length === 0) {
       modalModuleBody.innerHTML = `
@@ -1054,20 +1111,45 @@ document.addEventListener("DOMContentLoaded", () => {
     wrapper.innerHTML = `
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
         <span class="module-number-badge">${mod.badgePrefix || ('Otázka ' + mod.number)} • Karta ${state.currentModCardIdx + 1} z ${cards.length}</span>
-        <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Leitner: Box ${sr.box || 1}</span>
+        <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Leitner: Box ${sr.box || 1} • ${state.isModCardFlipped ? 'ODPOVĚĎ' : 'OTÁZKA'}</span>
       </div>
 
-      <div class="modal-fc-card" id="modal-fc-card" tabindex="0" role="button" aria-label="Otočit kartičku">
-        <div class="modal-fc-badge">${state.isModCardFlipped ? 'ODPOVĚĎ (BACK)' : 'OTÁZKA (FRONT)'}</div>
+      <div class="modal-fc-card ${state.isModCardFlipped ? 'flipped' : ''}" id="modal-fc-card" tabindex="0" role="button" aria-label="Otočit kartičku">
+        <div class="modal-fc-badge">${state.isModCardFlipped ? 'ODPOVĚĎ (ZADNÍ STRANA)' : 'OTÁZKA (PŘEDNÍ STRANA)'}</div>
         <div class="modal-fc-text">${state.isModCardFlipped ? card.back : card.front}</div>
-        <div class="modal-fc-hint">${state.isModCardFlipped ? 'Ohodnoťte svou znalost tlačítky níže:' : (card.hint ? `💡 Nápověda: ${card.hint}` : 'Klikněte nebo stiskněte Mezerník pro otočení')}</div>
+        
+        ${(!state.isModCardFlipped && card.hint) ? `
+          <button type="button" class="fc-hint-toggle" id="modal-fc-hint-toggle">
+            ${state.isModHintShown ? '🙈 Skrýt nápovědu' : '💡 Zobrazit nápovědu'}
+          </button>
+          <div class="fc-hint-box" id="modal-fc-hint-box" style="${state.isModHintShown ? 'display: block;' : 'display: none;'}">
+            <strong>💡 Nápověda:</strong> ${card.hint}
+          </div>
+        ` : ''}
+
+        <div class="modal-fc-hint">
+          ${state.isModCardFlipped 
+            ? '✓ Odpověď zobrazena. Níže zvolte hodnocení podle toho, jak jste odpověď znali:' 
+            : 'Klikněte pro otočení nebo stiskněte Mezerník'}
+        </div>
       </div>
 
-      <div class="modal-fc-actions">
-        <button type="button" class="grade-btn again" data-grade="again" title="Zcela nevím – Box 1 (dnes)">Znovu (1)</button>
-        <button type="button" class="grade-btn hard" data-grade="hard" title="S obtížemi – zopakovat brzy">Těžké (2)</button>
-        <button type="button" class="grade-btn good" data-grade="good" title="Dobře – posunout o box výše">Dobré (3)</button>
-        <button type="button" class="grade-btn easy" data-grade="easy" title="Naprosto snadné – Box 4 (zvládnuto)">Snadné (4)</button>
+      <div style="display: flex; justify-content: center; margin-top: 14px;">
+        <button type="button" class="btn btn-secondary fc-flip-btn" id="modal-fc-flip-btn">
+          <span>${state.isModCardFlipped ? '🔄 Otočit zpět na otázku' : '🔄 Otočit kartičku / Zobrazit odpověď (Mezerník)'}</span>
+        </button>
+      </div>
+
+      <div style="margin-top: 18px;">
+        <div style="font-size: 0.82rem; font-weight: 600; color: var(--text-muted); text-align: center; margin-bottom: 8px;">
+          Hodnocení pro Spaced Repetition (Leitner):
+        </div>
+        <div class="modal-fc-actions">
+          <button type="button" class="grade-btn again" data-grade="again" title="Zcela nevím – Box 1 (dnes)">Znovu (1)</button>
+          <button type="button" class="grade-btn hard" data-grade="hard" title="S obtížemi – zopakovat brzy">Těžké (2)</button>
+          <button type="button" class="grade-btn good" data-grade="good" title="Dobře – posunout o box výše">Dobré (3)</button>
+          <button type="button" class="grade-btn easy" data-grade="easy" title="Naprosto snadné – Box 4 (zvládnuto)">Snadné (4)</button>
+        </div>
       </div>
 
       <div class="modal-fc-nav">
@@ -1075,7 +1157,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <span>◀ Předchozí</span>
         </button>
         <div style="font-size: 0.82rem; color: var(--text-muted);">
-          Klávesy: Mezerník = otočit, 1–4 = hodnocení
+          Karta ${state.currentModCardIdx + 1} / ${cards.length} • Klávesy: Mezerník = otočit, 1–4 = hodnocení
         </div>
         <button type="button" class="btn btn-secondary" id="modal-fc-next-btn" ${state.currentModCardIdx === cards.length - 1 ? 'disabled' : ''}>
           <span>Další ▶</span>
@@ -1084,24 +1166,47 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
 
     const cardEl = wrapper.querySelector("#modal-fc-card");
-    const flipCard = () => {
+    const flipBtn = wrapper.querySelector("#modal-fc-flip-btn");
+    const hintToggle = wrapper.querySelector("#modal-fc-hint-toggle");
+
+    const doFlip = () => {
       state.isModCardFlipped = !state.isModCardFlipped;
       renderModalFlashcardsTab(mod);
     };
 
-    cardEl.addEventListener("click", flipCard);
+    cardEl.addEventListener("click", (e) => {
+      if (e.target.closest("#modal-fc-hint-toggle") || e.target.closest("#modal-fc-hint-box")) return;
+      doFlip();
+    });
+
     cardEl.addEventListener("keydown", (e) => {
       if (e.key === " " || e.key === "Enter") {
         e.preventDefault();
-        flipCard();
+        doFlip();
       }
     });
+
+    if (flipBtn) {
+      flipBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        doFlip();
+      });
+    }
+
+    if (hintToggle) {
+      hintToggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        state.isModHintShown = !state.isModHintShown;
+        renderModalFlashcardsTab(mod);
+      });
+    }
 
     wrapper.querySelectorAll(".grade-btn").forEach(btn => {
       btn.addEventListener("click", () => {
         const grade = btn.getAttribute("data-grade");
         applyCardGrade(card.id, grade);
         state.isModCardFlipped = false;
+        state.isModHintShown = false;
         state.currentModCardIdx = (state.currentModCardIdx + 1) % cards.length;
         renderModalFlashcardsTab(mod);
       });
@@ -1114,6 +1219,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (state.currentModCardIdx > 0) {
           state.currentModCardIdx--;
           state.isModCardFlipped = false;
+          state.isModHintShown = false;
           renderModalFlashcardsTab(mod);
         }
       });
@@ -1123,6 +1229,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (state.currentModCardIdx < cards.length - 1) {
           state.currentModCardIdx++;
           state.isModCardFlipped = false;
+          state.isModHintShown = false;
           renderModalFlashcardsTab(mod);
         }
       });
@@ -1229,33 +1336,39 @@ document.addEventListener("DOMContentLoaded", () => {
         } else if (e.key === "1") {
           applyCardGrade(currentCard.id, "again");
           state.isModCardFlipped = false;
+          state.isModHintShown = false;
           state.currentModCardIdx = (state.currentModCardIdx + 1) % mod.cards.length;
           renderModalFlashcardsTab(mod);
         } else if (e.key === "2") {
           applyCardGrade(currentCard.id, "hard");
           state.isModCardFlipped = false;
+          state.isModHintShown = false;
           state.currentModCardIdx = (state.currentModCardIdx + 1) % mod.cards.length;
           renderModalFlashcardsTab(mod);
         } else if (e.key === "3") {
           applyCardGrade(currentCard.id, "good");
           state.isModCardFlipped = false;
+          state.isModHintShown = false;
           state.currentModCardIdx = (state.currentModCardIdx + 1) % mod.cards.length;
           renderModalFlashcardsTab(mod);
         } else if (e.key === "4") {
           applyCardGrade(currentCard.id, "easy");
           state.isModCardFlipped = false;
+          state.isModHintShown = false;
           state.currentModCardIdx = (state.currentModCardIdx + 1) % mod.cards.length;
           renderModalFlashcardsTab(mod);
         } else if (e.key === "ArrowLeft") {
           if (state.currentModCardIdx > 0) {
             state.currentModCardIdx--;
             state.isModCardFlipped = false;
+            state.isModHintShown = false;
             renderModalFlashcardsTab(mod);
           }
         } else if (e.key === "ArrowRight") {
           if (state.currentModCardIdx < mod.cards.length - 1) {
             state.currentModCardIdx++;
             state.isModCardFlipped = false;
+            state.isModHintShown = false;
             renderModalFlashcardsTab(mod);
           }
         }
