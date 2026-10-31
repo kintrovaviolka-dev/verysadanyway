@@ -314,10 +314,38 @@
             <span class="grade-tag" id="modal-module-badge">Obecná neurologie</span>
             <h2 id="modal-module-title">Název otázky</h2>
           </div>
-          <button class="modal-close-btn" id="modal-close-btn" aria-label="Zavřít detail otázky">✕</button>
+          <div class="modal-header-actions">
+            <button class="modal-nav-btn" id="modal-prev-btn" title="Předchozí otázka (← / P)" aria-label="Předchozí otázka">◀ Předchozí</button>
+            <button class="modal-nav-btn" id="modal-next-btn" title="Další otázka (→ / N)" aria-label="Další otázka">Další ▶</button>
+            <button class="modal-close-btn" id="modal-close-btn" aria-label="Zavřít detail otázky">✕</button>
+          </div>
         </div>
+
+        <!-- Záložky modálu: Teorie & Active Recall Coupling -->
+        <div class="modal-tabs" id="modal-tabs" role="tablist" aria-label="Záložky studijního tématu">
+          <button class="modal-tab-btn active" data-modtab="study" role="tab" aria-selected="true" id="modtab-study">
+            <span>📖</span>
+            <span>Výklad & Teorie</span>
+          </button>
+          <button class="modal-tab-btn" data-modtab="recall" role="tab" aria-selected="false" id="modtab-recall">
+            <span>🎯</span>
+            <span>Active Recall (Kazuistika)</span>
+            <span class="modal-tab-badge" id="modal-recall-count">1</span>
+          </button>
+          <button class="modal-tab-btn" data-modtab="flashcards" role="tab" aria-selected="false" id="modtab-flashcards">
+            <span>⚡</span>
+            <span>Tématické kartičky</span>
+            <span class="modal-tab-badge" id="modal-fc-count">3</span>
+          </button>
+          <button class="modal-tab-btn" data-modtab="quiz" role="tab" aria-selected="false" id="modtab-quiz">
+            <span>📝</span>
+            <span>Kontrolní kvíz</span>
+            <span class="modal-tab-badge" id="modal-quiz-count">2</span>
+          </button>
+        </div>
+
         <div class="modal-body" id="modal-module-body">
-          <!-- Vložená teorie, sekce a rozbor -->
+          <!-- Dynamicky renderovaný obsah dle aktivního tabu -->
         </div>
       </div>
     </div>
