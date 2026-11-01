@@ -123,9 +123,9 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
   },
   {
     "id": 11,
-    "question": "Mezi maligní cévní tumary patří",
+    "question": "Mezi maligní cévní tumory patří",
     "options": [
-      "Kaposihi sarkom",
+      "Kaposiho sarkom",
       "Hygroma coli cysticum",
       "Rhabdomyosarkom",
       "Glomangiom",
@@ -195,12 +195,12 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
   },
   {
     "id": 17,
-    "question": "Jedno z tvrzení týkakajících se příčin vzniku ulcerací dolních končetin u diabetiků není spránvé",
+    "question": "Jedno z tvrzení týkajících se příčin vzniku ulcerací dolních končetin u diabetiků není správné",
     "options": [
       "Může být přítomna diabetická neuropatie, která interferuje s hojením",
       "Snížené vstřebávání tuků vede ke snížení hladiny vitamínu K",
       "Místní prokrvení může být zhoršené vzhledem k diabetické mikrovaskulární angiopatii",
-      "Akcelerovaná arterioskleróza může snížit průtok tepnami dolníchkončetin",
+      "Akcelerovaná arterioskleróza může snížit průtok tepnami dolních končetin",
       "U diabetiků jsou časté sekundární infekce"
     ],
     "correct": 1
@@ -747,7 +747,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
   },
   {
     "id": 63,
-    "question": "Které z následujících spijení není správné?",
+    "question": "Které z následujících spojení není správné?",
     "options": [
       "Ephelides ≈ tmavnou po ozáření sluncem",
       "Intradermální névus ≈ hnízda névových buněk bez souvislosti s epidermis",
