@@ -32,5 +32,7 @@ neuro/raw/
 radiolka/img_src/
 
 # ARO - referenční zdrojové materiály (pouze portál do gitu)
+aro/*.pdf
 aro_materialy/
+drill/test-results/
 

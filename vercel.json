@@ -1,8 +1,24 @@
 {
-  "outputDirectory": ".",
+  "outputDirectory": ".public-build",
+  "buildCommand": "npm run build",
   "cleanUrls": true,
   "trailingSlash": true,
+  "functions": {
+    "api/patient.js": { "includeFiles": "private-patient/**", "maxDuration": 60 }
+  },
   "rewrites": [
+    {
+      "source": "/private-patient",
+      "destination": "/api/patient"
+    },
+    {
+      "source": "/private-patient/(.*)",
+      "destination": "/api/patient"
+    },
+    {
+      "source": "/api/patient/(.*)",
+      "destination": "/api/patient"
+    },
     {
       "source": "/api/case/(.*)",
       "destination": "/api/case"

@@ -19,6 +19,7 @@ for(const width of [1440,390,320])test(`ARO fits ${width}px, including question 
 test('Search, note persistence, safe rendering, rating and export',async({page})=>{
   await page.goto('/aro/');await page.locator('#search').fill('PONV');await expect(page.locator('.question-card')).toHaveCount(2);
   await page.locator('.question-card').first().click();
+  await page.locator('#my-preparation > summary').click();
   const note=page.locator('#topic-view textarea');await note.fill('<script>alert(1)</script> Moje osnova');
   await page.locator('#topic-view [data-rate="repeat"]').click();await page.reload();
   await expect(page.locator('#topic-view textarea')).toHaveValue('<script>alert(1)</script> Moje osnova');
@@ -43,7 +44,7 @@ test('Exam draws one from each group, hides help, retains notes and runs a pausa
 });
 test('Storage failure is visible and does not break study or export',async({page})=>{
   await page.addInitScript(()=>{Storage.prototype.setItem=()=>{throw new Error('blocked');};});
-  await page.goto('/aro/#A01');await page.locator('#topic-view textarea').fill('Neztratit');
+  await page.goto('/aro/#A01');await page.locator('#my-preparation > summary').click();await page.locator('#topic-view textarea').fill('Neztratit');
   await expect(page.locator('#storage-warning')).toContainText('neumožnil');
   await page.locator('#topic-view [data-rate="ready"]').click();await expect(page.locator('#ready-count')).toHaveText('1');
 });
@@ -59,9 +60,9 @@ test('Main hub opens ARO from fifth year by keyboard',async({page})=>{
 });
 test('Written answers expose sections, cited sources and hidden examiner answers on mobile',async({page})=>{
   await page.setViewportSize({width:320,height:900});
-  await page.goto('/aro/');await expect(page.locator('#answer-count')).toHaveText('23');
-  await expect(page.locator('#coverage')).toContainText('27 pracovních osnov');
-  await page.locator('#filter').selectOption('answer');await expect(page.locator('.question-card')).toHaveCount(23);
+  await page.goto('/aro/');await expect(page.locator('#answer-count')).toHaveText('55');
+  await expect(page.locator('#coverage')).toContainText('0 pracovních osnov');
+  await page.locator('#filter').selectOption('answer');await expect(page.locator('.question-card')).toHaveCount(55);
   await page.locator('a.question-card[href="#A18"]').click();
   await expect(page.locator('#topic-view .badge')).toHaveText('Zpracovaná odpověď');
   await expect(page.locator('#topic-view .answer-section')).toHaveCount(5);
@@ -109,11 +110,11 @@ test('Complications answers keep PONV supplement and survive exam reveal with no
   await expect(page.locator('#topic-view .answer-section')).toHaveCount(6);
   await expect(page.locator('#topic-view .lesson')).toHaveCount(1);
   await expect(page.locator('#topic-view .lesson')).toContainText('PONV');
-  await expect(page.locator('#coverage')).toContainText('23 zpracovaných odpovědí');
+  await expect(page.locator('#coverage')).toContainText('55 zpracovaných odpovědí');
   await page.goto('/aro/#A07');
   await expect(page.locator('#topic-view .answer-section')).toHaveCount(6);
   await expect(page.locator('#topic-view .lesson')).toHaveCount(0);
-  await page.locator('#topic-view textarea').fill('Rozlišit LAST a vysoký blok');
+  await page.locator('#my-preparation > summary').click();await page.locator('#topic-view textarea').fill('Rozlišit LAST a vysoký blok');
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   await page.locator('#topic-view .answer-section').nth(2).scrollIntoViewIfNeeded();
   await page.screenshot({path:'/tmp/aro-LAST-mobile.png',fullPage:false});
@@ -147,10 +148,10 @@ test('Sepsis answer retains its supplement and antibiotic answer works in the ex
   await expect(page.locator('#topic-view .answer-section')).toHaveCount(5);
   await expect(page.locator('#topic-view .lesson')).toHaveCount(1);
   await expect(page.locator('#topic-view .answer')).toContainText('laktát > 2 mmol/l');
-  await expect(page.locator('#coverage')).toContainText('5 otázek s tematickým dodatkem');
+  await expect(page.locator('#coverage')).toContainText('0 otázek s tematickým dodatkem');
   await page.goto('/aro/#B12');
   await expect(page.locator('#topic-view .answer')).toContainText('400–600 mg·h/l');
-  await page.locator('#topic-view textarea').fill('Rozlišit nasycovací a udržovací dávku');
+  await page.locator('#my-preparation > summary').click();await page.locator('#topic-view textarea').fill('Rozlišit nasycovací a udržovací dávku');
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   await page.screenshot({path:'/tmp/aro-antibiotics-mobile.png',fullPage:false});
   await page.locator('#hero-draw').click();
@@ -248,8 +249,8 @@ test('Diabetology and toxicology answers expose guidelines, checks and mobile la
   await page.setViewportSize({width:320,height:900});
   await page.goto('/aro/#B27');
   await expect(page.locator('#topic-view .answer-section')).toHaveCount(5);
-  await expect(page.locator('#topic-view .answer a[href*="dci23-0085"]').first()).toBeVisible();
-  await expect(page.locator('#topic-view .answer')).toContainText('3,3 mmol/l');
+  await expect(page.locator('#topic-view .answer a[href*="dci24-0032"]').first()).toBeVisible();
+  await expect(page.locator('#topic-view .answer')).toContainText('3,5 mmol/l');
   await page.locator('#topic-view .answer-check').first().locator('summary').click();
   await expect(page.locator('#topic-view .answer-check').first().locator('p')).toContainText('Inzulin nezahájím');
 
@@ -267,4 +268,25 @@ test('Diabetology and toxicology answers expose guidelines, checks and mobile la
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   await page.locator('#topic-view .answer-section').nth(3).scrollIntoViewIfNeeded();
   await page.screenshot({path:'/tmp/aro-tox-mobile.png',fullPage:false});
+});
+
+test('All 55 answers render on a narrow screen with valid sources and examiner checks',async({page})=>{
+ test.setTimeout(120000);
+ await page.setViewportSize({width:320,height:900});
+ const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto('/aro/');
+ for(const [group,count] of [['A',25],['B',30]])for(let i=1;i<=count;i++){
+  const id=group+String(i).padStart(2,'0');
+  await page.evaluate(id=>location.hash=id,id);
+  await expect(page.locator('#topic-view .topic-header > .eyebrow')).toContainText(id);
+  await expect(page.locator('#topic-view .badge')).toHaveText('Zpracovaná odpověď');
+  expect(await page.locator('#topic-view .answer-section').count()).toBeGreaterThanOrEqual(5);
+  await expect(page.locator('#topic-view .answer-check')).toHaveCount(3);
+  await expect(page.locator('#topic-view a[href="undefined"]')).toHaveCount(0);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),id).toBe(true);
+ }
+ expect(errors).toEqual([]);
+ await page.goto('/aro/#A01');await page.screenshot({path:'/tmp/aro-complete-mobile.png',fullPage:false});
+ await page.goto('/aro/#questions');await page.locator('#filter').selectOption('draft');
+ await expect(page.locator('.question-card')).toHaveCount(0);
 });

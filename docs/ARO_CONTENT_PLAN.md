@@ -1,6 +1,6 @@
 # Obsahová revize ARO
 
-Stav: 29. 10. 2026. Aktuální pokrytí viz dvanáctý průchod níže. Uživatel potvrdil jednu otázku z každého bloku.
+Stav: 1. 11. 2026. **55/55 odpovědí, 0 pouze dodatků, 0 osnov.** Úplné pokrytí zkouškové mapy; podrobnosti dokončení v ARO_HANDOFF.md, čtrnáctý průchod. Jedna otázka z každého bloku.
 
 ## Obsahový kontrakt
 
@@ -368,3 +368,35 @@ pevnou posloupnost CNS→srdce za pravidlo LAST. Číslování/názvy zachovány
 - B29 (vybrané intoxikace): paracetamol (NAPQI, vyčerpání glutathionu, jaterní nekróza, nomogram, N-acetylcystein); toxické alkoholy (metanol a etylenglykol, formiát vs oxalát, osmolální gap a HAGMA, fomepizol/etanol, hemodialýza); oxid uhelnatý (COHb, klam pulzní oxymetrie, 100% O₂ a HBO); opioidy (titrace naloxonu k dechu, ne probuzení; relaps pro krátký poločas) a etanol; psychofarmaka (benzodiazepiny vs rizika flumazenilu, tricyklická antidepresiva, blokáda Na kanálu, rozšíření QRS a léčba 8,4% natrium bikarbonátem).
 - Zdroje: ADA 2024–2026, JBDS-IP 2023/2024, TIS ČR, AACT/EAPCCT, EXTRIP, NPIS/MHRA, UHMS, WHO/ERC 2025.
 - Ověření: 7/7 datových testů, 20/20 prohlížečových scénářů (včetně mobilního testu na 320 px). Veřejný build aktualizován.
+
+
+## Dokončení — 31. 10.–1. 11. 2026
+Všechny zbývající A01–A25/B01–B30 jsou zpracovány. Základní výklad se zdroji,
+časté chyby a 3 kontrolní dotazy u každé otázky. K původnímu souboru odpovědí
+přidán `aro/answers-completion.mjs` (32 otázek); B27–B29 obsahově opraveny.
+
+### Mapa nového podkladu OU 2025 (tištěné strany)
+| Otázky | Kapitoly / strany |
+| --- | --- |
+| A01 | 13 / 133–160 |
+| A02–A03 | 3, 14–15 / 28–32, 161–185 |
+| A05–A06 | 17 / 205–223 |
+| A08 | 21–22 / 257–264 |
+| A09 | 18 / 224–228 |
+| A10–A13 | 20 / 240–256 |
+| A14 | 19 / 229–239 |
+| A21, B03 | 7, 10 / 65–74, 99–116 |
+| A24–A25 | 12 / 120–132; doplněno platným českým právem |
+
+PDF strana není tištěná strana: sken obsahuje dvojstrany. OCR je lokální pracovní
+pomůcka, čísla a tabulky vyžadují kontrolu. Ostatní doplnění vycházejí z konkrétních
+webových doporučení a původního zkušebního seznamu, nikoli z neexistujícího dílu II.
+Historické záznamy výše obsahují tehdejší počty a překonaná tvrzení; pro stav nyní
+platí tento oddíl a aktuální výklady.
+
+
+## Aktivní vybavování a audit stručnosti — 1. 11. 2026
+- Každá z 55 zkouškových otázek má nově jednu single-choice a jednu krátkou dopisovací otázku. K tomu 10 tříkrokových kazuistik s vlastní odpovědí a body pro sebehodnocení.
+- Rozšířeny A02, A03, A09, A12, A17, A21, B02, B08, B09, B10, B14 a B16: mechanismy, interpretace vyšetření, rozhodovací kroky a limity léčby. Původní tělo mělo přibližně 247–292 slov; rozšíření přidává tři věcné odstavce do stávajících sekcí.
+- BLS a START ponechány jako kompaktní algoritmy. Samotný počet slov není známkou správnosti ani úplnosti. Ostatní stručnější kapitoly nadále používají zkouškový rozsah uvedený v odpovědi.
+- Banka, rozhraní, hodnotitel a ověření: `docs/ARO_RECALL.md`. Celkem 120 úloh; tři kroky případu se nepočítají jako tři samostatné kazuistiky.

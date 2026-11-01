@@ -68,7 +68,7 @@ export const ANESTHESIA_QUIZ: QuizQuestion[] = [
       'Epinephrine 1 mg IV push'
     ],
     correctAnswerIndex: 1,
-    explanation: 'Ephedrine (5-10 mg IV bolus) is the ideal drug here because the patient is suffering from BOTH hypotension (BP 82/48) and bradycardia (HR 52 bpm), typical of combined propofol and opioid side effects. Ephedrine stimulates alpha and beta receptors, which increases systemic vascular resistance (raising BP) and increases heart rate. Phenylephrine is a pure alpha-1 agonist that would raise BP but would cause a further decrease in heart rate via reflex bradycardia, making it less suitable for bradycardic patients.',
+    explanation: 'Ephedrine (5-10 mg IV bolus) is the drug of choice here because the patient presents with both hypotension (BP 82/48) and bradycardia (HR 52 bpm). Modern cardiovascular investigations (pulse contour analysis, echocardiography, mean systemic filling pressure studies) have proven that ephedrine restores arterial blood pressure primarily by increasing Cardiac Output (CO) and Stroke Volume (SV) – mediated by venous alpha-1 venoconstriction in capacitance beds (mobilizing unstressed volume and augmenting venous return/preload), paired with myocardial beta-1 inotropy and chronotropy. Systemic vascular resistance (SVR) remains largely unchanged due to counterbalancing beta-2 vasodilation. Phenylephrine is a pure alpha-1 agonist that increases SVR via arterial vasoconstriction, which would trigger reflex baroreceptor bradycardia and further depress cardiac output in an already bradycardic patient.',
     medicationId: 'ephedrine'
   },
   {

@@ -4,6 +4,7 @@ const path = require('path');
 const crypto = require('crypto');
 const { GoogleGenAI, Type } = require('@google/genai');
 const { CASES } = require('./cases');
+const { createPatientRouter, privateGuard } = require('./private-patient/runtime.cjs');
 
 // --- LOAD ENVIRONMENT VARIABLES ---
 // Load environment variables natively in Node.js (v20.12+)
@@ -23,16 +24,18 @@ const PORT = process.env.PORT || 3000;
 // Keep request bodies bounded. These endpoints are public and several of them
 // forward user input to a paid upstream API.
 app.use(express.json({ limit: '64kb' }));
+app.use(privateGuard);
+app.use('/api/patient', createPatientRouter({ getClient: getGeminiClient }));
 
-// Serve clinical-portal alias
-app.use('/clinical-portal', express.static(path.join(__dirname, 'clinical-learning-portal')));
+// Clinical portal is served by Vite or its dist build below, never stale root assets.
 
 // Serve PWA drill aliases
 app.use('/drill', express.static(path.join(__dirname, 'drill')));
 app.use('/pwa', express.static(path.join(__dirname, 'drill')));
 
 // Serve static files from root directory
-app.use(express.static(__dirname));
+const rootStatic = express.static(__dirname);
+app.use((req, res, next) => /^\/clinical-(?:portal|learning-portal)(?:\/|$)/.test(req.path) ? next() : rootStatic(req, res, next));
 
 const os = require('os');
 app.get('/api/lan-ip', (req, res) => {

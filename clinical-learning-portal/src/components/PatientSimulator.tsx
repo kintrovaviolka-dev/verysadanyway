@@ -1,192 +1,145 @@
 import React, { FormEvent, useEffect, useRef, useState } from 'react';
-import { Activity, AlertCircle, HeartPulse, LoaderCircle, MessageCircle, RotateCcw, Send, Thermometer, Wind } from 'lucide-react';
-import { useLanguage } from '../context/LanguageContext';
+import { AlertCircle, CheckCircle2, ChevronRight, LoaderCircle, MessageCircle, RotateCcw, Send, Shuffle } from 'lucide-react';
+import type { Criterion, PatientCatalog, PatientEvaluation, PatientSession } from '../types/patient';
+import { evaluatePatient, getPatientCatalog, readPatientProgress, savePatientProgress, sendPatientMessage, startPatient } from '../services/patient';
 
-interface VitalSigns {
-  hr: string;
-  bp: string;
-  spo2: string;
-  rr: string;
-  temp: string;
-  rhythm?: string;
-}
+const difficultyNames: Record<string, string> = { '1': 'Základní', '2': 'Střední', '3': 'Pokročilá' };
+const button = 'rounded-xl px-4 py-2.5 text-sm font-semibold transition-colors disabled:opacity-40 disabled:cursor-not-allowed';
+const inputStyle = 'w-full rounded-xl border border-white/15 bg-slate-950/60 px-3 py-3 text-sm text-white outline-none focus:border-violet-400';
 
-interface ChatMessage {
-  id: string;
-  role: 'clinician' | 'patient';
-  text: string;
-}
-
-interface ApiChatMessage {
-  role: 'user' | 'model';
-  text: string;
-}
-
-interface ScenarioResponse {
-  title: string;
-  presentation: string;
-  background: string;
-  vitals: VitalSigns;
-}
-
-const starterVitals: VitalSigns = {
-  hr: '118', bp: '96/62', spo2: '91%', rr: '26', temp: '38.4', rhythm: 'Sinus tachycardia'
-};
-
-function parseSseChunk(chunk: string): string[] {
-  return chunk.split('\n').flatMap(line => {
-    if (!line.startsWith('data: ')) return [];
-    try {
-      const payload = JSON.parse(line.slice(6)) as { text?: string };
-      return payload.text ? [payload.text] : [];
-    } catch {
-      return [];
-    }
-  });
+function Criteria({ items }: { items: Criterion[] }) {
+  return <ul className="space-y-3">{items.map(item => <li key={item.id} className="rounded-xl border border-white/10 bg-white/[0.025] p-3">
+    <div className="flex gap-2 text-sm"><span className={item.met ? 'text-emerald-300' : 'text-amber-200'}>{item.met ? '✓' : '○'}</span><span>{item.label}</span></div>
+    {item.evidence && <p className="mt-2 text-xs leading-relaxed text-slate-400">{item.evidence.kind === 'question' ? `Otázka ${item.evidence.turn}` : item.evidence.kind === 'diagnosis' ? 'Vaše diagnóza' : `Vaše alternativa ${item.evidence.entry}`}: „{item.evidence.quote}“</p>}
+    {!item.met && <p className="mt-1 text-xs text-amber-200/80">{item.evidence ? 'Formulace není mezi uznanými názvy.' : 'V rozhovoru nebo odevzdané rozvaze nezaznamenáno.'}</p>}
+  </li>)}</ul>;
 }
 
 export default function PatientSimulator() {
-  const { language } = useLanguage();
-  const [vitals, setVitals] = useState<VitalSigns>(starterVitals);
-  const [caseTitle, setCaseTitle] = useState(language === 'cs' ? 'Akutní dušnost na urgentním příjmu' : 'Acute dyspnea in the emergency department');
-  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [catalog, setCatalog] = useState<PatientCatalog | null>(null);
+  const [specialty, setSpecialty] = useState('');
+  const [difficulty, setDifficulty] = useState('');
+  const [session, setSession] = useState<PatientSession | null>(null);
+  const [turns, setTurns] = useState<{ question: string; answer: string }[]>([]);
   const [input, setInput] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const [isGenerating, setIsGenerating] = useState(false);
+  const [stream, setStream] = useState('');
+  const [busy, setBusy] = useState<'catalog' | 'start' | 'message' | 'evaluate' | null>('catalog');
   const [error, setError] = useState<string | null>(null);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const [formOpen, setFormOpen] = useState(false);
+  const [diagnosis, setDiagnosis] = useState('');
+  const [differentials, setDifferentials] = useState(['', '', '']);
+  const [result, setResult] = useState<PatientEvaluation | null>(null);
+  const [progress, setProgress] = useState(readPatientProgress);
+  const [storageWarning, setStorageWarning] = useState(false);
+  const endRef = useRef<HTMLDivElement>(null);
+  const alive = useRef(true);
 
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages, isLoading]);
-
-  const resetScenario = () => {
-    setVitals(starterVitals);
-    setCaseTitle(language === 'cs' ? 'Akutní dušnost na urgentním příjmu' : 'Acute dyspnea in the emergency department');
-    setMessages([]);
-    setInput('');
-    setError(null);
+  const loadCatalog = async () => {
+    setBusy('catalog'); setError(null);
+    try { const data = await getPatientCatalog(); if (alive.current) setCatalog(data); }
+    catch (cause) { if (alive.current) setError(cause instanceof Error ? cause.message : 'Seznam nelze načíst.'); }
+    finally { if (alive.current) setBusy(null); }
   };
+  useEffect(() => { alive.current = true; void loadCatalog(); return () => { alive.current = false; }; }, []);
+  useEffect(() => { endRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, [turns.length, stream]);
 
-  const generateScenario = async () => {
-    setIsGenerating(true);
-    setError(null);
+  const start = async (random = false) => {
+    setBusy('start'); setError(null);
     try {
-      const response = await fetch('/api/gemini/generate-scenario', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          topic: language === 'cs' ? 'Akutní dušnost a podezření na sepsi' : 'Acute dyspnea with suspected sepsis',
-          patientType: 'Adult', difficulty: 'Medium', language
-        })
-      });
-      if (!response.ok) throw new Error((await response.json().catch(() => ({}))).error || 'Scenario generation failed.');
-      const scenario = await response.json() as ScenarioResponse;
-      setVitals(scenario.vitals);
-      setCaseTitle(scenario.title);
-      setMessages([{ id: crypto.randomUUID(), role: 'patient', text: `${scenario.presentation}\n\n${scenario.background}` }]);
-    } catch (cause) {
-      setError(cause instanceof Error ? cause.message : 'Unable to generate a new scenario.');
-    } finally {
-      setIsGenerating(false);
-    }
+      const next = await startPatient(random ? '' : specialty, random ? '' : difficulty, session?.case.id);
+      if (!alive.current) return;
+      setSession(next); setTurns([]); setInput(''); setStream(''); setResult(null);
+      setDiagnosis(''); setDifferentials(['', '', '']); setFormOpen(false); setStorageWarning(false);
+    } catch (cause) { if (alive.current) setError(cause instanceof Error ? cause.message : 'Případ se nepodařilo zahájit.'); }
+    finally { if (alive.current) setBusy(null); }
   };
-
-  const submitMessage = async (event: FormEvent) => {
+  const send = async (event: FormEvent) => {
     event.preventDefault();
+    if (!session || busy || !input.trim() || result) return;
     const question = input.trim();
-    if (!question || isLoading) return;
-
-    const clinicianMessage: ChatMessage = { id: crypto.randomUUID(), role: 'clinician', text: question };
-    const conversation: ApiChatMessage[] = [
-      {
-        role: 'user',
-        text: `You are a simulated adult emergency patient in the scenario "${caseTitle}". Current vitals: HR ${vitals.hr}, BP ${vitals.bp}, SpO2 ${vitals.spo2}, RR ${vitals.rr}, temperature ${vitals.temp}, rhythm ${vitals.rhythm || 'not specified'}. Stay in role as the patient and reveal findings only when asked. Be concise, medically plausible, and respond in ${language === 'cs' ? 'Czech' : 'English'}.`
-      },
-      ...messages.map(message => ({ role: message.role === 'clinician' ? 'user' : 'model', text: message.text } as ApiChatMessage)),
-      { role: 'user', text: question }
-    ];
-
-    setMessages(previous => [...previous, clinicianMessage]);
-    setInput('');
-    setError(null);
-    setIsLoading(true);
-    const assistantId = crypto.randomUUID();
-    setMessages(previous => [...previous, { id: assistantId, role: 'patient', text: '' }]);
-
+    setBusy('message'); setError(null); setStream('');
     try {
-      const response = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: conversation, subject: 'general' })
-      });
-      if (!response.ok || !response.body) throw new Error((await response.json().catch(() => ({}))).error || 'The simulator did not return a response.');
-
-      const reader = response.body.getReader();
-      const decoder = new TextDecoder();
-      let buffered = '';
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        buffered += decoder.decode(value, { stream: true });
-        const lastNewline = buffered.lastIndexOf('\n');
-        if (lastNewline === -1) continue;
-        const complete = buffered.slice(0, lastNewline);
-        buffered = buffered.slice(lastNewline + 1);
-        const text = parseSseChunk(complete).join('');
-        if (text) setMessages(previous => previous.map(message => message.id === assistantId ? { ...message, text: message.text + text } : message));
-      }
-      const remainder = parseSseChunk(buffered).join('');
-      if (remainder) setMessages(previous => previous.map(message => message.id === assistantId ? { ...message, text: message.text + remainder } : message));
-    } catch (cause) {
-      setMessages(previous => previous.filter(message => message.id !== assistantId));
-      setError(cause instanceof Error ? cause.message : 'Unable to contact the patient simulator.');
-    } finally {
-      setIsLoading(false);
-    }
+      const reply = await sendPatientMessage(session.token, question, text => { if (alive.current) setStream(text); });
+      if (!alive.current) return;
+      setTurns(old => [...old, { question, answer: reply.text }]);
+      setSession(old => old && ({ ...old, token: reply.token, turnsRemaining: reply.turnsRemaining }));
+      setInput('');
+    } catch (cause) { if (alive.current) setError(cause instanceof Error ? cause.message : 'Otázku se nepodařilo odeslat.'); }
+    finally { if (alive.current) { setBusy(null); setStream(''); } }
+  };
+  const evaluate = async (event: FormEvent) => {
+    event.preventDefault();
+    if (!session || busy || !diagnosis.trim()) return;
+    setBusy('evaluate'); setError(null);
+    try {
+      const evaluation = await evaluatePatient(session.token, diagnosis.trim(), differentials.map(s => s.trim()).filter(Boolean));
+      if (!alive.current) return;
+      setResult(evaluation); setFormOpen(false);
+      try { savePatientProgress(evaluation); setProgress(readPatientProgress()); } catch { setStorageWarning(true); }
+    } catch (cause) { if (alive.current) setError(cause instanceof Error ? cause.message : 'Hodnocení není dostupné.'); }
+    finally { if (alive.current) setBusy(null); }
   };
 
-  const vitalCards = [
-    { label: 'HR', value: vitals.hr, icon: HeartPulse, tone: 'text-rose-300' },
-    { label: 'BP', value: vitals.bp, icon: Activity, tone: 'text-blue-300' },
-    { label: 'SpO₂', value: vitals.spo2, icon: Wind, tone: 'text-teal-300' },
-    { label: 'RR', value: vitals.rr, icon: Wind, tone: 'text-amber-300' },
-    { label: 'Temp', value: `${vitals.temp} °C`, icon: Thermometer, tone: 'text-orange-300' }
-  ];
-
-  return (
-    <section className="flex flex-col gap-6">
-      <div className="glass-panel rounded-3xl p-6 sm:p-8 relative overflow-hidden">
-        <div className="absolute right-0 top-0 h-full w-1/3 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-violet-400/20 via-blue-900/10 to-transparent pointer-events-none" />
-        <div className="relative flex flex-col gap-5">
-          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
-            <div>
-              <div className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-violet-300"><MessageCircle className="w-4 h-4" /> Live AI Patient Simulator</div>
-              <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-white">{caseTitle}</h2>
-              <p className="mt-1 text-sm text-slate-400">{language === 'cs' ? 'Ptejte se pacienta, vyšetřujte a navrhujte léčbu v bezpečném tréninkovém scénáři.' : 'Question the patient, examine findings, and propose treatment in a safe training scenario.'}</p>
-            </div>
-            <div className="flex gap-2">
-              <button onClick={resetScenario} disabled={isLoading || isGenerating} className="glass-nav-btn rounded-lg px-3 py-2 text-xs font-bold text-slate-300 hover:text-white disabled:opacity-50"><RotateCcw className="w-4 h-4 inline mr-1.5" />Reset</button>
-              <button onClick={generateScenario} disabled={isLoading || isGenerating} className="rounded-lg px-3 py-2 text-xs font-bold text-violet-100 bg-violet-500/20 border border-violet-400/30 hover:bg-violet-500/30 disabled:opacity-50"><LoaderCircle className={`w-4 h-4 inline mr-1.5 ${isGenerating ? 'animate-spin' : ''}`} />{isGenerating ? 'Loading' : 'New case'}</button>
-            </div>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
-            {vitalCards.map(({ label, value, icon: Icon, tone }) => <div key={label} className="glass-card rounded-xl p-3"><div className={`flex items-center gap-1.5 text-[10px] font-bold tracking-widest ${tone}`}><Icon className="w-3.5 h-3.5" />{label}</div><div className="mt-1 text-lg font-mono font-bold text-white">{value}</div></div>)}
-          </div>
-          <div className="text-[11px] text-slate-400"><span className="font-bold text-slate-300">Rhythm:</span> {vitals.rhythm || 'Not specified'}</div>
-        </div>
+  return <section className="mx-auto flex max-w-5xl flex-col gap-5" lang="cs">
+    <div className="glass-panel rounded-3xl p-5 sm:p-8">
+      <div className="flex flex-wrap items-start justify-between gap-4">
+        <div><p className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-violet-300"><MessageCircle size={16} /> Český AI pacient</p><h2 className="mt-2 text-2xl font-bold text-white">Od první otázky ke klinické rozvaze</h2><p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-400">Odeberte anamnézu, formulujte pracovní diagnózu a porovnejte postup s připraveným rozborem. Pacient může citlivý údaj nejprve zlehčit nebo vynechat; pomůže konkrétní a neodsuzující doptání. Jeden rozhovor má nejvýše 24 otázek.</p></div>
+        <span className="rounded-full bg-violet-400/10 px-3 py-1 text-xs text-violet-200">{catalog ? `${catalog.total} případů` : 'Načítám případy…'}</span>
       </div>
-
-      <div className="glass-panel rounded-3xl overflow-hidden min-h-[460px] flex flex-col">
-        <div className="px-5 py-4 border-b border-white/10 flex items-center justify-between"><span className="text-xs font-bold uppercase tracking-wider text-white">Clinical conversation</span><span className="text-[10px] font-bold uppercase tracking-widest text-teal-300">Simulation active</span></div>
-        <div className="flex-1 p-5 space-y-4 overflow-y-auto custom-scrollbar max-h-[520px]">
-          {messages.length === 0 && <div className="h-full min-h-64 flex items-center justify-center text-center"><div><MessageCircle className="mx-auto w-8 h-8 text-violet-300 mb-3" /><p className="font-semibold text-slate-200">{language === 'cs' ? 'Scénář je připraven.' : 'The scenario is ready.'}</p><p className="mt-1 text-xs text-slate-400">{language === 'cs' ? 'Začněte například: „Co vás přivádí?“ nebo navrhněte první intervenci.' : 'Start with “What brought you in?” or propose your first intervention.'}</p></div></div>}
-          {messages.map(message => <div key={message.id} className={`flex ${message.role === 'clinician' ? 'justify-end' : 'justify-start'}`}><div className={`max-w-[88%] rounded-2xl px-4 py-3 text-sm leading-relaxed whitespace-pre-wrap ${message.role === 'clinician' ? 'bg-blue-600/25 border border-blue-400/30 text-blue-50 rounded-br-sm' : 'glass-card text-slate-200 rounded-bl-sm'}`}><div className={`mb-1 text-[10px] font-bold uppercase tracking-wider ${message.role === 'clinician' ? 'text-blue-300' : 'text-violet-300'}`}>{message.role === 'clinician' ? 'Clinician' : 'Patient simulator'}</div>{message.text || <LoaderCircle className="w-4 h-4 animate-spin text-violet-300" />}</div></div>)}
-          <div ref={messagesEndRef} />
-        </div>
-        {error && <div className="mx-5 mb-3 flex gap-2 rounded-lg border border-red-400/30 bg-red-500/10 px-3 py-2 text-xs text-red-200"><AlertCircle className="w-4 h-4 shrink-0" />{error}</div>}
-        <form onSubmit={submitMessage} className="p-4 border-t border-white/10 flex gap-3"><input value={input} onChange={event => setInput(event.target.value)} disabled={isLoading || isGenerating} placeholder={language === 'cs' ? 'Zeptejte se nebo navrhněte léčbu…' : 'Ask a question or propose treatment…'} className="glass-input flex-1 rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none disabled:opacity-50" /><button type="submit" disabled={!input.trim() || isLoading || isGenerating} className="rounded-xl bg-blue-600 px-4 text-white hover:bg-blue-500 disabled:opacity-50 transition-colors"><Send className="w-4 h-4" /></button></form>
+      {catalog?.preview && <p className="mt-4 rounded-xl border border-amber-400/20 bg-amber-400/5 p-3 text-xs leading-relaxed text-amber-100">Výukový náhled: české adaptace syntetických případů zatím čekají na odbornou revizi. Hodnocení slouží k procvičování.</p>}
+      <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <label className="text-xs text-slate-400">Obor<select aria-label="Obor" className={`${inputStyle} mt-1`} value={specialty} onChange={e => setSpecialty(e.target.value)} disabled={!!busy}><option value="">Všechny obory</option>{catalog?.specialties.map(s => <option key={s.id} value={s.id}>{s.label} ({s.count})</option>)}</select></label>
+        <label className="text-xs text-slate-400">Obtížnost<select aria-label="Obtížnost" className={`${inputStyle} mt-1`} value={difficulty} onChange={e => setDifficulty(e.target.value)} disabled={!!busy}><option value="">Všechny obtížnosti</option>{['1', '2', '3'].map(id => <option key={id} value={id}>{difficultyNames[id]}</option>)}</select></label>
       </div>
-    </section>
-  );
+      <div className="mt-4 flex flex-wrap gap-2">
+        <button className={`${button} bg-violet-600 text-white hover:bg-violet-500`} disabled={!!busy || !catalog?.total} onClick={() => start()}>{busy === 'start' ? <LoaderCircle size={16} className="mr-2 inline animate-spin" /> : <RotateCcw size={16} className="mr-2 inline" />}{session ? 'Nový případ podle filtrů' : 'Zahájit rozhovor'}</button>
+        <button className={`${button} border border-white/15 text-slate-200 hover:bg-white/5`} disabled={!!busy || !catalog?.total} onClick={() => start(true)}><Shuffle size={16} className="mr-2 inline" />Náhodný pacient</button>
+        {!catalog && !busy && <button className={`${button} text-violet-200`} onClick={loadCatalog}>Znovu načíst seznam</button>}
+      </div>
+      {session && !result && <p className="mt-3 text-xs text-slate-500">Nový případ ukončí právě rozehraný rozhovor. Při odchodu z tohoto modulu se neodeslaný rozhovor neukládá.</p>}
+      {catalog?.total === 0 && <p className="mt-4 text-sm text-slate-300">Připravované případy čekají na odborné schválení. Jakmile budou dostupné, objeví se zde.</p>}
+    </div>
+    {error && <div role="alert" className="flex gap-3 rounded-xl border border-red-400/30 bg-red-500/10 p-4 text-sm text-red-100"><AlertCircle size={18} className="shrink-0" /><span>{error}</span></div>}
+    {session && <div className="glass-panel overflow-hidden rounded-3xl">
+      <div className="border-b border-white/10 p-5"><p className="text-xs text-violet-200">{catalog?.specialties.find(s => s.id === session.case.specialty)?.label} · {difficultyNames[session.case.difficulty]} · {session.case.age} let</p><h3 className="mt-1 text-lg font-bold text-white">{session.case.title}</h3><p className="mt-2 text-xs text-slate-400">Trénink anamnézy. Naměřené hodnoty a nové výsledky vyšetření nejsou v tomto režimu k dispozici.</p></div>
+      <div className="max-h-[540px] space-y-4 overflow-y-auto p-4 sm:p-5" role="log" aria-label="Rozhovor s pacientem" aria-live="polite">
+        <div className="max-w-[92%] rounded-2xl border border-violet-400/20 bg-violet-400/5 p-4 text-sm leading-relaxed"><p className="mb-1 text-xs font-semibold text-violet-300">Pacient</p>{session.case.opening}</div>
+        {turns.map((turn, i) => <React.Fragment key={i}><div className="ml-auto max-w-[92%] whitespace-pre-wrap break-words rounded-2xl bg-blue-500/15 p-4 text-sm"><p className="mb-1 text-xs font-semibold text-blue-300">Vy · otázka {i + 1}</p>{turn.question}</div><div className="max-w-[92%] whitespace-pre-wrap rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-sm leading-relaxed"><p className="mb-1 text-xs font-semibold text-violet-300">Pacient</p>{turn.answer}</div></React.Fragment>)}
+        {busy === 'message' && <div className="rounded-xl bg-white/5 p-4 text-sm whitespace-pre-wrap"><p className="mb-2 text-xs text-slate-400">Odesílám: {input}</p>{stream || <span className="inline-flex items-center gap-2"><LoaderCircle size={16} className="animate-spin" />Pacient odpovídá…</span>}</div>}
+        <div ref={endRef} />
+      </div>
+      {!result && <div className="border-t border-white/10 p-4 sm:p-5">
+        <form onSubmit={send} className="flex items-end gap-2"><label className="min-w-0 flex-1 text-xs text-slate-400">Vaše otázka<textarea aria-label="Vaše otázka" className={`${inputStyle} mt-1 resize-y`} rows={2} value={input} onChange={e => setInput(e.target.value)} maxLength={800} disabled={!!busy || session.turnsRemaining === 0} placeholder="Například: Kdy vaše obtíže začaly?" /></label><button className={`${button} bg-blue-600 py-3 text-white hover:bg-blue-500`} disabled={!!busy || !input.trim() || session.turnsRemaining === 0} type="submit" aria-label="Odeslat otázku"><Send size={18} /></button></form>
+        <div className="mt-3 flex flex-wrap items-center justify-between gap-3"><p className="text-xs text-slate-500">Zbývá {session.turnsRemaining} otázek · relace platí 2 hodiny</p><button className={`${button} border border-violet-400/30 text-violet-200 hover:bg-violet-400/10`} disabled={!!busy || !turns.length} onClick={() => setFormOpen(v => !v)}>Ukončit rozhovor a vyhodnotit <ChevronRight size={16} className="inline" /></button></div>
+      </div>}
+    </div>}
+    {formOpen && !result && <form onSubmit={evaluate} className="glass-panel rounded-3xl p-5 sm:p-7">
+      <h3 className="text-lg font-bold text-white">Vaše klinická rozvaha</h3><p className="mt-2 text-sm text-slate-400">Uveďte stručný název pracovní diagnózy. Každou alternativu napište zvlášť. Po odevzdání se odhalí řešení.</p>
+      <label className="mt-5 block text-sm text-slate-300">Hlavní diagnóza<input required aria-label="Hlavní diagnóza" className={`${inputStyle} mt-2`} maxLength={200} value={diagnosis} onChange={e => setDiagnosis(e.target.value)} disabled={!!busy} /></label>
+      <fieldset className="mt-4 space-y-2"><legend className="mb-2 text-sm text-slate-300">Diferenciální diagnózy (až 3)</legend>{differentials.map((value, i) => <input key={i} className={inputStyle} aria-label={`Alternativa ${i + 1}`} placeholder={`Alternativa ${i + 1}`} value={value} maxLength={200} disabled={!!busy} onChange={e => setDifferentials(old => old.map((v, j) => i === j ? e.target.value : v))} />)}</fieldset>
+      <button type="submit" className={`${button} mt-5 bg-violet-600 text-white hover:bg-violet-500`} disabled={!!busy || !diagnosis.trim()}>{busy === 'evaluate' && <LoaderCircle size={16} className="mr-2 inline animate-spin" />}Odevzdat a zobrazit rozbor</button>
+    </form>}
+    {result && <div className="glass-panel rounded-3xl p-5 sm:p-7" aria-label="Rozbor případu">
+      <div className="flex flex-wrap items-center justify-between gap-3"><h3 className="flex items-center gap-2 text-xl font-bold text-white"><CheckCircle2 className="text-emerald-300" />Rozbor případu</h3><strong className="text-2xl text-violet-200">{result.score} / 100</strong></div>
+      <div className="my-5 grid grid-cols-3 gap-2 text-center">{[['Anamnéza', result.breakdown.history, 50], ['Diagnóza', result.breakdown.diagnosis, 30], ['Alternativy', result.breakdown.differential, 20]].map(([label, value, max]) => <div key={label} className="rounded-xl bg-white/5 px-2 py-3"><p className="text-xs text-slate-400">{label}</p><p className="mt-1 font-semibold">{value} / {max}</p></div>)}</div>
+      <p className="text-lg font-semibold text-white">{result.diagnosisCriterion.label}</p><p className="mt-2 text-sm leading-relaxed text-slate-300">{result.explanation}</p>
+      <p className="mt-4 text-xs leading-relaxed text-slate-400">{result.scoringNote}</p>
+      {(result.unmatched.diagnosis || result.unmatched.differentials.length > 0) && <p className="mt-3 rounded-xl bg-amber-400/5 p-3 text-sm text-amber-100">K porovnání s rubrikou: {[result.unmatched.diagnosis, ...result.unmatched.differentials].filter(Boolean).join('; ')}.</p>}
+      {result.concealment && <div className={`mt-5 rounded-xl border p-4 ${result.concealment.uncovered ? 'border-emerald-400/25 bg-emerald-400/5' : 'border-amber-400/25 bg-amber-400/5'}`}>
+        <h4 className="font-semibold text-white">Postupné odhalení citlivého údaje · {result.concealment.uncovered ? 'odkryto' : 'neodkryto'}</h4>
+        <p className="mt-2 text-sm text-slate-300"><span className="text-slate-400">Okruh:</span> {result.concealment.label}</p>
+        <p className="mt-1 text-sm text-slate-300"><span className="text-slate-400">Skutečný údaj:</span> {result.concealment.hiddenDetail}</p>
+        <p className="mt-1 text-xs text-slate-400">Proč ho pacient chránil: {result.concealment.reason}</p>
+        {result.concealment.guardedEvidence && <p className="mt-3 text-xs text-slate-400">První odpověď po otázce {result.concealment.guardedEvidence.turn}: „{result.concealment.guardedEvidence.answer}“</p>}
+        {result.concealment.revealEvidence
+          ? <p className="mt-1 text-xs text-emerald-200">Odhaleno po otázce {result.concealment.revealEvidence.turn}: „{result.concealment.revealEvidence.question}“</p>
+          : <p className="mt-2 text-xs text-amber-100">V rozhovoru chybělo navazující konkrétní, bezpečné doptání. Citlivý okruh se započítá do anamnézy až po skutečném odhalení.</p>}
+      </div>}
+      <div className="mt-6 grid gap-6 md:grid-cols-2"><div><h4 className="mb-3 font-semibold text-white">Anamnéza a důkazy z rozhovoru</h4><Criteria items={result.historyCriteria} /></div><div><h4 className="mb-3 font-semibold text-white">Diagnostická rozvaha</h4><Criteria items={[result.diagnosisCriterion, ...result.differentialCriteria]} /></div></div>
+      <h4 className="mb-2 mt-6 font-semibold text-white">Na co si dát pozor</h4><ul className="list-disc space-y-2 pl-5 text-sm text-slate-300">{result.mistakes.map(m => <li key={m}>{m}</li>)}</ul>
+      <details className="mt-6 border-t border-white/10 pt-4 text-xs leading-relaxed text-slate-400"><summary className="cursor-pointer text-sm text-violet-200">Původ případu a zdroje</summary><p className="mt-3">{result.adaptation}</p><p className="mt-2"><a className="text-violet-300 underline" href={result.source.url} target="_blank" rel="noreferrer">Původní dataset</a> · {result.source.license} · revize {result.source.revision.slice(0, 7)} · verze případu {result.caseVersion}</p><p className="mt-2">Literatura převzatá z původního záznamu; metadata nebyla nezávisle odborně ověřena:</p><ul className="mt-2 space-y-2">{result.references.map(r => <li key={r.pmid}><a className="text-violet-300 underline" href={`https://pubmed.ncbi.nlm.nih.gov/${encodeURIComponent(r.pmid)}/`} target="_blank" rel="noreferrer">{r.title} ({r.year})</a></li>)}</ul></details>
+      {storageWarning && <p role="status" className="mt-4 text-sm text-amber-200">Výsledek je zobrazený, ale prohlížeč nepovolil jeho uložení do pokroku.</p>}
+    </div>}
+    {progress.length > 0 && <details className="glass-panel rounded-2xl p-5"><summary className="cursor-pointer text-sm font-semibold text-slate-200">Můj pokrok · {progress.length} dokončených rozhovorů</summary><ul className="mt-4 space-y-3">{progress.slice(-5).reverse().map(item => <li key={item.sessionId} className="flex justify-between gap-4 text-sm"><span className="text-slate-300">{item.title}{item.preview && <span className="ml-2 text-xs text-amber-200">náhled</span>}</span><strong className="shrink-0 text-violet-200">{item.score} / 100</strong></li>)}</ul><p className="mt-3 text-xs text-slate-500">Uloženo pouze v tomto prohlížeči.</p></details>}
+  </section>;
 }

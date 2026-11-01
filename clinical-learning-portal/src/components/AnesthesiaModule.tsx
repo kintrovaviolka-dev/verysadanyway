@@ -1107,7 +1107,7 @@ export default function AnesthesiaModule() {
                     <div
                       key={med.id}
                       onClick={() => handleCardClick(med.id)}
-                      className="group cursor-pointer select-none perspective-[1200px] h-[340px]"
+                      className="group cursor-pointer select-none perspective-[1200px] h-[400px]"
                     >
                       <div
                         className={`relative w-full h-full duration-500 transform-style-3d transition-transform ${
@@ -1116,7 +1116,7 @@ export default function AnesthesiaModule() {
                       >
                         {/* CARD FRONT */}
                         <div className="absolute inset-0 w-full h-full backface-hidden bg-white/5 border border-white/10 rounded-xl p-6 shadow-sm flex flex-col justify-between group-hover:border-teal-500/50 transition-colors backdrop-blur-xl">
-                          <div className="flex flex-col gap-3">
+                          <div className="flex flex-col gap-2.5 overflow-y-auto max-h-[310px] custom-scrollbar pr-1">
                             <div className="flex items-center justify-between">
                               <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-teal-500/10 text-teal-300 border border-teal-500/20">
                                 {med.categoryLabel}
@@ -1158,7 +1158,7 @@ export default function AnesthesiaModule() {
                               <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wide">
                                 {language === 'cs' ? 'Mechanismus účinku:' : 'Mechanism of Action:'}
                               </span>
-                              <p className="text-xs text-slate-300 font-sans leading-relaxed line-clamp-3">
+                              <p className="text-xs text-slate-300 font-sans leading-relaxed select-text">
                                 {med.mechanism}
                               </p>
                             </div>
@@ -1174,7 +1174,7 @@ export default function AnesthesiaModule() {
 
                         {/* CARD BACK */}
                         <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-slate-900/90 border border-white/10 rounded-xl p-6 shadow-md flex flex-col justify-between text-white overflow-hidden backdrop-blur-xl">
-                          <div className="flex flex-col gap-3 overflow-y-auto max-h-[260px] custom-scrollbar pr-1">
+                          <div className="flex flex-col gap-3 overflow-y-auto max-h-[320px] custom-scrollbar pr-1">
                             <div className="flex items-center justify-between border-b border-white/10 pb-2">
                               <div>
                                 <h3 className="text-lg font-bold text-teal-300">{med.name}</h3>
@@ -2075,7 +2075,7 @@ export default function AnesthesiaModule() {
                     <span className="text-[10px] text-teal-400 font-bold uppercase tracking-widest">{t('selectCategory')}</span>
                     <h4 className="text-2xl font-black text-white leading-tight">{sorterMeds[sorterIndex]?.name}</h4>
                     <p className="text-xs text-slate-400 italic font-mono">{sorterMeds[sorterIndex]?.genericName}</p>
-                    <div className="text-left bg-white/5 p-3.5 rounded-lg border border-white/5 text-[11px] text-slate-300 leading-relaxed mt-3 w-full">
+                    <div className="text-left bg-white/5 p-3.5 rounded-lg border border-white/5 text-[11px] text-slate-300 leading-relaxed mt-3 w-full max-h-48 overflow-y-auto custom-scrollbar">
                       <div className="mb-1"><strong className="text-teal-300">Class:</strong> {sorterMeds[sorterIndex]?.class}</div>
                       <div><strong className="text-teal-300">Mechanism:</strong> {sorterMeds[sorterIndex]?.mechanism}</div>
                     </div>

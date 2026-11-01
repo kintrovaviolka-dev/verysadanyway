@@ -68,7 +68,7 @@ export const ANESTHESIA_QUIZ_CS: QuizQuestion[] = [
       'Epinefrin 1 mg IV push'
     ],
     correctAnswerIndex: 1,
-    explanation: 'Efedrin (5-10 mg IV bolus) je zde ideálním lékem, protože pacientka trpí hypotenzí (TK 82/48) i bradykardií (SF 52 bpm), což je typický kombinovaný nežádoucí účinek propofolu a opioidů. Efedrin stimuluje alpha a beta receptory, což zvyšuje systémovou cévní rezistenci (zvyšuje TK) a zvyšuje srdeční frekvenci. Fenyleftrin je čistý alpha-1 agonista, který by sice zvýšil TK, ale způsobil by další pokles SF reflexní bradykardií, což je u bradykardického pacienta nevhodné.',
+    explanation: 'Efedrin (5-10 mg IV bolus) je zde lékem volby, protože pacientka trpí hypotenzí (TK 82/48) současně s bradykardií (SF 52 bpm). Moderní kardiovaskulární výzkumy (echokardiografie, analýza pulzní vlny, měření středního systémového plnicího tlaku) prokázaly, že efedrin zvyšuje krevní tlak primárně vzestupem srdečního výdeje (CO) a tepového objemu (SV) – stimulací venózních alpha-1 receptorů vyvolává venokonstrikci kapacitního řečiště, čímž mobilizuje nestresovaný objem a zvyšuje žilní návrat (preload), zatímco beta-1 stimulací zvyšuje kontraktilitu a srdeční frekvenci. Systémová cévní rezistence (SVR) přitom zůstává vlivem současné beta-2 vazodilatace téměř nezměněna. Fenyleftrin je čistý alpha-1 agonista, který by sice zvýšil TK arteriální vazokonstrikcí, ale baroreflexem by prohloubil bradykardii a ještě více snížil srdeční výdej.',
     medicationId: 'ephedrine'
   },
   {

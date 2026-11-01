@@ -316,18 +316,27 @@ Pro dotazy, návrhy či zpětnou vazbu kontaktujte autora nebo správce repozit�
 
 Nový statický portál je na `/aro/` a v rozcestníku 5. ročníku. Obsahuje
 55 otázek, losování jedné otázky z každého okruhu, časovač,
-poznámky, sebehodnocení a export přípravy. A04 (komplikace celkové anestezie), A07 (regionální anestezie), A18 (dětská a novorozenecká KPR),
-A20 (dýchací cesty), B04 (anafylaxe), B05 (krvácení), B06 (polytrauma), B11 (sepse), B12 (antibiotická léčba), B17 (ARDS), B18 (UPV), B19 (ABR), B20 (ionty a osmolalita), B21 (výživa), B22 (analgosedace), B23/B24 (levostranné a pravostranné srdeční selhání), B25 (plicní embolie), B26 (renální a jaterní selhání), B27 (akutní diabetologie), B28 (obecná toxikologie), B29 (vybrané intoxikace) a B30 (dětská obstrukce) mají zpracované
-zkouškové odpovědi s citacemi a kontrolními otázkami. Pět tematických dodatků
-je připojeno k sedmi otázkám (A04 a B11 už mají i odpověď); pět otázek má pouze
-osnovu s dodatkem a ostatních 27 zatím obsahuje jen osnovu.
+poznámky, sebehodnocení a export přípravy. Všech 55 otázek má zpracovaný
+zkouškový výklad se zdroji, upozorněními na časté chyby a třemi kontrolními otázkami.
+Nezbývají otázky pouze s osnovou ani pouze s dodatkem. Pět tematických dodatků
+zůstává připojeno k sedmi otázkám. Anesteziologický základ doplněn podle OU 2025,
+díl I (uživatelský sken se nezveřejňuje); léčebné a právní aktualizace jsou
+uvedeny u konkrétních odpovědí. Úplné pokrytí není nezávislá klinická revize.
 Pokrok se ukládá lokálně pod `aro-study-v1`. Portál nevolá AI ani placené API.
+
+Aktivní vybavování (`/aro/#recall`) obsahuje 55 single-choice otázek, 55 krátkých
+doplnění se synonymy a tolerancí drobných překlepů a 10 kazuistik po třech krocích.
+Každé téma má SC i doplnění. Možnosti a sady se míchají, vysvětlení se ukazuje až
+po odpovědi. Kazuistiky mají sebehodnocení podle řešení včetně dávkových kroků;
+nejde o automatické klinické hodnocení volného textu. Výsledky se ukládají pod
+`aro-recall-v1`, rozehraná sada zůstává jen do obnovení stránky. Osnova a vlastní
+příprava jsou sbalené nad výkladem. Podrobnosti: [docs/ARO_RECALL.md](docs/ARO_RECALL.md).
 
 Stav a pokračování: [docs/ARO_HANDOFF.md](docs/ARO_HANDOFF.md).
 Obsahový plán a zdroje: [docs/ARO_CONTENT_PLAN.md](docs/ARO_CONTENT_PLAN.md).
 
 ```bash
-node --test test/aro.test.mjs
-npm --prefix drill run test:e2e -- aro.spec.js
+node --test test/aro.test.mjs test/aro-recall.test.mjs
+npm --prefix drill run test:e2e -- 'aro.*spec.js'
 npm run build:public
 ```

@@ -1,137 +1,614 @@
-// Zkouškové odpovědi se zdroji po sekcích; nejde o klinické protokoly.
+import {deepenAnswers} from './answers-depth.mjs';
+import {completionAnswers, completionSources} from './answers-completion.mjs';
+// Zkouškové odpovědi; nikoli klinické protokoly.
 export const answerSources = {
-"pe2026":{"label": "AHA/ACC multisociety 2026 · Akutní plicní embolie", "url": "https://www.jacc.org/doi/10.1016/j.jacc.2025.11.005", "locator": "Klinické kategorie A–E, diagnostika, antikoagulace a pokročilá léčba; americké doporučení"},
-"peESC":{"label": "ESC/ERS 2019 · Plicní embolie", "url": "https://academic.oup.com/eurheartj/article/41/4/543/5556136", "locator": "Oddíly 4–7: nestabilita, evropská stratifikace rizika, reperfuze"},
-"peNICE":{"label": "NICE NG158 · Žilní tromboembolie", "url": "https://www.nice.org.uk/guidance/ng158/chapter/Recommendations", "locator": "1.1 a 1.3–1.4: Wells, D-dimer, zobrazení, antikoagulace a délka léčby"},
-"akiKDIGO":{"label": "KDIGO 2012 · Akutní poškození ledvin", "url": "https://kdigo.org/wp-content/uploads/2016/10/KDIGO-2012-AKI-Guideline-English.pdf", "locator": "2.1: definice/stadia; oddíl 5: náhrada funkce, modality a antikoagulace"},
-"akiDraft":{"label": "KDIGO · Stav aktualizace AKI/AKD 2026", "url": "https://kdigo.org/guidelines/acute-kidney-injury/", "locator": "K 29. 10. 2026: po veřejném připomínkování, příprava publikace; návrh není finální guideline"},
-"akiNICE":{"label": "NICE NG148 · Akutní poškození ledvin", "url": "https://www.nice.org.uk/guidance/ng148/chapter/Recommendations", "locator": "1.3–1.5: detekce, příčina, diuretika a urgentní indikace RRT"},
-"akiClinical":{"label": "Merck Manual 2026 · AKI", "url": "https://www.merckmanuals.com/professional/nephrology/acute-kidney-injury/acute-kidney-injury-aki", "locator": "Autorský výklad: prerenální, renální a postrenální příčiny, klinika a vyšetření"},
-"alfAASLD":{"label": "AASLD 2011 · Akutní jaterní selhání", "url": "https://www.aasld.org/sites/default/files/2023-03/Acute%20Liver%20Failure%20Update2011.pdf", "locator": "Definice, časný kontakt transplantačního centra, etiologie a N-acetylcystein; starší position paper"},
-"alfSCCM":{"label": "SCCM 2023 · Jaterní selhání v ICU, část II", "url": "https://www.sccm.org/clinical-resources/guidelines/guidelines/guidelines-for-the-management-of-liver-failure-2", "locator": "ALF: neurologie, nevhodnost rutinní invazivní ICP monitorace, hypertonický NaCl a výměna plazmy; odlišit od doporučení pro ACLF"},
-"alfUpdate":{"label": "Management of Acute Liver Failure · Update 2022", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10576953/", "locator": "Odborný přehled: intenzivní péče, CRRT, koagulace a transplantace; není nová společenská guideline"},
-
-"hfESC2026":{"label": "ESC 2026 · Srdeční selhání", "url": "https://doi.org/10.1093/eurheartj/ehag100", "locator": "Oddíly 5–7 a 13: nová klasifikace EF, základní léčba, tabulka 9 akutní péče; vydáno 28. 8. 2026"},
-"hfESC2021":{"label": "ESC 2021 · Akutní srdeční selhání", "url": "https://academic.oup.com/eurheartj/article/42/36/3599/6358045", "locator": "Oddíl 11: akutní diagnostika a léčba; použity principy znovu ověřené v ESC 2026, nikoli stará klasifikace jako aktuální"},
-"hfNICE":{"label": "NICE CG187 · Akutní srdeční selhání", "url": "https://www.nice.org.uk/guidance/cg187/chapter/Recommendations", "locator": "1.2–1.3: natriuretické peptidy, echokardiografie, bez rutinního Swan–Ganzova katétru"},
-"hfACC2024":{"label": "ACC 2024 · Léčba HFrEF", "url": "https://www.acc.org/latest-in-cardiology/ten-points-to-remember/2024/03/06/19/22/2024-acc-expert-consensus-hfref", "locator": "Oficiální souhrn konsenzu: zahájení a titrace, betablokátor po kompenzaci; starší definice HFrEF, pro klasifikaci viz ESC 2026"},
-"pulmonaryEdema":{"label": "Merck Manual 2025 · Plicní edém", "url": "https://www.merckmanuals.com/professional/cardiovascular-disorders/heart-failure/pulmonary-edema", "locator": "Autorský klinický výklad: mechanismus, spouštěče a klinické projevy, nikoli guideline"},
-"rvAHA":{"label": "AHA 2018 · Pravostranné srdeční selhání", "url": "https://doi.org/10.1161/CIR.0000000000000560", "locator": "Scientific statement: příčiny, venózní kongesce a komorová interdependence"},
-"rvAcute":{"label": "ACVC/ESC 2024 · Akutní cor pulmonale", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10927027/", "locator": "Konsenzus: náhlé zvýšení afterloadu PK, objem, vazopresory/inotropika a ventilace; není univerzální doporučení pro všechny příčiny RV selhání"},
-"rvClinical":{"label": "Merck Manual 2025 · Right heart failure and cor pulmonale", "url": "https://www.merckmanuals.com/professional/cardiovascular-disorders/heart-failure/right-heart-failure-and-cor-pulmonale", "locator": "Klinické projevy, zobrazování a odlišení cor pulmonale; autorský výklad"},
-"phESC":{"label": "ESC/ERS 2022 · Plicní hypertenze", "url": "https://academic.oup.com/eurheartj/article/43/38/3618/6673929", "locator": "Oddíly 6 a 8–10: léčba podle skupiny PH, PH při levostranném selhání, PAH/CTEPH a specializovaná centra"},
-
-"nutritionESPEN":{"label": "ESPEN 2023 · Výživa v intenzivní péči", "url": "https://lms.espen.org/files/ESPEN-Guidelines/ESPEN_practical_and_partially_revised_guideline_Clinical_nutrition_in_the_intensive_care_unit.pdf", "locator": "Praktické, částečně revidované doporučení: cesta, načasování, kalorimetrie, energie a protein"},
-"nutritionESICM":{"label": "ESICM 2017 · Časná enterální výživa", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5323492/", "locator": "Doporučení 1–12: časná EN, šok, kontraindikace a intolerance"},
-"nutritionAlbumin":{"label": "ASPEN 2021 · Albumin a prealbumin", "url": "https://doi.org/10.1002/ncp.10588", "locator": "Position paper: viscerální proteiny nejsou samostatné ukazatele malnutrice ani adekvátnosti výživy"},
-"nutritionNICE":{"label": "NICE CG32 · Nutriční podpora dospělých", "url": "https://www.nice.org.uk/guidance/cg32/chapter/Recommendations", "locator": "1.3–1.5: hodnocení, bilance, monitorace; 1.4.6–1.4.8: riziko refeedingu. Obecné doporučení, ne cíle akutní ICU výživy"},
-"refeedingASPEN":{"label": "ASPEN 2020 · Refeeding syndrom", "url": "https://doi.org/10.1002/ncp.10474", "locator": "Definice a tabulka 6: dospělí v riziku, thiamin, fosfát/K/Mg, postupné navyšování energie"},
-"padis2018":{"label": "SCCM PADIS 2018 · Bolest a sedace", "url": "https://www.sccm.org/clinical-resources/guidelines/guidelines/guidelines-for-the-prevention-and-management-of-pa", "locator": "Hodnocení bolesti, analgezie před sedací, lehká sedace a nefarmakologická péče; změněné body viz update 2025"},
-"padis2025":{"label": "SCCM PADIS · Cílená aktualizace 2025", "url": "https://www.sccm.org/clinical-resources/guidelines/guidelines/focused-update-padis-guideline", "locator": "Pět aktualizovaných bodů: úzkost, dexmedetomidin, antipsychotika, mobilizace a melatonin"},
-"icuBundle":{"label": "SCCM · ICU Liberation ABCDEF", "url": "https://www.sccm.org/clinical-resources/iculiberation-home/abcdef-bundles", "locator": "A–F: bolest, probouzení a dechová zkouška, volba léčiv, delirium, mobilizace a rodina"},
-"camICU":{"label": "Vanderbilt CIBS · Monitorování deliria", "url": "https://www.icudelirium.org/medical-professionals/delirium/monitoring-delirium-in-the-icu", "locator": "CAM-ICU/ICDSC, manuál a RASS; nelze vyšetřit není totéž co negativní výsledek"},
-"rassQUT":{"label": "QUT · RASS a CAM-ICU", "url": "https://www.delirium.health.qut.edu.au/identification-and-management/cam-icu", "locator": "Výuková tabulka RASS −5 až +4 a hranice hodnotitelnosti CAM-ICU"},
-"propofolICU":{"label": "Propofol · SmPC", "url": "https://www.medicines.org.uk/emc/product/11294/smpc", "locator": "4.4 a 4.8: hypotenze, lipidy a propofolový infuzní syndrom"},
-"dexICU":{"label": "Dexdor · SmPC", "url": "https://www.medicines.org.uk/emc/product/4783/smpc", "locator": "4.2–4.4: lehká sedace, kardiální monitorace, bradykardie/hypotenze; bez nasycovací dávky v ICU"},
-"midazolamICU":{"label": "Midazolam · SmPC", "url": "https://www.medicines.org.uk/emc/product/3605/smpc", "locator": "4.2 a 5.2: akumulace při dlouhé infuzi, renální a jaterní dysfunkce"},
-
-"acidMerck":{"label": "Merck Manual · Acid–base disorders", "url": "https://www.merckmanuals.com/professional/nephrology/acid-base-regulation-and-disorders/acid-base-disorders", "locator": "Autorský klinický výklad: čtyři poruchy, kompenzace, smíšené stavy; nikoli společenské doporučení"},
-"acidSRLF":{"label": "SRLF/SFMU 2019 · Metabolická acidóza", "url": "https://link.springer.com/article/10.1186/s13613-019-0563-2", "locator": "Diagnostika: očekávaný PaCO₂, anion gap a korekce na albumin"},
-"bicarICU2":{"label": "BICARICU-2 · Randomizovaná studie 2025", "url": "https://jamanetwork.com/journals/jama/fullarticle/2840824", "locator": "Primární výsledek: 90denní mortalita; sekundární potřeba náhrady funkce ledvin"},
-"alkalosisMerck":{"label": "Merck Manual · Metabolická alkalóza", "url": "https://www.merckmanuals.com/professional/nephrology/acid-base-regulation-and-disorders/metabolic-alkalosis", "locator": "Chlorid-responzivní a rezistentní alkalóza; léčba příčiny"},
-"hypoNaEurope":{"label": "Evropské doporučení 2014 · Hyponatremie", "url": "https://academic.oup.com/ejendo/article/170/3/G1/6668028", "locator": "Diagnostika hypotonicity, močová osmolalita a sodík; SIAD jako diagnóza po vyloučení jiných příčin"},
-"hypoNaEmergency":{"label": "Society for Endocrinology 2022 · Akutní hyponatremie", "url": "https://www.endocrinology.org/media/xhrhxhxm/emergency-management-of-severe-and-moderately-severely-symptomatic-hyponatraemia-in-adult-patients-2022.pdf", "locator": "Algoritmus symptomatických dospělých: 3% NaCl, počáteční cíl, korekční limity a překročení"},
-"hyperNaNHS":{"label": "NHS Ayrshire & Arran · Hypernatremie", "url": "https://aaamedicines.org.uk/guidelines/electrolyte-disturbances/management-of-hypernatraemia/", "locator": "Místní nemocniční postup: deficit vody, obnova cirkulace, průběžná korekce"},
-"diabetesInsipidus":{"label": "Society for Endocrinology 2018 · Centrální diabetes insipidus", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6013691/", "locator": "Hospitalizovaný dospělý se známým CDI: bilance, desmopresin, obnova objemu a sledování Na"},
-"hyperK2026":{"label": "UKKA · Hyperkalemie dospělých, aktualizace červenec 2026", "url": "https://www.ukkidney.org/sites/default/files/documents/FINAL%20VERSION%20-%20UKKA%20CLINICAL%20PRACTICE%20GUIDELINE%20-%20MANAGEMENT%20OF%20HYPERKALAEMIA%20IN%20ADULTS%20-%20UPDATED%20JULY%202026_0.pdf", "locator": "Doporučení 14–18: EKG, kalcium, inzulin/glukóza, eliminace K a monitorace"},
-"hypoKSPS":{"label": "NHS SPS 2024 · Hypokalemie", "url": "https://sps.nhs.uk/articles/hypokalaemia/", "locator": "Perorální a intravenózní substituce, koncentrace, rychlost a monitorace"},
-"hypoMgSPS":{"label": "NHS SPS 2024 · Akutní hypomagnezemie", "url": "https://sps.nhs.uk/articles/treating-acute-hypomagnesaemia-in-adults/", "locator": "Dávky v gramech a mmol, rychlost infuze a renální funkce"},
-"hyperMgProduct":{"label": "Australian Commission · Magnesium sulfate AFT", "url": "https://www.safetyandquality.gov.au/medicine-finder/magnesium-sulfate-aft", "locator": "Produktová informace: předávkování, toxicita, kalcium a dialýza"},
-"hypoCaEndo":{"label": "Society for Endocrinology · Hypokalcemie, dodatek 2019", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8117371/", "locator": "Upřesnění akutního podání 10% kalcium glukonátu a rozdílu proti chloridu"},
-"hyperCaEndo":{"label": "Society for Endocrinology 2016 · Akutní hyperkalcemie", "url": "https://www.endocrinology.org/media/4277/emergency-guidance_acute-hypercalcaemia-in-adults.pdf", "locator": "Vyšetření PTH, rehydratace, antiresorpční léčba a renální selhání"},
-
-"ardsGlobal":{"label": "Globální definice ARDS · 2023/2024", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10870872/", "locator": "Tabulka 1: čas, zobrazení, původ edému a oxygenace; workshopový konsenzus"},
-"ardsATS":{"label": "ATS 2024 · Léčba ARDS dospělých", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10870893/", "locator": "Souhrn doporučení: VT, plateau, PEEP, kortikosteroidy, VV-ECMO"},
-"ardsESICM":{"label": "ESICM 2023 · Respirační podpora u ARDS", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10354163/", "locator": "Doporučení 7.1–7.2: časná pronace při P/F < 150, alespoň 16 hodin"},
-"ardsNMBA":{"label": "SCCM 2026 · Nervosvalová blokáda u ARDS", "url": "https://www.sccm.org/clinical-resources/guidelines/guidelines/guidelines-for-the-administration-of-neuromuscular-blockade", "locator": "NMBA administration: přetrvávající hypoxemie či nedosažení ventilačních cílů při sedaci"},
-"ventAssessment":{"label": "AARC 2024 · Patient–Ventilator Assessment", "url": "https://doi.org/10.4187/respcare.12007", "locator": "Doporučení: VT/PBW, plateau, PEEP/auto-PEEP, driving pressure, zvlhčení a rourka"},
-"ventSBT":{"label": "AARC 2024 · Spontaneous Breathing Trials", "url": "https://www.aarc.org/wp-content/uploads/2023/11/CPG2024SpontaneousBreathingTrial.pdf", "locator": "Doporučení 1–4; SBT není totéž co extubace"},
-"ventPrimer":{"label": "AACN · Mechanical Ventilation Settings", "url": "https://aacn.s3-us-west-2.amazonaws.com/Courses/ecco/course-resources/resources/pulmonary2/ecco-pulmonary-mechanical-ventilation-settings.pdf", "locator": "Výukový materiál, s. 2–5: AC, PCV, PSV a PEEP/CPAP; základní principy, nikoli aktuální ARDS protokol"},
-"ventTrouble":{"label": "Vanderbilt · Introduction to Ventilator Management", "url": "https://vimbook.vumc.org/critical-care/introduction-vent-management", "locator": "Výukový nemocniční text: plateau, auto-PEEP a diferenciální diagnostika alarmů"},
-"ventSafe":{"label": "AARC/UHC · Safe Initiation and Management of Mechanical Ventilation", "url": "https://www.aarc.org/wp-content/uploads/2017/03/Issue-Paper-Safe-Initiation-and-Management-of-Mechanical-Ventilation.pdf", "locator": "Nastavení pro pacienta, alarmy, kontrola okruhu a odpovědi na změny; základní bezpečnostní dokument"},
-"ardsnet":{"label": "NHLBI ARDSNet · Protokol FACTT", "url": "https://biolincc.nhlbi.nih.gov/media/studies/factt/Protocol.pdf", "locator": "Oddíl C: predikovaná hmotnost, cílový VT 6 ml/kg a titrace podle tlaků/pH; historický výzkumný protokol"},
-"oxygenSRLF":{"label": "SRLF/SFMU 2024 · Akutní hypoxemické respirační selhání", "url": "https://link.springer.com/article/10.1186/s13613-024-01367-2", "locator": "Otázka 7: indikace a zvažování intubace; konsenzus panelu"},
-
-"ssc2026":{"label": "SSC 2026 · Sepse a septický šok dospělých", "url": "https://www.sccm.org/clinical-resources/guidelines/guidelines/surviving-sepsis-campaign-international-guidelines-for-management-of-sepsis-and-septic-shock-2026", "locator": "Screening, antibiotic initiation, source control, fluid resuscitation, MAP, vasopressors"},
-"sepsis3":{"label": "Sepsis-3 · Mezinárodní konsenzus 2016", "url": "https://doi.org/10.1001/jama.2016.0287", "locator": "Definice sepse a šoku, SOFA a omezení SIRS/qSOFA"},
-"amr2026":{"label": "IDSA 2026 · Antimikrobiální rezistence", "url": "https://www.idsociety.org/practice-guideline/amr-guidance/", "locator": "General Management Suggestions: empirická léčba, délka a převod na p.o.; americký kontext"},
-"atbPK":{"label": "ESICM/ESCMID a další · TDM v intenzivní péči, 2020", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7223855/", "locator": "PK/PD, beta-laktamy, aminoglykosidy, nasycovací dávka a změny clearance"},
-"vancoAUC":{"label": "ASHP/IDSA/PIDS/SIDP 2020 · Vankomycin", "url": "https://www.idsociety.org/practice-guideline/vancomycin", "locator": "Executive summary: závažné MRSA infekce, AUC24 400–600 při MIC 1 mg/l"},
-"cultures":{"label": "CDC · Odběr hemokultur u dospělých", "url": "https://www.cdc.gov/lab-quality/php/preventing-adult-blood-culture-contamination/collect.html", "locator": "Alespoň dvě sady, objem, aseptický odběr a identifikace vzorků"},
-"steroidsShock":{"label": "SCCM 2024 · Kortikosteroidy u septického šoku", "url": "https://doi.org/10.1097/CCM.0000000000006172", "locator": "Doporučení 1A/1B a tabulka 4: běžný režim hydrokortizonu, ne vysoké krátké pulzy"},
-"candidaDuration":{"label": "IDSA 2016 · Kandidémie", "url": "https://www.idsociety.org/practice-guideline/candidiasis/", "locator": "Doporučení 11–12: kontrolní kultury a délka nekomplikované kandidémie u non-neutropenických"},
-
-"traumaBleeding":{"label": "Evropské doporučení 2023 · Krvácení po traumatu, 6. vydání", "url": "https://link.springer.com/article/10.1186/s13054-023-04327-7", "locator": "Doporučení 9–11, 13, 23, 29 a 31: Hb, koagulace, tlak, TXA, fibrinogen, kalcium"},
-"traumaNICE":{"label": "NICE NG39 · Major trauma, 2016", "url": "https://www.nice.org.uk/guidance/ng39/chapter/Recommendations", "locator": "1.4.1–2; 1.5.3, 13–18, 27–38: hrudník, krvácení, zobrazování a operace"},
-"traumaFirstAid":{"label": "RCUK 2025 · First aid", "url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/first-aid-guidelines", "locator": "Life-threatening bleeding; scene safety; prevention of hypothermia"},
-"atls11":{"label": "ACS 2025 · Zavedení ATLS 11", "url": "https://www.facs.org/for-medical-professionals/news-publications/news-and-articles/acs-brief/september-16-2025-issue/trauma-care-gets-major-upgrade-with-launch-of-atls-11/", "locator": "Oficiální oznámení: xABCDE, katastrofické zevní krvácení před airway; nejde o celý manuál"},
-"berlin":{"label": "Pape et al. 2014 · Berlínská definice polytraumatu", "url": "https://pubmed.ncbi.nlm.nih.gov/25494433/", "locator": "Původní konsenzus: AIS ≥ 3 ve dvou oblastech a přidružené rizikové kritérium"},
-"uhsTrauma":{"label": "UHS · Adult Major Trauma Guidelines, místní postup 2022", "url": "https://www.uhs.nhs.uk/Media/SUHTExtranet/WessexTraumaNetwork/UHS-adult-major-trauma-guidelines.pdf", "locator": "Oddíly 2.1–2.6, 2.9: základní vyšetření a organizace; nepřebíráme starší dávkové protokoly"},
-"majorHaemorrhage":{"label": "BSH 2022 · Major haemorrhage", "url": "https://cms.b-s-h.org.uk/guidelines/guidelines/haematological-management-of-major-haemorrhage-2022", "locator": "Veřejný souhrn: časné rozpoznání, spolupráce laboratoře a kliniky; stránka revidována 2025"},
-"giTXA":{"label": "BSG/ACPGBI 2026 · TXA při krvácení do GIT", "url": "https://fg.bmj.com/content/early/2026/02/11/flgastro-2026-103607", "locator": "Interpretation and BSG/ACPGBI position: nepodávat rutinně u akutního horního ani dolního GIT krvácení"},
-
-"mh":{"label": "EMHG 2024 · Malignant hyperthermia crisis", "url": "https://www.emhg.org/recommendations-1/2024/11/4/recognising-and-managing-a-malignant-hyperthermia-crisis-v2024", "locator": "Box 1–2: spouštěče, rozpoznání, dantrolen a sledování"},
-"mhMechanism":{"label": "MHAUS · Podstata maligní hypertermie", "url": "https://www.mhaus.org/about/what-is-mh-mhaus/", "locator": "What is MH? — kalcium a hypermetabolismus kosterního svalu"},
-"last":{"label": "ASRA 2020 · LAST checklist v1.1", "url": "https://asra.com/docs/default-source/guidelines-articles/local-anesthetic-systemic-toxicity-rgb.pdf?sfvrsn=33b348e_2", "locator": "20% lipid, dávky podle hmotnosti, odlišnosti resuscitace, observace"},
-"lastAdvisory":{"label": "ASRA · Third Practice Advisory on LAST, 2017/2018", "url": "https://rapm.bmj.com/content/rapm/43/2/113.full.pdf", "locator": "Prevention a diagnosis: kumulativní dávka, variabilní/opožděné projevy"},
-"nmb":{"label": "ASA 2023 · Monitoring and Antagonism of Neuromuscular Blockade", "url": "https://doi.org/10.1097/ALN.0000000000004379", "locator": "Recommendations: kvantitativní TOF, adductor pollicis, antagonizace"},
-"hypoxia":{"label": "Association of Anaesthetists · QRH 2-2, 2018", "url": "https://anaesthetists.org/Portals/0/PDFs/QRH/QRH_2-2_Hypoxia-desaturation-cyanosis_v1.pdf", "locator": "Hypoxia / desaturation / cyanosis: přívod O₂, pomůcka, okruh, ventilace"},
-"hypotension":{"label": "Association of Anaesthetists · QRH 2-4, 2018", "url": "https://anaesthetists.org/Portals/0/PDFs/QRH/QRH_2-4_Hypotension_v1.pdf", "locator": "Hypotension: kontrola ABC, chirurgické příčiny a léky"},
-"laryngospasm":{"label": "Association of Anaesthetists · QRH 3-6, 2018", "url": "https://anaesthetists.org/Portals/0/PDFs/QRH/QRH_3-6_Laryngospasm_and_stridor_v1.pdf", "locator": "Laryngospasm and stridor: přerušení stimulace, jaw thrust, CPAP a eskalace"},
-"bronchospasm":{"label": "Association of Anaesthetists · QRH 3-4, 2023", "url": "https://anaesthetists.org/Portals/0/PDFs/QRH/QRH_3-4_Bronchospasm_v3_June%202023.pdf", "locator": "Bronchospasm: napodobující stavy, salbutamol, aspirace, ventilace"},
-"gaRisks":{"label": "Royal College of Anaesthetists · Rizika celkové anestezie", "url": "https://rcoa.ac.uk/patients/patient-information-resources/anaesthesia-risk/risks-associated-general-anaesthesia", "locator": "Přehled respiračních, neurologických a mechanických komplikací"},
-"awareness":{"label": "RCoA · Accidental awareness", "url": "https://www.rcoa.ac.uk/patients/patient-information-resources/anaesthesia-risk/risks-associated-general-anaesthesia/accidental-awareness", "locator": "Příčiny a následná péče při vědomém prožitku během celkové anestezie"},
-"ponvSummary":{"label": "Gan et al. · Fifth Consensus Guidelines, executive summary", "url": "https://doi.org/10.1213/ANE.0000000000007816", "locator": "Dospělí: multimodální profylaxe a záchranná léčba jiné třídy; 2025/2026"},
-"bupivacaine":{"label": "Bupivacaine · SmPC, Aspen", "url": "https://www.medicines.org.uk/emc/product/13990/smpc", "locator": "§ 4.1, 4.4, 4.8, 5.1: účinek, dávková závislost, toxicita"},
-"lidocaine":{"label": "Lidocaine · SmPC", "url": "https://www.medicines.org.uk/emc/product/12800/smpc", "locator": "§ 4.1 a 5.1: amidové lokální anestetikum a použití"},
-"ropivacaine":{"label": "Ropivacaine · SmPC, Sandoz", "url": "https://www.medicines.org.uk/emc/product/100394/smpc", "locator": "§ 4.2, 4.5, 6.6: epidurální kombinace s opioidem, aditivní toxicita, kompatibilita"},
-"chloroprocaine":{"label": "Chloroprocaine (Ampres) · SmPC", "url": "https://www.medicines.org.uk/emc/product/15158/smpc", "locator": "§ 5.1–5.2: esterové anestetikum a hydrolýza v plazmě"},
-"highBlock":{"label": "OAA 2024 · High central neuraxial block", "url": "https://www.oaa-anaes.ac.uk/downloads/oaa-qrh/obstetric-quick-reference-handbook-jan-24-.pdf", "locator": "Karta 2-7; porodnický kontext, podpora ABC do odeznění bloku"},
-"neuroRegional":{"label": "ASA 2023 · Neurologické komplikace neuraxiální anestezie v porodnictví", "url": "https://www.asahq.org/standards-and-practice-parameters/statement-on-neurologic-complications-of-neuraxial-analgesia-anesthesia-in-obstetrics", "locator": "Imaging; neurologická konzultace, progresivní deficit a komprese"},
-"antithrombotic":{"label": "ASRA 2025 · Antithrombotic Therapy, 5th edition", "url": "https://rapm.bmj.com/content/early/2025/09/16/rapm-2024-105766", "locator": "Neuraxiální a hluboké blokády, intervaly podle léčiva/dávky/funkce ledvin a katétrů"},
-"pdpH":{"label": "Multisociety consensus · Postdural puncture headache, 2023/2024", "url": "https://rapm.bmj.com/content/49/7/471", "locator": "Diagnóza, varovné příznaky, zobrazování a epidurální krevní zátka"},
-
-"das2025":{"label": "DAS 2025 · Obtížná intubace dospělých", "url": "https://doi.org/10.1016/j.bja.2025.10.006", "locator": "Plány A–D, potvrzení intubace; BJA 136 (2026), s. 283–307"},
-"awake":{"label": "DAS 2019 · Awake tracheal intubation", "url": "https://das.uk.com/guidelines/das-guidelines-for-awake-tracheal-intubation-ati-in-adults/", "locator": "Recommendations 1–8: indikace, oxygenace, lokální anestezie a kontrola polohy"},
-"asaAirway":{"label": "ASA 2022 · Difficult Airway", "url": "https://doi.org/10.1097/ALN.0000000000004002", "locator": "Anticipated difficult airway management: strategie a indikace bdělé intubace"},
-"cspine":{"label": "DAS a další společnosti 2024 · Poranění krční páteře", "url": "https://fphc.rcsed.ac.uk/media/3594/airway-management-in-patients-with-suspected-or-confirmed-cervical-spine-injury.pdf", "locator": "Doporučení 1–9: jaw thrust, videolaryngoskopie, přední díl límce"},
-"airwayBasic":{"label": "AHA 2025 · Adult BLS — zprůchodnění dýchacích cest", "url": "https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-basic-life-support", "locator": "Opening the Airway; Head and Neck Trauma"},
-"upperAirway":{"label": "RCH · Acute upper airway obstruction", "url": "https://www.rch.org.au/clinicalguide/guideline_index/Acute_upper_airway_obstruction/", "locator": "Assessment, differential diagnoses, investigations, treatment; místní pediatrický postup"},
-"croup":{"label": "RCH · Croup (laryngotracheobronchitis)", "url": "https://www.rch.org.au/clinicalguide/guideline_index/Croup_Laryngotracheobronchitis/", "locator": "Závažnost, vyšetření, Medication: severe / life-threatening; dávky dle RCH"},
-"paedAirway":{"label": "RCH · Emergency airway management", "url": "https://www.rch.org.au/clinicalguide/guideline_index/Emergency_airway_management/", "locator": "Key points, preparation, optimisation of physiology, monitoring"},
-"inhaled":{"label": "RCH · Foreign bodies inhaled", "url": "https://www.rch.org.au/clinicalguide/guideline_index/Foreign_bodies_inhaled/", "locator": "Key points, investigations, subacute management; normální RTG nevylučuje aspiraci"},
-
-  pls: {label:'ERC 2025 · Paediatric Life Support',url:'https://www.erc.edu/media/03xnpjmj/gl2025-09-pls-e.pdf',locator:'Concise guidelines: PALS, s. 19–20; algoritmus a reverzibilní příčiny'},
-  pbls: {label:'RCUK 2025 · Paediatric Life Support',url:'https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/paediatric-basic-life-support-guidelines',locator:'PBLS; chest compressions; post-resuscitation care'},
-  nls: {label:'ERC 2025 · Newborn Life Support',url:'https://www.erc.edu/media/rgrn0faa/gl2025-08-nls-e.pdf',locator:'Concise guidelines: circulation a medication, s. 11'},
-  transition: {label:'RCUK 2025 · Newborn resuscitation',url:'https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/newborn-resuscitation-and-support-transition-infants-birth',locator:'Thermal care, cord, initial assessment, lung inflation, oxygen'},
-  wao: {label:'WAO Anaphylaxis Guidance 2020',url:'https://pmc.ncbi.nlm.nih.gov/articles/PMC7607509/',locator:'Definice, tabulka 2, mechanismy, tabulka 6'},
-  special: {label:'ERC 2025 · Special Circumstances',url:'https://www.erc.edu/media/wwufbysp/gl2025-06-spec-circ-e.pdf',locator:'Anaphylaxis: poloha, adrenalin, tekutiny, projevy během anestezie'},
-  anaphylaxis: {label:'RCUK · Emergency treatment of anaphylaxis, 2021',url:'https://www.resus.org.uk/media/337/download',locator:'§ 5.4–5.5, 6 (refrakterní průběh), 7 (tryptáza), 8 (následná péče)'},
-  rc2025: {label:'RCUK 2025 · Special circumstances',url:'https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/special-circumstances-guidelines',locator:'Management and prevention of cardiac arrest due to anaphylaxis'},
-
-  adaDKA: {label: 'ADA 2024–2026 · Hyperglykemické krize u dospělých', url: 'https://doi.org/10.2337/dci23-0085', locator: 'Konsenzus ADA/EASD: definice DKA a HHS, tekutiny, inzulin a kalium'},
-  adaHypo: {label: 'ADA Standards of Care 2024–2026 · Hypoglykemie', url: 'https://doi.org/10.2337/dc24-S006', locator: 'Oddíl 6: úrovně hypoglykemie 1–3, neuroglykopenie a léčba per os / i.v.'},
-  jbdsDKA: {label: 'JBDS-IP 2023/2024 · Léčba DKA u dospělých', url: 'https://abcd.care/sites/abcd.care/files/site_uploads/JBDS_Guidelines_Current/01_JBDS_DKA_Guideline_Updated_June_2023.pdf', locator: 'Britský standard: fixní rychlost inzulinu, časná 5–10% glukóza a pravidla pro kalium'},
-  tisPraha: {label: 'TIS ČR · Zásady terapie akutních intoxikací', url: 'https://www.tis-cz.cz/index.php/informace-pro-odborniky', locator: 'Klinická toxikologie: ABC priority, toxidromy, výplach žaludku a carbo adsorbens'},
-  aactDecon: {label: 'AACT/EAPCCT · Gastrointestinální dekontaminace', url: 'https://doi.org/10.1080/15563650490514867', locator: 'Position papers: odmítnutí rutinního zvracení a výplachu, indikace carbo adsorbens'},
-  extripGroup: {label: 'EXTRIP Workgroup · Mimotělní eliminace u otrav', url: 'https://www.extrip-workgroup.org/guidelines', locator: 'Doporučení pro hemodialýzu: toxické alkoholy, lithium, salicyláty a teofylin'},
-  paracetamolNPIS: {label: 'NPIS / MHRA · Předávkování paracetamolem', url: 'https://www.gov.uk/drug-safety-update/paracetamol-overdose-simplified-treatment-guideline', locator: 'Toxikokinetika NAPQI, nomogram, intravenózní N-acetylcystein a jaterní funkce'},
-  toxicAlcohols: {label: 'EAPCCT / EXTRIP · Metanol a etylenglykol', url: 'https://doi.org/10.1080/15563650.2019.1676895', locator: 'Formiát a oxalát, osmolální a anion gap, fomepizol, etanol a urgentní dialýza'},
-  coGuideline: {label: 'UHMS / CDC · Intoxikace oxidem uhelnatým', url: 'https://www.uhms.org/resources/featured-resources/carbon-monoxide.html', locator: 'COHb, klam pulzní oxymetrie, normobarický 100% O2 a indikace HBO'},
-  opioidWHO: {label: 'WHO / ERC 2025 · Předávkování opioidy', url: 'https://www.who.int/publications/i/item/9789241548816', locator: 'Priorita ventilace, titrovaný naloxon k obnově dechu a riziko relapsu'},
-  tcaToxicology: {label: 'Clinical Toxicology · Intoxikace TCA', url: 'https://doi.org/10.1080/15563650701664860', locator: 'Blokáda sodíkových kanálů, rozšíření QRS, indikace a mechanismus 8,4% natrium bikarbonátu'}
+  "pe2026": {
+    "label": "AHA/ACC multisociety 2026 · Akutní plicní embolie",
+    "url": "https://www.jacc.org/doi/10.1016/j.jacc.2025.11.005",
+    "locator": "Klinické kategorie A–E, diagnostika, antikoagulace a pokročilá léčba; americké doporučení"
+  },
+  "peESC": {
+    "label": "ESC/ERS 2019 · Plicní embolie",
+    "url": "https://academic.oup.com/eurheartj/article/41/4/543/5556136",
+    "locator": "Oddíly 4–7: nestabilita, evropská stratifikace rizika, reperfuze"
+  },
+  "peNICE": {
+    "label": "NICE NG158 · Žilní tromboembolie",
+    "url": "https://www.nice.org.uk/guidance/ng158/chapter/Recommendations",
+    "locator": "1.1 a 1.3–1.4: Wells, D-dimer, zobrazení, antikoagulace a délka léčby"
+  },
+  "akiKDIGO": {
+    "label": "KDIGO 2012 · Akutní poškození ledvin",
+    "url": "https://kdigo.org/wp-content/uploads/2016/10/KDIGO-2012-AKI-Guideline-English.pdf",
+    "locator": "2.1: definice/stadia; oddíl 5: náhrada funkce, modality a antikoagulace"
+  },
+  "akiDraft": {
+    "label": "KDIGO · Stav aktualizace AKI/AKD 2026",
+    "url": "https://kdigo.org/guidelines/acute-kidney-injury/",
+    "locator": "K 29. 10. 2026: po veřejném připomínkování, příprava publikace; návrh není finální guideline"
+  },
+  "akiNICE": {
+    "label": "NICE NG148 · Akutní poškození ledvin",
+    "url": "https://www.nice.org.uk/guidance/ng148/chapter/Recommendations",
+    "locator": "1.3–1.5: detekce, příčina, diuretika a urgentní indikace RRT"
+  },
+  "akiClinical": {
+    "label": "Merck Manual 2026 · AKI",
+    "url": "https://www.merckmanuals.com/professional/nephrology/acute-kidney-injury/acute-kidney-injury-aki",
+    "locator": "Autorský výklad: prerenální, renální a postrenální příčiny, klinika a vyšetření"
+  },
+  "alfAASLD": {
+    "label": "AASLD 2011 · Akutní jaterní selhání",
+    "url": "https://www.aasld.org/sites/default/files/2023-03/Acute%20Liver%20Failure%20Update2011.pdf",
+    "locator": "Definice, časný kontakt transplantačního centra, etiologie a N-acetylcystein; starší position paper"
+  },
+  "alfSCCM": {
+    "label": "SCCM 2023 · Jaterní selhání v ICU, část II",
+    "url": "https://www.sccm.org/clinical-resources/guidelines/guidelines/guidelines-for-the-management-of-liver-failure-2",
+    "locator": "ALF: neurologie, nevhodnost rutinní invazivní ICP monitorace, hypertonický NaCl a výměna plazmy; odlišit od doporučení pro ACLF"
+  },
+  "alfUpdate": {
+    "label": "Management of Acute Liver Failure · Update 2022",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10576953/",
+    "locator": "Odborný přehled: intenzivní péče, CRRT, koagulace a transplantace; není nová společenská guideline"
+  },
+  "hfESC2026": {
+    "label": "ESC 2026 · Srdeční selhání",
+    "url": "https://doi.org/10.1093/eurheartj/ehag100",
+    "locator": "Oddíly 5–7 a 13: nová klasifikace EF, základní léčba, tabulka 9 akutní péče; vydáno 28. 8. 2026"
+  },
+  "hfESC2021": {
+    "label": "ESC 2021 · Akutní srdeční selhání",
+    "url": "https://academic.oup.com/eurheartj/article/42/36/3599/6358045",
+    "locator": "Oddíl 11: akutní diagnostika a léčba; použity principy znovu ověřené v ESC 2026, nikoli stará klasifikace jako aktuální"
+  },
+  "hfNICE": {
+    "label": "NICE CG187 · Akutní srdeční selhání",
+    "url": "https://www.nice.org.uk/guidance/cg187/chapter/Recommendations",
+    "locator": "1.2–1.3: natriuretické peptidy, echokardiografie, bez rutinního Swan–Ganzova katétru"
+  },
+  "hfACC2024": {
+    "label": "ACC 2024 · Léčba HFrEF",
+    "url": "https://www.acc.org/latest-in-cardiology/ten-points-to-remember/2024/03/06/19/22/2024-acc-expert-consensus-hfref",
+    "locator": "Oficiální souhrn konsenzu: zahájení a titrace, betablokátor po kompenzaci; starší definice HFrEF, pro klasifikaci viz ESC 2026"
+  },
+  "pulmonaryEdema": {
+    "label": "Merck Manual 2025 · Plicní edém",
+    "url": "https://www.merckmanuals.com/professional/cardiovascular-disorders/heart-failure/pulmonary-edema",
+    "locator": "Autorský klinický výklad: mechanismus, spouštěče a klinické projevy, nikoli guideline"
+  },
+  "rvAHA": {
+    "label": "AHA 2018 · Pravostranné srdeční selhání",
+    "url": "https://doi.org/10.1161/CIR.0000000000000560",
+    "locator": "Scientific statement: příčiny, venózní kongesce a komorová interdependence"
+  },
+  "rvAcute": {
+    "label": "ACVC/ESC 2024 · Akutní cor pulmonale",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10927027/",
+    "locator": "Konsenzus: náhlé zvýšení afterloadu PK, objem, vazopresory/inotropika a ventilace; není univerzální doporučení pro všechny příčiny RV selhání"
+  },
+  "rvClinical": {
+    "label": "Merck Manual 2025 · Right heart failure and cor pulmonale",
+    "url": "https://www.merckmanuals.com/professional/cardiovascular-disorders/heart-failure/right-heart-failure-and-cor-pulmonale",
+    "locator": "Klinické projevy, zobrazování a odlišení cor pulmonale; autorský výklad"
+  },
+  "phESC": {
+    "label": "ESC/ERS 2022 · Plicní hypertenze",
+    "url": "https://academic.oup.com/eurheartj/article/43/38/3618/6673929",
+    "locator": "Oddíly 6 a 8–10: léčba podle skupiny PH, PH při levostranném selhání, PAH/CTEPH a specializovaná centra"
+  },
+  "nutritionESPEN": {
+    "label": "ESPEN 2023 · Výživa v intenzivní péči",
+    "url": "https://lms.espen.org/files/ESPEN-Guidelines/ESPEN_practical_and_partially_revised_guideline_Clinical_nutrition_in_the_intensive_care_unit.pdf",
+    "locator": "Praktické, částečně revidované doporučení: cesta, načasování, kalorimetrie, energie a protein"
+  },
+  "nutritionESICM": {
+    "label": "ESICM 2017 · Časná enterální výživa",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5323492/",
+    "locator": "Doporučení 1–12: časná EN, šok, kontraindikace a intolerance"
+  },
+  "nutritionAlbumin": {
+    "label": "ASPEN 2021 · Albumin a prealbumin",
+    "url": "https://doi.org/10.1002/ncp.10588",
+    "locator": "Position paper: viscerální proteiny nejsou samostatné ukazatele malnutrice ani adekvátnosti výživy"
+  },
+  "nutritionNICE": {
+    "label": "NICE CG32 · Nutriční podpora dospělých",
+    "url": "https://www.nice.org.uk/guidance/cg32/chapter/Recommendations",
+    "locator": "1.3–1.5: hodnocení, bilance, monitorace; 1.4.6–1.4.8: riziko refeedingu. Obecné doporučení, ne cíle akutní ICU výživy"
+  },
+  "refeedingASPEN": {
+    "label": "ASPEN 2020 · Refeeding syndrom",
+    "url": "https://doi.org/10.1002/ncp.10474",
+    "locator": "Definice a tabulka 6: dospělí v riziku, thiamin, fosfát/K/Mg, postupné navyšování energie"
+  },
+  "padis2018": {
+    "label": "SCCM PADIS 2018 · Bolest a sedace",
+    "url": "https://www.sccm.org/clinical-resources/guidelines/guidelines/guidelines-for-the-prevention-and-management-of-pa",
+    "locator": "Hodnocení bolesti, analgezie před sedací, lehká sedace a nefarmakologická péče; změněné body viz update 2025"
+  },
+  "padis2025": {
+    "label": "SCCM PADIS · Cílená aktualizace 2025",
+    "url": "https://www.sccm.org/clinical-resources/guidelines/guidelines/focused-update-padis-guideline",
+    "locator": "Pět aktualizovaných bodů: úzkost, dexmedetomidin, antipsychotika, mobilizace a melatonin"
+  },
+  "icuBundle": {
+    "label": "SCCM · ICU Liberation ABCDEF",
+    "url": "https://www.sccm.org/clinical-resources/iculiberation-home/abcdef-bundles",
+    "locator": "A–F: bolest, probouzení a dechová zkouška, volba léčiv, delirium, mobilizace a rodina"
+  },
+  "camICU": {
+    "label": "Vanderbilt CIBS · Monitorování deliria",
+    "url": "https://www.icudelirium.org/medical-professionals/delirium/monitoring-delirium-in-the-icu",
+    "locator": "CAM-ICU/ICDSC, manuál a RASS; nelze vyšetřit není totéž co negativní výsledek"
+  },
+  "rassQUT": {
+    "label": "QUT · RASS a CAM-ICU",
+    "url": "https://www.delirium.health.qut.edu.au/identification-and-management/cam-icu",
+    "locator": "Výuková tabulka RASS −5 až +4 a hranice hodnotitelnosti CAM-ICU"
+  },
+  "propofolICU": {
+    "label": "Propofol · SmPC",
+    "url": "https://www.medicines.org.uk/emc/product/11294/smpc",
+    "locator": "4.4 a 4.8: hypotenze, lipidy a propofolový infuzní syndrom"
+  },
+  "dexICU": {
+    "label": "Dexdor · SmPC",
+    "url": "https://www.medicines.org.uk/emc/product/4783/smpc",
+    "locator": "4.2–4.4: lehká sedace, kardiální monitorace, bradykardie/hypotenze; bez nasycovací dávky v ICU"
+  },
+  "midazolamICU": {
+    "label": "Midazolam · SmPC",
+    "url": "https://www.medicines.org.uk/emc/product/3605/smpc",
+    "locator": "4.2 a 5.2: akumulace při dlouhé infuzi, renální a jaterní dysfunkce"
+  },
+  "acidMerck": {
+    "label": "Merck Manual · Acid–base disorders",
+    "url": "https://www.merckmanuals.com/professional/nephrology/acid-base-regulation-and-disorders/acid-base-disorders",
+    "locator": "Autorský klinický výklad: čtyři poruchy, kompenzace, smíšené stavy; nikoli společenské doporučení"
+  },
+  "acidSRLF": {
+    "label": "SRLF/SFMU 2019 · Metabolická acidóza",
+    "url": "https://link.springer.com/article/10.1186/s13613-019-0563-2",
+    "locator": "Diagnostika: očekávaný PaCO₂, anion gap a korekce na albumin"
+  },
+  "bicarICU2": {
+    "label": "BICARICU-2 · Randomizovaná studie 2025",
+    "url": "https://jamanetwork.com/journals/jama/fullarticle/2840824",
+    "locator": "Primární výsledek: 90denní mortalita; sekundární potřeba náhrady funkce ledvin"
+  },
+  "alkalosisMerck": {
+    "label": "Merck Manual · Metabolická alkalóza",
+    "url": "https://www.merckmanuals.com/professional/nephrology/acid-base-regulation-and-disorders/metabolic-alkalosis",
+    "locator": "Chlorid-responzivní a rezistentní alkalóza; léčba příčiny"
+  },
+  "hypoNaEurope": {
+    "label": "Evropské doporučení 2014 · Hyponatremie",
+    "url": "https://academic.oup.com/ejendo/article/170/3/G1/6668028",
+    "locator": "Diagnostika hypotonicity, močová osmolalita a sodík; SIAD jako diagnóza po vyloučení jiných příčin"
+  },
+  "hypoNaEmergency": {
+    "label": "Society for Endocrinology 2022 · Akutní hyponatremie",
+    "url": "https://www.endocrinology.org/media/xhrhxhxm/emergency-management-of-severe-and-moderately-severely-symptomatic-hyponatraemia-in-adult-patients-2022.pdf",
+    "locator": "Algoritmus symptomatických dospělých: 3% NaCl, počáteční cíl, korekční limity a překročení"
+  },
+  "hyperNaNHS": {
+    "label": "NHS Ayrshire & Arran · Hypernatremie",
+    "url": "https://aaamedicines.org.uk/guidelines/electrolyte-disturbances/management-of-hypernatraemia/",
+    "locator": "Místní nemocniční postup: deficit vody, obnova cirkulace, průběžná korekce"
+  },
+  "diabetesInsipidus": {
+    "label": "Society for Endocrinology 2018 · Centrální diabetes insipidus",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6013691/",
+    "locator": "Hospitalizovaný dospělý se známým CDI: bilance, desmopresin, obnova objemu a sledování Na"
+  },
+  "hyperK2026": {
+    "label": "UKKA · Hyperkalemie dospělých, aktualizace červenec 2026",
+    "url": "https://www.ukkidney.org/sites/default/files/documents/FINAL%20VERSION%20-%20UKKA%20CLINICAL%20PRACTICE%20GUIDELINE%20-%20MANAGEMENT%20OF%20HYPERKALAEMIA%20IN%20ADULTS%20-%20UPDATED%20JULY%202026_0.pdf",
+    "locator": "Doporučení 14–18: EKG, kalcium, inzulin/glukóza, eliminace K a monitorace"
+  },
+  "hypoKSPS": {
+    "label": "NHS SPS 2024 · Hypokalemie",
+    "url": "https://sps.nhs.uk/articles/hypokalaemia/",
+    "locator": "Perorální a intravenózní substituce, koncentrace, rychlost a monitorace"
+  },
+  "hypoMgSPS": {
+    "label": "NHS SPS 2024 · Akutní hypomagnezemie",
+    "url": "https://sps.nhs.uk/articles/treating-acute-hypomagnesaemia-in-adults/",
+    "locator": "Dávky v gramech a mmol, rychlost infuze a renální funkce"
+  },
+  "hyperMgProduct": {
+    "label": "Australian Commission · Magnesium sulfate AFT",
+    "url": "https://www.safetyandquality.gov.au/medicine-finder/magnesium-sulfate-aft",
+    "locator": "Produktová informace: předávkování, toxicita, kalcium a dialýza"
+  },
+  "hypoCaEndo": {
+    "label": "Society for Endocrinology · Hypokalcemie, dodatek 2019",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8117371/",
+    "locator": "Upřesnění akutního podání 10% kalcium glukonátu a rozdílu proti chloridu"
+  },
+  "hyperCaEndo": {
+    "label": "Society for Endocrinology 2016 · Akutní hyperkalcemie",
+    "url": "https://www.endocrinology.org/media/4277/emergency-guidance_acute-hypercalcaemia-in-adults.pdf",
+    "locator": "Vyšetření PTH, rehydratace, antiresorpční léčba a renální selhání"
+  },
+  "ardsGlobal": {
+    "label": "Globální definice ARDS · 2023/2024",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10870872/",
+    "locator": "Tabulka 1: čas, zobrazení, původ edému a oxygenace; workshopový konsenzus"
+  },
+  "ardsATS": {
+    "label": "ATS 2024 · Léčba ARDS dospělých",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10870893/",
+    "locator": "Souhrn doporučení: VT, plateau, PEEP, kortikosteroidy, VV-ECMO"
+  },
+  "ardsESICM": {
+    "label": "ESICM 2023 · Respirační podpora u ARDS",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10354163/",
+    "locator": "Doporučení 7.1–7.2: časná pronace při P/F < 150, alespoň 16 hodin"
+  },
+  "ardsNMBA": {
+    "label": "SCCM 2026 · Nervosvalová blokáda u ARDS",
+    "url": "https://www.sccm.org/clinical-resources/guidelines/guidelines/guidelines-for-the-administration-of-neuromuscular-blockade",
+    "locator": "NMBA administration: přetrvávající hypoxemie či nedosažení ventilačních cílů při sedaci"
+  },
+  "ventAssessment": {
+    "label": "AARC 2024 · Patient–Ventilator Assessment",
+    "url": "https://doi.org/10.4187/respcare.12007",
+    "locator": "Doporučení: VT/PBW, plateau, PEEP/auto-PEEP, driving pressure, zvlhčení a rourka"
+  },
+  "ventSBT": {
+    "label": "AARC 2024 · Spontaneous Breathing Trials",
+    "url": "https://www.aarc.org/wp-content/uploads/2023/11/CPG2024SpontaneousBreathingTrial.pdf",
+    "locator": "Doporučení 1–4; SBT není totéž co extubace"
+  },
+  "ventPrimer": {
+    "label": "AACN · Mechanical Ventilation Settings",
+    "url": "https://aacn.s3-us-west-2.amazonaws.com/Courses/ecco/course-resources/resources/pulmonary2/ecco-pulmonary-mechanical-ventilation-settings.pdf",
+    "locator": "Výukový materiál, s. 2–5: AC, PCV, PSV a PEEP/CPAP; základní principy, nikoli aktuální ARDS protokol"
+  },
+  "ventTrouble": {
+    "label": "Vanderbilt · Introduction to Ventilator Management",
+    "url": "https://vimbook.vumc.org/critical-care/introduction-vent-management",
+    "locator": "Výukový nemocniční text: plateau, auto-PEEP a diferenciální diagnostika alarmů"
+  },
+  "ventSafe": {
+    "label": "AARC/UHC · Safe Initiation and Management of Mechanical Ventilation",
+    "url": "https://www.aarc.org/wp-content/uploads/2017/03/Issue-Paper-Safe-Initiation-and-Management-of-Mechanical-Ventilation.pdf",
+    "locator": "Nastavení pro pacienta, alarmy, kontrola okruhu a odpovědi na změny; základní bezpečnostní dokument"
+  },
+  "ardsnet": {
+    "label": "NHLBI ARDSNet · Protokol FACTT",
+    "url": "https://biolincc.nhlbi.nih.gov/media/studies/factt/Protocol.pdf",
+    "locator": "Oddíl C: predikovaná hmotnost, cílový VT 6 ml/kg a titrace podle tlaků/pH; historický výzkumný protokol"
+  },
+  "oxygenSRLF": {
+    "label": "SRLF/SFMU 2024 · Akutní hypoxemické respirační selhání",
+    "url": "https://link.springer.com/article/10.1186/s13613-024-01367-2",
+    "locator": "Otázka 7: indikace a zvažování intubace; konsenzus panelu"
+  },
+  "ssc2026": {
+    "label": "SSC 2026 · Sepse a septický šok dospělých",
+    "url": "https://www.sccm.org/clinical-resources/guidelines/guidelines/surviving-sepsis-campaign-international-guidelines-for-management-of-sepsis-and-septic-shock-2026",
+    "locator": "Screening, antibiotic initiation, source control, fluid resuscitation, MAP, vasopressors"
+  },
+  "sepsis3": {
+    "label": "Sepsis-3 · Mezinárodní konsenzus 2016",
+    "url": "https://doi.org/10.1001/jama.2016.0287",
+    "locator": "Definice sepse a šoku, SOFA a omezení SIRS/qSOFA"
+  },
+  "amr2026": {
+    "label": "IDSA 2026 · Antimikrobiální rezistence",
+    "url": "https://www.idsociety.org/practice-guideline/amr-guidance/",
+    "locator": "General Management Suggestions: empirická léčba, délka a převod na p.o.; americký kontext"
+  },
+  "atbPK": {
+    "label": "ESICM/ESCMID a další · TDM v intenzivní péči, 2020",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7223855/",
+    "locator": "PK/PD, beta-laktamy, aminoglykosidy, nasycovací dávka a změny clearance"
+  },
+  "vancoAUC": {
+    "label": "ASHP/IDSA/PIDS/SIDP 2020 · Vankomycin",
+    "url": "https://www.idsociety.org/practice-guideline/vancomycin",
+    "locator": "Executive summary: závažné MRSA infekce, AUC24 400–600 při MIC 1 mg/l"
+  },
+  "cultures": {
+    "label": "CDC · Odběr hemokultur u dospělých",
+    "url": "https://www.cdc.gov/lab-quality/php/preventing-adult-blood-culture-contamination/collect.html",
+    "locator": "Alespoň dvě sady, objem, aseptický odběr a identifikace vzorků"
+  },
+  "steroidsShock": {
+    "label": "SCCM 2024 · Kortikosteroidy u septického šoku",
+    "url": "https://doi.org/10.1097/CCM.0000000000006172",
+    "locator": "Doporučení 1A/1B a tabulka 4: běžný režim hydrokortizonu, ne vysoké krátké pulzy"
+  },
+  "candidaDuration": {
+    "label": "IDSA 2016 · Kandidémie",
+    "url": "https://www.idsociety.org/practice-guideline/candidiasis/",
+    "locator": "Doporučení 11–12: kontrolní kultury a délka nekomplikované kandidémie u non-neutropenických"
+  },
+  "traumaBleeding": {
+    "label": "Evropské doporučení 2023 · Krvácení po traumatu, 6. vydání",
+    "url": "https://link.springer.com/article/10.1186/s13054-023-04327-7",
+    "locator": "Doporučení 9–11, 13, 23, 29 a 31: Hb, koagulace, tlak, TXA, fibrinogen, kalcium"
+  },
+  "traumaNICE": {
+    "label": "NICE NG39 · Major trauma, 2016",
+    "url": "https://www.nice.org.uk/guidance/ng39/chapter/Recommendations",
+    "locator": "1.4.1–2; 1.5.3, 13–18, 27–38: hrudník, krvácení, zobrazování a operace"
+  },
+  "traumaFirstAid": {
+    "label": "RCUK 2025 · First aid",
+    "url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/first-aid-guidelines",
+    "locator": "Life-threatening bleeding; scene safety; prevention of hypothermia"
+  },
+  "atls11": {
+    "label": "ACS 2025 · Zavedení ATLS 11",
+    "url": "https://www.facs.org/for-medical-professionals/news-publications/news-and-articles/acs-brief/september-16-2025-issue/trauma-care-gets-major-upgrade-with-launch-of-atls-11/",
+    "locator": "Oficiální oznámení: xABCDE, katastrofické zevní krvácení před airway; nejde o celý manuál"
+  },
+  "berlin": {
+    "label": "Pape et al. 2014 · Berlínská definice polytraumatu",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/25494433/",
+    "locator": "Původní konsenzus: AIS ≥ 3 ve dvou oblastech a přidružené rizikové kritérium"
+  },
+  "uhsTrauma": {
+    "label": "UHS · Adult Major Trauma Guidelines, místní postup 2022",
+    "url": "https://www.uhs.nhs.uk/Media/SUHTExtranet/WessexTraumaNetwork/UHS-adult-major-trauma-guidelines.pdf",
+    "locator": "Oddíly 2.1–2.6, 2.9: základní vyšetření a organizace; nepřebíráme starší dávkové protokoly"
+  },
+  "majorHaemorrhage": {
+    "label": "BSH 2022 · Major haemorrhage",
+    "url": "https://cms.b-s-h.org.uk/guidelines/guidelines/haematological-management-of-major-haemorrhage-2022",
+    "locator": "Veřejný souhrn: časné rozpoznání, spolupráce laboratoře a kliniky; stránka revidována 2025"
+  },
+  "giTXA": {
+    "label": "BSG/ACPGBI 2026 · TXA při krvácení do GIT",
+    "url": "https://fg.bmj.com/content/early/2026/02/11/flgastro-2026-103607",
+    "locator": "Interpretation and BSG/ACPGBI position: nepodávat rutinně u akutního horního ani dolního GIT krvácení"
+  },
+  "mh": {
+    "label": "EMHG 2024 · Malignant hyperthermia crisis",
+    "url": "https://www.emhg.org/recommendations-1/2024/11/4/recognising-and-managing-a-malignant-hyperthermia-crisis-v2024",
+    "locator": "Box 1–2: spouštěče, rozpoznání, dantrolen a sledování"
+  },
+  "mhMechanism": {
+    "label": "MHAUS · Podstata maligní hypertermie",
+    "url": "https://www.mhaus.org/about/what-is-mh-mhaus/",
+    "locator": "What is MH? — kalcium a hypermetabolismus kosterního svalu"
+  },
+  "last": {
+    "label": "ASRA 2020 · LAST checklist v1.1",
+    "url": "https://asra.com/docs/default-source/guidelines-articles/local-anesthetic-systemic-toxicity-rgb.pdf?sfvrsn=33b348e_2",
+    "locator": "20% lipid, dávky podle hmotnosti, odlišnosti resuscitace, observace"
+  },
+  "lastAdvisory": {
+    "label": "ASRA · Third Practice Advisory on LAST, 2017/2018",
+    "url": "https://rapm.bmj.com/content/rapm/43/2/113.full.pdf",
+    "locator": "Prevention a diagnosis: kumulativní dávka, variabilní/opožděné projevy"
+  },
+  "nmb": {
+    "label": "ASA 2023 · Monitoring and Antagonism of Neuromuscular Blockade",
+    "url": "https://doi.org/10.1097/ALN.0000000000004379",
+    "locator": "Recommendations: kvantitativní TOF, adductor pollicis, antagonizace"
+  },
+  "hypoxia": {
+    "label": "Association of Anaesthetists · QRH 2-2, 2018",
+    "url": "https://anaesthetists.org/Portals/0/PDFs/QRH/QRH_2-2_Hypoxia-desaturation-cyanosis_v1.pdf",
+    "locator": "Hypoxia / desaturation / cyanosis: přívod O₂, pomůcka, okruh, ventilace"
+  },
+  "hypotension": {
+    "label": "Association of Anaesthetists · QRH 2-4, 2018",
+    "url": "https://anaesthetists.org/Portals/0/PDFs/QRH/QRH_2-4_Hypotension_v1.pdf",
+    "locator": "Hypotension: kontrola ABC, chirurgické příčiny a léky"
+  },
+  "laryngospasm": {
+    "label": "Association of Anaesthetists · QRH 3-6, 2018",
+    "url": "https://anaesthetists.org/Portals/0/PDFs/QRH/QRH_3-6_Laryngospasm_and_stridor_v1.pdf",
+    "locator": "Laryngospasm and stridor: přerušení stimulace, jaw thrust, CPAP a eskalace"
+  },
+  "bronchospasm": {
+    "label": "Association of Anaesthetists · QRH 3-4, 2023",
+    "url": "https://anaesthetists.org/Portals/0/PDFs/QRH/QRH_3-4_Bronchospasm_v3_June%202023.pdf",
+    "locator": "Bronchospasm: napodobující stavy, salbutamol, aspirace, ventilace"
+  },
+  "gaRisks": {
+    "label": "Royal College of Anaesthetists · Rizika celkové anestezie",
+    "url": "https://rcoa.ac.uk/patients/patient-information-resources/anaesthesia-risk/risks-associated-general-anaesthesia",
+    "locator": "Přehled respiračních, neurologických a mechanických komplikací"
+  },
+  "awareness": {
+    "label": "RCoA · Accidental awareness",
+    "url": "https://www.rcoa.ac.uk/patients/patient-information-resources/anaesthesia-risk/risks-associated-general-anaesthesia/accidental-awareness",
+    "locator": "Příčiny a následná péče při vědomém prožitku během celkové anestezie"
+  },
+  "ponvSummary": {
+    "label": "Gan et al. · Fifth Consensus Guidelines, executive summary",
+    "url": "https://doi.org/10.1213/ANE.0000000000007816",
+    "locator": "Dospělí: multimodální profylaxe a záchranná léčba jiné třídy; 2025/2026"
+  },
+  "bupivacaine": {
+    "label": "Bupivacaine · SmPC, Aspen",
+    "url": "https://www.medicines.org.uk/emc/product/13990/smpc",
+    "locator": "§ 4.1, 4.4, 4.8, 5.1: účinek, dávková závislost, toxicita"
+  },
+  "lidocaine": {
+    "label": "Lidocaine · SmPC",
+    "url": "https://www.medicines.org.uk/emc/product/12800/smpc",
+    "locator": "§ 4.1 a 5.1: amidové lokální anestetikum a použití"
+  },
+  "ropivacaine": {
+    "label": "Ropivacaine · SmPC, Sandoz",
+    "url": "https://www.medicines.org.uk/emc/product/100394/smpc",
+    "locator": "§ 4.2, 4.5, 6.6: epidurální kombinace s opioidem, aditivní toxicita, kompatibilita"
+  },
+  "chloroprocaine": {
+    "label": "Chloroprocaine (Ampres) · SmPC",
+    "url": "https://www.medicines.org.uk/emc/product/15158/smpc",
+    "locator": "§ 5.1–5.2: esterové anestetikum a hydrolýza v plazmě"
+  },
+  "highBlock": {
+    "label": "OAA 2024 · High central neuraxial block",
+    "url": "https://www.oaa-anaes.ac.uk/downloads/oaa-qrh/obstetric-quick-reference-handbook-jan-24-.pdf",
+    "locator": "Karta 2-7; porodnický kontext, podpora ABC do odeznění bloku"
+  },
+  "neuroRegional": {
+    "label": "ASA 2023 · Neurologické komplikace neuraxiální anestezie v porodnictví",
+    "url": "https://www.asahq.org/standards-and-practice-parameters/statement-on-neurologic-complications-of-neuraxial-analgesia-anesthesia-in-obstetrics",
+    "locator": "Imaging; neurologická konzultace, progresivní deficit a komprese"
+  },
+  "antithrombotic": {
+    "label": "ASRA 2025 · Antithrombotic Therapy, 5th edition",
+    "url": "https://rapm.bmj.com/content/early/2025/09/16/rapm-2024-105766",
+    "locator": "Neuraxiální a hluboké blokády, intervaly podle léčiva/dávky/funkce ledvin a katétrů"
+  },
+  "pdpH": {
+    "label": "Multisociety consensus · Postdural puncture headache, 2023/2024",
+    "url": "https://rapm.bmj.com/content/49/7/471",
+    "locator": "Diagnóza, varovné příznaky, zobrazování a epidurální krevní zátka"
+  },
+  "das2025": {
+    "label": "DAS 2025 · Obtížná intubace dospělých",
+    "url": "https://doi.org/10.1016/j.bja.2025.10.006",
+    "locator": "Plány A–D, potvrzení intubace; BJA 136 (2026), s. 283–307"
+  },
+  "awake": {
+    "label": "DAS 2019 · Awake tracheal intubation",
+    "url": "https://das.uk.com/guidelines/das-guidelines-for-awake-tracheal-intubation-ati-in-adults/",
+    "locator": "Recommendations 1–8: indikace, oxygenace, lokální anestezie a kontrola polohy"
+  },
+  "asaAirway": {
+    "label": "ASA 2022 · Difficult Airway",
+    "url": "https://doi.org/10.1097/ALN.0000000000004002",
+    "locator": "Anticipated difficult airway management: strategie a indikace bdělé intubace"
+  },
+  "cspine": {
+    "label": "DAS a další společnosti 2024 · Poranění krční páteře",
+    "url": "https://fphc.rcsed.ac.uk/media/3594/airway-management-in-patients-with-suspected-or-confirmed-cervical-spine-injury.pdf",
+    "locator": "Doporučení 1–9: jaw thrust, videolaryngoskopie, přední díl límce"
+  },
+  "airwayBasic": {
+    "label": "AHA 2025 · Adult BLS — zprůchodnění dýchacích cest",
+    "url": "https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-basic-life-support",
+    "locator": "Opening the Airway; Head and Neck Trauma"
+  },
+  "upperAirway": {
+    "label": "RCH · Acute upper airway obstruction",
+    "url": "https://www.rch.org.au/clinicalguide/guideline_index/Acute_upper_airway_obstruction/",
+    "locator": "Assessment, differential diagnoses, investigations, treatment; místní pediatrický postup"
+  },
+  "croup": {
+    "label": "RCH · Croup (laryngotracheobronchitis)",
+    "url": "https://www.rch.org.au/clinicalguide/guideline_index/Croup_Laryngotracheobronchitis/",
+    "locator": "Závažnost, vyšetření, Medication: severe / life-threatening; dávky dle RCH"
+  },
+  "paedAirway": {
+    "label": "RCH · Emergency airway management",
+    "url": "https://www.rch.org.au/clinicalguide/guideline_index/Emergency_airway_management/",
+    "locator": "Key points, preparation, optimisation of physiology, monitoring"
+  },
+  "inhaled": {
+    "label": "RCH · Foreign bodies inhaled",
+    "url": "https://www.rch.org.au/clinicalguide/guideline_index/Foreign_bodies_inhaled/",
+    "locator": "Key points, investigations, subacute management; normální RTG nevylučuje aspiraci"
+  },
+  "pls": {
+    "label": "ERC 2025 · Paediatric Life Support",
+    "url": "https://www.erc.edu/media/03xnpjmj/gl2025-09-pls-e.pdf",
+    "locator": "Concise guidelines: PALS, s. 19–20; algoritmus a reverzibilní příčiny"
+  },
+  "pbls": {
+    "label": "RCUK 2025 · Paediatric Life Support",
+    "url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/paediatric-basic-life-support-guidelines",
+    "locator": "PBLS; chest compressions; post-resuscitation care"
+  },
+  "nls": {
+    "label": "ERC 2025 · Newborn Life Support",
+    "url": "https://www.erc.edu/media/rgrn0faa/gl2025-08-nls-e.pdf",
+    "locator": "Concise guidelines: circulation a medication, s. 11"
+  },
+  "transition": {
+    "label": "RCUK 2025 · Newborn resuscitation",
+    "url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/newborn-resuscitation-and-support-transition-infants-birth",
+    "locator": "Thermal care, cord, initial assessment, lung inflation, oxygen"
+  },
+  "wao": {
+    "label": "WAO Anaphylaxis Guidance 2020",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7607509/",
+    "locator": "Definice, tabulka 2, mechanismy, tabulka 6"
+  },
+  "special": {
+    "label": "ERC 2025 · Special Circumstances",
+    "url": "https://www.erc.edu/media/wwufbysp/gl2025-06-spec-circ-e.pdf",
+    "locator": "Anaphylaxis: poloha, adrenalin, tekutiny, projevy během anestezie"
+  },
+  "anaphylaxis": {
+    "label": "RCUK · Emergency treatment of anaphylaxis, 2021",
+    "url": "https://www.resus.org.uk/media/337/download",
+    "locator": "§ 5.4–5.5, 6 (refrakterní průběh), 7 (tryptáza), 8 (následná péče)"
+  },
+  "rc2025": {
+    "label": "RCUK 2025 · Special circumstances",
+    "url": "https://www.resus.org.uk/professional-library/2025-resuscitation-guidelines/special-circumstances-guidelines",
+    "locator": "Management and prevention of cardiac arrest due to anaphylaxis"
+  },
+  "adaDKA": {
+    "label": "ADA/EASD a další 2024 · Hyperglykemické krize",
+    "url": "https://doi.org/10.2337/dci24-0032",
+    "locator": "Konsenzus 2024: kalium, terapie a kritéria úpravy DKA; diagnostika potvrzena ADA 2026."
+  },
+  "adaHypo": {
+    "label": "ADA Standards of Care 2026 · Hypoglykemie",
+    "url": "https://doi.org/10.2337/dc26-S006",
+    "locator": "Oddíl 6: klasifikace, perorální léčba, glukagon a prevence."
+  },
+  "jbdsDKA": {
+    "label": "JBDS-IP 2023 · DKA dospělých",
+    "url": "https://www.diabetes.org.uk/sites/default/files/2023-03/JBDS%2002%20DKA%20Guideline%20with%20qr%20code.pdf",
+    "locator": "Tekutiny, fixní inzulin a monitorování; novější kritéria z ADA/EASD 2024 uváděna odděleně."
+  },
+  "tisPraha": {
+    "label": "TIS ČR · Konzultace akutních otrav",
+    "url": "https://www.tis-cz.cz/",
+    "locator": "Kontakty a konzultace; konkrétní postup podle látky a pacienta."
+  },
+  "aactDecon": {
+    "label": "AACT/EAPCCT 2013 · Výplach žaludku",
+    "url": "https://www.clintox.org/wp-content/uploads/2016/04/Gastric-Lavage-2013.pdf",
+    "locator": "Výplach není rutinní; přínos nejistý, závažná rizika a potřeba zkušeného týmu."
+  },
+  "extripGroup": {
+    "label": "EXTRIP Workgroup · Mimotělní eliminace u otrav",
+    "url": "https://www.extrip-workgroup.org/guidelines",
+    "locator": "Doporučení pro hemodialýzu: toxické alkoholy, lithium, salicyláty a teofylin"
+  },
+  "paracetamolNPIS": {
+    "label": "MHRA · Paracetamol a acetylcystein",
+    "url": "https://www.gov.uk/drug-safety-update/treating-paracetamol-overdose-with-intravenous-acetylcysteine-new-guidance",
+    "locator": "Nomogram a jeho omezení, časná léčba NAC; britský postup, místní režim s TIS."
+  },
+  "toxicAlcohols": {
+    "label": "EXTRIP · Metanol",
+    "url": "https://www.extrip-workgroup.org/methanol",
+    "locator": "Indikace dialýzy u metanolu; etylenglykol má samostatný algoritmus."
+  },
+  "coGuideline": {
+    "label": "CDC · Klinická péče při otravě CO",
+    "url": "https://www.cdc.gov/carbon-monoxide/hcp/clinical-guidance/index.html",
+    "locator": "Klinika, CO-oxymetrie, oxygenoterapie a zvážení HBO; koncentrace sama neurčuje tíži."
+  },
+  "opioidWHO": {
+    "label": "WHO 2014 · Community management of opioid overdose",
+    "url": "https://www.who.int/publications/i/item/9789241548816",
+    "locator": "Komunitní rozpoznání, naloxon a podpora dýchání; nemocniční postup doplněn AHA 2025."
+  },
+  "tcaToxicology": {
+    "label": "AHA 2025 · Otravy blokátory sodíkových kanálů",
+    "url": "https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-and-pediatric-special-circumstances-of-resuscitation/",
+    "locator": "TCA: hypertonický bikarbonát, oběhová podpora; flumazenil pouze ve vybraných situacích."
+  }
 };
+Object.assign(answerSources, completionSources);
 export const answers = {
   A18: {
     title:'KPR u dětí a resuscitace novorozence při porodu',
@@ -2047,251 +2524,325 @@ export const answers = {
   ]
 },
   B27: {
-    title: 'Akutní stavy v diabetologii: hypoglykemie, DKA a HHS',
-    reviewed: '2026-10-30',
-    edition: 'ADA / EASD 2024–2026 · JBDS-IP 2023/2024',
-    scope: 'Zkouškový přehled akutních komplikací diabetu u dospělých. Zahrnuje klinickou stratifikaci hypoglykemie a diferenciální diagnostiku i léčbu DKA a HHS (tekutiny, kalium, inzulin, glukóza). Pediatrická specifika a chronická kompenzace vyžadují samostatné postupy.',
-    opening: 'Akutní diabetické stavy dělím na hypoglykemické příhody a hyperglykemické krize. U těžké hypoglykemie je prioritou okamžité podání glukózy k ochraně mozku. U hyperglykemií rozlišuji ketoacidózu (DKA) s dominující acidózou a hyperosmolární stav (HHS) s extrémní dehydratací a osmolalitou. V obou případech má obnova objemu a kontrola kalia přednost před unáhleným snižováním glykemie.',
-    openingRefs: ['adaDKA', 'adaHypo'],
-    sections: [
-      {
-        title: '1. Hypoglykemie: rozpoznání, patofyziologie a akutní léčba',
-        refs: ['adaHypo'],
-        paragraphs: [
-          'Hypoglykemie je definována poklesem glykemie pod 3,9 mmol/l (úroveň 1). Úroveň 2 (< 3,0 mmol/l) znamená závažný pokles vyžadující okamžitý zásah a úroveň 3 představuje těžkou hypoglykemii se změnou vědomí nebo kognitivní funkcí vyžadující pomoc druhé osoby bez ohledu na konkrétní číslo glykemie.',
-          'Příznaky dělím na adrenergní (pocení, třes, tachykardie, palpitace, bledost, anxieta a hlad) a neuroglykopenické (zmatenost, poruchy chování, afázie, křeče, ložiskový neurologický deficit napodobující cévní mozkovou příhodu a bezvědomí). U dlouhodobých diabetiků či autonomní neuropatie mohou vegetativní varovné signály zcela chybět (hypoglycaemia unawareness).',
-          'Při zachovaném vědomí a schopnosti polykat podám 15–20 g rychle vstřebatelných sacharidů (ovocný džus, glukózové tablety; pravidlo 15/15 s kontrolou glykemie po 15 minutách). U poruchy vědomí je lékem volby intravenózní glukóza: doporučuje se 10% nebo 20% glukóza (např. 100–150 ml 10% nebo 50–80 ml 20% glukózy). Neředěná bolusová 40% glukóza nese vysoké riziko flebitidy a nekrózy tkání při extravazaci.',
-          'Bez i.v. vstupu aplikuji glukagon 1 mg i.m./s.c. (či nosní sprej 3 mg); glukagon však selhává při vyčerpaném jaterním glykogenu (kachexie, dlouhodobé hladovění, intoxikace etanolem). U hypoglykemií vyvolaných deriváty sulfonylurey či dlouhodobě působícími inzuliny hrozí protrahovaný a rekurentní průběh vyžadující hospitalizaci a kontinuální infuzi glukózy.'
-        ]
-      },
-      {
-        title: '2. DKA versus HHS: patofyziologie a diagnostika',
-        refs: ['adaDKA', 'jbdsDKA'],
-        paragraphs: [
-          'Diabetická ketoacidóza (DKA) vzniká při absolutním či těžkém relativním nedostatku inzulinu v kombinaci s převahou kontraregulačních hormonů (glukagon, kortizol, katecholaminy). Dochází k masivní lipolýze, uvolnění volných mastných kyselin a jejich jaterní oxidaci na ketolátky (kyselina beta-hydroxymáselná a acetoctová). Výsledkem je metabolická acidóza s vysokým aniontovým gapem (HAGMA), kompenzační hyperventilace (Kussmaulovo dýchání), acetonový zápach dechu, nauzea, zvracení a bolesti břicha (pseudoperitonitis diabetica).',
-          'Diagnostická triáda DKA zahrnuje hyperglykemii (obvykle > 11–14 mmol/l, i když u euglykemické DKA, např. při léčbě glifloziny SGLT2-i, těhotenství či hladovění, může být glykemie normální!), ketonemii (beta-hydroxybutyrát v krvi ≥ 3,0 mmol/l či výraznou ketonurii) a acidózu (pH < 7,30 nebo sérový bikarbonát < 18 mmol/l s anion gapem > 10–12 mmol/l). Deficit tekutin činí obvykle 5–8 litrů.',
-          'Hyperglykemický hyperosmolární stav (HHS) typicky postihuje starší pacienty s DM2 po týdnech zhoršování. Zbytková sekrece inzulinu postačuje k potlačení masivní lipolýzy a ketogeneze, ale nestačí k utilizaci glukózy. Dochází k extrémní hyperglykemii (často > 30–40 mmol/l), těžké osmotické diuréze a masivní dehydrataci (deficit 8–10+ litrů).',
-          'Kritéria HHS: efektivní osmolalita séra > 320 mOsm/kg [vypočtená jako 2×Na + glykemie], těžká hyperglykemie, absence významné ketózy/acidózy (pH > 7,30, bikarbonát > 18 mmol/l) a alterace vědomí (somnolence, zmatenost, křeče až hluboké kóma). HHS nese vysokou mortalitu a výrazné riziko trombembolických komplikací.'
-        ]
-      },
-      {
-        title: '3. Tekutinová resuscitace a dynamika osmolality',
-        refs: ['adaDKA', 'jbdsDKA'],
-        paragraphs: [
-          'Obnova intravaskulárního objemu a perfuze tkání je prvním krokem léčby DKA i HHS ještě před podáním inzulinu. Zlepšuje citlivost na inzulin, snižuje hladiny stresových hormonů a zahajuje pokles glykemie samotnou expanzí a glomerulární filtrací.',
-          'Zahajuji infuzí izotonického krystaloidu (balancovaný roztok jako Plasmalyte/Ringerfundin nebo 0,9% NaCl): obvykle 1000 ml v první hodině (10–15 ml/kg/h) u dospělého bez kardiálního selhání. Rychlost dalších infuzí (typicky 250–500 ml/h) individualizuji podle hemodynamiky, bilance a korigovaného sodíku.',
-          'Protože hyperglykemie osmoticky přesouvá vodu z buněk do cév a zdánlivě snižuje naměřený sodík, počítám korigovaný natrium [naměřený Na + 1,6 až 2,0 mmol/l na každých 5,5 mmol/l glykemie nad normu]. Stoupající korigovaný sodík při léčbě varuje před dehydratací, zatímco příliš prudký pokles efektivní osmolality zvyšuje riziko edému mozku.',
-          'Cílem rehydratace u DKA je nahradit deficit během 24–48 hodin; u HHS probíhá rehydratace pozvolněji (během 48–72 hodin) s průběžným sledováním bilance tekutin a centrální hemodynamiky.'
-        ]
-      },
-      {
-        title: '4. Inzulinoterapie a kritická role draslíku',
-        refs: ['adaDKA', 'jbdsDKA'],
-        paragraphs: [
-          'Kalium je absolutní prioritou bezpečnosti. Acidóza a nedostatek inzulinu vyhánějí kalium z buněk do extracelulárního prostoru; počáteční kalemie v séru proto může být normální či zvýšená, ačkoli celotělový deficit draslíku vlivem osmotické diurézy činí 300–500 mmol.',
-          'Inzulin a hydratace prudce přesouvají draslík zpět do buněk. Pokud je kalemie < 3,3 mmol/l, INZULIN SE NESMÍ ZAHÁJIT! Podání inzulinu při těžké hypokalemii by vedlo k fatálnímu poklesu K+, maligním komorovým arytmiím a zástavě dechového svalstva. Nejprve podám KCl a inzulin zahájím až po vzestupu kalia nad 3,3 mmol/l.',
-          'Při kalii 3,3–5,2 mmol/l přidávám 20–30 mmol KCl do každého litru infuze současně se zahájením inzulinu, aby se kalemie udržela v bezpečném rozmezí 4,0–5,0 mmol/l. Inzulin se podává jako kontinuální i.v. infuze rychlého lidského inzulinu v dávce 0,1 j/kg/h (či 0,05–0,1 j/kg/h). Úvodní i.v. bolus není nezbytný a u dětí je zcela opuštěn.',
-          'Cílem je bezpečný pokles glykemie o 3–4 mmol/l za hodinu. Jakmile glykemie klesne pod 11–14 mmol/l u DKA (nebo pod 14–17 mmol/l u HHS), PŘIDÁVÁ SE DO INFUZE 5% NEBO 10% GLUKÓZA! Inzulin se nezastavuje, pouze sníží na 0,02–0,05 j/kg/h. Cílem je udržet stabilní glykemii a pokračovat v podávání inzulinu až do úplného vymizení ketoacidózy (normalizace bikarbonátu a uzavření anion gapu).'
-        ]
-      },
-      {
-        title: '5. Bikarbonát, edém mozku a vyvolávající příčiny',
-        refs: ['adaDKA', 'jbdsDKA'],
-        paragraphs: [
-          'Rutinní podávání natrium bikarbonátu u DKA je ZAKÁZÁNO. Klinické studie neprokázaly zkrácení hospitalizace ani pokles mortality, naopak bikarbonát nese závažná rizika: paradoxní intracelulární a mozkovou acidózu (exogenní bikarbonát se mění na CO2, který volně difunduje přes hematoencefalickou bariéru, zatímco bikarbonát ne), zhoršení hypokalemie, posun disociační křivky Hb doleva s tkáňovou hypoxií a opožděný pokles laktátu. Zvažuje se pouze u extrémní acidózy s pH < 6,9 spojené s oběhovým selháním.',
-          'Edém mozku je vzácná, ale nejnebezpečnější komplikace (častější u dětí a mladých dospělých při DKA a u starších při HHS). Rizikovým faktorem je příliš rychlý pokles glykemie a osmolality a nadměrný přívod hypotonických tekutin. Příznaky zahrnují bolest hlavy, letargii, bradykardii, hypertenzi (Cushingova reakce) a pokles vědomí. Léčba: okamžité podání 20% mannitolu (0,5–1 g/kg během 20 min) nebo 3% NaCl (2,5–3 ml/kg), elevace hlavy a snížení rychlosti infuzí.',
-          'Každá hyperglykemická krize má spouštěcí příčinu, po které musím aktivně pátrat: infekce (urosepse, pneumonie – odebrat hemokultury), kardiovaskulární příhoda (akutní infarkt myokardu – u diabetika často němý!), cévní mozková příhoda, akutní pankreatitida, trauma, chirurgický výkon, pochybení v dávkování inzulinu nebo selhání inzulinové pumpy. Vzhledem k hyperkoagulačnímu stavu zahajuji profylaktické podávání LMWH (zejména u imobilních pacientů s HHS).'
-        ]
-      }
-    ],
-    corrections: [
-      'Při těžké hypoglykemii v bezvědomí nepodávat neředěnou 40% glukózu jako bolus; standardem je 10% nebo 20% glukóza šetřící žíly.',
-      'Inzulin se u DKA nikdy nezahajuje při kalémii pod 3,3 mmol/l; hrozí fatální hypokalemická zástava oběhu.',
-      'Při poklesu glykemie k 11–14 mmol/l se inzulin nevypíná, ale přidává se glukóza k infuzi pro bezpečné dohojení ketoacidózy; bikarbonát se nepodává rutinně.'
-    ],
-    checks: [
-      {
-        question: 'Pacient s DKA má glykemii 28 mmol/l, pH 7,12, ale kalium v laboratoři je 2,9 mmol/l. Jaký je tvůj první krok s inzulinem?',
-        answer: 'Inzulin nezahájím! Nejprve podám kalium (např. 20–40 mmol KCl/h do centrální žíly) a inzulin spustím až po vzestupu kalia nad 3,3 mmol/l.',
-        refs: ['adaDKA', 'jbdsDKA']
-      },
-      {
-        question: 'Proč se při DKA při poklesu glykemie na 12 mmol/l začíná infundovat 5% nebo 10% glukóza, když měl pacient hyperglykemii?',
-        answer: 'Abychom předešli hypoglykemii a zároveň mohli pokračovat v kontinuální infuzi inzulinu, která je nutná k zastavení ketogeneze a normalizaci anion gapu.',
-        refs: ['jbdsDKA']
-      },
-      {
-        question: 'Jaký je zásadní rozdíl v patofyziologii mezi DKA a HHS?',
-        answer: 'U DKA je absolutní/těžký deficit inzulinu vedoucí k masivní lipolýze, ketogenezi a acidóze. U HHS je zbytkový inzulin, který brání ketóze, ale vede k extrémní hyperglykemii, dehydrataci a hyperosmolalitě.',
-        refs: ['adaDKA']
-      }
-    ]
-  },
+  "title": "Akutní stavy v diabetologii: hypoglykemie, DKA a HHS",
+  "reviewed": "2026-10-31",
+  "edition": "ADA/EASD 2024 · ADA 2026 · JBDS 2023",
+  "scope": "Zkouškový přehled akutních komplikací diabetu u dospělých. Zahrnuje klinickou stratifikaci hypoglykemie a diferenciální diagnostiku i léčbu DKA a HHS (tekutiny, kalium, inzulin, glukóza). Pediatrická specifika a chronická kompenzace vyžadují samostatné postupy.",
+  "opening": "Akutní diabetické stavy dělím na hypoglykemické příhody a hyperglykemické krize. U těžké hypoglykemie je prioritou okamžité podání glukózy k ochraně mozku. U hyperglykemií rozlišuji ketoacidózu (DKA) s dominující acidózou a hyperosmolární stav (HHS) s extrémní dehydratací a osmolalitou. V obou případech má obnova objemu a kontrola kalia přednost před unáhleným snižováním glykemie.",
+  "openingRefs": [
+    "adaDKA",
+    "adaHypo"
+  ],
+  "sections": [
+    {
+      "title": "1. Hypoglykemie: rozpoznání, patofyziologie a akutní léčba",
+      "refs": [
+        "adaHypo",
+        "jbdsFront"
+      ],
+      "paragraphs": [
+        "Hypoglykemie úrovně 1 je glykemie 3,0 až < 3,9 mmol/l, úrovně 2 < 3,0 mmol/l; úroveň 3 je závažná příhoda vyžadující pomoc jiné osoby bez ohledu na naměřené číslo.",
+        "Příznaky dělím na adrenergní (pocení, třes, tachykardie, palpitace, bledost, anxieta a hlad) a neuroglykopenické (zmatenost, poruchy chování, afázie, křeče, ložiskový neurologický deficit napodobující cévní mozkovou příhodu a bezvědomí). U dlouhodobých diabetiků či autonomní neuropatie mohou vegetativní varovné signály zcela chybět (hypoglycaemia unawareness).",
+        "Při vědomí a bezpečném polykání podám 15 g rychlých sacharidů a zkontroluji glykemii za 15 minut. Při poruše vědomí nic ústy; podle JBDS dospělému i.v. 200 ml 10% nebo 100 ml 20% glukózy během 15 minut, s časnou kontrolou glykemie a další léčbou podle odpovědi. Zkontroluji žilní vstup a riziko extravazace.",
+        "Bez i.v. vstupu aplikuji glukagon 1 mg i.m./s.c. (či nosní sprej 3 mg); glukagon však selhává při vyčerpaném jaterním glykogenu (kachexie, dlouhodobé hladovění, intoxikace etanolem). U hypoglykemií vyvolaných deriváty sulfonylurey či dlouhodobě působícími inzuliny hrozí protrahovaný a rekurentní průběh vyžadující hospitalizaci a kontinuální infuzi glukózy."
+      ]
+    },
+    {
+      "title": "2. DKA versus HHS: patofyziologie a diagnostika",
+      "refs": [
+        "periopDiabetes",
+        "oldStructure"
+      ],
+      "paragraphs": [
+        "Diabetická ketoacidóza (DKA) vzniká při absolutním či těžkém relativním nedostatku inzulinu v kombinaci s převahou kontraregulačních hormonů (glukagon, kortizol, katecholaminy). Dochází k masivní lipolýze, uvolnění volných mastných kyselin a jejich jaterní oxidaci na ketolátky (kyselina beta-hydroxymáselná a acetoctová). Výsledkem je metabolická acidóza s vysokým aniontovým gapem (HAGMA), kompenzační hyperventilace (Kussmaulovo dýchání), acetonový zápach dechu, nauzea, zvracení a bolesti břicha (pseudoperitonitis diabetica).",
+        "DKA vyžaduje tři složky: glykemie ≥ 11,1 mmol/l nebo známý diabetes; β-hydroxybutyrát ≥ 3,0 mmol/l (alternativně močové ketony ≥ 2+); pH < 7,3 a/nebo bikarbonát < 18 mmol/l. Euglykemická DKA například při SGLT2 inhibitorech proto není vyloučena normální či jen mírně zvýšenou glykemií.",
+        "Hyperglykemický hyperosmolární stav (HHS) typicky postihuje starší pacienty s DM2 po týdnech zhoršování. Zbytková sekrece inzulinu postačuje k potlačení masivní lipolýzy a ketogeneze, ale nestačí k utilizaci glukózy. Dochází k extrémní hyperglykemii (často > 30–40 mmol/l), těžké osmotické diuréze a masivní dehydrataci (deficit 8–10+ litrů).",
+        "HHS podle ADA 2026: glykemie ≥ 33,3 mmol/l; efektivní osmolalita > 300 nebo celková > 320 mOsm/kg; β-hydroxybutyrát < 3,0 mmol/l (močové ketony < 2+); pH ≥ 7,3 a bikarbonát ≥ 15 mmol/l. Efektivní osmolalita = 2×Na + glukóza, celková navíc zahrnuje ureu (vše v mmol/l). Porucha vědomí je možná, není povinným kritériem. Smíšený DKA/HHS je častý."
+      ]
+    },
+    {
+      "title": "3. Tekutinová resuscitace a dynamika osmolality",
+      "refs": [
+        "jbdsDKA",
+        "adaDKA"
+      ],
+      "paragraphs": [
+        "Obnova intravaskulárního objemu a perfuze tkání je prvním krokem léčby DKA i HHS ještě před podáním inzulinu. Zlepšuje citlivost na inzulin, snižuje hladiny stresových hormonů a zahajuje pokles glykemie samotnou expanzí a glomerulární filtrací.",
+        "Zahajuji infuzí izotonického krystaloidu (balancovaný roztok jako Plasmalyte/Ringerfundin nebo 0,9% NaCl): obvykle 1000 ml v první hodině (10–15 ml/kg/h) u dospělého bez kardiálního selhání. Rychlost dalších infuzí (typicky 250–500 ml/h) individualizuji podle hemodynamiky, bilance a korigovaného sodíku.",
+        "Během léčby sleduji sodík společně s glukózou a osmolalitou. Vzestup naměřeného Na při poklesu glykemie může být očekávaný přesun vody zpět do buněk; sám neznamená nutnost hypotonické infuze. U HHS je cílový pokles osmolality přibližně 3–8 mOsm/kg/h; rychlejší pokles je nežádoucí.",
+        "Objem i rychlost upravuji podle perfuze, diurézy, bilance, ledvin a srdeční rezervy. U křehkého či objemově citlivého pacienta menší bolusy s častou kontrolou. Glykemii kontroluji zpočátku po 1–2 hodinách, ionty, ketony a acidobazickou rovnováhu opakovaně dle urgentního protokolu."
+      ]
+    },
+    {
+      "title": "4. Inzulinoterapie a kritická role draslíku",
+      "refs": [
+        "adaDKA",
+        "jbdsDKA"
+      ],
+      "paragraphs": [
+        "Kalium je absolutní prioritou bezpečnosti. Acidóza a nedostatek inzulinu vyhánějí kalium z buněk do extracelulárního prostoru; počáteční kalemie v séru proto může být normální či zvýšená, ačkoli celotělový deficit draslíku vlivem osmotické diurézy činí 300–500 mmol.",
+        "Při K < 3,5 mmol/l inzulin odložím, doplňuji kalium za monitorace a zahájím jej až při K > 3,5 mmol/l. Konsenzus 2024 uvádí úvodní náhradu 10 mmol/h; konkrétní koncentrace, vstup a rychlost musejí odpovídat monitoraci, ledvinám a místnímu protokolu.",
+        "Kalium dále doplňuji podle opakovaných kontrol s cílem 4–5 mmol/l. U DKA se používá kontinuální i.v. inzulin 0,1 j/kg/h; nekomplikovaný HHS bez významné ketózy má nižší režim 0,05 j/kg/h. Smíšený DKA/HHS léčím jako DKA. Režimy nezaměňuji a sleduji odpověď.",
+        "U DKA při glykemii < 13,9 mmol/l přidám 5–10% glukózu a obvykle snížím inzulin na 0,05 j/kg/h. Úprava DKA: ketony < 0,6 mmol/l a současně (pH ≥ 7,3 nebo bikarbonát ≥ 18 mmol/l). Anion gap ani močové ketony nejsou vhodným cílem ukončení. Přechod na s.c. inzulin vyžaduje časový překryv."
+      ]
+    },
+    {
+      "title": "5. Bikarbonát, edém mozku a vyvolávající příčiny",
+      "refs": [
+        "adaDKA",
+        "jbdsDKA"
+      ],
+      "paragraphs": [
+        "Bikarbonát není rutinní léčbou DKA; při těžké acidemii s pH < 7,0 jej konsenzus připouští ke zvážení. Potřebu určuje klinický kontext a intenzivní monitorace, zejména kalia.",
+        "Nová bolest hlavy, porucha vědomí, křeče nebo abnormální oběhová reakce vyžadují urgentní posouzení možné mozkové komplikace a jiných příčin. Zajistím zkušený tým a cílenou léčbu; nepřenáším dětské dávky osmoterapie do dospělého zkouškového algoritmu.",
+        "Každá hyperglykemická krize má spouštěcí příčinu, po které musím aktivně pátrat: infekce (urosepse, pneumonie – odebrat hemokultury), kardiovaskulární příhoda (akutní infarkt myokardu – u diabetika často němý!), cévní mozková příhoda, akutní pankreatitida, trauma, chirurgický výkon, pochybení v dávkování inzulinu nebo selhání inzulinové pumpy. Vzhledem k hyperkoagulačnímu stavu zahajuji profylaktické podávání LMWH (zejména u imobilních pacientů s HHS)."
+      ]
+    }
+  ],
+  "corrections": [
+    "Při bezvědomí nic ústy; intravenózní glukózu titrovat podle kontroly a bezpečného vstupu.",
+    "Práh kalia pro odklad inzulinu je podle konsenzu 2024 3,5 mmol/l, nikoli starší 3,3.",
+    "HHS nevyžaduje kóma; úpravu DKA neurčuje jen normalizace glykemie ani uzavření anion gapu."
+  ],
+  "checks": [
+    {
+      "question": "Pacient s DKA má glykemii 28 mmol/l, pH 7,12, ale kalium v laboratoři je 2,9 mmol/l. Jaký je tvůj první krok s inzulinem?",
+      "answer": "Inzulin nezahájím. Nejprve monitorovaná náhrada kalia; inzulin až po vzestupu nad 3,5 mmol/l.",
+      "refs": [
+        "adaDKA",
+        "jbdsDKA"
+      ]
+    },
+    {
+      "question": "Proč se při DKA při poklesu glykemie na 12 mmol/l začíná infundovat 5% nebo 10% glukóza, když měl pacient hyperglykemii?",
+      "answer": "Glukóza umožní pokračovat v inzulinu do úpravy ketózy a acidózy bez hypoglykemie; normalizace glykemie sama nestačí.",
+      "refs": [
+        "jbdsDKA"
+      ]
+    },
+    {
+      "question": "Jaký je zásadní rozdíl v patofyziologii mezi DKA a HHS?",
+      "answer": "U DKA je absolutní/těžký deficit inzulinu vedoucí k masivní lipolýze, ketogenezi a acidóze. U HHS je zbytkový inzulin, který brání ketóze, ale vede k extrémní hyperglykemii, dehydrataci a hyperosmolalitě.",
+      "refs": [
+        "adaDKA"
+      ]
+    }
+  ]
+},
   B28: {
-    title: 'Intoxikace: dělení, toxidromy, dekontaminace a zásady léčby',
-    reviewed: '2026-10-30',
-    edition: 'TIS ČR · AACT / EAPCCT · EXTRIP',
-    scope: 'Obecné zkouškové zásady akutní klinické toxikologie u dospělých. Zahrnuje priority ABCDE, rozpoznání hlavních toxidromů, moderní indikace a kontraindikace gastrointestinální dekontaminace (aktivní uhlí versus výplach) a indikace mimotělní eliminace. Specifické monointoxikace jsou vypracovány v B29.',
-    opening: 'Při intoxikaci má zajištění a stabilizace vitálních funkcí (ABCDE) absolutní přednost před pátráním po konkrétním jedu a sháněním antidota. Většina pacientů přežije díky včasné podpůrné intenzivní péči. Diagnostika se opírá o rozpoznání klinických toxidromů, EKG a konzultaci s Toxikologickým informačním střediskem (TIS). Postupy jako nucené zvracení či rutinní výplach žaludku jsou dnes v moderní medicíně opuštěny.',
-    openingRefs: ['tisPraha', 'aactDecon'],
-    sections: [
-      {
-        title: '1. Priorita vitálních funkcí (ABCDE) před pátráním po jedu',
-        refs: ['tisPraha'],
-        paragraphs: [
-          'První minuty péče o otráveného se řídí schématem ABCDE. Nejčastější příčinou úmrtí před zahájením léčby je asfyxie z obstrukce dýchacích cest jazykem či zvratky a hypoventilace vyvolaná útlumem dechového centra. Zajištění dýchacích cest orotracheální intubací s utěsněnou manžetou je indikováno při bezvědomí (GCS ≤ 8), zániku obranných reflexů hltanu nebo těžké hypoxemii/hyperkapnii.',
-          'Oxygenace a ventilace předcházejí hypoxickému poškození mozku a arytmiím. Oběhová stabilizace zahrnuje monitoraci EKG, invazivní měření tlaku a úvodní krystaloidní infuze při vazodilataci či hypovolemii; při refrakterní hypotenzi se volí noradrenalin. Hypotermie či hypertermie musí být aktivně měřeny a korigovány.',
-          'U každého pacienta s poruchou vědomí nejasného původu neprodleně změřím glykemii u lůžka k vyloučení hypoglykemie. Současně zajišťuji toxikologické vzorky (nesrážlivá a sražená krev, první vzorek moči a případný zvratek/žaludeční obsah) a kontaktuji nepřetržitou linku Toxikologického informačního střediska (TIS Praha: 224 91 92 93 nebo 224 91 54 02).'
-        ]
-      },
-      {
-        title: '2. Dělení intoxikací a úskalí toxikologické anamnézy',
-        refs: ['tisPraha'],
-        paragraphs: [
-          'Intoxikace dělím podle úmyslu na suicidální (často polypragmazie a kombinace léků s alkoholem u dospělých), náhodné (typicky děti do 5 let požívající čisticí prostředky, kosmetiku či léky prarodičů; senioři s kognitivní poruchou; záměna hub; profesionální a inhalační otravy zplodinami hoření) a kriminální/zneužití návykových látek.',
-          'Anamnéza od otráveného pacienta je ze své podstaty nespolehlivá vlivem lhaní, studu, amnézie či zmatenosti. Informace získávám od rodiny, svědků a posádky ZZS: nález prázdných lékových blistrů, lahví chemikálií, dopisu na rozloučenou, čas expozice a dostupné léky v domácnosti.',
-          'Při laboratorním screeningu si uvědomuji jeho limity: orientační imunochemické testy moči mají falešné pozitivity i negativity a neposkytují kvantitativní hladinu. Kvantitativní stanovení v séru je urgentně nutné u látek se specifickým antidotem či prahem pro dialýzu: paracetamol, salicyláty, lithium, digoxin, toxické alkoholy, karboxyhemoglobin a methemoglobin.'
-        ]
-      },
-      {
-        title: '3. Toxidromy: rozpoznání farmakologických tříd',
-        refs: ['tisPraha'],
-        paragraphs: [
-          'Toxidrom je soubor fyzikálních a laboratorních nálezů typický pro určitou skupinu toxinů působících na specifické receptory. Pomáhá zúžit diferenciální diagnózu dříve, než jsou dostupné laboratorní výsledky.',
-          'Anticholinergní toxidrom (atropin, tricyklická antidepresiva, antihistaminika 1. generace, spazmolytika): mydriáza, suchá a horká kůže, suchost sliznic, retence moči, tachykardie, střevní hypomotilita, zmatenost, halucinace a hypertermie („suchý jako kost, červený jako řepa, slepý jako krtek, horký jako pec, šílený jako kloboučník“).',
-          'Cholinergní toxidrom (organofosfáty, karbamáty, nervově paralytické látky): mióza, masivní pocení, slinění, slzení, bronchorea a bronchospasmus, bradykardie, průjem, křeče a svalové fascikulace až svalová obrna (mnemotechnika SLUDGE / DUMBELS: salivation, lacrimation, urination, defecation, GI upset, emesis).',
-          'Opioidní toxidrom: triáda útlum dechu (bradypnoe/apnoe), mióza (špendlíkovité zornice) a kóma; doprovázená hypotenzí a hypotermií. Sedativně-hypnotický toxidrom (benzodiazepiny, barbituráty, Z-léky): ataxie, dysartrie, letargie, normální či zúžené zornice, malý vliv na oběh a dech v monointoxikaci.',
-          'Sympatomimetický toxidrom (kokain, pervitin, extáze, amfetaminy): mydriáza, tachykardie, hypertenze, profúzní pocení (zásadní odlišení od suchého anticholinergního syndromu!), třes, agitovanost, hypertermie a riziko křečí, infarktu a rhabdomyolýzy.'
-        ]
-      },
-      {
-        title: '4. Gastrointestinální dekontaminace: současné indikace a mýty',
-        refs: ['aactDecon'],
-        paragraphs: [
-          'Vyvolání zvracení (pomocí ipekaku, slané vody či mechanického dráždění) je v moderní toxikologii ZAKÁZÁNO. Nemá prokázaný přínos, oddaluje podání aktivního uhlí a hrozí masivní aspirací žaludečního obsahu do dýchacích cest, rupturou jícnu (Mallory-Weiss) a fatální vagovou stimulací.',
-          'Výplach žaludku se rutinně NEPROVÁDÍ. Má být zvažován pouze výjimečně, pokud pacient požil potenciálně život ohrožující množství toxinu před méně než 60 minutami, a to pouze za předpokladu plného vědomí NEBO po předchozím zajištění dýchacích cest orotracheální intubací s nafouknutou manžetou. Výplach v bezvědomí bez intubace je hrubé pochybení non lege artis.',
-          'Kontraindikace výplachu žaludku: požití korozivních látek (kyseliny a louhy – hrozí perforace jícnu a žaludku), požití pěnivých látek a těkavých uhlovodíků/ropných destilátů (benzín, petrolej – extrémní riziko chemické aspirační pneumonitidy s plicní nekrózou) a porucha vědomí bez zajištění dýchacích cest.',
-          'Aktivní uhlí (Carbo adsorbens) je lékem volby pro gastrointestinální dekontaminaci: jednorázová dávka 1 g/kg (obvykle 50–100 g u dospělého) per os či žaludeční sondou do 1–2 hodin od požití. Aktivní uhlí NEVÁŽE: alkoholy a glykoly, kovy (železo, lithium, olovo), anorganické kyseliny a louhy, kyanidy a fluoridy.',
-          'Opakované dávky aktivního uhlí („gastrointestinální dialýza“, 25–50 g každé 2–4 hodiny) jsou indikovány pouze u vybraných látek s enterohepatální/enterogastrickou cirkulací či pomalým uvolňováním: teofylin, karbamazepin, fenobarbital, dapsone a chinin.'
-        ]
-      },
-      {
-        title: '5. Mimotělní eliminace a přehled klíčových antidot',
-        refs: ['extripGroup', 'tisPraha'],
-        paragraphs: [
-          'Hemodialýza je účinná u toxinů s malým distribučním objemem (< 1–2 l/kg), nízkou vazbou na plazmatické bílkoviny, malou molekulovou hmotností a rozpustností ve vodě. Hlavní indikace dle konsenzu EXTRIP: těžké otravy metanolem a etylenglykolem, lithiem, salicyláty a teofylinem. U látek s vysokým distribučním objemem (tricyklická antidepresiva, digoxin, benzodiazepiny) je dialýza zcela neúčinná.',
-          'Alkalizace moči (kontinuální infuze 8,4% natrium bikarbonátu k udržení pH moči 7,5–8,5) využívá iontového zachycení slabých kyselin v renálních tubulech a brání jejich zpětné resorpci. Je indikována u závažné intoxikace salicyláty, fenobarbitalem a methotrexátem. Historická „forsírovaná diuréza“ s masivním převodněním je pro riziko plicního a mozkového edému opuštěna.',
-          'Specifická antidota zasahují cíleným biochemickým mechanismem. Mezi klíčová patří: naloxon (antagonista opioidů), N-acetylcystein (dárce glutathionu u paracetamolu), fomepizol či etanol (inhibitory ADH u toxických alkoholů), atropin a pralidoxim (kompetice a reaktivace AChE u organofosfátů), flumazenil (antagonista benzodiazepinů – pozor na kontraindikace!), hydroxykobalamin (vazba kyanidů na kyanokobalamin) a 8,4% natrium bikarbonát (antidotum kardiotoxicity TCA).',
-          'U intoxikace beta-blokátory a blokátory vápníkových kanálů se uplatňuje vysokodávkovaná inzulinoterapie s glukózou (HIET) a glukagon; u toxicity lokálními anestetiky (LAST) a lipofilními kardiotoxiny je lékem volby 20% intravenózní lipidová emulze.'
-        ]
-      }
-    ],
-    corrections: [
-      'Vyvolání zvracení po požití jedu je v současné medicíně zakázáno pro vysoké riziko aspirace.',
-      'Výplach žaludku se neprovádí rutinně a je absolutně kontraindikován u kyselin, louhů, benzínu a bezvědomí bez intubace.',
-      'Aktivní uhlí neadsorbuje alkoholy, kovy (lithium, železo) ani kyseliny a louhy; dialýza je neúčinná u látek s vysokým distribučním objemem.'
-    ],
-    checks: [
-      {
-        question: 'Pacient v hlubokém kómatu (GCS 5) požil před 45 minutami neznámé léky. Můžeš ihned zavést sondu a provést výplach žaludku?',
-        answer: 'Ne! V bezvědomí bez zajištěných dýchacích cest je výplach přísně kontraindikován pro riziko aspirace. Nejprve musím provést orotracheální intubaci s utěsněnou manžetou.',
-        refs: ['aactDecon']
-      },
-      {
-        question: 'Proč je vyvolání zvracení u intoxikace čisticím prostředkem na bázi louhu hrubou chybou?',
-        answer: 'Louh je korozivní látka. Při zvracení dochází k opakovanému poleptání jícnu a hltanu s rizikem perforace a aspirace do dýchacích cest.',
-        refs: ['aactDecon', 'tisPraha']
-      },
-      {
-        question: 'Mladý muž má po požití neznámé látky mydriázu, tachykardii a hypertenzi. Jak podle kůže odlišíš sympatomimetický syndrom od anticholinergního?',
-        answer: 'Podle pocení: sympatomimetický syndrom má výrazně opocenou kůži, zatímco anticholinergní syndrom se vyznačuje horkou, suchou kůží a suchostí sliznic.',
-        refs: ['tisPraha']
-      }
-    ]
-  },
+  "title": "Intoxikace: dělení, toxidromy, dekontaminace a zásady léčby",
+  "reviewed": "2026-10-31",
+  "edition": "TIS ČR · AACT / EAPCCT · EXTRIP",
+  "scope": "Obecné zkouškové zásady akutní klinické toxikologie u dospělých. Zahrnuje priority ABCDE, rozpoznání hlavních toxidromů, moderní indikace a kontraindikace gastrointestinální dekontaminace (aktivní uhlí versus výplach) a indikace mimotělní eliminace. Specifické monointoxikace jsou vypracovány v B29.",
+  "opening": "Při intoxikaci má zajištění a stabilizace vitálních funkcí (ABCDE) absolutní přednost před pátráním po konkrétním jedu a sháněním antidota. Většina pacientů přežije díky včasné podpůrné intenzivní péči. Diagnostika se opírá o rozpoznání klinických toxidromů, EKG a konzultaci s Toxikologickým informačním střediskem (TIS). Postupy jako nucené zvracení či rutinní výplach žaludku jsou dnes v moderní medicíně opuštěny.",
+  "openingRefs": [
+    "tisPraha",
+    "aactDecon"
+  ],
+  "sections": [
+    {
+      "title": "1. Priorita vitálních funkcí (ABCDE) před pátráním po jedu",
+      "refs": [
+        "ahaTox",
+        "tisPraha"
+      ],
+      "paragraphs": [
+        "Při otravě nejprve zajistím bezpečí zasahujících a ABCDE. O intubaci rozhoduje průchodnost a ochrana dýchacích cest, ventilace, oxygenace a očekávaný průběh; izolované GCS ≤ 8 není u všech intoxikací automatickou indikací.",
+        "Oxygenace a ventilace předcházejí hypoxickému poškození mozku a arytmiím. Oběhová stabilizace zahrnuje monitoraci EKG, invazivní měření tlaku a úvodní krystaloidní infuze při vazodilataci či hypovolemii; při refrakterní hypotenzi se volí noradrenalin. Hypotermie či hypertermie musí být aktivně měřeny a korigovány.",
+        "U každého pacienta s poruchou vědomí nejasného původu neprodleně změřím glykemii u lůžka k vyloučení hypoglykemie. Současně zajišťuji toxikologické vzorky (nesrážlivá a sražená krev, první vzorek moči a případný zvratek/žaludeční obsah) a kontaktuji nepřetržitou linku Toxikologického informačního střediska (TIS Praha: 224 91 92 93 nebo 224 91 54 02)."
+      ]
+    },
+    {
+      "title": "2. Dělení intoxikací a úskalí toxikologické anamnézy",
+      "refs": [
+        "tisPraha"
+      ],
+      "paragraphs": [
+        "Intoxikace dělím podle úmyslu na suicidální (často polypragmazie a kombinace léků s alkoholem u dospělých), náhodné (typicky děti do 5 let požívající čisticí prostředky, kosmetiku či léky prarodičů; senioři s kognitivní poruchou; záměna hub; profesionální a inhalační otravy zplodinami hoření) a kriminální/zneužití návykových látek.",
+        "Anamnéza může být neúplná kvůli poruše vědomí, stresu, neznalosti látky nebo obavám. Bez obviňování doplním údaje od svědků a z obalů: co, kolik, kdy, jakou cestou, další látky, hmotnost a dosavadní příznaky.",
+        "Při laboratorním screeningu si uvědomuji jeho limity: orientační imunochemické testy moči mají falešné pozitivity i negativity a neposkytují kvantitativní hladinu. Kvantitativní stanovení v séru je urgentně nutné u látek se specifickým antidotem či prahem pro dialýzu: paracetamol, salicyláty, lithium, digoxin, toxické alkoholy, karboxyhemoglobin a methemoglobin."
+      ]
+    },
+    {
+      "title": "3. Toxidromy: rozpoznání farmakologických tříd",
+      "refs": [
+        "tisPraha"
+      ],
+      "paragraphs": [
+        "Toxidrom je soubor fyzikálních a laboratorních nálezů typický pro určitou skupinu toxinů působících na specifické receptory. Pomáhá zúžit diferenciální diagnózu dříve, než jsou dostupné laboratorní výsledky.",
+        "Anticholinergní toxidrom (atropin, tricyklická antidepresiva, antihistaminika 1. generace, spazmolytika): mydriáza, suchá a horká kůže, suchost sliznic, retence moči, tachykardie, střevní hypomotilita, zmatenost, halucinace a hypertermie („suchý jako kost, červený jako řepa, slepý jako krtek, horký jako pec, šílený jako kloboučník“).",
+        "Cholinergní toxidrom (organofosfáty, karbamáty, nervově paralytické látky): mióza, masivní pocení, slinění, slzení, bronchorea a bronchospasmus, bradykardie, průjem, křeče a svalové fascikulace až svalová obrna (mnemotechnika SLUDGE / DUMBELS: salivation, lacrimation, urination, defecation, GI upset, emesis).",
+        "Opioidní toxidrom: triáda útlum dechu (bradypnoe/apnoe), mióza (špendlíkovité zornice) a kóma; doprovázená hypotenzí a hypotermií. Sedativně-hypnotický toxidrom (benzodiazepiny, barbituráty, Z-léky): ataxie, dysartrie, letargie, normální či zúžené zornice, malý vliv na oběh a dech v monointoxikaci.",
+        "Sympatomimetický toxidrom (kokain, pervitin, extáze, amfetaminy): mydriáza, tachykardie, hypertenze, profúzní pocení (zásadní odlišení od suchého anticholinergního syndromu!), třes, agitovanost, hypertermie a riziko křečí, infarktu a rhabdomyolýzy."
+      ]
+    },
+    {
+      "title": "4. Gastrointestinální dekontaminace: současné indikace a mýty",
+      "refs": [
+        "aactDecon",
+        "charcoal2026"
+      ],
+      "paragraphs": [
+        "Zvracení rutinně nevyvolávám, nepoužívám slanou vodu ani mechanické dráždění. Hrozí aspirace a poruchy vnitřního prostředí a zdržuje se účinná péče.",
+        "Výplach žaludku se rutinně nedoporučuje ani při časném příchodu. Výjimečné použití po život ohrožující expozici vyžaduje toxikologické posouzení přínosu proti riziku a zkušený tým; samotná hranice 60 minut není indikací.",
+        "Kontraindikací je nechráněná dýchací cesta při poruše ochranných reflexů, korozivní látky a zejména uhlovodíky s vysokým aspiračním rizikem; zohledním riziko krvácení a perforace. Intubace neodstraňuje všechna rizika výplachu.",
+        "Aktivní uhlí podávám jen při relevantní poživatelné látce, kterou váže, a přijatelném riziku aspirace. Doporučení 2026 rozlišuje konkrétní látky, dávky a pokračující absorpci; univerzální pravidlo jedné či dvou hodin neplatí pro všechny situace. Alkoholy, lithium či železo jím účinně neodstraním.",
+        "Opakované dávky mají místo u vybraných toxinů a nejsou totéž jako opakování neúplně vypité první dávky. Indikaci a režim konzultuji s TIS, zejména při poruše pasáže nebo vědomí."
+      ]
+    },
+    {
+      "title": "5. Mimotělní eliminace a přehled klíčových antidot",
+      "refs": [
+        "extripGroup",
+        "tisPraha"
+      ],
+      "paragraphs": [
+        "Hemodialýza je účinná u toxinů s malým distribučním objemem (< 1–2 l/kg), nízkou vazbou na plazmatické bílkoviny, malou molekulovou hmotností a rozpustností ve vodě. Hlavní indikace dle konsenzu EXTRIP: těžké otravy metanolem a etylenglykolem, lithiem, salicyláty a teofylinem. U látek s vysokým distribučním objemem (tricyklická antidepresiva, digoxin, benzodiazepiny) je dialýza zcela neúčinná.",
+        "Alkalizace moči má specifické indikace, zejména salicyláty, a vyžaduje odborný protokol s kontrolou pH, kalia, objemu a ledvin. Nejde o neředěnou univerzální infuzi 8,4% bikarbonátu ani o forsírovanou diurézu. Těžká otrava může vyžadovat dialýzu bez čekání na efekt alkalizace.",
+        "Specifická antidota zasahují cíleným biochemickým mechanismem. Mezi klíčová patří: naloxon (antagonista opioidů), N-acetylcystein (dárce glutathionu u paracetamolu), fomepizol či etanol (inhibitory ADH u toxických alkoholů), atropin a pralidoxim (kompetice a reaktivace AChE u organofosfátů), flumazenil (antagonista benzodiazepinů – pozor na kontraindikace!), hydroxykobalamin (vazba kyanidů na kyanokobalamin) a 8,4% natrium bikarbonát (antidotum kardiotoxicity TCA).",
+        "U intoxikace beta-blokátory a blokátory vápníkových kanálů se uplatňuje vysokodávkovaná inzulinoterapie s glukózou (HIET) a glukagon; u toxicity lokálními anestetiky (LAST) a lipofilními kardiotoxiny je lékem volby 20% intravenózní lipidová emulze."
+      ]
+    }
+  ],
+  "corrections": [
+    "Vyvolání zvracení po požití jedu je v současné medicíně zakázáno pro vysoké riziko aspirace.",
+    "Výplach žaludku se neprovádí rutinně a je absolutně kontraindikován u kyselin, louhů, benzínu a bezvědomí bez intubace.",
+    "Aktivní uhlí neadsorbuje alkoholy, kovy (lithium, železo) ani kyseliny a louhy; dialýza je neúčinná u látek s vysokým distribučním objemem."
+  ],
+  "checks": [
+    {
+      "question": "Pacient v hlubokém kómatu (GCS 5) požil před 45 minutami neznámé léky. Můžeš ihned zavést sondu a provést výplach žaludku?",
+      "answer": "Výplach není rutinní. Nechráněné dýchací cesty při poruše vědomí jsou kontraindikací; ani po orotracheální intubaci není automaticky vhodný. Přínos a rizika musí posoudit zkušený tým s TIS.",
+      "refs": [
+        "aactDecon"
+      ]
+    },
+    {
+      "question": "Proč je vyvolání zvracení u intoxikace čisticím prostředkem na bázi louhu hrubou chybou?",
+      "answer": "Louh je korozivní látka. Při zvracení dochází k opakovanému poleptání jícnu a hltanu s rizikem perforace a aspirace do dýchacích cest.",
+      "refs": [
+        "aactDecon",
+        "tisPraha"
+      ]
+    },
+    {
+      "question": "Mladý muž má po požití neznámé látky mydriázu, tachykardii a hypertenzi. Jak podle kůže odlišíš sympatomimetický syndrom od anticholinergního?",
+      "answer": "Podle pocení: sympatomimetický syndrom má výrazně opocenou kůži, zatímco anticholinergní syndrom se vyznačuje horkou, suchou kůží a suchostí sliznic.",
+      "refs": [
+        "tisPraha"
+      ]
+    }
+  ]
+},
   B29: {
-    title: 'Vybrané intoxikace: paracetamol, toxické alkoholy, CO, opioidy a psychofarmaka',
-    reviewed: '2026-10-30',
-    edition: 'TIS ČR · NPIS / MHRA · EAPCCT / EXTRIP · UHMS · WHO / ERC 2025',
-    scope: 'Klinický zkouškový přehled nejčastějších a nejzávažnějších specifických intoxikací u dospělých. Zahrnuje paracetamol a N-acetylcystein, toxické alkoholy (metanol a etylenglykol), oxid uhelnatý, opioidy a psychofarmaka (benzodiazepiny a TCA). Právní aspekty a chronická závislost vyžadují samostatný kontext.',
-    opening: 'Při léčbě specifických otrav kombinuji obecnou podporu vitálních funkcí s včasným podáním cíleného antidota a eliminací. U paracetamolu rozhoduje včasný N-acetylcystein dříve, než se rozvine hepatocelulární nekróza. U toxických alkoholů je zásadní časná blokáda alkoholdehydrogenázy a hemodialýza. U oxidu uhelnatého nesmím věřit normální pulzní oxymetrii a léčím 100% kyslíkem; u opioidů titruji naloxon k obnově ventilace a u tricyklických antidepresiv alkalizuji natrium bikarbonátem.',
-    openingRefs: ['paracetamolNPIS', 'toxicAlcohols'],
-    sections: [
-      {
-        title: '1. Paracetamol: mechanismus toxicity, nomogram a N-acetylcystein',
-        refs: ['paracetamolNPIS'],
-        paragraphs: [
-          'Paracetamol je v terapeutických dávkách metabolizován glukuronidací a sulfatací. Při předávkování (toxická dávka > 150 mg/kg nebo > 7,5–10 g u dospělého; u malnutrice, chronického alkoholismu či indukce CYP2E1 i méně) jsou tyto dráhy saturovány a paracetamol je oxidován cytochromem CYP2E1 na vysoce reaktivní elektrofilní metabolit NAPQI (N-acetyl-p-benzochinonimin).',
-          'NAPQI se váže na intracelulární glutathion a neutralizuje se. Po vyčerpání zásob glutathionu (pokles pod 30 %) se NAPQI kovalentně váže na proteiny hepatocytů, což vede k centrilobulární jaterní nekróze a akutnímu jaternímu selhání.',
-          'Klinický průběh má typická stadia: v prvních 24 hodinách je pacient často zcela asymptomatický nebo má pouze mírnou nauzeu a nechutenství. Za 24–48 hodin dochází k ústupu GIT potíží, ale laboratorně stoupá AST/ALT a objevuje se bolest v pravém podžebří. Za 72–96 hodin vrcholí jaterní nekróza s ikterem, koagulopatií (vzestup INR), encefalopatií, laktátovou acidózou, selháním ledvin a rizikem úmrtí.',
-          'Koncentraci paracetamolu v séru stanovuji nejdříve za 4 hodiny po jednorázovém požití a výsledek hodnotím pomocí Rumack-Matthewova nomogramu. Specifickým antidotem je N-acetylcystein (NAC, prekurzor glutathionu s antioxidačním účinkem). Podává se intravenózně podle zjednodušeného třífázového či dvoufázového infuzního protokolu. Nejvyšší účinnost má do 8 hodin od požití, ale podává se i při pozdním záchytu či fulminantním jaterním selhání. Při těžkém selhání jater včas konzultuji transplantační centrum.'
-        ]
-      },
-      {
-        title: '2. Metanol a etylenglykol: osmolální a aniontový gap a blokáda ADH',
-        refs: ['toxicAlcohols', 'extripGroup'],
-        paragraphs: [
-          'Samotný metanol i etylenglykol mají nízkou vlastní toxicitu a způsobují pouze mírný tlumivý účinek na CNS podobný opilosti. Život ohrožující toxicita vzniká až jejich metabolizací jaterní alkoholdehydrogenázou (ADH).',
-          'Metanol se metabolizuje přes formaldehyd na kyselinu mravenčí (formiát), která inhibuje mitochondriální cytochrom c oxidázu, vyvolává těžkou metabolickou acidózu a specificky poškozuje sítnici a zrakový nerv (rozmazané vidění, pocit sněhové bouře, edém papily až ireverzibilní slepota) a putamen bazálních ganglií.',
-          'Etylenglykol (nemrznoucí směsi) se přes glykolaldehyd a kyselinu glykolovou metabolizuje na kyselinu šťavelovou (oxalát). Oxalát se sráží s vápníkem na nerozpustné jehlicovité krystaly kalciumoxalátu monohydrátu, které ucpávají renální tubuly a způsobují akutní tubulární nekrózu, anurické renální selhání a závažnou hypokalcemii.',
-          'Diagnostika: v časné fázi dominuje vysoký osmolální gap (> 10–20 mOsm/kg, podmíněný přítomností nemetabolizovaného alkoholu), který postupně ustupuje a je vystřídán těžkou metabolickou acidózou s vysokým aniontovým gapem (HAGMA) v důsledku hromadění organických kyselin.',
-          'Léčba: okamžitá blokáda ADH k zastavení tvorby toxických metabolitů! Lékem volby je fomepizol (specifický kompetitivní inhibitor ADH bez sedativního účinku); alternativou je etanol (má 10–20× vyšší afinitu k ADH než metanol/etylenglykol, cílová hladina v séru 1,0–1,5 ‰). Urgentní hemodialýza je indikována při těžké acidóze (pH < 7,25–7,30), poruše zraku, renálním selhání či vysoké koncentraci alkoholu. Kyselina listová/folinát urychluje odbourávání formiátu u metanolu; thiamin a pyridoxin podporují netoxické dráhy u etylenglykolu.'
-        ]
-      },
-      {
-        title: '3. Oxid uhelnatý: tkáňová hypoxie, klam pulzní oxymetrie a O₂',
-        refs: ['coGuideline'],
-        paragraphs: [
-          'Oxid uhelnatý (CO) je bezbarvý plyn bez chuti a zápachu vznikající nedokonalým spalováním uhlíkatých látek (požáry, karmy, výfukové plyny). Jeho afinita k hemoglobinu je přibližně 200–250× vyšší než afinita kyslíku, což vede k tvorbě karboxyhemoglobinu (COHb). CO navíc posouvá disociační křivku hemoglobinu doleva (Haldaneův efekt), což brání uvolňování kyslíku ve tkáních, a váže se na mitochondriální enzymy a myoglobin.',
-          'Zásadní diagnostické úskalí: standardní dvou-vlnová prstová pulzní oxymetrie NEROZLIŠÍ karboxyhemoglobin od oxyhemoglobinu! SpO2 měří falešně normální hodnoty (98–100 %) i při smrtelné koncentraci COHb. Diagnózu prokáže pouze spektrofotometrické vyšetření krevních plynů (ko-oxymetrie v ASTRUPu), které změří skutečné procento COHb.',
-          'Příznaky: bolest hlavy, nauzea, závratě, slabost, palpitace, zmatenost, kardiopulmonální postižení (ischémie myokardu, arytmie), bezvědomí, křeče a koma. „Třešňové“ zbarvení kůže je nespolehlivý pitevní nález, nikoli časný klinický marker. Hrozí rozvoj opožděného neurologického syndromu (DNS) po týdnech od expozice.',
-          'Terapie: okamžité vynesení ze zamořeného prostoru (ochrana zasahujících!) a okamžité podání 100% kyslíku těsnou maskou s rezervoárem nebo po intubaci. Poločas eliminace COHb při dýchání vzduchu je 4–5 hodin; podání 100% O2 jej zkracuje na 60–90 minut.',
-          'Hyperbarická oxygenoterapie (HBO, 2,5–3,0 ATA, poločas COHb cca 20–30 minut) je indikována při bezvědomí či křečích, ložiskovém neurologickém deficitu, těhotenství (HbF má extrémní afinitu k CO a hrozí asfyxie plodu), metabolické acidóze či kardiální ischemii, a to nejlépe do 6 hodin od intoxikace.'
-        ]
-      },
-      {
-        title: '4. Opioidy a akutní otrava etanolem',
-        refs: ['opioidWHO', 'tisPraha'],
-        paragraphs: [
-          'Předávkování opioidy (heroin, morfin, oxykodon, fentanyl) vede ke stimulaci mí-receptorů v dechovém centru mozkového kmene. Výsledkem je dechový útlum: bradypnoe, apnoe a ztráta citlivosti na hyperkapnii. Dochází k triádě: útlum dýchání, mióza (špendlíkovité zornice; u tramadolu či pethidinu nemusí být vyjádřena) a porucha vědomí až koma.',
-          'První prioritou je zprůchodnění dýchacích cest a účinná ventilace samorozpínacím vakem s maskou a kyslíkem! Antidotem je naloxon (čistý kompetitivní antagonista opioidních receptorů). Podává se titrovaně (např. 0,04–0,1 mg i.v. každé 2–3 minuty) s cílem OBNOVIT DOSTATEČNOU SPONTÁNNÍ VENTILACI, nikoli pacienta plně probudit. Neuvážený velký bolus vyvolá prudký abstinenční syndrom, agresivitu, zvracení, tachykardii a riziko nekardiogenního edému plic.',
-          'Zásadní riziko: biologický poločas naloxonu je pouze 30–90 minut, zatímco většina opioidů (zejména metadon, retardované tablety a transdermální fentanyl náplasti) má účinek trvající mnoho hodin. Po odeznění naloxonu hrozí relaps dechového útlumu a smrt; nutná je dlouhodobá observace a případně kontinuální infuze naloxonu.',
-          'Akutní těžká otrava etanolem: útlum CNS, ataxie, hypotermie a vazodilatace. Zásadním rizikem je zvracení a masivní aspirace do dýchacích cest při bezvědomí a inhibice glukoneogeneze vedoucí k těžké hypoglykemii (zejména u podvyživených pacientů a dětí). Léčba je symptomatická a podpůrná: stabilizovaná poloha či intubace k ochraně dýchacích cest, zahřívání, infuzní rehydratace a měření/korekce glykemie.'
-        ]
-      },
-      {
-        title: '5. Psychofarmaka: benzodiazepiny a tricyklická antidepresiva',
-        refs: ['tcaToxicology', 'tisPraha'],
-        paragraphs: [
-          'Benzodiazepiny zvyšují afinitu GABAA receptoru ke kyselině gama-aminomáselné. V monointoxikaci jsou relativně bezpečné: způsobují sedaci, ataxii, dysartrii a spavost; závažný dechový a oběhový útlum vzniká téměř výhradně v kombinaci s alkoholem, opioidy či barbituráty.',
-          'Flumazenil je specifický kompetitivní antagonista benzodiazepinů. POUŽÍVAT S MAXIMÁLNÍ OPATRNOSTÍ! Je absolutně kontraindikován u chronických uživatelů benzodiazepinů (vyvolává těžký život ohrožující abstinenční syndrom s refrakterními křečemi) a při smíšených intoxikacích s epileptogenními látkami (tricyklická antidepresiva). Rutinní diagnostické podávání v bezvědomí je dnes zakázáno.',
-          'Tricyklická antidepresiva (TCA, dosulepin, amitriptylin) patří k nejnebezpečnějším intoxikacím v intenzivní péči. Mají trojí mechanismus toxicity: blokádu rychlých sodíkových kanálů myokardu, blokádu alfa-1 adrenergních receptorů a centrální i periferní anticholinergní účinek.',
-          'Kardiotoxicita TCA se projevuje na EKG rozšířením komplexu QRS > 100–120 ms, prodloužením QTc a prominujícím kmiten R v aVR (≥ 3 mm). Hrozí těžká refrakterní hypotenze a maligní komorové arytmie (komorová tachykardie, fibrilace komor, torsades de pointes) a křeče.',
-          'Terapie TCA: při rozšíření QRS > 100 ms, arytmiích nebo hypotenzi je lékem volby 8,4% natrium bikarbonát i.v. (bolus 1–2 mmol/kg, opakovaně k dosažení cílového pH 7,45–7,55). Působí dodáním sodíku, který překonává blokádu Na kanálu, a alkalizací, která zvyšuje vazbu léku na proteiny a snižuje volnou toxickou frakci. Křeče se tlumí benzodiazepiny; hemodialýza je pro obrovský distribuční objem a vazbu na proteiny zcela neúčinná.'
-        ]
-      }
-    ],
-    corrections: [
-      'Běžná pulzní oxymetrie nerozliší karboxyhemoglobin a oxyhemoglobin; SpO2 u otravy CO je falešně normální.',
-      'Flumazenil se nepodává rutinně u bezvědomí nejasného původu; u závislých či smíšené otravy s TCA hrozí fatální křeče.',
-      'Naloxon se titruje k obnově spontánního dýchání, ne k plnému probuzení; pro krátký poločas hrozí sekundární zástava dechu.'
-    ],
-    checks: [
-      {
-        question: 'Pacient vytažený z hořícího bytu má saturaci na prstovém oxymetru 99 %, ale je somnolentní s bolestí hlavy. Může mít otravu oxidem uhelnatým?',
-        answer: 'Ano! Pulzní oxymetr nedokáže odlišit karboxyhemoglobin od oxyhemoglobinu a ukazuje falešně vysoké hodnoty. Nutné je stanovení COHb ko-oxymetrií v krevních plynech.',
-        refs: ['coGuideline']
-      },
-      {
-        question: 'Proč se u intoxikace tricyklickými antidepresivy s rozšířením QRS podává 8,4% natrium bikarbonát?',
-        answer: 'Dodáním sodíku kompetitivně překonává blokádu rychlých sodíkových kanálů a alkalizací krve (pH 7,45–7,55) zvyšuje vazbu TCA na plazmatické bílkoviny, čímž snižuje arytmogenní volnou frakci.',
-        refs: ['tcaToxicology']
-      },
-      {
-        question: 'Proč je nutné pacienta po úspěšném probuzení z opioidního předávkování naloxonem ještě několik hodin sledovat v nemocnici?',
-        answer: 'Protože biologický poločas naloxonu (30–90 minut) je mnohem kratší než účinek většiny opioidů. Po odeznění naloxonu hrozí relaps dechového útlumu.',
-        refs: ['opioidWHO']
-      }
-    ]
-  }
+  "title": "Vybrané intoxikace: paracetamol, toxické alkoholy, CO, opioidy a psychofarmaka",
+  "reviewed": "2026-10-31",
+  "edition": "MHRA · EXTRIP · CDC · AHA 2025; kontrola 31. 10. 2026",
+  "scope": "Klinický zkouškový přehled nejčastějších a nejzávažnějších specifických intoxikací u dospělých. Zahrnuje paracetamol a N-acetylcystein, toxické alkoholy (metanol a etylenglykol), oxid uhelnatý, opioidy a psychofarmaka (benzodiazepiny a TCA). Právní aspekty a chronická závislost vyžadují samostatný kontext.",
+  "opening": "Při léčbě specifických otrav kombinuji obecnou podporu vitálních funkcí s včasným podáním cíleného antidota a eliminací. U paracetamolu rozhoduje včasný N-acetylcystein dříve, než se rozvine hepatocelulární nekróza. U toxických alkoholů je zásadní časná blokáda alkoholdehydrogenázy a hemodialýza. U oxidu uhelnatého nesmím věřit normální pulzní oxymetrii a léčím 100% kyslíkem; u opioidů titruji naloxon k obnově ventilace a u tricyklických antidepresiv alkalizuji natrium bikarbonátem.",
+  "openingRefs": [
+    "paracetamolNPIS",
+    "toxicAlcohols"
+  ],
+  "sections": [
+    {
+      "title": "1. Paracetamol: mechanismus toxicity, nomogram a N-acetylcystein",
+      "refs": [
+        "paracetamolNPIS"
+      ],
+      "paragraphs": [
+        "Paracetamol je v terapeutických dávkách metabolizován glukuronidací a sulfatací. Při předávkování (toxická dávka > 150 mg/kg nebo > 7,5–10 g u dospělého; u malnutrice, chronického alkoholismu či indukce CYP2E1 i méně) jsou tyto dráhy saturovány a paracetamol je oxidován cytochromem CYP2E1 na vysoce reaktivní elektrofilní metabolit NAPQI (N-acetyl-p-benzochinonimin).",
+        "NAPQI se váže na intracelulární glutathion a neutralizuje se. Po vyčerpání zásob glutathionu (pokles pod 30 %) se NAPQI kovalentně váže na proteiny hepatocytů, což vede k centrilobulární jaterní nekróze a akutnímu jaternímu selhání.",
+        "Klinický průběh má typická stadia: v prvních 24 hodinách je pacient často zcela asymptomatický nebo má pouze mírnou nauzeu a nechutenství. Za 24–48 hodin dochází k ústupu GIT potíží, ale laboratorně stoupá AST/ALT a objevuje se bolest v pravém podžebří. Za 72–96 hodin vrcholí jaterní nekróza s ikterem, koagulopatií (vzestup INR), encefalopatií, laktátovou acidózou, selháním ledvin a rizikem úmrtí.",
+        "Koncentraci paracetamolu v séru stanovuji nejdříve za 4 hodiny po jednorázovém požití a výsledek hodnotím pomocí Rumack-Matthewova nomogramu. Specifickým antidotem je N-acetylcystein (NAC, prekurzor glutathionu s antioxidačním účinkem). Podává se intravenózně podle zjednodušeného třífázového či dvoufázového infuzního protokolu. Nejvyšší účinnost má do 8 hodin od požití, ale podává se i při pozdním záchytu či fulminantním jaterním selhání. Při těžkém selhání jater včas konzultuji transplantační centrum. Nomogram platí pro známý čas jednorázové akutní expozice; nepoužívá se mechanicky při neznámém čase ani opakovaném/střídavém předávkování. Při významném riziku a čekání na výsledky nezdržím NAC; konkrétní režim konzultuji s TIS."
+      ]
+    },
+    {
+      "title": "2. Metanol a etylenglykol: osmolální a aniontový gap a blokáda ADH",
+      "refs": [
+        "toxicAlcohols",
+        "extripEG"
+      ],
+      "paragraphs": [
+        "Metanol i etylenglykol mohou způsobit útlum CNS; zásadní orgánové poškození však vzniká zejména jejich toxickými metabolity. Časná fáze může být nenápadná a současný etanol může projevy oddálit.",
+        "Metanol se metabolizuje přes formaldehyd na kyselinu mravenčí (formiát), která inhibuje mitochondriální cytochrom c oxidázu, vyvolává těžkou metabolickou acidózu a specificky poškozuje sítnici a zrakový nerv (rozmazané vidění, pocit sněhové bouře, edém papily až ireverzibilní slepota) a putamen bazálních ganglií.",
+        "Etylenglykol (nemrznoucí směsi) se přes glykolaldehyd a kyselinu glykolovou metabolizuje na kyselinu šťavelovou (oxalát). Oxalát se sráží s vápníkem na nerozpustné jehlicovité krystaly kalciumoxalátu monohydrátu, které ucpávají renální tubuly a způsobují akutní tubulární nekrózu, anurické renální selhání a závažnou hypokalcemii.",
+        "Diagnostika: v časné fázi dominuje vysoký osmolální gap (> 10–20 mOsm/kg, podmíněný přítomností nemetabolizovaného alkoholu), který postupně ustupuje a je vystřídán těžkou metabolickou acidózou s vysokým aniontovým gapem (HAGMA) v důsledku hromadění organických kyselin. Normální osmolální gap otravu nevylučuje, zvlášť v pozdní fázi; nepřítomnost krystalů v moči nevylučuje etylenglykol.",
+        "Léčba blokuje alkoholdehydrogenázu fomepizolem, alternativně odborně vedeným etanolem. O mimotělní eliminaci rozhoduje druh alkoholu, klinická tíže, acidóza/gapy, ledviny, koncentrace a použité antidotum; není jeden společný pH práh pro metanol a etylenglykol. Při zrakových příznacích, kómatu, křečích nebo závažném orgánovém selhání urgentně konzultuji TIS a dialyzační centrum."
+      ]
+    },
+    {
+      "title": "3. Oxid uhelnatý: tkáňová hypoxie, klam pulzní oxymetrie a O₂",
+      "refs": [
+        "coGuideline"
+      ],
+      "paragraphs": [
+        "Oxid uhelnatý (CO) je bezbarvý plyn bez chuti a zápachu vznikající nedokonalým spalováním uhlíkatých látek (požáry, karmy, výfukové plyny). Jeho afinita k hemoglobinu je přibližně 200–250× vyšší než afinita kyslíku, což vede k tvorbě karboxyhemoglobinu (COHb). CO navíc posouvá disociační křivku hemoglobinu doleva, což brání uvolňování kyslíku ve tkáních, a váže se na mitochondriální enzymy a myoglobin.",
+        "Běžná dvouvlnová pulzní oxymetrie nerozliší COHb a oxyhemoglobin a může ukazovat falešně uklidňující SpO2. COHb stanovím krevní ko-oxymetrií; samotné PaO2 může být normální. Výsledek závisí na době od expozice a předchozím kyslíku, proto nízké pozdní COHb nevylučuje závažnou otravu.",
+        "Příznaky: bolest hlavy, nauzea, závratě, slabost, palpitace, zmatenost, kardiopulmonální postižení (ischémie myokardu, arytmie), bezvědomí, křeče a koma. „Třešňové“ zbarvení kůže je nespolehlivý pitevní nález, nikoli časný klinický marker. Hrozí rozvoj opožděného neurologického syndromu (DNS) po týdnech od expozice.",
+        "Terapie: okamžité vynesení ze zamořeného prostoru (ochrana zasahujících!) a okamžité podání 100% kyslíku těsnou maskou s rezervoárem nebo po intubaci. Poločas eliminace COHb při dýchání vzduchu je 4–5 hodin; podání 100% O2 jej zkracuje na 60–90 minut.",
+        "Hyperbarickou oxygenoterapii urgentně konzultuji při neurologickém či kardiálním postižení, závažné acidóze a v těhotenství. Rozhodnutí zahrnuje průběh, riziko transportu a dostupnost; samotné procento COHb není univerzální indikace ani spolehlivé měřítko závažnosti."
+      ]
+    },
+    {
+      "title": "4. Opioidy a akutní otrava etanolem",
+      "refs": [
+        "ahaTox",
+        "opioidWHO"
+      ],
+      "paragraphs": [
+        "Předávkování opioidy (heroin, morfin, oxykodon, fentanyl) vede ke stimulaci mí-receptorů v dechovém centru mozkového kmene. Výsledkem je dechový útlum: bradypnoe, apnoe a ztráta citlivosti na hyperkapnii. Dochází k triádě: útlum dýchání, mióza (špendlíkovité zornice; u tramadolu či pethidinu nemusí být vyjádřena) a porucha vědomí až koma.",
+        "První prioritou je zprůchodnění dýchacích cest a účinná ventilace samorozpínacím vakem s maskou a kyslíkem! Antidotem je naloxon (čistý kompetitivní antagonista opioidních receptorů). Podává se titrovaně (např. 0,04–0,1 mg i.v. každé 2–3 minuty) s cílem OBNOVIT DOSTATEČNOU SPONTÁNNÍ VENTILACI, nikoli pacienta plně probudit. Neuvážený velký bolus vyvolá prudký abstinenční syndrom, agresivitu, zvracení, tachykardii a riziko nekardiogenního edému plic.",
+        "Zásadní riziko: biologický poločas naloxonu je pouze 30–90 minut, zatímco většina opioidů (zejména metadon, retardované tablety a transdermální fentanyl náplasti) má účinek trvající mnoho hodin. Po odeznění naloxonu hrozí relaps dechového útlumu a smrt; nutná je dlouhodobá observace a případně kontinuální infuze naloxonu.",
+        "Akutní těžká otrava etanolem: útlum CNS, ataxie, hypotermie a vazodilatace. Zásadním rizikem je zvracení a masivní aspirace do dýchacích cest při bezvědomí a inhibice glukoneogeneze vedoucí k těžké hypoglykemii (zejména u podvyživených pacientů a dětí). Léčba je symptomatická a podpůrná: stabilizovaná poloha či intubace k ochraně dýchacích cest, zahřívání, infuzní rehydratace a měření/korekce glykemie. Thiamin zvažuji u malnutrice a závislosti, ale nesmí zdržet léčbu hypoglykemie. Tekutiny léčím podle dehydratace, ne jako prostředek k urychlení vystřízlivění."
+      ]
+    },
+    {
+      "title": "5. Psychofarmaka: benzodiazepiny a tricyklická antidepresiva",
+      "refs": [
+        "tcaToxicology",
+        "ahaTox"
+      ],
+      "paragraphs": [
+        "Benzodiazepiny potencují GABA-A účinek a mohou způsobit sedaci, ataxii a dechový útlum. Těžká toxicita je častější při kombinaci s opioidy či alkoholem, ale ani monointoxikaci nelze bez klinického posouzení označit za bezpečnou.",
+        "Flumazenil není rutinní diagnostická léčba nejasného bezvědomí. Při toleranci/závislosti, riziku křečí a smíšené otravě s prokonvulzivními látkami může vyvolat křeče a arytmie. Použití je vyhrazeno vybraným nízkorizikovým situacím, například některé iatrogenní sedaci, po odborném posouzení.",
+        "Tricyklická antidepresiva (TCA, dosulepin, amitriptylin) patří k nejnebezpečnějším intoxikacím v intenzivní péči. Mají trojí mechanismus toxicity: blokádu rychlých sodíkových kanálů myokardu, blokádu alfa-1 adrenergních receptorů a centrální i periferní anticholinergní účinek.",
+        "Kardiotoxicita TCA se projevuje na EKG rozšířením komplexu QRS > 100–120 ms, prodloužením QTc a prominujícím kmiten R v aVR (≥ 3 mm). Hrozí těžká refrakterní hypotenze a maligní komorové arytmie (komorová tachykardie, fibrilace komor, torsades de pointes) a křeče.",
+        "Terapie TCA: při rozšíření QRS > 100 ms, arytmiích nebo hypotenzi je lékem volby 8,4% natrium bikarbonát i.v. (bolus 1–2 mmol/kg, opakovaně k dosažení cílového pH 7,45–7,55). Působí dodáním sodíku, který překonává blokádu Na kanálu, a alkalizací, která zvyšuje vazbu léku na proteiny a snižuje volnou toxickou frakci. Křeče se tlumí benzodiazepiny; hemodialýza je pro obrovský distribuční objem a vazbu na proteiny zcela neúčinná."
+      ]
+    }
+  ],
+  "corrections": [
+    "Běžná pulzní oxymetrie nerozliší karboxyhemoglobin a oxyhemoglobin; SpO2 u otravy CO je falešně normální.",
+    "Flumazenil se nepodává rutinně u bezvědomí nejasného původu; u závislých či smíšené otravy s TCA hrozí fatální křeče.",
+    "Naloxon se titruje k obnově spontánního dýchání, ne k plnému probuzení; pro krátký poločas hrozí sekundární zástava dechu."
+  ],
+  "checks": [
+    {
+      "question": "Pacient vytažený z hořícího bytu má saturaci na prstovém oxymetru 99 %, ale je somnolentní s bolestí hlavy. Může mít otravu oxidem uhelnatým?",
+      "answer": "Ano! Pulzní oxymetr nedokáže odlišit karboxyhemoglobin od oxyhemoglobinu a ukazuje falešně vysoké hodnoty. Nutné je stanovení COHb ko-oxymetrií v krevních plynech.",
+      "refs": [
+        "coGuideline"
+      ]
+    },
+    {
+      "question": "Proč se u intoxikace tricyklickými antidepresivy s rozšířením QRS podává 8,4% natrium bikarbonát?",
+      "answer": "Dodáním sodíku kompetitivně překonává blokádu rychlých sodíkových kanálů a alkalizací krve (pH 7,45–7,55) zvyšuje vazbu TCA na plazmatické bílkoviny, čímž snižuje arytmogenní volnou frakci.",
+      "refs": [
+        "tcaToxicology"
+      ]
+    },
+    {
+      "question": "Proč je nutné pacienta po úspěšném probuzení z opioidního předávkování naloxonem ještě několik hodin sledovat v nemocnici?",
+      "answer": "Protože biologický poločas naloxonu (30–90 minut) je mnohem kratší než účinek většiny opioidů. Po odeznění naloxonu hrozí relaps dechového útlumu.",
+      "refs": [
+        "opioidWHO"
+      ]
+    }
+  ]
+}
 };
+
+Object.assign(answers, completionAnswers);
+
+deepenAnswers(answers);

@@ -3,6 +3,8 @@ import path from 'path';
 import { createServer as createViteServer } from 'vite';
 import { GoogleGenAI, Type } from '@google/genai';
 import dotenv from 'dotenv';
+import { createRequire } from 'node:module';
+import fs from 'node:fs';
 
 // Load environment variables
 dotenv.config();
@@ -11,6 +13,11 @@ const app = express();
 const PORT = 3000;
 
 app.use(express.json());
+// Runtime load keeps private cases out of esbuild output and source maps.
+const privateRuntime = path.resolve(process.cwd(), fs.existsSync('private-patient/runtime.cjs') ? 'private-patient/runtime.cjs' : '../private-patient/runtime.cjs');
+const { createPatientRouter, privateGuard } = createRequire(path.join(process.cwd(), 'package.json'))(privateRuntime);
+app.use(privateGuard);
+app.use('/api/patient', createPatientRouter({ getClient: getGeminiClient }));
 
 // API route to check if Gemini is configured
 app.get('/api/health', (req, res) => {

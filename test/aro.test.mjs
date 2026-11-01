@@ -20,7 +20,7 @@ test('Search is accent-insensitive; filters distinguish progress from revision',
   assert.ok(filterQuestions(questions,{search:'krecove'}).some(q=>q.id==='B02'));
   assert.equal(filterQuestions(questions,{search:'PONV'}).length,2);
   assert.equal(filterQuestions(questions,{filter:'updated'}).length,7);
-  assert.equal(filterQuestions(questions,{filter:'draft'}).length,27);
+  assert.equal(filterQuestions(questions,{filter:'draft'}).length,0);
   assert.deepEqual(filterQuestions(questions,{filter:'ready'},{B02:{status:'ready'}}).map(q=>q.id),['B02']);
   assert.equal(filterQuestions(questions,{group:'A',search:'sepse'}).length,0);
 });
@@ -35,7 +35,8 @@ test('Every published supplement discloses scope and links primary sources',()=>
 });
 
 test('Written answers have traceable sources for every section and remain separate from supplements',()=>{
-  assert.deepEqual(filterQuestions(questions,{filter:'answer'}).map(q=>q.id),['A04','A07','A18','A20','B04','B05','B06','B11','B12','B17','B18','B19','B20','B21','B22','B23','B24','B25','B26','B27','B28','B29','B30']);
+  assert.deepEqual(filterQuestions(questions,{filter:'answer'}).map(q=>q.id),questions.map(q=>q.id));
+  assert.equal(Object.keys(answers).length,55);
   for(const [id,a] of Object.entries(answers)){
     assert.ok(questions.some(q=>q.id===id));
     assert.equal(contentStatus(questions.find(q=>q.id===id)),'answer');
@@ -43,16 +44,16 @@ test('Written answers have traceable sources for every section and remain separa
     assert.ok(a.checks.length>=3);
     for(const part of [{refs:a.openingRefs},...a.sections,...a.checks]){
       assert.ok(part.refs.length);
-      for(const ref of part.refs){assert.ok(answerSources[ref]?.locator);assert.equal(new URL(answerSources[ref].url).protocol,'https:');}
+      for(const ref of part.refs){assert.ok(answerSources[ref]?.locator);if(answerSources[ref].kind==='local'){assert.ok(answerSources[ref].label);assert.equal(answerSources[ref].url,undefined);}else{assert.equal(new URL(answerSources[ref].url).protocol,'https:');}}
     }
   }
-  assert.equal(contentStatus(questions.find(q=>q.id==='A17')),'supplement');
+  assert.equal(contentStatus(questions.find(q=>q.id==='A17')),'answer');
   assert.equal(contentStatus(questions.find(q=>q.id==='A04')),'answer');
   assert.ok(questions.find(q=>q.id==='A04').lessonIds.includes('ponv'));
-  assert.equal(questions.filter(q=>contentStatus(q)==='supplement').length,5);
+  assert.equal(questions.filter(q=>contentStatus(q)==='supplement').length,0);
   assert.equal(contentStatus(questions.find(q=>q.id==='B11')),'answer');
   assert.ok(questions.find(q=>q.id==='B11').lessonIds.includes('sepsis'));
-  assert.equal(contentStatus(questions.find(q=>q.id==='A19')),'outline');
+  assert.equal(contentStatus(questions.find(q=>q.id==='A19')),'answer');
 });
 test('High-risk teaching distinctions remain explicit: PLS vs NLS and IM vs IV adrenaline',()=>{
   const sections=answers.A18.sections;
@@ -66,4 +67,13 @@ test('High-risk teaching distinctions remain explicit: PLS vs NLS and IM vs IV a
   assert.match(allergy,/0,5 mg i.m./);
   assert.match(allergy,/0,5 ml roztoku 1 mg\/ml/);
   assert.match(allergy,/po dvou správných i.m. dávkách/);
+});
+
+test('Completed answers preserve critical diabetes, triage and consent distinctions',()=>{
+ const text=id=>JSON.stringify(answers[id]);
+ assert.match(text('B27'),/3,5 mmol/);assert.doesNotMatch(answers.B27.sections.map(s=>s.paragraphs.join(' ')).join(' '),/(?<!\d)3,3 mmol/);
+ assert.match(text('B27'),/> 300/);assert.match(text('B27'),/Anion gap ani močové ketony nejsou/);
+ assert.match(text('A19'),/není právním potvrzením smrti/);
+ assert.match(text('A25'),/§ 38/);
+ for(const q of questions){assert.ok(answers[q.id].sections.every(s=>s.paragraphs.length>=1));}
 });

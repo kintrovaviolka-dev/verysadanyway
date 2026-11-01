@@ -1,6 +1,6 @@
 # ARO — průběžný stav a předání
 
-Aktualizace: 2026-10-29. Zadání: nový český miniportál k ústní zkoušce LF OU,
+Aktualizace: 2026-11-01. Zadání: nový český miniportál k ústní zkoušce LF OU,
 podobný farmakologii/dermatologii, s nově ověřovaným obsahem. Uživatel výslovně
 žádá průběžnou dokumentaci pro pokračování jiným agentem.
 
@@ -23,17 +23,24 @@ podobný farmakologii/dermatologii, s nově ověřovaným obsahem. Uživatel vý
   online 2025-11-14, časopisecky 2026-09-01. Nezaměňovat s čínským konsenzem 2025.
 - SCCM má již SSC adult 2026; nenazývat 2021 poslední verzí.
 
-## Aktuální stav (po kontrole 30. 10. 2026)
-- 55 otázek: **23 zpracovaných odpovědí (A04, A07, A18, A20, B04, B05, B06, B11, B12, B17, B18, B19, B20, B21, B22, B23, B24, B25, B26, B27, B28, B29, B30)**, 5 pouze s dodatkem,
-  27 zatím pouze s osnovou. B27/B28/B29 doplněny 30. 10. 2026.
-- Celý blok B17–B30 (intenzivní péče a urgentní stavy) je nyní kompletně zpracován.
-- `aro/answers.mjs`: nové souvislé odpovědi a registr primárních zdrojů.
-- Každá odpověď má úvod k ústní, pět až sedm částí výkladu, opravy skript,
-  tři kontrolní otázky, vymezený rozsah a citace ke každé části.
-- UI rozlišuje zpracovanou odpověď / dodatek / osnovu; filtr odpovědí,
-  dynamický počet a pokrytí. Výklad je dostupný i při odhalení v losování.
-- Uložení pokroku a ID otázek se nemění. Následují právní/etické otázky (A23–A25), anesteziologie (A01–A14) a zbývající otázky B (B01–B03, B07–B10, B13–B14).
-- Historické záznamy prvního průchodu níže jsou jen historie.
+## Aktivní vybavování a audit rozsahu — 1. 11. 2026
+- Nové zadání: SC bez délkové/poziční nápovědy, doplňování s tolerancí překlepů/synonym, postupné kazuistiky s vyšetřením a léčbou včetně dávkování. Osnova a Moje příprava nahoře, sbalené.
+- Implementováno 55 SC + 55 doplnění + 10 kazuistik (30 kroků). Všechny okruhy mají SC a doplnění; kazuistiky pokrývají vybrané průřezové situace, ne každý okruh zvlášť.
+- Ověření: 14 datových/logických testů a 30 prohlížečových scénářů prošlo; veřejný build obnoven, bez deploymentu.
+- Podrobné předání, nové soubory, rozsah medicínského ověření a omezení: **[ARO_RECALL.md](ARO_RECALL.md)**.
+- Rozšířeno 12 stručných výkladů v `aro/answers-depth.mjs`, připojeno na konci `answers.mjs` až po sloučení dokončovacího modulu.
+- Staré poznámky a sebehodnocení zachovány. Nové výsledky jsou oddělené v `aro-recall-v1`; dávky ve volném textu nemají automatický fuzzy hodnotitel.
+
+## Aktuální stav — dokončení 1. 11. 2026
+- **55/55 zpracovaných zkouškových odpovědí: A01–A25 a B01–B30. Žádná otázka pouze s osnovou ani pouze s dodatkem.** Pět tematických dodatků u sedmi otázek zůstává jako doplněk.
+- Nových 32 odpovědí je v `aro/answers-completion.mjs`; registr i odpovědi se slučují v `aro/answers.mjs`. Každá má úvod, 5 tematických částí, časté chyby a 3 kontrolní dotazy. Původní 23 odpovědi zachovány, B27–B29 cíleně opraveny.
+- Uživatelský sken OU 2025 má 135 PDF stran/dvojstran; OCR všech stran uloženo **jen lokálně** v `aro_materialy/ocr-ou2025/`. Originál `aro/ARO skripta 1_compressed.pdf` i OCR jsou z veřejného buildu vyloučeny. Nekopírovat sken ani OCR do publikovaných assetů.
+- Skripta byla obsahově čtena selektivně podle kapitol, ne provedena odborná revize všech 135 dvojstran. OCR může chybovat zejména v dávkách a tabulkách; čísla se neopírají jen o OCR.
+- Základní anesteziologie: autorská syntéza OU 2025; novější doporučení ověřena pro konkrétní aktualizace. Blok B nepokrytý dílem I používá strukturu původních skript a tematické zdroje.
+- Lokální bibliografické zdroje mají `kind: 'local'` bez URL; renderer je zobrazuje jako text, nikoli falešný odkaz. Webové zdroje používají HTTPS a locator. Strany OU jsou v rozsahu příslušné odpovědi.
+- Plné pokrytí znamená zkouškové výklady, nikoli vyčerpávající učebnici či nezávislé lékařské schválení. Dávkové protokoly a lokální standardy jsou výslovně odlišeny. UI nesmí tvrdit, že celý předmět prošel nezávislou klinickou revizí.
+- ID, losování A+B a úložiště `aro-study-v1` zachovány. Žádný deployment ani commit nebyl požadován/proveden.
+- Další práce již není doplňování osnov; případné rozšiřování detailů či externí odborná revize musí vycházet z tohoto stavu.
 
 ## Cizí změny — zachovat
 Při zahájení byl pracovní strom rozpracovaný: .env.example, .gitignore,
@@ -403,3 +410,29 @@ vracejí 403; konkrétní nové observační intervaly nelze vydávat za přečt
 - Zdroje: ADA/EASD 2024–2026, JBDS-IP 2023/2024, TIS ČR, AACT/EAPCCT, EXTRIP, NPIS/MHRA, UHMS, WHO/ERC 2025.
 - Ověření: 7/7 datových testů, 20/20 prohlížečových scénářů (včetně nového testu diabetologie/toxikologie na mobilu 320 px).
 - Aktualizován veřejný build a index.html.
+
+## Dokončení portálu — zahájeno 31. 10. 2026
+- Uživatel dodal `aro/ARO skripta 1_compressed.pdf`: Jor, Romanová, Máca a kol., Základy anesteziologie a intenzivní medicíny pro studenty všeobecného lékařství, díl I, OU 2025. 135 skenovaných PDF stran (dvojstrany), bez textové vrstvy.
+- Probíhá lokální OCR přes macOS Vision; dočasně `/tmp/aro-pdf/page-NNN.txt`. PDF ani OCR nepublikovat; veřejný build PDF již vylučuje.
+- Cíl této práce: doplnit všech 32 chybějících odpovědí a opravit B27–B29. Zachovat ID, poznámky a losování A+B. Není zadán deployment.
+- Zjištěné chyby B27: zastaralé K 3,3 místo 3,5; neaktuální kritéria HHS; anion gap jako cíl ukončení DKA. Opravit podle skutečného konsenzu ADA/EASD 2024 (DOI dci24-0032; dosavadní odkaz dci23-0085 není tento konsenzus).
+- Nově ověřované aktualizace: GINA 2026 (cílová SpO2 při O2 92–95 %), AHA/ASA ischemická CMP 2026, NICE NG250 2025 (pneumonie), aktuální české zákony. Datum souboru není datem vydání guideline.
+
+## Čtrnáctý průchod — dokončení 31. 10.–1. 11. 2026
+- Doplněno 21 odpovědí A a 11 odpovědí B (včetně dříve zapomínaných B15/B16). Celkem 55, 165 kontrolních otázek.
+- Nový zdroj: Jor, Romanová, Máca a kol., OU 2025, díl I. Titulní strana a obsah vizuálně ověřeny; lokální OCR macOS Vision umožňuje hledání. V knize jsou i neaktuální/nejednoznačná tvrzení (plošný bridging, rozporná compliance kojeneckého hrudníku), která se nepřebírají.
+- A01: cílené testy, ASA, lačnění s kontextem, bez rutinního bridgingu při fibrilaci síní; SGLT2 dle ADA 2026. Regionální anestezie: intervaly podle konkrétního antitrombotika a techniky, nikoli plošná kontraindikace všech bloků. Dětská fyziologie: poddajný hrudník.
+- A15–A19: ERC 2025, odlišeny PLS/NLS, START vs běžná KPR a triážní značka vs právní diagnóza smrti. A22 doplněna přesná škála GCS a její překážky.
+- A23–A25: konsolidovaná česká legislativa k 31. 10. 2026, příloha zákona 285/2002 (nikoli chybné označení příloha 2), § 38 zákona 372/2011, § 28/150 trestního zákoníku; ČLK 1/2010 jasně odlišeno od zákona. Odborná diagnóza smrti nezávislá na odběru, DNACPR neznamená neléčit.
+- B07/B08: BTF ICP >22 a CPP 60–70; bez rutinních kortikoidů či profylaktické hyperventilace. B09 AHA/ASA ischemická CMP 2026. B10 NICE NG240, neodkládat antibiotika kvůli LP/CT. B13 bez profylaktických ATB a dlouhého hladovění. B14 NICE NG250 2025, podmíněné kortikoidy u těžké CAP. B16 GINA 2026: O2 cíl 92–95 %.
+- **B27 revize:** správný DOI dci24-0032, konkrétní ADA 2026 pro diagnostiku a hypoglykemii, K >3,5 před inzulinem, přesná kritéria DKA/HHS včetně efektivní osmolality >300, konec DKA podle ketonů + pH/bikarbonátu (nikoli gap), rozlišen inzulin u DKA/HHS, bikarbonát není rutinní. Doplněn JBDS zdroj i.v. glukózy. Staré záznamy třináctého průchodu s 3,3 jsou historie, nikoli aktuální doporučení.
+- **B28/B29 revize:** výplach není automaticky indikován do 60 min, uhlí individuálně dle doporučení 2026, GCS u intoxikace není samo indikací intubace; odstraněna nebezpečně obecná formulace neředěné infuze bikarbonátu. Nomogram paracetamolu má omezení, metanol a etylenglykol mají rozdílné EXTRIP indikace, odstraněna chybná záměna Haldaneova efektu u CO; HBO konzultovat podle kliniky. Flumazenil pouze pro vybrané nízkorizikové situace.
+- Opraveny nepřesné názvy/verze a cílové odkazy zdrojů B27–B29. Některé podrobné patofyziologické formulace z předchozího průchodu zůstávají; nejde o nezávislou externí toxikologickou revizi.
+- První běh: 8 datových testů prošlo po opravě příliš široké testové regex (33,3 glykemie se nesmí zaměnit s 3,3 kalium). 20 původních browser scénářů prošlo; nový průchod všech 55 selhal na nesprávném selektoru testu, opraven na skutečnou hlavičku detailu. Finální výsledky viz níže.
+
+### Finální ověření 1. 11. 2026
+- **8/8 datových testů a 21/21 prohlížečových scénářů prošlo.** Nový scénář skutečně prochází A01–A25/B01–B30 na 320 px, kontroluje odpovědi, 3 dotazy, zdroje bez `undefined`, přetečení a chyby JS. Původní scénáře kontrolují losování, poznámky, export, motiv a chybu úložiště.
+- Veřejný build aktualizován: 55 odpovědí, 165 kontrolních otázek. Ověřeno, že neobsahuje dodaný PDF sken ani OCR. Scoped `git diff --check` čistý. Mobilní screenshot `/tmp/aro-complete-mobile.png` vizuálně zkontrolován.
+- Starý náhled na 4174 neběžel; znovu spuštěn pouze na loopback nad `.public-build`. Není to veřejné nasazení.
+- Závěrečná kontrola přímo v otevřeném prohlížeči: po obnovení původní karty `?v=2#questions` se správně zobrazuje 55 zpracovaných odpovědí, 0 pracovních osnov a stručný úvod bez původního motivačního textu. Před obnovením karta držela starou verzi se 2 odpověďmi.
+- Medicínské zdroje v nových odpovědích ověřeny v uvedeném rozsahu (u části přes veřejně indexované výňatky); testy potvrzují strukturu a funkčnost, ne nezávislou medicínskou správnost celého kurzu.
