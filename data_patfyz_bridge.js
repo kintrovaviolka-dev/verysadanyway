@@ -351,7 +351,7 @@ const PATFYZ_EXAM_QUESTIONS = [
   {
     "id": "pf-spec1-9",
     "category": "Speciální I. (Kardio, Resp, Nefro, Hema)",
-    "title": "Srdeční selhání - obecná charakteristika etiopatogeneze, projevy, následky. Systolická a diastolická dysfunkce",
+    "title": "Srdeční selhání - obecná charakteristika, etiopatogeneze, projevy, následky. Systolická a diastolická dysfunkce",
     "organSystem": "Kardiovaskulární systém"
   },
   {
@@ -411,7 +411,7 @@ const PATFYZ_EXAM_QUESTIONS = [
   {
     "id": "pf-spec1-19",
     "category": "Speciální I. (Kardio, Resp, Nefro, Hema)",
-    "title": "Poruchy plicní cirkulace etiopatogeneze, následky. Plicní hypertenze - etiopatogeneze, projevy, následky",
+    "title": "Poruchy plicní cirkulace - etiopatogeneze, následky. Plicní hypertenze - etiopatogeneze, projevy, následky",
     "organSystem": "Kardiovaskulární systém"
   },
   {
@@ -429,7 +429,7 @@ const PATFYZ_EXAM_QUESTIONS = [
   {
     "id": "pf-spec1-22",
     "category": "Speciální I. (Kardio, Resp, Nefro, Hema)",
-    "title": "Pneumothorax - etiopatogeneze, typy projevy, následky. Fluidothorax etiopatogeneze, typy, projevy, následky",
+    "title": "Pneumothorax - etiopatogeneze, typy, projevy, následky. Fluidothorax - etiopatogeneze, typy, projevy, následky",
     "organSystem": "Ostatní / Systémové procesy"
   },
   {
@@ -531,7 +531,7 @@ const PATFYZ_EXAM_QUESTIONS = [
   {
     "id": "pf-spec1-39",
     "category": "Speciální I. (Kardio, Resp, Nefro, Hema)",
-    "title": "Hlavní vrozené a získané srdeční vady příčiny, projevy, následky, kompenzační mechanismy. Kardiomyopatie - rozdělení, etiopatogeneze, projevy, následky",
+    "title": "Hlavní vrozené a získané srdeční vady - příčiny, projevy, následky, kompenzační mechanismy. Kardiomyopatie - rozdělení, etiopatogeneze, projevy, následky",
     "organSystem": "Kardiovaskulární systém"
   },
   {
@@ -633,7 +633,7 @@ const PATFYZ_EXAM_QUESTIONS = [
   {
     "id": "pf-spec2-6",
     "category": "Speciální II. (GIT, Endo, Neuro, Loko)",
-    "title": "Regulace funkce endokrinního systému - negativní zpětná vazba, příklady etiopatogeneze poruch endokrinního systému",
+    "title": "Regulace funkce endokrinního systému - negativní zpětná vazba, příklady, etiopatogeneze poruch endokrinního systému",
     "organSystem": "Endokrinní systém"
   },
   {
@@ -777,7 +777,7 @@ const PATFYZ_EXAM_QUESTIONS = [
   {
     "id": "pf-spec2-30",
     "category": "Speciální II. (GIT, Endo, Neuro, Loko)",
-    "title": "Hypotalamo-hypofyzární systém - úroveň hypotalamu, adenohypofýzy, a neurohypofýzy - etiopatogeneze, projevy, následky",
+    "title": "Hypotalamo-hypofyzární systém - úroveň hypotalamu, adenohypofýzy a neurohypofýzy - etiopatogeneze, projevy, následky",
     "organSystem": "Endokrinní systém"
   },
   {
