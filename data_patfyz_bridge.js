@@ -237,7 +237,7 @@ const PATFYZ_EXAM_QUESTIONS = [
   {
     "id": "pf-gen-40",
     "category": "Obecná patofyziologie",
-    "title": "Lokální zánětová odpověď - princip a význam, složky zánětové odpovědi.",
+    "title": "Lokální zánětlivá odpověď - princip a význam, složky zánětlivé odpovědi.",
     "organSystem": "Ostatní / Systémové procesy"
   },
   {
