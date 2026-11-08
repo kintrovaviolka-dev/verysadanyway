@@ -8,12 +8,10 @@ document.addEventListener("DOMContentLoaded", () => {
   root.setAttribute("aria-label", "Hodinový neuro sprint");
   root.innerHTML = `
     <div class="neuro-easter-egg-bubble">Neuro sprint! 🧠</div>
-    <button class="neuro-sprinter" type="button" aria-label="Nechat mozeček poskočit">
+    <button class="neuro-sprinter" type="button" aria-label="Nechat mozeček roztomile poskočit">
       <span class="neuro-sprinter-face" aria-hidden="true">🧠</span>
       <span class="neuro-sprinter-leg leg-one" aria-hidden="true"></span>
       <span class="neuro-sprinter-leg leg-two" aria-hidden="true"></span>
-      <span class="neuro-sprinter-leg leg-three" aria-hidden="true"></span>
-      <span class="neuro-sprinter-leg leg-four" aria-hidden="true"></span>
     </button>
     <button class="neuro-easter-egg-close" type="button" aria-label="Zavřít neuro sprint">×</button>
   `;
