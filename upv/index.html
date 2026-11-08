@@ -78,6 +78,9 @@
         <a href="/clinical-learning-portal/#essentials/airway" class="nav-item">
           <span class="nav-icon">🫁</span> Obtížné DC a CICO
         </a>
+        <button class="nav-item" data-target="modul-airway">
+          <span class="nav-icon">🧰</span> Obtížná ventilace, intubace &amp; DOPES
+        </button>
         <button class="nav-item" data-target="modul-ards">
           <span class="nav-icon">🫁</span> ARDS Strategie
         </button>
@@ -668,6 +671,15 @@
           </div>
         </section>
 
+        <!-- ================= MODUL: OBTÍŽNÉ DC A DOPES ================= -->
+        <section id="modul-airway" class="module-tab">
+          <div class="module-header">
+            <h1>Obtížná ventilace, intubace &amp; DOPES</h1>
+            <p class="subtitle">Prediktory obtížné ventilace maskou (MOANS), laryngoskopie (LEMON), SGA (RODS), chirurgické cesty (SHORT), MACOCHA skóre a DOPES při náhlém zhoršení ventilovaného pacienta.</p>
+          </div>
+          <div id="airway-root"></div>
+        </section>
+
         <!-- ================= MODUL 8: ICU PEARLS ================= -->
         <section id="modul-pearls" class="module-tab">
           <div class="module-header">
@@ -1249,6 +1261,7 @@
   <!-- Načtení dat a logiky -->
   <script src="data.js"></script>
   <script src="app.js"></script>
+  <script src="airway.js"></script>
   <script src="../feedback.js"></script>
 </body>
 </html>

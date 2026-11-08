@@ -12,6 +12,7 @@ import { ANESTHESIA_QUIZ } from '../src/data/quizzes';
 import { ANESTHESIA_QUIZ_CS } from '../src/data/quizzes_cs';
 import { ANESTHESIA_MEDS } from '../src/data/meds';
 import { ANESTHESIA_MEDS_CS } from '../src/data/meds_cs';
+import { DIAGNOSTIC_ALGORITHMS_CS, DIAGNOSTIC_ALGORITHMS_EN } from '../src/data/diagnostic_algorithms';
 import { MEDICAL_QUESTIONS } from '../../urgentni-prijem/otazky_ze_hry';
 
 test('all six lessons include bilingual teaching, workflows, sources and explained cases', () => {
@@ -104,4 +105,35 @@ test('published MedDrill content matches authoritative cases and manifest hashes
   assert.equal(subject.totalQuestions, bank.questions.length);
   assert.equal(subject.sizeBytes, Buffer.byteLength(raw));
   assert.ok(subject.revision.endsWith(createHash('sha256').update(raw).digest('hex').slice(0, 12)));
+});
+
+test('diagnostic algorithms have valid branching graphs and UP/airway module covers predictors and DOPES', () => {
+  for (const bank of [DIAGNOSTIC_ALGORITHMS_CS, DIAGNOSTIC_ALGORITHMS_EN]) {
+    assert.deepEqual(
+      bank.map(item => item.id),
+      ['dx_years_pe', 'dx_snnoop10_headache', 'dx_ottawa_sah', 'dx_heart_score'],
+    );
+    for (const algo of bank) {
+      assert.equal(algo.category, 'diagnostic');
+      assert.ok(algo.steps[algo.startStepId], `Missing start step for ${algo.id}`);
+      let outcomeCount = 0;
+      for (const step of Object.values(algo.steps)) {
+        if (step.type === 'outcome_success') {
+          outcomeCount += 1;
+          continue;
+        }
+        assert.ok(step.choices && step.choices.length >= 2, `Choices missing in ${algo.id}:${step.id}`);
+        assert.ok(step.choices.some(choice => choice.isCorrect), `Correct choice missing in ${algo.id}:${step.id}`);
+        for (const choice of step.choices) {
+          assert.ok(algo.steps[choice.nextStepId], `Broken nextStepId ${choice.nextStepId} in ${algo.id}:${step.id}`);
+          assert.ok(choice.rationale.trim().length > 0);
+        }
+      }
+      assert.ok(outcomeCount >= 1);
+    }
+  }
+  const airwayJs = readFileSync(new URL('../../upv/airway.js', import.meta.url), 'utf8');
+  for (const term of ['MOANS', 'LEMON', 'RODS', 'SHORT', 'MACOCHA', 'DOPES']) {
+    assert.match(airwayJs, new RegExp(term));
+  }
 });

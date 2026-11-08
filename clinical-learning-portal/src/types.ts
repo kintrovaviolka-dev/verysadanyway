@@ -40,7 +40,7 @@ export interface EmergencyAlgorithm {
   title: string;
   shortDescription: string;
   detailedDescription: string;
-  category: 'cardiac_arrest' | 'respiratory' | 'shock' | 'other';
+  category: 'cardiac_arrest' | 'respiratory' | 'shock' | 'diagnostic' | 'other';
   startStepId: string;
   steps: Record<string, AlgorithmStep>;
 }

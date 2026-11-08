@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { EMERGENCY_ALGORITHMS } from '../data/algorithms';
 import { EMERGENCY_ALGORITHMS_CS } from '../data/algorithms_cs';
+import { DIAGNOSTIC_ALGORITHMS_CS, DIAGNOSTIC_ALGORITHMS_EN } from '../data/diagnostic_algorithms';
 import { EmergencyAlgorithm, AlgorithmStep, AIScenarioState, AIEvaluationResponse } from '../types';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -24,7 +25,9 @@ export default function EmergencyModule() {
   const { language } = useLanguage();
 
   // Select localized data
-  const algorithmsData = language === 'cs' ? EMERGENCY_ALGORITHMS_CS : EMERGENCY_ALGORITHMS;
+  const algorithmsData = language === 'cs'
+    ? [...EMERGENCY_ALGORITHMS_CS, ...DIAGNOSTIC_ALGORITHMS_CS]
+    : [...EMERGENCY_ALGORITHMS, ...DIAGNOSTIC_ALGORITHMS_EN];
 
   const [mode, setMode] = useState<'menu' | 'static' | 'ai'>('menu');
 
@@ -279,7 +282,9 @@ export default function EmergencyModule() {
                       <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-red-500/20 text-red-300 border border-red-500/30">
                         {algo.category === 'cardiac_arrest'
                           ? (language === 'cs' ? 'Resuscitace / ACLS' : 'Resuscitation / ACLS')
-                          : (language === 'cs' ? 'Urgentní příjem' : 'ED Emergency')}
+                          : algo.category === 'diagnostic'
+                            ? (language === 'cs' ? 'Diagnostický algoritmus' : 'Diagnostic Algorithm')
+                            : (language === 'cs' ? 'Urgentní příjem' : 'ED Emergency')}
                       </span>
                       <span className="text-[11px] font-medium text-slate-400 font-mono">
                         {language === 'cs' ? 'Dostupné offline' : 'Offline Ready'}
@@ -490,14 +495,16 @@ export default function EmergencyModule() {
                     </div>
                   </div>
 
-                  <div className="bg-slate-950/40 px-3 py-2 rounded border border-white/5 flex items-center justify-between text-xs mt-1">
-                    <span className="text-slate-400 font-semibold uppercase tracking-wider text-[10px]">
-                      {language === 'cs' ? 'Srdeční rytmus:' : 'Cardiac Rhythm:'}
-                    </span>
-                    <span className="font-bold text-red-400 uppercase tracking-widest">
-                      {currentStaticStep.vitals.rhythm || 'Flatline'}
-                    </span>
-                  </div>
+                  {(selectedAlgo?.category !== 'diagnostic' || currentStaticStep.vitals.rhythm) && (
+                    <div className="bg-slate-950/40 px-3 py-2 rounded border border-white/5 flex items-center justify-between text-xs mt-1">
+                      <span className="text-slate-400 font-semibold uppercase tracking-wider text-[10px]">
+                        {language === 'cs' ? 'Srdeční rytmus:' : 'Cardiac Rhythm:'}
+                      </span>
+                      <span className="font-bold text-red-400 uppercase tracking-widest">
+                        {currentStaticStep.vitals.rhythm || 'Flatline'}
+                      </span>
+                    </div>
+                  )}
                 </div>
               )}
 
@@ -578,12 +585,18 @@ export default function EmergencyModule() {
                         <CheckCircle className="w-8 h-8" />
                       </div>
                       <h3 className="text-xl font-bold text-green-300">
-                        {language === 'cs' ? 'Stabilizace úspěšná!' : 'Stabilization Successful!'}
+                        {selectedAlgo?.category === 'diagnostic'
+                          ? (language === 'cs' ? 'Diagnostický postup zvládnut!' : 'Diagnostic Pathway Completed!')
+                          : (language === 'cs' ? 'Stabilizace úspěšná!' : 'Stabilization Successful!')}
                       </h3>
                       <p className="text-xs text-slate-400 font-sans mt-2">
-                        {language === 'cs'
-                          ? 'Úspěšně jste postupovali podle doporučení pro vyřešení tohoto kritického stavu.'
-                          : 'You successfully navigated the guidelines to resolve this emergency event.'}
+                        {selectedAlgo?.category === 'diagnostic'
+                          ? (language === 'cs'
+                            ? 'Správně jste aplikovali rozhodovací pravidlo a zvolili vhodný další postup.'
+                            : 'You correctly applied the decision rule and chose the appropriate next step.')
+                          : (language === 'cs'
+                            ? 'Úspěšně jste postupovali podle doporučení pro vyřešení tohoto kritického stavu.'
+                            : 'You successfully navigated the guidelines to resolve this emergency event.')}
                       </p>
                     </>
                   ) : (

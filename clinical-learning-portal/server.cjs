@@ -27,10 +27,16 @@ var import_path = __toESM(require("path"), 1);
 var import_vite = require("vite");
 var import_genai = require("@google/genai");
 var import_dotenv = __toESM(require("dotenv"), 1);
+var import_node_module = require("node:module");
+var import_node_fs = __toESM(require("node:fs"), 1);
 import_dotenv.default.config();
 var app = (0, import_express.default)();
 var PORT = 3e3;
 app.use(import_express.default.json());
+var privateRuntime = import_path.default.resolve(process.cwd(), import_node_fs.default.existsSync("private-patient/runtime.cjs") ? "private-patient/runtime.cjs" : "../private-patient/runtime.cjs");
+var { createPatientRouter, privateGuard } = (0, import_node_module.createRequire)(import_path.default.join(process.cwd(), "package.json"))(privateRuntime);
+app.use(privateGuard);
+app.use("/api/patient", createPatientRouter({ getClient: getGeminiClient }));
 app.get("/api/health", (req, res) => {
   const hasKey = !!process.env.GEMINI_API_KEY && process.env.GEMINI_API_KEY !== "MY_GEMINI_API_KEY";
   res.json({

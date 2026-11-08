@@ -2524,3 +2524,35 @@ canvas {
 }
 
 
+
+/* ================= OBTÍŽNÉ DC A DOPES ================= */
+.aw-disclaimer { background: var(--accent-glow); border-left: 4px solid var(--accent); color: var(--text-primary); padding: 12px 16px; border-radius: 8px; font-size: 13px; margin-bottom: 16px; }
+.aw-h2 { font-family: var(--font-heading); font-size: 20px; margin: 28px 0 12px; color: var(--text-primary); }
+.aw-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px; }
+.aw-card { margin-bottom: 0; }
+.aw-icon { font-size: 28px; }
+.aw-items { display: flex; flex-direction: column; gap: 8px; margin: 8px 0; }
+.aw-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--text-secondary); cursor: pointer; line-height: 1.4; }
+.aw-item input { margin-top: 3px; accent-color: var(--primary); }
+.aw-letter { display: inline-flex; align-items: center; justify-content: center; min-width: 22px; height: 22px; border-radius: 6px; background: var(--primary-glow); color: var(--text-primary); font-weight: 700; font-size: 12px; }
+.aw-letter-big { min-width: 30px; height: 30px; font-size: 16px; margin-right: 6px; }
+.aw-points { min-width: 28px; font-weight: 700; color: var(--secondary); font-size: 12px; }
+.aw-result { padding: 10px 12px; border-radius: 8px; font-size: 13px; line-height: 1.45; color: var(--text-primary); border-left: 4px solid transparent; }
+.aw-result-ok { background: var(--secondary-glow); border-left-color: var(--secondary); }
+.aw-result-warn { background: var(--accent-glow); border-left-color: var(--accent); }
+.aw-result-danger { background: var(--danger-glow); border-left-color: var(--danger); }
+.aw-note { font-size: 12px; color: var(--text-muted); }
+#aw-macocha, #aw-dopes, #aw-quiz { margin-top: 20px; }
+.aw-ref-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+.aw-ref h4 { margin-bottom: 8px; color: var(--text-primary); }
+.aw-dopes-steps { display: flex; flex-wrap: wrap; gap: 8px; }
+.aw-dopes-steps span { background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: 999px; padding: 4px 12px; font-size: 12px; color: var(--text-primary); }
+.aw-dopes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; margin-top: 8px; }
+.aw-finder { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+.aw-q { padding: 12px 0; border-top: 1px solid var(--border-color); }
+.aw-q-options { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.aw-opt { text-align: left; }
+.aw-opt-correct { background: var(--secondary-glow) !important; border-color: var(--secondary) !important; }
+.aw-opt-wrong { background: var(--danger-glow) !important; border-color: var(--danger) !important; }
+.aw-q-why { margin-top: 8px; font-size: 13px; color: var(--text-secondary); }
+.aw-quiz-score { margin-top: 12px; font-weight: 700; color: var(--text-primary); }
