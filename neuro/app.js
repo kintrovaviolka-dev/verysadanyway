@@ -878,7 +878,6 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="modal-coupling-section">
           <div class="coupling-badge">⚡ OKAMŽITÝ ACTIVE RECALL PO PŘEČTENÍ</div>
           <h3 class="coupling-title">Upevněte si otázku ${mod.badgePrefix || mod.number} do paměti</h3>
-          <p class="coupling-subtitle">Otestujte své porozumění bezprostředně po studiu teorie. Můžete vyzkoušet kazuistiku s vypsáním odpovědi, otočit kartičky nebo vyplnit kontrolní kvíz.</p>
 
           <div class="coupling-action-row">
             ${primaryScenario ? `
