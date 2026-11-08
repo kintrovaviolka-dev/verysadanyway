@@ -1663,7 +1663,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
     "options": [
       "Alkohol ≈ Korsakoffova psychóza",
       "Mozková purpura ≈ otrava CO",
-      "Chybění vitanímu B12 ≈ subakutní kombinovaná degenerace",
+      "Chybění vitamínu B12 ≈ subakutní kombinovaná degenerace",
       "Subdurální hematom ≈ vakovité aneuryzma",
       "Epidurální hematom ≈ fraktura lebky"
     ],
@@ -3099,7 +3099,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
       "≈ kongenitální anomálie spojená s cystickou fibrózou",
       "Má stěnu tvořenou vazivem, výstelka chybí",
       "Je získaný stav, predispozice je autosomálně dominantně dědičná",
-      "Je neoplastického původu, vystlaná dyspalstickým epitelem"
+      "Je neoplastického původu, vystlaná dysplastickým epitelem"
     ],
     "correct": 2
   },
@@ -4635,7 +4635,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
       "Infekční mononukleóza",
       "Imunitní trombocytopenická purpura",
       "Trombotická trombocytopenická purpura",
-      "von Willebrandtova choroba"
+      "von Willebrandova choroba"
     ],
     "correct": 3
   },
@@ -4653,7 +4653,7 @@ const PATHOLOGY_ZAPOCET_QUESTIONS = [
   },
   {
     "id": 389,
-    "question": "U polycyteamia vera nebývá",
+    "question": "U polycytaemia vera nebývá",
     "options": [
       "Vysoký počet krevních destiček",
       "Vysoký hematokrit",
