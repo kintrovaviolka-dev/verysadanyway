@@ -132,7 +132,22 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".grade-card").forEach(card => {
     const handleGradeClick = () => {
       if (card.classList.contains("locked")) {
-        alert("Tento ročník se připravuje. Nyní jsou k dispozici portály pro 3., 4. a 5. ročník.");
+        const msg = "Tento ročník se připravuje. Nyní jsou k dispozici portály pro 3., 4. a 5. ročník.";
+        const announcer = document.getElementById("a11y-announcer");
+        if (announcer) announcer.textContent = msg;
+        card.classList.remove("shake");
+        void card.offsetWidth;
+        card.classList.add("shake");
+        const label = card.querySelector(".grade-label");
+        const prevLabel = label ? label.textContent : "";
+        if (label) {
+          label.textContent = "Uzamčeno";
+          label.style.color = "#ff4d4f";
+          setTimeout(() => {
+            label.textContent = prevLabel;
+            label.style.color = "";
+          }, 1500);
+        }
         return;
       }
       const grade = parseInt(card.getAttribute("data-grade"));
@@ -407,7 +422,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (sourcePool.length === 0) {
-      alert("Pro tento předmět nejsou v databázi připraveny žádné cvičné otázky.");
+      const msg = "Pro tento předmět nejsou v databázi připraveny žádné cvičné otázky.";
+      const announcer = document.getElementById("a11y-announcer");
+      if (announcer) announcer.textContent = msg;
+      startTestBtn.classList.remove("shake");
+      void startTestBtn.offsetWidth;
+      startTestBtn.classList.add("shake");
+      const originalText = startTestBtn.textContent;
+      startTestBtn.textContent = "Žádné otázky";
+      startTestBtn.style.backgroundColor = "var(--bg-tertiary)";
+      startTestBtn.style.color = "var(--text-muted)";
+      setTimeout(() => {
+        startTestBtn.textContent = originalText;
+        startTestBtn.style.backgroundColor = "";
+        startTestBtn.style.color = "";
+      }, 2000);
       return;
     }
 
